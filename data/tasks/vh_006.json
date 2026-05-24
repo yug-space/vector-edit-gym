@@ -2,58 +2,43 @@
   "task_id": "vh_006",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The bell has lost its badge and the inner dot, and the ringer has drifted left. Restore the clean state.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"58\" cy=\"110\" r=\"3\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n</svg>",
+  "instruction": "Three things wrong with the bookmark icon: the base outline is orange, the red side stripe is cyan (wrong color), AND the red side stripe has drifted out of place. Fix everything.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #f97316\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></g>\n  <rect id=\"stripe\" fill=\"#06b6d4\" x=\"6\" y=\"10\" width=\"4\" height=\"96\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></g>\n  <rect id=\"stripe\" fill=\"#e63946\" x=\"12\" y=\"16\" width=\"4\" height=\"96\" />\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge-count",
-    "badge"
+    "icon",
+    "stripe"
   ],
   "target_parts": [
-    "ringer",
-    "badge-count",
-    "badge"
+    "stripe",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "ringer",
-      "attribute": "cx",
-      "before": 58,
-      "after": 64
+      "part": "stripe",
+      "attribute": "x",
+      "before": 6,
+      "after": 12
     },
     {
-      "part": "badge-count",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "badge-count",
-        "type": "circle",
-        "cx": 92,
-        "cy": 28,
-        "r": 1.5,
-        "fill": "white"
-      }
+      "part": "stripe",
+      "attribute": "y",
+      "before": 10,
+      "after": 16
     },
     {
-      "part": "badge",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "badge",
-        "type": "circle",
-        "cx": 92,
-        "cy": 28,
-        "r": 6,
-        "fill": "#e63946"
-      }
+      "part": "stripe",
+      "attribute": "fill",
+      "before": "#06b6d4",
+      "after": "#e63946"
+    },
+    {
+      "part": "icon",
+      "attribute": "color",
+      "before": "#f97316",
+      "after": "#222"
     }
   ],
-  "should_preserve": [
-    "bell"
-  ],
-  "authored_at": "2026-05-24T21:25:53.420Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.648Z"
 }

@@ -2,73 +2,63 @@
   "task_id": "vh_013",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The bulb has no halo or filament, AND the base icon is yellow instead of black. Restore everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n</svg>",
+  "instruction": "Three things wrong with the check circle icon: the base outline is green, the green checkmark is blue (wrong color), AND the green checkmark has drifted out of place. Fix everything.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><polyline points=\"22 4 12 14.01 9 11.01\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" fill=\"none\" points=\"96,24 106,34 122,18\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><polyline points=\"22 4 12 14.01 9 11.01\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"3\" fill=\"none\" points=\"88,24 98,34 114,18\" />\n</svg>",
   "parts": [
-    "light-bulb",
-    "filament",
-    "halo"
+    "icon",
+    "check"
   ],
   "target_parts": [
-    "light-bulb",
-    "filament",
-    "halo"
+    "check",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "light-bulb",
-      "attribute": "color",
-      "before": "#fde047",
-      "after": "#222"
-    },
-    {
-      "part": "filament",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "filament",
-        "type": "polyline",
-        "points": [
-          [
-            58,
-            50
-          ],
-          [
-            62,
-            54
-          ],
-          [
-            66,
-            50
-          ],
-          [
-            70,
-            54
-          ]
+      "part": "check",
+      "attribute": "points",
+      "before": [
+        [
+          96,
+          24
         ],
-        "stroke": "#f97316",
-        "strokeWidth": 1.5,
-        "fill": "none"
-      }
+        [
+          106,
+          34
+        ],
+        [
+          122,
+          18
+        ]
+      ],
+      "after": [
+        [
+          88,
+          24
+        ],
+        [
+          98,
+          34
+        ],
+        [
+          114,
+          18
+        ]
+      ]
     },
     {
-      "part": "halo",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "halo",
-        "type": "circle",
-        "cx": 64,
-        "cy": 50,
-        "r": 24,
-        "fill": "#fde047",
-        "opacity": 0.25
-      }
+      "part": "check",
+      "attribute": "stroke",
+      "before": "#3b82f6",
+      "after": "#22c55e"
+    },
+    {
+      "part": "icon",
+      "attribute": "color",
+      "before": "#22c55e",
+      "after": "#222"
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T21:25:53.420Z"
+  "authored_at": "2026-05-24T21:34:25.650Z"
 }

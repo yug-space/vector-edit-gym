@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T21:26:09.099Z",
+  "generated_at": "2026-05-24T21:34:34.020Z",
   "count": 300,
   "by_difficulty": {
     "very_easy": 60,
@@ -26,1801 +26,1801 @@
       "task_id": "ve_001",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "This home icon got tinted red by mistake. Restore its default black outline."
+      "instruction": "The academic cap icon has been tinted red by mistake. Restore its default black outline."
     },
     {
       "task_id": "ve_002",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Someone changed this heart's color to blue. Set it back to the standard black."
+      "instruction": "Someone repainted the adjustments horizontal icon blue. Set the color back to the standard black."
     },
     {
       "task_id": "ve_003",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The star is drawn in green here — it should be black. Fix the color."
+      "instruction": "This adjustments vertical icon is wrongly colored green. Fix it back to the default black."
     },
     {
       "task_id": "ve_004",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The sun icon is purple, which is wrong. Restore the default neutral black."
+      "instruction": "A yellow archive box arrow down icon doesn't fit the design system. Restore the default black look."
     },
     {
       "task_id": "ve_005",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The moon was repainted orange. Put it back to black."
+      "instruction": "Reset this archive box x mark icon's color from purple back to the default black outline."
     },
     {
       "task_id": "ve_006",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Pink clouds aren't on brand. Reset this icon to its default black outline."
+      "instruction": "The archive box icon should be black, not orange. Restore the original color."
     },
     {
       "task_id": "ve_007",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "A blue fire icon is wrong. Change it back to black."
+      "instruction": "The at symbol icon has been tinted pink by mistake. Restore its default black outline."
     },
     {
       "task_id": "ve_008",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The bell looks yellow — that's not its default color. Restore black."
+      "instruction": "Someone repainted the backspace icon cyan. Set the color back to the standard black."
     },
     {
       "task_id": "ve_009",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "A green envelope: not the default. Make it the usual black again."
+      "instruction": "This banknotes icon is wrongly colored brown. Fix it back to the default black."
     },
     {
       "task_id": "ve_010",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "This shopping-cart was recolored red by accident. Reset it to black."
+      "instruction": "A gray battery 0 icon doesn't fit the design system. Restore the default black look."
     },
     {
       "task_id": "ve_011",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The settings cog is cyan here. Restore the default black look."
+      "instruction": "Reset this battery 100 icon's color from red back to the default black outline."
     },
     {
       "task_id": "ve_012",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The user icon is purple. Reset it to its standard black color."
+      "instruction": "The battery 50 icon should be black, not blue. Restore the original color."
     },
     {
       "task_id": "ve_013",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Camera icon is orange — wrong. Restore the original black."
+      "instruction": "The beaker icon has been tinted green by mistake. Restore its default black outline."
     },
     {
       "task_id": "ve_014",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "A green phone icon doesn't fit. Change it back to black."
+      "instruction": "Someone repainted the bell alert icon yellow. Set the color back to the standard black."
     },
     {
       "task_id": "ve_015",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Microphone is pink, which is unintentional. Repaint it black."
+      "instruction": "This bell slash icon is wrongly colored purple. Fix it back to the default black."
     },
     {
       "task_id": "ve_016",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The map pin was tinted blue. Restore the default black outline."
+      "instruction": "A orange bell snooze icon doesn't fit the design system. Restore the default black look."
     },
     {
       "task_id": "ve_017",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "A yellow document icon isn't right. Switch it back to black."
+      "instruction": "Reset this bell icon's color from pink back to the default black outline."
     },
     {
       "task_id": "ve_018",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Folder was made red by mistake. Restore the standard black."
+      "instruction": "The bold icon should be black, not cyan. Restore the original color."
     },
     {
       "task_id": "ve_019",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "Bookmark icon is green — wrong color. Reset to black."
+      "instruction": "The bolt slash icon has been tinted brown by mistake. Restore its default black outline."
     },
     {
       "task_id": "ve_020",
       "difficulty": "very_easy",
       "category": "wrong_color",
-      "instruction": "The key icon is blue. Put it back to the default black outline."
+      "instruction": "Someone repainted the bolt icon gray. Set the color back to the standard black."
     },
     {
       "task_id": "ve_021",
       "difficulty": "very_easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The home icon is drawn way too thick. Bring it back to the default 1.5 stroke-width."
+      "category": "wrong_color",
+      "instruction": "This book open icon is wrongly colored red. Fix it back to the default black."
     },
     {
       "task_id": "ve_022",
       "difficulty": "very_easy",
-      "category": "wrong_stroke_width",
-      "instruction": "This heart is painfully thin. Reset to the standard 1.5 stroke-width."
+      "category": "wrong_color",
+      "instruction": "A blue bookmark slash icon doesn't fit the design system. Restore the default black look."
     },
     {
       "task_id": "ve_023",
       "difficulty": "very_easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The star's strokes are too heavy. Restore the default 1.5 width."
+      "category": "wrong_color",
+      "instruction": "Reset this bookmark square icon's color from green back to the default black outline."
     },
     {
       "task_id": "ve_024",
       "difficulty": "very_easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The sun's lines look anemic. Set the stroke-width back to 1.5."
+      "category": "wrong_color",
+      "instruction": "The bookmark icon should be black, not yellow. Restore the original color."
     },
     {
       "task_id": "ve_025",
       "difficulty": "very_easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The cloud is far too bold. Reset stroke-width to 1.5."
+      "category": "wrong_color",
+      "instruction": "The briefcase icon has been tinted purple by mistake. Restore its default black outline."
     },
     {
       "task_id": "ve_026",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Bell is barely visible — its stroke is too thin. Restore 1.5."
+      "instruction": "The bug ant icon's stroke is too thick. Restore the default stroke-width of 1.5."
     },
     {
       "task_id": "ve_027",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Envelope's lines are too thick. Set stroke-width back to the default 1.5."
+      "instruction": "This building library icon is drawn too thin. Reset its stroke-width to 1.5."
     },
     {
       "task_id": "ve_028",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Camera looks bulky — its stroke is too heavy. Reset to 1.5."
+      "instruction": "Someone changed the building office 2 icon's line weight — it's too thick now. Restore to 1.5."
     },
     {
       "task_id": "ve_029",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Microphone is washed out from a thin stroke. Restore default 1.5."
+      "instruction": "The building office icon's lines look thin. Fix the stroke-width back to the default 1.5."
     },
     {
       "task_id": "ve_030",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "User icon is drawn with bold lines. Reset stroke-width to 1.5."
+      "instruction": "The building storefront icon's stroke is too thick. Restore the default stroke-width of 1.5."
     },
     {
       "task_id": "ve_031",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "The cog has a hairline stroke. Bump it back to 1.5."
+      "instruction": "This cake icon is drawn too thin. Reset its stroke-width to 1.5."
     },
     {
       "task_id": "ve_032",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Search icon is too thick. Reset stroke-width to the standard 1.5."
+      "instruction": "Someone changed the calculator icon's line weight — it's too thick now. Restore to 1.5."
     },
     {
       "task_id": "ve_033",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "The clock is rendered with very thin lines. Set stroke-width back to 1.5."
+      "instruction": "The calendar date range icon's lines look thin. Fix the stroke-width back to the default 1.5."
     },
     {
       "task_id": "ve_034",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Calendar looks too heavy. Restore stroke-width 1.5."
+      "instruction": "The calendar days icon's stroke is too thick. Restore the default stroke-width of 1.5."
     },
     {
       "task_id": "ve_035",
       "difficulty": "very_easy",
       "category": "wrong_stroke_width",
-      "instruction": "Photo icon is faint — stroke is too thin. Reset to 1.5."
+      "instruction": "This calendar icon is drawn too thin. Reset its stroke-width to 1.5."
     },
     {
       "task_id": "ve_036",
       "difficulty": "very_easy",
-      "category": "wrong_scale",
-      "instruction": "The home icon shrank — it should fill the canvas. Restore it to size 112."
+      "category": "wrong_stroke_width",
+      "instruction": "Someone changed the camera icon's line weight — it's too thick now. Restore to 1.5."
     },
     {
       "task_id": "ve_037",
       "difficulty": "very_easy",
-      "category": "wrong_scale",
-      "instruction": "The heart is rendered too large and pushes outside the safe area. Reset to size 112."
+      "category": "wrong_stroke_width",
+      "instruction": "The chart bar square icon's lines look thin. Fix the stroke-width back to the default 1.5."
     },
     {
       "task_id": "ve_038",
       "difficulty": "very_easy",
-      "category": "wrong_scale",
-      "instruction": "Star is too small to read. Scale it back up to 112."
+      "category": "wrong_stroke_width",
+      "instruction": "The chart bar icon's stroke is too thick. Restore the default stroke-width of 1.5."
     },
     {
       "task_id": "ve_039",
       "difficulty": "very_easy",
-      "category": "wrong_scale",
-      "instruction": "Sun is overflowing the canvas. Shrink it back to size 112."
+      "category": "wrong_stroke_width",
+      "instruction": "This chart pie icon is drawn too thin. Reset its stroke-width to 1.5."
     },
     {
       "task_id": "ve_040",
       "difficulty": "very_easy",
-      "category": "wrong_scale",
-      "instruction": "Bell looks tiny. Restore its proper size of 112."
+      "category": "wrong_stroke_width",
+      "instruction": "Someone changed the chat bubble bottom center text icon's line weight — it's too thick now. Restore to 1.5."
     },
     {
       "task_id": "ve_041",
       "difficulty": "very_easy",
       "category": "wrong_scale",
-      "instruction": "Envelope is oversized. Bring it back to size 112."
+      "instruction": "The chat bubble bottom center icon is rendered too large. Restore it to size 112."
     },
     {
       "task_id": "ve_042",
       "difficulty": "very_easy",
       "category": "wrong_scale",
-      "instruction": "Camera shrank to half its normal size. Reset to 112."
+      "instruction": "This chat bubble left ellipsis icon was scaled down by mistake. Reset to size 112."
     },
     {
       "task_id": "ve_043",
       "difficulty": "very_easy",
       "category": "wrong_scale",
-      "instruction": "Phone is too big and crowded. Restore it to 112."
+      "instruction": "Resize this chat bubble left right icon back to its proper 112 dimensions (it's currently too large)."
     },
     {
       "task_id": "ve_044",
       "difficulty": "very_easy",
       "category": "wrong_scale",
-      "instruction": "Folder is small and lost on the canvas. Scale it up to 112."
+      "instruction": "Chat bubble left icon ended up too small. Restore the default size of 112."
     },
     {
       "task_id": "ve_045",
       "difficulty": "very_easy",
       "category": "wrong_scale",
-      "instruction": "Clock is rendered too large. Reset to size 112."
+      "instruction": "The chat bubble oval left ellipsis icon is rendered too large. Restore it to size 112."
     },
     {
       "task_id": "ve_046",
       "difficulty": "very_easy",
-      "category": "clipped_viewbox",
-      "instruction": "The home icon is being cut off by the canvas. Expand the viewBox so it fits."
+      "category": "wrong_scale",
+      "instruction": "This chat bubble oval left icon was scaled down by mistake. Reset to size 112."
     },
     {
       "task_id": "ve_047",
       "difficulty": "very_easy",
-      "category": "clipped_viewbox",
-      "instruction": "Heart is clipped — the canvas is too small. Make the viewBox big enough."
+      "category": "wrong_scale",
+      "instruction": "Resize this check badge icon back to its proper 112 dimensions (it's currently too large)."
     },
     {
       "task_id": "ve_048",
       "difficulty": "very_easy",
-      "category": "clipped_viewbox",
-      "instruction": "Half the star is missing because the canvas is undersized. Restore the original 128x128 viewBox."
+      "category": "wrong_scale",
+      "instruction": "Check circle icon ended up too small. Restore the default size of 112."
     },
     {
       "task_id": "ve_049",
       "difficulty": "very_easy",
-      "category": "clipped_viewbox",
-      "instruction": "The sun's edges are cut. Resize the canvas back to 128x128."
+      "category": "wrong_scale",
+      "instruction": "The check icon is rendered too large. Restore it to size 112."
     },
     {
       "task_id": "ve_050",
       "difficulty": "very_easy",
-      "category": "clipped_viewbox",
-      "instruction": "Cloud is being cropped. Set the viewBox to 128x128 so the whole icon shows."
+      "category": "wrong_scale",
+      "instruction": "This circle stack icon was scaled down by mistake. Reset to size 112."
     },
     {
       "task_id": "ve_051",
       "difficulty": "very_easy",
       "category": "clipped_viewbox",
-      "instruction": "The bell is clipping out of the canvas. Expand back to 128x128."
+      "instruction": "The clipboard document check icon is being cut off by the canvas. Expand the viewBox to 128x128 so it fits."
     },
     {
       "task_id": "ve_052",
       "difficulty": "very_easy",
       "category": "clipped_viewbox",
-      "instruction": "Envelope hangs off the bottom. Restore the canvas to 128x128."
+      "instruction": "Part of this clipboard document list icon is clipped. Restore the canvas to 128x128."
     },
     {
       "task_id": "ve_053",
       "difficulty": "very_easy",
       "category": "clipped_viewbox",
-      "instruction": "Camera is mostly cropped out. Fix the viewBox."
+      "instruction": "The viewBox is too small — the clipboard document icon doesn't fit. Make it 128x128."
     },
     {
       "task_id": "ve_054",
       "difficulty": "very_easy",
       "category": "clipped_viewbox",
-      "instruction": "Phone icon's right edge is gone. Expand the viewBox to 128x128."
+      "instruction": "Resize the canvas so this clipboard icon stops being cropped."
     },
     {
       "task_id": "ve_055",
       "difficulty": "very_easy",
       "category": "clipped_viewbox",
-      "instruction": "Folder is being clipped. Restore the original canvas size."
+      "instruction": "The clock icon is being cut off by the canvas. Expand the viewBox to 128x128 so it fits."
     },
     {
       "task_id": "ve_056",
       "difficulty": "very_easy",
-      "category": "wrong_color",
-      "instruction": "The trash icon was painted brown. Restore the default black look."
+      "category": "clipped_viewbox",
+      "instruction": "Part of this cloud arrow down icon is clipped. Restore the canvas to 128x128."
     },
     {
       "task_id": "ve_057",
       "difficulty": "very_easy",
-      "category": "wrong_color",
-      "instruction": "An all-gray eye icon looks dimmed. Reset to the default black outline."
+      "category": "clipped_viewbox",
+      "instruction": "The viewBox is too small — the cloud arrow up icon doesn't fit. Make it 128x128."
     },
     {
       "task_id": "ve_058",
       "difficulty": "very_easy",
-      "category": "wrong_color",
-      "instruction": "The smiley face is bright yellow — the default is plain black. Fix it."
+      "category": "clipped_viewbox",
+      "instruction": "Resize the canvas so this cloud icon stops being cropped."
     },
     {
       "task_id": "ve_059",
       "difficulty": "very_easy",
-      "category": "wrong_color",
-      "instruction": "Cyan calendar is wrong. Restore the default black."
+      "category": "clipped_viewbox",
+      "instruction": "The code bracket square icon is being cut off by the canvas. Expand the viewBox to 128x128 so it fits."
     },
     {
       "task_id": "ve_060",
       "difficulty": "very_easy",
-      "category": "wrong_color",
-      "instruction": "Flag icon turned purple by accident. Reset to the standard black outline."
+      "category": "clipped_viewbox",
+      "instruction": "Part of this code bracket icon is clipped. Restore the canvas to 128x128."
     },
     {
       "task_id": "ea_001",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "This house has no door. Draw the door back in."
+      "instruction": "The cog 6 tooth icon is missing a red notification badge. Add one back in the top-right corner (cx=104, cy=24, r=6, fill #e63946)."
     },
     {
       "task_id": "ea_002",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The house is missing its window. Add it back where it should sit on the wall."
+      "instruction": "Add a green status dot to the cog 8 tooth icon in the bottom-left (cx=24, cy=104, r=5, fill #22c55e)."
     },
     {
       "task_id": "ea_003",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Someone removed the chimney from this house. Put it back on the roof."
+      "instruction": "This cog icon needs a black underline added back below the icon (line from (16,116) to (112,116), stroke #222, stroke-width 2)."
     },
     {
       "task_id": "ea_004",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The doorknob has fallen off. Restore it to the door."
+      "instruction": "Restore the red horizontal strikethrough on the command line icon across the center (line (16,64)→(112,64), stroke #e63946, stroke-width 2)."
     },
     {
       "task_id": "ea_005",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "This clock has no hour hand. Draw it back in."
+      "instruction": "The computer desktop icon is missing a gray watermark square. Add one back in the top-left (rect x=8, y=8, 14x14, fill #9ca3af, opacity 0.4)."
     },
     {
       "task_id": "ea_006",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The minute hand is gone. Restore it pointing to its original position."
+      "instruction": "Add a yellow highlight ring to the cpu chip icon around the icon (circle cx=64, cy=64, r=56, fill none, stroke #fde047, stroke-width 2)."
     },
     {
       "task_id": "ea_007",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The pivot dot at the center is missing. Add it back."
+      "instruction": "This credit card icon needs a yellow price tag added back in the bottom-right (rect x=84, y=96, 28x14, fill #fde047, stroke #222, stroke-width 1)."
     },
     {
       "task_id": "ea_008",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The stamp peeled off the envelope. Reattach it."
+      "instruction": "Restore the red X mark on the cube transparent icon in the top-right (polyline (100,16)→(112,28)→(106,22)→(112,16)→(100,28), stroke #e63946, stroke-width 2, no fill)."
     },
     {
       "task_id": "ea_009",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "An urgent-indicator dot used to be here. Add it back."
+      "instruction": "The cube icon is missing a yellow star stamp. Add one back in the top-left (polygon at x≈20, y≈22, fill #fde047)."
     },
     {
       "task_id": "ea_010",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The address line is missing from the envelope. Restore it."
+      "instruction": "Add a blue progress bar to the currency bangladeshi icon along the bottom (rect x=16, y=110, 96x6, fill #3b82f6)."
     },
     {
       "task_id": "ea_011",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The notification badge has disappeared. Put it back in the corner."
+      "instruction": "This currency dollar icon needs a blue header bar added back along the top (rect x=16, y=12, 96x6, fill #3b82f6)."
     },
     {
       "task_id": "ea_012",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Bell's ringer is missing. Add it back at the bottom."
+      "instruction": "Restore the red side stripe on the currency euro icon on the left edge (rect x=12, y=16, 4x96, fill #e63946)."
     },
     {
       "task_id": "ea_013",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The small white dot inside the badge is gone. Restore it."
+      "instruction": "The currency pound icon is missing a thin black frame circle. Add one back around the icon (circle cx=64, cy=64, r=60, fill none, stroke #222, stroke-width 1)."
     },
     {
       "task_id": "ea_014",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The tear from the left eye is missing. Draw it back."
+      "instruction": "Add a thin black frame square to the currency rupee icon around the icon (rect x=4, y=4, 120x120, fill none, stroke #222, stroke-width 1)."
     },
     {
       "task_id": "ea_015",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Left blush is gone. Restore it."
+      "instruction": "This currency yen icon needs a small purple dot added back in the top-left (circle cx=16, cy=16, r=2, fill #a855f7)."
     },
     {
       "task_id": "ea_016",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Right blush has vanished. Add it back."
+      "instruction": "Restore the small cyan dot on the cursor arrow rays icon in the top-right (circle cx=112, cy=16, r=2, fill #06b6d4)."
     },
     {
       "task_id": "ea_017",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The crack line on this heart is missing. Put it back."
+      "instruction": "The cursor arrow ripple icon is missing a small green dot. Add one back in the bottom-left (circle cx=16, cy=112, r=2, fill #22c55e)."
     },
     {
       "task_id": "ea_018",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Cupid's arrow is gone. Restore the arrow line on the heart."
+      "instruction": "Add a small pink dot to the device phone mobile icon in the bottom-right (circle cx=112, cy=112, r=2, fill #ec4899)."
     },
     {
       "task_id": "ea_019",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The cart is missing its left wheel. Add it back."
+      "instruction": "This device tablet icon needs a green checkmark added back in the top-right (polyline (88,24)→(98,34)→(114,18), stroke #22c55e, stroke-width 3, no fill)."
     },
     {
       "task_id": "ea_020",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The right wheel fell off the cart. Restore it."
+      "instruction": "Restore the arrow mark on the divide icon in the bottom-right (polyline arrow at (100,100), stroke #222, stroke-width 2)."
     },
     {
       "task_id": "ea_021",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Item-1 is missing from inside the cart. Put it back."
+      "instruction": "The document arrow down icon is missing a yellow sparkle. Add one back on the left (polyline diamond at (24,64), stroke #fde047, stroke-width 2, no fill)."
     },
     {
       "task_id": "ea_022",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "Item-2 has disappeared from the basket. Restore it."
+      "instruction": "Add a cyan question dot to the document arrow up icon in the bottom-right (circle cx=110, cy=110, r=5, fill #06b6d4)."
     },
     {
       "task_id": "ea_023",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The dot on the map pin is missing. Draw it back."
+      "instruction": "This document chart bar icon needs a red notification badge added back in the top-right corner (cx=104, cy=24, r=6, fill #e63946)."
     },
     {
       "task_id": "ea_024",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The bow knot on the gift is gone. Add it back to the top of the package."
+      "instruction": "Restore the green status dot on the document check icon in the bottom-left (cx=24, cy=104, r=5, fill #22c55e)."
     },
     {
       "task_id": "ea_025",
       "difficulty": "easy",
       "category": "missing_part",
-      "instruction": "The light bulb has no filament. Draw it back inside the bulb."
+      "instruction": "The document currency bangladeshi icon is missing a black underline. Add one back below the icon (line from (16,116) to (112,116), stroke #222, stroke-width 2)."
     },
     {
       "task_id": "ea_026",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's a red dot next to the house that shouldn't be there. Remove it."
+      "instruction": "There's a stray red X mark on the document currency dollar icon. Remove it."
     },
     {
       "task_id": "ea_027",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "Someone tagged the wall with a purple bar. Wipe it off."
+      "instruction": "Someone added an unwanted yellow star stamp to the document currency euro icon. Delete it."
     },
     {
       "task_id": "ea_028",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A red line was scrawled across the clock face. Get rid of it."
+      "instruction": "Clean up this document currency pound icon: remove the extra blue progress bar."
     },
     {
       "task_id": "ea_029",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "An extra red tick mark appears near 2 o'clock. Remove it."
+      "instruction": "The document currency rupee icon has a blue header bar it shouldn't. Get rid of it."
     },
     {
       "task_id": "ea_030",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's a gray smudge in the bottom right of the envelope. Clean it off."
+      "instruction": "There's a stray red side stripe on the document currency yen icon. Remove it."
     },
     {
       "task_id": "ea_031",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A small red dot in the top-left corner is unwanted. Remove it."
+      "instruction": "Someone added an unwanted thin black frame circle to the document duplicate icon. Delete it."
     },
     {
       "task_id": "ea_032",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A blue diagonal scribble appears on the bell. Delete it."
+      "instruction": "Clean up this document magnifying glass icon: remove the extra thin black frame square."
     },
     {
       "task_id": "ea_033",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's an unwanted horizontal line at the bottom. Remove it."
+      "instruction": "The document minus icon has a small purple dot it shouldn't. Get rid of it."
     },
     {
       "task_id": "ea_034",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's an extra dot above the face's eyes that shouldn't be there. Remove it."
+      "instruction": "There's a stray small cyan dot on the document plus icon. Remove it."
     },
     {
       "task_id": "ea_035",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A small dot on the cheek looks like an unintentional mark. Erase it."
+      "instruction": "Someone added an unwanted small green dot to the document text icon. Delete it."
     },
     {
       "task_id": "ea_036",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's a diagonal strike-through across the heart. Remove it."
+      "instruction": "Clean up this document icon: remove the extra small pink dot."
     },
     {
       "task_id": "ea_037",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A yellow dot in the corner doesn't belong here. Delete it."
+      "instruction": "The ellipsis horizontal circle icon has a green checkmark it shouldn't. Get rid of it."
     },
     {
       "task_id": "ea_038",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A small purple square hovers above the cart. Remove it."
+      "instruction": "There's a stray arrow mark on the ellipsis horizontal icon. Remove it."
     },
     {
       "task_id": "ea_039",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "An extra brown handle was added to the cart. Get rid of it."
+      "instruction": "Someone added an unwanted yellow sparkle to the ellipsis vertical icon. Delete it."
     },
     {
       "task_id": "ea_040",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's a yellow dot in the corner of the map pin. Remove it."
+      "instruction": "Clean up this envelope open icon: remove the extra cyan question dot."
     },
     {
       "task_id": "ea_041",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A red baseline appeared below the gift. Erase it."
+      "instruction": "The envelope icon has a red notification badge it shouldn't. Get rid of it."
     },
     {
       "task_id": "ea_042",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "There's a gray blob to the right of the flag. Clean it off."
+      "instruction": "There's a stray green status dot on the equals icon. Remove it."
     },
     {
       "task_id": "ea_043",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A blue dot below the bulb doesn't belong. Remove it."
+      "instruction": "Someone added an unwanted black underline to the exclamation circle icon. Delete it."
     },
     {
       "task_id": "ea_044",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A green square is stuck in the corner. Get rid of it."
+      "instruction": "Clean up this exclamation triangle icon: remove the extra red horizontal strikethrough."
     },
     {
       "task_id": "ea_045",
       "difficulty": "easy",
       "category": "extra_part",
-      "instruction": "A short black line appeared in the upper-left. Remove it."
+      "instruction": "The eye dropper icon has a gray watermark square it shouldn't. Get rid of it."
     },
     {
       "task_id": "ea_046",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The door has been repainted blue. Restore its original brown color."
+      "instruction": "The red horizontal strikethrough on the eye slash icon got recolored blue. Restore its original color."
     },
     {
       "task_id": "ea_047",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "Someone painted the window red. Set it back to its original blue."
+      "instruction": "Fix the color of the gray watermark square on this eye icon — it's the wrong shade (green)."
     },
     {
       "task_id": "ea_048",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The chimney is green here — it should be dark brown. Fix it."
+      "instruction": "Someone repainted the yellow highlight ring on the face frown icon purple. Set it back to the original."
     },
     {
       "task_id": "ea_049",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The stamp's color is wrong (green). Restore the original red."
+      "instruction": "The yellow price tag should not be orange. Restore its proper color on the face smile icon."
     },
     {
       "task_id": "ea_050",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "Urgent dot is yellow, but it should be the alarming red. Fix it."
+      "instruction": "The red X mark on the film icon got recolored pink. Restore its original color."
     },
     {
       "task_id": "ea_051",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The notification badge is blue — it should be red. Repaint it."
+      "instruction": "Fix the color of the yellow star stamp on this finger print icon — it's the wrong shade (cyan)."
     },
     {
       "task_id": "ea_052",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The tear-line is green, which is odd. Restore the original blue."
+      "instruction": "Someone repainted the blue progress bar on the fire icon blue. Set it back to the original."
     },
     {
       "task_id": "ea_053",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "Left blush is blue. Fix it back to its original pink."
+      "instruction": "The blue header bar should not be green. Restore its proper color on the flag icon."
     },
     {
       "task_id": "ea_054",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The crack line on the heart got recolored red. Set it back to black."
+      "instruction": "The red side stripe on the folder arrow down icon got recolored purple. Restore its original color."
     },
     {
       "task_id": "ea_055",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "Item-1 inside the cart is the wrong color (red). Restore the original blue."
+      "instruction": "Fix the color of the thin black frame circle on this folder minus icon — it's the wrong shade (orange)."
     },
     {
       "task_id": "ea_056",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "Item-2 is purple — wrong. Set it back to its original yellow."
+      "instruction": "Someone repainted the thin black frame square on the folder open icon pink. Set it back to the original."
     },
     {
       "task_id": "ea_057",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The pin-dot was recolored blue. Restore its original red."
+      "instruction": "The small purple dot should not be cyan. Restore its proper color on the folder plus icon."
     },
     {
       "task_id": "ea_058",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The bow knot is green, which is wrong. Repaint it to the original yellow."
+      "instruction": "The small cyan dot on the folder icon got recolored blue. Restore its original color."
     },
     {
       "task_id": "ea_059",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The center dot of the cog is blue. Set it back to its original red."
+      "instruction": "Fix the color of the small green dot on this funnel icon — it's the wrong shade (green)."
     },
     {
       "task_id": "ea_060",
       "difficulty": "easy",
       "category": "miscolor_part",
-      "instruction": "The bulb's halo is blue. Restore the original yellow glow."
+      "instruction": "Someone repainted the small pink dot on the gif icon purple. Set it back to the original."
     },
     {
       "task_id": "ea_061",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The door slid 20px to the right and is now off the wall. Slide it back to its original position."
+      "instruction": "The red side stripe on the gift top icon has slipped out of place. Move it back to its original position."
     },
     {
       "task_id": "ea_062",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The window has drifted to the right side of the wall. Restore it to its original position."
+      "instruction": "Restore the thin black frame circle on the gift icon to where it should be."
     },
     {
       "task_id": "ea_063",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The minute hand has rotated up — it should be pointing right. Restore it."
+      "instruction": "Reset the position of the thin black frame square on the globe alt icon."
     },
     {
       "task_id": "ea_064",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The stamp slid to the left side of the envelope. Move it back to the top-right."
+      "instruction": "The small purple dot on this globe americas icon drifted. Put it back exactly where it belongs."
     },
     {
       "task_id": "ea_065",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The badge fell down below the bell. Put it back at the top."
+      "instruction": "The small cyan dot on the globe asia australia icon has slipped out of place. Move it back to its original position."
     },
     {
       "task_id": "ea_066",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The right blush floated up onto the forehead. Slide it back down."
+      "instruction": "Restore the small green dot on the globe europe africa icon to where it should be."
     },
     {
       "task_id": "ea_067",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The left wheel rolled off-track. Restore it under the basket."
+      "instruction": "Reset the position of the small pink dot on the h1 icon."
     },
     {
       "task_id": "ea_068",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The ground shadow slid to the right. Center it under the pin again."
+      "instruction": "The green checkmark on this h2 icon drifted. Put it back exactly where it belongs."
     },
     {
       "task_id": "ea_069",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The bow knot drifted to the right edge of the gift. Center it back on top."
+      "instruction": "The arrow mark on the h3 icon has slipped out of place. Move it back to its original position."
     },
     {
       "task_id": "ea_070",
       "difficulty": "easy",
       "category": "displaced_part",
-      "instruction": "The pole-tip slid down the pole. Put it back at the very top."
+      "instruction": "Restore the yellow sparkle on the hand raised icon to where it should be."
     },
     {
       "task_id": "me_001",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The door has shifted slightly to the right. Nudge it back to its exact original spot."
+      "instruction": "The yellow highlight ring on the hand thumb down icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_002",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The window has moved a touch to the left. Restore the precise original position."
+      "instruction": "Restore the yellow price tag on the hand thumb up icon to where it should be. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_003",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The chimney sank a few pixels. Raise it back up."
+      "instruction": "Reset the position of the red X mark on the hashtag icon. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_004",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The doorknob shifted slightly off the door. Restore it."
+      "instruction": "The yellow star stamp on this heart icon drifted. Put it back exactly where it belongs. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_005",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The tip of the hour hand drifted right. Set it back to its original angle."
+      "instruction": "The blue progress bar on the home modern icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_006",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The minute hand dropped slightly. Restore it pointing horizontally."
+      "instruction": "Restore the blue header bar on the home icon to where it should be. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_007",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The pivot is just a few pixels off-center. Restore it to the exact center of the clock face."
+      "instruction": "Reset the position of the red side stripe on the identification icon. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_008",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The stamp slid down a bit. Move it back to its original spot in the top-right."
+      "instruction": "The thin black frame circle on this inbox arrow down icon drifted. Put it back exactly where it belongs. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_009",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The urgent dot drifted to the right. Pull it back to its original position."
+      "instruction": "The thin black frame square on the inbox stack icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_010",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The address line dropped a few pixels. Restore the original y position."
+      "instruction": "Restore the small purple dot on the inbox icon to where it should be. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_011",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The ringer is slightly off-center to the left. Restore its alignment under the bell."
+      "instruction": "Reset the position of the small cyan dot on the information circle icon. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_012",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The badge slipped a bit down and left. Restore it to its proper corner spot."
+      "instruction": "The small green dot on this italic icon drifted. Put it back exactly where it belongs. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_013",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The left blush drifted slightly right. Move it back to its original spot."
+      "instruction": "The small pink dot on the key icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_014",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The right blush drifted slightly left. Restore the exact original position."
+      "instruction": "Restore the green checkmark on the language icon to where it should be. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_015",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The tear has slid down the cheek by a few pixels. Restore it to its starting position."
+      "instruction": "Reset the position of the arrow mark on the lifebuoy icon. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_016",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The left wheel rolled slightly off. Restore it precisely under the cart."
+      "instruction": "The yellow sparkle on this light bulb icon drifted. Put it back exactly where it belongs. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_017",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The right wheel rolled out a bit. Restore it under the basket."
+      "instruction": "The cyan question dot on the link slash icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_018",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "Item-1 inside the cart slid sideways. Restore its original position."
+      "instruction": "Restore the red notification badge on the link icon to where it should be. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_019",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The bow knot is slightly off-center. Restore it to the exact center."
+      "instruction": "Reset the position of the green status dot on the list bullet icon. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_020",
       "difficulty": "medium",
       "category": "displaced_part",
-      "instruction": "The hour-hand's tip sagged downward a few pixels. Restore the original angle."
+      "instruction": "The black underline on this lock closed icon drifted. Put it back exactly where it belongs. (subtler offset — read the original coordinates carefully)."
     },
     {
       "task_id": "me_021",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The little doorknob is blue. Restore the original yellow."
+      "instruction": "The blue progress bar on the lock open icon got recolored muted red. Restore its original color."
     },
     {
       "task_id": "me_022",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The pivot dot turned blue. Reset to its original red."
+      "instruction": "Fix the color of the blue header bar on this magnifying glass circle icon — it's the wrong shade (muted blue)."
     },
     {
       "task_id": "me_023",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The hour hand was recolored red. Set its stroke back to the default black."
+      "instruction": "Someone repainted the red side stripe on the magnifying glass minus icon muted green. Set it back to the original."
     },
     {
       "task_id": "me_024",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The minute hand turned blue. Restore the original black stroke."
+      "instruction": "The thin black frame circle should not be muted yellow. Restore its proper color on the magnifying glass plus icon."
     },
     {
       "task_id": "me_025",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The address line is red. Restore the original black stroke."
+      "instruction": "The thin black frame square on the magnifying glass icon got recolored muted purple. Restore its original color."
     },
     {
       "task_id": "me_026",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The ringer is purple. Set it back to the default black."
+      "instruction": "Fix the color of the small purple dot on this map pin icon — it's the wrong shade (muted red)."
     },
     {
       "task_id": "me_027",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The badge-count dot is red. Restore the original white center."
+      "instruction": "Someone repainted the small cyan dot on the map icon muted blue. Set it back to the original."
     },
     {
       "task_id": "me_028",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The right blush turned green. Restore the original pink."
+      "instruction": "The small green dot should not be muted green. Restore its proper color on the megaphone icon."
     },
     {
       "task_id": "me_029",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The arrow on the heart is green. Restore the original brown."
+      "instruction": "The small pink dot on the microphone icon got recolored muted yellow. Restore its original color."
     },
     {
       "task_id": "me_030",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Left wheel was painted blue. Set it back to its default black."
+      "instruction": "Fix the color of the green checkmark on this minus circle icon — it's the wrong shade (muted purple)."
     },
     {
       "task_id": "me_031",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Right wheel is red. Restore its original black."
+      "instruction": "Someone repainted the arrow mark on the minus small icon muted red. Set it back to the original."
     },
     {
       "task_id": "me_032",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The shadow is purple, which is wrong. Restore the original near-black shadow."
+      "instruction": "The yellow sparkle should not be muted blue. Restore its proper color on the minus icon."
     },
     {
       "task_id": "me_033",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Left bow is blue. Restore the original red."
+      "instruction": "The cyan question dot on the moon icon got recolored muted green. Restore its original color."
     },
     {
       "task_id": "me_034",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Right bow is green. Restore the original red."
+      "instruction": "Fix the color of the red notification badge on this musical note icon — it's the wrong shade (muted yellow)."
     },
     {
       "task_id": "me_035",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Pole-tip is red. Restore the original yellow."
+      "instruction": "Someone repainted the green status dot on the newspaper icon muted purple. Set it back to the original."
     },
     {
       "task_id": "me_036",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The windline got recolored green. Restore the original blue stroke."
+      "instruction": "The black underline should not be muted red. Restore its proper color on the no symbol icon."
     },
     {
       "task_id": "me_037",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "Filament turned blue. Set it back to its default orange."
+      "instruction": "The red horizontal strikethrough on the numbered list icon got recolored muted blue. Restore its original color."
     },
     {
       "task_id": "me_038",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The center dot is green. Restore the original red."
+      "instruction": "Fix the color of the gray watermark square on this paint brush icon — it's the wrong shade (muted green)."
     },
     {
       "task_id": "me_039",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The rotation arrow turned red. Set its stroke back to the default blue."
+      "instruction": "Someone repainted the yellow highlight ring on the paper airplane icon muted yellow. Set it back to the original."
     },
     {
       "task_id": "me_040",
       "difficulty": "medium",
       "category": "miscolor_part",
-      "instruction": "The tear-line is purple. Restore the original blue."
+      "instruction": "The yellow price tag should not be muted purple. Restore its proper color on the paper clip icon."
     },
     {
       "task_id": "me_041",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The tiny pivot at the center of the clock is gone. Add it back."
+      "instruction": "The pause circle icon is missing a thin black frame square. Add one back around the icon (rect x=4, y=4, 120x120, fill none, stroke #222, stroke-width 1)."
     },
     {
       "task_id": "me_042",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The little white center of the badge is missing. Restore it."
+      "instruction": "Add a small purple dot to the pause icon in the top-left (circle cx=16, cy=16, r=2, fill #a855f7)."
     },
     {
       "task_id": "me_043",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The urgent indicator dot is gone. Restore it on the envelope."
+      "instruction": "This pencil square icon needs a small cyan dot added back in the top-right (circle cx=112, cy=16, r=2, fill #06b6d4)."
     },
     {
       "task_id": "me_044",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The doorknob is missing from the door. Add it back."
+      "instruction": "Restore the small green dot on the pencil icon in the bottom-left (circle cx=16, cy=112, r=2, fill #22c55e)."
     },
     {
       "task_id": "me_045",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The pin lost its ground shadow. Restore it."
+      "instruction": "The percent badge icon is missing a small pink dot. Add one back in the bottom-right (circle cx=112, cy=112, r=2, fill #ec4899)."
     },
     {
       "task_id": "me_046",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The left blush has been removed. Add it back."
+      "instruction": "Add a green checkmark to the phone arrow down left icon in the top-right (polyline (88,24)→(98,34)→(114,18), stroke #22c55e, stroke-width 3, no fill)."
     },
     {
       "task_id": "me_047",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The right blush is missing. Restore it."
+      "instruction": "This phone arrow up right icon needs a arrow mark added back in the bottom-right (polyline arrow at (100,100), stroke #222, stroke-width 2)."
     },
     {
       "task_id": "me_048",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The center marker on the cog is gone. Put it back."
+      "instruction": "Restore the yellow sparkle on the phone x mark icon on the left (polyline diamond at (24,64), stroke #fde047, stroke-width 2, no fill)."
     },
     {
       "task_id": "me_049",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The rotation arrow has disappeared from the cog. Restore it."
+      "instruction": "The phone icon is missing a cyan question dot. Add one back in the bottom-right (circle cx=110, cy=110, r=5, fill #06b6d4)."
     },
     {
       "task_id": "me_050",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The left bow loop is gone. Add it back."
+      "instruction": "Add a red notification badge to the photo icon in the top-right corner (cx=104, cy=24, r=6, fill #e63946)."
     },
     {
       "task_id": "me_051",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The right bow loop is missing. Restore it."
+      "instruction": "This play circle icon needs a green status dot added back in the bottom-left (cx=24, cy=104, r=5, fill #22c55e)."
     },
     {
       "task_id": "me_052",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The windline on the flag is gone. Add it back to the right of the banner."
+      "instruction": "Restore the black underline on the play pause icon below the icon (line from (16,116) to (112,116), stroke #222, stroke-width 2)."
     },
     {
       "task_id": "me_053",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The yellow ball on top of the pole is missing. Restore it."
+      "instruction": "The play icon is missing a red horizontal strikethrough. Add one back across the center (line (16,64)→(112,64), stroke #e63946, stroke-width 2)."
     },
     {
       "task_id": "me_054",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "The glow halo around the bulb is missing. Restore it."
+      "instruction": "Add a gray watermark square to the plus circle icon in the top-left (rect x=8, y=8, 14x14, fill #9ca3af, opacity 0.4)."
     },
     {
       "task_id": "me_055",
       "difficulty": "medium",
       "category": "missing_part",
-      "instruction": "Cupid's arrow has been removed. Restore it."
+      "instruction": "This plus small icon needs a yellow highlight ring added back around the icon (circle cx=64, cy=64, r=56, fill none, stroke #fde047, stroke-width 2)."
     },
     {
       "task_id": "me_056",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A small gray dot appeared near the bottom-right of the house. Remove it."
+      "instruction": "There's a stray small pink dot on the plus icon. Remove it."
     },
     {
       "task_id": "me_057",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "An extra small tick mark was added at the 6 position. Remove it."
+      "instruction": "Someone added an unwanted green checkmark to the power icon. Delete it."
     },
     {
       "task_id": "me_058",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A small red dot in the middle of the envelope is unwanted. Remove it."
+      "instruction": "Clean up this presentation chart bar icon: remove the extra arrow mark."
     },
     {
       "task_id": "me_059",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "There's an extra small dot next to the ringer. Get rid of it."
+      "instruction": "The presentation chart line icon has a yellow sparkle it shouldn't. Get rid of it."
     },
     {
       "task_id": "me_060",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "There's a tiny dot below the mouth that shouldn't be there. Erase it."
+      "instruction": "There's a stray cyan question dot on the printer icon. Remove it."
     },
     {
       "task_id": "me_061",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A small yellow speck appeared on the heart. Remove it."
+      "instruction": "Someone added an unwanted red notification badge to the puzzle piece icon. Delete it."
     },
     {
       "task_id": "me_062",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A gray pebble appeared under the cart. Clean it off."
+      "instruction": "Clean up this qr code icon: remove the extra green status dot."
     },
     {
       "task_id": "me_063",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "An extra small red square appeared on the pin's stem. Delete it."
+      "instruction": "The question mark circle icon has a black underline it shouldn't. Get rid of it."
     },
     {
       "task_id": "me_064",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "There's a scratch line on the gift box. Remove it."
+      "instruction": "There's a stray red horizontal strikethrough on the queue list icon. Remove it."
     },
     {
       "task_id": "me_065",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A tiny dot appeared near the bottom of the pole. Remove it."
+      "instruction": "Someone added an unwanted gray watermark square to the radio icon. Delete it."
     },
     {
       "task_id": "me_066",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A horizontal line was drawn across the bulb. Erase it."
+      "instruction": "Clean up this receipt percent icon: remove the extra yellow highlight ring."
     },
     {
       "task_id": "me_067",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "There's a small extra dot at the cog's right edge. Remove it."
+      "instruction": "The receipt refund icon has a yellow price tag it shouldn't. Get rid of it."
     },
     {
       "task_id": "me_068",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A gray smoke speck above the chimney shouldn't be there. Clean it up."
+      "instruction": "There's a stray red X mark on the rectangle group icon. Remove it."
     },
     {
       "task_id": "me_069",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A small red speck appeared near the address. Remove it."
+      "instruction": "Someone added an unwanted yellow star stamp to the rectangle stack icon. Delete it."
     },
     {
       "task_id": "me_070",
       "difficulty": "medium",
       "category": "extra_part",
-      "instruction": "A small dot near the right side of the mouth shouldn't be there. Erase it."
+      "instruction": "Clean up this rocket launch icon: remove the extra blue progress bar."
     },
     {
       "task_id": "me_071",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "This house has two doors of identical color. Remove the duplicate."
+      "instruction": "The rss icon has two copies of the gray watermark square. Remove the duplicate."
     },
     {
       "task_id": "me_072",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "There are two windows where there should be one. Delete the duplicate."
+      "instruction": "Someone duplicated the yellow highlight ring on this scale icon. Delete the extra copy."
     },
     {
       "task_id": "me_073",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "Two hour hands point from the center. Remove the duplicate."
+      "instruction": "This scissors icon should have only one yellow price tag, not two. Get rid of the duplicate."
     },
     {
       "task_id": "me_074",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "There are two stamps on the envelope. Remove the extra one."
+      "instruction": "The server stack icon has two copies of the red X mark. Remove the duplicate."
     },
     {
       "task_id": "me_075",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "Two notification badges appear on the bell. Delete the duplicate."
+      "instruction": "Someone duplicated the yellow star stamp on this server icon. Delete the extra copy."
     },
     {
       "task_id": "me_076",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "There are two left-side blushes. Get rid of the duplicate."
+      "instruction": "This share icon should have only one blue progress bar, not two. Get rid of the duplicate."
     },
     {
       "task_id": "me_077",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "Item-1 has been duplicated inside the cart. Remove the copy."
+      "instruction": "The shield check icon has two copies of the blue header bar. Remove the duplicate."
     },
     {
       "task_id": "me_078",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "Two bow knots sit on top of the gift. Remove the duplicate."
+      "instruction": "Someone duplicated the red side stripe on this shield exclamation icon. Delete the extra copy."
     },
     {
       "task_id": "me_079",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "Two dots are on the head of the pin. Delete the duplicate."
+      "instruction": "This shopping bag icon should have only one thin black frame circle, not two. Get rid of the duplicate."
     },
     {
       "task_id": "me_080",
       "difficulty": "medium",
       "category": "duplicate_part",
-      "instruction": "There are two center dots on the cog. Get rid of the duplicate."
+      "instruction": "The shopping cart icon has two copies of the thin black frame square. Remove the duplicate."
     },
     {
       "task_id": "ha_001",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Two things are wrong with this house: the door is missing AND the window is the wrong color. Fix both."
+      "instruction": "Two issues on the signal icon: the base outline is wrongly tinted red, AND the red notification badge on top is the wrong color (purple). Fix both."
     },
     {
       "task_id": "ha_002",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The chimney sagged AND there's a stray red dot next to the house. Repair both defects."
+      "instruction": "Two issues on the slash icon: the base outline is wrongly tinted blue, AND the green status dot on top is the wrong color (orange). Fix both."
     },
     {
       "task_id": "ha_003",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The clock has lost both its hands. Restore them to point to their original positions."
+      "instruction": "Two issues on the sparkles icon: the base outline is wrongly tinted green, AND the black underline on top is the wrong color (pink). Fix both."
     },
     {
       "task_id": "ha_004",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Both clock hands have drifted slightly. Restore each to its original angle."
+      "instruction": "Two issues on the speaker wave icon: the base outline is wrongly tinted yellow, AND the red horizontal strikethrough on top is the wrong color (cyan). Fix both."
     },
     {
       "task_id": "ha_005",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The stamp is missing AND the urgent dot was recolored yellow. Fix both."
+      "instruction": "Two issues on the speaker x mark icon: the base outline is wrongly tinted purple, AND the gray watermark square on top is the wrong color (blue). Fix both."
     },
     {
       "task_id": "ha_006",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The badge has shifted down-left AND its inner dot is the wrong color. Restore both."
+      "instruction": "Two issues on the square 2 stack icon: the base outline is wrongly tinted orange, AND the yellow highlight ring on top is the wrong color (green). Fix both."
     },
     {
       "task_id": "ha_007",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Two things are missing from the face: the tear AND the left blush. Add both back."
+      "instruction": "Two issues on the square 3 stack 3d icon: the base outline is wrongly tinted pink, AND the yellow price tag on top is the wrong color (purple). Fix both."
     },
     {
       "task_id": "ha_008",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Both blushes turned green. Restore them to their original pink."
+      "instruction": "Two issues on the squares 2x2 icon: the base outline is wrongly tinted cyan, AND the red X mark on top is the wrong color (orange). Fix both."
     },
     {
       "task_id": "ha_009",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The crack line is missing AND the arrow is the wrong color. Repair both."
+      "instruction": "Two issues on the squares plus icon: the base outline is wrongly tinted brown, AND the yellow star stamp on top is the wrong color (pink). Fix both."
     },
     {
       "task_id": "ha_010",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The left wheel is gone AND the right wheel rolled out of place. Fix both."
+      "instruction": "Two issues on the star icon: the base outline is wrongly tinted gray, AND the blue progress bar on top is the wrong color (cyan). Fix both."
     },
     {
       "task_id": "ha_011",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Both items in the cart turned purple. Restore each to its original color."
+      "instruction": "Two issues on the stop circle icon: the base outline is wrongly tinted red, AND the blue header bar on top is the wrong color (blue). Fix both."
     },
     {
       "task_id": "ha_012",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The pin-dot was recolored AND the shadow drifted. Restore both."
+      "instruction": "Two issues on the stop icon: the base outline is wrongly tinted blue, AND the red side stripe on top is the wrong color (green). Fix both."
     },
     {
       "task_id": "ha_013",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "Both side bows are missing from the gift. Restore them."
+      "instruction": "Two issues on the strikethrough icon: the base outline is wrongly tinted green, AND the thin black frame circle on top is the wrong color (purple). Fix both."
     },
     {
       "task_id": "ha_014",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The bulb's halo is gone AND the filament's stroke is the wrong color. Fix both."
+      "instruction": "Two issues on the sun icon: the base outline is wrongly tinted yellow, AND the thin black frame square on top is the wrong color (orange). Fix both."
     },
     {
       "task_id": "ha_015",
       "difficulty": "hard",
       "category": "multi",
-      "instruction": "The center dot drifted slightly AND the rotation arrow is the wrong color. Repair both."
+      "instruction": "Two issues on the swatch icon: the base outline is wrongly tinted purple, AND the small purple dot on top is the wrong color (pink). Fix both."
     },
     {
       "task_id": "ha_016",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The crack line has been mirrored. Flip it back to its original orientation."
+      "instruction": "The black underline on the table cells icon has been mirrored. Flip it back to its proper orientation."
     },
     {
       "task_id": "ha_017",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The tear line was reversed. Restore the original direction."
+      "instruction": "Someone reversed the red horizontal strikethrough on this tag icon. Restore the original direction."
     },
     {
       "task_id": "ha_018",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The hour hand's stroke has been horizontally mirrored. Flip it back."
+      "instruction": "The red X mark on the ticket icon faces the wrong way. Mirror it back."
     },
     {
       "task_id": "ha_019",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The minute hand was reversed. Restore its original direction."
+      "instruction": "The yellow star stamp on the trash icon has been mirrored. Flip it back to its proper orientation."
     },
     {
       "task_id": "ha_020",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The address line is mirrored. Restore it."
+      "instruction": "Someone reversed the green checkmark on this trophy icon. Restore the original direction."
     },
     {
       "task_id": "ha_021",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The windline has been horizontally reversed. Flip it back."
+      "instruction": "The arrow mark on the truck icon faces the wrong way. Mirror it back."
     },
     {
       "task_id": "ha_022",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The filament zigzag was mirrored. Restore the original direction."
+      "instruction": "The yellow sparkle on the tv icon has been mirrored. Flip it back to its proper orientation."
     },
     {
       "task_id": "ha_023",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The rotation arrow points the wrong way. Mirror it back."
+      "instruction": "Someone reversed the black underline on this underline icon. Restore the original direction."
     },
     {
       "task_id": "ha_024",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The tear was mirrored — its hook points the wrong way. Flip it back."
+      "instruction": "The red horizontal strikethrough on the user circle icon faces the wrong way. Mirror it back."
     },
     {
       "task_id": "ha_025",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The arrow line on the heart was reversed. Restore the original direction."
+      "instruction": "The red X mark on the user group icon has been mirrored. Flip it back to its proper orientation."
     },
     {
       "task_id": "ha_026",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The ringer (a single dot) wasn't actually flippable — author note: the polygon was reversed elsewhere; restore everything to the clean state."
+      "instruction": "Someone reversed the yellow star stamp on this user minus icon. Restore the original direction."
     },
     {
       "task_id": "ha_027",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The address line is reversed left-to-right. Flip it back."
+      "instruction": "The green checkmark on the user plus icon faces the wrong way. Mirror it back."
     },
     {
       "task_id": "ha_028",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "Minute hand got mirrored. Restore its original orientation."
+      "instruction": "The arrow mark on the user icon has been mirrored. Flip it back to its proper orientation."
     },
     {
       "task_id": "ha_029",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The cog's rotation arrow has been mirrored. Flip it back to point the original way."
+      "instruction": "Someone reversed the yellow sparkle on this users icon. Restore the original direction."
     },
     {
       "task_id": "ha_030",
       "difficulty": "hard",
       "category": "flipped_part",
-      "instruction": "The wind-indicator polyline is reversed. Restore the original orientation."
+      "instruction": "The black underline on the variable icon faces the wrong way. Mirror it back."
     },
     {
       "task_id": "ha_031",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The door is just 3px off to the right. Restore the exact original position."
+      "instruction": "The yellow star stamp on the video camera slash icon has slipped out of place. Move it back to its original position. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_032",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The window has sunk a few pixels. Restore the precise original y."
+      "instruction": "Restore the blue progress bar on the video camera icon to where it should be. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_033",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The doorknob is 2px to the left of where it should be. Fix it."
+      "instruction": "Reset the position of the blue header bar on the view columns icon. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_034",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The chimney slid 4px to the right. Restore the original alignment."
+      "instruction": "The red side stripe on this viewfinder circle icon drifted. Put it back exactly where it belongs. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_035",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The hour hand's tip is barely off — 3px right. Restore it exactly."
+      "instruction": "The thin black frame circle on the wallet icon has slipped out of place. Move it back to its original position. (very subtle — only 2px off)."
     },
     {
       "task_id": "ha_036",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The pivot is 2px off from center. Restore it to the exact center of the face."
+      "instruction": "Restore the thin black frame square on the wifi icon to where it should be. (very subtle — only 2px off)."
     },
     {
       "task_id": "ha_037",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The urgent dot is 3px off to the right. Restore it."
+      "instruction": "Reset the position of the small purple dot on the window icon. (very subtle — only 4px off)."
     },
     {
       "task_id": "ha_038",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The stamp dropped 3px. Move it back to its precise position."
+      "instruction": "The small cyan dot on this wrench screwdriver icon drifted. Put it back exactly where it belongs. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_039",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The badge is 3px to the left of its intended spot. Fix it."
+      "instruction": "The small green dot on the wrench icon has slipped out of place. Move it back to its original position. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_040",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "Left blush is 3px to the right. Restore the precise original position."
+      "instruction": "Restore the small pink dot on the x circle icon to where it should be. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_041",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "Left wheel is 3px off-track. Restore it."
+      "instruction": "Reset the position of the green checkmark on the x mark icon. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_042",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The pin-dot dropped a few pixels. Restore it."
+      "instruction": "The arrow mark on this activity icon drifted. Put it back exactly where it belongs. (very subtle — only 2px off)."
     },
     {
       "task_id": "ha_043",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The bow knot is 3px off-center. Restore it."
+      "instruction": "The yellow sparkle on the airplay icon has slipped out of place. Move it back to its original position. (very subtle — only 2px off)."
     },
     {
       "task_id": "ha_044",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The pole-tip slipped 4px down. Restore it to the very top."
+      "instruction": "Restore the cyan question dot on the alert circle icon to where it should be. (very subtle — only 4px off)."
     },
     {
       "task_id": "ha_045",
       "difficulty": "hard",
       "category": "displaced_part",
-      "instruction": "The center dot is 2px off-center. Fix it."
+      "instruction": "Reset the position of the red notification badge on the alert octagon icon. (very subtle — only 3px off)."
     },
     {
       "task_id": "ha_046",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The door is a slightly wrong shade of brown. Restore the original #6a3819."
+      "instruction": "The small purple dot on the alert triangle icon got recolored very dark gray. Restore its original color."
     },
     {
       "task_id": "ha_047",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The window's blue tint is wrong. Restore the original #94c8ff."
+      "instruction": "Fix the color of the small cyan dot on this align center icon — it's the wrong shade (dark gray)."
     },
     {
       "task_id": "ha_048",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The chimney's brown is too dark. Restore the original #603020."
+      "instruction": "Someone repainted the small green dot on the align justify icon near-white. Set it back to the original."
     },
     {
       "task_id": "ha_049",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The pivot's red is slightly off. Restore the exact #e63946."
+      "instruction": "The small pink dot should not be off-white. Restore its proper color on the align left icon."
     },
     {
       "task_id": "ha_050",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The stamp's red drifted. Restore the exact original red (#e63946)."
+      "instruction": "The green checkmark on the align right icon got recolored slightly-darker black. Restore its original color."
     },
     {
       "task_id": "ha_051",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The notification badge red is a tone off. Restore the exact #e63946."
+      "instruction": "Fix the color of the arrow mark on this anchor icon — it's the wrong shade (very dark gray)."
     },
     {
       "task_id": "ha_052",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The left blush pink is slightly off. Restore the exact #fda4af."
+      "instruction": "Someone repainted the yellow sparkle on the aperture icon dark gray. Set it back to the original."
     },
     {
       "task_id": "ha_053",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "Right blush pink is slightly off. Restore the exact #fda4af."
+      "instruction": "The cyan question dot should not be near-white. Restore its proper color on the archive icon."
     },
     {
       "task_id": "ha_054",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The crack line's black is slightly darker than the spec. Restore the exact #222."
+      "instruction": "The red notification badge on the at sign icon got recolored off-white. Restore its original color."
     },
     {
       "task_id": "ha_055",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "Item-1's blue is slightly off. Restore the exact #3b82f6."
+      "instruction": "Fix the color of the green status dot on this award icon — it's the wrong shade (slightly-darker black)."
     },
     {
       "task_id": "ha_056",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "Item-2's yellow is a tone off. Restore the exact #fde047."
+      "instruction": "Someone repainted the black underline on the bar chart 2 icon very dark gray. Set it back to the original."
     },
     {
       "task_id": "ha_057",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The bow knot yellow is slightly off. Restore the exact #fde047."
+      "instruction": "The red horizontal strikethrough should not be dark gray. Restore its proper color on the bar chart icon."
     },
     {
       "task_id": "ha_058",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "Pole-tip yellow is slightly off. Restore the exact #fde047."
+      "instruction": "The gray watermark square on the battery charging icon got recolored near-white. Restore its original color."
     },
     {
       "task_id": "ha_059",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The filament's orange is a touch off. Restore the exact #f97316."
+      "instruction": "Fix the color of the yellow highlight ring on this battery icon — it's the wrong shade (off-white)."
     },
     {
       "task_id": "ha_060",
       "difficulty": "hard",
       "category": "miscolor_part",
-      "instruction": "The center dot's red is slightly off. Restore the exact #e63946."
+      "instruction": "Someone repainted the yellow price tag on the bell off icon slightly-darker black. Set it back to the original."
     },
     {
       "task_id": "vh_001",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three things are wrong with this house: the door is missing, the window is the wrong color, AND the chimney has sagged. Fix all three."
+      "instruction": "Three things wrong with the bell icon: the base outline is red, the yellow price tag is blue (wrong color), AND the yellow price tag has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_002",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three issues: doorknob is gone, window has shifted right, AND there's a stray green dot in the corner. Repair them all."
+      "instruction": "Three things wrong with the bluetooth icon: the base outline is blue, the red X mark is green (wrong color), AND the red X mark has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_003",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The clock has three problems: hour hand missing, pivot is green, and minute hand dropped slightly. Restore the clean state."
+      "instruction": "Three things wrong with the bold icon: the base outline is green, the yellow star stamp is purple (wrong color), AND the yellow star stamp has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_004",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "All three clock parts have drifted by small amounts. Restore each to its precise original position."
+      "instruction": "Three things wrong with the book open icon: the base outline is yellow, the blue progress bar is orange (wrong color), AND the blue progress bar has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_005",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three problems on the envelope: stamp missing, address line missing, urgent dot is blue. Fix them all."
+      "instruction": "Three things wrong with the book icon: the base outline is purple, the blue header bar is pink (wrong color), AND the blue header bar has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_006",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The bell has lost its badge and the inner dot, and the ringer has drifted left. Restore the clean state."
+      "instruction": "Three things wrong with the bookmark icon: the base outline is orange, the red side stripe is cyan (wrong color), AND the red side stripe has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_007",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three things wrong: tear missing, left blush is blue, right blush is green. Fix everything."
+      "instruction": "Three things wrong with the box icon: the base outline is pink, the thin black frame circle is blue (wrong color), AND the thin black frame circle has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_008",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Crack and arrow gone, AND the heart outline got tinted blue. Restore the original state completely."
+      "instruction": "Three things wrong with the briefcase icon: the base outline is cyan, the thin black frame square is green (wrong color), AND the thin black frame square has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_009",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The cart has three problems: missing left wheel, missing item-1, and item-2 is the wrong color. Fix them all."
+      "instruction": "Three things wrong with the calendar icon: the base outline is brown, the small purple dot is purple (wrong color), AND the small purple dot has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_010",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three issues on the pin: pin-dot is green, shadow shifted right, AND there's an extra yellow dot in the corner. Repair them all."
+      "instruction": "Three things wrong with the camera off icon: the base outline is gray, the small cyan dot is orange (wrong color), AND the small cyan dot has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_011",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The gift's bows are gone (both sides) and the knot dropped slightly. Restore the clean state."
+      "instruction": "Three things wrong with the camera icon: the base outline is red, the small green dot is pink (wrong color), AND the small green dot has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_012",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Pole-tip missing, windline recolored red AND shifted right. Restore the entire scene."
+      "instruction": "Three things wrong with the cast icon: the base outline is blue, the small pink dot is cyan (wrong color), AND the small pink dot has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_013",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The bulb has no halo or filament, AND the base icon is yellow instead of black. Restore everything."
+      "instruction": "Three things wrong with the check circle icon: the base outline is green, the green checkmark is blue (wrong color), AND the green checkmark has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_014",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Three issues on the cog: center-dot drifted, rotation arrow is green, AND there's a small scratch in the corner. Fix all of them."
+      "instruction": "Three things wrong with the check square icon: the base outline is yellow, the arrow mark is green (wrong color), AND the arrow mark has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_015",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The chimney was flipped, the window was duplicated, AND the door is the wrong color. Restore the clean state."
+      "instruction": "Three things wrong with the check icon: the base outline is purple, the yellow sparkle is purple (wrong color), AND the yellow sparkle has drifted out of place. Fix everything."
     },
     {
       "task_id": "vh_016",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Two parts of the house have drifted by 3px in opposite directions. Detect and fix both."
+      "instruction": "Two subtle issues on the chrome icon: the black underline is the wrong shade (very dark gray) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_017",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The hour hand dropped 3px AND the pivot's red is slightly off. Restore both precisely."
+      "instruction": "Two subtle issues on the circle icon: the red horizontal strikethrough is the wrong shade (dark gray) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_018",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Both decorative parts have shifted slightly. Detect and restore each."
+      "instruction": "Two subtle issues on the clipboard icon: the gray watermark square is the wrong shade (near-white) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_019",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The badge drifted slightly AND the inner dot's white is a hair off. Restore both."
+      "instruction": "Two subtle issues on the clock icon: the yellow highlight ring is the wrong shade (off-white) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_020",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Both blushes drifted inward by 3px. Restore each to its original outer position."
+      "instruction": "Two subtle issues on the cloud drizzle icon: the yellow price tag is the wrong shade (slightly-darker black) AND it has drifted slightly (~2px). Restore it precisely."
     },
     {
       "task_id": "vh_021",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Both wheels drifted slightly inward. Restore each to its original outer position."
+      "instruction": "Two subtle issues on the cloud lightning icon: the red X mark is the wrong shade (very dark gray) AND it has drifted slightly (~2px). Restore it precisely."
     },
     {
       "task_id": "vh_022",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The pin-dot slipped 2px AND its red is slightly off. Restore the exact original position and color."
+      "instruction": "Two subtle issues on the cloud off icon: the yellow star stamp is the wrong shade (dark gray) AND it has drifted slightly (~4px). Restore it precisely."
     },
     {
       "task_id": "vh_023",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Both bows drifted slightly outward. Restore each to the original inner position."
+      "instruction": "Two subtle issues on the cloud rain icon: the blue progress bar is the wrong shade (near-white) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_024",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "Pole-tip and windline have both shifted by small amounts. Restore both."
+      "instruction": "Two subtle issues on the cloud snow icon: the blue header bar is the wrong shade (off-white) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_025",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The center-dot is 2px off AND the rotation arrow's blue is slightly wrong. Restore both precisely."
+      "instruction": "Two subtle issues on the cloud icon: the red side stripe is the wrong shade (slightly-darker black) AND it has drifted slightly (~3px). Restore it precisely."
     },
     {
       "task_id": "vh_026",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The home base icon is wrongly tinted blue AND the canvas is clipping the icon. Restore both."
+      "instruction": "The code icon has two problems: it's been tinted red AND the canvas is clipping it (80x80). Restore both the color and the viewBox."
     },
     {
       "task_id": "vh_027",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The clock outline is red AND the canvas is too small. Repair the color and expand the viewBox."
+      "instruction": "The codepen icon has two problems: it's been tinted blue AND the canvas is clipping it (96x80). Restore both the color and the viewBox."
     },
     {
       "task_id": "vh_028",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The bell outline is green AND the canvas is way too small. Restore the original colors and viewBox."
+      "instruction": "The codesandbox icon has two problems: it's been tinted green AND the canvas is clipping it (72x72). Restore both the color and the viewBox."
     },
     {
       "task_id": "vh_029",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The envelope outline is purple AND part of it is cropped. Restore both."
+      "instruction": "The coffee icon has two problems: it's been tinted yellow AND the canvas is clipping it (64x64). Restore both the color and the viewBox."
     },
     {
       "task_id": "vh_030",
       "difficulty": "very_hard",
       "category": "multi",
-      "instruction": "The heart base is yellow AND the canvas is clipping it. Restore the original color and expand the viewBox."
+      "instruction": "The columns icon has two problems: it's been tinted purple AND the canvas is clipping it (80x96). Restore both the color and the viewBox."
     }
   ]
 }

@@ -1,34 +1,36 @@
 {
   "task_id": "ve_049",
   "difficulty": "very_easy",
-  "category": "clipped_viewbox",
-  "instruction": "The sun's edges are cut. Resize the canvas back to 128x128.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"96\" fill=\"white\" />\n  <g id=\"sun\" data-source=\"heroicons/outline/sun.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"sun\" data-source=\"heroicons/outline/sun.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z\"/></g>\n</svg>",
+  "category": "wrong_scale",
+  "instruction": "The check icon is rendered too large. Restore it to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/check.svg\" transform=\"translate(2, 2) scale(5.1667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m4.5 12.75 6 6 9-13.5\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/check.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m4.5 12.75 6 6 9-13.5\"/></g>\n</svg>",
   "parts": [
-    "sun"
+    "icon"
   ],
-  "target_parts": [],
+  "target_parts": [
+    "icon"
+  ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        96,
-        96
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
+      "part": "icon",
+      "attribute": "size",
+      "before": 124,
+      "after": 112
+    },
+    {
+      "part": "icon",
+      "attribute": "x",
+      "before": 2,
+      "after": 8
+    },
+    {
+      "part": "icon",
+      "attribute": "y",
+      "before": 2,
+      "after": 8
     }
   ],
-  "should_preserve": [
-    "sun"
-  ],
-  "authored_at": "2026-05-24T21:25:53.398Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.598Z"
 }

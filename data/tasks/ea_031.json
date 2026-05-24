@@ -2,40 +2,36 @@
   "task_id": "ea_031",
   "difficulty": "easy",
   "category": "extra_part",
-  "instruction": "A small red dot in the top-left corner is unwanted. Remove it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n  <circle id=\"corner-dot\" fill=\"#e63946\" cx=\"24\" cy=\"24\" r=\"3\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n</svg>",
+  "instruction": "Someone added an unwanted thin black frame circle to the document duplicate icon. Delete it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/document-duplicate.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75\"/></g>\n  <circle id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n  <circle id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/document-duplicate.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75\"/></g>\n</svg>",
   "parts": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent",
-    "corner-dot"
+    "icon",
+    "frame"
   ],
   "target_parts": [
-    "corner-dot"
+    "frame"
   ],
   "expected_diff": [
     {
-      "part": "corner-dot",
+      "part": "frame",
       "attribute": "exists",
       "before": true,
       "after": false,
       "removed": {
-        "id": "corner-dot",
+        "id": "frame",
         "type": "circle",
-        "cx": 24,
-        "cy": 24,
-        "r": 3,
-        "fill": "#e63946"
+        "cx": 64,
+        "cy": 64,
+        "r": 60,
+        "fill": "none",
+        "stroke": "#222",
+        "strokeWidth": 1
       }
     }
   ],
   "should_preserve": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.403Z"
+  "authored_at": "2026-05-24T21:34:25.607Z"
 }

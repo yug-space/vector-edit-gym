@@ -2,38 +2,35 @@
   "task_id": "ea_011",
   "difficulty": "easy",
   "category": "missing_part",
-  "instruction": "The notification badge has disappeared. Put it back in the corner.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n</svg>",
+  "instruction": "This currency dollar icon needs a blue header bar added back along the top (rect x=16, y=12, 96x6, fill #3b82f6).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-dollar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-dollar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <rect id=\"bar\" fill=\"#3b82f6\" x=\"16\" y=\"12\" width=\"96\" height=\"6\" />\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge-count",
-    "badge"
+    "icon",
+    "bar"
   ],
   "target_parts": [
-    "badge"
+    "bar"
   ],
   "expected_diff": [
     {
-      "part": "badge",
+      "part": "bar",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "badge",
-        "type": "circle",
-        "cx": 92,
-        "cy": 28,
-        "r": 6,
-        "fill": "#e63946"
+        "id": "bar",
+        "type": "rect",
+        "x": 16,
+        "y": 12,
+        "width": 96,
+        "height": 6,
+        "fill": "#3b82f6"
       }
     }
   ],
   "should_preserve": [
-    "bell",
-    "ringer",
-    "badge-count"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.401Z"
+  "authored_at": "2026-05-24T21:34:25.604Z"
 }

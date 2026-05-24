@@ -1,34 +1,36 @@
 {
   "task_id": "ve_046",
   "difficulty": "very_easy",
-  "category": "clipped_viewbox",
-  "instruction": "The home icon is being cut off by the canvas. Expand the viewBox so it fits.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 80\" width=\"80\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"80\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n</svg>",
+  "category": "wrong_scale",
+  "instruction": "This chat bubble oval left icon was scaled down by mistake. Reset to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-oval-left.svg\" transform=\"translate(36, 36) scale(2.3333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-oval-left.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z\"/></g>\n</svg>",
   "parts": [
-    "home"
+    "icon"
   ],
-  "target_parts": [],
+  "target_parts": [
+    "icon"
+  ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        80,
-        80
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
+      "part": "icon",
+      "attribute": "size",
+      "before": 56,
+      "after": 112
+    },
+    {
+      "part": "icon",
+      "attribute": "x",
+      "before": 36,
+      "after": 8
+    },
+    {
+      "part": "icon",
+      "attribute": "y",
+      "before": 36,
+      "after": 8
     }
   ],
-  "should_preserve": [
-    "home"
-  ],
-  "authored_at": "2026-05-24T21:25:53.398Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.597Z"
 }

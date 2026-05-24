@@ -2,40 +2,36 @@
   "task_id": "ea_004",
   "difficulty": "easy",
   "category": "missing_part",
-  "instruction": "The doorknob has fallen off. Restore it to the door.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
+  "instruction": "Restore the red horizontal strikethrough on the command line icon across the center (line (16,64)→(112,64), stroke #e63946, stroke-width 2).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/command-line.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/command-line.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z\"/></g>\n  <line id=\"overstrike\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
   "parts": [
-    "home",
-    "door",
-    "window",
-    "chimney",
-    "doorknob"
+    "icon",
+    "overstrike"
   ],
   "target_parts": [
-    "doorknob"
+    "overstrike"
   ],
   "expected_diff": [
     {
-      "part": "doorknob",
+      "part": "overstrike",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "doorknob",
-        "type": "circle",
-        "cx": 70,
-        "cy": 94,
-        "r": 1.5,
-        "fill": "#fde047"
+        "id": "overstrike",
+        "type": "line",
+        "x1": 16,
+        "y1": 64,
+        "x2": 112,
+        "y2": 64,
+        "stroke": "#e63946",
+        "strokeWidth": 2
       }
     }
   ],
   "should_preserve": [
-    "home",
-    "door",
-    "window",
-    "chimney"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.400Z"
+  "authored_at": "2026-05-24T21:34:25.602Z"
 }

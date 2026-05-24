@@ -2,39 +2,47 @@
   "task_id": "me_046",
   "difficulty": "medium",
   "category": "missing_part",
-  "instruction": "The left blush has been removed. Add it back.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n  <polyline id=\"tear-left\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"44,72 42,84 46,84\" />\n  <circle id=\"blush-right\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"92\" cy=\"70\" r=\"5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n  <polyline id=\"tear-left\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"44,72 42,84 46,84\" />\n  <circle id=\"blush-right\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"92\" cy=\"70\" r=\"5\" />\n  <circle id=\"blush-left\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"36\" cy=\"70\" r=\"5\" />\n</svg>",
+  "instruction": "Add a green checkmark to the phone arrow down left icon in the top-right (polyline (88,24)→(98,34)→(114,18), stroke #22c55e, stroke-width 3, no fill).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/phone-arrow-down-left.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0 6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/phone-arrow-down-left.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0 6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"3\" fill=\"none\" points=\"88,24 98,34 114,18\" />\n</svg>",
   "parts": [
-    "face-smile",
-    "tear-left",
-    "blush-right",
-    "blush-left"
+    "icon",
+    "check"
   ],
   "target_parts": [
-    "blush-left"
+    "check"
   ],
   "expected_diff": [
     {
-      "part": "blush-left",
+      "part": "check",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "blush-left",
-        "type": "circle",
-        "cx": 36,
-        "cy": 70,
-        "r": 5,
-        "fill": "#fda4af",
-        "opacity": 0.7
+        "id": "check",
+        "type": "polyline",
+        "points": [
+          [
+            88,
+            24
+          ],
+          [
+            98,
+            34
+          ],
+          [
+            114,
+            18
+          ]
+        ],
+        "stroke": "#22c55e",
+        "strokeWidth": 3,
+        "fill": "none"
       }
     }
   ],
   "should_preserve": [
-    "face-smile",
-    "tear-left",
-    "blush-right"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.411Z"
+  "authored_at": "2026-05-24T21:34:25.627Z"
 }

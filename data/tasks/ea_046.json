@@ -2,32 +2,26 @@
   "task_id": "ea_046",
   "difficulty": "easy",
   "category": "miscolor_part",
-  "instruction": "The door has been repainted blue. Restore its original brown color.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#3b82f6\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
+  "instruction": "The red horizontal strikethrough on the eye slash icon got recolored blue. Restore its original color.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/eye-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88\"/></g>\n  <line id=\"overstrike\" stroke=\"#3b82f6\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/eye-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88\"/></g>\n  <line id=\"overstrike\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
   "parts": [
-    "home",
-    "door",
-    "window",
-    "chimney",
-    "doorknob"
+    "icon",
+    "overstrike"
   ],
   "target_parts": [
-    "door"
+    "overstrike"
   ],
   "expected_diff": [
     {
-      "part": "door",
-      "attribute": "fill",
+      "part": "overstrike",
+      "attribute": "stroke",
       "before": "#3b82f6",
-      "after": "#6a3819"
+      "after": "#e63946"
     }
   ],
   "should_preserve": [
-    "home",
-    "window",
-    "chimney",
-    "doorknob"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.405Z"
+  "authored_at": "2026-05-24T21:34:25.610Z"
 }

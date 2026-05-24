@@ -2,58 +2,43 @@
   "task_id": "vh_011",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The gift's bows are gone (both sides) and the knot dropped slightly. Restore the clean state.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"42\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n</svg>",
+  "instruction": "Three things wrong with the camera icon: the base outline is red, the small green dot is pink (wrong color), AND the small green dot has drifted out of place. Fix everything.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/camera.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"/><circle cx=\"12\" cy=\"13\" r=\"4\"/></g>\n  <circle id=\"dot\" fill=\"#ec4899\" cx=\"22\" cy=\"118\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/camera.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"/><circle cx=\"12\" cy=\"13\" r=\"4\"/></g>\n  <circle id=\"dot\" fill=\"#22c55e\" cx=\"16\" cy=\"112\" r=\"2\" />\n</svg>",
   "parts": [
-    "gift",
-    "bow-knot",
-    "bow-right",
-    "bow-left"
+    "icon",
+    "dot"
   ],
   "target_parts": [
-    "bow-knot",
-    "bow-right",
-    "bow-left"
+    "dot",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "bow-knot",
+      "part": "dot",
+      "attribute": "cx",
+      "before": 22,
+      "after": 16
+    },
+    {
+      "part": "dot",
       "attribute": "cy",
-      "before": 42,
-      "after": 36
+      "before": 118,
+      "after": 112
     },
     {
-      "part": "bow-right",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "bow-right",
-        "type": "circle",
-        "cx": 72,
-        "cy": 36,
-        "r": 4,
-        "fill": "#e63946"
-      }
+      "part": "dot",
+      "attribute": "fill",
+      "before": "#ec4899",
+      "after": "#22c55e"
     },
     {
-      "part": "bow-left",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "bow-left",
-        "type": "circle",
-        "cx": 56,
-        "cy": 36,
-        "r": 4,
-        "fill": "#e63946"
-      }
+      "part": "icon",
+      "attribute": "color",
+      "before": "#e63946",
+      "after": "#222"
     }
   ],
-  "should_preserve": [
-    "gift"
-  ],
-  "authored_at": "2026-05-24T21:25:53.420Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.649Z"
 }

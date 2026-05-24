@@ -2,28 +2,68 @@
   "task_id": "ha_042",
   "difficulty": "hard",
   "category": "displaced_part",
-  "instruction": "The pin-dot dropped a few pixels. Restore it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"50\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
+  "instruction": "The arrow mark on this activity icon drifted. Put it back exactly where it belongs. (very subtle — only 2px off).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/activity.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"102,102 114,114 110,106 114,114 106,110\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/activity.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
   "parts": [
-    "map-pin",
-    "pin-dot",
-    "shadow"
+    "icon",
+    "arrow"
   ],
   "target_parts": [
-    "pin-dot"
+    "arrow"
   ],
   "expected_diff": [
     {
-      "part": "pin-dot",
-      "attribute": "cy",
-      "before": 50,
-      "after": 46
+      "part": "arrow",
+      "attribute": "points",
+      "before": [
+        [
+          102,
+          102
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          110,
+          106
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          106,
+          110
+        ]
+      ],
+      "after": [
+        [
+          100,
+          100
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          108,
+          104
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          104,
+          108
+        ]
+      ]
     }
   ],
   "should_preserve": [
-    "map-pin",
-    "shadow"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.418Z"
+  "authored_at": "2026-05-24T21:34:25.642Z"
 }

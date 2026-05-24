@@ -2,30 +2,68 @@
   "task_id": "ha_043",
   "difficulty": "hard",
   "category": "displaced_part",
-  "instruction": "The bow knot is 3px off-center. Restore it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"67\" cy=\"36\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
+  "instruction": "The yellow sparkle on the airplay icon has slipped out of place. Move it back to its original position. (very subtle — only 2px off).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/airplay.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"/><polygon points=\"12 15 17 21 7 21 12 15\"/></g>\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" fill=\"none\" points=\"18,62 22,58 26,62 22,66 18,62\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/airplay.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\"/><polygon points=\"12 15 17 21 7 21 12 15\"/></g>\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" fill=\"none\" points=\"20,64 24,60 28,64 24,68 20,64\" />\n</svg>",
   "parts": [
-    "gift",
-    "bow-left",
-    "bow-right",
-    "bow-knot"
+    "icon",
+    "sparkle"
   ],
   "target_parts": [
-    "bow-knot"
+    "sparkle"
   ],
   "expected_diff": [
     {
-      "part": "bow-knot",
-      "attribute": "cx",
-      "before": 67,
-      "after": 64
+      "part": "sparkle",
+      "attribute": "points",
+      "before": [
+        [
+          18,
+          62
+        ],
+        [
+          22,
+          58
+        ],
+        [
+          26,
+          62
+        ],
+        [
+          22,
+          66
+        ],
+        [
+          18,
+          62
+        ]
+      ],
+      "after": [
+        [
+          20,
+          64
+        ],
+        [
+          24,
+          60
+        ],
+        [
+          28,
+          64
+        ],
+        [
+          24,
+          68
+        ],
+        [
+          20,
+          64
+        ]
+      ]
     }
   ],
   "should_preserve": [
-    "gift",
-    "bow-left",
-    "bow-right"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.418Z"
+  "authored_at": "2026-05-24T21:34:25.642Z"
 }

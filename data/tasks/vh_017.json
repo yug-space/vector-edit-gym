@@ -2,42 +2,38 @@
   "task_id": "vh_017",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The hour hand dropped 3px AND the pivot's red is slightly off. Restore both precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"67\" x2=\"64\" y2=\"41\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#c63036\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "instruction": "Two subtle issues on the circle icon: the red horizontal strikethrough is the wrong shade (dark gray) AND it has drifted slightly (~3px). Restore it precisely.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></g>\n  <line id=\"overstrike\" stroke=\"#444444\" stroke-width=\"2\" x1=\"13\" y1=\"64\" x2=\"109\" y2=\"64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></g>\n  <line id=\"overstrike\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
   "parts": [
-    "clock",
-    "hour-hand",
-    "minute-hand",
-    "pivot"
+    "icon",
+    "overstrike"
   ],
   "target_parts": [
-    "pivot",
-    "hour-hand"
+    "overstrike"
   ],
   "expected_diff": [
     {
-      "part": "pivot",
-      "attribute": "fill",
-      "before": "#c63036",
+      "part": "overstrike",
+      "attribute": "x1",
+      "before": 13,
+      "after": 16
+    },
+    {
+      "part": "overstrike",
+      "attribute": "x2",
+      "before": 109,
+      "after": 112
+    },
+    {
+      "part": "overstrike",
+      "attribute": "stroke",
+      "before": "#444444",
       "after": "#e63946"
-    },
-    {
-      "part": "hour-hand",
-      "attribute": "y1",
-      "before": 67,
-      "after": 64
-    },
-    {
-      "part": "hour-hand",
-      "attribute": "y2",
-      "before": 41,
-      "after": 38
     }
   ],
   "should_preserve": [
-    "clock",
-    "minute-hand"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.421Z"
+  "authored_at": "2026-05-24T21:34:25.650Z"
 }

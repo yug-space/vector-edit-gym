@@ -2,28 +2,26 @@
   "task_id": "ea_057",
   "difficulty": "easy",
   "category": "miscolor_part",
-  "instruction": "The pin-dot was recolored blue. Restore its original red.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#3b82f6\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
+  "instruction": "The small purple dot should not be cyan. Restore its proper color on the folder plus icon.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/folder-plus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n  <circle id=\"dot\" fill=\"#06b6d4\" cx=\"16\" cy=\"16\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/folder-plus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n  <circle id=\"dot\" fill=\"#a855f7\" cx=\"16\" cy=\"16\" r=\"2\" />\n</svg>",
   "parts": [
-    "map-pin",
-    "pin-dot",
-    "shadow"
+    "icon",
+    "dot"
   ],
   "target_parts": [
-    "pin-dot"
+    "dot"
   ],
   "expected_diff": [
     {
-      "part": "pin-dot",
+      "part": "dot",
       "attribute": "fill",
-      "before": "#3b82f6",
-      "after": "#e63946"
+      "before": "#06b6d4",
+      "after": "#a855f7"
     }
   ],
   "should_preserve": [
-    "map-pin",
-    "shadow"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.406Z"
+  "authored_at": "2026-05-24T21:34:25.613Z"
 }

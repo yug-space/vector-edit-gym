@@ -2,17 +2,14 @@
   "task_id": "vh_027",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The clock outline is red AND the canvas is too small. Repair the color and expand the viewBox.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"96\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "instruction": "The codepen icon has two problems: it's been tinted blue AND the canvas is clipping it (96x80). Restore both the color and the viewBox.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 80\" width=\"96\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codepen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polygon points=\"12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"15.5\"/><polyline points=\"22 8.5 12 15.5 2 8.5\"/><polyline points=\"2 15.5 12 8.5 22 15.5\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"8.5\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codepen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polygon points=\"12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"15.5\"/><polyline points=\"22 8.5 12 15.5 2 8.5\"/><polyline points=\"2 15.5 12 8.5 22 15.5\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"8.5\"/></g>\n</svg>",
   "parts": [
-    "clock",
-    "hour-hand",
-    "minute-hand",
-    "pivot"
+    "icon"
   ],
   "target_parts": [
-    "clock"
+    "icon"
   ],
   "expected_diff": [
     {
@@ -22,7 +19,7 @@
         0,
         0,
         96,
-        96
+        80
       ],
       "after": [
         0,
@@ -32,16 +29,12 @@
       ]
     },
     {
-      "part": "clock",
+      "part": "icon",
       "attribute": "color",
-      "before": "#e63946",
+      "before": "#3b82f6",
       "after": "#222"
     }
   ],
-  "should_preserve": [
-    "hour-hand",
-    "minute-hand",
-    "pivot"
-  ],
-  "authored_at": "2026-05-24T21:25:53.422Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.653Z"
 }

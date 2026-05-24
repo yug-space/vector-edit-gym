@@ -2,52 +2,31 @@
   "task_id": "ha_013",
   "difficulty": "hard",
   "category": "multi",
-  "instruction": "Both side bows are missing from the gift. Restore them.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n</svg>",
+  "instruction": "Two issues on the strikethrough icon: the base outline is wrongly tinted green, AND the thin black frame circle on top is the wrong color (purple). Fix both.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/strikethrough.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 12a8.912 8.912 0 0 1-.318-.079c-1.585-.424-2.904-1.247-3.76-2.236-.873-1.009-1.265-2.19-.968-3.301.59-2.2 3.663-3.29 6.863-2.432A8.186 8.186 0 0 1 16.5 5.21M6.42 17.81c.857.99 2.176 1.812 3.761 2.237 3.2.858 6.274-.23 6.863-2.431.233-.868.044-1.779-.465-2.617M3.75 12h16.5\"/></g>\n  <circle id=\"frame\" fill=\"#a855f7\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/strikethrough.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 12a8.912 8.912 0 0 1-.318-.079c-1.585-.424-2.904-1.247-3.76-2.236-.873-1.009-1.265-2.19-.968-3.301.59-2.2 3.663-3.29 6.863-2.432A8.186 8.186 0 0 1 16.5 5.21M6.42 17.81c.857.99 2.176 1.812 3.761 2.237 3.2.858 6.274-.23 6.863-2.431.233-.868.044-1.779-.465-2.617M3.75 12h16.5\"/></g>\n  <circle id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n</svg>",
   "parts": [
-    "gift",
-    "bow-knot",
-    "bow-right",
-    "bow-left"
+    "icon",
+    "frame"
   ],
   "target_parts": [
-    "bow-right",
-    "bow-left"
+    "frame",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "bow-right",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "bow-right",
-        "type": "circle",
-        "cx": 72,
-        "cy": 36,
-        "r": 4,
-        "fill": "#e63946"
-      }
+      "part": "frame",
+      "attribute": "fill",
+      "before": "#a855f7",
+      "after": "none"
     },
     {
-      "part": "bow-left",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "bow-left",
-        "type": "circle",
-        "cx": 56,
-        "cy": 36,
-        "r": 4,
-        "fill": "#e63946"
-      }
+      "part": "icon",
+      "attribute": "color",
+      "before": "#22c55e",
+      "after": "#222"
     }
   ],
-  "should_preserve": [
-    "gift",
-    "bow-knot"
-  ],
-  "authored_at": "2026-05-24T21:25:53.415Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.636Z"
 }

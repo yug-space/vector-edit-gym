@@ -2,30 +2,26 @@
   "task_id": "ha_039",
   "difficulty": "hard",
   "category": "displaced_part",
-  "instruction": "The badge is 3px to the left of its intended spot. Fix it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"89\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
+  "instruction": "The small green dot on the wrench icon has slipped out of place. Move it back to its original position. (very subtle — only 3px off).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/wrench.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.867 19.125h.008v.008h-.008v-.008Z\"/></g>\n  <circle id=\"dot\" fill=\"#22c55e\" cx=\"13\" cy=\"112\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/wrench.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.867 19.125h.008v.008h-.008v-.008Z\"/></g>\n  <circle id=\"dot\" fill=\"#22c55e\" cx=\"16\" cy=\"112\" r=\"2\" />\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge",
-    "badge-count"
+    "icon",
+    "dot"
   ],
   "target_parts": [
-    "badge"
+    "dot"
   ],
   "expected_diff": [
     {
-      "part": "badge",
+      "part": "dot",
       "attribute": "cx",
-      "before": 89,
-      "after": 92
+      "before": 13,
+      "after": 16
     }
   ],
   "should_preserve": [
-    "bell",
-    "ringer",
-    "badge-count"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.418Z"
+  "authored_at": "2026-05-24T21:34:25.641Z"
 }

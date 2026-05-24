@@ -2,28 +2,26 @@
   "task_id": "me_037",
   "difficulty": "medium",
   "category": "miscolor_part",
-  "instruction": "Filament turned blue. Set it back to its default orange.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n</svg>",
+  "instruction": "The red horizontal strikethrough on the numbered list icon got recolored muted blue. Restore its original color.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/numbered-list.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99\"/></g>\n  <line id=\"overstrike\" stroke=\"#2c70ec\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/numbered-list.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.242 5.992h12m-12 6.003H20.24m-12 5.999h12M4.117 7.495v-3.75H2.99m1.125 3.75H2.99m1.125 0H5.24m-1.92 2.577a1.125 1.125 0 1 1 1.591 1.59l-1.83 1.83h2.16M2.99 15.745h1.125a1.125 1.125 0 0 1 0 2.25H3.74m0-.002h.375a1.125 1.125 0 0 1 0 2.25H2.99\"/></g>\n  <line id=\"overstrike\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
   "parts": [
-    "light-bulb",
-    "halo",
-    "filament"
+    "icon",
+    "overstrike"
   ],
   "target_parts": [
-    "filament"
+    "overstrike"
   ],
   "expected_diff": [
     {
-      "part": "filament",
+      "part": "overstrike",
       "attribute": "stroke",
-      "before": "#3b82f6",
-      "after": "#f97316"
+      "before": "#2c70ec",
+      "after": "#e63946"
     }
   ],
   "should_preserve": [
-    "light-bulb",
-    "halo"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.410Z"
+  "authored_at": "2026-05-24T21:34:25.625Z"
 }

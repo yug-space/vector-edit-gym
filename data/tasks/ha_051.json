@@ -2,30 +2,26 @@
   "task_id": "ha_051",
   "difficulty": "hard",
   "category": "miscolor_part",
-  "instruction": "The notification badge red is a tone off. Restore the exact #e63946.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#d33036\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
+  "instruction": "Fix the color of the arrow mark on this anchor icon — it's the wrong shade (very dark gray).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/anchor.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"5\" r=\"3\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"8\"/><path d=\"M5 12H2a10 10 0 0 0 20 0h-3\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/anchor.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"5\" r=\"3\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"8\"/><path d=\"M5 12H2a10 10 0 0 0 20 0h-3\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge",
-    "badge-count"
+    "icon",
+    "arrow"
   ],
   "target_parts": [
-    "badge"
+    "arrow"
   ],
   "expected_diff": [
     {
-      "part": "badge",
-      "attribute": "fill",
-      "before": "#d33036",
-      "after": "#e63946"
+      "part": "arrow",
+      "attribute": "stroke",
+      "before": "#1a1a1a",
+      "after": "#222"
     }
   ],
   "should_preserve": [
-    "bell",
-    "ringer",
-    "badge-count"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.419Z"
+  "authored_at": "2026-05-24T21:34:25.644Z"
 }

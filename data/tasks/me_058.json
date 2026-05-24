@@ -2,40 +2,55 @@
   "task_id": "me_058",
   "difficulty": "medium",
   "category": "extra_part",
-  "instruction": "A small red dot in the middle of the envelope is unwanted. Remove it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n  <circle id=\"stray-dot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n</svg>",
+  "instruction": "Clean up this presentation chart bar icon: remove the extra arrow mark.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/presentation-chart-bar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/presentation-chart-bar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6\"/></g>\n</svg>",
   "parts": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent",
-    "stray-dot"
+    "icon",
+    "arrow"
   ],
   "target_parts": [
-    "stray-dot"
+    "arrow"
   ],
   "expected_diff": [
     {
-      "part": "stray-dot",
+      "part": "arrow",
       "attribute": "exists",
       "before": true,
       "after": false,
       "removed": {
-        "id": "stray-dot",
-        "type": "circle",
-        "cx": 64,
-        "cy": 64,
-        "r": 2,
-        "fill": "#e63946"
+        "id": "arrow",
+        "type": "polyline",
+        "points": [
+          [
+            100,
+            100
+          ],
+          [
+            112,
+            112
+          ],
+          [
+            108,
+            104
+          ],
+          [
+            112,
+            112
+          ],
+          [
+            104,
+            108
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 2,
+        "fill": "none"
       }
     }
   ],
   "should_preserve": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.412Z"
+  "authored_at": "2026-05-24T21:34:25.629Z"
 }

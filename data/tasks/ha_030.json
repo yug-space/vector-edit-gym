@@ -2,62 +2,32 @@
   "task_id": "ha_030",
   "difficulty": "hard",
   "category": "flipped_part",
-  "instruction": "The wind-indicator polyline is reversed. Restore the original orientation.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"86,64 78,60 86,56 78,52\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
+  "instruction": "The black underline on the variable icon faces the wrong way. Mirror it back.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/variable.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.745 3A23.933 23.933 0 0 0 3 12c0 3.183.62 6.22 1.745 9M19.5 3c.967 2.78 1.5 5.817 1.5 9s-.533 6.22-1.5 9M8.25 8.885l1.444-.89a.75.75 0 0 1 1.105.402l2.402 7.206a.75.75 0 0 0 1.104.401l1.445-.889m-8.25.75.213.09a1.687 1.687 0 0 0 2.062-.617l4.45-6.676a1.688 1.688 0 0 1 2.062-.618l.213.09\"/></g>\n  <line id=\"underline\" stroke=\"#222\" stroke-width=\"2\" x1=\"112\" y1=\"116\" x2=\"16\" y2=\"116\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/variable.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.745 3A23.933 23.933 0 0 0 3 12c0 3.183.62 6.22 1.745 9M19.5 3c.967 2.78 1.5 5.817 1.5 9s-.533 6.22-1.5 9M8.25 8.885l1.444-.89a.75.75 0 0 1 1.105.402l2.402 7.206a.75.75 0 0 0 1.104.401l1.445-.889m-8.25.75.213.09a1.687 1.687 0 0 0 2.062-.617l4.45-6.676a1.688 1.688 0 0 1 2.062-.618l.213.09\"/></g>\n  <line id=\"underline\" stroke=\"#222\" stroke-width=\"2\" x1=\"16\" y1=\"116\" x2=\"112\" y2=\"116\" />\n</svg>",
   "parts": [
-    "flag",
-    "pole-tip",
-    "windline"
+    "icon",
+    "underline"
   ],
   "target_parts": [
-    "windline"
+    "underline"
   ],
   "expected_diff": [
     {
-      "part": "windline",
-      "attribute": "points",
-      "before": [
-        [
-          86,
-          64
-        ],
-        [
-          78,
-          60
-        ],
-        [
-          86,
-          56
-        ],
-        [
-          78,
-          52
-        ]
-      ],
-      "after": [
-        [
-          78,
-          64
-        ],
-        [
-          86,
-          60
-        ],
-        [
-          78,
-          56
-        ],
-        [
-          86,
-          52
-        ]
-      ]
+      "part": "underline",
+      "attribute": "x1",
+      "before": 112,
+      "after": 16
+    },
+    {
+      "part": "underline",
+      "attribute": "x2",
+      "before": 16,
+      "after": 112
     }
   ],
   "should_preserve": [
-    "flag",
-    "pole-tip"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.417Z"
+  "authored_at": "2026-05-24T21:34:25.639Z"
 }

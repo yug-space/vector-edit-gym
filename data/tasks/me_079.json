@@ -2,38 +2,38 @@
   "task_id": "me_079",
   "difficulty": "medium",
   "category": "duplicate_part",
-  "instruction": "Two dots are on the head of the pin. Delete the duplicate.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n  <circle id=\"pin-dot-dup\" fill=\"#e63946\" cx=\"74\" cy=\"46\" r=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
+  "instruction": "This shopping bag icon should have only one thin black frame circle, not two. Get rid of the duplicate.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/shopping-bag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z\"/></g>\n  <circle id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n  <circle id=\"frame-dup\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"76\" cy=\"64\" r=\"60\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/shopping-bag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z\"/></g>\n  <circle id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" cx=\"64\" cy=\"64\" r=\"60\" />\n</svg>",
   "parts": [
-    "map-pin",
-    "pin-dot",
-    "shadow",
-    "pin-dot-dup"
+    "icon",
+    "frame",
+    "frame-dup"
   ],
   "target_parts": [
-    "pin-dot-dup"
+    "frame-dup"
   ],
   "expected_diff": [
     {
-      "part": "pin-dot-dup",
+      "part": "frame-dup",
       "attribute": "exists",
       "before": true,
       "after": false,
       "removed": {
-        "id": "pin-dot-dup",
+        "id": "frame-dup",
         "type": "circle",
-        "cx": 74,
-        "cy": 46,
-        "r": 4,
-        "fill": "#e63946"
+        "cx": 76,
+        "cy": 64,
+        "r": 60,
+        "fill": "none",
+        "stroke": "#222",
+        "strokeWidth": 1
       }
     }
   ],
   "should_preserve": [
-    "map-pin",
-    "pin-dot",
-    "shadow"
+    "icon",
+    "frame"
   ],
-  "authored_at": "2026-05-24T21:25:53.414Z"
+  "authored_at": "2026-05-24T21:34:25.634Z"
 }

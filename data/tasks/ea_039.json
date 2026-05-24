@@ -2,44 +2,55 @@
   "task_id": "ea_039",
   "difficulty": "easy",
   "category": "extra_part",
-  "instruction": "An extra brown handle was added to the cart. Get rid of it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n  <line id=\"extra-handle\" stroke=\"#92400e\" stroke-width=\"3\" x1=\"30\" y1=\"30\" x2=\"50\" y2=\"50\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
+  "instruction": "Someone added an unwanted yellow sparkle to the ellipsis vertical icon. Delete it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/ellipsis-vertical.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z\"/></g>\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" fill=\"none\" points=\"20,64 24,60 28,64 24,68 20,64\" />\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" fill=\"none\" points=\"20,64 24,60 28,64 24,68 20,64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/ellipsis-vertical.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z\"/></g>\n</svg>",
   "parts": [
-    "shopping-cart",
-    "wheel-left",
-    "wheel-right",
-    "item-1",
-    "item-2",
-    "extra-handle"
+    "icon",
+    "sparkle"
   ],
   "target_parts": [
-    "extra-handle"
+    "sparkle"
   ],
   "expected_diff": [
     {
-      "part": "extra-handle",
+      "part": "sparkle",
       "attribute": "exists",
       "before": true,
       "after": false,
       "removed": {
-        "id": "extra-handle",
-        "type": "line",
-        "x1": 30,
-        "y1": 30,
-        "x2": 50,
-        "y2": 50,
-        "stroke": "#92400e",
-        "strokeWidth": 3
+        "id": "sparkle",
+        "type": "polyline",
+        "points": [
+          [
+            20,
+            64
+          ],
+          [
+            24,
+            60
+          ],
+          [
+            28,
+            64
+          ],
+          [
+            24,
+            68
+          ],
+          [
+            20,
+            64
+          ]
+        ],
+        "stroke": "#fde047",
+        "strokeWidth": 2,
+        "fill": "none"
       }
     }
   ],
   "should_preserve": [
-    "shopping-cart",
-    "wheel-left",
-    "wheel-right",
-    "item-1",
-    "item-2"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.404Z"
+  "authored_at": "2026-05-24T21:34:25.608Z"
 }

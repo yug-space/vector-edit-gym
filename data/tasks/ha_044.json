@@ -2,28 +2,26 @@
   "task_id": "ha_044",
   "difficulty": "hard",
   "category": "displaced_part",
-  "instruction": "The pole-tip slipped 4px down. Restore it to the very top.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"26\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
+  "instruction": "Restore the cyan question dot on the alert circle icon to where it should be. (very subtle — only 4px off).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/alert-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"/></g>\n  <circle id=\"qdot\" fill=\"#06b6d4\" cx=\"114\" cy=\"110\" r=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/alert-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"12\"/><line x1=\"12\" y1=\"16\" x2=\"12.01\" y2=\"16\"/></g>\n  <circle id=\"qdot\" fill=\"#06b6d4\" cx=\"110\" cy=\"110\" r=\"5\" />\n</svg>",
   "parts": [
-    "flag",
-    "pole-tip",
-    "windline"
+    "icon",
+    "qdot"
   ],
   "target_parts": [
-    "pole-tip"
+    "qdot"
   ],
   "expected_diff": [
     {
-      "part": "pole-tip",
-      "attribute": "cy",
-      "before": 26,
-      "after": 22
+      "part": "qdot",
+      "attribute": "cx",
+      "before": 114,
+      "after": 110
     }
   ],
   "should_preserve": [
-    "flag",
-    "windline"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.418Z"
+  "authored_at": "2026-05-24T21:34:25.642Z"
 }

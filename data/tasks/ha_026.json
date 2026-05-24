@@ -2,22 +2,108 @@
   "task_id": "ha_026",
   "difficulty": "hard",
   "category": "flipped_part",
-  "instruction": "The ringer (a single dot) wasn't actually flippable — author note: the polygon was reversed elsewhere; restore everything to the clean state.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
+  "instruction": "Someone reversed the yellow star stamp on this user minus icon. Restore the original direction.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/user-minus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M22 10.5h-6m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM4 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 10.374 21c-2.331 0-4.512-.645-6.374-1.766Z\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#fde047\" points=\"20,16 18,22 12,22 17,26 15,32 20,28 25,32 23,26 28,22 22,22\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/user-minus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M22 10.5h-6m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM4 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 10.374 21c-2.331 0-4.512-.645-6.374-1.766Z\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#fde047\" points=\"20,16 22,22 28,22 23,26 25,32 20,28 15,32 17,26 12,22 18,22\" />\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge",
-    "badge-count"
+    "icon",
+    "star-stamp"
   ],
-  "target_parts": [],
-  "expected_diff": [],
+  "target_parts": [
+    "star-stamp"
+  ],
+  "expected_diff": [
+    {
+      "part": "star-stamp",
+      "attribute": "points",
+      "before": [
+        [
+          20,
+          16
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          12,
+          22
+        ],
+        [
+          17,
+          26
+        ],
+        [
+          15,
+          32
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          25,
+          32
+        ],
+        [
+          23,
+          26
+        ],
+        [
+          28,
+          22
+        ],
+        [
+          22,
+          22
+        ]
+      ],
+      "after": [
+        [
+          20,
+          16
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          28,
+          22
+        ],
+        [
+          23,
+          26
+        ],
+        [
+          25,
+          32
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          15,
+          32
+        ],
+        [
+          17,
+          26
+        ],
+        [
+          12,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ]
+    }
+  ],
   "should_preserve": [
-    "bell",
-    "ringer",
-    "badge",
-    "badge-count"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.416Z"
+  "authored_at": "2026-05-24T21:34:25.639Z"
 }

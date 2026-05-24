@@ -2,61 +2,37 @@
   "task_id": "vh_009",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The cart has three problems: missing left wheel, missing item-1, and item-2 is the wrong color. Fix them all.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <circle id=\"item-2\" fill=\"#3b82f6\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n</svg>",
+  "instruction": "Three things wrong with the calendar icon: the base outline is brown, the small purple dot is purple (wrong color), AND the small purple dot has drifted out of place. Fix everything.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/calendar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #92400e\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></g>\n  <circle id=\"dot\" fill=\"#a855f7\" cx=\"16\" cy=\"24\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/calendar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></g>\n  <circle id=\"dot\" fill=\"#a855f7\" cx=\"16\" cy=\"16\" r=\"2\" />\n</svg>",
   "parts": [
-    "shopping-cart",
-    "wheel-right",
-    "item-2",
-    "item-1",
-    "wheel-left"
+    "icon",
+    "dot"
   ],
   "target_parts": [
-    "item-2",
-    "item-1",
-    "wheel-left"
+    "dot",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "item-2",
+      "part": "dot",
+      "attribute": "cy",
+      "before": 24,
+      "after": 16
+    },
+    {
+      "part": "dot",
       "attribute": "fill",
-      "before": "#3b82f6",
-      "after": "#fde047"
+      "before": "#a855f7",
+      "after": "#a855f7"
     },
     {
-      "part": "item-1",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "item-1",
-        "type": "rect",
-        "x": 56,
-        "y": 60,
-        "width": 10,
-        "height": 10,
-        "fill": "#3b82f6"
-      }
-    },
-    {
-      "part": "wheel-left",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "wheel-left",
-        "type": "circle",
-        "cx": 52,
-        "cy": 110,
-        "r": 4,
-        "fill": "#222"
-      }
+      "part": "icon",
+      "attribute": "color",
+      "before": "#92400e",
+      "after": "#222"
     }
   ],
-  "should_preserve": [
-    "shopping-cart",
-    "wheel-right"
-  ],
-  "authored_at": "2026-05-24T21:25:53.420Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.649Z"
 }

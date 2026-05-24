@@ -2,41 +2,35 @@
   "task_id": "ea_030",
   "difficulty": "easy",
   "category": "extra_part",
-  "instruction": "There's a gray smudge in the bottom right of the envelope. Clean it off.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n  <rect id=\"smudge\" fill=\"#9ca3af\" x=\"88\" y=\"88\" width=\"10\" height=\"8\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n</svg>",
+  "instruction": "There's a stray red side stripe on the document currency yen icon. Remove it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/document-currency-yen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m1.5 9 2.25 3m0 0 2.25-3m-2.25 3v4.5M9.75 15h4.5m-4.5 2.25h4.5m-3.75-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z\"/></g>\n  <rect id=\"stripe\" fill=\"#e63946\" x=\"12\" y=\"16\" width=\"4\" height=\"96\" />\n  <rect id=\"stripe\" fill=\"#e63946\" x=\"12\" y=\"16\" width=\"4\" height=\"96\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/document-currency-yen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m1.5 9 2.25 3m0 0 2.25-3m-2.25 3v4.5M9.75 15h4.5m-4.5 2.25h4.5m-3.75-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z\"/></g>\n</svg>",
   "parts": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent",
-    "smudge"
+    "icon",
+    "stripe"
   ],
   "target_parts": [
-    "smudge"
+    "stripe"
   ],
   "expected_diff": [
     {
-      "part": "smudge",
+      "part": "stripe",
       "attribute": "exists",
       "before": true,
       "after": false,
       "removed": {
-        "id": "smudge",
+        "id": "stripe",
         "type": "rect",
-        "x": 88,
-        "y": 88,
-        "width": 10,
-        "height": 8,
-        "fill": "#9ca3af"
+        "x": 12,
+        "y": 16,
+        "width": 4,
+        "height": 96,
+        "fill": "#e63946"
       }
     }
   ],
   "should_preserve": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.403Z"
+  "authored_at": "2026-05-24T21:34:25.607Z"
 }

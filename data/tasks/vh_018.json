@@ -2,36 +2,32 @@
   "task_id": "vh_018",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "Both decorative parts have shifted slightly. Detect and restore each.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"35\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"103\" cy=\"64\" r=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <rect id=\"stamp\" fill=\"#e63946\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"32\" width=\"16\" height=\"12\" />\n  <line id=\"address\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"36\" y1=\"84\" x2=\"76\" y2=\"84\" />\n  <circle id=\"urgent\" fill=\"#e63946\" cx=\"100\" cy=\"64\" r=\"4\" />\n</svg>",
+  "instruction": "Two subtle issues on the clipboard icon: the gray watermark square is the wrong shade (near-white) AND it has drifted slightly (~3px). Restore it precisely.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clipboard.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/></g>\n  <rect id=\"watermark\" fill=\"#fcfcfc\" opacity=\"0.4\" x=\"8\" y=\"11\" width=\"14\" height=\"14\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clipboard.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/></g>\n  <rect id=\"watermark\" fill=\"#9ca3af\" opacity=\"0.4\" x=\"8\" y=\"8\" width=\"14\" height=\"14\" />\n</svg>",
   "parts": [
-    "envelope",
-    "stamp",
-    "address",
-    "urgent"
+    "icon",
+    "watermark"
   ],
   "target_parts": [
-    "urgent",
-    "stamp"
+    "watermark"
   ],
   "expected_diff": [
     {
-      "part": "urgent",
-      "attribute": "cx",
-      "before": 103,
-      "after": 100
+      "part": "watermark",
+      "attribute": "y",
+      "before": 11,
+      "after": 8
     },
     {
-      "part": "stamp",
-      "attribute": "y",
-      "before": 35,
-      "after": 32
+      "part": "watermark",
+      "attribute": "fill",
+      "before": "#fcfcfc",
+      "after": "#9ca3af"
     }
   ],
   "should_preserve": [
-    "envelope",
-    "address"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.421Z"
+  "authored_at": "2026-05-24T21:34:25.651Z"
 }

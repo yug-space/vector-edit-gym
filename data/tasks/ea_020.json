@@ -2,40 +2,55 @@
   "task_id": "ea_020",
   "difficulty": "easy",
   "category": "missing_part",
-  "instruction": "The right wheel fell off the cart. Restore it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n</svg>",
+  "instruction": "Restore the arrow mark on the divide icon in the bottom-right (polyline arrow at (100,100), stroke #222, stroke-width 2).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/divide.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.499 11.998h15m-7.5-6.75h.008v.008h-.008v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM12 18.751h.007v.007H12v-.007Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/divide.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.499 11.998h15m-7.5-6.75h.008v.008h-.008v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM12 18.751h.007v.007H12v-.007Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
   "parts": [
-    "shopping-cart",
-    "wheel-left",
-    "item-1",
-    "item-2",
-    "wheel-right"
+    "icon",
+    "arrow"
   ],
   "target_parts": [
-    "wheel-right"
+    "arrow"
   ],
   "expected_diff": [
     {
-      "part": "wheel-right",
+      "part": "arrow",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "wheel-right",
-        "type": "circle",
-        "cx": 92,
-        "cy": 110,
-        "r": 4,
-        "fill": "#222"
+        "id": "arrow",
+        "type": "polyline",
+        "points": [
+          [
+            100,
+            100
+          ],
+          [
+            112,
+            112
+          ],
+          [
+            108,
+            104
+          ],
+          [
+            112,
+            112
+          ],
+          [
+            104,
+            108
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 2,
+        "fill": "none"
       }
     }
   ],
   "should_preserve": [
-    "shopping-cart",
-    "wheel-left",
-    "item-1",
-    "item-2"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.402Z"
+  "authored_at": "2026-05-24T21:34:25.605Z"
 }

@@ -2,17 +2,14 @@
   "task_id": "vh_028",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "The bell outline is green AND the canvas is way too small. Restore the original colors and viewBox.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 80\" width=\"80\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"80\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
+  "instruction": "The codesandbox icon has two problems: it's been tinted green AND the canvas is clipping it (72x72). Restore both the color and the viewBox.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" width=\"72\" height=\"72\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"72\" height=\"72\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codesandbox.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"7.5 4.21 12 6.81 16.5 4.21\"/><polyline points=\"7.5 19.79 7.5 14.6 3 12\"/><polyline points=\"21 12 16.5 14.6 16.5 19.79\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codesandbox.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/><polyline points=\"7.5 4.21 12 6.81 16.5 4.21\"/><polyline points=\"7.5 19.79 7.5 14.6 3 12\"/><polyline points=\"21 12 16.5 14.6 16.5 19.79\"/><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"/><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"/></g>\n</svg>",
   "parts": [
-    "bell",
-    "ringer",
-    "badge",
-    "badge-count"
+    "icon"
   ],
   "target_parts": [
-    "bell"
+    "icon"
   ],
   "expected_diff": [
     {
@@ -21,8 +18,8 @@
       "before": [
         0,
         0,
-        80,
-        80
+        72,
+        72
       ],
       "after": [
         0,
@@ -32,16 +29,12 @@
       ]
     },
     {
-      "part": "bell",
+      "part": "icon",
       "attribute": "color",
       "before": "#22c55e",
       "after": "#222"
     }
   ],
-  "should_preserve": [
-    "ringer",
-    "badge",
-    "badge-count"
-  ],
-  "authored_at": "2026-05-24T21:25:53.422Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.653Z"
 }

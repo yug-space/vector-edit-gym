@@ -2,38 +2,32 @@
   "task_id": "me_017",
   "difficulty": "medium",
   "category": "displaced_part",
-  "instruction": "The right wheel rolled out a bit. Restore it under the basket.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"98\" cy=\"113\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
+  "instruction": "The cyan question dot on the link slash icon has slipped out of place. Move it back to its original position. (subtler offset — read the original coordinates carefully).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/link-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.181 8.68a4.503 4.503 0 0 1 1.903 6.405m-9.768-2.782L3.56 14.06a4.5 4.5 0 0 0 6.364 6.365l3.129-3.129m5.614-5.615 1.757-1.757a4.5 4.5 0 0 0-6.364-6.365l-4.5 4.5c-.258.26-.479.541-.661.84m1.903 6.405a4.495 4.495 0 0 1-1.242-.88 4.483 4.483 0 0 1-1.062-1.683m6.587 2.345 5.907 5.907m-5.907-5.907L8.898 8.898M2.991 2.99 8.898 8.9\"/></g>\n  <circle id=\"qdot\" fill=\"#06b6d4\" cx=\"116\" cy=\"116\" r=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/link-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.181 8.68a4.503 4.503 0 0 1 1.903 6.405m-9.768-2.782L3.56 14.06a4.5 4.5 0 0 0 6.364 6.365l3.129-3.129m5.614-5.615 1.757-1.757a4.5 4.5 0 0 0-6.364-6.365l-4.5 4.5c-.258.26-.479.541-.661.84m1.903 6.405a4.495 4.495 0 0 1-1.242-.88 4.483 4.483 0 0 1-1.062-1.683m6.587 2.345 5.907 5.907m-5.907-5.907L8.898 8.898M2.991 2.99 8.898 8.9\"/></g>\n  <circle id=\"qdot\" fill=\"#06b6d4\" cx=\"110\" cy=\"110\" r=\"5\" />\n</svg>",
   "parts": [
-    "shopping-cart",
-    "wheel-left",
-    "wheel-right",
-    "item-1",
-    "item-2"
+    "icon",
+    "qdot"
   ],
   "target_parts": [
-    "wheel-right"
+    "qdot"
   ],
   "expected_diff": [
     {
-      "part": "wheel-right",
+      "part": "qdot",
       "attribute": "cx",
-      "before": 98,
-      "after": 92
+      "before": 116,
+      "after": 110
     },
     {
-      "part": "wheel-right",
+      "part": "qdot",
       "attribute": "cy",
-      "before": 113,
+      "before": 116,
       "after": 110
     }
   ],
   "should_preserve": [
-    "shopping-cart",
-    "wheel-left",
-    "item-1",
-    "item-2"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.408Z"
+  "authored_at": "2026-05-24T21:34:25.620Z"
 }

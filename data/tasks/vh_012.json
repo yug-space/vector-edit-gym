@@ -2,82 +2,43 @@
   "task_id": "vh_012",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "Pole-tip missing, windline recolored red AND shifted right. Restore the entire scene.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#e63946\" stroke-width=\"1.5\" fill=\"none\" points=\"84,64 92,60 84,56 92,52\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n</svg>",
+  "instruction": "Three things wrong with the cast icon: the base outline is blue, the small pink dot is cyan (wrong color), AND the small pink dot has drifted out of place. Fix everything.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cast.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"/><line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"/></g>\n  <circle id=\"dot\" fill=\"#06b6d4\" cx=\"106\" cy=\"106\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cast.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"/><line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"/></g>\n  <circle id=\"dot\" fill=\"#ec4899\" cx=\"112\" cy=\"112\" r=\"2\" />\n</svg>",
   "parts": [
-    "flag",
-    "windline",
-    "pole-tip"
+    "icon",
+    "dot"
   ],
   "target_parts": [
-    "windline",
-    "pole-tip"
+    "dot",
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "windline",
-      "attribute": "points",
-      "before": [
-        [
-          84,
-          64
-        ],
-        [
-          92,
-          60
-        ],
-        [
-          84,
-          56
-        ],
-        [
-          92,
-          52
-        ]
-      ],
-      "after": [
-        [
-          78,
-          64
-        ],
-        [
-          86,
-          60
-        ],
-        [
-          78,
-          56
-        ],
-        [
-          86,
-          52
-        ]
-      ]
+      "part": "dot",
+      "attribute": "cx",
+      "before": 106,
+      "after": 112
     },
     {
-      "part": "windline",
-      "attribute": "stroke",
-      "before": "#e63946",
-      "after": "#3b82f6"
+      "part": "dot",
+      "attribute": "cy",
+      "before": 106,
+      "after": 112
     },
     {
-      "part": "pole-tip",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "pole-tip",
-        "type": "circle",
-        "cx": 28,
-        "cy": 22,
-        "r": 3,
-        "fill": "#fde047"
-      }
+      "part": "dot",
+      "attribute": "fill",
+      "before": "#06b6d4",
+      "after": "#ec4899"
+    },
+    {
+      "part": "icon",
+      "attribute": "color",
+      "before": "#3b82f6",
+      "after": "#222"
     }
   ],
-  "should_preserve": [
-    "flag"
-  ],
-  "authored_at": "2026-05-24T21:25:53.420Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:34:25.649Z"
 }

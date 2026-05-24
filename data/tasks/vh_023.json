@@ -2,36 +2,32 @@
   "task_id": "vh_023",
   "difficulty": "very_hard",
   "category": "multi",
-  "instruction": "Both bows drifted slightly outward. Restore each to the original inner position.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"53\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"75\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
+  "instruction": "Two subtle issues on the cloud rain icon: the blue progress bar is the wrong shade (near-white) AND it has drifted slightly (~3px). Restore it precisely.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-rain.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><line x1=\"16\" y1=\"13\" x2=\"16\" y2=\"21\"/><line x1=\"8\" y1=\"13\" x2=\"8\" y2=\"21\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"23\"/><path d=\"M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25\"/></g>\n  <rect id=\"bar\" fill=\"#fcfcfc\" x=\"19\" y=\"110\" width=\"96\" height=\"6\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-rain.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><line x1=\"16\" y1=\"13\" x2=\"16\" y2=\"21\"/><line x1=\"8\" y1=\"13\" x2=\"8\" y2=\"21\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"23\"/><path d=\"M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25\"/></g>\n  <rect id=\"bar\" fill=\"#3b82f6\" x=\"16\" y=\"110\" width=\"96\" height=\"6\" />\n</svg>",
   "parts": [
-    "gift",
-    "bow-left",
-    "bow-right",
-    "bow-knot"
+    "icon",
+    "bar"
   ],
   "target_parts": [
-    "bow-right",
-    "bow-left"
+    "bar"
   ],
   "expected_diff": [
     {
-      "part": "bow-right",
-      "attribute": "cx",
-      "before": 75,
-      "after": 72
+      "part": "bar",
+      "attribute": "x",
+      "before": 19,
+      "after": 16
     },
     {
-      "part": "bow-left",
-      "attribute": "cx",
-      "before": 53,
-      "after": 56
+      "part": "bar",
+      "attribute": "fill",
+      "before": "#fcfcfc",
+      "after": "#3b82f6"
     }
   ],
   "should_preserve": [
-    "gift",
-    "bow-knot"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.421Z"
+  "authored_at": "2026-05-24T21:34:25.652Z"
 }

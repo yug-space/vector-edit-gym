@@ -2,32 +2,32 @@
   "task_id": "me_018",
   "difficulty": "medium",
   "category": "displaced_part",
-  "instruction": "Item-1 inside the cart slid sideways. Restore its original position.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"64\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
+  "instruction": "Restore the red notification badge on the link icon to where it should be. (subtler offset — read the original coordinates carefully).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/link.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244\"/></g>\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"98\" cy=\"18\" r=\"6\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/link.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244\"/></g>\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"104\" cy=\"24\" r=\"6\" />\n</svg>",
   "parts": [
-    "shopping-cart",
-    "wheel-left",
-    "wheel-right",
-    "item-1",
-    "item-2"
+    "icon",
+    "badge"
   ],
   "target_parts": [
-    "item-1"
+    "badge"
   ],
   "expected_diff": [
     {
-      "part": "item-1",
-      "attribute": "x",
-      "before": 64,
-      "after": 56
+      "part": "badge",
+      "attribute": "cx",
+      "before": 98,
+      "after": 104
+    },
+    {
+      "part": "badge",
+      "attribute": "cy",
+      "before": 18,
+      "after": 24
     }
   ],
   "should_preserve": [
-    "shopping-cart",
-    "wheel-left",
-    "wheel-right",
-    "item-2"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.408Z"
+  "authored_at": "2026-05-24T21:34:25.620Z"
 }

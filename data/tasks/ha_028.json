@@ -2,36 +2,68 @@
   "task_id": "ha_028",
   "difficulty": "hard",
   "category": "flipped_part",
-  "instruction": "Minute hand got mirrored. Restore its original orientation.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"88\" y1=\"64\" x2=\"64\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "instruction": "The arrow mark on the user icon has been mirrored. Flip it back to its proper orientation.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/user.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"114.4,100 102.4,112 106.4,104 102.4,112 110.4,108\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/user.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
   "parts": [
-    "clock",
-    "hour-hand",
-    "minute-hand",
-    "pivot"
+    "icon",
+    "arrow"
   ],
   "target_parts": [
-    "minute-hand"
+    "arrow"
   ],
   "expected_diff": [
     {
-      "part": "minute-hand",
-      "attribute": "x1",
-      "before": 88,
-      "after": 64
-    },
-    {
-      "part": "minute-hand",
-      "attribute": "x2",
-      "before": 64,
-      "after": 88
+      "part": "arrow",
+      "attribute": "points",
+      "before": [
+        [
+          114.4,
+          100
+        ],
+        [
+          102.4,
+          112
+        ],
+        [
+          106.4,
+          104
+        ],
+        [
+          102.4,
+          112
+        ],
+        [
+          110.4,
+          108
+        ]
+      ],
+      "after": [
+        [
+          100,
+          100
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          108,
+          104
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          104,
+          108
+        ]
+      ]
     }
   ],
   "should_preserve": [
-    "clock",
-    "hour-hand",
-    "pivot"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.417Z"
+  "authored_at": "2026-05-24T21:34:25.639Z"
 }

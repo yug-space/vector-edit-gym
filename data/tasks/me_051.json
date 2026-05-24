@@ -2,38 +2,34 @@
   "task_id": "me_051",
   "difficulty": "medium",
   "category": "missing_part",
-  "instruction": "The right bow loop is missing. Restore it.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n</svg>",
+  "instruction": "This play circle icon needs a green status dot added back in the bottom-left (cx=24, cy=104, r=5, fill #22c55e).",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/play-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/play-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z\"/></g>\n  <circle id=\"badge\" fill=\"#22c55e\" cx=\"24\" cy=\"104\" r=\"5\" />\n</svg>",
   "parts": [
-    "gift",
-    "bow-left",
-    "bow-knot",
-    "bow-right"
+    "icon",
+    "badge"
   ],
   "target_parts": [
-    "bow-right"
+    "badge"
   ],
   "expected_diff": [
     {
-      "part": "bow-right",
+      "part": "badge",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "bow-right",
+        "id": "badge",
         "type": "circle",
-        "cx": 72,
-        "cy": 36,
-        "r": 4,
-        "fill": "#e63946"
+        "cx": 24,
+        "cy": 104,
+        "r": 5,
+        "fill": "#22c55e"
       }
     }
   ],
   "should_preserve": [
-    "gift",
-    "bow-left",
-    "bow-knot"
+    "icon"
   ],
-  "authored_at": "2026-05-24T21:25:53.411Z"
+  "authored_at": "2026-05-24T21:34:25.628Z"
 }
