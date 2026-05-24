@@ -2,39 +2,42 @@
   "task_id": "vh_052",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a flower step by step (step 4 of 6). So far you've drawn: stem, petal-n, petal-e. Add the next part: ellipse (cx=64, cy=76, rx=10, ry=16, fill #ec4899) with id \"petal-s\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n</svg>",
+  "instruction": "Add a petal on the left.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n</svg>",
   "parts": [
     "stem",
     "petal-n",
     "petal-e",
-    "petal-s"
+    "petal-s",
+    "petal-w"
   ],
   "target_parts": [
-    "petal-s"
+    "petal-w"
   ],
   "expected_diff": [
     {
-      "part": "petal-s",
+      "part": "petal-w",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "petal-s",
+        "id": "petal-w",
         "type": "ellipse",
-        "cx": 64,
-        "cy": 76,
-        "rx": 10,
-        "ry": 16,
-        "fill": "#ec4899"
+        "cx": 44,
+        "cy": 56,
+        "rx": 16,
+        "ry": 10,
+        "fill": "#ec4899",
+        "prompt": "Add a petal on the left."
       }
     }
   ],
   "should_preserve": [
     "stem",
     "petal-n",
-    "petal-e"
+    "petal-e",
+    "petal-s"
   ],
-  "authored_at": "2026-05-24T21:42:25.402Z"
+  "authored_at": "2026-05-24T23:59:12.254Z"
 }

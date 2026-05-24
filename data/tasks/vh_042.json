@@ -2,71 +2,45 @@
   "task_id": "vh_042",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a boat step by step (step 6 of 6). So far you've drawn: wave-1, hull, mast, sail, flag. Add the next part: polyline (points 16,116 32,112 48,116 64,112 80,116 96,112 112,116, fill none, stroke #3b82f6, stroke-width 1) with id \"wave-2\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" fill=\"none\" points=\"16,116 32,112 48,116 64,112 80,116 96,112 112,116\" />\n</svg>",
+  "instruction": "Add a sun in the upper-right of the sky.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,112 24,108 40,112 56,108 72,112 88,108 104,112 120,108\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" fill=\"none\" points=\"16,120 32,116 48,120 64,116 80,120 96,116 112,120\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,112 24,108 40,112 56,108 72,112 88,108 104,112 120,108\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" fill=\"none\" points=\"16,120 32,116 48,120 64,116 80,120 96,116 112,120\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"104\" cy=\"28\" r=\"8\" />\n</svg>",
   "parts": [
-    "wave-1",
     "hull",
     "mast",
     "sail",
     "flag",
-    "wave-2"
+    "wave-1",
+    "wave-2",
+    "sun"
   ],
   "target_parts": [
-    "wave-2"
+    "sun"
   ],
   "expected_diff": [
     {
-      "part": "wave-2",
+      "part": "sun",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "wave-2",
-        "type": "polyline",
-        "points": [
-          [
-            16,
-            116
-          ],
-          [
-            32,
-            112
-          ],
-          [
-            48,
-            116
-          ],
-          [
-            64,
-            112
-          ],
-          [
-            80,
-            116
-          ],
-          [
-            96,
-            112
-          ],
-          [
-            112,
-            116
-          ]
-        ],
-        "stroke": "#3b82f6",
-        "strokeWidth": 1,
-        "fill": "none"
+        "id": "sun",
+        "type": "circle",
+        "cx": 104,
+        "cy": 28,
+        "r": 8,
+        "fill": "#fde047",
+        "prompt": "Add a sun in the upper-right of the sky."
       }
     }
   ],
   "should_preserve": [
-    "wave-1",
     "hull",
     "mast",
     "sail",
-    "flag"
+    "flag",
+    "wave-1",
+    "wave-2"
   ],
-  "authored_at": "2026-05-24T21:42:25.401Z"
+  "authored_at": "2026-05-24T23:59:12.253Z"
 }

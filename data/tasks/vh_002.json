@@ -2,35 +2,38 @@
   "task_id": "vh_002",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a house step by step (step 2 of 6). So far you've drawn: ground. Add the next part: rect (x=28, y=56, width=72, height=56, fill #e3c084) with id \"walls\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n</svg>",
+  "instruction": "Add a front door.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n</svg>",
   "parts": [
-    "ground",
-    "walls"
+    "walls",
+    "roof",
+    "door"
   ],
   "target_parts": [
-    "walls"
+    "door"
   ],
   "expected_diff": [
     {
-      "part": "walls",
+      "part": "door",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "walls",
+        "id": "door",
         "type": "rect",
-        "x": 28,
-        "y": 56,
-        "width": 72,
-        "height": 56,
-        "fill": "#e3c084"
+        "x": 56,
+        "y": 80,
+        "width": 16,
+        "height": 32,
+        "fill": "#6a3819",
+        "prompt": "Add a front door."
       }
     }
   ],
   "should_preserve": [
-    "ground"
+    "walls",
+    "roof"
   ],
-  "authored_at": "2026-05-24T21:42:25.398Z"
+  "authored_at": "2026-05-24T23:59:12.247Z"
 }

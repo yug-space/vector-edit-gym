@@ -2,37 +2,39 @@
   "task_id": "vh_021",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a car step by step (step 3 of 6). So far you've drawn: body, roof. Add the next part: rect (x=42, y=46, width=44, height=18, fill #bae6fd) with id \"window\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n</svg>",
+  "instruction": "Add the left wheel.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n</svg>",
   "parts": [
     "body",
     "roof",
-    "window"
+    "window",
+    "wheel-left"
   ],
   "target_parts": [
-    "window"
+    "wheel-left"
   ],
   "expected_diff": [
     {
-      "part": "window",
+      "part": "wheel-left",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "window",
-        "type": "rect",
-        "x": 42,
-        "y": 46,
-        "width": 44,
-        "height": 18,
-        "fill": "#bae6fd"
+        "id": "wheel-left",
+        "type": "circle",
+        "cx": 32,
+        "cy": 92,
+        "r": 8,
+        "fill": "#222",
+        "prompt": "Add the left wheel."
       }
     }
   ],
   "should_preserve": [
     "body",
-    "roof"
+    "roof",
+    "window"
   ],
-  "authored_at": "2026-05-24T21:42:25.400Z"
+  "authored_at": "2026-05-24T23:59:12.250Z"
 }

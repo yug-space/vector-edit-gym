@@ -2,41 +2,43 @@
   "task_id": "vh_005",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a house step by step (step 5 of 6). So far you've drawn: ground, walls, roof, door. Add the next part: rect (x=36, y=68, width=16, height=16, fill #94c8ff) with id \"window\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n</svg>",
+  "instruction": "Add a doorknob on the door.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
   "parts": [
-    "ground",
     "walls",
     "roof",
     "door",
-    "window"
+    "window",
+    "chimney",
+    "doorknob"
   ],
   "target_parts": [
-    "window"
+    "doorknob"
   ],
   "expected_diff": [
     {
-      "part": "window",
+      "part": "doorknob",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "window",
-        "type": "rect",
-        "x": 36,
-        "y": 68,
-        "width": 16,
-        "height": 16,
-        "fill": "#94c8ff"
+        "id": "doorknob",
+        "type": "circle",
+        "cx": 70,
+        "cy": 94,
+        "r": 1.5,
+        "fill": "#fde047",
+        "prompt": "Add a doorknob on the door."
       }
     }
   ],
   "should_preserve": [
-    "ground",
     "walls",
     "roof",
-    "door"
+    "door",
+    "window",
+    "chimney"
   ],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "authored_at": "2026-05-24T23:59:12.247Z"
 }

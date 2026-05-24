@@ -2,64 +2,37 @@
   "task_id": "vh_037",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a boat step by step (step 1 of 6). The canvas is empty. Add the next part: polyline (points 8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104, fill none, stroke #3b82f6, stroke-width 2) with id \"wave-1\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n</svg>",
+  "instruction": "Add the mast.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n</svg>",
   "parts": [
-    "wave-1"
+    "hull",
+    "mast"
   ],
   "target_parts": [
-    "wave-1"
+    "mast"
   ],
   "expected_diff": [
     {
-      "part": "wave-1",
+      "part": "mast",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "wave-1",
-        "type": "polyline",
-        "points": [
-          [
-            8,
-            108
-          ],
-          [
-            24,
-            104
-          ],
-          [
-            40,
-            108
-          ],
-          [
-            56,
-            104
-          ],
-          [
-            72,
-            108
-          ],
-          [
-            88,
-            104
-          ],
-          [
-            104,
-            108
-          ],
-          [
-            120,
-            104
-          ]
-        ],
-        "stroke": "#3b82f6",
-        "strokeWidth": 2,
-        "fill": "none"
+        "id": "mast",
+        "type": "line",
+        "x1": 64,
+        "y1": 88,
+        "x2": 64,
+        "y2": 16,
+        "stroke": "#222",
+        "strokeWidth": 3,
+        "prompt": "Add the mast."
       }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:42:25.401Z"
+  "should_preserve": [
+    "hull"
+  ],
+  "authored_at": "2026-05-24T23:59:12.252Z"
 }

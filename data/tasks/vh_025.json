@@ -2,33 +2,35 @@
   "task_id": "vh_025",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a tree step by step (step 1 of 6). The canvas is empty. Add the next part: line ((8,112)→(120,112), stroke #222, stroke-width 2) with id \"ground\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n</svg>",
+  "instruction": "Add the leafy crown.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n</svg>",
   "parts": [
-    "ground"
+    "trunk",
+    "crown"
   ],
   "target_parts": [
-    "ground"
+    "crown"
   ],
   "expected_diff": [
     {
-      "part": "ground",
+      "part": "crown",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "ground",
-        "type": "line",
-        "x1": 8,
-        "y1": 112,
-        "x2": 120,
-        "y2": 112,
-        "stroke": "#222",
-        "strokeWidth": 2
+        "id": "crown",
+        "type": "circle",
+        "cx": 64,
+        "cy": 48,
+        "r": 32,
+        "fill": "#3a9d5d",
+        "prompt": "Add the leafy crown."
       }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:42:25.400Z"
+  "should_preserve": [
+    "trunk"
+  ],
+  "authored_at": "2026-05-24T23:59:12.251Z"
 }

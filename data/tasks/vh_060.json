@@ -2,44 +2,84 @@
   "task_id": "vh_060",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a rocket step by step (step 6 of 6). So far you've drawn: flame, body, nose-cone, fin-left, fin-right. Add the next part: circle (cx=64, cy=56, r=8, fill #94c8ff, stroke #222, stroke-width 2) with id \"window\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n  <polygon id=\"fin-right\" fill=\"#e63946\" points=\"80,80 96,110 80,110\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n  <polygon id=\"fin-right\" fill=\"#e63946\" points=\"80,80 96,110 80,110\" />\n  <circle id=\"window\" fill=\"#94c8ff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"56\" r=\"8\" />\n</svg>",
+  "instruction": "Add a small star in the corner.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n  <polygon id=\"fin-right\" fill=\"#e63946\" points=\"80,80 96,110 80,110\" />\n  <circle id=\"window\" fill=\"#94c8ff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"56\" r=\"8\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,110 64,124 76,110\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n  <polygon id=\"fin-right\" fill=\"#e63946\" points=\"80,80 96,110 80,110\" />\n  <circle id=\"window\" fill=\"#94c8ff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"56\" r=\"8\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,110 64,124 76,110\" />\n  <polygon id=\"star\" fill=\"#fde047\" points=\"20,24 22,30 28,30 23,34 25,40 20,36 15,40 17,34 12,30 18,30\" />\n</svg>",
   "parts": [
-    "flame",
     "body",
     "nose-cone",
     "fin-left",
     "fin-right",
-    "window"
+    "window",
+    "flame",
+    "star"
   ],
   "target_parts": [
-    "window"
+    "star"
   ],
   "expected_diff": [
     {
-      "part": "window",
+      "part": "star",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "window",
-        "type": "circle",
-        "cx": 64,
-        "cy": 56,
-        "r": 8,
-        "fill": "#94c8ff",
-        "stroke": "#222",
-        "strokeWidth": 2
+        "id": "star",
+        "type": "polygon",
+        "points": [
+          [
+            20,
+            24
+          ],
+          [
+            22,
+            30
+          ],
+          [
+            28,
+            30
+          ],
+          [
+            23,
+            34
+          ],
+          [
+            25,
+            40
+          ],
+          [
+            20,
+            36
+          ],
+          [
+            15,
+            40
+          ],
+          [
+            17,
+            34
+          ],
+          [
+            12,
+            30
+          ],
+          [
+            18,
+            30
+          ]
+        ],
+        "fill": "#fde047",
+        "prompt": "Add a small star in the corner."
       }
     }
   ],
   "should_preserve": [
-    "flame",
     "body",
     "nose-cone",
     "fin-left",
-    "fin-right"
+    "fin-right",
+    "window",
+    "flame"
   ],
-  "authored_at": "2026-05-24T21:42:25.402Z"
+  "authored_at": "2026-05-24T23:59:12.255Z"
 }

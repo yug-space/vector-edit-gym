@@ -2,35 +2,38 @@
   "task_id": "vh_014",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a clock step by step (step 2 of 6). So far you've drawn: face. Add the next part: rect (x=62, y=18, width=4, height=8, fill #222) with id \"mark-12\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
+  "instruction": "Add the 6-o'clock tick mark.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n</svg>",
   "parts": [
     "face",
-    "mark-12"
+    "mark-12",
+    "mark-6"
   ],
   "target_parts": [
-    "mark-12"
+    "mark-6"
   ],
   "expected_diff": [
     {
-      "part": "mark-12",
+      "part": "mark-6",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "mark-12",
+        "id": "mark-6",
         "type": "rect",
         "x": 62,
-        "y": 18,
+        "y": 102,
         "width": 4,
         "height": 8,
-        "fill": "#222"
+        "fill": "#222",
+        "prompt": "Add the 6-o'clock tick mark."
       }
     }
   ],
   "should_preserve": [
-    "face"
+    "face",
+    "mark-12"
   ],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "authored_at": "2026-05-24T23:59:12.248Z"
 }

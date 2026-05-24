@@ -2,37 +2,40 @@
   "task_id": "vh_015",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a clock step by step (step 3 of 6). So far you've drawn: face, mark-12. Add the next part: rect (x=62, y=102, width=4, height=8, fill #222) with id \"mark-6\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n</svg>",
+  "instruction": "Add the 3-o'clock tick mark.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n</svg>",
   "parts": [
     "face",
     "mark-12",
-    "mark-6"
+    "mark-6",
+    "mark-3"
   ],
   "target_parts": [
-    "mark-6"
+    "mark-3"
   ],
   "expected_diff": [
     {
-      "part": "mark-6",
+      "part": "mark-3",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "mark-6",
+        "id": "mark-3",
         "type": "rect",
-        "x": 62,
-        "y": 102,
-        "width": 4,
-        "height": 8,
-        "fill": "#222"
+        "x": 102,
+        "y": 62,
+        "width": 8,
+        "height": 4,
+        "fill": "#222",
+        "prompt": "Add the 3-o'clock tick mark."
       }
     }
   ],
   "should_preserve": [
     "face",
-    "mark-12"
+    "mark-12",
+    "mark-6"
   ],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "authored_at": "2026-05-24T23:59:12.249Z"
 }

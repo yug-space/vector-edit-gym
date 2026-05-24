@@ -2,45 +2,35 @@
   "task_id": "vh_011",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a smiley face step by step (step 5 of 6). So far you've drawn: face, eye-left, eye-right, nose. Add the next part: polyline (points 50,78 64,86 78,78, fill none, stroke #222, stroke-width 2) with id \"mouth\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n</svg>",
+  "instruction": "Add a blush on the left cheek.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n  <ellipse id=\"blush-left\" fill=\"#fda4af\" cx=\"38\" cy=\"70\" rx=\"5\" ry=\"3\" />\n</svg>",
   "parts": [
     "face",
     "eye-left",
     "eye-right",
     "nose",
-    "mouth"
+    "mouth",
+    "blush-left"
   ],
   "target_parts": [
-    "mouth"
+    "blush-left"
   ],
   "expected_diff": [
     {
-      "part": "mouth",
+      "part": "blush-left",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "mouth",
-        "type": "polyline",
-        "points": [
-          [
-            50,
-            78
-          ],
-          [
-            64,
-            86
-          ],
-          [
-            78,
-            78
-          ]
-        ],
-        "stroke": "#222",
-        "strokeWidth": 2,
-        "fill": "none"
+        "id": "blush-left",
+        "type": "ellipse",
+        "cx": 38,
+        "cy": 70,
+        "rx": 5,
+        "ry": 3,
+        "fill": "#fda4af",
+        "prompt": "Add a blush on the left cheek."
       }
     }
   ],
@@ -48,7 +38,8 @@
     "face",
     "eye-left",
     "eye-right",
-    "nose"
+    "nose",
+    "mouth"
   ],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "authored_at": "2026-05-24T23:59:12.248Z"
 }

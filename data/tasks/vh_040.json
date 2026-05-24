@@ -2,49 +2,74 @@
   "task_id": "vh_040",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a boat step by step (step 4 of 6). So far you've drawn: wave-1, hull, mast. Add the next part: polygon (points 64,20 96,72 64,72, fill #fde047) with id \"sail\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n</svg>",
+  "instruction": "Add a wave below the boat.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,112 24,108 40,112 56,108 72,112 88,108 104,112 120,108\" />\n</svg>",
   "parts": [
-    "wave-1",
     "hull",
     "mast",
-    "sail"
+    "sail",
+    "flag",
+    "wave-1"
   ],
   "target_parts": [
-    "sail"
+    "wave-1"
   ],
   "expected_diff": [
     {
-      "part": "sail",
+      "part": "wave-1",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "sail",
-        "type": "polygon",
+        "id": "wave-1",
+        "type": "polyline",
         "points": [
           [
-            64,
-            20
+            8,
+            112
           ],
           [
-            96,
-            72
+            24,
+            108
           ],
           [
-            64,
-            72
+            40,
+            112
+          ],
+          [
+            56,
+            108
+          ],
+          [
+            72,
+            112
+          ],
+          [
+            88,
+            108
+          ],
+          [
+            104,
+            112
+          ],
+          [
+            120,
+            108
           ]
         ],
-        "fill": "#fde047"
+        "stroke": "#3b82f6",
+        "strokeWidth": 2,
+        "fill": "none",
+        "prompt": "Add a wave below the boat."
       }
     }
   ],
   "should_preserve": [
-    "wave-1",
     "hull",
-    "mast"
+    "mast",
+    "sail",
+    "flag"
   ],
-  "authored_at": "2026-05-24T21:42:25.401Z"
+  "authored_at": "2026-05-24T23:59:12.253Z"
 }

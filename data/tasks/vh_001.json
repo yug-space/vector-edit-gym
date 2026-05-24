@@ -2,33 +2,46 @@
   "task_id": "vh_001",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a house step by step (step 1 of 6). The canvas is empty. Add the next part: line ((8,116)→(120,116), stroke #222, stroke-width 2) with id \"ground\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n</svg>",
+  "instruction": "Add the roof on top of the house.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
   "parts": [
-    "ground"
+    "walls",
+    "roof"
   ],
   "target_parts": [
-    "ground"
+    "roof"
   ],
   "expected_diff": [
     {
-      "part": "ground",
+      "part": "roof",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "ground",
-        "type": "line",
-        "x1": 8,
-        "y1": 116,
-        "x2": 120,
-        "y2": 116,
-        "stroke": "#222",
-        "strokeWidth": 2
+        "id": "roof",
+        "type": "polygon",
+        "points": [
+          [
+            20,
+            56
+          ],
+          [
+            64,
+            16
+          ],
+          [
+            108,
+            56
+          ]
+        ],
+        "fill": "#8c3b2c",
+        "prompt": "Add the roof on top of the house."
       }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:42:25.398Z"
+  "should_preserve": [
+    "walls"
+  ],
+  "authored_at": "2026-05-24T23:59:12.247Z"
 }

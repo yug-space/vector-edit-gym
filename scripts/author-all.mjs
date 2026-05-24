@@ -25,7 +25,7 @@ import {
   corruptClippedViewBox,
   corruptMulti,
 } from "./lib/corruptions.mjs";
-import { WORKFLOWS, workflowNames, describePart } from "./lib/workflow-scenes.mjs";
+import { WORKFLOWS, workflowNames } from "./lib/workflow-scenes.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA = join(__dirname, "..", "data");
@@ -190,25 +190,27 @@ HARD_RECIPES.forEach((recipe, i) => {
 // VERY HARD (60) — step-by-step creation workflow
 // ==========================================================================
 //
-// For each scene we emit one task per step. At step N (1-indexed):
-//   initial = canvas with parts[0..N-2]   (empty when N=1)
-//   target  = canvas with parts[0..N-1]   (one more part)
-//   instruction = "Add the next part: <describePart(parts[N-1])>"
+// Each scene has 7 parts. The FIRST part is the start state (drawn already).
+// We emit one task per "middle" step (parts[1]..parts[6]):
 //
-// The diff is an "exists" addition for the new part. Scene labels repeat
-// across steps of the same scene — that's the point of a workflow.
+//   step N task: initial = parts[0..N-1], target = parts[0..N], add parts[N]
+//
+// 10 scenes × 6 middle steps = 60 tasks. Instructions are simple natural
+// language ("Add the front door.") — the model has to infer the exact
+// shape/position from what's already on the canvas + the prompt.
 
 let vhCounter = 0;
 
 for (const scene of workflowNames()) {
   const wf = WORKFLOWS[scene];
   const total = wf.parts.length;
-  for (let step = 1; step <= total; step++) {
+  // Start at index 1 (skip the base part). Each iteration generates one task.
+  for (let n = 1; n < total; n++) {
     vhCounter++;
     const id = `vh_${String(vhCounter).padStart(3, "0")}`;
-    const partialParts = wf.parts.slice(0, step - 1);
-    const fullParts = wf.parts.slice(0, step);
-    const newPart = wf.parts[step - 1];
+    const partialParts = wf.parts.slice(0, n);
+    const fullParts = wf.parts.slice(0, n + 1);
+    const newPart = wf.parts[n];
 
     const initialSpec = { canvas: wf.canvas, bg: wf.bg, parts: partialParts.map(cloneSpec) };
     const targetSpec  = { canvas: wf.canvas, bg: wf.bg, parts: fullParts.map(cloneSpec)    };
@@ -225,13 +227,7 @@ for (const scene of workflowNames()) {
       },
     });
 
-    const soFar = partialParts.length === 0
-      ? "The canvas is empty."
-      : `So far you've drawn: ${partialParts.map((p) => p.id).join(", ")}.`;
-    const instruction = `Building a ${wf.label} step by step (step ${step} of ${total}). ${soFar} Add the next part: ${describePart(newPart)}.`;
-
-    // Source tag: scene+step ensures uniqueness without reusing the icon-pool check.
-    add(id, "very_hard", "creation_step", () => initialSpec, corruption, instruction, `wf:${scene}:${step}`);
+    add(id, "very_hard", "creation_step", () => initialSpec, corruption, newPart.prompt, `wf:${scene}:${n}`);
   }
 }
 

@@ -2,42 +2,58 @@
   "task_id": "vh_030",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a tree step by step (step 6 of 6). So far you've drawn: ground, trunk, crown, fruit-1, fruit-2. Add the next part: circle (cx=60, cy=60, r=4, fill #e63946) with id \"fruit-3\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n  <circle id=\"fruit-3\" fill=\"#e63946\" cx=\"60\" cy=\"60\" r=\"4\" />\n</svg>",
+  "instruction": "Add a small bird flying above the tree.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n  <circle id=\"fruit-3\" fill=\"#e63946\" cx=\"60\" cy=\"60\" r=\"4\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n  <circle id=\"fruit-3\" fill=\"#e63946\" cx=\"60\" cy=\"60\" r=\"4\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <polyline id=\"bird\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"20,24 26,20 32,24\" />\n</svg>",
   "parts": [
-    "ground",
     "trunk",
     "crown",
     "fruit-1",
     "fruit-2",
-    "fruit-3"
+    "fruit-3",
+    "ground",
+    "bird"
   ],
   "target_parts": [
-    "fruit-3"
+    "bird"
   ],
   "expected_diff": [
     {
-      "part": "fruit-3",
+      "part": "bird",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "fruit-3",
-        "type": "circle",
-        "cx": 60,
-        "cy": 60,
-        "r": 4,
-        "fill": "#e63946"
+        "id": "bird",
+        "type": "polyline",
+        "points": [
+          [
+            20,
+            24
+          ],
+          [
+            26,
+            20
+          ],
+          [
+            32,
+            24
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 2,
+        "fill": "none",
+        "prompt": "Add a small bird flying above the tree."
       }
     }
   ],
   "should_preserve": [
-    "ground",
     "trunk",
     "crown",
     "fruit-1",
-    "fruit-2"
+    "fruit-2",
+    "fruit-3",
+    "ground"
   ],
-  "authored_at": "2026-05-24T21:42:25.400Z"
+  "authored_at": "2026-05-24T23:59:12.252Z"
 }

@@ -2,34 +2,37 @@
   "task_id": "vh_008",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a smiley face step by step (step 2 of 6). So far you've drawn: face. Add the next part: circle (cx=50, cy=54, r=4, fill #222) with id \"eye-left\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n</svg>",
+  "instruction": "Add the right eye.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n</svg>",
   "parts": [
     "face",
-    "eye-left"
+    "eye-left",
+    "eye-right"
   ],
   "target_parts": [
-    "eye-left"
+    "eye-right"
   ],
   "expected_diff": [
     {
-      "part": "eye-left",
+      "part": "eye-right",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "eye-left",
+        "id": "eye-right",
         "type": "circle",
-        "cx": 50,
+        "cx": 78,
         "cy": 54,
         "r": 4,
-        "fill": "#222"
+        "fill": "#222",
+        "prompt": "Add the right eye."
       }
     }
   ],
   "should_preserve": [
-    "face"
+    "face",
+    "eye-left"
   ],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "authored_at": "2026-05-24T23:59:12.248Z"
 }

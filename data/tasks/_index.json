@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T21:42:45.779Z",
+  "generated_at": "2026-05-24T23:59:24.271Z",
   "count": 100,
   "by_difficulty": {
     "easy": 20,
@@ -261,361 +261,361 @@
       "task_id": "vh_001",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 1 of 6). The canvas is empty. Add the next part: line ((8,116)→(120,116), stroke #222, stroke-width 2) with id \"ground\"."
+      "instruction": "Add the roof on top of the house."
     },
     {
       "task_id": "vh_002",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 2 of 6). So far you've drawn: ground. Add the next part: rect (x=28, y=56, width=72, height=56, fill #e3c084) with id \"walls\"."
+      "instruction": "Add a front door."
     },
     {
       "task_id": "vh_003",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 3 of 6). So far you've drawn: ground, walls. Add the next part: polygon (points 20,56 64,16 108,56, fill #8c3b2c) with id \"roof\"."
+      "instruction": "Add a window."
     },
     {
       "task_id": "vh_004",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 4 of 6). So far you've drawn: ground, walls, roof. Add the next part: rect (x=56, y=80, width=16, height=32, fill #6a3819) with id \"door\"."
+      "instruction": "Add a chimney on the roof."
     },
     {
       "task_id": "vh_005",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 5 of 6). So far you've drawn: ground, walls, roof, door. Add the next part: rect (x=36, y=68, width=16, height=16, fill #94c8ff) with id \"window\"."
+      "instruction": "Add a doorknob on the door."
     },
     {
       "task_id": "vh_006",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a house step by step (step 6 of 6). So far you've drawn: ground, walls, roof, door, window. Add the next part: rect (x=84, y=28, width=10, height=22, fill #603020) with id \"chimney\"."
+      "instruction": "Add a puff of smoke above the chimney."
     },
     {
       "task_id": "vh_007",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 1 of 6). The canvas is empty. Add the next part: circle (cx=64, cy=64, r=48, fill #fde047, stroke #222, stroke-width 2) with id \"face\"."
+      "instruction": "Add the left eye."
     },
     {
       "task_id": "vh_008",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 2 of 6). So far you've drawn: face. Add the next part: circle (cx=50, cy=54, r=4, fill #222) with id \"eye-left\"."
+      "instruction": "Add the right eye."
     },
     {
       "task_id": "vh_009",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 3 of 6). So far you've drawn: face, eye-left. Add the next part: circle (cx=78, cy=54, r=4, fill #222) with id \"eye-right\"."
+      "instruction": "Add a small nose at the center."
     },
     {
       "task_id": "vh_010",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 4 of 6). So far you've drawn: face, eye-left, eye-right. Add the next part: circle (cx=64, cy=64, r=2, fill #222) with id \"nose\"."
+      "instruction": "Add a smiling mouth."
     },
     {
       "task_id": "vh_011",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 5 of 6). So far you've drawn: face, eye-left, eye-right, nose. Add the next part: polyline (points 50,78 64,86 78,78, fill none, stroke #222, stroke-width 2) with id \"mouth\"."
+      "instruction": "Add a blush on the left cheek."
     },
     {
       "task_id": "vh_012",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a smiley face step by step (step 6 of 6). So far you've drawn: face, eye-left, eye-right, nose, mouth. Add the next part: line ((44,42)→(56,40), stroke #222, stroke-width 2) with id \"eyebrow\"."
+      "instruction": "Add a blush on the right cheek."
     },
     {
       "task_id": "vh_013",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 1 of 6). The canvas is empty. Add the next part: circle (cx=64, cy=64, r=48, fill #ffffff, stroke #222, stroke-width 2) with id \"face\"."
+      "instruction": "Add the 12-o'clock tick mark."
     },
     {
       "task_id": "vh_014",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 2 of 6). So far you've drawn: face. Add the next part: rect (x=62, y=18, width=4, height=8, fill #222) with id \"mark-12\"."
+      "instruction": "Add the 6-o'clock tick mark."
     },
     {
       "task_id": "vh_015",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 3 of 6). So far you've drawn: face, mark-12. Add the next part: rect (x=62, y=102, width=4, height=8, fill #222) with id \"mark-6\"."
+      "instruction": "Add the 3-o'clock tick mark."
     },
     {
       "task_id": "vh_016",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 4 of 6). So far you've drawn: face, mark-12, mark-6. Add the next part: line ((64,64)→(64,36), stroke #222, stroke-width 3) with id \"hour-hand\"."
+      "instruction": "Add the hour hand pointing straight up."
     },
     {
       "task_id": "vh_017",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 5 of 6). So far you've drawn: face, mark-12, mark-6, hour-hand. Add the next part: line ((64,64)→(86,64), stroke #222, stroke-width 2) with id \"minute-hand\"."
+      "instruction": "Add the minute hand pointing right."
     },
     {
       "task_id": "vh_018",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a clock step by step (step 6 of 6). So far you've drawn: face, mark-12, mark-6, hour-hand, minute-hand. Add the next part: circle (cx=64, cy=64, r=3, fill #e63946) with id \"pivot\"."
+      "instruction": "Add the red pivot dot at the center."
     },
     {
       "task_id": "vh_019",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 1 of 6). The canvas is empty. Add the next part: rect (x=16, y=64, width=96, height=24, rx=4, fill #3b82f6) with id \"body\"."
+      "instruction": "Add the roof on top of the body."
     },
     {
       "task_id": "vh_020",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 2 of 6). So far you've drawn: body. Add the next part: polygon (points 28,64 40,44 88,44 100,64, fill #3b82f6) with id \"roof\"."
+      "instruction": "Add the windshield."
     },
     {
       "task_id": "vh_021",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 3 of 6). So far you've drawn: body, roof. Add the next part: rect (x=42, y=46, width=44, height=18, fill #bae6fd) with id \"window\"."
+      "instruction": "Add the left wheel."
     },
     {
       "task_id": "vh_022",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 4 of 6). So far you've drawn: body, roof, window. Add the next part: circle (cx=32, cy=92, r=8, fill #222) with id \"wheel-left\"."
+      "instruction": "Add the right wheel."
     },
     {
       "task_id": "vh_023",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 5 of 6). So far you've drawn: body, roof, window, wheel-left. Add the next part: circle (cx=96, cy=92, r=8, fill #222) with id \"wheel-right\"."
+      "instruction": "Add the headlight."
     },
     {
       "task_id": "vh_024",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a car step by step (step 6 of 6). So far you've drawn: body, roof, window, wheel-left, wheel-right. Add the next part: circle (cx=110, cy=72, r=3, fill #fde047) with id \"headlight\"."
+      "instruction": "Add a small license plate."
     },
     {
       "task_id": "vh_025",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 1 of 6). The canvas is empty. Add the next part: line ((8,112)→(120,112), stroke #222, stroke-width 2) with id \"ground\"."
+      "instruction": "Add the leafy crown."
     },
     {
       "task_id": "vh_026",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 2 of 6). So far you've drawn: ground. Add the next part: rect (x=56, y=72, width=16, height=40, fill #6a3819) with id \"trunk\"."
+      "instruction": "Add a fruit on the upper-left of the crown."
     },
     {
       "task_id": "vh_027",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 3 of 6). So far you've drawn: ground, trunk. Add the next part: circle (cx=64, cy=48, r=32, fill #3a9d5d) with id \"crown\"."
+      "instruction": "Add a fruit on the right of the crown."
     },
     {
       "task_id": "vh_028",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 4 of 6). So far you've drawn: ground, trunk, crown. Add the next part: circle (cx=50, cy=40, r=4, fill #e63946) with id \"fruit-1\"."
+      "instruction": "Add a fruit near the bottom of the crown."
     },
     {
       "task_id": "vh_029",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 5 of 6). So far you've drawn: ground, trunk, crown, fruit-1. Add the next part: circle (cx=78, cy=52, r=4, fill #e63946) with id \"fruit-2\"."
+      "instruction": "Add a ground line."
     },
     {
       "task_id": "vh_030",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a tree step by step (step 6 of 6). So far you've drawn: ground, trunk, crown, fruit-1, fruit-2. Add the next part: circle (cx=60, cy=60, r=4, fill #e63946) with id \"fruit-3\"."
+      "instruction": "Add a small bird flying above the tree."
     },
     {
       "task_id": "vh_031",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 1 of 6). The canvas is empty. Add the next part: ellipse (cx=64, cy=108, rx=44, ry=6, fill #888888) with id \"plate\"."
+      "instruction": "Add the bottom cake layer."
     },
     {
       "task_id": "vh_032",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 2 of 6). So far you've drawn: plate. Add the next part: rect (x=24, y=72, width=80, height=32, fill #b85c38) with id \"base-layer\"."
+      "instruction": "Add the top cake layer."
     },
     {
       "task_id": "vh_033",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 3 of 6). So far you've drawn: plate, base-layer. Add the next part: rect (x=32, y=48, width=64, height=24, fill #f0c0c0) with id \"top-layer\"."
+      "instruction": "Add the frosting zigzag along the top of the cake."
     },
     {
       "task_id": "vh_034",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 4 of 6). So far you've drawn: plate, base-layer, top-layer. Add the next part: polyline (points 32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48, fill none, stroke #ffffff, stroke-width 2) with id \"frosting\"."
+      "instruction": "Add a candle on top."
     },
     {
       "task_id": "vh_035",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 5 of 6). So far you've drawn: plate, base-layer, top-layer, frosting. Add the next part: rect (x=62, y=24, width=4, height=20, fill #f0c0c0) with id \"candle\"."
+      "instruction": "Add a flame on the candle."
     },
     {
       "task_id": "vh_036",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a cake step by step (step 6 of 6). So far you've drawn: plate, base-layer, top-layer, frosting, candle. Add the next part: ellipse (cx=64, cy=20, rx=3, ry=5, fill #f97316) with id \"flame\"."
+      "instruction": "Add a cherry on top of the cake."
     },
     {
       "task_id": "vh_037",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 1 of 6). The canvas is empty. Add the next part: polyline (points 8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104, fill none, stroke #3b82f6, stroke-width 2) with id \"wave-1\"."
+      "instruction": "Add the mast."
     },
     {
       "task_id": "vh_038",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 2 of 6). So far you've drawn: wave-1. Add the next part: polygon (points 16,88 112,88 96,104 32,104, fill #92400e) with id \"hull\"."
+      "instruction": "Add the sail."
     },
     {
       "task_id": "vh_039",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 3 of 6). So far you've drawn: wave-1, hull. Add the next part: line ((64,88)→(64,16), stroke #222, stroke-width 3) with id \"mast\"."
+      "instruction": "Add a flag at the top of the mast."
     },
     {
       "task_id": "vh_040",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 4 of 6). So far you've drawn: wave-1, hull, mast. Add the next part: polygon (points 64,20 96,72 64,72, fill #fde047) with id \"sail\"."
+      "instruction": "Add a wave below the boat."
     },
     {
       "task_id": "vh_041",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 5 of 6). So far you've drawn: wave-1, hull, mast, sail. Add the next part: polygon (points 64,16 76,20 64,24, fill #e63946) with id \"flag\"."
+      "instruction": "Add a second smaller wave below the first."
     },
     {
       "task_id": "vh_042",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a boat step by step (step 6 of 6). So far you've drawn: wave-1, hull, mast, sail, flag. Add the next part: polyline (points 16,116 32,112 48,116 64,112 80,116 96,112 112,116, fill none, stroke #3b82f6, stroke-width 1) with id \"wave-2\"."
+      "instruction": "Add a sun in the upper-right of the sky."
     },
     {
       "task_id": "vh_043",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 1 of 6). The canvas is empty. Add the next part: ellipse (cx=64, cy=104, rx=40, ry=6, fill #cccccc) with id \"saucer\"."
+      "instruction": "Add a saucer underneath the cup."
     },
     {
       "task_id": "vh_044",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 2 of 6). So far you've drawn: saucer. Add the next part: rect (x=36, y=56, width=48, height=48, fill #f5f5f5, stroke #222, stroke-width 2) with id \"cup-body\"."
+      "instruction": "Add the handle on the right of the cup."
     },
     {
       "task_id": "vh_045",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 3 of 6). So far you've drawn: saucer, cup-body. Add the next part: circle (cx=88, cy=80, r=10, fill none, stroke #222, stroke-width 3) with id \"handle\"."
+      "instruction": "Add a wisp of steam above the cup."
     },
     {
       "task_id": "vh_046",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 4 of 6). So far you've drawn: saucer, cup-body, handle. Add the next part: polyline (points 54,40 50,32 56,24, fill none, stroke #aaaaaa, stroke-width 2) with id \"steam-1\"."
+      "instruction": "Add another wisp of steam in the middle."
     },
     {
       "task_id": "vh_047",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 5 of 6). So far you've drawn: saucer, cup-body, handle, steam-1. Add the next part: polyline (points 64,40 60,32 66,24, fill none, stroke #aaaaaa, stroke-width 2) with id \"steam-2\"."
+      "instruction": "Add a third wisp of steam on the right."
     },
     {
       "task_id": "vh_048",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a coffee cup step by step (step 6 of 6). So far you've drawn: saucer, cup-body, handle, steam-1, steam-2. Add the next part: polyline (points 74,40 70,32 76,24, fill none, stroke #aaaaaa, stroke-width 2) with id \"steam-3\"."
+      "instruction": "Add a brown coaster beneath the saucer."
     },
     {
       "task_id": "vh_049",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 1 of 6). The canvas is empty. Add the next part: line ((64,72)→(64,116), stroke #22c55e, stroke-width 3) with id \"stem\"."
+      "instruction": "Add a petal at the top."
     },
     {
       "task_id": "vh_050",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 2 of 6). So far you've drawn: stem. Add the next part: ellipse (cx=64, cy=36, rx=10, ry=16, fill #ec4899) with id \"petal-n\"."
+      "instruction": "Add a petal on the right."
     },
     {
       "task_id": "vh_051",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 3 of 6). So far you've drawn: stem, petal-n. Add the next part: ellipse (cx=84, cy=56, rx=16, ry=10, fill #ec4899) with id \"petal-e\"."
+      "instruction": "Add a petal at the bottom."
     },
     {
       "task_id": "vh_052",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 4 of 6). So far you've drawn: stem, petal-n, petal-e. Add the next part: ellipse (cx=64, cy=76, rx=10, ry=16, fill #ec4899) with id \"petal-s\"."
+      "instruction": "Add a petal on the left."
     },
     {
       "task_id": "vh_053",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 5 of 6). So far you've drawn: stem, petal-n, petal-e, petal-s. Add the next part: ellipse (cx=44, cy=56, rx=16, ry=10, fill #ec4899) with id \"petal-w\"."
+      "instruction": "Add the yellow center of the flower."
     },
     {
       "task_id": "vh_054",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a flower step by step (step 6 of 6). So far you've drawn: stem, petal-n, petal-e, petal-s, petal-w. Add the next part: circle (cx=64, cy=56, r=8, fill #fde047) with id \"center\"."
+      "instruction": "Add a leaf on the right side of the stem."
     },
     {
       "task_id": "vh_055",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 1 of 6). The canvas is empty. Add the next part: polygon (points 52,108 64,124 76,108, fill #f97316) with id \"flame\"."
+      "instruction": "Add the nose cone on top."
     },
     {
       "task_id": "vh_056",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 2 of 6). So far you've drawn: flame. Add the next part: rect (x=48, y=40, width=32, height=70, fill #cccccc, stroke #222, stroke-width 2) with id \"body\"."
+      "instruction": "Add the left fin."
     },
     {
       "task_id": "vh_057",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 3 of 6). So far you've drawn: flame, body. Add the next part: polygon (points 48,40 80,40 64,12, fill #e63946) with id \"nose-cone\"."
+      "instruction": "Add the right fin."
     },
     {
       "task_id": "vh_058",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 4 of 6). So far you've drawn: flame, body, nose-cone. Add the next part: polygon (points 48,80 32,110 48,110, fill #e63946) with id \"fin-left\"."
+      "instruction": "Add a circular porthole window."
     },
     {
       "task_id": "vh_059",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 5 of 6). So far you've drawn: flame, body, nose-cone, fin-left. Add the next part: polygon (points 80,80 96,110 80,110, fill #e63946) with id \"fin-right\"."
+      "instruction": "Add a flame underneath the rocket."
     },
     {
       "task_id": "vh_060",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Building a rocket step by step (step 6 of 6). So far you've drawn: flame, body, nose-cone, fin-left, fin-right. Add the next part: circle (cx=64, cy=56, r=8, fill #94c8ff, stroke #222, stroke-width 2) with id \"window\"."
+      "instruction": "Add a small star in the corner."
     }
   ]
 }

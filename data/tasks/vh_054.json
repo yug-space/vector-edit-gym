@@ -2,33 +2,36 @@
   "task_id": "vh_054",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a flower step by step (step 6 of 6). So far you've drawn: stem, petal-n, petal-e, petal-s, petal-w. Add the next part: circle (cx=64, cy=56, r=8, fill #fde047) with id \"center\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <circle id=\"center\" fill=\"#fde047\" cx=\"64\" cy=\"56\" r=\"8\" />\n</svg>",
+  "instruction": "Add a leaf on the right side of the stem.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <circle id=\"center\" fill=\"#fde047\" cx=\"64\" cy=\"56\" r=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <circle id=\"center\" fill=\"#fde047\" cx=\"64\" cy=\"56\" r=\"8\" />\n  <ellipse id=\"leaf\" fill=\"#22c55e\" cx=\"80\" cy=\"96\" rx=\"10\" ry=\"4\" />\n</svg>",
   "parts": [
     "stem",
     "petal-n",
     "petal-e",
     "petal-s",
     "petal-w",
-    "center"
+    "center",
+    "leaf"
   ],
   "target_parts": [
-    "center"
+    "leaf"
   ],
   "expected_diff": [
     {
-      "part": "center",
+      "part": "leaf",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "center",
-        "type": "circle",
-        "cx": 64,
-        "cy": 56,
-        "r": 8,
-        "fill": "#fde047"
+        "id": "leaf",
+        "type": "ellipse",
+        "cx": 80,
+        "cy": 96,
+        "rx": 10,
+        "ry": 4,
+        "fill": "#22c55e",
+        "prompt": "Add a leaf on the right side of the stem."
       }
     }
   ],
@@ -37,7 +40,8 @@
     "petal-n",
     "petal-e",
     "petal-s",
-    "petal-w"
+    "petal-w",
+    "center"
   ],
-  "authored_at": "2026-05-24T21:42:25.402Z"
+  "authored_at": "2026-05-24T23:59:12.254Z"
 }

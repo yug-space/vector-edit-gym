@@ -2,32 +2,36 @@
   "task_id": "vh_031",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a cake step by step (step 1 of 6). The canvas is empty. Add the next part: ellipse (cx=64, cy=108, rx=44, ry=6, fill #888888) with id \"plate\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n</svg>",
+  "instruction": "Add the bottom cake layer.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n</svg>",
   "parts": [
-    "plate"
+    "plate",
+    "base-layer"
   ],
   "target_parts": [
-    "plate"
+    "base-layer"
   ],
   "expected_diff": [
     {
-      "part": "plate",
+      "part": "base-layer",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "plate",
-        "type": "ellipse",
-        "cx": 64,
-        "cy": 108,
-        "rx": 44,
-        "ry": 6,
-        "fill": "#888888"
+        "id": "base-layer",
+        "type": "rect",
+        "x": 24,
+        "y": 72,
+        "width": 80,
+        "height": 32,
+        "fill": "#b85c38",
+        "prompt": "Add the bottom cake layer."
       }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:42:25.400Z"
+  "should_preserve": [
+    "plate"
+  ],
+  "authored_at": "2026-05-24T23:59:12.252Z"
 }

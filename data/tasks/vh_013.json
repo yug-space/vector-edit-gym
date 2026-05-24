@@ -2,33 +2,36 @@
   "task_id": "vh_013",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Building a clock step by step (step 1 of 6). The canvas is empty. Add the next part: circle (cx=64, cy=64, r=48, fill #ffffff, stroke #222, stroke-width 2) with id \"face\".",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
+  "instruction": "Add the 12-o'clock tick mark.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
   "parts": [
-    "face"
+    "face",
+    "mark-12"
   ],
   "target_parts": [
-    "face"
+    "mark-12"
   ],
   "expected_diff": [
     {
-      "part": "face",
+      "part": "mark-12",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "face",
-        "type": "circle",
-        "cx": 64,
-        "cy": 64,
-        "r": 48,
-        "fill": "#ffffff",
-        "stroke": "#222",
-        "strokeWidth": 2
+        "id": "mark-12",
+        "type": "rect",
+        "x": 62,
+        "y": 18,
+        "width": 4,
+        "height": 8,
+        "fill": "#222",
+        "prompt": "Add the 12-o'clock tick mark."
       }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:42:25.399Z"
+  "should_preserve": [
+    "face"
+  ],
+  "authored_at": "2026-05-24T23:59:12.248Z"
 }
