@@ -1,0 +1,184 @@
+{
+  "task_id": "ha_049",
+  "difficulty": "hard",
+  "category": "multi_icon_preserve",
+  "instruction": "Six icons in a 3×2 grid (document, folder, bookmark, trash, magnifying-glass, globe-alt). Recolor ONLY the document to #fde047. The other five must remain at #222.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 128\" width=\"256\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"256\" height=\"128\" fill=\"white\" />\n  <g id=\"document\" data-source=\"heroicons/outline/document.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z\"/></g>\n  <g id=\"folder\" data-source=\"heroicons/outline/folder.svg\" transform=\"translate(96, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n  <g id=\"bookmark\" data-source=\"heroicons/outline/bookmark.svg\" transform=\"translate(176, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z\"/></g>\n  <g id=\"trash\" data-source=\"heroicons/outline/trash.svg\" transform=\"translate(16, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0\"/></g>\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(96, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n  <g id=\"globe-alt\" data-source=\"heroicons/outline/globe-alt.svg\" transform=\"translate(176, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 128\" width=\"256\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"256\" height=\"128\" fill=\"white\" />\n  <g id=\"document\" data-source=\"heroicons/outline/document.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z\"/></g>\n  <g id=\"folder\" data-source=\"heroicons/outline/folder.svg\" transform=\"translate(96, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n  <g id=\"bookmark\" data-source=\"heroicons/outline/bookmark.svg\" transform=\"translate(176, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z\"/></g>\n  <g id=\"trash\" data-source=\"heroicons/outline/trash.svg\" transform=\"translate(16, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0\"/></g>\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(96, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n  <g id=\"globe-alt\" data-source=\"heroicons/outline/globe-alt.svg\" transform=\"translate(176, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      256,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "document",
+        "type": "icon",
+        "source": "heroicons/outline/document.svg",
+        "name": "document",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "folder",
+        "type": "icon",
+        "source": "heroicons/outline/folder.svg",
+        "name": "folder",
+        "style": "outline",
+        "x": 96,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "bookmark",
+        "type": "icon",
+        "source": "heroicons/outline/bookmark.svg",
+        "name": "bookmark",
+        "style": "outline",
+        "x": 176,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "trash",
+        "type": "icon",
+        "source": "heroicons/outline/trash.svg",
+        "name": "trash",
+        "style": "outline",
+        "x": 16,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "magnifying-glass",
+        "type": "icon",
+        "source": "heroicons/outline/magnifying-glass.svg",
+        "name": "magnifying-glass",
+        "style": "outline",
+        "x": 96,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "globe-alt",
+        "type": "icon",
+        "source": "heroicons/outline/globe-alt.svg",
+        "name": "globe-alt",
+        "style": "outline",
+        "x": 176,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      256,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "document",
+        "type": "icon",
+        "source": "heroicons/outline/document.svg",
+        "name": "document",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#fde047"
+      },
+      {
+        "id": "folder",
+        "type": "icon",
+        "source": "heroicons/outline/folder.svg",
+        "name": "folder",
+        "style": "outline",
+        "x": 96,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "bookmark",
+        "type": "icon",
+        "source": "heroicons/outline/bookmark.svg",
+        "name": "bookmark",
+        "style": "outline",
+        "x": 176,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "trash",
+        "type": "icon",
+        "source": "heroicons/outline/trash.svg",
+        "name": "trash",
+        "style": "outline",
+        "x": 16,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "magnifying-glass",
+        "type": "icon",
+        "source": "heroicons/outline/magnifying-glass.svg",
+        "name": "magnifying-glass",
+        "style": "outline",
+        "x": 96,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "globe-alt",
+        "type": "icon",
+        "source": "heroicons/outline/globe-alt.svg",
+        "name": "globe-alt",
+        "style": "outline",
+        "x": 176,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "parts": [
+    "document",
+    "folder",
+    "bookmark",
+    "trash",
+    "magnifying-glass",
+    "globe-alt"
+  ],
+  "target_parts": [
+    "document"
+  ],
+  "expected_diff": [
+    {
+      "part": "document",
+      "attribute": "color",
+      "before": "#222",
+      "after": "#fde047"
+    }
+  ],
+  "should_preserve": [
+    "folder",
+    "bookmark",
+    "trash",
+    "magnifying-glass",
+    "globe-alt"
+  ]
+}

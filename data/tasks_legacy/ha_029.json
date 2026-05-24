@@ -1,0 +1,138 @@
+{
+  "task_id": "ha_029",
+  "difficulty": "hard",
+  "category": "align_restore",
+  "instruction": "[cart scene] Left wheel rolled down-left (cx=44, cy=114). Restore to cx=52, cy=110.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"44\" cy=\"114\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"shopping-cart\" data-source=\"heroicons/outline/shopping-cart.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z\"/></g>\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"52\" cy=\"110\" r=\"4\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"92\" cy=\"110\" r=\"4\" />\n  <rect id=\"item-1\" fill=\"#3b82f6\" x=\"56\" y=\"60\" width=\"10\" height=\"10\" />\n  <circle id=\"item-2\" fill=\"#fde047\" cx=\"80\" cy=\"65\" r=\"5\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "shopping-cart",
+      "source": "heroicons/outline/shopping-cart.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "wheel-left",
+        "type": "circle",
+        "cx": 44,
+        "cy": 114,
+        "r": 4,
+        "fill": "#222"
+      },
+      {
+        "id": "wheel-right",
+        "type": "circle",
+        "cx": 92,
+        "cy": 110,
+        "r": 4,
+        "fill": "#222"
+      },
+      {
+        "id": "item-1",
+        "type": "rect",
+        "x": 56,
+        "y": 60,
+        "width": 10,
+        "height": 10,
+        "fill": "#3b82f6"
+      },
+      {
+        "id": "item-2",
+        "type": "circle",
+        "cx": 80,
+        "cy": 65,
+        "r": 5,
+        "fill": "#fde047"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "shopping-cart",
+      "source": "heroicons/outline/shopping-cart.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "wheel-left",
+        "type": "circle",
+        "cx": 52,
+        "cy": 110,
+        "r": 4,
+        "fill": "#222"
+      },
+      {
+        "id": "wheel-right",
+        "type": "circle",
+        "cx": 92,
+        "cy": 110,
+        "r": 4,
+        "fill": "#222"
+      },
+      {
+        "id": "item-1",
+        "type": "rect",
+        "x": 56,
+        "y": 60,
+        "width": 10,
+        "height": 10,
+        "fill": "#3b82f6"
+      },
+      {
+        "id": "item-2",
+        "type": "circle",
+        "cx": 80,
+        "cy": 65,
+        "r": 5,
+        "fill": "#fde047"
+      }
+    ]
+  },
+  "parts": [
+    "shopping-cart",
+    "wheel-left",
+    "wheel-right",
+    "item-1",
+    "item-2"
+  ],
+  "target_parts": [
+    "wheel-left"
+  ],
+  "expected_diff": [
+    {
+      "part": "wheel-left",
+      "attribute": "cx",
+      "before": 44,
+      "after": 52
+    },
+    {
+      "part": "wheel-left",
+      "attribute": "cy",
+      "before": 114,
+      "after": 110
+    }
+  ],
+  "should_preserve": [
+    "shopping-cart",
+    "wheel-right",
+    "item-1",
+    "item-2"
+  ]
+}

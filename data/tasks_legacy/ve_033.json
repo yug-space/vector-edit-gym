@@ -1,0 +1,65 @@
+{
+  "task_id": "ve_033",
+  "difficulty": "very_easy",
+  "category": "wrong_stroke_width",
+  "instruction": "This icon's stroke looks too thick. Restore the default stroke-width.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"minus\" data-source=\"heroicons/outline/minus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 12h14\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"minus\" data-source=\"heroicons/outline/minus.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 12h14\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "minus",
+        "type": "icon",
+        "source": "heroicons/outline/minus.svg",
+        "name": "minus",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 4
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "minus",
+        "type": "icon",
+        "source": "heroicons/outline/minus.svg",
+        "name": "minus",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "minus"
+  ],
+  "target_parts": [
+    "minus"
+  ],
+  "expected_diff": [
+    {
+      "part": "minus",
+      "attribute": "stroke-width",
+      "before": 4,
+      "after": 1.5
+    }
+  ],
+  "should_preserve": []
+}

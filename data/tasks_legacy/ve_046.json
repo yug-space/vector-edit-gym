@@ -1,0 +1,75 @@
+{
+  "task_id": "ve_046",
+  "difficulty": "very_easy",
+  "category": "clipped_viewbox",
+  "instruction": "The icon is being clipped by the canvas. Expand the viewBox so the whole thing fits.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 80\" width=\"80\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"80\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      80,
+      80
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "bell",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "bell",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "bell"
+  ],
+  "target_parts": [],
+  "expected_diff": [
+    {
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
+    }
+  ],
+  "should_preserve": [
+    "bell"
+  ]
+}

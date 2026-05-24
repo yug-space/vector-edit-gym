@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vector-edit-gym"
+version = "0.1.0"
+description = "VectorEditGym: a benchmark for SVG icon editing tasks."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "VectorEditGym" }]
+dependencies = []
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.30"]
+
+[project.scripts]
+vec-edit-gym = "vector_edit_gym.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["vector_edit_gym"]

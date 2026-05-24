@@ -1,0 +1,75 @@
+{
+  "task_id": "ve_055",
+  "difficulty": "very_easy",
+  "category": "clipped_viewbox",
+  "instruction": "Part of this icon is cut off. Fix the canvas size.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 80\" width=\"80\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"80\" fill=\"white\" />\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      80,
+      80
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "magnifying-glass",
+        "type": "icon",
+        "source": "heroicons/outline/magnifying-glass.svg",
+        "name": "magnifying-glass",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "magnifying-glass",
+        "type": "icon",
+        "source": "heroicons/outline/magnifying-glass.svg",
+        "name": "magnifying-glass",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "magnifying-glass"
+  ],
+  "target_parts": [],
+  "expected_diff": [
+    {
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
+    }
+  ],
+  "should_preserve": [
+    "magnifying-glass"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "task_id": "vh_024",
+  "difficulty": "very_hard",
+  "category": "real_icon_attr",
+  "instruction": "Recolor the flag icon's root stroke to #22c55e. Path d= unchanged.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\" data-slot=\"icon\">\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/>\n</svg>\n",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"#22c55e\" aria-hidden=\"true\" data-slot=\"icon\">\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/>\n</svg>\n",
+  "initial_spec": {
+    "source": "heroicons/outline/flag.svg",
+    "canvas": [
+      24,
+      24
+    ],
+    "bg": null,
+    "parts": []
+  },
+  "target_spec": {
+    "source": "heroicons/outline/flag.svg",
+    "canvas": [
+      24,
+      24
+    ],
+    "bg": null,
+    "parts": [],
+    "rootAttrChange": {
+      "attr": "stroke",
+      "before": "currentColor",
+      "after": "#22c55e"
+    }
+  },
+  "parts": [
+    "icon"
+  ],
+  "target_parts": [
+    "icon"
+  ],
+  "expected_diff": [
+    {
+      "part": "icon",
+      "attribute": "stroke",
+      "before": "currentColor",
+      "after": "#22c55e"
+    }
+  ],
+  "should_preserve": [
+    "path-geometry"
+  ]
+}

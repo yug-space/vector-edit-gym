@@ -1,0 +1,156 @@
+{
+  "task_id": "ha_056",
+  "difficulty": "hard",
+  "category": "surgical_add",
+  "instruction": "[bell scene] Add a sound wave on the left of the bell: polyline (14,60)→(20,56)→(14,52), stroke #222, stroke-width 1, no fill.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"bell\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <circle id=\"ringer\" fill=\"#222\" cx=\"64\" cy=\"110\" r=\"3\" />\n  <circle id=\"badge\" fill=\"#e63946\" cx=\"92\" cy=\"28\" r=\"6\" />\n  <circle id=\"badge-count\" fill=\"white\" cx=\"92\" cy=\"28\" r=\"1.5\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" fill=\"none\" points=\"14,60 20,56 14,52\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "bell",
+      "source": "heroicons/outline/bell.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "ringer",
+        "type": "circle",
+        "cx": 64,
+        "cy": 110,
+        "r": 3,
+        "fill": "#222"
+      },
+      {
+        "id": "badge",
+        "type": "circle",
+        "cx": 92,
+        "cy": 28,
+        "r": 6,
+        "fill": "#e63946"
+      },
+      {
+        "id": "badge-count",
+        "type": "circle",
+        "cx": 92,
+        "cy": 28,
+        "r": 1.5,
+        "fill": "white"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "bell",
+      "source": "heroicons/outline/bell.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "ringer",
+        "type": "circle",
+        "cx": 64,
+        "cy": 110,
+        "r": 3,
+        "fill": "#222"
+      },
+      {
+        "id": "badge",
+        "type": "circle",
+        "cx": 92,
+        "cy": 28,
+        "r": 6,
+        "fill": "#e63946"
+      },
+      {
+        "id": "badge-count",
+        "type": "circle",
+        "cx": 92,
+        "cy": 28,
+        "r": 1.5,
+        "fill": "white"
+      },
+      {
+        "id": "wave-1",
+        "type": "polyline",
+        "points": [
+          [
+            14,
+            60
+          ],
+          [
+            20,
+            56
+          ],
+          [
+            14,
+            52
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 1,
+        "fill": "none"
+      }
+    ]
+  },
+  "parts": [
+    "bell",
+    "ringer",
+    "badge",
+    "badge-count",
+    "wave-1"
+  ],
+  "target_parts": [
+    "wave-1"
+  ],
+  "expected_diff": [
+    {
+      "part": "wave-1",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "wave-1",
+        "type": "polyline",
+        "points": [
+          [
+            14,
+            60
+          ],
+          [
+            20,
+            56
+          ],
+          [
+            14,
+            52
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 1,
+        "fill": "none"
+      }
+    }
+  ],
+  "should_preserve": [
+    "bell",
+    "ringer",
+    "badge",
+    "badge-count"
+  ]
+}

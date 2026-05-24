@@ -1,0 +1,148 @@
+{
+  "task_id": "ea_036",
+  "difficulty": "easy",
+  "category": "extra_part",
+  "instruction": "An extra extra blue dot was added by mistake. Get rid of it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n  <circle id=\"extra-dot\" fill=\"#3b82f6\" cx=\"40\" cy=\"110\" r=\"3\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "light-bulb",
+      "source": "heroicons/outline/light-bulb.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "halo",
+        "type": "circle",
+        "cx": 64,
+        "cy": 50,
+        "r": 24,
+        "fill": "#fde047",
+        "opacity": 0.25
+      },
+      {
+        "id": "filament",
+        "type": "polyline",
+        "points": [
+          [
+            58,
+            50
+          ],
+          [
+            62,
+            54
+          ],
+          [
+            66,
+            50
+          ],
+          [
+            70,
+            54
+          ]
+        ],
+        "stroke": "#f97316",
+        "strokeWidth": 1.5,
+        "fill": "none"
+      },
+      {
+        "id": "extra-dot",
+        "type": "circle",
+        "cx": 40,
+        "cy": 110,
+        "r": 3,
+        "fill": "#3b82f6"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "light-bulb",
+      "source": "heroicons/outline/light-bulb.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "halo",
+        "type": "circle",
+        "cx": 64,
+        "cy": 50,
+        "r": 24,
+        "fill": "#fde047",
+        "opacity": 0.25
+      },
+      {
+        "id": "filament",
+        "type": "polyline",
+        "points": [
+          [
+            58,
+            50
+          ],
+          [
+            62,
+            54
+          ],
+          [
+            66,
+            50
+          ],
+          [
+            70,
+            54
+          ]
+        ],
+        "stroke": "#f97316",
+        "strokeWidth": 1.5,
+        "fill": "none"
+      }
+    ]
+  },
+  "parts": [
+    "light-bulb",
+    "halo",
+    "filament",
+    "extra-dot"
+  ],
+  "target_parts": [
+    "extra-dot"
+  ],
+  "expected_diff": [
+    {
+      "part": "extra-dot",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-dot",
+        "type": "circle",
+        "cx": 40,
+        "cy": 110,
+        "r": 3,
+        "fill": "#3b82f6"
+      }
+    }
+  ],
+  "should_preserve": [
+    "light-bulb",
+    "halo",
+    "filament"
+  ]
+}

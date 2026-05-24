@@ -1,0 +1,202 @@
+{
+  "task_id": "vh_018",
+  "difficulty": "very_hard",
+  "category": "complex_constraint",
+  "instruction": "Five envelopes in a row. Add an unread badge (red circle, r=4, fill #e63946) on each EVEN envelope (env-2, env-4) at the top-right corner: cx = envelope.x + 38, cy = envelope.y + 6. Odd envelopes get nothing.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 262 96\" width=\"262\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"262\" height=\"96\" fill=\"white\" />\n  <g id=\"env-1\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(12, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-2\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(62, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-3\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(112, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-4\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(162, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-5\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(212, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 262 96\" width=\"262\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"262\" height=\"96\" fill=\"white\" />\n  <g id=\"env-1\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(12, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-2\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(62, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-3\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(112, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-4\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(162, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <g id=\"env-5\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(212, 24) scale(1.8333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n  <circle id=\"badge-2\" fill=\"#e63946\" cx=\"100\" cy=\"30\" r=\"4\" />\n  <circle id=\"badge-4\" fill=\"#e63946\" cx=\"200\" cy=\"30\" r=\"4\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      262,
+      96
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "env-1",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 12,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-2",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 62,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-3",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 112,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-4",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 162,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-5",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 212,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      262,
+      96
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "env-1",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 12,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-2",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 62,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-3",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 112,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-4",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 162,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "env-5",
+        "type": "icon",
+        "source": "heroicons/outline/envelope.svg",
+        "name": "envelope",
+        "style": "outline",
+        "x": 212,
+        "y": 24,
+        "size": 44,
+        "color": "#222"
+      },
+      {
+        "id": "badge-2",
+        "type": "circle",
+        "cx": 100,
+        "cy": 30,
+        "r": 4,
+        "fill": "#e63946"
+      },
+      {
+        "id": "badge-4",
+        "type": "circle",
+        "cx": 200,
+        "cy": 30,
+        "r": 4,
+        "fill": "#e63946"
+      }
+    ]
+  },
+  "parts": [
+    "env-1",
+    "env-2",
+    "env-3",
+    "env-4",
+    "env-5",
+    "badge-2",
+    "badge-4"
+  ],
+  "target_parts": [
+    "badge-2",
+    "badge-4"
+  ],
+  "expected_diff": [
+    {
+      "part": "badge-2",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "badge-2",
+        "type": "circle",
+        "cx": 100,
+        "cy": 30,
+        "r": 4,
+        "fill": "#e63946"
+      }
+    },
+    {
+      "part": "badge-4",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "badge-4",
+        "type": "circle",
+        "cx": 200,
+        "cy": 30,
+        "r": 4,
+        "fill": "#e63946"
+      }
+    }
+  ],
+  "should_preserve": [
+    "env-1",
+    "env-2",
+    "env-3",
+    "env-4",
+    "env-5"
+  ]
+}

@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.DS_Store
+*.log
+viewer/.next/
+viewer/node_modules/
+viewer/out/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/

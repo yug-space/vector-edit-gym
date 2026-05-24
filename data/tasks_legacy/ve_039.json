@@ -1,0 +1,77 @@
+{
+  "task_id": "ve_039",
+  "difficulty": "very_easy",
+  "category": "wrong_scale",
+  "instruction": "Reset the face-smile icon's size back to normal.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(2, 2) scale(5.1667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "face-smile",
+        "type": "icon",
+        "source": "heroicons/outline/face-smile.svg",
+        "name": "face-smile",
+        "style": "outline",
+        "x": 2,
+        "y": 2,
+        "size": 124,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "face-smile",
+        "type": "icon",
+        "source": "heroicons/outline/face-smile.svg",
+        "name": "face-smile",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "face-smile"
+  ],
+  "target_parts": [
+    "face-smile"
+  ],
+  "expected_diff": [
+    {
+      "part": "face-smile",
+      "attribute": "size",
+      "before": 124,
+      "after": 112
+    },
+    {
+      "part": "face-smile",
+      "attribute": "x",
+      "before": 2,
+      "after": 8
+    },
+    {
+      "part": "face-smile",
+      "attribute": "y",
+      "before": 2,
+      "after": 8
+    }
+  ],
+  "should_preserve": []
+}

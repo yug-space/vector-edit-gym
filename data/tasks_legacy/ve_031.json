@@ -1,0 +1,65 @@
+{
+  "task_id": "ve_031",
+  "difficulty": "very_easy",
+  "category": "wrong_stroke_width",
+  "instruction": "Someone changed the line weight of this icon. Restore it to default.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"x-mark\" data-source=\"heroicons/outline/x-mark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"x-mark\" data-source=\"heroicons/outline/x-mark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "x-mark",
+        "type": "icon",
+        "source": "heroicons/outline/x-mark.svg",
+        "name": "x-mark",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 4
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "x-mark",
+        "type": "icon",
+        "source": "heroicons/outline/x-mark.svg",
+        "name": "x-mark",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "x-mark"
+  ],
+  "target_parts": [
+    "x-mark"
+  ],
+  "expected_diff": [
+    {
+      "part": "x-mark",
+      "attribute": "stroke-width",
+      "before": 4,
+      "after": 1.5
+    }
+  ],
+  "should_preserve": []
+}

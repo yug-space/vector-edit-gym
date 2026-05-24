@@ -1,0 +1,132 @@
+"""vec-edit-gym CLI: list / show / evaluate / score."""
+
+from __future__ import annotations
+
+import argparse
+import importlib
+import importlib.util
+import json
+import sys
+from pathlib import Path
+
+from .evaluate import evaluate
+from .tasks import load_task, load_tasks
+
+
+def _cmd_list(args: argparse.Namespace) -> int:
+    tasks = load_tasks(difficulty=args.difficulty, category=args.category)
+    if args.json:
+        print(json.dumps([
+            {"task_id": t.task_id, "difficulty": t.difficulty, "category": t.category,
+             "instruction": t.instruction}
+            for t in tasks
+        ], indent=2))
+    else:
+        for t in tasks:
+            print(f"{t.task_id:<10} [{t.difficulty:<9}] [{t.category:<22}] {t.instruction}")
+        print(f"\n{len(tasks)} tasks")
+    return 0
+
+
+def _cmd_show(args: argparse.Namespace) -> int:
+    t = load_task(args.task_id)
+    if args.field:
+        val = getattr(t, args.field, None)
+        if val is None:
+            print(f"no such field: {args.field}", file=sys.stderr)
+            return 2
+        if isinstance(val, str):
+            print(val)
+        else:
+            print(json.dumps(val, indent=2))
+    else:
+        print(json.dumps({
+            "task_id": t.task_id, "difficulty": t.difficulty, "category": t.category,
+            "instruction": t.instruction, "expected_diff": t.expected_diff,
+            "parts": t.parts, "should_preserve": t.should_preserve,
+        }, indent=2))
+    return 0
+
+
+def _load_solver(spec: str):
+    """Load a solver by:
+       - 'module:function'  (e.g. mypkg.solvers:my_solver)
+       - 'path/to/file.py:function'
+    """
+    if ":" not in spec:
+        raise ValueError("solver spec must be 'module:function' or 'path.py:function'")
+    target, fn_name = spec.rsplit(":", 1)
+    if target.endswith(".py") or "/" in target:
+        path = Path(target).resolve()
+        if not path.is_file():
+            raise FileNotFoundError(f"{path}")
+        mod_name = path.stem
+        spec_obj = importlib.util.spec_from_file_location(mod_name, str(path))
+        if spec_obj is None or spec_obj.loader is None:
+            raise ImportError(f"cannot import {path}")
+        mod = importlib.util.module_from_spec(spec_obj)
+        spec_obj.loader.exec_module(mod)
+    else:
+        mod = importlib.import_module(target)
+    fn = getattr(mod, fn_name, None)
+    if fn is None:
+        raise AttributeError(f"no callable named {fn_name!r} in {target}")
+    return fn
+
+
+def _cmd_evaluate(args: argparse.Namespace) -> int:
+    solver = _load_solver(args.solver)
+    tasks = load_tasks(difficulty=args.difficulty, category=args.category)
+    if args.limit:
+        tasks = tasks[: args.limit]
+    print(f"Running {len(tasks)} task(s) through {args.solver}...", file=sys.stderr)
+    def progress(i: int, total: int, r):
+        marker = "✓" if r.exact else ("≈" if r.structural else ("·" if r.preservation else "✗"))
+        if r.error:
+            marker = "!"
+        print(f"  [{i:>4}/{total}] {r.task_id:<10} {marker} ({r.elapsed_ms:.0f} ms)",
+              file=sys.stderr)
+    out = evaluate(solver, tasks, on_progress=progress)
+    print()
+    print(out.summary())
+    if args.json:
+        print()
+        print(json.dumps({
+            "exact_rate": out.exact_rate,
+            "structural_rate": out.structural_rate,
+            "preservation_mean": out.preservation_mean,
+            "by_difficulty": out.by_difficulty(),
+            "by_category": out.by_category(),
+        }, indent=2))
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(prog="vec-edit-gym", description="VectorEditGym CLI")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    pl = sub.add_parser("list", help="list tasks")
+    pl.add_argument("--difficulty", help="filter by difficulty")
+    pl.add_argument("--category", help="filter by category")
+    pl.add_argument("--json", action="store_true")
+    pl.set_defaults(fn=_cmd_list)
+
+    ps = sub.add_parser("show", help="show a single task")
+    ps.add_argument("task_id")
+    ps.add_argument("--field", help="print only one field (e.g. initial_svg)")
+    ps.set_defaults(fn=_cmd_show)
+
+    pe = sub.add_parser("evaluate", help="run a solver across tasks")
+    pe.add_argument("solver", help="solver spec: module:function OR path/to/file.py:function")
+    pe.add_argument("--difficulty")
+    pe.add_argument("--category")
+    pe.add_argument("--limit", type=int)
+    pe.add_argument("--json", action="store_true")
+    pe.set_defaults(fn=_cmd_evaluate)
+
+    args = p.parse_args(argv)
+    return args.fn(args)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

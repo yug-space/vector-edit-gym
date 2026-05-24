@@ -1,0 +1,160 @@
+{
+  "task_id": "me_015",
+  "difficulty": "medium",
+  "category": "spatial_select",
+  "instruction": "Recolor ONLY the icon between x-mark and minus (the plus) pink (#ec4899). Every other icon stays #222.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 336 80\" width=\"336\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"336\" height=\"80\" fill=\"white\" />\n  <g id=\"check\" data-source=\"heroicons/outline/check.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m4.5 12.75 6 6 9-13.5\"/></g>\n  <g id=\"x-mark\" data-source=\"heroicons/outline/x-mark.svg\" transform=\"translate(80, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\"/></g>\n  <g id=\"plus\" data-source=\"heroicons/outline/plus.svg\" transform=\"translate(144, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 4.5v15m7.5-7.5h-15\"/></g>\n  <g id=\"minus\" data-source=\"heroicons/outline/minus.svg\" transform=\"translate(208, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 12h14\"/></g>\n  <g id=\"eye\" data-source=\"heroicons/outline/eye.svg\" transform=\"translate(272, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 336 80\" width=\"336\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"336\" height=\"80\" fill=\"white\" />\n  <g id=\"check\" data-source=\"heroicons/outline/check.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m4.5 12.75 6 6 9-13.5\"/></g>\n  <g id=\"x-mark\" data-source=\"heroicons/outline/x-mark.svg\" transform=\"translate(80, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18 18 6M6 6l12 12\"/></g>\n  <g id=\"plus\" data-source=\"heroicons/outline/plus.svg\" transform=\"translate(144, 16) scale(2)\" style=\"color: #ec4899\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 4.5v15m7.5-7.5h-15\"/></g>\n  <g id=\"minus\" data-source=\"heroicons/outline/minus.svg\" transform=\"translate(208, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 12h14\"/></g>\n  <g id=\"eye\" data-source=\"heroicons/outline/eye.svg\" transform=\"translate(272, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      336,
+      80
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "check",
+        "type": "icon",
+        "source": "heroicons/outline/check.svg",
+        "name": "check",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "x-mark",
+        "type": "icon",
+        "source": "heroicons/outline/x-mark.svg",
+        "name": "x-mark",
+        "style": "outline",
+        "x": 80,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "plus",
+        "type": "icon",
+        "source": "heroicons/outline/plus.svg",
+        "name": "plus",
+        "style": "outline",
+        "x": 144,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "minus",
+        "type": "icon",
+        "source": "heroicons/outline/minus.svg",
+        "name": "minus",
+        "style": "outline",
+        "x": 208,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "eye",
+        "type": "icon",
+        "source": "heroicons/outline/eye.svg",
+        "name": "eye",
+        "style": "outline",
+        "x": 272,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      336,
+      80
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "check",
+        "type": "icon",
+        "source": "heroicons/outline/check.svg",
+        "name": "check",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "x-mark",
+        "type": "icon",
+        "source": "heroicons/outline/x-mark.svg",
+        "name": "x-mark",
+        "style": "outline",
+        "x": 80,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "plus",
+        "type": "icon",
+        "source": "heroicons/outline/plus.svg",
+        "name": "plus",
+        "style": "outline",
+        "x": 144,
+        "y": 16,
+        "size": 48,
+        "color": "#ec4899"
+      },
+      {
+        "id": "minus",
+        "type": "icon",
+        "source": "heroicons/outline/minus.svg",
+        "name": "minus",
+        "style": "outline",
+        "x": 208,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "eye",
+        "type": "icon",
+        "source": "heroicons/outline/eye.svg",
+        "name": "eye",
+        "style": "outline",
+        "x": 272,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "parts": [
+    "check",
+    "x-mark",
+    "plus",
+    "minus",
+    "eye"
+  ],
+  "target_parts": [
+    "plus"
+  ],
+  "expected_diff": [
+    {
+      "part": "plus",
+      "attribute": "color",
+      "before": "#222",
+      "after": "#ec4899"
+    }
+  ],
+  "should_preserve": [
+    "check",
+    "x-mark",
+    "minus",
+    "eye"
+  ]
+}

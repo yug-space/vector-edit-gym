@@ -1,0 +1,77 @@
+{
+  "task_id": "ve_036",
+  "difficulty": "very_easy",
+  "category": "wrong_scale",
+  "instruction": "This icon was rendered at the wrong size. Restore it to its proper dimensions.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"chart-pie\" data-source=\"heroicons/outline/chart-pie.svg\" transform=\"translate(32, 32) scale(2.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"chart-pie\" data-source=\"heroicons/outline/chart-pie.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "chart-pie",
+        "type": "icon",
+        "source": "heroicons/outline/chart-pie.svg",
+        "name": "chart-pie",
+        "style": "outline",
+        "x": 32,
+        "y": 32,
+        "size": 64,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "chart-pie",
+        "type": "icon",
+        "source": "heroicons/outline/chart-pie.svg",
+        "name": "chart-pie",
+        "style": "outline",
+        "x": 8,
+        "y": 8,
+        "size": 112,
+        "color": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "chart-pie"
+  ],
+  "target_parts": [
+    "chart-pie"
+  ],
+  "expected_diff": [
+    {
+      "part": "chart-pie",
+      "attribute": "size",
+      "before": 64,
+      "after": 112
+    },
+    {
+      "part": "chart-pie",
+      "attribute": "x",
+      "before": 32,
+      "after": 8
+    },
+    {
+      "part": "chart-pie",
+      "attribute": "y",
+      "before": 32,
+      "after": 8
+    }
+  ],
+  "should_preserve": []
+}

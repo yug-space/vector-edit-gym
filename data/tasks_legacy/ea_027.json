@@ -1,0 +1,142 @@
+{
+  "task_id": "ea_027",
+  "difficulty": "easy",
+  "category": "extra_part",
+  "instruction": "Someone scribbled an extra diagonal red line onto this clock face. Clean it up.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <line id=\"stray-line\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"16\" x2=\"112\" y2=\"112\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "clock",
+      "source": "heroicons/outline/clock.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "hour-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 64,
+        "y2": 38,
+        "stroke": "#222",
+        "strokeWidth": 3
+      },
+      {
+        "id": "minute-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 88,
+        "y2": 64,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "pivot",
+        "type": "circle",
+        "cx": 64,
+        "cy": 64,
+        "r": 2,
+        "fill": "#e63946"
+      },
+      {
+        "id": "stray-line",
+        "type": "line",
+        "x1": 16,
+        "y1": 16,
+        "x2": 112,
+        "y2": 112,
+        "stroke": "#e63946",
+        "strokeWidth": 2
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "clock",
+      "source": "heroicons/outline/clock.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "hour-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 64,
+        "y2": 38,
+        "stroke": "#222",
+        "strokeWidth": 3
+      },
+      {
+        "id": "minute-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 88,
+        "y2": 64,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "pivot",
+        "type": "circle",
+        "cx": 64,
+        "cy": 64,
+        "r": 2,
+        "fill": "#e63946"
+      }
+    ]
+  },
+  "parts": [
+    "clock",
+    "hour-hand",
+    "minute-hand",
+    "pivot",
+    "stray-line"
+  ],
+  "target_parts": [
+    "stray-line"
+  ],
+  "expected_diff": [
+    {
+      "part": "stray-line",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "stray-line",
+        "type": "line",
+        "x1": 16,
+        "y1": 16,
+        "x2": 112,
+        "y2": 112,
+        "stroke": "#e63946",
+        "strokeWidth": 2
+      }
+    }
+  ],
+  "should_preserve": [
+    "clock",
+    "hour-hand",
+    "minute-hand",
+    "pivot"
+  ]
+}

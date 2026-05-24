@@ -1,0 +1,354 @@
+{
+  "task_id": "vh_017",
+  "difficulty": "very_hard",
+  "category": "complex_constraint",
+  "instruction": "Four clocks (a 2×2 grid), each with hour and minute hands pointing up/right. Rotate EVERY minute-hand to point straight DOWN (x2 = pivot x, y2 = pivot y + 16). Hour-hands and clock faces unchanged.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 144 144\" width=\"144\" height=\"144\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"144\" height=\"144\" fill=\"white\" />\n  <g id=\"clock-1\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-1-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"40\" y1=\"40\" x2=\"40\" y2=\"28\" />\n  <line id=\"hand-1-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"40\" y1=\"40\" x2=\"56\" y2=\"40\" />\n  <g id=\"clock-2\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(80, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-2-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"104\" y1=\"40\" x2=\"104\" y2=\"28\" />\n  <line id=\"hand-2-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"104\" y1=\"40\" x2=\"120\" y2=\"40\" />\n  <g id=\"clock-3\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(16, 80) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-3-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"40\" y1=\"104\" x2=\"40\" y2=\"92\" />\n  <line id=\"hand-3-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"40\" y1=\"104\" x2=\"56\" y2=\"104\" />\n  <g id=\"clock-4\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(80, 80) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-4-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"104\" y1=\"104\" x2=\"104\" y2=\"92\" />\n  <line id=\"hand-4-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"104\" y1=\"104\" x2=\"120\" y2=\"104\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 144 144\" width=\"144\" height=\"144\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"144\" height=\"144\" fill=\"white\" />\n  <g id=\"clock-1\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-1-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"40\" y1=\"40\" x2=\"40\" y2=\"28\" />\n  <line id=\"hand-1-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"40\" y1=\"40\" x2=\"40\" y2=\"56\" />\n  <g id=\"clock-2\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(80, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-2-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"104\" y1=\"40\" x2=\"104\" y2=\"28\" />\n  <line id=\"hand-2-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"104\" y1=\"40\" x2=\"104\" y2=\"56\" />\n  <g id=\"clock-3\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(16, 80) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-3-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"40\" y1=\"104\" x2=\"40\" y2=\"92\" />\n  <line id=\"hand-3-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"40\" y1=\"104\" x2=\"40\" y2=\"120\" />\n  <g id=\"clock-4\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(80, 80) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hand-4-h\" stroke=\"#222\" stroke-width=\"2\" x1=\"104\" y1=\"104\" x2=\"104\" y2=\"92\" />\n  <line id=\"hand-4-m\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"104\" y1=\"104\" x2=\"104\" y2=\"120\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      144,
+      144
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "clock-1",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-1-h",
+        "type": "line",
+        "x1": 40,
+        "y1": 40,
+        "x2": 40,
+        "y2": 28,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-1-m",
+        "type": "line",
+        "x1": 40,
+        "y1": 40,
+        "x2": 56,
+        "y2": 40,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-2",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 80,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-2-h",
+        "type": "line",
+        "x1": 104,
+        "y1": 40,
+        "x2": 104,
+        "y2": 28,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-2-m",
+        "type": "line",
+        "x1": 104,
+        "y1": 40,
+        "x2": 120,
+        "y2": 40,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-3",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 16,
+        "y": 80,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-3-h",
+        "type": "line",
+        "x1": 40,
+        "y1": 104,
+        "x2": 40,
+        "y2": 92,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-3-m",
+        "type": "line",
+        "x1": 40,
+        "y1": 104,
+        "x2": 56,
+        "y2": 104,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-4",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 80,
+        "y": 80,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-4-h",
+        "type": "line",
+        "x1": 104,
+        "y1": 104,
+        "x2": 104,
+        "y2": 92,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-4-m",
+        "type": "line",
+        "x1": 104,
+        "y1": 104,
+        "x2": 120,
+        "y2": 104,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      144,
+      144
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "clock-1",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-1-h",
+        "type": "line",
+        "x1": 40,
+        "y1": 40,
+        "x2": 40,
+        "y2": 28,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-1-m",
+        "type": "line",
+        "x1": 40,
+        "y1": 40,
+        "x2": 40,
+        "y2": 56,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-2",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 80,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-2-h",
+        "type": "line",
+        "x1": 104,
+        "y1": 40,
+        "x2": 104,
+        "y2": 28,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-2-m",
+        "type": "line",
+        "x1": 104,
+        "y1": 40,
+        "x2": 104,
+        "y2": 56,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-3",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 16,
+        "y": 80,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-3-h",
+        "type": "line",
+        "x1": 40,
+        "y1": 104,
+        "x2": 40,
+        "y2": 92,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-3-m",
+        "type": "line",
+        "x1": 40,
+        "y1": 104,
+        "x2": 40,
+        "y2": 120,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      },
+      {
+        "id": "clock-4",
+        "type": "icon",
+        "source": "heroicons/outline/clock.svg",
+        "name": "clock",
+        "style": "outline",
+        "x": 80,
+        "y": 80,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "hand-4-h",
+        "type": "line",
+        "x1": 104,
+        "y1": 104,
+        "x2": 104,
+        "y2": 92,
+        "stroke": "#222",
+        "strokeWidth": 2
+      },
+      {
+        "id": "hand-4-m",
+        "type": "line",
+        "x1": 104,
+        "y1": 104,
+        "x2": 104,
+        "y2": 120,
+        "stroke": "#222",
+        "strokeWidth": 1.5
+      }
+    ]
+  },
+  "parts": [
+    "clock-1",
+    "hand-1-h",
+    "hand-1-m",
+    "clock-2",
+    "hand-2-h",
+    "hand-2-m",
+    "clock-3",
+    "hand-3-h",
+    "hand-3-m",
+    "clock-4",
+    "hand-4-h",
+    "hand-4-m"
+  ],
+  "target_parts": [
+    "hand-1-m",
+    "hand-2-m",
+    "hand-3-m",
+    "hand-4-m"
+  ],
+  "expected_diff": [
+    {
+      "part": "hand-1-m",
+      "attribute": "x2",
+      "before": 56,
+      "after": 40
+    },
+    {
+      "part": "hand-1-m",
+      "attribute": "y2",
+      "before": 40,
+      "after": 56
+    },
+    {
+      "part": "hand-2-m",
+      "attribute": "x2",
+      "before": 120,
+      "after": 104
+    },
+    {
+      "part": "hand-2-m",
+      "attribute": "y2",
+      "before": 40,
+      "after": 56
+    },
+    {
+      "part": "hand-3-m",
+      "attribute": "x2",
+      "before": 56,
+      "after": 40
+    },
+    {
+      "part": "hand-3-m",
+      "attribute": "y2",
+      "before": 104,
+      "after": 120
+    },
+    {
+      "part": "hand-4-m",
+      "attribute": "x2",
+      "before": 120,
+      "after": 104
+    },
+    {
+      "part": "hand-4-m",
+      "attribute": "y2",
+      "before": 104,
+      "after": 120
+    }
+  ],
+  "should_preserve": [
+    "clock-1",
+    "hand-1-h",
+    "clock-2",
+    "hand-2-h",
+    "clock-3",
+    "hand-3-h",
+    "clock-4",
+    "hand-4-h"
+  ]
+}

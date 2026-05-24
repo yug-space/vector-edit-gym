@@ -1,0 +1,124 @@
+{
+  "task_id": "vh_009",
+  "difficulty": "very_hard",
+  "category": "multi_step",
+  "instruction": "[gift scene] Make both bow circles blue (#3b82f6) AND the bow-knot yellow (#fde047). Gift outline unchanged.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#e63946\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#e63946\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"gift\" data-source=\"heroicons/outline/gift.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M20.625 11.505v8.25a1.5 1.5 0 0 1-1.5 1.5H4.875a1.5 1.5 0 0 1-1.5-1.5v-8.25m8.25-6.375A2.625 2.625 0 1 0 9 7.755h2.625m0-2.625v2.625m0-2.625a2.625 2.625 0 1 1 2.625 2.625h-2.625m0 0v13.5M3 11.505h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.622-.504-1.125-1.125-1.125H3c-.621 0-1.125.503-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z\"/></g>\n  <circle id=\"bow-left\" fill=\"#3b82f6\" cx=\"56\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-right\" fill=\"#3b82f6\" cx=\"72\" cy=\"36\" r=\"4\" />\n  <circle id=\"bow-knot\" fill=\"#fde047\" cx=\"64\" cy=\"36\" r=\"2\" />\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "gift",
+      "source": "heroicons/outline/gift.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "bow-left",
+        "type": "circle",
+        "cx": 56,
+        "cy": 36,
+        "r": 4,
+        "fill": "#e63946"
+      },
+      {
+        "id": "bow-right",
+        "type": "circle",
+        "cx": 72,
+        "cy": 36,
+        "r": 4,
+        "fill": "#e63946"
+      },
+      {
+        "id": "bow-knot",
+        "type": "circle",
+        "cx": 64,
+        "cy": 36,
+        "r": 2,
+        "fill": "#fde047"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      128,
+      128
+    ],
+    "bg": "white",
+    "base": {
+      "id": "gift",
+      "source": "heroicons/outline/gift.svg",
+      "x": 8,
+      "y": 8,
+      "size": 112,
+      "color": "#222"
+    },
+    "parts": [
+      {
+        "id": "bow-left",
+        "type": "circle",
+        "cx": 56,
+        "cy": 36,
+        "r": 4,
+        "fill": "#3b82f6"
+      },
+      {
+        "id": "bow-right",
+        "type": "circle",
+        "cx": 72,
+        "cy": 36,
+        "r": 4,
+        "fill": "#3b82f6"
+      },
+      {
+        "id": "bow-knot",
+        "type": "circle",
+        "cx": 64,
+        "cy": 36,
+        "r": 2,
+        "fill": "#fde047"
+      }
+    ]
+  },
+  "parts": [
+    "gift",
+    "bow-left",
+    "bow-right",
+    "bow-knot"
+  ],
+  "target_parts": [
+    "bow-left",
+    "bow-right",
+    "bow-knot"
+  ],
+  "expected_diff": [
+    {
+      "part": "bow-left",
+      "attribute": "fill",
+      "before": "#e63946",
+      "after": "#3b82f6"
+    },
+    {
+      "part": "bow-right",
+      "attribute": "fill",
+      "before": "#e63946",
+      "after": "#3b82f6"
+    },
+    {
+      "part": "bow-knot",
+      "attribute": "fill",
+      "before": "#fde047",
+      "after": "#fde047"
+    }
+  ],
+  "should_preserve": [
+    "gift"
+  ]
+}

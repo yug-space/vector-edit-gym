@@ -1,0 +1,256 @@
+{
+  "task_id": "vh_026",
+  "difficulty": "very_hard",
+  "category": "adversarial_preservation",
+  "instruction": "A 3×3 grid of identical bells. Recolor ONLY b11 (the center) blue (#3b82f6). All eight surrounding bells must remain at #222.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 184 184\" width=\"184\" height=\"184\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"184\" height=\"184\" fill=\"white\" />\n  <g id=\"b00\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b01\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b02\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b10\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b11\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b12\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b20\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b21\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b22\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 184 184\" width=\"184\" height=\"184\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"184\" height=\"184\" fill=\"white\" />\n  <g id=\"b00\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b01\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b02\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 16) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b10\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b11\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 72) scale(2)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b12\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 72) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b20\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(16, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b21\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(72, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n  <g id=\"b22\" data-source=\"heroicons/outline/bell.svg\" transform=\"translate(128, 128) scale(2)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0\"/></g>\n</svg>",
+  "initial_spec": {
+    "canvas": [
+      184,
+      184
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "b00",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b01",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b02",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b10",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b11",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b12",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b20",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b21",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b22",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "target_spec": {
+    "canvas": [
+      184,
+      184
+    ],
+    "bg": "white",
+    "parts": [
+      {
+        "id": "b00",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b01",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b02",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 16,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b10",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b11",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 72,
+        "size": 48,
+        "color": "#3b82f6"
+      },
+      {
+        "id": "b12",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 72,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b20",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 16,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b21",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 72,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      },
+      {
+        "id": "b22",
+        "type": "icon",
+        "source": "heroicons/outline/bell.svg",
+        "name": "bell",
+        "style": "outline",
+        "x": 128,
+        "y": 128,
+        "size": 48,
+        "color": "#222"
+      }
+    ]
+  },
+  "parts": [
+    "b00",
+    "b01",
+    "b02",
+    "b10",
+    "b11",
+    "b12",
+    "b20",
+    "b21",
+    "b22"
+  ],
+  "target_parts": [
+    "b11"
+  ],
+  "expected_diff": [
+    {
+      "part": "b11",
+      "attribute": "color",
+      "before": "#222",
+      "after": "#3b82f6"
+    }
+  ],
+  "should_preserve": [
+    "b00",
+    "b01",
+    "b02",
+    "b10",
+    "b12",
+    "b20",
+    "b21",
+    "b22"
+  ]
+}

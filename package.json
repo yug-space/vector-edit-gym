@@ -1,0 +1,21 @@
+{
+  "name": "vector-edit-gym",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "VectorEditGym: a benchmark for SVG icon editing with exact-change ground truth.",
+  "scripts": {
+    "generate:ve": "node scripts/generate-very-easy.mjs",
+    "generate:easy": "node scripts/generate-easy.mjs",
+    "generate:medium": "node scripts/generate-medium.mjs",
+    "generate:hard": "node scripts/generate-hard.mjs",
+    "generate:very-hard": "node scripts/generate-very-hard.mjs",
+    "generate:all": "node scripts/generate-very-easy.mjs && node scripts/generate-easy.mjs && node scripts/generate-medium.mjs && node scripts/generate-hard.mjs && node scripts/generate-very-hard.mjs && node scripts/build-index.mjs",
+    "build:index": "node scripts/build-index.mjs",
+    "scrape:icons": "node scripts/scrape-icons.mjs",
+    "viewer:dev": "npm --prefix viewer run dev",
+    "viewer:build": "npm --prefix viewer run build",
+    "viewer:start": "npm --prefix viewer start",
+    "build:all": "npm run generate:all && npm run scrape:icons"
+  }
+}
