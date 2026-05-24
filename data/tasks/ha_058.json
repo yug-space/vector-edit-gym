@@ -1,0 +1,29 @@
+{
+  "task_id": "ha_058",
+  "difficulty": "hard",
+  "category": "miscolor_part",
+  "instruction": "Pole-tip yellow is slightly off. Restore the exact #fde047.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fcc340\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
+  "parts": [
+    "flag",
+    "pole-tip",
+    "windline"
+  ],
+  "target_parts": [
+    "pole-tip"
+  ],
+  "expected_diff": [
+    {
+      "part": "pole-tip",
+      "attribute": "fill",
+      "before": "#fcc340",
+      "after": "#fde047"
+    }
+  ],
+  "should_preserve": [
+    "flag",
+    "windline"
+  ],
+  "authored_at": "2026-05-24T21:25:53.419Z"
+}

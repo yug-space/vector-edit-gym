@@ -1,0 +1,24 @@
+{
+  "task_id": "ve_032",
+  "difficulty": "very_easy",
+  "category": "wrong_stroke_width",
+  "instruction": "Search icon is too thick. Reset stroke-width to the standard 1.5.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"magnifying-glass\" data-source=\"heroicons/outline/magnifying-glass.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"/></g>\n</svg>",
+  "parts": [
+    "magnifying-glass"
+  ],
+  "target_parts": [
+    "magnifying-glass"
+  ],
+  "expected_diff": [
+    {
+      "part": "magnifying-glass",
+      "attribute": "stroke-width",
+      "before": 3.5,
+      "after": 1.5
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.396Z"
+}

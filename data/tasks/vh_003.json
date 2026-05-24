@@ -1,0 +1,59 @@
+{
+  "task_id": "vh_003",
+  "difficulty": "very_hard",
+  "category": "multi",
+  "instruction": "The clock has three problems: hour hand missing, pivot is green, and minute hand dropped slightly. Restore the clean state.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"70\" x2=\"88\" y2=\"70\" />\n  <circle id=\"pivot\" fill=\"#22c55e\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n</svg>",
+  "parts": [
+    "clock",
+    "minute-hand",
+    "pivot",
+    "hour-hand"
+  ],
+  "target_parts": [
+    "minute-hand",
+    "pivot",
+    "hour-hand"
+  ],
+  "expected_diff": [
+    {
+      "part": "minute-hand",
+      "attribute": "y1",
+      "before": 70,
+      "after": 64
+    },
+    {
+      "part": "minute-hand",
+      "attribute": "y2",
+      "before": 70,
+      "after": 64
+    },
+    {
+      "part": "pivot",
+      "attribute": "fill",
+      "before": "#22c55e",
+      "after": "#e63946"
+    },
+    {
+      "part": "hour-hand",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "hour-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 64,
+        "y2": 38,
+        "stroke": "#222",
+        "strokeWidth": 3
+      }
+    }
+  ],
+  "should_preserve": [
+    "clock"
+  ],
+  "authored_at": "2026-05-24T21:25:53.420Z"
+}

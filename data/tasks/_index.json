@@ -1,0 +1,1826 @@
+{
+  "generated_at": "2026-05-24T21:26:09.099Z",
+  "count": 300,
+  "by_difficulty": {
+    "very_easy": 60,
+    "easy": 70,
+    "medium": 80,
+    "hard": 60,
+    "very_hard": 30
+  },
+  "by_category": {
+    "wrong_color": 25,
+    "wrong_stroke_width": 15,
+    "wrong_scale": 10,
+    "clipped_viewbox": 10,
+    "missing_part": 40,
+    "extra_part": 35,
+    "miscolor_part": 50,
+    "displaced_part": 45,
+    "duplicate_part": 10,
+    "multi": 45,
+    "flipped_part": 15
+  },
+  "tasks": [
+    {
+      "task_id": "ve_001",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "This home icon got tinted red by mistake. Restore its default black outline."
+    },
+    {
+      "task_id": "ve_002",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Someone changed this heart's color to blue. Set it back to the standard black."
+    },
+    {
+      "task_id": "ve_003",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The star is drawn in green here — it should be black. Fix the color."
+    },
+    {
+      "task_id": "ve_004",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The sun icon is purple, which is wrong. Restore the default neutral black."
+    },
+    {
+      "task_id": "ve_005",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The moon was repainted orange. Put it back to black."
+    },
+    {
+      "task_id": "ve_006",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Pink clouds aren't on brand. Reset this icon to its default black outline."
+    },
+    {
+      "task_id": "ve_007",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "A blue fire icon is wrong. Change it back to black."
+    },
+    {
+      "task_id": "ve_008",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The bell looks yellow — that's not its default color. Restore black."
+    },
+    {
+      "task_id": "ve_009",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "A green envelope: not the default. Make it the usual black again."
+    },
+    {
+      "task_id": "ve_010",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "This shopping-cart was recolored red by accident. Reset it to black."
+    },
+    {
+      "task_id": "ve_011",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The settings cog is cyan here. Restore the default black look."
+    },
+    {
+      "task_id": "ve_012",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The user icon is purple. Reset it to its standard black color."
+    },
+    {
+      "task_id": "ve_013",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Camera icon is orange — wrong. Restore the original black."
+    },
+    {
+      "task_id": "ve_014",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "A green phone icon doesn't fit. Change it back to black."
+    },
+    {
+      "task_id": "ve_015",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Microphone is pink, which is unintentional. Repaint it black."
+    },
+    {
+      "task_id": "ve_016",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The map pin was tinted blue. Restore the default black outline."
+    },
+    {
+      "task_id": "ve_017",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "A yellow document icon isn't right. Switch it back to black."
+    },
+    {
+      "task_id": "ve_018",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Folder was made red by mistake. Restore the standard black."
+    },
+    {
+      "task_id": "ve_019",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Bookmark icon is green — wrong color. Reset to black."
+    },
+    {
+      "task_id": "ve_020",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The key icon is blue. Put it back to the default black outline."
+    },
+    {
+      "task_id": "ve_021",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The home icon is drawn way too thick. Bring it back to the default 1.5 stroke-width."
+    },
+    {
+      "task_id": "ve_022",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "This heart is painfully thin. Reset to the standard 1.5 stroke-width."
+    },
+    {
+      "task_id": "ve_023",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The star's strokes are too heavy. Restore the default 1.5 width."
+    },
+    {
+      "task_id": "ve_024",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The sun's lines look anemic. Set the stroke-width back to 1.5."
+    },
+    {
+      "task_id": "ve_025",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The cloud is far too bold. Reset stroke-width to 1.5."
+    },
+    {
+      "task_id": "ve_026",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Bell is barely visible — its stroke is too thin. Restore 1.5."
+    },
+    {
+      "task_id": "ve_027",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Envelope's lines are too thick. Set stroke-width back to the default 1.5."
+    },
+    {
+      "task_id": "ve_028",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Camera looks bulky — its stroke is too heavy. Reset to 1.5."
+    },
+    {
+      "task_id": "ve_029",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Microphone is washed out from a thin stroke. Restore default 1.5."
+    },
+    {
+      "task_id": "ve_030",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "User icon is drawn with bold lines. Reset stroke-width to 1.5."
+    },
+    {
+      "task_id": "ve_031",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The cog has a hairline stroke. Bump it back to 1.5."
+    },
+    {
+      "task_id": "ve_032",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Search icon is too thick. Reset stroke-width to the standard 1.5."
+    },
+    {
+      "task_id": "ve_033",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The clock is rendered with very thin lines. Set stroke-width back to 1.5."
+    },
+    {
+      "task_id": "ve_034",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Calendar looks too heavy. Restore stroke-width 1.5."
+    },
+    {
+      "task_id": "ve_035",
+      "difficulty": "very_easy",
+      "category": "wrong_stroke_width",
+      "instruction": "Photo icon is faint — stroke is too thin. Reset to 1.5."
+    },
+    {
+      "task_id": "ve_036",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "The home icon shrank — it should fill the canvas. Restore it to size 112."
+    },
+    {
+      "task_id": "ve_037",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "The heart is rendered too large and pushes outside the safe area. Reset to size 112."
+    },
+    {
+      "task_id": "ve_038",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Star is too small to read. Scale it back up to 112."
+    },
+    {
+      "task_id": "ve_039",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Sun is overflowing the canvas. Shrink it back to size 112."
+    },
+    {
+      "task_id": "ve_040",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Bell looks tiny. Restore its proper size of 112."
+    },
+    {
+      "task_id": "ve_041",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Envelope is oversized. Bring it back to size 112."
+    },
+    {
+      "task_id": "ve_042",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Camera shrank to half its normal size. Reset to 112."
+    },
+    {
+      "task_id": "ve_043",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Phone is too big and crowded. Restore it to 112."
+    },
+    {
+      "task_id": "ve_044",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Folder is small and lost on the canvas. Scale it up to 112."
+    },
+    {
+      "task_id": "ve_045",
+      "difficulty": "very_easy",
+      "category": "wrong_scale",
+      "instruction": "Clock is rendered too large. Reset to size 112."
+    },
+    {
+      "task_id": "ve_046",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "The home icon is being cut off by the canvas. Expand the viewBox so it fits."
+    },
+    {
+      "task_id": "ve_047",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Heart is clipped — the canvas is too small. Make the viewBox big enough."
+    },
+    {
+      "task_id": "ve_048",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Half the star is missing because the canvas is undersized. Restore the original 128x128 viewBox."
+    },
+    {
+      "task_id": "ve_049",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "The sun's edges are cut. Resize the canvas back to 128x128."
+    },
+    {
+      "task_id": "ve_050",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Cloud is being cropped. Set the viewBox to 128x128 so the whole icon shows."
+    },
+    {
+      "task_id": "ve_051",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "The bell is clipping out of the canvas. Expand back to 128x128."
+    },
+    {
+      "task_id": "ve_052",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Envelope hangs off the bottom. Restore the canvas to 128x128."
+    },
+    {
+      "task_id": "ve_053",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Camera is mostly cropped out. Fix the viewBox."
+    },
+    {
+      "task_id": "ve_054",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Phone icon's right edge is gone. Expand the viewBox to 128x128."
+    },
+    {
+      "task_id": "ve_055",
+      "difficulty": "very_easy",
+      "category": "clipped_viewbox",
+      "instruction": "Folder is being clipped. Restore the original canvas size."
+    },
+    {
+      "task_id": "ve_056",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The trash icon was painted brown. Restore the default black look."
+    },
+    {
+      "task_id": "ve_057",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "An all-gray eye icon looks dimmed. Reset to the default black outline."
+    },
+    {
+      "task_id": "ve_058",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "The smiley face is bright yellow — the default is plain black. Fix it."
+    },
+    {
+      "task_id": "ve_059",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Cyan calendar is wrong. Restore the default black."
+    },
+    {
+      "task_id": "ve_060",
+      "difficulty": "very_easy",
+      "category": "wrong_color",
+      "instruction": "Flag icon turned purple by accident. Reset to the standard black outline."
+    },
+    {
+      "task_id": "ea_001",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "This house has no door. Draw the door back in."
+    },
+    {
+      "task_id": "ea_002",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The house is missing its window. Add it back where it should sit on the wall."
+    },
+    {
+      "task_id": "ea_003",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Someone removed the chimney from this house. Put it back on the roof."
+    },
+    {
+      "task_id": "ea_004",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The doorknob has fallen off. Restore it to the door."
+    },
+    {
+      "task_id": "ea_005",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "This clock has no hour hand. Draw it back in."
+    },
+    {
+      "task_id": "ea_006",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The minute hand is gone. Restore it pointing to its original position."
+    },
+    {
+      "task_id": "ea_007",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The pivot dot at the center is missing. Add it back."
+    },
+    {
+      "task_id": "ea_008",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The stamp peeled off the envelope. Reattach it."
+    },
+    {
+      "task_id": "ea_009",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "An urgent-indicator dot used to be here. Add it back."
+    },
+    {
+      "task_id": "ea_010",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The address line is missing from the envelope. Restore it."
+    },
+    {
+      "task_id": "ea_011",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The notification badge has disappeared. Put it back in the corner."
+    },
+    {
+      "task_id": "ea_012",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Bell's ringer is missing. Add it back at the bottom."
+    },
+    {
+      "task_id": "ea_013",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The small white dot inside the badge is gone. Restore it."
+    },
+    {
+      "task_id": "ea_014",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The tear from the left eye is missing. Draw it back."
+    },
+    {
+      "task_id": "ea_015",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Left blush is gone. Restore it."
+    },
+    {
+      "task_id": "ea_016",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Right blush has vanished. Add it back."
+    },
+    {
+      "task_id": "ea_017",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The crack line on this heart is missing. Put it back."
+    },
+    {
+      "task_id": "ea_018",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Cupid's arrow is gone. Restore the arrow line on the heart."
+    },
+    {
+      "task_id": "ea_019",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The cart is missing its left wheel. Add it back."
+    },
+    {
+      "task_id": "ea_020",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The right wheel fell off the cart. Restore it."
+    },
+    {
+      "task_id": "ea_021",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Item-1 is missing from inside the cart. Put it back."
+    },
+    {
+      "task_id": "ea_022",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "Item-2 has disappeared from the basket. Restore it."
+    },
+    {
+      "task_id": "ea_023",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The dot on the map pin is missing. Draw it back."
+    },
+    {
+      "task_id": "ea_024",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The bow knot on the gift is gone. Add it back to the top of the package."
+    },
+    {
+      "task_id": "ea_025",
+      "difficulty": "easy",
+      "category": "missing_part",
+      "instruction": "The light bulb has no filament. Draw it back inside the bulb."
+    },
+    {
+      "task_id": "ea_026",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's a red dot next to the house that shouldn't be there. Remove it."
+    },
+    {
+      "task_id": "ea_027",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "Someone tagged the wall with a purple bar. Wipe it off."
+    },
+    {
+      "task_id": "ea_028",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A red line was scrawled across the clock face. Get rid of it."
+    },
+    {
+      "task_id": "ea_029",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "An extra red tick mark appears near 2 o'clock. Remove it."
+    },
+    {
+      "task_id": "ea_030",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's a gray smudge in the bottom right of the envelope. Clean it off."
+    },
+    {
+      "task_id": "ea_031",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A small red dot in the top-left corner is unwanted. Remove it."
+    },
+    {
+      "task_id": "ea_032",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A blue diagonal scribble appears on the bell. Delete it."
+    },
+    {
+      "task_id": "ea_033",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's an unwanted horizontal line at the bottom. Remove it."
+    },
+    {
+      "task_id": "ea_034",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's an extra dot above the face's eyes that shouldn't be there. Remove it."
+    },
+    {
+      "task_id": "ea_035",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A small dot on the cheek looks like an unintentional mark. Erase it."
+    },
+    {
+      "task_id": "ea_036",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's a diagonal strike-through across the heart. Remove it."
+    },
+    {
+      "task_id": "ea_037",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A yellow dot in the corner doesn't belong here. Delete it."
+    },
+    {
+      "task_id": "ea_038",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A small purple square hovers above the cart. Remove it."
+    },
+    {
+      "task_id": "ea_039",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "An extra brown handle was added to the cart. Get rid of it."
+    },
+    {
+      "task_id": "ea_040",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's a yellow dot in the corner of the map pin. Remove it."
+    },
+    {
+      "task_id": "ea_041",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A red baseline appeared below the gift. Erase it."
+    },
+    {
+      "task_id": "ea_042",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "There's a gray blob to the right of the flag. Clean it off."
+    },
+    {
+      "task_id": "ea_043",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A blue dot below the bulb doesn't belong. Remove it."
+    },
+    {
+      "task_id": "ea_044",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A green square is stuck in the corner. Get rid of it."
+    },
+    {
+      "task_id": "ea_045",
+      "difficulty": "easy",
+      "category": "extra_part",
+      "instruction": "A short black line appeared in the upper-left. Remove it."
+    },
+    {
+      "task_id": "ea_046",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The door has been repainted blue. Restore its original brown color."
+    },
+    {
+      "task_id": "ea_047",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "Someone painted the window red. Set it back to its original blue."
+    },
+    {
+      "task_id": "ea_048",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The chimney is green here — it should be dark brown. Fix it."
+    },
+    {
+      "task_id": "ea_049",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The stamp's color is wrong (green). Restore the original red."
+    },
+    {
+      "task_id": "ea_050",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "Urgent dot is yellow, but it should be the alarming red. Fix it."
+    },
+    {
+      "task_id": "ea_051",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The notification badge is blue — it should be red. Repaint it."
+    },
+    {
+      "task_id": "ea_052",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The tear-line is green, which is odd. Restore the original blue."
+    },
+    {
+      "task_id": "ea_053",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "Left blush is blue. Fix it back to its original pink."
+    },
+    {
+      "task_id": "ea_054",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The crack line on the heart got recolored red. Set it back to black."
+    },
+    {
+      "task_id": "ea_055",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "Item-1 inside the cart is the wrong color (red). Restore the original blue."
+    },
+    {
+      "task_id": "ea_056",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "Item-2 is purple — wrong. Set it back to its original yellow."
+    },
+    {
+      "task_id": "ea_057",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The pin-dot was recolored blue. Restore its original red."
+    },
+    {
+      "task_id": "ea_058",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The bow knot is green, which is wrong. Repaint it to the original yellow."
+    },
+    {
+      "task_id": "ea_059",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The center dot of the cog is blue. Set it back to its original red."
+    },
+    {
+      "task_id": "ea_060",
+      "difficulty": "easy",
+      "category": "miscolor_part",
+      "instruction": "The bulb's halo is blue. Restore the original yellow glow."
+    },
+    {
+      "task_id": "ea_061",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The door slid 20px to the right and is now off the wall. Slide it back to its original position."
+    },
+    {
+      "task_id": "ea_062",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The window has drifted to the right side of the wall. Restore it to its original position."
+    },
+    {
+      "task_id": "ea_063",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The minute hand has rotated up — it should be pointing right. Restore it."
+    },
+    {
+      "task_id": "ea_064",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The stamp slid to the left side of the envelope. Move it back to the top-right."
+    },
+    {
+      "task_id": "ea_065",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The badge fell down below the bell. Put it back at the top."
+    },
+    {
+      "task_id": "ea_066",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The right blush floated up onto the forehead. Slide it back down."
+    },
+    {
+      "task_id": "ea_067",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The left wheel rolled off-track. Restore it under the basket."
+    },
+    {
+      "task_id": "ea_068",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The ground shadow slid to the right. Center it under the pin again."
+    },
+    {
+      "task_id": "ea_069",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The bow knot drifted to the right edge of the gift. Center it back on top."
+    },
+    {
+      "task_id": "ea_070",
+      "difficulty": "easy",
+      "category": "displaced_part",
+      "instruction": "The pole-tip slid down the pole. Put it back at the very top."
+    },
+    {
+      "task_id": "me_001",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The door has shifted slightly to the right. Nudge it back to its exact original spot."
+    },
+    {
+      "task_id": "me_002",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The window has moved a touch to the left. Restore the precise original position."
+    },
+    {
+      "task_id": "me_003",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The chimney sank a few pixels. Raise it back up."
+    },
+    {
+      "task_id": "me_004",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The doorknob shifted slightly off the door. Restore it."
+    },
+    {
+      "task_id": "me_005",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The tip of the hour hand drifted right. Set it back to its original angle."
+    },
+    {
+      "task_id": "me_006",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The minute hand dropped slightly. Restore it pointing horizontally."
+    },
+    {
+      "task_id": "me_007",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The pivot is just a few pixels off-center. Restore it to the exact center of the clock face."
+    },
+    {
+      "task_id": "me_008",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The stamp slid down a bit. Move it back to its original spot in the top-right."
+    },
+    {
+      "task_id": "me_009",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The urgent dot drifted to the right. Pull it back to its original position."
+    },
+    {
+      "task_id": "me_010",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The address line dropped a few pixels. Restore the original y position."
+    },
+    {
+      "task_id": "me_011",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The ringer is slightly off-center to the left. Restore its alignment under the bell."
+    },
+    {
+      "task_id": "me_012",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The badge slipped a bit down and left. Restore it to its proper corner spot."
+    },
+    {
+      "task_id": "me_013",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The left blush drifted slightly right. Move it back to its original spot."
+    },
+    {
+      "task_id": "me_014",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The right blush drifted slightly left. Restore the exact original position."
+    },
+    {
+      "task_id": "me_015",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The tear has slid down the cheek by a few pixels. Restore it to its starting position."
+    },
+    {
+      "task_id": "me_016",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The left wheel rolled slightly off. Restore it precisely under the cart."
+    },
+    {
+      "task_id": "me_017",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The right wheel rolled out a bit. Restore it under the basket."
+    },
+    {
+      "task_id": "me_018",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "Item-1 inside the cart slid sideways. Restore its original position."
+    },
+    {
+      "task_id": "me_019",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The bow knot is slightly off-center. Restore it to the exact center."
+    },
+    {
+      "task_id": "me_020",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The hour-hand's tip sagged downward a few pixels. Restore the original angle."
+    },
+    {
+      "task_id": "me_021",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The little doorknob is blue. Restore the original yellow."
+    },
+    {
+      "task_id": "me_022",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The pivot dot turned blue. Reset to its original red."
+    },
+    {
+      "task_id": "me_023",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The hour hand was recolored red. Set its stroke back to the default black."
+    },
+    {
+      "task_id": "me_024",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The minute hand turned blue. Restore the original black stroke."
+    },
+    {
+      "task_id": "me_025",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The address line is red. Restore the original black stroke."
+    },
+    {
+      "task_id": "me_026",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The ringer is purple. Set it back to the default black."
+    },
+    {
+      "task_id": "me_027",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The badge-count dot is red. Restore the original white center."
+    },
+    {
+      "task_id": "me_028",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The right blush turned green. Restore the original pink."
+    },
+    {
+      "task_id": "me_029",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The arrow on the heart is green. Restore the original brown."
+    },
+    {
+      "task_id": "me_030",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Left wheel was painted blue. Set it back to its default black."
+    },
+    {
+      "task_id": "me_031",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Right wheel is red. Restore its original black."
+    },
+    {
+      "task_id": "me_032",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The shadow is purple, which is wrong. Restore the original near-black shadow."
+    },
+    {
+      "task_id": "me_033",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Left bow is blue. Restore the original red."
+    },
+    {
+      "task_id": "me_034",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Right bow is green. Restore the original red."
+    },
+    {
+      "task_id": "me_035",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Pole-tip is red. Restore the original yellow."
+    },
+    {
+      "task_id": "me_036",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The windline got recolored green. Restore the original blue stroke."
+    },
+    {
+      "task_id": "me_037",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "Filament turned blue. Set it back to its default orange."
+    },
+    {
+      "task_id": "me_038",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The center dot is green. Restore the original red."
+    },
+    {
+      "task_id": "me_039",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The rotation arrow turned red. Set its stroke back to the default blue."
+    },
+    {
+      "task_id": "me_040",
+      "difficulty": "medium",
+      "category": "miscolor_part",
+      "instruction": "The tear-line is purple. Restore the original blue."
+    },
+    {
+      "task_id": "me_041",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The tiny pivot at the center of the clock is gone. Add it back."
+    },
+    {
+      "task_id": "me_042",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The little white center of the badge is missing. Restore it."
+    },
+    {
+      "task_id": "me_043",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The urgent indicator dot is gone. Restore it on the envelope."
+    },
+    {
+      "task_id": "me_044",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The doorknob is missing from the door. Add it back."
+    },
+    {
+      "task_id": "me_045",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The pin lost its ground shadow. Restore it."
+    },
+    {
+      "task_id": "me_046",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The left blush has been removed. Add it back."
+    },
+    {
+      "task_id": "me_047",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The right blush is missing. Restore it."
+    },
+    {
+      "task_id": "me_048",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The center marker on the cog is gone. Put it back."
+    },
+    {
+      "task_id": "me_049",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The rotation arrow has disappeared from the cog. Restore it."
+    },
+    {
+      "task_id": "me_050",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The left bow loop is gone. Add it back."
+    },
+    {
+      "task_id": "me_051",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The right bow loop is missing. Restore it."
+    },
+    {
+      "task_id": "me_052",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The windline on the flag is gone. Add it back to the right of the banner."
+    },
+    {
+      "task_id": "me_053",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The yellow ball on top of the pole is missing. Restore it."
+    },
+    {
+      "task_id": "me_054",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The glow halo around the bulb is missing. Restore it."
+    },
+    {
+      "task_id": "me_055",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "Cupid's arrow has been removed. Restore it."
+    },
+    {
+      "task_id": "me_056",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A small gray dot appeared near the bottom-right of the house. Remove it."
+    },
+    {
+      "task_id": "me_057",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "An extra small tick mark was added at the 6 position. Remove it."
+    },
+    {
+      "task_id": "me_058",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A small red dot in the middle of the envelope is unwanted. Remove it."
+    },
+    {
+      "task_id": "me_059",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "There's an extra small dot next to the ringer. Get rid of it."
+    },
+    {
+      "task_id": "me_060",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "There's a tiny dot below the mouth that shouldn't be there. Erase it."
+    },
+    {
+      "task_id": "me_061",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A small yellow speck appeared on the heart. Remove it."
+    },
+    {
+      "task_id": "me_062",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A gray pebble appeared under the cart. Clean it off."
+    },
+    {
+      "task_id": "me_063",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "An extra small red square appeared on the pin's stem. Delete it."
+    },
+    {
+      "task_id": "me_064",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "There's a scratch line on the gift box. Remove it."
+    },
+    {
+      "task_id": "me_065",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A tiny dot appeared near the bottom of the pole. Remove it."
+    },
+    {
+      "task_id": "me_066",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A horizontal line was drawn across the bulb. Erase it."
+    },
+    {
+      "task_id": "me_067",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "There's a small extra dot at the cog's right edge. Remove it."
+    },
+    {
+      "task_id": "me_068",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A gray smoke speck above the chimney shouldn't be there. Clean it up."
+    },
+    {
+      "task_id": "me_069",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A small red speck appeared near the address. Remove it."
+    },
+    {
+      "task_id": "me_070",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A small dot near the right side of the mouth shouldn't be there. Erase it."
+    },
+    {
+      "task_id": "me_071",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "This house has two doors of identical color. Remove the duplicate."
+    },
+    {
+      "task_id": "me_072",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "There are two windows where there should be one. Delete the duplicate."
+    },
+    {
+      "task_id": "me_073",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "Two hour hands point from the center. Remove the duplicate."
+    },
+    {
+      "task_id": "me_074",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "There are two stamps on the envelope. Remove the extra one."
+    },
+    {
+      "task_id": "me_075",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "Two notification badges appear on the bell. Delete the duplicate."
+    },
+    {
+      "task_id": "me_076",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "There are two left-side blushes. Get rid of the duplicate."
+    },
+    {
+      "task_id": "me_077",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "Item-1 has been duplicated inside the cart. Remove the copy."
+    },
+    {
+      "task_id": "me_078",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "Two bow knots sit on top of the gift. Remove the duplicate."
+    },
+    {
+      "task_id": "me_079",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "Two dots are on the head of the pin. Delete the duplicate."
+    },
+    {
+      "task_id": "me_080",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "There are two center dots on the cog. Get rid of the duplicate."
+    },
+    {
+      "task_id": "ha_001",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Two things are wrong with this house: the door is missing AND the window is the wrong color. Fix both."
+    },
+    {
+      "task_id": "ha_002",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The chimney sagged AND there's a stray red dot next to the house. Repair both defects."
+    },
+    {
+      "task_id": "ha_003",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The clock has lost both its hands. Restore them to point to their original positions."
+    },
+    {
+      "task_id": "ha_004",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Both clock hands have drifted slightly. Restore each to its original angle."
+    },
+    {
+      "task_id": "ha_005",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The stamp is missing AND the urgent dot was recolored yellow. Fix both."
+    },
+    {
+      "task_id": "ha_006",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The badge has shifted down-left AND its inner dot is the wrong color. Restore both."
+    },
+    {
+      "task_id": "ha_007",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Two things are missing from the face: the tear AND the left blush. Add both back."
+    },
+    {
+      "task_id": "ha_008",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Both blushes turned green. Restore them to their original pink."
+    },
+    {
+      "task_id": "ha_009",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The crack line is missing AND the arrow is the wrong color. Repair both."
+    },
+    {
+      "task_id": "ha_010",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The left wheel is gone AND the right wheel rolled out of place. Fix both."
+    },
+    {
+      "task_id": "ha_011",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Both items in the cart turned purple. Restore each to its original color."
+    },
+    {
+      "task_id": "ha_012",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The pin-dot was recolored AND the shadow drifted. Restore both."
+    },
+    {
+      "task_id": "ha_013",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "Both side bows are missing from the gift. Restore them."
+    },
+    {
+      "task_id": "ha_014",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The bulb's halo is gone AND the filament's stroke is the wrong color. Fix both."
+    },
+    {
+      "task_id": "ha_015",
+      "difficulty": "hard",
+      "category": "multi",
+      "instruction": "The center dot drifted slightly AND the rotation arrow is the wrong color. Repair both."
+    },
+    {
+      "task_id": "ha_016",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The crack line has been mirrored. Flip it back to its original orientation."
+    },
+    {
+      "task_id": "ha_017",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The tear line was reversed. Restore the original direction."
+    },
+    {
+      "task_id": "ha_018",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The hour hand's stroke has been horizontally mirrored. Flip it back."
+    },
+    {
+      "task_id": "ha_019",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The minute hand was reversed. Restore its original direction."
+    },
+    {
+      "task_id": "ha_020",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The address line is mirrored. Restore it."
+    },
+    {
+      "task_id": "ha_021",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The windline has been horizontally reversed. Flip it back."
+    },
+    {
+      "task_id": "ha_022",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The filament zigzag was mirrored. Restore the original direction."
+    },
+    {
+      "task_id": "ha_023",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The rotation arrow points the wrong way. Mirror it back."
+    },
+    {
+      "task_id": "ha_024",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The tear was mirrored — its hook points the wrong way. Flip it back."
+    },
+    {
+      "task_id": "ha_025",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The arrow line on the heart was reversed. Restore the original direction."
+    },
+    {
+      "task_id": "ha_026",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The ringer (a single dot) wasn't actually flippable — author note: the polygon was reversed elsewhere; restore everything to the clean state."
+    },
+    {
+      "task_id": "ha_027",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The address line is reversed left-to-right. Flip it back."
+    },
+    {
+      "task_id": "ha_028",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "Minute hand got mirrored. Restore its original orientation."
+    },
+    {
+      "task_id": "ha_029",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The cog's rotation arrow has been mirrored. Flip it back to point the original way."
+    },
+    {
+      "task_id": "ha_030",
+      "difficulty": "hard",
+      "category": "flipped_part",
+      "instruction": "The wind-indicator polyline is reversed. Restore the original orientation."
+    },
+    {
+      "task_id": "ha_031",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The door is just 3px off to the right. Restore the exact original position."
+    },
+    {
+      "task_id": "ha_032",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The window has sunk a few pixels. Restore the precise original y."
+    },
+    {
+      "task_id": "ha_033",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The doorknob is 2px to the left of where it should be. Fix it."
+    },
+    {
+      "task_id": "ha_034",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The chimney slid 4px to the right. Restore the original alignment."
+    },
+    {
+      "task_id": "ha_035",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The hour hand's tip is barely off — 3px right. Restore it exactly."
+    },
+    {
+      "task_id": "ha_036",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The pivot is 2px off from center. Restore it to the exact center of the face."
+    },
+    {
+      "task_id": "ha_037",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The urgent dot is 3px off to the right. Restore it."
+    },
+    {
+      "task_id": "ha_038",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The stamp dropped 3px. Move it back to its precise position."
+    },
+    {
+      "task_id": "ha_039",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The badge is 3px to the left of its intended spot. Fix it."
+    },
+    {
+      "task_id": "ha_040",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "Left blush is 3px to the right. Restore the precise original position."
+    },
+    {
+      "task_id": "ha_041",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "Left wheel is 3px off-track. Restore it."
+    },
+    {
+      "task_id": "ha_042",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The pin-dot dropped a few pixels. Restore it."
+    },
+    {
+      "task_id": "ha_043",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The bow knot is 3px off-center. Restore it."
+    },
+    {
+      "task_id": "ha_044",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The pole-tip slipped 4px down. Restore it to the very top."
+    },
+    {
+      "task_id": "ha_045",
+      "difficulty": "hard",
+      "category": "displaced_part",
+      "instruction": "The center dot is 2px off-center. Fix it."
+    },
+    {
+      "task_id": "ha_046",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The door is a slightly wrong shade of brown. Restore the original #6a3819."
+    },
+    {
+      "task_id": "ha_047",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The window's blue tint is wrong. Restore the original #94c8ff."
+    },
+    {
+      "task_id": "ha_048",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The chimney's brown is too dark. Restore the original #603020."
+    },
+    {
+      "task_id": "ha_049",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The pivot's red is slightly off. Restore the exact #e63946."
+    },
+    {
+      "task_id": "ha_050",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The stamp's red drifted. Restore the exact original red (#e63946)."
+    },
+    {
+      "task_id": "ha_051",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The notification badge red is a tone off. Restore the exact #e63946."
+    },
+    {
+      "task_id": "ha_052",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The left blush pink is slightly off. Restore the exact #fda4af."
+    },
+    {
+      "task_id": "ha_053",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "Right blush pink is slightly off. Restore the exact #fda4af."
+    },
+    {
+      "task_id": "ha_054",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The crack line's black is slightly darker than the spec. Restore the exact #222."
+    },
+    {
+      "task_id": "ha_055",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "Item-1's blue is slightly off. Restore the exact #3b82f6."
+    },
+    {
+      "task_id": "ha_056",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "Item-2's yellow is a tone off. Restore the exact #fde047."
+    },
+    {
+      "task_id": "ha_057",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The bow knot yellow is slightly off. Restore the exact #fde047."
+    },
+    {
+      "task_id": "ha_058",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "Pole-tip yellow is slightly off. Restore the exact #fde047."
+    },
+    {
+      "task_id": "ha_059",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The filament's orange is a touch off. Restore the exact #f97316."
+    },
+    {
+      "task_id": "ha_060",
+      "difficulty": "hard",
+      "category": "miscolor_part",
+      "instruction": "The center dot's red is slightly off. Restore the exact #e63946."
+    },
+    {
+      "task_id": "vh_001",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three things are wrong with this house: the door is missing, the window is the wrong color, AND the chimney has sagged. Fix all three."
+    },
+    {
+      "task_id": "vh_002",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three issues: doorknob is gone, window has shifted right, AND there's a stray green dot in the corner. Repair them all."
+    },
+    {
+      "task_id": "vh_003",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The clock has three problems: hour hand missing, pivot is green, and minute hand dropped slightly. Restore the clean state."
+    },
+    {
+      "task_id": "vh_004",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "All three clock parts have drifted by small amounts. Restore each to its precise original position."
+    },
+    {
+      "task_id": "vh_005",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three problems on the envelope: stamp missing, address line missing, urgent dot is blue. Fix them all."
+    },
+    {
+      "task_id": "vh_006",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The bell has lost its badge and the inner dot, and the ringer has drifted left. Restore the clean state."
+    },
+    {
+      "task_id": "vh_007",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three things wrong: tear missing, left blush is blue, right blush is green. Fix everything."
+    },
+    {
+      "task_id": "vh_008",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Crack and arrow gone, AND the heart outline got tinted blue. Restore the original state completely."
+    },
+    {
+      "task_id": "vh_009",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The cart has three problems: missing left wheel, missing item-1, and item-2 is the wrong color. Fix them all."
+    },
+    {
+      "task_id": "vh_010",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three issues on the pin: pin-dot is green, shadow shifted right, AND there's an extra yellow dot in the corner. Repair them all."
+    },
+    {
+      "task_id": "vh_011",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The gift's bows are gone (both sides) and the knot dropped slightly. Restore the clean state."
+    },
+    {
+      "task_id": "vh_012",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Pole-tip missing, windline recolored red AND shifted right. Restore the entire scene."
+    },
+    {
+      "task_id": "vh_013",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The bulb has no halo or filament, AND the base icon is yellow instead of black. Restore everything."
+    },
+    {
+      "task_id": "vh_014",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Three issues on the cog: center-dot drifted, rotation arrow is green, AND there's a small scratch in the corner. Fix all of them."
+    },
+    {
+      "task_id": "vh_015",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The chimney was flipped, the window was duplicated, AND the door is the wrong color. Restore the clean state."
+    },
+    {
+      "task_id": "vh_016",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Two parts of the house have drifted by 3px in opposite directions. Detect and fix both."
+    },
+    {
+      "task_id": "vh_017",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The hour hand dropped 3px AND the pivot's red is slightly off. Restore both precisely."
+    },
+    {
+      "task_id": "vh_018",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Both decorative parts have shifted slightly. Detect and restore each."
+    },
+    {
+      "task_id": "vh_019",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The badge drifted slightly AND the inner dot's white is a hair off. Restore both."
+    },
+    {
+      "task_id": "vh_020",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Both blushes drifted inward by 3px. Restore each to its original outer position."
+    },
+    {
+      "task_id": "vh_021",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Both wheels drifted slightly inward. Restore each to its original outer position."
+    },
+    {
+      "task_id": "vh_022",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The pin-dot slipped 2px AND its red is slightly off. Restore the exact original position and color."
+    },
+    {
+      "task_id": "vh_023",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Both bows drifted slightly outward. Restore each to the original inner position."
+    },
+    {
+      "task_id": "vh_024",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "Pole-tip and windline have both shifted by small amounts. Restore both."
+    },
+    {
+      "task_id": "vh_025",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The center-dot is 2px off AND the rotation arrow's blue is slightly wrong. Restore both precisely."
+    },
+    {
+      "task_id": "vh_026",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The home base icon is wrongly tinted blue AND the canvas is clipping the icon. Restore both."
+    },
+    {
+      "task_id": "vh_027",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The clock outline is red AND the canvas is too small. Repair the color and expand the viewBox."
+    },
+    {
+      "task_id": "vh_028",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The bell outline is green AND the canvas is way too small. Restore the original colors and viewBox."
+    },
+    {
+      "task_id": "vh_029",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The envelope outline is purple AND part of it is cropped. Restore both."
+    },
+    {
+      "task_id": "vh_030",
+      "difficulty": "very_hard",
+      "category": "multi",
+      "instruction": "The heart base is yellow AND the canvas is clipping it. Restore the original color and expand the viewBox."
+    }
+  ]
+}

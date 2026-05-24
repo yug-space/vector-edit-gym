@@ -1,0 +1,69 @@
+{
+  "task_id": "vh_024",
+  "difficulty": "very_hard",
+  "category": "multi",
+  "instruction": "Pole-tip and windline have both shifted by small amounts. Restore both.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"24\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"75,64 83,60 75,56 83,52\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n  <circle id=\"pole-tip\" fill=\"#fde047\" cx=\"28\" cy=\"22\" r=\"3\" />\n  <polyline id=\"windline\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1.5\" fill=\"none\" points=\"78,64 86,60 78,56 86,52\" />\n</svg>",
+  "parts": [
+    "flag",
+    "pole-tip",
+    "windline"
+  ],
+  "target_parts": [
+    "windline",
+    "pole-tip"
+  ],
+  "expected_diff": [
+    {
+      "part": "windline",
+      "attribute": "points",
+      "before": [
+        [
+          75,
+          64
+        ],
+        [
+          83,
+          60
+        ],
+        [
+          75,
+          56
+        ],
+        [
+          83,
+          52
+        ]
+      ],
+      "after": [
+        [
+          78,
+          64
+        ],
+        [
+          86,
+          60
+        ],
+        [
+          78,
+          56
+        ],
+        [
+          86,
+          52
+        ]
+      ]
+    },
+    {
+      "part": "pole-tip",
+      "attribute": "cy",
+      "before": 24,
+      "after": 22
+    }
+  ],
+  "should_preserve": [
+    "flag"
+  ],
+  "authored_at": "2026-05-24T21:25:53.422Z"
+}

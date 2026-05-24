@@ -1,0 +1,24 @@
+{
+  "task_id": "ve_005",
+  "difficulty": "very_easy",
+  "category": "wrong_color",
+  "instruction": "The moon was repainted orange. Put it back to black.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"moon\" data-source=\"heroicons/outline/moon.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #f97316\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"moon\" data-source=\"heroicons/outline/moon.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z\"/></g>\n</svg>",
+  "parts": [
+    "moon"
+  ],
+  "target_parts": [
+    "moon"
+  ],
+  "expected_diff": [
+    {
+      "part": "moon",
+      "attribute": "color",
+      "before": "#f97316",
+      "after": "#222"
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.389Z"
+}

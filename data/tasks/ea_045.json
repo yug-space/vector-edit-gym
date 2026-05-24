@@ -1,0 +1,41 @@
+{
+  "task_id": "ea_045",
+  "difficulty": "easy",
+  "category": "extra_part",
+  "instruction": "A short black line appeared in the upper-left. Remove it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n  <line id=\"corner-line\" stroke=\"#222\" stroke-width=\"1\" x1=\"16\" y1=\"16\" x2=\"30\" y2=\"30\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"light-bulb\" data-source=\"heroicons/outline/light-bulb.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18\"/></g>\n  <circle id=\"halo\" fill=\"#fde047\" opacity=\"0.25\" cx=\"64\" cy=\"50\" r=\"24\" />\n  <polyline id=\"filament\" fill=\"none\" stroke=\"#f97316\" stroke-width=\"1.5\" fill=\"none\" points=\"58,50 62,54 66,50 70,54\" />\n</svg>",
+  "parts": [
+    "light-bulb",
+    "halo",
+    "filament",
+    "corner-line"
+  ],
+  "target_parts": [
+    "corner-line"
+  ],
+  "expected_diff": [
+    {
+      "part": "corner-line",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "corner-line",
+        "type": "line",
+        "x1": 16,
+        "y1": 16,
+        "x2": 30,
+        "y2": 30,
+        "stroke": "#222",
+        "strokeWidth": 1
+      }
+    }
+  ],
+  "should_preserve": [
+    "light-bulb",
+    "halo",
+    "filament"
+  ],
+  "authored_at": "2026-05-24T21:25:53.404Z"
+}

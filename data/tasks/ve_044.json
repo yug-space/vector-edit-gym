@@ -1,0 +1,36 @@
+{
+  "task_id": "ve_044",
+  "difficulty": "very_easy",
+  "category": "wrong_scale",
+  "instruction": "Folder is small and lost on the canvas. Scale it up to 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"folder\" data-source=\"heroicons/outline/folder.svg\" transform=\"translate(34, 34) scale(2.5)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"folder\" data-source=\"heroicons/outline/folder.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z\"/></g>\n</svg>",
+  "parts": [
+    "folder"
+  ],
+  "target_parts": [
+    "folder"
+  ],
+  "expected_diff": [
+    {
+      "part": "folder",
+      "attribute": "size",
+      "before": 60,
+      "after": 112
+    },
+    {
+      "part": "folder",
+      "attribute": "x",
+      "before": 34,
+      "after": 8
+    },
+    {
+      "part": "folder",
+      "attribute": "y",
+      "before": 34,
+      "after": 8
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.398Z"
+}

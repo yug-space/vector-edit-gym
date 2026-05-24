@@ -1,0 +1,35 @@
+{
+  "task_id": "vh_022",
+  "difficulty": "very_hard",
+  "category": "multi",
+  "instruction": "The pin-dot slipped 2px AND its red is slightly off. Restore the exact original position and color.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#d33036\" cx=\"64\" cy=\"48\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"map-pin\" data-source=\"heroicons/outline/map-pin.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\"/></g>\n  <circle id=\"pin-dot\" fill=\"#e63946\" cx=\"64\" cy=\"46\" r=\"4\" />\n  <ellipse id=\"shadow\" fill=\"#0009\" cx=\"64\" cy=\"112\" rx=\"18\" ry=\"3\" />\n</svg>",
+  "parts": [
+    "map-pin",
+    "pin-dot",
+    "shadow"
+  ],
+  "target_parts": [
+    "pin-dot"
+  ],
+  "expected_diff": [
+    {
+      "part": "pin-dot",
+      "attribute": "fill",
+      "before": "#d33036",
+      "after": "#e63946"
+    },
+    {
+      "part": "pin-dot",
+      "attribute": "cy",
+      "before": 48,
+      "after": 46
+    }
+  ],
+  "should_preserve": [
+    "map-pin",
+    "shadow"
+  ],
+  "authored_at": "2026-05-24T21:25:53.421Z"
+}

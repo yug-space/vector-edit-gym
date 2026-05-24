@@ -1,0 +1,31 @@
+{
+  "task_id": "me_028",
+  "difficulty": "medium",
+  "category": "miscolor_part",
+  "instruction": "The right blush turned green. Restore the original pink.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n  <polyline id=\"tear-left\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"44,72 42,84 46,84\" />\n  <circle id=\"blush-left\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"36\" cy=\"70\" r=\"5\" />\n  <circle id=\"blush-right\" fill=\"#22c55e\" opacity=\"0.7\" cx=\"92\" cy=\"70\" r=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"face-smile\" data-source=\"heroicons/outline/face-smile.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z\"/></g>\n  <polyline id=\"tear-left\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"44,72 42,84 46,84\" />\n  <circle id=\"blush-left\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"36\" cy=\"70\" r=\"5\" />\n  <circle id=\"blush-right\" fill=\"#fda4af\" opacity=\"0.7\" cx=\"92\" cy=\"70\" r=\"5\" />\n</svg>",
+  "parts": [
+    "face-smile",
+    "tear-left",
+    "blush-left",
+    "blush-right"
+  ],
+  "target_parts": [
+    "blush-right"
+  ],
+  "expected_diff": [
+    {
+      "part": "blush-right",
+      "attribute": "fill",
+      "before": "#22c55e",
+      "after": "#fda4af"
+    }
+  ],
+  "should_preserve": [
+    "face-smile",
+    "tear-left",
+    "blush-left"
+  ],
+  "authored_at": "2026-05-24T21:25:53.409Z"
+}

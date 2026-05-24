@@ -1,0 +1,24 @@
+{
+  "task_id": "ve_060",
+  "difficulty": "very_easy",
+  "category": "wrong_color",
+  "instruction": "Flag icon turned purple by accident. Reset to the standard black outline.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #a855f7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"flag\" data-source=\"heroicons/outline/flag.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5\"/></g>\n</svg>",
+  "parts": [
+    "flag"
+  ],
+  "target_parts": [
+    "flag"
+  ],
+  "expected_diff": [
+    {
+      "part": "flag",
+      "attribute": "color",
+      "before": "#a855f7",
+      "after": "#222"
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.400Z"
+}

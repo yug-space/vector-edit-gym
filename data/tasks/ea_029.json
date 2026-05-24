@@ -1,0 +1,42 @@
+{
+  "task_id": "ea_029",
+  "difficulty": "easy",
+  "category": "extra_part",
+  "instruction": "An extra red tick mark appears near 2 o'clock. Remove it.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <rect id=\"extra-tick\" fill=\"#e63946\" x=\"100\" y=\"20\" width=\"4\" height=\"6\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"38\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"88\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "parts": [
+    "clock",
+    "hour-hand",
+    "minute-hand",
+    "pivot",
+    "extra-tick"
+  ],
+  "target_parts": [
+    "extra-tick"
+  ],
+  "expected_diff": [
+    {
+      "part": "extra-tick",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-tick",
+        "type": "rect",
+        "x": 100,
+        "y": 20,
+        "width": 4,
+        "height": 6,
+        "fill": "#e63946"
+      }
+    }
+  ],
+  "should_preserve": [
+    "clock",
+    "hour-hand",
+    "minute-hand",
+    "pivot"
+  ],
+  "authored_at": "2026-05-24T21:25:53.403Z"
+}

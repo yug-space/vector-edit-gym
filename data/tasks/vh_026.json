@@ -1,0 +1,49 @@
+{
+  "task_id": "vh_026",
+  "difficulty": "very_hard",
+  "category": "multi",
+  "instruction": "The home base icon is wrongly tinted blue AND the canvas is clipping the icon. Restore both.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"96\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"home\" data-source=\"heroicons/outline/home.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25\"/></g>\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"78\" width=\"16\" height=\"30\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"32\" y=\"56\" width=\"12\" height=\"12\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"26\" width=\"8\" height=\"16\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n</svg>",
+  "parts": [
+    "home",
+    "door",
+    "window",
+    "chimney",
+    "doorknob"
+  ],
+  "target_parts": [
+    "home"
+  ],
+  "expected_diff": [
+    {
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        96,
+        96
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    {
+      "part": "home",
+      "attribute": "color",
+      "before": "#3b82f6",
+      "after": "#222"
+    }
+  ],
+  "should_preserve": [
+    "door",
+    "window",
+    "chimney",
+    "doorknob"
+  ],
+  "authored_at": "2026-05-24T21:25:53.422Z"
+}

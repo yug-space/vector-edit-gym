@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail, Pencil, Library, Boxes } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 function GithubMark(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -9,7 +9,7 @@ function GithubMark(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -65,12 +65,6 @@ export default async function HomePage() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="/author">
-                <Pencil />
-                Author a task
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="ghost">
               <a href="https://github.com/yug-space/vector-edit-gym" target="_blank" rel="noreferrer">
                 <GithubMark className="h-4 w-4" />
                 View on GitHub
@@ -158,35 +152,6 @@ vec-edit-gym evaluate vector_edit_gym.examples.openai_solver:solve --json`}
         </div>
       </section>
 
-      {/* EXPLORE ----------------------------------------------------------- */}
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-2xl font-semibold tracking-tight">Explore</h2>
-          <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">
-            Three surfaces: browse the task set, author new tasks, or inspect the underlying real-icon catalog.
-          </p>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <NavCard
-              href="/tasks"
-              icon={<Boxes className="h-5 w-5" />}
-              title="Tasks"
-              description={`${tasks.length} task${tasks.length === 1 ? "" : "s"} · filter by difficulty, category, or text`}
-            />
-            <NavCard
-              href="/author"
-              icon={<Pencil className="h-5 w-5" />}
-              title="Author"
-              description="Build a new task in the browser. Live preview, save straight to disk."
-            />
-            <NavCard
-              href="/icons"
-              icon={<Library className="h-5 w-5" />}
-              title="Icon catalog"
-              description="955 open-source icons (Heroicons, Feather, Iconify) — the source material."
-            />
-          </div>
-        </div>
-      </section>
     </>
   );
 }
@@ -204,28 +169,3 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function NavCard({
-  href,
-  icon,
-  title,
-  description,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <Link href={href}>
-      <Card className="h-full transition-colors hover:border-[hsl(var(--foreground))]/30">
-        <CardHeader>
-          <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-[hsl(var(--muted))]">
-            {icon}
-          </div>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
-        </CardHeader>
-      </Card>
-    </Link>
-  );
-}

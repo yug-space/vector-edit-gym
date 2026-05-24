@@ -1,0 +1,24 @@
+{
+  "task_id": "ve_033",
+  "difficulty": "very_easy",
+  "category": "wrong_stroke_width",
+  "instruction": "The clock is rendered with very thin lines. Set stroke-width back to 1.5.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
+  "parts": [
+    "clock"
+  ],
+  "target_parts": [
+    "clock"
+  ],
+  "expected_diff": [
+    {
+      "part": "clock",
+      "attribute": "stroke-width",
+      "before": 0.5,
+      "after": 1.5
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.396Z"
+}

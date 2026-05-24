@@ -1,0 +1,24 @@
+{
+  "task_id": "ve_025",
+  "difficulty": "very_easy",
+  "category": "wrong_stroke_width",
+  "instruction": "The cloud is far too bold. Reset stroke-width to 1.5.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"cloud\" data-source=\"heroicons/outline/cloud.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"cloud\" data-source=\"heroicons/outline/cloud.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z\"/></g>\n</svg>",
+  "parts": [
+    "cloud"
+  ],
+  "target_parts": [
+    "cloud"
+  ],
+  "expected_diff": [
+    {
+      "part": "cloud",
+      "attribute": "stroke-width",
+      "before": 4.5,
+      "after": 1.5
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.395Z"
+}

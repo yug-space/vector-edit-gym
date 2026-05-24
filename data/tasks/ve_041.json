@@ -1,0 +1,36 @@
+{
+  "task_id": "ve_041",
+  "difficulty": "very_easy",
+  "category": "wrong_scale",
+  "instruction": "Envelope is oversized. Bring it back to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(3, 3) scale(5.0833)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"envelope\" data-source=\"heroicons/outline/envelope.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75\"/></g>\n</svg>",
+  "parts": [
+    "envelope"
+  ],
+  "target_parts": [
+    "envelope"
+  ],
+  "expected_diff": [
+    {
+      "part": "envelope",
+      "attribute": "size",
+      "before": 122,
+      "after": 112
+    },
+    {
+      "part": "envelope",
+      "attribute": "x",
+      "before": 3,
+      "after": 8
+    },
+    {
+      "part": "envelope",
+      "attribute": "y",
+      "before": 3,
+      "after": 8
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.397Z"
+}

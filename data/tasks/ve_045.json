@@ -1,0 +1,36 @@
+{
+  "task_id": "ve_045",
+  "difficulty": "very_easy",
+  "category": "wrong_scale",
+  "instruction": "Clock is rendered too large. Reset to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(4, 4) scale(5)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"clock\" data-source=\"heroicons/outline/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
+  "parts": [
+    "clock"
+  ],
+  "target_parts": [
+    "clock"
+  ],
+  "expected_diff": [
+    {
+      "part": "clock",
+      "attribute": "size",
+      "before": 120,
+      "after": 112
+    },
+    {
+      "part": "clock",
+      "attribute": "x",
+      "before": 4,
+      "after": 8
+    },
+    {
+      "part": "clock",
+      "attribute": "y",
+      "before": 4,
+      "after": 8
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:25:53.398Z"
+}
