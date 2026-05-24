@@ -1,38 +1,36 @@
 {
   "task_id": "ea_014",
   "difficulty": "easy",
-  "category": "missing_part",
-  "instruction": "Add a thin black frame square to the currency rupee icon around the icon (rect x=4, y=4, 120x120, fill none, stroke #222, stroke-width 1).",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-rupee.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-rupee.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <rect id=\"frame\" fill=\"none\" stroke=\"#222\" stroke-width=\"1\" x=\"4\" y=\"4\" width=\"120\" height=\"120\" />\n</svg>",
+  "category": "wrong_scale",
+  "instruction": "The bell alert icon is too large (currently size 124). Restore it to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bell-alert.svg\" transform=\"translate(2, 2) scale(5.1667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bell-alert.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5\"/></g>\n</svg>",
   "parts": [
-    "icon",
-    "frame"
+    "icon"
   ],
   "target_parts": [
-    "frame"
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "frame",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "frame",
-        "type": "rect",
-        "x": 4,
-        "y": 4,
-        "width": 120,
-        "height": 120,
-        "fill": "none",
-        "stroke": "#222",
-        "strokeWidth": 1
-      }
+      "part": "icon",
+      "attribute": "size",
+      "before": 124,
+      "after": 112
+    },
+    {
+      "part": "icon",
+      "attribute": "x",
+      "before": 2,
+      "after": 8
+    },
+    {
+      "part": "icon",
+      "attribute": "y",
+      "before": 2,
+      "after": 8
     }
   ],
-  "should_preserve": [
-    "icon"
-  ],
-  "authored_at": "2026-05-24T21:34:25.605Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.394Z"
 }

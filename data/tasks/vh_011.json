@@ -1,44 +1,54 @@
 {
   "task_id": "vh_011",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the camera icon: the base outline is red, the small green dot is pink (wrong color), AND the small green dot has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/camera.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"/><circle cx=\"12\" cy=\"13\" r=\"4\"/></g>\n  <circle id=\"dot\" fill=\"#ec4899\" cx=\"22\" cy=\"118\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/camera.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"/><circle cx=\"12\" cy=\"13\" r=\"4\"/></g>\n  <circle id=\"dot\" fill=\"#22c55e\" cx=\"16\" cy=\"112\" r=\"2\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a smiley face step by step (step 5 of 6). So far you've drawn: face, eye-left, eye-right, nose. Add the next part: polyline (points 50,78 64,86 78,78, fill none, stroke #222, stroke-width 2) with id \"mouth\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n</svg>",
   "parts": [
-    "icon",
-    "dot"
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth"
   ],
   "target_parts": [
-    "dot",
-    "icon"
+    "mouth"
   ],
   "expected_diff": [
     {
-      "part": "dot",
-      "attribute": "cx",
-      "before": 22,
-      "after": 16
-    },
-    {
-      "part": "dot",
-      "attribute": "cy",
-      "before": 118,
-      "after": 112
-    },
-    {
-      "part": "dot",
-      "attribute": "fill",
-      "before": "#ec4899",
-      "after": "#22c55e"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#e63946",
-      "after": "#222"
+      "part": "mouth",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "mouth",
+        "type": "polyline",
+        "points": [
+          [
+            50,
+            78
+          ],
+          [
+            64,
+            86
+          ],
+          [
+            78,
+            78
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 2,
+        "fill": "none"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.649Z"
+  "should_preserve": [
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

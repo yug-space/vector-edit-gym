@@ -1,35 +1,36 @@
 {
   "task_id": "ea_015",
   "difficulty": "easy",
-  "category": "missing_part",
-  "instruction": "This currency yen icon needs a small purple dot added back in the top-left (circle cx=16, cy=16, r=2, fill #a855f7).",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-yen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m9 7.5 3 4.5m0 0 3-4.5M12 12v5.25M15 12H9m6 3H9m12-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/currency-yen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m9 7.5 3 4.5m0 0 3-4.5M12 12v5.25M15 12H9m6 3H9m12-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z\"/></g>\n  <circle id=\"dot\" fill=\"#a855f7\" cx=\"16\" cy=\"16\" r=\"2\" />\n</svg>",
+  "category": "wrong_scale",
+  "instruction": "The bell slash icon is too small (currently size 56). Restore it to size 112.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bell-slash.svg\" transform=\"translate(36, 36) scale(2.3333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.143 17.082a24.248 24.248 0 0 0 3.844.148m-3.844-.148a23.856 23.856 0 0 1-5.455-1.31 8.964 8.964 0 0 0 2.3-5.542m3.155 6.852a3 3 0 0 0 5.667 1.97m1.965-2.277L21 21m-4.225-4.225a23.81 23.81 0 0 0 3.536-1.003A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6.53 6.53m10.245 10.245L6.53 6.53M3 3l3.53 3.53\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bell-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.143 17.082a24.248 24.248 0 0 0 3.844.148m-3.844-.148a23.856 23.856 0 0 1-5.455-1.31 8.964 8.964 0 0 0 2.3-5.542m3.155 6.852a3 3 0 0 0 5.667 1.97m1.965-2.277L21 21m-4.225-4.225a23.81 23.81 0 0 0 3.536-1.003A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6.53 6.53m10.245 10.245L6.53 6.53M3 3l3.53 3.53\"/></g>\n</svg>",
   "parts": [
-    "icon",
-    "dot"
+    "icon"
   ],
   "target_parts": [
-    "dot"
+    "icon"
   ],
   "expected_diff": [
     {
-      "part": "dot",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "dot",
-        "type": "circle",
-        "cx": 16,
-        "cy": 16,
-        "r": 2,
-        "fill": "#a855f7"
-      }
+      "part": "icon",
+      "attribute": "size",
+      "before": 56,
+      "after": 112
+    },
+    {
+      "part": "icon",
+      "attribute": "x",
+      "before": 36,
+      "after": 8
+    },
+    {
+      "part": "icon",
+      "attribute": "y",
+      "before": 36,
+      "after": 8
     }
   ],
-  "should_preserve": [
-    "icon"
-  ],
-  "authored_at": "2026-05-24T21:34:25.605Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.394Z"
 }

@@ -1,33 +1,35 @@
 {
   "task_id": "vh_019",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the clock icon: the yellow highlight ring is the wrong shade (off-white) AND it has drifted slightly (~3px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></g>\n  <circle id=\"halo\" fill=\"#fafafa\" stroke=\"#fde047\" stroke-width=\"2\" cx=\"64\" cy=\"61\" r=\"56\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clock.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></g>\n  <circle id=\"halo\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"56\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a car step by step (step 1 of 6). The canvas is empty. Add the next part: rect (x=16, y=64, width=96, height=24, rx=4, fill #3b82f6) with id \"body\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n</svg>",
   "parts": [
-    "icon",
-    "halo"
+    "body"
   ],
   "target_parts": [
-    "halo"
+    "body"
   ],
   "expected_diff": [
     {
-      "part": "halo",
-      "attribute": "cy",
-      "before": 61,
-      "after": 64
-    },
-    {
-      "part": "halo",
-      "attribute": "fill",
-      "before": "#fafafa",
-      "after": "none"
+      "part": "body",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "body",
+        "type": "rect",
+        "x": 16,
+        "y": 64,
+        "width": 96,
+        "height": 24,
+        "rx": 4,
+        "ry": 4,
+        "fill": "#3b82f6"
+      }
     }
   ],
-  "should_preserve": [
-    "icon"
-  ],
-  "authored_at": "2026-05-24T21:34:25.651Z"
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

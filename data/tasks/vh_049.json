@@ -1,0 +1,34 @@
+{
+  "task_id": "vh_049",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a flower step by step (step 1 of 6). The canvas is empty. Add the next part: line ((64,72)→(64,116), stroke #22c55e, stroke-width 3) with id \"stem\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n</svg>",
+  "parts": [
+    "stem"
+  ],
+  "target_parts": [
+    "stem"
+  ],
+  "expected_diff": [
+    {
+      "part": "stem",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "stem",
+        "type": "line",
+        "x1": 64,
+        "y1": 72,
+        "x2": 64,
+        "y2": 116,
+        "stroke": "#22c55e",
+        "strokeWidth": 3
+      }
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.402Z"
+}

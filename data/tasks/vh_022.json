@@ -1,115 +1,39 @@
 {
   "task_id": "vh_022",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the cloud off icon: the yellow star stamp is the wrong shade (dark gray) AND it has drifted slightly (~4px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-off.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3\"/><line x1=\"1\" y1=\"1\" x2=\"23\" y2=\"23\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#444444\" points=\"24,16 26,22 32,22 27,26 29,32 24,28 19,32 21,26 16,22 22,22\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-off.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3\"/><line x1=\"1\" y1=\"1\" x2=\"23\" y2=\"23\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#fde047\" points=\"20,16 22,22 28,22 23,26 25,32 20,28 15,32 17,26 12,22 18,22\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a car step by step (step 4 of 6). So far you've drawn: body, roof, window. Add the next part: circle (cx=32, cy=92, r=8, fill #222) with id \"wheel-left\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n</svg>",
   "parts": [
-    "icon",
-    "star-stamp"
+    "body",
+    "roof",
+    "window",
+    "wheel-left"
   ],
   "target_parts": [
-    "star-stamp"
+    "wheel-left"
   ],
   "expected_diff": [
     {
-      "part": "star-stamp",
-      "attribute": "points",
-      "before": [
-        [
-          24,
-          16
-        ],
-        [
-          26,
-          22
-        ],
-        [
-          32,
-          22
-        ],
-        [
-          27,
-          26
-        ],
-        [
-          29,
-          32
-        ],
-        [
-          24,
-          28
-        ],
-        [
-          19,
-          32
-        ],
-        [
-          21,
-          26
-        ],
-        [
-          16,
-          22
-        ],
-        [
-          22,
-          22
-        ]
-      ],
-      "after": [
-        [
-          20,
-          16
-        ],
-        [
-          22,
-          22
-        ],
-        [
-          28,
-          22
-        ],
-        [
-          23,
-          26
-        ],
-        [
-          25,
-          32
-        ],
-        [
-          20,
-          28
-        ],
-        [
-          15,
-          32
-        ],
-        [
-          17,
-          26
-        ],
-        [
-          12,
-          22
-        ],
-        [
-          18,
-          22
-        ]
-      ]
-    },
-    {
-      "part": "star-stamp",
-      "attribute": "fill",
-      "before": "#444444",
-      "after": "#fde047"
+      "part": "wheel-left",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "wheel-left",
+        "type": "circle",
+        "cx": 32,
+        "cy": 92,
+        "r": 8,
+        "fill": "#222"
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "body",
+    "roof",
+    "window"
   ],
-  "authored_at": "2026-05-24T21:34:25.652Z"
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

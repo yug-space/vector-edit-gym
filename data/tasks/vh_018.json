@@ -1,33 +1,43 @@
 {
   "task_id": "vh_018",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the clipboard icon: the gray watermark square is the wrong shade (near-white) AND it has drifted slightly (~3px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clipboard.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/></g>\n  <rect id=\"watermark\" fill=\"#fcfcfc\" opacity=\"0.4\" x=\"8\" y=\"11\" width=\"14\" height=\"14\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/clipboard.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/></g>\n  <rect id=\"watermark\" fill=\"#9ca3af\" opacity=\"0.4\" x=\"8\" y=\"8\" width=\"14\" height=\"14\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 6 of 6). So far you've drawn: face, mark-12, mark-6, hour-hand, minute-hand. Add the next part: circle (cx=64, cy=64, r=3, fill #e63946) with id \"pivot\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"3\" />\n</svg>",
   "parts": [
-    "icon",
-    "watermark"
+    "face",
+    "mark-12",
+    "mark-6",
+    "hour-hand",
+    "minute-hand",
+    "pivot"
   ],
   "target_parts": [
-    "watermark"
+    "pivot"
   ],
   "expected_diff": [
     {
-      "part": "watermark",
-      "attribute": "y",
-      "before": 11,
-      "after": 8
-    },
-    {
-      "part": "watermark",
-      "attribute": "fill",
-      "before": "#fcfcfc",
-      "after": "#9ca3af"
+      "part": "pivot",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "pivot",
+        "type": "circle",
+        "cx": 64,
+        "cy": 64,
+        "r": 3,
+        "fill": "#e63946"
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "face",
+    "mark-12",
+    "mark-6",
+    "hour-hand",
+    "minute-hand"
   ],
-  "authored_at": "2026-05-24T21:34:25.651Z"
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

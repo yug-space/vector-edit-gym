@@ -1,39 +1,43 @@
 {
   "task_id": "vh_017",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the circle icon: the red horizontal strikethrough is the wrong shade (dark gray) AND it has drifted slightly (~3px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></g>\n  <line id=\"overstrike\" stroke=\"#444444\" stroke-width=\"2\" x1=\"13\" y1=\"64\" x2=\"109\" y2=\"64\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></g>\n  <line id=\"overstrike\" stroke=\"#e63946\" stroke-width=\"2\" x1=\"16\" y1=\"64\" x2=\"112\" y2=\"64\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 5 of 6). So far you've drawn: face, mark-12, mark-6, hour-hand. Add the next part: line ((64,64)→(86,64), stroke #222, stroke-width 2) with id \"minute-hand\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n</svg>",
   "parts": [
-    "icon",
-    "overstrike"
+    "face",
+    "mark-12",
+    "mark-6",
+    "hour-hand",
+    "minute-hand"
   ],
   "target_parts": [
-    "overstrike"
+    "minute-hand"
   ],
   "expected_diff": [
     {
-      "part": "overstrike",
-      "attribute": "x1",
-      "before": 13,
-      "after": 16
-    },
-    {
-      "part": "overstrike",
-      "attribute": "x2",
-      "before": 109,
-      "after": 112
-    },
-    {
-      "part": "overstrike",
-      "attribute": "stroke",
-      "before": "#444444",
-      "after": "#e63946"
+      "part": "minute-hand",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "minute-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 86,
+        "y2": 64,
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "face",
+    "mark-12",
+    "mark-6",
+    "hour-hand"
   ],
-  "authored_at": "2026-05-24T21:34:25.650Z"
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

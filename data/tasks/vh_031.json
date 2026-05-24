@@ -1,0 +1,33 @@
+{
+  "task_id": "vh_031",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a cake step by step (step 1 of 6). The canvas is empty. Add the next part: ellipse (cx=64, cy=108, rx=44, ry=6, fill #888888) with id \"plate\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n</svg>",
+  "parts": [
+    "plate"
+  ],
+  "target_parts": [
+    "plate"
+  ],
+  "expected_diff": [
+    {
+      "part": "plate",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "plate",
+        "type": "ellipse",
+        "cx": 64,
+        "cy": 108,
+        "rx": 44,
+        "ry": 6,
+        "fill": "#888888"
+      }
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.400Z"
+}

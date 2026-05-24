@@ -1,40 +1,41 @@
 {
   "task_id": "vh_029",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "The coffee icon has two problems: it's been tinted yellow AND the canvas is clipping it (64x64). Restore both the color and the viewBox.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"64\" height=\"64\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/coffee.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M18 8h1a4 4 0 0 1 0 8h-1\"/><path d=\"M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z\"/><line x1=\"6\" y1=\"1\" x2=\"6\" y2=\"4\"/><line x1=\"10\" y1=\"1\" x2=\"10\" y2=\"4\"/><line x1=\"14\" y1=\"1\" x2=\"14\" y2=\"4\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/coffee.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M18 8h1a4 4 0 0 1 0 8h-1\"/><path d=\"M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z\"/><line x1=\"6\" y1=\"1\" x2=\"6\" y2=\"4\"/><line x1=\"10\" y1=\"1\" x2=\"10\" y2=\"4\"/><line x1=\"14\" y1=\"1\" x2=\"14\" y2=\"4\"/></g>\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a tree step by step (step 5 of 6). So far you've drawn: ground, trunk, crown, fruit-1. Add the next part: circle (cx=78, cy=52, r=4, fill #e63946) with id \"fruit-2\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n</svg>",
   "parts": [
-    "icon"
+    "ground",
+    "trunk",
+    "crown",
+    "fruit-1",
+    "fruit-2"
   ],
   "target_parts": [
-    "icon"
+    "fruit-2"
   ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        64,
-        64
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#fde047",
-      "after": "#222"
+      "part": "fruit-2",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "fruit-2",
+        "type": "circle",
+        "cx": 78,
+        "cy": 52,
+        "r": 4,
+        "fill": "#e63946"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.653Z"
+  "should_preserve": [
+    "ground",
+    "trunk",
+    "crown",
+    "fruit-1"
+  ],
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

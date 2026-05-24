@@ -1,44 +1,45 @@
 {
   "task_id": "vh_012",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the cast icon: the base outline is blue, the small pink dot is cyan (wrong color), AND the small pink dot has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cast.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"/><line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"/></g>\n  <circle id=\"dot\" fill=\"#06b6d4\" cx=\"106\" cy=\"106\" r=\"2\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cast.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6\"/><line x1=\"2\" y1=\"20\" x2=\"2.01\" y2=\"20\"/></g>\n  <circle id=\"dot\" fill=\"#ec4899\" cx=\"112\" cy=\"112\" r=\"2\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a smiley face step by step (step 6 of 6). So far you've drawn: face, eye-left, eye-right, nose, mouth. Add the next part: line ((44,42)→(56,40), stroke #222, stroke-width 2) with id \"eyebrow\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n  <line id=\"eyebrow\" stroke=\"#222\" stroke-width=\"2\" x1=\"44\" y1=\"42\" x2=\"56\" y2=\"40\" />\n</svg>",
   "parts": [
-    "icon",
-    "dot"
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth",
+    "eyebrow"
   ],
   "target_parts": [
-    "dot",
-    "icon"
+    "eyebrow"
   ],
   "expected_diff": [
     {
-      "part": "dot",
-      "attribute": "cx",
-      "before": 106,
-      "after": 112
-    },
-    {
-      "part": "dot",
-      "attribute": "cy",
-      "before": 106,
-      "after": 112
-    },
-    {
-      "part": "dot",
-      "attribute": "fill",
-      "before": "#06b6d4",
-      "after": "#ec4899"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#3b82f6",
-      "after": "#222"
+      "part": "eyebrow",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "eyebrow",
+        "type": "line",
+        "x1": 44,
+        "y1": 42,
+        "x2": 56,
+        "y2": 40,
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.649Z"
+  "should_preserve": [
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

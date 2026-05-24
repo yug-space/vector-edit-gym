@@ -1,0 +1,33 @@
+{
+  "task_id": "vh_043",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a coffee cup step by step (step 1 of 6). The canvas is empty. Add the next part: ellipse (cx=64, cy=104, rx=40, ry=6, fill #cccccc) with id \"saucer\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"saucer\" fill=\"#cccccc\" cx=\"64\" cy=\"104\" rx=\"40\" ry=\"6\" />\n</svg>",
+  "parts": [
+    "saucer"
+  ],
+  "target_parts": [
+    "saucer"
+  ],
+  "expected_diff": [
+    {
+      "part": "saucer",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "saucer",
+        "type": "ellipse",
+        "cx": 64,
+        "cy": 104,
+        "rx": 40,
+        "ry": 6,
+        "fill": "#cccccc"
+      }
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.401Z"
+}

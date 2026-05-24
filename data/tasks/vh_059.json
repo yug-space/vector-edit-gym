@@ -1,0 +1,52 @@
+{
+  "task_id": "vh_059",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a rocket step by step (step 5 of 6). So far you've drawn: flame, body, nose-cone, fin-left. Add the next part: polygon (points 80,80 96,110 80,110, fill #e63946) with id \"fin-right\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n  <polygon id=\"fin-left\" fill=\"#e63946\" points=\"48,80 32,110 48,110\" />\n  <polygon id=\"fin-right\" fill=\"#e63946\" points=\"80,80 96,110 80,110\" />\n</svg>",
+  "parts": [
+    "flame",
+    "body",
+    "nose-cone",
+    "fin-left",
+    "fin-right"
+  ],
+  "target_parts": [
+    "fin-right"
+  ],
+  "expected_diff": [
+    {
+      "part": "fin-right",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "fin-right",
+        "type": "polygon",
+        "points": [
+          [
+            80,
+            80
+          ],
+          [
+            96,
+            110
+          ],
+          [
+            80,
+            110
+          ]
+        ],
+        "fill": "#e63946"
+      }
+    }
+  ],
+  "should_preserve": [
+    "flame",
+    "body",
+    "nose-cone",
+    "fin-left"
+  ],
+  "authored_at": "2026-05-24T21:42:25.402Z"
+}

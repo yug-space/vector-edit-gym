@@ -1,48 +1,34 @@
 {
   "task_id": "ea_019",
   "difficulty": "easy",
-  "category": "missing_part",
-  "instruction": "This device tablet icon needs a green checkmark added back in the top-right (polyline (88,24)→(98,34)→(114,18), stroke #22c55e, stroke-width 3, no fill).",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/device-tablet.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-15a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 4.5v15a2.25 2.25 0 0 0 2.25 2.25Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/device-tablet.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-15a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 4.5v15a2.25 2.25 0 0 0 2.25 2.25Z\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"3\" fill=\"none\" points=\"88,24 98,34 114,18\" />\n</svg>",
+  "category": "clipped_viewbox",
+  "instruction": "The bolt slash icon is being clipped by a 72x72 canvas. Expand the viewBox to 128x128.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" width=\"72\" height=\"72\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"72\" height=\"72\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bolt-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bolt-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21\"/></g>\n</svg>",
   "parts": [
-    "icon",
-    "check"
+    "icon"
   ],
-  "target_parts": [
-    "check"
-  ],
+  "target_parts": [],
   "expected_diff": [
     {
-      "part": "check",
-      "attribute": "exists",
-      "before": false,
-      "after": true,
-      "added": {
-        "id": "check",
-        "type": "polyline",
-        "points": [
-          [
-            88,
-            24
-          ],
-          [
-            98,
-            34
-          ],
-          [
-            114,
-            18
-          ]
-        ],
-        "stroke": "#22c55e",
-        "strokeWidth": 3,
-        "fill": "none"
-      }
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        72,
+        72
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
     }
   ],
   "should_preserve": [
     "icon"
   ],
-  "authored_at": "2026-05-24T21:34:25.605Z"
+  "authored_at": "2026-05-24T21:42:25.395Z"
 }

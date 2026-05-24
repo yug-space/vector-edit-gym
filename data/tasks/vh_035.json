@@ -1,0 +1,42 @@
+{
+  "task_id": "vh_035",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a cake step by step (step 5 of 6). So far you've drawn: plate, base-layer, top-layer, frosting. Add the next part: rect (x=62, y=24, width=4, height=20, fill #f0c0c0) with id \"candle\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" fill=\"none\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" fill=\"none\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n  <rect id=\"candle\" fill=\"#f0c0c0\" x=\"62\" y=\"24\" width=\"4\" height=\"20\" />\n</svg>",
+  "parts": [
+    "plate",
+    "base-layer",
+    "top-layer",
+    "frosting",
+    "candle"
+  ],
+  "target_parts": [
+    "candle"
+  ],
+  "expected_diff": [
+    {
+      "part": "candle",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "candle",
+        "type": "rect",
+        "x": 62,
+        "y": 24,
+        "width": 4,
+        "height": 20,
+        "fill": "#f0c0c0"
+      }
+    }
+  ],
+  "should_preserve": [
+    "plate",
+    "base-layer",
+    "top-layer",
+    "frosting"
+  ],
+  "authored_at": "2026-05-24T21:42:25.401Z"
+}

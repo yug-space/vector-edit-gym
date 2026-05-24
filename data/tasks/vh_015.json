@@ -1,80 +1,38 @@
 {
   "task_id": "vh_015",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the check icon: the base outline is purple, the yellow sparkle is purple (wrong color), AND the yellow sparkle has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #a855f7\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"20 6 9 17 4 12\"/></g>\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#a855f7\" stroke-width=\"2\" fill=\"none\" points=\"20,72 24,68 28,72 24,76 20,72\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"20 6 9 17 4 12\"/></g>\n  <polyline id=\"sparkle\" fill=\"none\" stroke=\"#fde047\" stroke-width=\"2\" fill=\"none\" points=\"20,64 24,60 28,64 24,68 20,64\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 3 of 6). So far you've drawn: face, mark-12. Add the next part: rect (x=62, y=102, width=4, height=8, fill #222) with id \"mark-6\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n</svg>",
   "parts": [
-    "icon",
-    "sparkle"
+    "face",
+    "mark-12",
+    "mark-6"
   ],
   "target_parts": [
-    "sparkle",
-    "icon"
+    "mark-6"
   ],
   "expected_diff": [
     {
-      "part": "sparkle",
-      "attribute": "points",
-      "before": [
-        [
-          20,
-          72
-        ],
-        [
-          24,
-          68
-        ],
-        [
-          28,
-          72
-        ],
-        [
-          24,
-          76
-        ],
-        [
-          20,
-          72
-        ]
-      ],
-      "after": [
-        [
-          20,
-          64
-        ],
-        [
-          24,
-          60
-        ],
-        [
-          28,
-          64
-        ],
-        [
-          24,
-          68
-        ],
-        [
-          20,
-          64
-        ]
-      ]
-    },
-    {
-      "part": "sparkle",
-      "attribute": "stroke",
-      "before": "#a855f7",
-      "after": "#fde047"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#a855f7",
-      "after": "#222"
+      "part": "mark-6",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "mark-6",
+        "type": "rect",
+        "x": 62,
+        "y": 102,
+        "width": 4,
+        "height": 8,
+        "fill": "#222"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.650Z"
+  "should_preserve": [
+    "face",
+    "mark-12"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

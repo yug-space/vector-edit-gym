@@ -1,24 +1,32 @@
 {
   "task_id": "ha_007",
   "difficulty": "hard",
-  "category": "multi",
-  "instruction": "Two issues on the square 3 stack 3d icon: the base outline is wrongly tinted pink, AND the yellow price tag on top is the wrong color (purple). Fix both.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/square-3-stack-3d.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #ec4899\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3\"/></g>\n  <rect id=\"price-tag\" fill=\"#a855f7\" stroke=\"#222\" stroke-width=\"1\" x=\"84\" y=\"96\" width=\"28\" height=\"14\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/square-3-stack-3d.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3\"/></g>\n  <rect id=\"price-tag\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"1\" x=\"84\" y=\"96\" width=\"28\" height=\"14\" />\n</svg>",
+  "category": "wrong_color+clipped_viewbox",
+  "instruction": "The building library icon has two problems: it's been tinted pink AND the canvas is clipping it (currently 80x88). Restore the original black color and expand the viewBox to 128x128.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 88\" width=\"80\" height=\"88\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"88\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-library.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #ec4899\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-library.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z\"/></g>\n</svg>",
   "parts": [
-    "icon",
-    "price-tag"
+    "icon"
   ],
   "target_parts": [
-    "price-tag",
     "icon"
   ],
   "expected_diff": [
     {
-      "part": "price-tag",
-      "attribute": "fill",
-      "before": "#a855f7",
-      "after": "#fde047"
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        80,
+        88
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
     },
     {
       "part": "icon",
@@ -28,5 +36,5 @@
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.635Z"
+  "authored_at": "2026-05-24T21:42:25.396Z"
 }

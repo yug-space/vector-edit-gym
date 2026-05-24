@@ -1,33 +1,43 @@
 {
   "task_id": "vh_024",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the cloud snow icon: the blue header bar is the wrong shade (off-white) AND it has drifted slightly (~3px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-snow.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25\"/><line x1=\"8\" y1=\"16\" x2=\"8.01\" y2=\"16\"/><line x1=\"8\" y1=\"20\" x2=\"8.01\" y2=\"20\"/><line x1=\"12\" y1=\"18\" x2=\"12.01\" y2=\"18\"/><line x1=\"12\" y1=\"22\" x2=\"12.01\" y2=\"22\"/><line x1=\"16\" y1=\"16\" x2=\"16.01\" y2=\"16\"/><line x1=\"16\" y1=\"20\" x2=\"16.01\" y2=\"20\"/></g>\n  <rect id=\"bar\" fill=\"#fafafa\" x=\"13\" y=\"12\" width=\"96\" height=\"6\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-snow.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25\"/><line x1=\"8\" y1=\"16\" x2=\"8.01\" y2=\"16\"/><line x1=\"8\" y1=\"20\" x2=\"8.01\" y2=\"20\"/><line x1=\"12\" y1=\"18\" x2=\"12.01\" y2=\"18\"/><line x1=\"12\" y1=\"22\" x2=\"12.01\" y2=\"22\"/><line x1=\"16\" y1=\"16\" x2=\"16.01\" y2=\"16\"/><line x1=\"16\" y1=\"20\" x2=\"16.01\" y2=\"20\"/></g>\n  <rect id=\"bar\" fill=\"#3b82f6\" x=\"16\" y=\"12\" width=\"96\" height=\"6\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a car step by step (step 6 of 6). So far you've drawn: body, roof, window, wheel-left, wheel-right. Add the next part: circle (cx=110, cy=72, r=3, fill #fde047) with id \"headlight\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"96\" cy=\"92\" r=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"96\" cy=\"92\" r=\"8\" />\n  <circle id=\"headlight\" fill=\"#fde047\" cx=\"110\" cy=\"72\" r=\"3\" />\n</svg>",
   "parts": [
-    "icon",
-    "bar"
+    "body",
+    "roof",
+    "window",
+    "wheel-left",
+    "wheel-right",
+    "headlight"
   ],
   "target_parts": [
-    "bar"
+    "headlight"
   ],
   "expected_diff": [
     {
-      "part": "bar",
-      "attribute": "x",
-      "before": 13,
-      "after": 16
-    },
-    {
-      "part": "bar",
-      "attribute": "fill",
-      "before": "#fafafa",
-      "after": "#3b82f6"
+      "part": "headlight",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "headlight",
+        "type": "circle",
+        "cx": 110,
+        "cy": 72,
+        "r": 3,
+        "fill": "#fde047"
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "body",
+    "roof",
+    "window",
+    "wheel-left",
+    "wheel-right"
   ],
-  "authored_at": "2026-05-24T21:34:25.652Z"
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

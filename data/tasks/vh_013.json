@@ -1,64 +1,34 @@
 {
   "task_id": "vh_013",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the check circle icon: the base outline is green, the green checkmark is blue (wrong color), AND the green checkmark has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><polyline points=\"22 4 12 14.01 9 11.01\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\" fill=\"none\" points=\"96,24 106,34 122,18\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-circle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"/><polyline points=\"22 4 12 14.01 9 11.01\"/></g>\n  <polyline id=\"check\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"3\" fill=\"none\" points=\"88,24 98,34 114,18\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 1 of 6). The canvas is empty. Add the next part: circle (cx=64, cy=64, r=48, fill #ffffff, stroke #222, stroke-width 2) with id \"face\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
   "parts": [
-    "icon",
-    "check"
+    "face"
   ],
   "target_parts": [
-    "check",
-    "icon"
+    "face"
   ],
   "expected_diff": [
     {
-      "part": "check",
-      "attribute": "points",
-      "before": [
-        [
-          96,
-          24
-        ],
-        [
-          106,
-          34
-        ],
-        [
-          122,
-          18
-        ]
-      ],
-      "after": [
-        [
-          88,
-          24
-        ],
-        [
-          98,
-          34
-        ],
-        [
-          114,
-          18
-        ]
-      ]
-    },
-    {
-      "part": "check",
-      "attribute": "stroke",
-      "before": "#3b82f6",
-      "after": "#22c55e"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#22c55e",
-      "after": "#222"
+      "part": "face",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "face",
+        "type": "circle",
+        "cx": 64,
+        "cy": 64,
+        "r": 48,
+        "fill": "#ffffff",
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.650Z"
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

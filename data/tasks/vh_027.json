@@ -1,40 +1,37 @@
 {
   "task_id": "vh_027",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "The codepen icon has two problems: it's been tinted blue AND the canvas is clipping it (96x80). Restore both the color and the viewBox.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 80\" width=\"96\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codepen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polygon points=\"12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"15.5\"/><polyline points=\"22 8.5 12 15.5 2 8.5\"/><polyline points=\"2 15.5 12 8.5 22 15.5\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"8.5\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/codepen.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polygon points=\"12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2\"/><line x1=\"12\" y1=\"22\" x2=\"12\" y2=\"15.5\"/><polyline points=\"22 8.5 12 15.5 2 8.5\"/><polyline points=\"2 15.5 12 8.5 22 15.5\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"8.5\"/></g>\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a tree step by step (step 3 of 6). So far you've drawn: ground, trunk. Add the next part: circle (cx=64, cy=48, r=32, fill #3a9d5d) with id \"crown\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n</svg>",
   "parts": [
-    "icon"
+    "ground",
+    "trunk",
+    "crown"
   ],
   "target_parts": [
-    "icon"
+    "crown"
   ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        96,
-        80
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#3b82f6",
-      "after": "#222"
+      "part": "crown",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "crown",
+        "type": "circle",
+        "cx": 64,
+        "cy": 48,
+        "r": 32,
+        "fill": "#3a9d5d"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.653Z"
+  "should_preserve": [
+    "ground",
+    "trunk"
+  ],
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

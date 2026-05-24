@@ -1,40 +1,36 @@
 {
   "task_id": "vh_026",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "The code icon has two problems: it's been tinted red AND the canvas is clipping it (80x80). Restore both the color and the viewBox.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 80\" width=\"80\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/code.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/code.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></g>\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a tree step by step (step 2 of 6). So far you've drawn: ground. Add the next part: rect (x=56, y=72, width=16, height=40, fill #6a3819) with id \"trunk\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"112\" x2=\"120\" y2=\"112\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n</svg>",
   "parts": [
-    "icon"
+    "ground",
+    "trunk"
   ],
   "target_parts": [
-    "icon"
+    "trunk"
   ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        80,
-        80
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#e63946",
-      "after": "#222"
+      "part": "trunk",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "trunk",
+        "type": "rect",
+        "x": 56,
+        "y": 72,
+        "width": 16,
+        "height": 40,
+        "fill": "#6a3819"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.653Z"
+  "should_preserve": [
+    "ground"
+  ],
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

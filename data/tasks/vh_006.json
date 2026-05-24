@@ -1,44 +1,44 @@
 {
   "task_id": "vh_006",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the bookmark icon: the base outline is orange, the red side stripe is cyan (wrong color), AND the red side stripe has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #f97316\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></g>\n  <rect id=\"stripe\" fill=\"#06b6d4\" x=\"6\" y=\"10\" width=\"4\" height=\"96\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></g>\n  <rect id=\"stripe\" fill=\"#e63946\" x=\"12\" y=\"16\" width=\"4\" height=\"96\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a house step by step (step 6 of 6). So far you've drawn: ground, walls, roof, door, window. Add the next part: rect (x=84, y=28, width=10, height=22, fill #603020) with id \"chimney\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n</svg>",
   "parts": [
-    "icon",
-    "stripe"
+    "ground",
+    "walls",
+    "roof",
+    "door",
+    "window",
+    "chimney"
   ],
   "target_parts": [
-    "stripe",
-    "icon"
+    "chimney"
   ],
   "expected_diff": [
     {
-      "part": "stripe",
-      "attribute": "x",
-      "before": 6,
-      "after": 12
-    },
-    {
-      "part": "stripe",
-      "attribute": "y",
-      "before": 10,
-      "after": 16
-    },
-    {
-      "part": "stripe",
-      "attribute": "fill",
-      "before": "#06b6d4",
-      "after": "#e63946"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#f97316",
-      "after": "#222"
+      "part": "chimney",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "chimney",
+        "type": "rect",
+        "x": 84,
+        "y": 28,
+        "width": 10,
+        "height": 22,
+        "fill": "#603020"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.648Z"
+  "should_preserve": [
+    "ground",
+    "walls",
+    "roof",
+    "door",
+    "window"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

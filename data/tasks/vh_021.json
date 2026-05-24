@@ -1,75 +1,38 @@
 {
   "task_id": "vh_021",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the cloud lightning icon: the red X mark is the wrong shade (very dark gray) AND it has drifted slightly (~2px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-lightning.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9\"/><polyline points=\"13 11 9 17 15 17 11 23\"/></g>\n  <polyline id=\"x\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\" fill=\"none\" points=\"98,14 110,26 104,20 110,14 98,26\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-lightning.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9\"/><polyline points=\"13 11 9 17 15 17 11 23\"/></g>\n  <polyline id=\"x\" fill=\"none\" stroke=\"#e63946\" stroke-width=\"2\" fill=\"none\" points=\"100,16 112,28 106,22 112,16 100,28\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a car step by step (step 3 of 6). So far you've drawn: body, roof. Add the next part: rect (x=42, y=46, width=44, height=18, fill #bae6fd) with id \"window\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n</svg>",
   "parts": [
-    "icon",
-    "x"
+    "body",
+    "roof",
+    "window"
   ],
   "target_parts": [
-    "x"
+    "window"
   ],
   "expected_diff": [
     {
-      "part": "x",
-      "attribute": "points",
-      "before": [
-        [
-          98,
-          14
-        ],
-        [
-          110,
-          26
-        ],
-        [
-          104,
-          20
-        ],
-        [
-          110,
-          14
-        ],
-        [
-          98,
-          26
-        ]
-      ],
-      "after": [
-        [
-          100,
-          16
-        ],
-        [
-          112,
-          28
-        ],
-        [
-          106,
-          22
-        ],
-        [
-          112,
-          16
-        ],
-        [
-          100,
-          28
-        ]
-      ]
-    },
-    {
-      "part": "x",
-      "attribute": "stroke",
-      "before": "#1a1a1a",
-      "after": "#e63946"
+      "part": "window",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "window",
+        "type": "rect",
+        "x": 42,
+        "y": 46,
+        "width": 44,
+        "height": 18,
+        "fill": "#bae6fd"
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "body",
+    "roof"
   ],
-  "authored_at": "2026-05-24T21:34:25.651Z"
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

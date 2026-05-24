@@ -1,80 +1,36 @@
 {
   "task_id": "vh_014",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the check square icon: the base outline is yellow, the arrow mark is green (wrong color), AND the arrow mark has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-square.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"9 11 12 14 22 4\"/><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"2\" fill=\"none\" points=\"92,100 104,112 100,104 104,112 96,108\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/check-square.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><polyline points=\"9 11 12 14 22 4\"/><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"/></g>\n  <polyline id=\"arrow\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"100,100 112,112 108,104 112,112 104,108\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 2 of 6). So far you've drawn: face. Add the next part: rect (x=62, y=18, width=4, height=8, fill #222) with id \"mark-12\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
   "parts": [
-    "icon",
-    "arrow"
+    "face",
+    "mark-12"
   ],
   "target_parts": [
-    "arrow",
-    "icon"
+    "mark-12"
   ],
   "expected_diff": [
     {
-      "part": "arrow",
-      "attribute": "points",
-      "before": [
-        [
-          92,
-          100
-        ],
-        [
-          104,
-          112
-        ],
-        [
-          100,
-          104
-        ],
-        [
-          104,
-          112
-        ],
-        [
-          96,
-          108
-        ]
-      ],
-      "after": [
-        [
-          100,
-          100
-        ],
-        [
-          112,
-          112
-        ],
-        [
-          108,
-          104
-        ],
-        [
-          112,
-          112
-        ],
-        [
-          104,
-          108
-        ]
-      ]
-    },
-    {
-      "part": "arrow",
-      "attribute": "stroke",
-      "before": "#22c55e",
-      "after": "#222"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#fde047",
-      "after": "#222"
+      "part": "mark-12",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "mark-12",
+        "type": "rect",
+        "x": 62,
+        "y": 18,
+        "width": 4,
+        "height": 8,
+        "fill": "#222"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.650Z"
+  "should_preserve": [
+    "face"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

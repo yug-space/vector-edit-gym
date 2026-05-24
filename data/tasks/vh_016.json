@@ -1,39 +1,41 @@
 {
   "task_id": "vh_016",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the chrome icon: the black underline is the wrong shade (very dark gray) AND it has drifted slightly (~3px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/chrome.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><line x1=\"21.17\" y1=\"8\" x2=\"12\" y2=\"8\"/><line x1=\"3.95\" y1=\"6.06\" x2=\"8.54\" y2=\"14\"/><line x1=\"10.88\" y1=\"21.94\" x2=\"15.46\" y2=\"14\"/></g>\n  <line id=\"underline\" stroke=\"#1a1a1a\" stroke-width=\"2\" x1=\"19\" y1=\"116\" x2=\"115\" y2=\"116\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/chrome.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><line x1=\"21.17\" y1=\"8\" x2=\"12\" y2=\"8\"/><line x1=\"3.95\" y1=\"6.06\" x2=\"8.54\" y2=\"14\"/><line x1=\"10.88\" y1=\"21.94\" x2=\"15.46\" y2=\"14\"/></g>\n  <line id=\"underline\" stroke=\"#222\" stroke-width=\"2\" x1=\"16\" y1=\"116\" x2=\"112\" y2=\"116\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a clock step by step (step 4 of 6). So far you've drawn: face, mark-12, mark-6. Add the next part: line ((64,64)→(64,36), stroke #222, stroke-width 3) with id \"hour-hand\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n</svg>",
   "parts": [
-    "icon",
-    "underline"
+    "face",
+    "mark-12",
+    "mark-6",
+    "hour-hand"
   ],
   "target_parts": [
-    "underline"
+    "hour-hand"
   ],
   "expected_diff": [
     {
-      "part": "underline",
-      "attribute": "x1",
-      "before": 19,
-      "after": 16
-    },
-    {
-      "part": "underline",
-      "attribute": "x2",
-      "before": 115,
-      "after": 112
-    },
-    {
-      "part": "underline",
-      "attribute": "stroke",
-      "before": "#1a1a1a",
-      "after": "#222"
+      "part": "hour-hand",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "hour-hand",
+        "type": "line",
+        "x1": 64,
+        "y1": 64,
+        "x2": 64,
+        "y2": 36,
+        "stroke": "#222",
+        "strokeWidth": 3
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "face",
+    "mark-12",
+    "mark-6"
   ],
-  "authored_at": "2026-05-24T21:34:25.650Z"
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

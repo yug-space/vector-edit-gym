@@ -1,0 +1,38 @@
+{
+  "task_id": "vh_056",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a rocket step by step (step 2 of 6). So far you've drawn: flame. Add the next part: rect (x=48, y=40, width=32, height=70, fill #cccccc, stroke #222, stroke-width 2) with id \"body\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n</svg>",
+  "parts": [
+    "flame",
+    "body"
+  ],
+  "target_parts": [
+    "body"
+  ],
+  "expected_diff": [
+    {
+      "part": "body",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "body",
+        "type": "rect",
+        "x": 48,
+        "y": 40,
+        "width": 32,
+        "height": 70,
+        "fill": "#cccccc",
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
+    }
+  ],
+  "should_preserve": [
+    "flame"
+  ],
+  "authored_at": "2026-05-24T21:42:25.402Z"
+}

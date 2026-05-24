@@ -1,0 +1,43 @@
+{
+  "task_id": "vh_055",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a rocket step by step (step 1 of 6). The canvas is empty. Add the next part: polygon (points 52,108 64,124 76,108, fill #f97316) with id \"flame\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"flame\" fill=\"#f97316\" points=\"52,108 64,124 76,108\" />\n</svg>",
+  "parts": [
+    "flame"
+  ],
+  "target_parts": [
+    "flame"
+  ],
+  "expected_diff": [
+    {
+      "part": "flame",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "flame",
+        "type": "polygon",
+        "points": [
+          [
+            52,
+            108
+          ],
+          [
+            64,
+            124
+          ],
+          [
+            76,
+            108
+          ]
+        ],
+        "fill": "#f97316"
+      }
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-24T21:42:25.402Z"
+}

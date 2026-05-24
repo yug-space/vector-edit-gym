@@ -1,39 +1,50 @@
 {
   "task_id": "vh_020",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Two subtle issues on the cloud drizzle icon: the yellow price tag is the wrong shade (slightly-darker black) AND it has drifted slightly (~2px). Restore it precisely.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-drizzle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><line x1=\"8\" y1=\"19\" x2=\"8\" y2=\"21\"/><line x1=\"8\" y1=\"13\" x2=\"8\" y2=\"15\"/><line x1=\"16\" y1=\"19\" x2=\"16\" y2=\"21\"/><line x1=\"16\" y1=\"13\" x2=\"16\" y2=\"15\"/><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"17\"/><path d=\"M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25\"/></g>\n  <rect id=\"price-tag\" fill=\"#212121\" stroke=\"#222\" stroke-width=\"1\" x=\"86\" y=\"98\" width=\"28\" height=\"14\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/cloud-drizzle.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><line x1=\"8\" y1=\"19\" x2=\"8\" y2=\"21\"/><line x1=\"8\" y1=\"13\" x2=\"8\" y2=\"15\"/><line x1=\"16\" y1=\"19\" x2=\"16\" y2=\"21\"/><line x1=\"16\" y1=\"13\" x2=\"16\" y2=\"15\"/><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"17\"/><path d=\"M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25\"/></g>\n  <rect id=\"price-tag\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"1\" x=\"84\" y=\"96\" width=\"28\" height=\"14\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a car step by step (step 2 of 6). So far you've drawn: body. Add the next part: polygon (points 28,64 40,44 88,44 100,64, fill #3b82f6) with id \"roof\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n</svg>",
   "parts": [
-    "icon",
-    "price-tag"
+    "body",
+    "roof"
   ],
   "target_parts": [
-    "price-tag"
+    "roof"
   ],
   "expected_diff": [
     {
-      "part": "price-tag",
-      "attribute": "x",
-      "before": 86,
-      "after": 84
-    },
-    {
-      "part": "price-tag",
-      "attribute": "y",
-      "before": 98,
-      "after": 96
-    },
-    {
-      "part": "price-tag",
-      "attribute": "fill",
-      "before": "#212121",
-      "after": "#fde047"
+      "part": "roof",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "roof",
+        "type": "polygon",
+        "points": [
+          [
+            28,
+            64
+          ],
+          [
+            40,
+            44
+          ],
+          [
+            88,
+            44
+          ],
+          [
+            100,
+            64
+          ]
+        ],
+        "fill": "#3b82f6"
+      }
     }
   ],
   "should_preserve": [
-    "icon"
+    "body"
   ],
-  "authored_at": "2026-05-24T21:34:25.651Z"
+  "authored_at": "2026-05-24T21:42:25.400Z"
 }

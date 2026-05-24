@@ -1,0 +1,38 @@
+{
+  "task_id": "vh_033",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a cake step by step (step 3 of 6). So far you've drawn: plate, base-layer. Add the next part: rect (x=32, y=48, width=64, height=24, fill #f0c0c0) with id \"top-layer\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n</svg>",
+  "parts": [
+    "plate",
+    "base-layer",
+    "top-layer"
+  ],
+  "target_parts": [
+    "top-layer"
+  ],
+  "expected_diff": [
+    {
+      "part": "top-layer",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "top-layer",
+        "type": "rect",
+        "x": 32,
+        "y": 48,
+        "width": 64,
+        "height": 24,
+        "fill": "#f0c0c0"
+      }
+    }
+  ],
+  "should_preserve": [
+    "plate",
+    "base-layer"
+  ],
+  "authored_at": "2026-05-24T21:42:25.400Z"
+}

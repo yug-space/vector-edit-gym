@@ -1,120 +1,48 @@
 {
   "task_id": "vh_003",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the bold icon: the base outline is green, the yellow star stamp is purple (wrong color), AND the yellow star stamp has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bold.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #22c55e\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z\"/><path d=\"M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#a855f7\" points=\"20,24 22,30 28,30 23,34 25,40 20,36 15,40 17,34 12,30 18,30\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bold.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z\"/><path d=\"M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z\"/></g>\n  <polygon id=\"star-stamp\" fill=\"#fde047\" points=\"20,16 22,22 28,22 23,26 25,32 20,28 15,32 17,26 12,22 18,22\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a house step by step (step 3 of 6). So far you've drawn: ground, walls. Add the next part: polygon (points 20,56 64,16 108,56, fill #8c3b2c) with id \"roof\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
   "parts": [
-    "icon",
-    "star-stamp"
+    "ground",
+    "walls",
+    "roof"
   ],
   "target_parts": [
-    "star-stamp",
-    "icon"
+    "roof"
   ],
   "expected_diff": [
     {
-      "part": "star-stamp",
-      "attribute": "points",
-      "before": [
-        [
-          20,
-          24
+      "part": "roof",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "roof",
+        "type": "polygon",
+        "points": [
+          [
+            20,
+            56
+          ],
+          [
+            64,
+            16
+          ],
+          [
+            108,
+            56
+          ]
         ],
-        [
-          22,
-          30
-        ],
-        [
-          28,
-          30
-        ],
-        [
-          23,
-          34
-        ],
-        [
-          25,
-          40
-        ],
-        [
-          20,
-          36
-        ],
-        [
-          15,
-          40
-        ],
-        [
-          17,
-          34
-        ],
-        [
-          12,
-          30
-        ],
-        [
-          18,
-          30
-        ]
-      ],
-      "after": [
-        [
-          20,
-          16
-        ],
-        [
-          22,
-          22
-        ],
-        [
-          28,
-          22
-        ],
-        [
-          23,
-          26
-        ],
-        [
-          25,
-          32
-        ],
-        [
-          20,
-          28
-        ],
-        [
-          15,
-          32
-        ],
-        [
-          17,
-          26
-        ],
-        [
-          12,
-          22
-        ],
-        [
-          18,
-          22
-        ]
-      ]
-    },
-    {
-      "part": "star-stamp",
-      "attribute": "fill",
-      "before": "#a855f7",
-      "after": "#fde047"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#22c55e",
-      "after": "#222"
+        "fill": "#8c3b2c"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.647Z"
+  "should_preserve": [
+    "ground",
+    "walls"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }

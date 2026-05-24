@@ -1,0 +1,50 @@
+{
+  "task_id": "vh_038",
+  "difficulty": "very_hard",
+  "category": "creation_step",
+  "instruction": "Building a boat step by step (step 2 of 6). So far you've drawn: wave-1. Add the next part: polygon (points 16,88 112,88 96,104 32,104, fill #92400e) with id \"hull\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" fill=\"none\" points=\"8,108 24,104 40,108 56,104 72,108 88,104 104,108 120,104\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n</svg>",
+  "parts": [
+    "wave-1",
+    "hull"
+  ],
+  "target_parts": [
+    "hull"
+  ],
+  "expected_diff": [
+    {
+      "part": "hull",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "hull",
+        "type": "polygon",
+        "points": [
+          [
+            16,
+            88
+          ],
+          [
+            112,
+            88
+          ],
+          [
+            96,
+            104
+          ],
+          [
+            32,
+            104
+          ]
+        ],
+        "fill": "#92400e"
+      }
+    }
+  ],
+  "should_preserve": [
+    "wave-1"
+  ],
+  "authored_at": "2026-05-24T21:42:25.401Z"
+}

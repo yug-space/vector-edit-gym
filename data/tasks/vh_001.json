@@ -1,38 +1,34 @@
 {
   "task_id": "vh_001",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the bell icon: the base outline is red, the yellow price tag is blue (wrong color), AND the yellow price tag has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\"/><path d=\"M13.73 21a2 2 0 0 1-3.46 0\"/></g>\n  <rect id=\"price-tag\" fill=\"#3b82f6\" stroke=\"#222\" stroke-width=\"1\" x=\"92\" y=\"96\" width=\"28\" height=\"14\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/bell.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\"/><path d=\"M13.73 21a2 2 0 0 1-3.46 0\"/></g>\n  <rect id=\"price-tag\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"1\" x=\"84\" y=\"96\" width=\"28\" height=\"14\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a house step by step (step 1 of 6). The canvas is empty. Add the next part: line ((8,116)→(120,116), stroke #222, stroke-width 2) with id \"ground\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n</svg>",
   "parts": [
-    "icon",
-    "price-tag"
+    "ground"
   ],
   "target_parts": [
-    "price-tag",
-    "icon"
+    "ground"
   ],
   "expected_diff": [
     {
-      "part": "price-tag",
-      "attribute": "x",
-      "before": 92,
-      "after": 84
-    },
-    {
-      "part": "price-tag",
-      "attribute": "fill",
-      "before": "#3b82f6",
-      "after": "#fde047"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#e63946",
-      "after": "#222"
+      "part": "ground",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "ground",
+        "type": "line",
+        "x1": 8,
+        "y1": 116,
+        "x2": 120,
+        "y2": 116,
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.646Z"
+  "authored_at": "2026-05-24T21:42:25.398Z"
 }

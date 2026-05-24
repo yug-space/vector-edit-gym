@@ -1,38 +1,40 @@
 {
   "task_id": "vh_004",
   "difficulty": "very_hard",
-  "category": "multi",
-  "instruction": "Three things wrong with the book open icon: the base outline is yellow, the blue progress bar is orange (wrong color), AND the blue progress bar has drifted out of place. Fix everything.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/book-open.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></g>\n  <rect id=\"bar\" fill=\"#f97316\" x=\"16\" y=\"102\" width=\"96\" height=\"6\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/book-open.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></g>\n  <rect id=\"bar\" fill=\"#3b82f6\" x=\"16\" y=\"110\" width=\"96\" height=\"6\" />\n</svg>",
+  "category": "creation_step",
+  "instruction": "Building a house step by step (step 4 of 6). So far you've drawn: ground, walls, roof. Add the next part: rect (x=56, y=80, width=16, height=32, fill #6a3819) with id \"door\".",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n</svg>",
   "parts": [
-    "icon",
-    "bar"
+    "ground",
+    "walls",
+    "roof",
+    "door"
   ],
   "target_parts": [
-    "bar",
-    "icon"
+    "door"
   ],
   "expected_diff": [
     {
-      "part": "bar",
-      "attribute": "y",
-      "before": 102,
-      "after": 110
-    },
-    {
-      "part": "bar",
-      "attribute": "fill",
-      "before": "#f97316",
-      "after": "#3b82f6"
-    },
-    {
-      "part": "icon",
-      "attribute": "color",
-      "before": "#fde047",
-      "after": "#222"
+      "part": "door",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "door",
+        "type": "rect",
+        "x": 56,
+        "y": 80,
+        "width": 16,
+        "height": 32,
+        "fill": "#6a3819"
+      }
     }
   ],
-  "should_preserve": [],
-  "authored_at": "2026-05-24T21:34:25.647Z"
+  "should_preserve": [
+    "ground",
+    "walls",
+    "roof"
+  ],
+  "authored_at": "2026-05-24T21:42:25.399Z"
 }
