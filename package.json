@@ -13,7 +13,8 @@
     "generate:all": "node scripts/generate-very-easy.mjs && node scripts/generate-easy.mjs && node scripts/generate-medium.mjs && node scripts/generate-hard.mjs && node scripts/generate-very-hard.mjs && node scripts/build-index.mjs",
     "build:index": "node scripts/build-index.mjs",
     "scrape:icons": "node scripts/scrape-icons.mjs",
-    "viewer:dev": "npm --prefix viewer run dev",
+    "engine:sync": "cp scripts/lib/{icon-render,icon-edits,icon-catalog,icon-scenes,corruptions}.mjs viewer/lib/engine/",
+    "viewer:dev": "npm run engine:sync && npm --prefix viewer run dev",
     "viewer:build": "npm --prefix viewer run build",
     "viewer:start": "npm --prefix viewer start",
     "build:all": "npm run generate:all && npm run scrape:icons"

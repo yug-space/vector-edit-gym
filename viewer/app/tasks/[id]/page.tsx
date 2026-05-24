@@ -1,5 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { getTask, type DiffEntry } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -12,91 +25,149 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
   if (!task) notFound();
 
   return (
-    <>
-      <Link href="/" className="back-link">← All tasks</Link>
-      <h1>
-        <span style={{ fontFamily: "var(--mono)", color: "var(--fg-3)" }}>{task.task_id}</span>{" "}
-        <span className="tag">{task.difficulty}</span>{" "}
-        <span className="tag">{task.category}</span>
-      </h1>
+    <section className="mx-auto max-w-6xl px-6 py-10">
+      <Button asChild variant="ghost" size="sm" className="-ml-2 mb-4">
+        <Link href="/tasks">
+          <ArrowLeft />
+          All tasks
+        </Link>
+      </Button>
 
-      <div className="instruction-box">
-        <strong>Instruction:</strong> {task.instruction}
+      <div className="mb-6 flex flex-wrap items-center gap-2">
+        <span className="font-mono text-sm text-[hsl(var(--muted-foreground))]">{task.task_id}</span>
+        <Badge variant="secondary">{task.difficulty}</Badge>
+        <Badge variant="outline">{task.category}</Badge>
       </div>
 
-      <div className="detail-grid">
-        <div className="panel">
-          <div className="panel-title">Initial</div>
-          <div className="panel-svg" dangerouslySetInnerHTML={{ __html: task.initial_svg }} />
-        </div>
-        <div className="panel">
-          <div className="panel-title">Target (expected output)</div>
-          <div className="panel-svg" dangerouslySetInnerHTML={{ __html: task.target_svg }} />
-        </div>
+      <Card className="mb-6">
+        <CardContent className="p-5">
+          <div className="text-xs uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Instruction</div>
+          <p className="mt-2 text-lg">{task.instruction}</p>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Initial (broken)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div
+              className="mx-auto flex aspect-square max-w-sm items-center justify-center rounded-lg border bg-white text-[#222]"
+              dangerouslySetInnerHTML={{ __html: task.initial_svg }}
+            />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Target (expected fix)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div
+              className="mx-auto flex aspect-square max-w-sm items-center justify-center rounded-lg border bg-white text-[#222]"
+              dangerouslySetInnerHTML={{ __html: task.target_svg }}
+            />
+          </CardContent>
+        </Card>
       </div>
 
-      <h2>Expected diff</h2>
-      <DiffTable diff={task.expected_diff} />
+      <Separator className="my-10" />
 
-      <h2>Should preserve</h2>
-      {task.should_preserve.length === 0 ? (
-        <p className="muted">No other parts in this scene.</p>
-      ) : (
-        <div className="preserve-list">
-          {task.should_preserve.map((p) => (
-            <span key={p} className="preserve-pill">{p}</span>
-          ))}
-        </div>
-      )}
-
-      <h2>Parts in scene</h2>
-      <div className="preserve-list">
-        {task.parts.map((p) => (
-          <span key={p} className="tag">{p}</span>
-        ))}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Expected diff</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <DiffTable diff={task.expected_diff} />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Parts</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="mb-4">
+              <div className="mb-2 text-xs uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Target ({(task.target_parts ?? []).length})</div>
+              <div className="flex flex-wrap gap-1">
+                {(task.target_parts ?? []).length === 0 ? (
+                  <span className="text-sm text-[hsl(var(--muted-foreground))]">—</span>
+                ) : (
+                  (task.target_parts ?? []).map((p) => (
+                    <Badge key={p} variant="default">{p}</Badge>
+                  ))
+                )}
+              </div>
+            </div>
+            <div>
+              <div className="mb-2 text-xs uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Should preserve ({task.should_preserve.length})</div>
+              <div className="flex flex-wrap gap-1">
+                {task.should_preserve.length === 0 ? (
+                  <span className="text-sm text-[hsl(var(--muted-foreground))]">no other parts in this scene</span>
+                ) : (
+                  task.should_preserve.map((p) => (
+                    <Badge key={p} variant="outline">{p}</Badge>
+                  ))
+                )}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      <h2>Initial SVG source</h2>
-      <pre className="code">{task.initial_svg}</pre>
+      <Separator className="my-10" />
 
-      <h2>Target SVG source</h2>
-      <pre className="code">{task.target_svg}</pre>
-
-      <h2>Structured spec (target)</h2>
-      <pre className="code">{JSON.stringify(task.target_spec, null, 2)}</pre>
-    </>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Initial SVG source</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="max-h-80 overflow-auto rounded-md bg-[hsl(var(--muted))] p-3 font-mono text-xs">{task.initial_svg}</pre>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Target SVG source</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="max-h-80 overflow-auto rounded-md bg-[hsl(var(--muted))] p-3 font-mono text-xs">{task.target_svg}</pre>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
   );
 }
 
 function DiffTable({ diff }: { diff: DiffEntry[] }) {
   if (diff.length === 0) {
-    return <p className="muted">No diff entries.</p>;
+    return <p className="text-sm text-[hsl(var(--muted-foreground))]">No diff entries.</p>;
   }
   return (
-    <table className="diff-table">
-      <thead>
-        <tr>
-          <th>Part</th>
-          <th>Attribute</th>
-          <th>Before</th>
-          <th>After</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Part</TableHead>
+          <TableHead>Attr</TableHead>
+          <TableHead>Before</TableHead>
+          <TableHead>After</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
         {diff.map((d, i) => (
-          <tr key={i}>
-            <td>{d.part}</td>
-            <td>{d.attribute}</td>
-            <td className="diff-before">{formatVal(d.before)}</td>
-            <td className="diff-after">{formatVal(d.after)}</td>
-          </tr>
+          <TableRow key={i}>
+            <TableCell className="font-mono text-xs">{d.part}</TableCell>
+            <TableCell className="font-mono text-xs">{d.attribute}</TableCell>
+            <TableCell className="font-mono text-xs text-[hsl(var(--destructive))]">{fmt(d.before)}</TableCell>
+            <TableCell className="font-mono text-xs text-[hsl(var(--success))]">{fmt(d.after)}</TableCell>
+          </TableRow>
         ))}
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
   );
 }
 
-function formatVal(v: unknown): string {
+function fmt(v: unknown): string {
   if (v === null || v === undefined) return "—";
   if (typeof v === "object") return JSON.stringify(v);
   return String(v);

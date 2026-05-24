@@ -13,3 +13,8 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example

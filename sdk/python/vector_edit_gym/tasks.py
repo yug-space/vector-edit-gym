@@ -14,15 +14,16 @@ from typing import Any, Iterable, Optional
 # The benchmark repo layout:  <repo>/sdk/python/vector_edit_gym/tasks.py
 #                            and  <repo>/data/tasks/*.json
 def _default_data_dir() -> Path:
+    # Env var wins so callers can point at data/tasks_legacy/ or any other
+    # corpus without editing code.
+    env = os.environ.get("VECTOR_EDIT_GYM_DATA")
+    if env:
+        return Path(env)
     here = Path(__file__).resolve()
     for parent in [here, *here.parents]:
         candidate = parent / "data" / "tasks"
         if candidate.is_dir():
             return candidate
-    # Fall back to env var if the SDK is installed outside the repo.
-    env = os.environ.get("VECTOR_EDIT_GYM_DATA")
-    if env:
-        return Path(env)
     raise FileNotFoundError(
         "Could not find data/tasks. Set VECTOR_EDIT_GYM_DATA to the absolute path."
     )

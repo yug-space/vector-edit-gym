@@ -1,6 +1,23 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { CheckCircle2, AlertCircle, Save } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
 
 type IconEntry = { name: string; source: string; style: string; category: string };
 type SceneEntry = { name: string; parts: { id: string; type: string }[] };
@@ -28,7 +45,6 @@ const COLORS = [
   "#f97316", "#ec4899", "#06b6d4", "#92400e", "#9ca3af",
 ];
 
-// Corruption kinds the user can pick. The dynamic params block changes per kind.
 const CORRUPTIONS_FOR_SOURCE: Record<"icon" | "scene", string[]> = {
   icon: ["wrong_color", "wrong_stroke_width", "wrong_scale", "clipped_viewbox"],
   scene: [
@@ -38,13 +54,11 @@ const CORRUPTIONS_FOR_SOURCE: Record<"icon" | "scene", string[]> = {
 };
 
 export function AuthorForm() {
-  // ---- options (fetched once) -------------------------------------------
   const [options, setOptions] = useState<Options | null>(null);
   useEffect(() => {
     fetch("/api/author/options").then((r) => r.json()).then(setOptions);
   }, []);
 
-  // ---- form state -------------------------------------------------------
   const [difficulty, setDifficulty] = useState("very_easy");
   const [taskId, setTaskId] = useState("");
   const [sourceKind, setSourceKind] = useState<"icon" | "scene">("scene");
@@ -54,14 +68,12 @@ export function AuthorForm() {
   const [instruction, setInstruction] = useState("This house is missing its door. Draw it back in.");
   const [category, setCategory] = useState("missing_part");
 
-  // ---- auto-suggest next task id when difficulty changes ----------------
   useEffect(() => {
     fetch(`/api/author/next-id?difficulty=${difficulty}`)
       .then((r) => r.json())
       .then((d) => d.task_id && setTaskId(d.task_id));
   }, [difficulty]);
 
-  // ---- reset source name when source kind changes -----------------------
   useEffect(() => {
     if (!options) return;
     if (sourceKind === "icon" && !options.icons.find((i) => i.name === sourceName)) {
@@ -70,13 +82,11 @@ export function AuthorForm() {
     if (sourceKind === "scene" && !options.scenes.find((s) => s.name === sourceName)) {
       setSourceName(options.scenes[0]?.name ?? "");
     }
-    // ensure corruption kind is valid for this source
     if (!CORRUPTIONS_FOR_SOURCE[sourceKind].includes(corruptionKind)) {
       setCorruptionKind(CORRUPTIONS_FOR_SOURCE[sourceKind][0]);
     }
   }, [sourceKind, options]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ---- reset params when corruption kind changes ------------------------
   useEffect(() => {
     if (!options) return;
     const scene = options.scenes.find((s) => s.name === sourceName);
@@ -109,29 +119,18 @@ export function AuthorForm() {
         break;
       case "extra_part":
         setParams({
-          part: {
-            id: "stray-dot",
-            type: "circle",
-            cx: 24,
-            cy: 100,
-            r: 4,
-            fill: "#e63946",
-          },
+          part: { id: "stray-dot", type: "circle", cx: 24, cy: 100, r: 4, fill: "#e63946" },
         });
         break;
     }
     setCategory(corruptionKind);
   }, [corruptionKind, sourceName, options]);
 
-  // ---- build the draft payload sent to /preview & /save -----------------
-  const draft = useMemo(() => {
-    return {
-      source: { kind: sourceKind, name: sourceName },
-      corruption: { kind: corruptionKind, ...params },
-    };
-  }, [sourceKind, sourceName, corruptionKind, params]);
+  const draft = useMemo(() => ({
+    source: { kind: sourceKind, name: sourceName },
+    corruption: { kind: corruptionKind, ...params },
+  }), [sourceKind, sourceName, corruptionKind, params]);
 
-  // ---- live preview (debounced) -----------------------------------------
   const [preview, setPreview] = useState<Preview | null>(null);
   const [previewError, setPreviewError] = useState<string | null>(null);
   useEffect(() => {
@@ -160,11 +159,10 @@ export function AuthorForm() {
     };
   }, [draft]);
 
-  // ---- save ------------------------------------------------------------
   const [saveStatus, setSaveStatus] = useState<{ kind: "ok" | "err"; msg: string } | null>(null);
   const onSave = async () => {
     if (!instruction.trim()) {
-      setSaveStatus({ kind: "err", msg: "instruction is required" });
+      setSaveStatus({ kind: "err", msg: "Instruction is required." });
       return;
     }
     const r = await fetch("/api/author/save", {
@@ -185,112 +183,183 @@ export function AuthorForm() {
     }
     setSaveStatus({ kind: "ok", msg: `Saved ${j.task_id}. Next id: ${j.next_id}` });
     setTaskId(j.next_id);
-    setInstruction(""); // ready for the next task
+    setInstruction("");
   };
 
-  if (!options) return <p className="muted">Loading options…</p>;
+  if (!options) {
+    return <p className="text-sm text-[hsl(var(--muted-foreground))]">Loading options…</p>;
+  }
 
   const sceneInfo = options.scenes.find((s) => s.name === sourceName);
   const allowedCorruptions = CORRUPTIONS_FOR_SOURCE[sourceKind];
 
   return (
-    <div className="author-grid">
-      {/* LEFT: form */}
-      <div className="author-form">
-        <Field label="Task ID">
-          <input
-            className="text-input"
-            value={taskId}
-            onChange={(e) => setTaskId(e.target.value)}
-          />
-        </Field>
-
-        <Field label="Difficulty">
-          <select className="text-input" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-            {DIFFICULTIES.map((d) => (
-              <option key={d.value} value={d.value}>{d.label}</option>
-            ))}
-          </select>
-        </Field>
-
-        <Field label="Source">
-          <div className="radio-row">
-            <label><input type="radio" checked={sourceKind === "scene"} onChange={() => setSourceKind("scene")} /> composite scene</label>
-            <label><input type="radio" checked={sourceKind === "icon"} onChange={() => setSourceKind("icon")} /> single icon</label>
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[380px_1fr]">
+      {/* FORM */}
+      <Card className="lg:sticky lg:top-20 lg:self-start">
+        <CardHeader>
+          <CardTitle>New task</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-1.5">
+              <Label htmlFor="diff">Difficulty</Label>
+              <Select value={difficulty} onValueChange={setDifficulty}>
+                <SelectTrigger id="diff"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {DIFFICULTIES.map((d) => (
+                    <SelectItem key={d.value} value={d.value}>{d.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="tid">Task ID</Label>
+              <Input id="tid" value={taskId} onChange={(e) => setTaskId(e.target.value)} className="font-mono" />
+            </div>
           </div>
-        </Field>
 
-        <Field label={sourceKind === "scene" ? "Scene" : "Icon"}>
-          <select className="text-input" value={sourceName} onChange={(e) => setSourceName(e.target.value)}>
-            {(sourceKind === "scene" ? options.scenes.map((s) => s.name) : options.icons.map((i) => i.name)).map((n) => (
-              <option key={n} value={n}>{n}</option>
-            ))}
-          </select>
-        </Field>
-
-        <Field label="Corruption">
-          <select className="text-input" value={corruptionKind} onChange={(e) => setCorruptionKind(e.target.value)}>
-            {allowedCorruptions.map((k) => (
-              <option key={k} value={k}>{k}</option>
-            ))}
-          </select>
-        </Field>
-
-        <CorruptionParams
-          kind={corruptionKind}
-          params={params}
-          setParams={setParams}
-          sceneParts={sceneInfo?.parts ?? []}
-        />
-
-        <Field label="Category (derived; editable)">
-          <input className="text-input" value={category} onChange={(e) => setCategory(e.target.value)} />
-        </Field>
-
-        <Field label="Instruction (natural language)">
-          <textarea
-            className="text-input"
-            rows={3}
-            value={instruction}
-            placeholder="e.g. This bell is missing its ringer. Add it back."
-            onChange={(e) => setInstruction(e.target.value)}
-          />
-        </Field>
-
-        <button className="btn-primary" onClick={onSave}>Save task & continue</button>
-        {saveStatus && (
-          <div className={saveStatus.kind === "ok" ? "save-ok" : "save-err"}>{saveStatus.msg}</div>
-        )}
-      </div>
-
-      {/* RIGHT: preview */}
-      <div className="author-preview">
-        <div className="preview-row">
-          <div className="panel">
-            <div className="panel-title">Initial (broken)</div>
-            <div className="panel-svg" dangerouslySetInnerHTML={{ __html: preview?.initial_svg ?? "" }} />
+          <div className="space-y-1.5">
+            <Label>Source</Label>
+            <RadioGroup value={sourceKind} onValueChange={(v) => setSourceKind(v as "icon" | "scene")} className="flex gap-4">
+              <div className="flex items-center gap-2">
+                <RadioGroupItem id="src-scene" value="scene" />
+                <Label htmlFor="src-scene">composite scene</Label>
+              </div>
+              <div className="flex items-center gap-2">
+                <RadioGroupItem id="src-icon" value="icon" />
+                <Label htmlFor="src-icon">single icon</Label>
+              </div>
+            </RadioGroup>
           </div>
-          <div className="panel">
-            <div className="panel-title">Target (clean)</div>
-            <div className="panel-svg" dangerouslySetInnerHTML={{ __html: preview?.target_svg ?? "" }} />
+
+          <div className="space-y-1.5">
+            <Label>{sourceKind === "scene" ? "Scene" : "Icon"}</Label>
+            <Select value={sourceName} onValueChange={setSourceName}>
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {(sourceKind === "scene" ? options.scenes.map((s) => s.name) : options.icons.map((i) => i.name)).map((n) => (
+                  <SelectItem key={n} value={n}>{n}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
+
+          <div className="space-y-1.5">
+            <Label>Corruption</Label>
+            <Select value={corruptionKind} onValueChange={setCorruptionKind}>
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {allowedCorruptions.map((k) => (
+                  <SelectItem key={k} value={k}>{k}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <CorruptionParams kind={corruptionKind} params={params} setParams={setParams} sceneParts={sceneInfo?.parts ?? []} />
+
+          <Separator />
+
+          <div className="space-y-1.5">
+            <Label htmlFor="cat">Category</Label>
+            <Input id="cat" value={category} onChange={(e) => setCategory(e.target.value)} />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="instr">Instruction (natural language)</Label>
+            <Textarea
+              id="instr"
+              rows={4}
+              value={instruction}
+              onChange={(e) => setInstruction(e.target.value)}
+              placeholder="e.g. This bell is missing its ringer. Add it back."
+            />
+          </div>
+
+          <Button onClick={onSave} className="w-full" size="lg">
+            <Save />
+            Save task & continue
+          </Button>
+
+          {saveStatus && (
+            <div
+              className={
+                "flex items-start gap-2 rounded-md border p-3 text-sm " +
+                (saveStatus.kind === "ok"
+                  ? "border-[hsl(var(--success))] bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]"
+                  : "border-[hsl(var(--destructive))] bg-[hsl(var(--destructive))]/10 text-[hsl(var(--destructive))]")
+              }
+            >
+              {saveStatus.kind === "ok" ? <CheckCircle2 className="mt-0.5" /> : <AlertCircle className="mt-0.5" />}
+              <span>{saveStatus.msg}</span>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* PREVIEW */}
+      <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Initial (broken)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div
+                className="mx-auto flex aspect-square max-w-sm items-center justify-center rounded-lg border bg-white text-[#222]"
+                dangerouslySetInnerHTML={{ __html: preview?.initial_svg ?? "" }}
+              />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Target (clean)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div
+                className="mx-auto flex aspect-square max-w-sm items-center justify-center rounded-lg border bg-white text-[#222]"
+                dangerouslySetInnerHTML={{ __html: preview?.target_svg ?? "" }}
+              />
+            </CardContent>
+          </Card>
         </div>
 
-        {previewError && <div className="save-err">Preview error: {previewError}</div>}
+        {previewError && (
+          <div className="rounded-md border border-[hsl(var(--destructive))] bg-[hsl(var(--destructive))]/10 p-3 text-sm text-[hsl(var(--destructive))]">
+            Preview error: {previewError}
+          </div>
+        )}
 
         {preview && (
           <>
-            <h2>Expected diff</h2>
-            <pre className="code">{JSON.stringify(preview.expected_diff, null, 2)}</pre>
-            <h2>Parts ({preview.parts.length})</h2>
-            <div className="preserve-list">
-              {preview.parts.map((p) => (
-                <span key={p} className={preview.target_parts.includes(p) ? "preserve-pill" : "tag"}>{p}</span>
-              ))}
-            </div>
-            <p className="muted" style={{ marginTop: 8 }}>
-              {preview.target_parts.length} target part(s) · {preview.should_preserve.length} preserved
-            </p>
+            <Card>
+              <CardHeader>
+                <CardTitle>Expected diff</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <pre className="max-h-72 overflow-auto rounded-md bg-[hsl(var(--muted))] p-3 font-mono text-xs">
+                  {JSON.stringify(preview.expected_diff, null, 2)}
+                </pre>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Parts ({preview.parts.length})</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-1.5">
+                  {preview.parts.map((p) => (
+                    <Badge key={p} variant={preview.target_parts.includes(p) ? "default" : "outline"}>
+                      {p}
+                    </Badge>
+                  ))}
+                </div>
+                <p className="mt-3 text-sm text-[hsl(var(--muted-foreground))]">
+                  {preview.target_parts.length} target part(s) · {preview.should_preserve.length} preserved
+                </p>
+              </CardContent>
+            </Card>
           </>
         )}
       </div>
@@ -298,20 +367,8 @@ export function AuthorForm() {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="field">
-      <label className="field-label">{label}</label>
-      {children}
-    </div>
-  );
-}
-
 function CorruptionParams({
-  kind,
-  params,
-  setParams,
-  sceneParts,
+  kind, params, setParams, sceneParts,
 }: {
   kind: string;
   params: Record<string, any>;
@@ -322,146 +379,142 @@ function CorruptionParams({
 
   if (kind === "wrong_color") {
     return (
-      <Field label="Wrong color">
+      <div className="space-y-1.5">
+        <Label>Wrong color</Label>
         <ColorPicker value={params.wrong} onChange={(v) => update("wrong", v)} />
-      </Field>
+      </div>
     );
   }
   if (kind === "wrong_stroke_width") {
     return (
-      <Field label="Wrong stroke-width">
-        <input
-          type="number"
-          step={0.5}
-          className="text-input"
-          value={params.wrong}
-          onChange={(e) => update("wrong", parseFloat(e.target.value))}
-        />
-      </Field>
+      <div className="space-y-1.5">
+        <Label>Wrong stroke-width</Label>
+        <Input type="number" step={0.5} value={params.wrong} onChange={(e) => update("wrong", parseFloat(e.target.value))} />
+      </div>
     );
   }
   if (kind === "wrong_scale") {
     return (
-      <Field label="Wrong size (px)">
-        <input
-          type="number"
-          step={4}
-          className="text-input"
-          value={params.wrong}
-          onChange={(e) => update("wrong", parseFloat(e.target.value))}
-        />
-      </Field>
+      <div className="space-y-1.5">
+        <Label>Wrong size (px)</Label>
+        <Input type="number" step={4} value={params.wrong} onChange={(e) => update("wrong", parseFloat(e.target.value))} />
+      </div>
     );
   }
   if (kind === "clipped_viewbox") {
     return (
-      <>
-        <Field label="Clipped width">
-          <input type="number" className="text-input" value={params.w} onChange={(e) => update("w", parseInt(e.target.value))} />
-        </Field>
-        <Field label="Clipped height">
-          <input type="number" className="text-input" value={params.h} onChange={(e) => update("h", parseInt(e.target.value))} />
-        </Field>
-      </>
+      <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-1.5">
+          <Label>Width</Label>
+          <Input type="number" value={params.w} onChange={(e) => update("w", parseInt(e.target.value))} />
+        </div>
+        <div className="space-y-1.5">
+          <Label>Height</Label>
+          <Input type="number" value={params.h} onChange={(e) => update("h", parseInt(e.target.value))} />
+        </div>
+      </div>
     );
   }
   if (kind === "missing_part" || kind === "flipped_part") {
     return (
-      <Field label="Part">
+      <div className="space-y-1.5">
+        <Label>Part</Label>
         <PartPicker parts={sceneParts} value={params.part} onChange={(v) => update("part", v)} />
-      </Field>
+      </div>
     );
   }
   if (kind === "displaced_part" || kind === "duplicate_part") {
     return (
       <>
-        <Field label="Part">
+        <div className="space-y-1.5">
+          <Label>Part</Label>
           <PartPicker parts={sceneParts} value={params.part} onChange={(v) => update("part", v)} />
-        </Field>
-        <Field label="dx">
-          <input type="number" step={1} className="text-input" value={params.dx} onChange={(e) => update("dx", parseInt(e.target.value))} />
-        </Field>
-        <Field label="dy">
-          <input type="number" step={1} className="text-input" value={params.dy} onChange={(e) => update("dy", parseInt(e.target.value))} />
-        </Field>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="space-y-1.5">
+            <Label>dx</Label>
+            <Input type="number" value={params.dx} onChange={(e) => update("dx", parseInt(e.target.value))} />
+          </div>
+          <div className="space-y-1.5">
+            <Label>dy</Label>
+            <Input type="number" value={params.dy} onChange={(e) => update("dy", parseInt(e.target.value))} />
+          </div>
+        </div>
       </>
     );
   }
   if (kind === "miscolor_part") {
     return (
       <>
-        <Field label="Part">
+        <div className="space-y-1.5">
+          <Label>Part</Label>
           <PartPicker parts={sceneParts} value={params.part} onChange={(v) => update("part", v)} />
-        </Field>
-        <Field label="Wrong color">
+        </div>
+        <div className="space-y-1.5">
+          <Label>Wrong color</Label>
           <ColorPicker value={params.wrong} onChange={(v) => update("wrong", v)} />
-        </Field>
+        </div>
       </>
     );
   }
   if (kind === "extra_part") {
     const extra = params.part ?? {};
-    const setExtra = (k: string, v: any) => update("part", { ...extra, [k]: v });
     return (
-      <Field label="Extra primitive (raw spec)">
-        <textarea
-          className="text-input"
+      <div className="space-y-1.5">
+        <Label>Extra primitive (raw spec)</Label>
+        <Textarea
           rows={6}
+          className="font-mono text-xs"
           value={JSON.stringify(extra, null, 2)}
           onChange={(e) => {
             try {
-              update("part", JSON.parse(e.target.value));
-            } catch {
-              // ignore parse errors; user is still typing
-            }
+              setParams({ ...params, part: JSON.parse(e.target.value) });
+            } catch { /* still typing */ }
           }}
         />
-      </Field>
+      </div>
     );
   }
   return null;
 }
 
 function PartPicker({
-  parts,
-  value,
-  onChange,
+  parts, value, onChange,
 }: {
   parts: { id: string; type: string }[];
   value: string;
   onChange: (v: string) => void;
 }) {
   return (
-    <select className="text-input" value={value ?? ""} onChange={(e) => onChange(e.target.value)}>
-      {parts.map((p) => (
-        <option key={p.id} value={p.id}>{p.id} <i>({p.type})</i></option>
-      ))}
-    </select>
+    <Select value={value ?? ""} onValueChange={onChange}>
+      <SelectTrigger><SelectValue /></SelectTrigger>
+      <SelectContent>
+        {parts.map((p) => (
+          <SelectItem key={p.id} value={p.id}>{p.id} ({p.type})</SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   );
 }
 
 function ColorPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   return (
-    <div className="color-row">
+    <div className="flex flex-wrap items-center gap-1.5">
       {COLORS.map((c) => (
         <button
           key={c}
           type="button"
-          className="color-swatch"
+          className="h-7 w-7 rounded-md border transition-transform hover:scale-110"
           style={{
             background: c,
-            outline: value === c ? "2px solid var(--accent)" : "1px solid var(--border)",
+            outline: value === c ? "2px solid hsl(var(--ring))" : "1px solid hsl(var(--border))",
+            outlineOffset: value === c ? "1px" : "0",
           }}
           onClick={() => onChange(c)}
           aria-label={c}
         />
       ))}
-      <input
-        className="text-input"
-        style={{ width: 100, marginLeft: 8 }}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
+      <Input className="ml-2 w-28 font-mono text-xs" value={value} onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 }

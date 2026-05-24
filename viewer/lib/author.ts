@@ -11,14 +11,14 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
 
-// @ts-ignore — engine-lib is a symlink to ../scripts/lib (sibling repo dir)
-import * as render from "../engine-lib/icon-render.mjs";
+// @ts-ignore — vendored copies of ../../scripts/lib (kept in sync manually for now)
+import * as render from "./engine/icon-render.mjs";
 // @ts-ignore
-import * as catalog from "../engine-lib/icon-catalog.mjs";
+import * as catalog from "./engine/icon-catalog.mjs";
 // @ts-ignore
-import * as scenes from "../engine-lib/icon-scenes.mjs";
+import * as scenes from "./engine/icon-scenes.mjs";
 // @ts-ignore
-import * as corr from "../engine-lib/corruptions.mjs";
+import * as corr from "./engine/corruptions.mjs";
 
 const ROOT = path.resolve(process.cwd(), "..");
 const TASKS_DIR = path.join(ROOT, "data", "tasks");

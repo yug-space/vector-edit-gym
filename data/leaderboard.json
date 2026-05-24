@@ -1,0 +1,43 @@
+{
+  "updated_at": "2026-05-25",
+  "note": "Manually curated. Submit your run via email (see README) to be added.",
+  "entries": [
+    {
+      "rank": 1,
+      "name": "Oracle (ceiling)",
+      "provider": "internal",
+      "model": "ground-truth",
+      "exact": 1.0,
+      "structural": 1.0,
+      "preservation": 1.0,
+      "tasks_run": 1,
+      "submitted_by": "VectorEditGym",
+      "date": "2026-05-25"
+    },
+    {
+      "rank": 2,
+      "name": "gpt-5-mini",
+      "provider": "OpenAI",
+      "model": "gpt-5-mini",
+      "exact": 0.0,
+      "structural": 0.0,
+      "preservation": 1.0,
+      "tasks_run": 5,
+      "submitted_by": "VectorEditGym",
+      "date": "2026-05-25",
+      "notes": "Semantically correct fixes but rewrites SVG syntax; strict metrics catch the stylistic drift."
+    },
+    {
+      "rank": 3,
+      "name": "Noop (floor)",
+      "provider": "internal",
+      "model": "identity",
+      "exact": 0.0,
+      "structural": 0.0,
+      "preservation": 1.0,
+      "tasks_run": 1,
+      "submitted_by": "VectorEditGym",
+      "date": "2026-05-25"
+    }
+  ]
+}

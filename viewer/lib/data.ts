@@ -50,6 +50,35 @@ const DATA_DIR = path.resolve(process.cwd(), "..", "data");
 const TASKS_DIR = path.join(DATA_DIR, "tasks");
 const ICONS_DIR = path.join(DATA_DIR, "icons");
 
+export type LeaderboardEntry = {
+  rank: number;
+  name: string;
+  provider: string;
+  model: string;
+  exact: number;
+  structural: number;
+  preservation: number;
+  tasks_run: number;
+  submitted_by: string;
+  date: string;
+  notes?: string;
+};
+
+export type Leaderboard = {
+  updated_at: string;
+  note: string;
+  entries: LeaderboardEntry[];
+};
+
+export const getLeaderboard = async (): Promise<Leaderboard> => {
+  const p = path.join(DATA_DIR, "leaderboard.json");
+  try {
+    return JSON.parse(await fs.readFile(p, "utf-8")) as Leaderboard;
+  } catch {
+    return { updated_at: "", note: "", entries: [] };
+  }
+};
+
 const readJson = async <T>(p: string): Promise<T> =>
   JSON.parse(await fs.readFile(p, "utf-8")) as T;
 
