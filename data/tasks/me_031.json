@@ -1,0 +1,55 @@
+{
+  "task_id": "me_031",
+  "difficulty": "medium",
+  "category": "multi_repair",
+  "instruction": "Fix the house details: the window color is wrong and the chimney was copied.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#f97316\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n  <ellipse id=\"smoke\" fill=\"#cccccc\" cx=\"89\" cy=\"18\" rx=\"6\" ry=\"4\" />\n  <rect id=\"chimney-dup\" fill=\"#603020\" x=\"66\" y=\"32\" width=\"10\" height=\"22\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n  <circle id=\"doorknob\" fill=\"#fde047\" cx=\"70\" cy=\"94\" r=\"1.5\" />\n  <ellipse id=\"smoke\" fill=\"#cccccc\" cx=\"89\" cy=\"18\" rx=\"6\" ry=\"4\" />\n</svg>",
+  "parts": [
+    "walls",
+    "roof",
+    "door",
+    "window",
+    "chimney",
+    "doorknob",
+    "smoke",
+    "chimney-dup"
+  ],
+  "target_parts": [
+    "chimney-dup",
+    "window"
+  ],
+  "expected_diff": [
+    {
+      "part": "chimney-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "chimney-dup",
+        "type": "rect",
+        "x": 66,
+        "y": 32,
+        "width": 10,
+        "height": 22,
+        "fill": "#603020",
+        "prompt": "Add a chimney on the roof."
+      }
+    },
+    {
+      "part": "window",
+      "attribute": "fill",
+      "before": "#f97316",
+      "after": "#94c8ff"
+    }
+  ],
+  "should_preserve": [
+    "walls",
+    "roof",
+    "door",
+    "chimney",
+    "doorknob",
+    "smoke"
+  ],
+  "authored_at": "2026-05-25T01:53:54.563Z"
+}

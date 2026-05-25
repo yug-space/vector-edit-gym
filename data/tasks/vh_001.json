@@ -2,7 +2,7 @@
   "task_id": "vh_001",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the roof on top of the house.",
+  "instruction": "Finish the basic house silhouette by adding the roof.",
   "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n</svg>",
   "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
   "parts": [
@@ -43,5 +43,5 @@
   "should_preserve": [
     "walls"
   ],
-  "authored_at": "2026-05-24T23:59:12.247Z"
+  "authored_at": "2026-05-25T01:53:54.569Z"
 }

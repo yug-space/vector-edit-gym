@@ -41,9 +41,11 @@ const valueLabelPlugin: Plugin<"bar"> = {
         const isZero = v < 0.01;
         // For horizontal bars: x is the end of the bar (or the axis when 0).
         const { x, y } = bar.tooltipPosition(true);
+        if (x == null || y == null) return;
         // If the bar has visible width, place label just past its end; otherwise
         // place at the axis with a small offset so 0% labels are visible.
-        const barEnd = isZero ? (bar as any).base + 4 : x + 4;
+        const base = (bar as { base?: number | null }).base;
+        const barEnd = isZero ? (base ?? x) + 4 : x + 4;
         ctx.fillStyle = isZero ? "rgb(161, 161, 170)" : "rgb(39, 39, 42)";
         ctx.textAlign = "left";
         ctx.fillText(label, barEnd, y);

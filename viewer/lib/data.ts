@@ -25,7 +25,7 @@ export type Task = {
   initial_spec: unknown;
   target_spec: unknown;
   parts: string[];
-  target_part?: string;
+  target_parts?: string[];
   expected_diff: DiffEntry[];
   should_preserve: string[];
 };

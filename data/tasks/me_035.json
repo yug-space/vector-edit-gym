@@ -1,0 +1,52 @@
+{
+  "task_id": "me_035",
+  "difficulty": "medium",
+  "category": "multi_repair",
+  "instruction": "Finish repairing the cake by restoring the cherry and the white frosting.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#b85c38\" stroke-width=\"2\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n  <rect id=\"candle\" fill=\"#f0c0c0\" x=\"62\" y=\"24\" width=\"4\" height=\"20\" />\n  <ellipse id=\"flame\" fill=\"#f97316\" cx=\"64\" cy=\"20\" rx=\"3\" ry=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n  <rect id=\"candle\" fill=\"#f0c0c0\" x=\"62\" y=\"24\" width=\"4\" height=\"20\" />\n  <ellipse id=\"flame\" fill=\"#f97316\" cx=\"64\" cy=\"20\" rx=\"3\" ry=\"5\" />\n  <circle id=\"cherry\" fill=\"#e63946\" cx=\"80\" cy=\"48\" r=\"3\" />\n</svg>",
+  "parts": [
+    "plate",
+    "base-layer",
+    "top-layer",
+    "frosting",
+    "candle",
+    "flame",
+    "cherry"
+  ],
+  "target_parts": [
+    "frosting",
+    "cherry"
+  ],
+  "expected_diff": [
+    {
+      "part": "frosting",
+      "attribute": "stroke",
+      "before": "#b85c38",
+      "after": "#ffffff"
+    },
+    {
+      "part": "cherry",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "cherry",
+        "type": "circle",
+        "cx": 80,
+        "cy": 48,
+        "r": 3,
+        "fill": "#e63946",
+        "prompt": "Add a cherry on top of the cake."
+      }
+    }
+  ],
+  "should_preserve": [
+    "plate",
+    "base-layer",
+    "top-layer",
+    "candle",
+    "flame"
+  ],
+  "authored_at": "2026-05-25T01:53:54.564Z"
+}

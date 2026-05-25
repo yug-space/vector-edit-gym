@@ -2,42 +2,54 @@
   "task_id": "vh_004",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add a chimney on the roof.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n</svg>",
+  "instruction": "Add the smile so the expression reads happy.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" points=\"50,78 64,86 78,78\" />\n</svg>",
   "parts": [
-    "walls",
-    "roof",
-    "door",
-    "window",
-    "chimney"
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth"
   ],
   "target_parts": [
-    "chimney"
+    "mouth"
   ],
   "expected_diff": [
     {
-      "part": "chimney",
+      "part": "mouth",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "chimney",
-        "type": "rect",
-        "x": 84,
-        "y": 28,
-        "width": 10,
-        "height": 22,
-        "fill": "#603020",
-        "prompt": "Add a chimney on the roof."
+        "id": "mouth",
+        "type": "polyline",
+        "points": [
+          [
+            50,
+            78
+          ],
+          [
+            64,
+            86
+          ],
+          [
+            78,
+            78
+          ]
+        ],
+        "stroke": "#222",
+        "strokeWidth": 2,
+        "fill": "none",
+        "prompt": "Add a smiling mouth."
       }
     }
   ],
   "should_preserve": [
-    "walls",
-    "roof",
-    "door",
-    "window"
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose"
   ],
-  "authored_at": "2026-05-24T23:59:12.247Z"
+  "authored_at": "2026-05-25T01:53:54.569Z"
 }

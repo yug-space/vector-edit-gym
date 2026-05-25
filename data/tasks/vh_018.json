@@ -2,45 +2,43 @@
   "task_id": "vh_018",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the red pivot dot at the center.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"3\" />\n</svg>",
+  "instruction": "Complete the bloom with its center.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <line id=\"stem\" stroke=\"#22c55e\" stroke-width=\"3\" x1=\"64\" y1=\"72\" x2=\"64\" y2=\"116\" />\n  <ellipse id=\"petal-n\" fill=\"#ec4899\" cx=\"64\" cy=\"36\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-e\" fill=\"#ec4899\" cx=\"84\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <ellipse id=\"petal-s\" fill=\"#ec4899\" cx=\"64\" cy=\"76\" rx=\"10\" ry=\"16\" />\n  <ellipse id=\"petal-w\" fill=\"#ec4899\" cx=\"44\" cy=\"56\" rx=\"16\" ry=\"10\" />\n  <circle id=\"center\" fill=\"#fde047\" cx=\"64\" cy=\"56\" r=\"8\" />\n</svg>",
   "parts": [
-    "face",
-    "mark-12",
-    "mark-6",
-    "mark-3",
-    "hour-hand",
-    "minute-hand",
-    "pivot"
+    "stem",
+    "petal-n",
+    "petal-e",
+    "petal-s",
+    "petal-w",
+    "center"
   ],
   "target_parts": [
-    "pivot"
+    "center"
   ],
   "expected_diff": [
     {
-      "part": "pivot",
+      "part": "center",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "pivot",
+        "id": "center",
         "type": "circle",
         "cx": 64,
-        "cy": 64,
-        "r": 3,
-        "fill": "#e63946",
-        "prompt": "Add the red pivot dot at the center."
+        "cy": 56,
+        "r": 8,
+        "fill": "#fde047",
+        "prompt": "Add the yellow center of the flower."
       }
     }
   ],
   "should_preserve": [
-    "face",
-    "mark-12",
-    "mark-6",
-    "mark-3",
-    "hour-hand",
-    "minute-hand"
+    "stem",
+    "petal-n",
+    "petal-e",
+    "petal-s",
+    "petal-w"
   ],
-  "authored_at": "2026-05-24T23:59:12.250Z"
+  "authored_at": "2026-05-25T01:53:54.571Z"
 }

@@ -1,10 +1,10 @@
 {
   "task_id": "ha_002",
   "difficulty": "hard",
-  "category": "wrong_color+clipped_viewbox",
-  "instruction": "The bookmark slash icon has two problems: it's been tinted blue AND the canvas is clipping it (currently 96x80). Restore the original black color and expand the viewBox to 128x128.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 80\" width=\"96\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bookmark-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bookmark-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5\"/></g>\n</svg>",
+  "category": "wrong_color+wrong_stroke_width",
+  "instruction": "The library building icon has the wrong color and weight. Bring it back to the standard black outline style.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-library.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #3b82f6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-library.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z\"/></g>\n</svg>",
   "parts": [
     "icon"
   ],
@@ -13,20 +13,10 @@
   ],
   "expected_diff": [
     {
-      "part": "__svg",
-      "attribute": "viewBox",
-      "before": [
-        0,
-        0,
-        96,
-        80
-      ],
-      "after": [
-        0,
-        0,
-        128,
-        128
-      ]
+      "part": "icon",
+      "attribute": "stroke-width",
+      "before": 3.5,
+      "after": 1.5
     },
     {
       "part": "icon",
@@ -36,5 +26,5 @@
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.243Z"
+  "authored_at": "2026-05-25T01:53:54.564Z"
 }

@@ -1,0 +1,49 @@
+{
+  "task_id": "me_007",
+  "difficulty": "medium",
+  "category": "extra_part",
+  "instruction": "The smiley has an extra eyebrow-like stroke above one eye. Clean it off.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" points=\"50,78 64,86 78,78\" />\n  <ellipse id=\"blush-left\" fill=\"#fda4af\" cx=\"38\" cy=\"70\" rx=\"5\" ry=\"3\" />\n  <ellipse id=\"blush-right\" fill=\"#fda4af\" cx=\"90\" cy=\"70\" rx=\"5\" ry=\"3\" />\n  <line id=\"extra-brow\" stroke=\"#222\" stroke-width=\"2\" x1=\"43\" y1=\"42\" x2=\"58\" y2=\"39\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" points=\"50,78 64,86 78,78\" />\n  <ellipse id=\"blush-left\" fill=\"#fda4af\" cx=\"38\" cy=\"70\" rx=\"5\" ry=\"3\" />\n  <ellipse id=\"blush-right\" fill=\"#fda4af\" cx=\"90\" cy=\"70\" rx=\"5\" ry=\"3\" />\n</svg>",
+  "parts": [
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth",
+    "blush-left",
+    "blush-right",
+    "extra-brow"
+  ],
+  "target_parts": [
+    "extra-brow"
+  ],
+  "expected_diff": [
+    {
+      "part": "extra-brow",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-brow",
+        "type": "line",
+        "x1": 43,
+        "y1": 42,
+        "x2": 58,
+        "y2": 39,
+        "stroke": "#222",
+        "strokeWidth": 2
+      }
+    }
+  ],
+  "should_preserve": [
+    "face",
+    "eye-left",
+    "eye-right",
+    "nose",
+    "mouth",
+    "blush-left",
+    "blush-right"
+  ],
+  "authored_at": "2026-05-25T01:53:54.559Z"
+}

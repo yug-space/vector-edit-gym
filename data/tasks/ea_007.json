@@ -1,9 +1,9 @@
 {
   "task_id": "ea_007",
   "difficulty": "easy",
-  "category": "wrong_stroke_width",
-  "instruction": "The at symbol icon's stroke is too thick (currently 4). Reset stroke-width to 1.5.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/at-symbol.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25\"/></g>\n</svg>",
+  "category": "wrong_color",
+  "instruction": "The at-sign has a pink tint that does not belong. Make it a clean black outline again.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/at-symbol.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #ec4899\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25\"/></g>\n</svg>",
   "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/at-symbol.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25\"/></g>\n</svg>",
   "parts": [
     "icon"
@@ -14,11 +14,11 @@
   "expected_diff": [
     {
       "part": "icon",
-      "attribute": "stroke-width",
-      "before": 4,
-      "after": 1.5
+      "attribute": "color",
+      "before": "#ec4899",
+      "after": "#222"
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.237Z"
+  "authored_at": "2026-05-25T01:53:54.552Z"
 }

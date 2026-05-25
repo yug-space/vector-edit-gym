@@ -1,0 +1,37 @@
+{
+  "task_id": "me_019",
+  "difficulty": "medium",
+  "category": "wrong_part_color",
+  "instruction": "The sail was painted like the water. Restore the sail's warm color.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#3b82f6\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" points=\"8,112 24,108 40,112 56,108 72,112 88,108 104,112 120,108\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" points=\"16,120 32,116 48,120 64,116 80,120 96,116 112,120\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"104\" cy=\"28\" r=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n  <polygon id=\"sail\" fill=\"#fde047\" points=\"64,20 96,72 64,72\" />\n  <polygon id=\"flag\" fill=\"#e63946\" points=\"64,16 76,20 64,24\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\" points=\"8,112 24,108 40,112 56,108 72,112 88,108 104,112 120,108\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" points=\"16,120 32,116 48,120 64,116 80,120 96,116 112,120\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"104\" cy=\"28\" r=\"8\" />\n</svg>",
+  "parts": [
+    "hull",
+    "mast",
+    "sail",
+    "flag",
+    "wave-1",
+    "wave-2",
+    "sun"
+  ],
+  "target_parts": [
+    "sail"
+  ],
+  "expected_diff": [
+    {
+      "part": "sail",
+      "attribute": "fill",
+      "before": "#3b82f6",
+      "after": "#fde047"
+    }
+  ],
+  "should_preserve": [
+    "hull",
+    "mast",
+    "flag",
+    "wave-1",
+    "wave-2",
+    "sun"
+  ],
+  "authored_at": "2026-05-25T01:53:54.561Z"
+}

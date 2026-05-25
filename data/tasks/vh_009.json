@@ -2,39 +2,35 @@
   "task_id": "vh_009",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add a small nose at the center.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n</svg>",
+  "instruction": "Add the leafy canopy above the trunk.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n</svg>",
   "parts": [
-    "face",
-    "eye-left",
-    "eye-right",
-    "nose"
+    "trunk",
+    "crown"
   ],
   "target_parts": [
-    "nose"
+    "crown"
   ],
   "expected_diff": [
     {
-      "part": "nose",
+      "part": "crown",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "nose",
+        "id": "crown",
         "type": "circle",
         "cx": 64,
-        "cy": 64,
-        "r": 2,
-        "fill": "#222",
-        "prompt": "Add a small nose at the center."
+        "cy": 48,
+        "r": 32,
+        "fill": "#3a9d5d",
+        "prompt": "Add the leafy crown."
       }
     }
   ],
   "should_preserve": [
-    "face",
-    "eye-left",
-    "eye-right"
+    "trunk"
   ],
-  "authored_at": "2026-05-24T23:59:12.248Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

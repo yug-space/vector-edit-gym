@@ -1,10 +1,10 @@
 {
   "task_id": "ha_014",
   "difficulty": "hard",
-  "category": "wrong_color+wrong_stroke_width",
-  "instruction": "The calendar days icon has two issues: it's been tinted pink AND its stroke is too thin (0.5). Restore black color and stroke-width 1.5.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/calendar-days.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #ec4899\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/calendar-days.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z\"/></g>\n</svg>",
+  "category": "wrong_color+clipped_viewbox",
+  "instruction": "The pie chart icon was tinted and cropped. Restore the complete black outline.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 76 76\" width=\"76\" height=\"76\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"76\" height=\"76\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chart-pie.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #e63946\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chart-pie.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z\"/>\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z\"/></g>\n</svg>",
   "parts": [
     "icon"
   ],
@@ -13,18 +13,28 @@
   ],
   "expected_diff": [
     {
-      "part": "icon",
-      "attribute": "stroke-width",
-      "before": 0.5,
-      "after": 1.5
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        76,
+        76
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
     },
     {
       "part": "icon",
       "attribute": "color",
-      "before": "#ec4899",
+      "before": "#e63946",
       "after": "#222"
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.245Z"
+  "authored_at": "2026-05-25T01:53:54.567Z"
 }

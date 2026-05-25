@@ -1,10 +1,10 @@
 {
   "task_id": "ha_017",
   "difficulty": "hard",
-  "category": "wrong_scale+wrong_stroke_width",
-  "instruction": "The chart bar square icon was scaled wrong (size 56, too small) AND its stroke is too heavy (3). Restore size 112 and stroke-width 1.5.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chart-bar-square.svg\" transform=\"translate(36, 36) scale(2.3333)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chart-bar-square.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z\"/></g>\n</svg>",
+  "category": "wrong_color+wrong_stroke_width",
+  "instruction": "The chat bubble with ellipsis has the wrong color and heavy strokes. Return it to the regular outline style.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-left-ellipsis.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #f97316\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-left-ellipsis.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z\"/></g>\n</svg>",
   "parts": [
     "icon"
   ],
@@ -15,28 +15,16 @@
     {
       "part": "icon",
       "attribute": "stroke-width",
-      "before": 3,
+      "before": 4.2,
       "after": 1.5
     },
     {
       "part": "icon",
-      "attribute": "size",
-      "before": 56,
-      "after": 112
-    },
-    {
-      "part": "icon",
-      "attribute": "x",
-      "before": 36,
-      "after": 8
-    },
-    {
-      "part": "icon",
-      "attribute": "y",
-      "before": 36,
-      "after": 8
+      "attribute": "color",
+      "before": "#f97316",
+      "after": "#222"
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.246Z"
+  "authored_at": "2026-05-25T01:53:54.568Z"
 }

@@ -2,43 +2,52 @@
   "task_id": "vh_016",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the hour hand pointing straight up.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n</svg>",
+  "instruction": "Add steam rising above the cup.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"cup-body\" fill=\"#f5f5f5\" stroke=\"#222\" stroke-width=\"2\" x=\"36\" y=\"56\" width=\"48\" height=\"48\" />\n  <ellipse id=\"saucer\" fill=\"#cccccc\" cx=\"64\" cy=\"108\" rx=\"40\" ry=\"6\" />\n  <circle id=\"handle\" fill=\"none\" stroke=\"#222\" stroke-width=\"3\" cx=\"88\" cy=\"80\" r=\"10\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"cup-body\" fill=\"#f5f5f5\" stroke=\"#222\" stroke-width=\"2\" x=\"36\" y=\"56\" width=\"48\" height=\"48\" />\n  <ellipse id=\"saucer\" fill=\"#cccccc\" cx=\"64\" cy=\"108\" rx=\"40\" ry=\"6\" />\n  <circle id=\"handle\" fill=\"none\" stroke=\"#222\" stroke-width=\"3\" cx=\"88\" cy=\"80\" r=\"10\" />\n  <polyline id=\"steam-1\" fill=\"none\" stroke=\"#aaaaaa\" stroke-width=\"2\" points=\"54,40 50,32 56,24\" />\n</svg>",
   "parts": [
-    "face",
-    "mark-12",
-    "mark-6",
-    "mark-3",
-    "hour-hand"
+    "cup-body",
+    "saucer",
+    "handle",
+    "steam-1"
   ],
   "target_parts": [
-    "hour-hand"
+    "steam-1"
   ],
   "expected_diff": [
     {
-      "part": "hour-hand",
+      "part": "steam-1",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "hour-hand",
-        "type": "line",
-        "x1": 64,
-        "y1": 64,
-        "x2": 64,
-        "y2": 36,
-        "stroke": "#222",
-        "strokeWidth": 3,
-        "prompt": "Add the hour hand pointing straight up."
+        "id": "steam-1",
+        "type": "polyline",
+        "points": [
+          [
+            54,
+            40
+          ],
+          [
+            50,
+            32
+          ],
+          [
+            56,
+            24
+          ]
+        ],
+        "stroke": "#aaaaaa",
+        "strokeWidth": 2,
+        "fill": "none",
+        "prompt": "Add a wisp of steam above the cup."
       }
     }
   ],
   "should_preserve": [
-    "face",
-    "mark-12",
-    "mark-6",
-    "mark-3"
+    "cup-body",
+    "saucer",
+    "handle"
   ],
-  "authored_at": "2026-05-24T23:59:12.249Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

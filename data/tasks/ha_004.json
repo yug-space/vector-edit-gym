@@ -2,9 +2,9 @@
   "task_id": "ha_004",
   "difficulty": "hard",
   "category": "wrong_color+clipped_viewbox",
-  "instruction": "The bookmark icon has two problems: it's been tinted yellow AND the canvas is clipping it (currently 80x96). Restore the original black color and expand the viewBox to 128x128.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 80 96\" width=\"80\" height=\"96\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"80\" height=\"96\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #fde047\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bookmark.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z\"/></g>\n</svg>",
+  "instruction": "The office building was recolored and clipped. Return the black outline and show the entire icon.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 80\" width=\"96\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-office.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #f97316\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/building-office.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21\"/></g>\n</svg>",
   "parts": [
     "icon"
   ],
@@ -18,8 +18,8 @@
       "before": [
         0,
         0,
-        80,
-        96
+        96,
+        80
       ],
       "after": [
         0,
@@ -31,10 +31,10 @@
     {
       "part": "icon",
       "attribute": "color",
-      "before": "#fde047",
+      "before": "#f97316",
       "after": "#222"
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.243Z"
+  "authored_at": "2026-05-25T01:53:54.565Z"
 }

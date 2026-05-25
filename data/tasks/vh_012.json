@@ -2,46 +2,42 @@
   "task_id": "vh_012",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add a blush on the right cheek.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n  <ellipse id=\"blush-left\" fill=\"#fda4af\" cx=\"38\" cy=\"70\" rx=\"5\" ry=\"3\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n  <circle id=\"nose\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"2\" />\n  <polyline id=\"mouth\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" fill=\"none\" points=\"50,78 64,86 78,78\" />\n  <ellipse id=\"blush-left\" fill=\"#fda4af\" cx=\"38\" cy=\"70\" rx=\"5\" ry=\"3\" />\n  <ellipse id=\"blush-right\" fill=\"#fda4af\" cx=\"90\" cy=\"70\" rx=\"5\" ry=\"3\" />\n</svg>",
+  "instruction": "Put a candle on top of the cake.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <ellipse id=\"plate\" fill=\"#888888\" cx=\"64\" cy=\"108\" rx=\"44\" ry=\"6\" />\n  <rect id=\"base-layer\" fill=\"#b85c38\" x=\"24\" y=\"72\" width=\"80\" height=\"32\" />\n  <rect id=\"top-layer\" fill=\"#f0c0c0\" x=\"32\" y=\"48\" width=\"64\" height=\"24\" />\n  <polyline id=\"frosting\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" points=\"32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48\" />\n  <rect id=\"candle\" fill=\"#f0c0c0\" x=\"62\" y=\"24\" width=\"4\" height=\"20\" />\n</svg>",
   "parts": [
-    "face",
-    "eye-left",
-    "eye-right",
-    "nose",
-    "mouth",
-    "blush-left",
-    "blush-right"
+    "plate",
+    "base-layer",
+    "top-layer",
+    "frosting",
+    "candle"
   ],
   "target_parts": [
-    "blush-right"
+    "candle"
   ],
   "expected_diff": [
     {
-      "part": "blush-right",
+      "part": "candle",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "blush-right",
-        "type": "ellipse",
-        "cx": 90,
-        "cy": 70,
-        "rx": 5,
-        "ry": 3,
-        "fill": "#fda4af",
-        "prompt": "Add a blush on the right cheek."
+        "id": "candle",
+        "type": "rect",
+        "x": 62,
+        "y": 24,
+        "width": 4,
+        "height": 20,
+        "fill": "#f0c0c0",
+        "prompt": "Add a candle on top."
       }
     }
   ],
   "should_preserve": [
-    "face",
-    "eye-left",
-    "eye-right",
-    "nose",
-    "mouth",
-    "blush-left"
+    "plate",
+    "base-layer",
+    "top-layer",
+    "frosting"
   ],
-  "authored_at": "2026-05-24T23:59:12.248Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

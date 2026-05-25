@@ -2,50 +2,46 @@
   "task_id": "vh_019",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the roof on top of the body.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n</svg>",
+  "instruction": "Cap the rocket with a nose cone.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#cccccc\" stroke=\"#222\" stroke-width=\"2\" x=\"48\" y=\"40\" width=\"32\" height=\"70\" />\n  <polygon id=\"nose-cone\" fill=\"#e63946\" points=\"48,40 80,40 64,12\" />\n</svg>",
   "parts": [
     "body",
-    "roof"
+    "nose-cone"
   ],
   "target_parts": [
-    "roof"
+    "nose-cone"
   ],
   "expected_diff": [
     {
-      "part": "roof",
+      "part": "nose-cone",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "roof",
+        "id": "nose-cone",
         "type": "polygon",
         "points": [
           [
-            28,
-            64
+            48,
+            40
           ],
           [
-            40,
-            44
+            80,
+            40
           ],
           [
-            88,
-            44
-          ],
-          [
-            100,
-            64
+            64,
+            12
           ]
         ],
-        "fill": "#3b82f6",
-        "prompt": "Add the roof on top of the body."
+        "fill": "#e63946",
+        "prompt": "Add the nose cone on top."
       }
     }
   ],
   "should_preserve": [
     "body"
   ],
-  "authored_at": "2026-05-24T23:59:12.250Z"
+  "authored_at": "2026-05-25T01:53:54.571Z"
 }

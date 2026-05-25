@@ -2,36 +2,37 @@
   "task_id": "vh_013",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the 12-o'clock tick mark.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n</svg>",
+  "instruction": "Raise the mast from the boat.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <polygon id=\"hull\" fill=\"#92400e\" points=\"16,88 112,88 96,104 32,104\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"88\" x2=\"64\" y2=\"16\" />\n</svg>",
   "parts": [
-    "face",
-    "mark-12"
+    "hull",
+    "mast"
   ],
   "target_parts": [
-    "mark-12"
+    "mast"
   ],
   "expected_diff": [
     {
-      "part": "mark-12",
+      "part": "mast",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "mark-12",
-        "type": "rect",
-        "x": 62,
-        "y": 18,
-        "width": 4,
-        "height": 8,
-        "fill": "#222",
-        "prompt": "Add the 12-o'clock tick mark."
+        "id": "mast",
+        "type": "line",
+        "x1": 64,
+        "y1": 88,
+        "x2": 64,
+        "y2": 16,
+        "stroke": "#222",
+        "strokeWidth": 3,
+        "prompt": "Add the mast."
       }
     }
   ],
   "should_preserve": [
-    "face"
+    "hull"
   ],
-  "authored_at": "2026-05-24T23:59:12.248Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

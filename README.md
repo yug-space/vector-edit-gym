@@ -12,19 +12,18 @@ Each task has:
 
 ## What's a task
 
-Each task is **one corrupted SVG icon** plus a **natural-language fix instruction**. The corruption is one of: missing part, extra mark, displaced piece, wrong color, wrong stroke-width, wrong scale, clipped viewBox, flipped part, duplicate part, or a multi-corruption combo. Tasks are hand-authored through the web tool; nothing is generated from templates.
+Each task is **one corrupted SVG icon** plus a **natural-language fix instruction**. The corruption is one of: missing part, extra mark, displaced piece, wrong color, wrong stroke-width, wrong scale, clipped viewBox, flipped part, duplicate part, or a multi-corruption combo. The active 100-task curriculum is curated in `scripts/author-all.mjs` as one named task function per task so every prompt can be reviewed directly.
 
 ```jsonc
 {
-  "task_id": "ve_001",
-  "difficulty": "very_easy",
-  "category": "missing_part",
-  "instruction": "This house is missing its door. Draw it back in.",
+  "task_id": "ea_001",
+  "difficulty": "easy",
+  "category": "wrong_color",
+  "instruction": "The academic cap picked up a red accent. Put it back as a plain black outline.",
   "initial_svg": "<svg ...>…corrupted…</svg>",
   "target_svg":  "<svg ...>…clean…</svg>",
-  "expected_diff": [{ "part": "door", "attribute": "exists", "before": false, "after": true, "added": {...} }],
-  "should_preserve": ["home", "window", "chimney", "doorknob"],
-  "draft": { "source": { "kind": "scene", "name": "house" }, "corruption": { "kind": "missing_part", "part": "door" } }
+  "expected_diff": [{ "part": "icon", "attribute": "color", "before": "#e63946", "after": "#222" }],
+  "should_preserve": []
 }
 ```
 
@@ -34,13 +33,16 @@ Each task is **one corrupted SVG icon** plus a **natural-language fix instructio
 # 1. Scrape the real icon catalog (Heroicons, Feather, Iconify) — one-time
 npm run scrape:icons
 
-# 2. Run the viewer + authoring UI
+# 2. Regenerate the curated 100-task curriculum
+npm run generate:authored
+
+# 3. Run the viewer + authoring UI
 cd viewer && npm install && npm run dev
 # open http://localhost:3000           — browse tasks
 # open http://localhost:3000/author    — author a new task (live preview, save to disk)
 # open http://localhost:3000/icons     — browse the 955-icon catalog
 
-# 3. Install and use the Python SDK
+# 4. Install and use the Python SDK
 pip install -e sdk/python
 vec-edit-gym list
 vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve   # ceiling
@@ -49,19 +51,18 @@ vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve     # floor
 
 ## Authoring
 
-The `/author` page is the canonical way to add tasks. Pick a real icon or a composite scene, choose the corruption type, set its parameters, write the natural-language instruction, and save. Each task lands in `data/tasks/<task_id>.json` with both a structured `draft` (for round-tripping in the UI) and the rendered initial/target SVGs (for the SDK).
+The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 100 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.
 
-## Curriculum (300 tasks, hand-authored)
+## Curriculum (100 tasks)
 
-| Difficulty | Target count | Authored |
-|------------|--------------|----------|
-| Very Easy  | 60           | …        |
-| Easy       | 70           | …        |
-| Medium     | 80           | …        |
-| Hard       | 60           | …        |
-| Very Hard  | 30           | …        |
+| Difficulty | Tasks | Notes |
+|------------|-------|-------|
+| Easy       | 25    | Single real-icon repairs: color, line weight, scale, and clipping |
+| Medium     | 35    | Composite-scene repairs: missing, extra, displaced, recolored, duplicated, flipped, and multi-repair |
+| Hard       | 20    | Multi-issue real-icon repairs with general visual instructions |
+| Very Hard  | 20    | Contextual creation steps that add one missing scene element |
 
-The 300 auto-generated tasks from the earlier pipeline have been moved to `data/tasks_legacy/` as a reference (they're noisier and template-based; the new ones replace them).
+The older generated tasks remain in `data/tasks_legacy/` as a reference.
 
 ## Layout
 
@@ -80,17 +81,7 @@ viewer/              Next.js 15 app
   engine-lib         symlink to scripts/lib (so Next routes can import the engine)
 ```
 
-## Curriculum (300 tasks)
-
-| Difficulty | Tasks | Status | Notes                                                              |
-|------------|-------|--------|--------------------------------------------------------------------|
-| Very Easy  | 60    | ✓      | 1-2 primitives, single edit (color / move / resize / delete / stroke) |
-| Easy       | 70    | ✓      | 2-4 primitives, distractor by shape                                |
-| Medium     | 80    | ✓      | 4-6 objects, ordinal/spatial reference, multi-object, constraints, repair |
-| Hard       | 60    | ✓      | Composite icons (house, robot, cart…): local preservation, alignment, constraint, simplification, repair |
-| Very Hard  | 30    | ✓      | Multi-step + complex constraints + real Heroicons/Feather edits + adversarial preservation |
-
-Composite icon scenes are in `scripts/lib/scenes.mjs`; each part has a semantically meaningful id (`house.door`, `traffic-light.red`) so instructions can reference parts by name and diffs are unambiguous.
+Composite workflow scenes are in `scripts/lib/workflow-scenes.mjs`; each part has a semantically meaningful id so instructions can reference parts by name and diffs are unambiguous.
 
 ## Task schema
 

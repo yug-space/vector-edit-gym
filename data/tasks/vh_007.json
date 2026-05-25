@@ -2,35 +2,50 @@
   "task_id": "vh_007",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the left eye.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n</svg>",
+  "instruction": "Build the top cabin of the car.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n</svg>",
   "parts": [
-    "face",
-    "eye-left"
+    "body",
+    "roof"
   ],
   "target_parts": [
-    "eye-left"
+    "roof"
   ],
   "expected_diff": [
     {
-      "part": "eye-left",
+      "part": "roof",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "eye-left",
-        "type": "circle",
-        "cx": 50,
-        "cy": 54,
-        "r": 4,
-        "fill": "#222",
-        "prompt": "Add the left eye."
+        "id": "roof",
+        "type": "polygon",
+        "points": [
+          [
+            28,
+            64
+          ],
+          [
+            40,
+            44
+          ],
+          [
+            88,
+            44
+          ],
+          [
+            100,
+            64
+          ]
+        ],
+        "fill": "#3b82f6",
+        "prompt": "Add the roof on top of the body."
       }
     }
   ],
   "should_preserve": [
-    "face"
+    "body"
   ],
-  "authored_at": "2026-05-24T23:59:12.248Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

@@ -1,0 +1,55 @@
+{
+  "task_id": "me_033",
+  "difficulty": "medium",
+  "category": "multi_repair",
+  "instruction": "Clean up the clock face: the center dot color is wrong and one side mark was duplicated.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#222\" cx=\"64\" cy=\"64\" r=\"3\" />\n  <rect id=\"mark-3-dup\" fill=\"#222\" x=\"92\" y=\"62\" width=\"8\" height=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"3\" />\n</svg>",
+  "parts": [
+    "face",
+    "mark-12",
+    "mark-6",
+    "mark-3",
+    "hour-hand",
+    "minute-hand",
+    "pivot",
+    "mark-3-dup"
+  ],
+  "target_parts": [
+    "mark-3-dup",
+    "pivot"
+  ],
+  "expected_diff": [
+    {
+      "part": "mark-3-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "mark-3-dup",
+        "type": "rect",
+        "x": 92,
+        "y": 62,
+        "width": 8,
+        "height": 4,
+        "fill": "#222",
+        "prompt": "Add the 3-o'clock tick mark."
+      }
+    },
+    {
+      "part": "pivot",
+      "attribute": "fill",
+      "before": "#222",
+      "after": "#e63946"
+    }
+  ],
+  "should_preserve": [
+    "face",
+    "mark-12",
+    "mark-6",
+    "mark-3",
+    "hour-hand",
+    "minute-hand"
+  ],
+  "authored_at": "2026-05-25T01:53:54.563Z"
+}

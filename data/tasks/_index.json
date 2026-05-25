@@ -1,621 +1,632 @@
 {
-  "generated_at": "2026-05-24T23:59:24.271Z",
+  "generated_at": "2026-05-25T01:53:54.622Z",
   "count": 100,
   "by_difficulty": {
-    "easy": 20,
+    "easy": 25,
+    "medium": 35,
     "hard": 20,
-    "very_hard": 60
+    "very_hard": 20
   },
   "by_category": {
-    "wrong_color": 6,
+    "wrong_color": 9,
     "wrong_stroke_width": 6,
-    "wrong_scale": 4,
+    "wrong_scale": 6,
     "clipped_viewbox": 4,
-    "wrong_color+clipped_viewbox": 8,
+    "missing_part": 5,
+    "extra_part": 5,
+    "displaced_part": 5,
+    "wrong_part_color": 5,
+    "duplicate_part": 5,
+    "flipped_part": 5,
+    "multi_repair": 5,
+    "wrong_color+clipped_viewbox": 6,
     "wrong_color+wrong_stroke_width": 6,
-    "wrong_scale+wrong_stroke_width": 6,
-    "creation_step": 60
+    "wrong_scale+wrong_stroke_width": 4,
+    "wrong_scale+clipped_viewbox": 2,
+    "wrong_stroke_width+clipped_viewbox": 1,
+    "wrong_color+wrong_scale": 1,
+    "creation_step": 20
   },
   "tasks": [
     {
       "task_id": "ea_001",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The academic cap icon has been tinted red. Restore its default black outline."
+      "instruction": "The academic cap picked up a red accent. Put it back as a plain black outline."
     },
     {
       "task_id": "ea_002",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The adjustments horizontal icon has been tinted blue. Restore its default black outline."
+      "instruction": "The adjustment sliders should not be blue. Restore the standard monochrome outline."
     },
     {
       "task_id": "ea_003",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The adjustments vertical icon has been tinted green. Restore its default black outline."
+      "instruction": "The vertical adjustment control has an accidental green tint. Make it look like a normal outline icon again."
     },
     {
       "task_id": "ea_004",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The archive box arrow down icon has been tinted yellow. Restore its default black outline."
+      "instruction": "The archive download icon was highlighted yellow by mistake. Return it to the usual black outline."
     },
     {
       "task_id": "ea_005",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The archive box x mark icon has been tinted purple. Restore its default black outline."
+      "instruction": "The archive removal icon has a purple cast. Remove the tint and keep the outline style."
     },
     {
       "task_id": "ea_006",
       "difficulty": "easy",
       "category": "wrong_color",
-      "instruction": "The archive box icon has been tinted orange. Restore its default black outline."
+      "instruction": "The archive box should be a neutral outline, not orange. Restore its default look."
     },
     {
       "task_id": "ea_007",
       "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The at symbol icon's stroke is too thick (currently 4). Reset stroke-width to 1.5."
+      "category": "wrong_color",
+      "instruction": "The at-sign has a pink tint that does not belong. Make it a clean black outline again."
     },
     {
       "task_id": "ea_008",
       "difficulty": "easy",
       "category": "wrong_stroke_width",
-      "instruction": "The backspace icon's stroke is too thin (currently 0.5). Reset stroke-width to 1.5."
+      "instruction": "The backspace icon's lines look too bold. Bring the outline weight back to normal."
     },
     {
       "task_id": "ea_009",
       "difficulty": "easy",
       "category": "wrong_stroke_width",
-      "instruction": "The banknotes icon's stroke is too heavy (currently 3). Reset stroke-width to 1.5."
+      "instruction": "The banknotes icon is too faint to match the set. Restore the usual line weight."
     },
     {
       "task_id": "ea_010",
       "difficulty": "easy",
       "category": "wrong_stroke_width",
-      "instruction": "The battery 0 icon's stroke is too faint (currently 0.7). Reset stroke-width to 1.5."
+      "instruction": "The empty battery outline is heavier than it should be. Match the normal icon weight."
     },
     {
       "task_id": "ea_011",
       "difficulty": "easy",
       "category": "wrong_stroke_width",
-      "instruction": "The battery 100 icon's stroke is too thick (currently 4.5). Reset stroke-width to 1.5."
+      "instruction": "The full battery icon looks unusually delicate. Restore the standard outline thickness."
     },
     {
       "task_id": "ea_012",
       "difficulty": "easy",
       "category": "wrong_stroke_width",
-      "instruction": "The battery 50 icon's stroke is too thin (currently 0.4). Reset stroke-width to 1.5."
+      "instruction": "The half battery icon has oversized strokes. Make the line weight consistent with the default set."
     },
     {
       "task_id": "ea_013",
       "difficulty": "easy",
       "category": "wrong_scale",
-      "instruction": "The beaker icon is too small (currently size 64). Restore it to size 112."
+      "instruction": "The beaker is undersized on the canvas. Restore its normal centered presence."
     },
     {
       "task_id": "ea_014",
       "difficulty": "easy",
       "category": "wrong_scale",
-      "instruction": "The bell alert icon is too large (currently size 124). Restore it to size 112."
+      "instruction": "The alert bell is crowding the canvas. Resize it back to the standard icon fit."
     },
     {
       "task_id": "ea_015",
       "difficulty": "easy",
       "category": "wrong_scale",
-      "instruction": "The bell slash icon is too small (currently size 56). Restore it to size 112."
+      "instruction": "The muted bell looks shrunken. Return it to the usual centered scale."
     },
     {
       "task_id": "ea_016",
       "difficulty": "easy",
       "category": "wrong_scale",
-      "instruction": "The bell snooze icon is too large (currently size 120). Restore it to size 112."
+      "instruction": "The snooze bell is slightly too large for the canvas. Restore the balanced icon size."
     },
     {
       "task_id": "ea_017",
       "difficulty": "easy",
-      "category": "clipped_viewbox",
-      "instruction": "The bell icon is being clipped by a 80x80 canvas. Expand the viewBox to 128x128."
+      "category": "wrong_scale",
+      "instruction": "The regular bell no longer matches the icon set's sizing. Put it back to the normal fit."
     },
     {
       "task_id": "ea_018",
       "difficulty": "easy",
       "category": "clipped_viewbox",
-      "instruction": "The bold icon is being clipped by a 96x80 canvas. Expand the viewBox to 128x128."
+      "instruction": "The bold text icon is cropped. Fix the canvas so the entire mark is visible."
     },
     {
       "task_id": "ea_019",
       "difficulty": "easy",
       "category": "clipped_viewbox",
-      "instruction": "The bolt slash icon is being clipped by a 72x72 canvas. Expand the viewBox to 128x128."
+      "instruction": "The disabled lightning bolt is cut off at the edges. Restore the full visible icon."
     },
     {
       "task_id": "ea_020",
       "difficulty": "easy",
       "category": "clipped_viewbox",
-      "instruction": "The bolt icon is being clipped by a 64x64 canvas. Expand the viewBox to 128x128."
+      "instruction": "The lightning bolt does not fit inside its viewport. Make the complete outline show again."
+    },
+    {
+      "task_id": "ea_021",
+      "difficulty": "easy",
+      "category": "wrong_color",
+      "instruction": "The open book has been colored cyan. Return it to a simple black outline."
+    },
+    {
+      "task_id": "ea_022",
+      "difficulty": "easy",
+      "category": "wrong_stroke_width",
+      "instruction": "The slashed bookmark's outline is barely visible. Restore the normal stroke weight."
+    },
+    {
+      "task_id": "ea_023",
+      "difficulty": "easy",
+      "category": "wrong_scale",
+      "instruction": "The square bookmark is a little oversized. Bring it back to the standard centered scale."
+    },
+    {
+      "task_id": "ea_024",
+      "difficulty": "easy",
+      "category": "clipped_viewbox",
+      "instruction": "The bookmark is partly outside the visible area. Repair the viewport so the whole shape appears."
+    },
+    {
+      "task_id": "ea_025",
+      "difficulty": "easy",
+      "category": "wrong_color",
+      "instruction": "The briefcase picked up a red tint. Restore the icon to the neutral outline style."
+    },
+    {
+      "task_id": "me_001",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The house lost its roof. Rebuild the missing top piece."
+    },
+    {
+      "task_id": "me_002",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The face has eyes and cheeks but no smile. Add the missing mouth back."
+    },
+    {
+      "task_id": "me_003",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The car body is missing its windshield. Restore the glass area."
+    },
+    {
+      "task_id": "me_004",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The birthday cake needs its candle restored on top."
+    },
+    {
+      "task_id": "me_005",
+      "difficulty": "medium",
+      "category": "missing_part",
+      "instruction": "The rocket is missing its round porthole. Put the window back."
+    },
+    {
+      "task_id": "me_006",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A stray blue spot was added to the house wall. Remove the unwanted mark."
+    },
+    {
+      "task_id": "me_007",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "The smiley has an extra eyebrow-like stroke above one eye. Clean it off."
+    },
+    {
+      "task_id": "me_008",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "The clock face has a stray side tick that should not be there. Remove the extra mark."
+    },
+    {
+      "task_id": "me_009",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "A loose rock appeared in the water under the boat. Delete the stray shape."
+    },
+    {
+      "task_id": "me_010",
+      "difficulty": "medium",
+      "category": "extra_part",
+      "instruction": "The flower has an extra petal that breaks the simple four-petal bloom. Remove it."
+    },
+    {
+      "task_id": "me_011",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The front door slid away from the center of the house. Move it back into place."
+    },
+    {
+      "task_id": "me_012",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The car's right wheel floated upward. Put it back under the body."
+    },
+    {
+      "task_id": "me_013",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The leafy crown no longer sits on the trunk. Recenter it above the tree."
+    },
+    {
+      "task_id": "me_014",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The cup handle drifted into the body. Move it back to the outside edge."
+    },
+    {
+      "task_id": "me_015",
+      "difficulty": "medium",
+      "category": "displaced_part",
+      "instruction": "The rocket flame is tucked too high into the body. Place it back underneath."
+    },
+    {
+      "task_id": "me_016",
+      "difficulty": "medium",
+      "category": "wrong_part_color",
+      "instruction": "The house window no longer reads as glass. Restore its original window color."
+    },
+    {
+      "task_id": "me_017",
+      "difficulty": "medium",
+      "category": "wrong_part_color",
+      "instruction": "The left cheek blush turned into a dark mark. Restore the soft blush color."
+    },
+    {
+      "task_id": "me_018",
+      "difficulty": "medium",
+      "category": "wrong_part_color",
+      "instruction": "The fruit on the right blends into the leaves. Make it match the other fruit again."
+    },
+    {
+      "task_id": "me_019",
+      "difficulty": "medium",
+      "category": "wrong_part_color",
+      "instruction": "The sail was painted like the water. Restore the sail's warm color."
+    },
+    {
+      "task_id": "me_020",
+      "difficulty": "medium",
+      "category": "wrong_part_color",
+      "instruction": "The rocket nose cone lost its accent color. Repaint it to match the fins."
+    },
+    {
+      "task_id": "me_021",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "The face has one eye mark too many. Remove the copied eye."
+    },
+    {
+      "task_id": "me_022",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "A second minute hand was copied onto the clock. Keep only the intended hand."
+    },
+    {
+      "task_id": "me_023",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "The car has an extra wheel mark near the left side. Remove the duplicate."
+    },
+    {
+      "task_id": "me_024",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "There is one steam wisp too many above the cup. Delete the copied wisp."
+    },
+    {
+      "task_id": "me_025",
+      "difficulty": "medium",
+      "category": "duplicate_part",
+      "instruction": "A second leaf was accidentally added to the stem. Remove the duplicate leaf."
+    },
+    {
+      "task_id": "me_026",
+      "difficulty": "medium",
+      "category": "flipped_part",
+      "instruction": "The sail leans the wrong way. Flip it back so it attaches naturally to the mast."
+    },
+    {
+      "task_id": "me_027",
+      "difficulty": "medium",
+      "category": "flipped_part",
+      "instruction": "The left fin faces inward instead of bracing the rocket. Turn it back around."
+    },
+    {
+      "task_id": "me_028",
+      "difficulty": "medium",
+      "category": "flipped_part",
+      "instruction": "The right fin is mirrored away from its proper stance. Restore its orientation."
+    },
+    {
+      "task_id": "me_029",
+      "difficulty": "medium",
+      "category": "flipped_part",
+      "instruction": "The left steam curl bends the wrong direction. Mirror it back into the rising steam pattern."
+    },
+    {
+      "task_id": "me_030",
+      "difficulty": "medium",
+      "category": "flipped_part",
+      "instruction": "The small corner star has been mirrored. Restore its original sparkle shape."
+    },
+    {
+      "task_id": "me_031",
+      "difficulty": "medium",
+      "category": "multi_repair",
+      "instruction": "Fix the house details: the window color is wrong and the chimney was copied."
+    },
+    {
+      "task_id": "me_032",
+      "difficulty": "medium",
+      "category": "multi_repair",
+      "instruction": "Repair the car's front details by restoring the headlight and bringing back the plate."
+    },
+    {
+      "task_id": "me_033",
+      "difficulty": "medium",
+      "category": "multi_repair",
+      "instruction": "Clean up the clock face: the center dot color is wrong and one side mark was duplicated."
+    },
+    {
+      "task_id": "me_034",
+      "difficulty": "medium",
+      "category": "multi_repair",
+      "instruction": "Restore the tree's fruit details: one fruit moved and another lost its ripe color."
+    },
+    {
+      "task_id": "me_035",
+      "difficulty": "medium",
+      "category": "multi_repair",
+      "instruction": "Finish repairing the cake by restoring the cherry and the white frosting."
     },
     {
       "task_id": "ha_001",
       "difficulty": "hard",
       "category": "wrong_color+clipped_viewbox",
-      "instruction": "The book open icon has two problems: it's been tinted red AND the canvas is clipping it (currently 80x80). Restore the original black color and expand the viewBox to 128x128."
+      "instruction": "The bug icon is both tinted and cropped. Restore the plain outline and make the full insect visible."
     },
     {
       "task_id": "ha_002",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The bookmark slash icon has two problems: it's been tinted blue AND the canvas is clipping it (currently 96x80). Restore the original black color and expand the viewBox to 128x128."
+      "category": "wrong_color+wrong_stroke_width",
+      "instruction": "The library building icon has the wrong color and weight. Bring it back to the standard black outline style."
     },
     {
       "task_id": "ha_003",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The bookmark square icon has two problems: it's been tinted green AND the canvas is clipping it (currently 72x72). Restore the original black color and expand the viewBox to 128x128."
+      "category": "wrong_scale+wrong_stroke_width",
+      "instruction": "The office tower looks shrunken and too heavy. Restore its normal size and outline balance."
     },
     {
       "task_id": "ha_004",
       "difficulty": "hard",
       "category": "wrong_color+clipped_viewbox",
-      "instruction": "The bookmark icon has two problems: it's been tinted yellow AND the canvas is clipping it (currently 80x96). Restore the original black color and expand the viewBox to 128x128."
+      "instruction": "The office building was recolored and clipped. Return the black outline and show the entire icon."
     },
     {
       "task_id": "ha_005",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The briefcase icon has two problems: it's been tinted purple AND the canvas is clipping it (currently 64x64). Restore the original black color and expand the viewBox to 128x128."
+      "category": "wrong_scale+wrong_stroke_width",
+      "instruction": "The storefront icon is oversized and too faint. Restore the usual centered outline appearance."
     },
     {
       "task_id": "ha_006",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The bug ant icon has two problems: it's been tinted orange AND the canvas is clipping it (currently 88x80). Restore the original black color and expand the viewBox to 128x128."
+      "category": "wrong_color+wrong_stroke_width",
+      "instruction": "The cake icon should not be colored or extra bold. Reset it to the standard outline style."
     },
     {
       "task_id": "ha_007",
       "difficulty": "hard",
       "category": "wrong_color+clipped_viewbox",
-      "instruction": "The building library icon has two problems: it's been tinted pink AND the canvas is clipping it (currently 80x88). Restore the original black color and expand the viewBox to 128x128."
+      "instruction": "The calculator icon is tinted and partly cut off. Make it a complete neutral outline again."
     },
     {
       "task_id": "ha_008",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The building office 2 icon has two problems: it's been tinted cyan AND the canvas is clipping it (currently 72x80). Restore the original black color and expand the viewBox to 128x128."
+      "category": "wrong_scale+wrong_stroke_width",
+      "instruction": "The date-range calendar has the wrong size and line weight. Put it back into the default icon style."
     },
     {
       "task_id": "ha_009",
       "difficulty": "hard",
       "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The building office icon has two issues: it's been tinted red AND its stroke is too thick (4). Restore black color and stroke-width 1.5."
+      "instruction": "The calendar days icon is colored and too heavy. Restore the regular black outline."
     },
     {
       "task_id": "ha_010",
       "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The building storefront icon has two issues: it's been tinted blue AND its stroke is too thin (0.5). Restore black color and stroke-width 1.5."
+      "category": "wrong_color+clipped_viewbox",
+      "instruction": "The calendar is both green and cropped. Return it to a full black outline icon."
     },
     {
       "task_id": "ha_011",
       "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The cake icon has two issues: it's been tinted green AND its stroke is too heavy (3.5). Restore black color and stroke-width 1.5."
+      "category": "wrong_scale+clipped_viewbox",
+      "instruction": "The camera is mis-sized and clipped by its canvas. Restore the normal fit with the whole camera visible."
     },
     {
       "task_id": "ha_012",
       "difficulty": "hard",
       "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The calculator icon has two issues: it's been tinted purple AND its stroke is too faint (0.6). Restore black color and stroke-width 1.5."
+      "instruction": "The chart tile has an unwanted blue tint and thin lines. Restore the default outline treatment."
     },
     {
       "task_id": "ha_013",
       "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The calendar date range icon has two issues: it's been tinted orange AND its stroke is too thick (4). Restore black color and stroke-width 1.5."
+      "category": "wrong_scale+wrong_stroke_width",
+      "instruction": "The bar chart looks too small and too bold. Bring it back to the normal icon proportions."
     },
     {
       "task_id": "ha_014",
       "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The calendar days icon has two issues: it's been tinted pink AND its stroke is too thin (0.5). Restore black color and stroke-width 1.5."
+      "category": "wrong_color+clipped_viewbox",
+      "instruction": "The pie chart icon was tinted and cropped. Restore the complete black outline."
     },
     {
       "task_id": "ha_015",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The calendar icon was scaled wrong (size 64, too small) AND its stroke is too thick (4). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_stroke_width+clipped_viewbox",
+      "instruction": "The text chat bubble has the wrong line weight and is cut off. Fix the outline and viewport together."
     },
     {
       "task_id": "ha_016",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The camera icon was scaled wrong (size 124, too large) AND its stroke is too thin (0.5). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_color+wrong_scale",
+      "instruction": "The centered chat bubble is tinted and no longer fits the canvas correctly. Restore the default look."
     },
     {
       "task_id": "ha_017",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The chart bar square icon was scaled wrong (size 56, too small) AND its stroke is too heavy (3). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_color+wrong_stroke_width",
+      "instruction": "The chat bubble with ellipsis has the wrong color and heavy strokes. Return it to the regular outline style."
     },
     {
       "task_id": "ha_018",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The chart bar icon was scaled wrong (size 120, too large) AND its stroke is too faint (0.6). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_scale+clipped_viewbox",
+      "instruction": "The left-right chat icon is oversized and clipped. Make it fit normally with no edges cut off."
     },
     {
       "task_id": "ha_019",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The chart pie icon was scaled wrong (size 60, too small) AND its stroke is too thick (4). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_color+clipped_viewbox",
+      "instruction": "The single chat bubble is purple and cropped. Restore the full neutral outline."
     },
     {
       "task_id": "ha_020",
       "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The chat bubble bottom center text icon was scaled wrong (size 116, too large) AND its stroke is too thin (0.4). Restore size 112 and stroke-width 1.5."
+      "category": "wrong_color+wrong_stroke_width",
+      "instruction": "The oval chat bubble has a stray tint and weak strokes. Put it back to the default outline weight and color."
     },
     {
       "task_id": "vh_001",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the roof on top of the house."
+      "instruction": "Finish the basic house silhouette by adding the roof."
     },
     {
       "task_id": "vh_002",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a front door."
+      "instruction": "Add the chimney that belongs on the roof."
     },
     {
       "task_id": "vh_003",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a window."
+      "instruction": "Give the face its first eye."
     },
     {
       "task_id": "vh_004",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a chimney on the roof."
+      "instruction": "Add the smile so the expression reads happy."
     },
     {
       "task_id": "vh_005",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a doorknob on the door."
+      "instruction": "Add the top tick mark to start the clock face."
     },
     {
       "task_id": "vh_006",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a puff of smoke above the chimney."
+      "instruction": "Add the shorter hand pointing upward from the center."
     },
     {
       "task_id": "vh_007",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the left eye."
+      "instruction": "Build the top cabin of the car."
     },
     {
       "task_id": "vh_008",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the right eye."
+      "instruction": "Add the second wheel so the car stands evenly."
     },
     {
       "task_id": "vh_009",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a small nose at the center."
+      "instruction": "Add the leafy canopy above the trunk."
     },
     {
       "task_id": "vh_010",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a smiling mouth."
+      "instruction": "Place one small fruit in the open space on the lower crown."
     },
     {
       "task_id": "vh_011",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a blush on the left cheek."
+      "instruction": "Add the lower cake layer on the plate."
     },
     {
       "task_id": "vh_012",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add a blush on the right cheek."
+      "instruction": "Put a candle on top of the cake."
     },
     {
       "task_id": "vh_013",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the 12-o'clock tick mark."
+      "instruction": "Raise the mast from the boat."
     },
     {
       "task_id": "vh_014",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the 6-o'clock tick mark."
+      "instruction": "Add the sail attached to the mast."
     },
     {
       "task_id": "vh_015",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the 3-o'clock tick mark."
+      "instruction": "Set the cup on a saucer."
     },
     {
       "task_id": "vh_016",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the hour hand pointing straight up."
+      "instruction": "Add steam rising above the cup."
     },
     {
       "task_id": "vh_017",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the minute hand pointing right."
+      "instruction": "Add the first petal above the stem."
     },
     {
       "task_id": "vh_018",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the red pivot dot at the center."
+      "instruction": "Complete the bloom with its center."
     },
     {
       "task_id": "vh_019",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the roof on top of the body."
+      "instruction": "Cap the rocket with a nose cone."
     },
     {
       "task_id": "vh_020",
       "difficulty": "very_hard",
       "category": "creation_step",
-      "instruction": "Add the windshield."
-    },
-    {
-      "task_id": "vh_021",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the left wheel."
-    },
-    {
-      "task_id": "vh_022",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the right wheel."
-    },
-    {
-      "task_id": "vh_023",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the headlight."
-    },
-    {
-      "task_id": "vh_024",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a small license plate."
-    },
-    {
-      "task_id": "vh_025",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the leafy crown."
-    },
-    {
-      "task_id": "vh_026",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a fruit on the upper-left of the crown."
-    },
-    {
-      "task_id": "vh_027",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a fruit on the right of the crown."
-    },
-    {
-      "task_id": "vh_028",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a fruit near the bottom of the crown."
-    },
-    {
-      "task_id": "vh_029",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a ground line."
-    },
-    {
-      "task_id": "vh_030",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a small bird flying above the tree."
-    },
-    {
-      "task_id": "vh_031",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the bottom cake layer."
-    },
-    {
-      "task_id": "vh_032",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the top cake layer."
-    },
-    {
-      "task_id": "vh_033",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the frosting zigzag along the top of the cake."
-    },
-    {
-      "task_id": "vh_034",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a candle on top."
-    },
-    {
-      "task_id": "vh_035",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a flame on the candle."
-    },
-    {
-      "task_id": "vh_036",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a cherry on top of the cake."
-    },
-    {
-      "task_id": "vh_037",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the mast."
-    },
-    {
-      "task_id": "vh_038",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the sail."
-    },
-    {
-      "task_id": "vh_039",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a flag at the top of the mast."
-    },
-    {
-      "task_id": "vh_040",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a wave below the boat."
-    },
-    {
-      "task_id": "vh_041",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a second smaller wave below the first."
-    },
-    {
-      "task_id": "vh_042",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a sun in the upper-right of the sky."
-    },
-    {
-      "task_id": "vh_043",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a saucer underneath the cup."
-    },
-    {
-      "task_id": "vh_044",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the handle on the right of the cup."
-    },
-    {
-      "task_id": "vh_045",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a wisp of steam above the cup."
-    },
-    {
-      "task_id": "vh_046",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add another wisp of steam in the middle."
-    },
-    {
-      "task_id": "vh_047",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a third wisp of steam on the right."
-    },
-    {
-      "task_id": "vh_048",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a brown coaster beneath the saucer."
-    },
-    {
-      "task_id": "vh_049",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a petal at the top."
-    },
-    {
-      "task_id": "vh_050",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a petal on the right."
-    },
-    {
-      "task_id": "vh_051",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a petal at the bottom."
-    },
-    {
-      "task_id": "vh_052",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a petal on the left."
-    },
-    {
-      "task_id": "vh_053",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the yellow center of the flower."
-    },
-    {
-      "task_id": "vh_054",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a leaf on the right side of the stem."
-    },
-    {
-      "task_id": "vh_055",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the nose cone on top."
-    },
-    {
-      "task_id": "vh_056",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the left fin."
-    },
-    {
-      "task_id": "vh_057",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the right fin."
-    },
-    {
-      "task_id": "vh_058",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a circular porthole window."
-    },
-    {
-      "task_id": "vh_059",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a flame underneath the rocket."
-    },
-    {
-      "task_id": "vh_060",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add a small star in the corner."
+      "instruction": "Add the flame below the rocket."
     }
   ]
 }

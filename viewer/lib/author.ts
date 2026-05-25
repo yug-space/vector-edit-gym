@@ -167,7 +167,11 @@ export const buildPreview = async (draft: Draft): Promise<Preview> => {
   const initialIds: string[] = (render as any).sceneIds(corrupted);
   const targetIds: string[] = (render as any).sceneIds(target);
   const allIds = Array.from(new Set([...initialIds, ...targetIds]));
-  const changed = new Set(diff.map((d: any) => d.part).filter((p: string) => p !== "__svg"));
+  const changed = new Set<string>(
+    diff
+      .map((d: any) => d.part)
+      .filter((p: unknown): p is string => typeof p === "string" && p !== "__svg"),
+  );
   return {
     initial_svg: (render as any).renderScene(corrupted),
     target_svg: (render as any).renderScene(target),

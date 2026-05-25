@@ -87,8 +87,10 @@ const renderPart = (p) => {
       return `<polygon ${base} ${paint.join(" ")} points="${p.points.map((q) => q.join(",")).join(" ")}" />`;
     case "line":
       return `<line ${base} ${paint.join(" ")} x1="${p.x1}" y1="${p.y1}" x2="${p.x2}" y2="${p.y2}" />`;
-    case "polyline":
-      return `<polyline ${base} ${paint.join(" ")} fill="${p.fill ?? "none"}" points="${p.points.map((q) => q.join(",")).join(" ")}" />`;
+    case "polyline": {
+      const attrs = p.fill === undefined ? [...paint, `fill="none"`] : paint;
+      return `<polyline ${base} ${attrs.join(" ")} points="${p.points.map((q) => q.join(",")).join(" ")}" />`;
+    }
     default:
       throw new Error(`unknown part type ${p.type}`);
   }

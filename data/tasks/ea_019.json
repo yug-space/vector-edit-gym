@@ -2,8 +2,8 @@
   "task_id": "ea_019",
   "difficulty": "easy",
   "category": "clipped_viewbox",
-  "instruction": "The bolt slash icon is being clipped by a 72x72 canvas. Expand the viewBox to 128x128.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" width=\"72\" height=\"72\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"72\" height=\"72\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bolt-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21\"/></g>\n</svg>",
+  "instruction": "The disabled lightning bolt is cut off at the edges. Restore the full visible icon.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 80\" width=\"96\" height=\"80\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"80\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bolt-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21\"/></g>\n</svg>",
   "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/bolt-slash.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11.412 15.655 9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 2.25 12 10.5h8.25l-4.707 5.043M8.457 8.457 3 3m5.457 5.457 7.086 7.086m0 0L21 21\"/></g>\n</svg>",
   "parts": [
     "icon"
@@ -16,8 +16,8 @@
       "before": [
         0,
         0,
-        72,
-        72
+        96,
+        80
       ],
       "after": [
         0,
@@ -30,5 +30,5 @@
   "should_preserve": [
     "icon"
   ],
-  "authored_at": "2026-05-24T23:59:12.242Z"
+  "authored_at": "2026-05-25T01:53:54.556Z"
 }

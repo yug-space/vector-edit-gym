@@ -1,0 +1,48 @@
+{
+  "task_id": "me_008",
+  "difficulty": "medium",
+  "category": "extra_part",
+  "instruction": "The clock face has a stray side tick that should not be there. Remove the extra mark.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"3\" />\n  <rect id=\"extra-tick\" fill=\"#222\" x=\"18\" y=\"62\" width=\"8\" height=\"4\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#ffffff\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <rect id=\"mark-12\" fill=\"#222\" x=\"62\" y=\"18\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-6\" fill=\"#222\" x=\"62\" y=\"102\" width=\"4\" height=\"8\" />\n  <rect id=\"mark-3\" fill=\"#222\" x=\"102\" y=\"62\" width=\"8\" height=\"4\" />\n  <line id=\"hour-hand\" stroke=\"#222\" stroke-width=\"3\" x1=\"64\" y1=\"64\" x2=\"64\" y2=\"36\" />\n  <line id=\"minute-hand\" stroke=\"#222\" stroke-width=\"2\" x1=\"64\" y1=\"64\" x2=\"86\" y2=\"64\" />\n  <circle id=\"pivot\" fill=\"#e63946\" cx=\"64\" cy=\"64\" r=\"3\" />\n</svg>",
+  "parts": [
+    "face",
+    "mark-12",
+    "mark-6",
+    "mark-3",
+    "hour-hand",
+    "minute-hand",
+    "pivot",
+    "extra-tick"
+  ],
+  "target_parts": [
+    "extra-tick"
+  ],
+  "expected_diff": [
+    {
+      "part": "extra-tick",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-tick",
+        "type": "rect",
+        "x": 18,
+        "y": 62,
+        "width": 8,
+        "height": 4,
+        "fill": "#222"
+      }
+    }
+  ],
+  "should_preserve": [
+    "face",
+    "mark-12",
+    "mark-6",
+    "mark-3",
+    "hour-hand",
+    "minute-hand",
+    "pivot"
+  ],
+  "authored_at": "2026-05-25T01:53:54.559Z"
+}

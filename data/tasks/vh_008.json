@@ -2,37 +2,41 @@
   "task_id": "vh_008",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add the right eye.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <circle id=\"face\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"2\" cx=\"64\" cy=\"64\" r=\"48\" />\n  <circle id=\"eye-left\" fill=\"#222\" cx=\"50\" cy=\"54\" r=\"4\" />\n  <circle id=\"eye-right\" fill=\"#222\" cx=\"78\" cy=\"54\" r=\"4\" />\n</svg>",
+  "instruction": "Add the second wheel so the car stands evenly.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"body\" fill=\"#3b82f6\" x=\"16\" y=\"64\" width=\"96\" height=\"24\" rx=\"4\" ry=\"4\" />\n  <polygon id=\"roof\" fill=\"#3b82f6\" points=\"28,64 40,44 88,44 100,64\" />\n  <rect id=\"window\" fill=\"#bae6fd\" x=\"42\" y=\"46\" width=\"44\" height=\"18\" />\n  <circle id=\"wheel-left\" fill=\"#222\" cx=\"32\" cy=\"92\" r=\"8\" />\n  <circle id=\"wheel-right\" fill=\"#222\" cx=\"96\" cy=\"92\" r=\"8\" />\n</svg>",
   "parts": [
-    "face",
-    "eye-left",
-    "eye-right"
+    "body",
+    "roof",
+    "window",
+    "wheel-left",
+    "wheel-right"
   ],
   "target_parts": [
-    "eye-right"
+    "wheel-right"
   ],
   "expected_diff": [
     {
-      "part": "eye-right",
+      "part": "wheel-right",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "eye-right",
+        "id": "wheel-right",
         "type": "circle",
-        "cx": 78,
-        "cy": 54,
-        "r": 4,
+        "cx": 96,
+        "cy": 92,
+        "r": 8,
         "fill": "#222",
-        "prompt": "Add the right eye."
+        "prompt": "Add the right wheel."
       }
     }
   ],
   "should_preserve": [
-    "face",
-    "eye-left"
+    "body",
+    "roof",
+    "window",
+    "wheel-left"
   ],
-  "authored_at": "2026-05-24T23:59:12.248Z"
+  "authored_at": "2026-05-25T01:53:54.570Z"
 }

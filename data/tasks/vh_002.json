@@ -2,38 +2,42 @@
   "task_id": "vh_002",
   "difficulty": "very_hard",
   "category": "creation_step",
-  "instruction": "Add a front door.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n</svg>",
+  "instruction": "Add the chimney that belongs on the roof.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"walls\" fill=\"#e3c084\" x=\"28\" y=\"56\" width=\"72\" height=\"56\" />\n  <polygon id=\"roof\" fill=\"#8c3b2c\" points=\"20,56 64,16 108,56\" />\n  <rect id=\"door\" fill=\"#6a3819\" x=\"56\" y=\"80\" width=\"16\" height=\"32\" />\n  <rect id=\"window\" fill=\"#94c8ff\" x=\"36\" y=\"68\" width=\"16\" height=\"16\" />\n  <rect id=\"chimney\" fill=\"#603020\" x=\"84\" y=\"28\" width=\"10\" height=\"22\" />\n</svg>",
   "parts": [
     "walls",
     "roof",
-    "door"
+    "door",
+    "window",
+    "chimney"
   ],
   "target_parts": [
-    "door"
+    "chimney"
   ],
   "expected_diff": [
     {
-      "part": "door",
+      "part": "chimney",
       "attribute": "exists",
       "before": false,
       "after": true,
       "added": {
-        "id": "door",
+        "id": "chimney",
         "type": "rect",
-        "x": 56,
-        "y": 80,
-        "width": 16,
-        "height": 32,
-        "fill": "#6a3819",
-        "prompt": "Add a front door."
+        "x": 84,
+        "y": 28,
+        "width": 10,
+        "height": 22,
+        "fill": "#603020",
+        "prompt": "Add a chimney on the roof."
       }
     }
   ],
   "should_preserve": [
     "walls",
-    "roof"
+    "roof",
+    "door",
+    "window"
   ],
-  "authored_at": "2026-05-24T23:59:12.247Z"
+  "authored_at": "2026-05-25T01:53:54.569Z"
 }

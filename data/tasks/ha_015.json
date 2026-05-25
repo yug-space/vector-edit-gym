@@ -1,10 +1,10 @@
 {
   "task_id": "ha_015",
   "difficulty": "hard",
-  "category": "wrong_scale+wrong_stroke_width",
-  "instruction": "The calendar icon was scaled wrong (size 64, too small) AND its stroke is too thick (4). Restore size 112 and stroke-width 1.5.",
-  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/calendar.svg\" transform=\"translate(32, 32) scale(2.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5\"/></g>\n</svg>",
-  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/calendar.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5\"/></g>\n</svg>",
+  "category": "wrong_stroke_width+clipped_viewbox",
+  "instruction": "The text chat bubble has the wrong line weight and is cut off. Fix the outline and viewport together.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 72\" width=\"96\" height=\"72\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"96\" height=\"72\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-bottom-center-text.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z\"/></g>\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"heroicons/outline/chat-bubble-bottom-center-text.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z\"/></g>\n</svg>",
   "parts": [
     "icon"
   ],
@@ -13,30 +13,28 @@
   ],
   "expected_diff": [
     {
+      "part": "__svg",
+      "attribute": "viewBox",
+      "before": [
+        0,
+        0,
+        96,
+        72
+      ],
+      "after": [
+        0,
+        0,
+        128,
+        128
+      ]
+    },
+    {
       "part": "icon",
       "attribute": "stroke-width",
       "before": 4,
       "after": 1.5
-    },
-    {
-      "part": "icon",
-      "attribute": "size",
-      "before": 64,
-      "after": 112
-    },
-    {
-      "part": "icon",
-      "attribute": "x",
-      "before": 32,
-      "after": 8
-    },
-    {
-      "part": "icon",
-      "attribute": "y",
-      "before": 32,
-      "after": 8
     }
   ],
   "should_preserve": [],
-  "authored_at": "2026-05-24T23:59:12.245Z"
+  "authored_at": "2026-05-25T01:53:54.567Z"
 }

@@ -1,0 +1,37 @@
+{
+  "task_id": "me_013",
+  "difficulty": "medium",
+  "category": "displaced_part",
+  "instruction": "The leafy crown no longer sits on the trunk. Recenter it above the tree.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"50\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n  <circle id=\"fruit-3\" fill=\"#e63946\" cx=\"60\" cy=\"60\" r=\"4\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <polyline id=\"bird\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" points=\"20,24 26,20 32,24\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <rect id=\"trunk\" fill=\"#6a3819\" x=\"56\" y=\"72\" width=\"16\" height=\"40\" />\n  <circle id=\"crown\" fill=\"#3a9d5d\" cx=\"64\" cy=\"48\" r=\"32\" />\n  <circle id=\"fruit-1\" fill=\"#e63946\" cx=\"50\" cy=\"40\" r=\"4\" />\n  <circle id=\"fruit-2\" fill=\"#e63946\" cx=\"78\" cy=\"52\" r=\"4\" />\n  <circle id=\"fruit-3\" fill=\"#e63946\" cx=\"60\" cy=\"60\" r=\"4\" />\n  <line id=\"ground\" stroke=\"#222\" stroke-width=\"2\" x1=\"8\" y1=\"116\" x2=\"120\" y2=\"116\" />\n  <polyline id=\"bird\" fill=\"none\" stroke=\"#222\" stroke-width=\"2\" points=\"20,24 26,20 32,24\" />\n</svg>",
+  "parts": [
+    "trunk",
+    "crown",
+    "fruit-1",
+    "fruit-2",
+    "fruit-3",
+    "ground",
+    "bird"
+  ],
+  "target_parts": [
+    "crown"
+  ],
+  "expected_diff": [
+    {
+      "part": "crown",
+      "attribute": "cx",
+      "before": 50,
+      "after": 64
+    }
+  ],
+  "should_preserve": [
+    "trunk",
+    "fruit-1",
+    "fruit-2",
+    "fruit-3",
+    "ground",
+    "bird"
+  ],
+  "authored_at": "2026-05-25T01:53:54.560Z"
+}
