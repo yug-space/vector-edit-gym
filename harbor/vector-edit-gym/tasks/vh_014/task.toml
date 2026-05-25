@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-vh-014"
+description = "Add the sail attached to the mast."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "very_hard", "creation_step"]
+
+[metadata]
+difficulty = "very_hard"
+category   = "creation_step"
+task_id    = "vh_014"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

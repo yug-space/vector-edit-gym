@@ -24,6 +24,9 @@
     "viewer:dev": "npm run engine:sync && npm --prefix viewer run dev",
     "viewer:build": "npm --prefix viewer run build",
     "viewer:start": "npm --prefix viewer start",
-    "build:all": "npm run scrape:icons && npm run generate:authored"
+    "build:all": "npm run scrape:icons && npm run generate:authored",
+    "generate:harbor": "node scripts/generate-harbor.mjs",
+    "test:harbor:oracle": "harbor run -p harbor/vector-edit-gym/tasks -a oracle -e docker --yes -n 12",
+    "test:harbor:noop": "harbor run -p harbor/vector-edit-gym/tasks -a nop -e docker --yes -n 12"
   }
 }

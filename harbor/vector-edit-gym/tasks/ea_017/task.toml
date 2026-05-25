@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-ea-017"
+description = "The regular bell no longer matches the icon set's sizing. Put it back to the normal fit."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "wrong_scale"]
+
+[metadata]
+difficulty = "easy"
+category   = "wrong_scale"
+task_id    = "ea_017"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-ea-003"
+description = "The vertical adjustment control has an accidental green tint. Make it look like a normal outline icon again."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "wrong_color"]
+
+[metadata]
+difficulty = "easy"
+category   = "wrong_color"
+task_id    = "ea_003"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

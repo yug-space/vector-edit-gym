@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-me-020"
+description = "The rocket nose cone lost its accent color. Repaint it to match the fins."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]
+
+[metadata]
+difficulty = "medium"
+category   = "wrong_part_color"
+task_id    = "me_020"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

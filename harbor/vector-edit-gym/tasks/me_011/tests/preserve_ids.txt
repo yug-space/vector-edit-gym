@@ -1,0 +1,1 @@
+walls,roof,window,chimney,doorknob,smoke

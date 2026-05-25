@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-ea-008"
+description = "The backspace icon's lines look too bold. Bring the outline weight back to normal."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "wrong_stroke_width"]
+
+[metadata]
+difficulty = "easy"
+category   = "wrong_stroke_width"
+task_id    = "ea_008"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
+  <rect id="trunk" fill="#6a3819" x="56" y="72" width="16" height="40" />
+  <circle id="crown" fill="#3a9d5d" cx="64" cy="48" r="32" />
+  <circle id="fruit-1" fill="#e63946" cx="50" cy="40" r="4" />
+  <circle id="fruit-2" fill="#e63946" cx="78" cy="52" r="4" />
+</svg>

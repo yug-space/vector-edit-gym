@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-me-007"
+description = "The smiley has an extra eyebrow-like stroke above one eye. Clean it off."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "extra_part"]
+
+[metadata]
+difficulty = "medium"
+category   = "extra_part"
+task_id    = "me_007"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

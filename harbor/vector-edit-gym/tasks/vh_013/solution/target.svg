@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
+  <polygon id="hull" fill="#92400e" points="16,88 112,88 96,104 32,104" />
+  <line id="mast" stroke="#222" stroke-width="3" x1="64" y1="88" x2="64" y2="16" />
+</svg>

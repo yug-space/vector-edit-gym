@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-me-024"
+description = "There is one steam wisp too many above the cup. Delete the copied wisp."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "duplicate_part"]
+
+[metadata]
+difficulty = "medium"
+category   = "duplicate_part"
+task_id    = "me_024"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

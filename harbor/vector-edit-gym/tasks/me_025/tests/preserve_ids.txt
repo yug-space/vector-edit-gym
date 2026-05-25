@@ -1,0 +1,1 @@
+stem,petal-n,petal-e,petal-s,petal-w,center,leaf

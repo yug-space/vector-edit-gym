@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "theta-rl-lab/vector-edit-gym-ha-005"
+description = "The storefront icon is oversized and too faint. Restore the usual centered outline appearance."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "hard", "wrong_scale+wrong_stroke_width"]
+
+[metadata]
+difficulty = "hard"
+category   = "wrong_scale+wrong_stroke_width"
+task_id    = "ha_005"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

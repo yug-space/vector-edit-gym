@@ -1,0 +1,1 @@
+body,fin-left,fin-right,window,flame,star
