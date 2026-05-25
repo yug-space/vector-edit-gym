@@ -2,6 +2,8 @@
 
 A benchmark that tests whether AI agents can edit SVG icons exactly as instructed without accidentally changing other parts.
 
+Live viewer: https://viewer-ashen-two.vercel.app
+
 Each task has:
 
 - `initial_svg` — the icon before editing
@@ -49,6 +51,16 @@ vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve   # ceiling
 vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve     # floor
 ```
 
+## Deployment
+
+The hosted viewer is deployed on Vercel as project `theta-rl-lab/viewer`:
+
+```sh
+vercel deploy viewer --prod
+```
+
+Current production alias: https://viewer-ashen-two.vercel.app
+
 ## Authoring
 
 The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 100 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.
@@ -76,7 +88,7 @@ scripts/
   lib/               rendering + corruption + edit operations
                      used by both the viewer's API routes and any future bulk tooling
 sdk/python/          Python SDK + CLI (`pip install -e .` → `vec-edit-gym`)
-viewer/              Next.js 15 app
+viewer/              Next.js 16 app
   app/               /, /tasks/[id], /icons, /author, /api/author/*
   engine-lib         symlink to scripts/lib (so Next routes can import the engine)
 ```
@@ -87,18 +99,17 @@ Composite workflow scenes are in `scripts/lib/workflow-scenes.mjs`; each part ha
 
 ```jsonc
 {
-  "task_id": "ve_001",
-  "difficulty": "very_easy",
-  "category": "color_edit",
-  "instruction": "Make only the circle blue.",
+  "task_id": "me_011",
+  "difficulty": "medium",
+  "category": "displaced_part",
+  "instruction": "The front door slid away from the center of the house. Move it back into place.",
   "initial_svg": "<svg ...>...</svg>",
   "target_svg":  "<svg ...>...</svg>",
-  "initial_spec": { "canvas": [128, 128], "objects": [ ... ] },
-  "target_spec":  { "canvas": [128, 128], "objects": [ ... ] },
-  "parts": ["circle"],
+  "parts": ["walls", "roof", "door", "window", "chimney", "doorknob", "smoke"],
+  "target_parts": ["door"],
   "expected_diff": [
-    { "part": "circle", "attribute": "fill", "before": "red", "after": "blue" }
+    { "part": "door", "attribute": "x", "before": 74, "after": 56 }
   ],
-  "should_preserve": []
+  "should_preserve": ["walls", "roof", "window", "chimney", "doorknob", "smoke"]
 }
 ```
