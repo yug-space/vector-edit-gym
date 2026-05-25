@@ -5,24 +5,18 @@
 // requested path is in the index.
 
 import { NextRequest } from "next/server";
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import { listIcons } from "@/lib/data";
-
-const ICONS_DIR = path.resolve(process.cwd(), "..", "data", "icons");
+import { getIcon } from "@/lib/data";
 
 export async function GET(req: NextRequest) {
   const rel = req.nextUrl.searchParams.get("path");
   if (!rel) return new Response("missing path", { status: 400 });
 
-  const icons = await listIcons();
-  if (!icons.some((i) => i.path === rel)) {
+  const icon = await getIcon(rel);
+  if (!icon) {
     return new Response("not found", { status: 404 });
   }
 
-  const abs = path.join(ICONS_DIR, rel);
-  const svg = await fs.readFile(abs, "utf-8");
-  return new Response(svg, {
+  return new Response(icon.svg, {
     headers: {
       "content-type": "image/svg+xml",
       "cache-control": "public, max-age=3600",
