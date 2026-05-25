@@ -14,7 +14,7 @@ Each task has:
 
 ## What's a task
 
-Each task is **one corrupted SVG icon** plus a **natural-language fix instruction**. The corruption is one of: missing part, extra mark, displaced piece, wrong color, wrong stroke-width, wrong scale, clipped viewBox, flipped part, duplicate part, or a multi-corruption combo. The active 100-task curriculum is curated in `scripts/author-all.mjs` as one named task function per task so every prompt can be reviewed directly.
+Each task is **one corrupted SVG icon** plus a **natural-language fix instruction**. The corruption is one of: missing part, extra mark, displaced piece, wrong color, wrong stroke-width, wrong scale, clipped viewBox, flipped part, duplicate part, company-logo repair, or a multi-corruption combo. The active 106-task curriculum is curated in `scripts/author-all.mjs` as one named task function per task so every prompt can be reviewed directly.
 
 ```jsonc
 {
@@ -35,7 +35,7 @@ Each task is **one corrupted SVG icon** plus a **natural-language fix instructio
 # 1. Scrape the real icon catalog (Heroicons, Feather, Iconify) — one-time
 npm run scrape:icons
 
-# 2. Regenerate the curated 100-task curriculum
+# 2. Regenerate the curated 106-task curriculum
 npm run generate:authored
 
 # 3. Run the viewer + authoring UI
@@ -53,25 +53,25 @@ vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve     # floor
 
 ## Deployment
 
-The hosted viewer is deployed on Vercel as project `theta-rl-lab/viewer`:
+The hosted viewer is deployed on Vercel as project `theta-rl-lab/viewer`. Deploy from the repository root so the Next app and `data/` directory are uploaded together:
 
 ```sh
-vercel deploy viewer --prod
+vercel deploy --prod
 ```
 
 Current production alias: https://viewer-ashen-two.vercel.app
 
 ## Authoring
 
-The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 100 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.
+The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 106 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.
 
-## Curriculum (100 tasks)
+## Curriculum (106 tasks)
 
 | Difficulty | Tasks | Notes |
 |------------|-------|-------|
 | Easy       | 25    | Single real-icon repairs: color, line weight, scale, and clipping |
 | Medium     | 35    | Composite-scene repairs: missing, extra, displaced, recolored, duplicated, flipped, and multi-repair |
-| Hard       | 20    | Multi-issue real-icon repairs with general visual instructions |
+| Hard       | 26    | Multi-issue real-icon repairs plus six company-logo repair tasks from bundled Feather brand SVGs |
 | Very Hard  | 20    | Contextual creation steps that add one missing scene element |
 
 The older generated tasks remain in `data/tasks_legacy/` as a reference.

@@ -1,0 +1,58 @@
+{
+  "task_id": "ha_023",
+  "difficulty": "hard",
+  "category": "company_logo_multi_repair",
+  "instruction": "The Figma logo is too small, colored incorrectly, and has an extra dot beside it. Restore the single balanced outline.",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/figma.svg\" transform=\"translate(32, 32) scale(2.6667)\" style=\"color: #a855f7\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z\"/><path d=\"M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z\"/><path d=\"M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z\"/><path d=\"M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z\"/><path d=\"M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z\"/></g>\n  <circle id=\"extra-dot\" fill=\"#22c55e\" cx=\"100\" cy=\"32\" r=\"6\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\" width=\"128\" height=\"128\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"128\" height=\"128\" fill=\"white\" />\n  <g id=\"icon\" data-source=\"feather/figma.svg\" transform=\"translate(8, 8) scale(4.6667)\" style=\"color: #222\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\"><path d=\"M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z\"/><path d=\"M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z\"/><path d=\"M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z\"/><path d=\"M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z\"/><path d=\"M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z\"/></g>\n</svg>",
+  "parts": [
+    "icon",
+    "extra-dot"
+  ],
+  "target_parts": [
+    "extra-dot",
+    "icon"
+  ],
+  "expected_diff": [
+    {
+      "part": "extra-dot",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-dot",
+        "type": "circle",
+        "cx": 100,
+        "cy": 32,
+        "r": 6,
+        "fill": "#22c55e"
+      }
+    },
+    {
+      "part": "icon",
+      "attribute": "color",
+      "before": "#a855f7",
+      "after": "#222"
+    },
+    {
+      "part": "icon",
+      "attribute": "size",
+      "before": 64,
+      "after": 112
+    },
+    {
+      "part": "icon",
+      "attribute": "x",
+      "before": 32,
+      "after": 8
+    },
+    {
+      "part": "icon",
+      "attribute": "y",
+      "before": 32,
+      "after": 8
+    }
+  ],
+  "should_preserve": [],
+  "authored_at": "2026-05-25T02:23:48.809Z"
+}

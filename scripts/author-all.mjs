@@ -1,4 +1,4 @@
-// Author exactly 100 hand-curated tasks.
+// Author exactly 106 hand-curated tasks.
 //
 // This file intentionally uses one named task function per task. The helpers
 // keep rendering/corruption mechanics consistent, while the task functions
@@ -100,6 +100,10 @@ const add = (id, difficulty, category, sceneBuilder, corruption, instruction, so
 const addIconTask = ({ id, difficulty, category, iconIndex, instruction, corruption }) => {
   const src = iconSource(iconIndex);
   add(id, difficulty, category, () => iconScene(src), corruption, instruction, src);
+};
+
+const addLogoTask = ({ id, source, instruction, corruption }) => {
+  add(id, "hard", "company_logo_multi_repair", () => iconScene(source), corruption, instruction, source);
 };
 
 const addWorkflowRepairTask = ({ id, difficulty = "medium", category, scene, instruction, corruption }) => {
@@ -213,6 +217,14 @@ function task078() { addIconTask({ id: "ha_018", difficulty: "hard", category: "
 function task079() { addIconTask({ id: "ha_019", difficulty: "hard", category: "wrong_color+clipped_viewbox", iconIndex: 43, instruction: "The single chat bubble is purple and cropped. Restore the full neutral outline.", corruption: (s) => corruptMulti(s, [(x) => corruptIconColor(x, "#a855f7", "#222"), (x) => corruptClippedViewBox(x, 80, 72)]) }); }
 function task080() { addIconTask({ id: "ha_020", difficulty: "hard", category: "wrong_color+wrong_stroke_width", iconIndex: 44, instruction: "The oval chat bubble has a stray tint and weak strokes. Put it back to the default outline weight and color.", corruption: (s) => corruptMulti(s, [(x) => corruptIconColor(x, "#ec4899", "#222"), (x) => corruptStrokeWidth(x, 0.45, 1.5)]) }); }
 
+// Hard: company logo repairs from the bundled Feather brand SVGs.
+function task101() { addLogoTask({ id: "ha_021", source: "feather/github.svg", instruction: "The GitHub logo has a bad tint, heavy outline, and a stray slash through it. Restore the clean original mark.", corruption: (s) => corruptMulti(s, [(x) => corruptIconColor(x, "#3b82f6", "#222"), (x) => corruptStrokeWidth(x, 4, 1.5), (x) => corruptExtraPart(x, { id: "stray-slash", type: "line", x1: 20, y1: 108, x2: 108, y2: 20, stroke: "#e63946", strokeWidth: 5 })]) }); }
+function task102() { addLogoTask({ id: "ha_022", source: "feather/gitlab.svg", instruction: "The GitLab logo is cropped, recolored, and has a ghost copy behind it. Return it to one complete neutral outline.", corruption: (s) => corruptMulti(s, [(x) => corruptIconColor(x, "#f97316", "#222"), (x) => corruptDuplicatePart(x, "icon", { dx: 10, dy: 8 }), (x) => corruptClippedViewBox(x, 92, 92)]) }); }
+function task103() { addLogoTask({ id: "ha_023", source: "feather/figma.svg", instruction: "The Figma logo is too small, colored incorrectly, and has an extra dot beside it. Restore the single balanced outline.", corruption: (s) => corruptMulti(s, [(x) => corruptScale(x, 64, 112), (x) => corruptIconColor(x, "#a855f7", "#222"), (x) => corruptExtraPart(x, { id: "extra-dot", type: "circle", cx: 100, cy: 32, r: 6, fill: "#22c55e" })]) }); }
+function task104() { addLogoTask({ id: "ha_024", source: "feather/chrome.svg", instruction: "The Chrome logo outline is faint, clipped, and has an extra center ring. Restore the complete original icon.", corruption: (s) => corruptMulti(s, [(x) => corruptStrokeWidth(x, 0.45, 1.5), (x) => corruptClippedViewBox(x, 86, 86), (x) => corruptExtraPart(x, { id: "extra-center-ring", type: "circle", cx: 64, cy: 64, r: 18, fill: "none", stroke: "#e63946", strokeWidth: 3 })]) }); }
+function task105() { addLogoTask({ id: "ha_025", source: "feather/instagram.svg", instruction: "The Instagram logo is oversized, tinted, and duplicated slightly off-center. Keep one normal outline logo.", corruption: (s) => corruptMulti(s, [(x) => corruptScale(x, 124, 112), (x) => corruptIconColor(x, "#ec4899", "#222"), (x) => corruptDuplicatePart(x, "icon", { dx: -8, dy: 8 })]) }); }
+function task106() { addLogoTask({ id: "ha_026", source: "feather/slack.svg", instruction: "The Slack logo is cropped, too bold, and has an unwanted corner mark. Restore the full clean outline.", corruption: (s) => corruptMulti(s, [(x) => corruptStrokeWidth(x, 4.2, 1.5), (x) => corruptClippedViewBox(x, 88, 96), (x) => corruptExtraPart(x, { id: "corner-mark", type: "rect", x: 94, y: 14, width: 16, height: 16, fill: "#fde047" })]) }); }
+
 // Very hard: contextual creation steps.
 function task081() { addCreationTask({ id: "vh_001", scene: "house", partIndex: 1, instruction: "Finish the basic house silhouette by adding the roof." }); }
 function task082() { addCreationTask({ id: "vh_002", scene: "house", partIndex: 4, instruction: "Add the chimney that belongs on the roof." }); }
@@ -244,17 +256,25 @@ const TASK_AUTHORS = [
   task051, task052, task053, task054, task055, task056, task057, task058, task059, task060,
   task061, task062, task063, task064, task065, task066, task067, task068, task069, task070,
   task071, task072, task073, task074, task075, task076, task077, task078, task079, task080,
+  task101, task102, task103, task104, task105, task106,
   task081, task082, task083, task084, task085, task086, task087, task088, task089, task090,
   task091, task092, task093, task094, task095, task096, task097, task098, task099, task100,
 ];
 
 for (const author of TASK_AUTHORS) author();
 
-if (TASKS.length !== 100) throw new Error(`expected 100 tasks, got ${TASKS.length}`);
-if (usedInstructions.size !== 100) throw new Error(`expected 100 unique instructions, got ${usedInstructions.size}`);
-if (usedTaskIds.size !== 100) throw new Error(`expected 100 unique task ids, got ${usedTaskIds.size}`);
+if (TASKS.length !== 106) throw new Error(`expected 106 tasks, got ${TASKS.length}`);
+if (usedInstructions.size !== 106) throw new Error(`expected 106 unique instructions, got ${usedInstructions.size}`);
+if (usedTaskIds.size !== 106) throw new Error(`expected 106 unique task ids, got ${usedTaskIds.size}`);
 
+const existingAuthoredAt = new Map();
 if (existsSync(OUT)) {
+  for (const f of readdirSync(OUT)) {
+    if (/^[a-z]+_\d+\.json$/.test(f)) {
+      const existing = JSON.parse(readFileSync(join(OUT, f), "utf-8"));
+      if (existing.authored_at) existingAuthoredAt.set(existing.task_id, existing.authored_at);
+    }
+  }
   for (const f of readdirSync(OUT)) {
     if (/^[a-z]+_\d+\.json$/.test(f)) rmSync(join(OUT, f));
   }
@@ -262,6 +282,7 @@ if (existsSync(OUT)) {
   mkdirSync(OUT, { recursive: true });
 }
 
+const authoredAt = new Date().toISOString();
 for (const t of TASKS) {
   const clean = t.sceneBuilder();
   const { corrupted, fix } = t.corruption(clean);
@@ -282,7 +303,7 @@ for (const t of TASKS) {
     target_parts: [...changed],
     expected_diff: diff,
     should_preserve: allIds.filter((id) => !changed.has(id)),
-    authored_at: new Date().toISOString(),
+    authored_at: existingAuthoredAt.get(t.id) ?? authoredAt,
   }, null, 2));
 }
 

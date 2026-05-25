@@ -9,6 +9,7 @@
 // outside the viewer/ directory without TypeScript path gymnastics.
 
 import path from "node:path";
+import { existsSync } from "node:fs";
 import { promises as fs } from "node:fs";
 
 // @ts-ignore — vendored copies of ../../scripts/lib (kept in sync manually for now)
@@ -20,7 +21,12 @@ import * as scenes from "./engine/icon-scenes.mjs";
 // @ts-ignore
 import * as corr from "./engine/corruptions.mjs";
 
-const ROOT = path.resolve(process.cwd(), "..");
+const ROOT =
+  [
+    process.cwd(),
+    path.resolve(process.cwd(), ".."),
+  ].find((candidate) => existsSync(path.join(candidate, "data"))) ??
+  path.resolve(process.cwd(), "..");
 const TASKS_DIR = path.join(ROOT, "data", "tasks");
 
 export type DraftSource =

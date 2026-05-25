@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-25T01:53:54.622Z",
-  "count": 100,
+  "generated_at": "2026-05-25T02:26:51.016Z",
+  "count": 106,
   "by_difficulty": {
     "easy": 25,
     "medium": 35,
-    "hard": 20,
+    "hard": 26,
     "very_hard": 20
   },
   "by_category": {
@@ -25,6 +25,7 @@
     "wrong_scale+clipped_viewbox": 2,
     "wrong_stroke_width+clipped_viewbox": 1,
     "wrong_color+wrong_scale": 1,
+    "company_logo_multi_repair": 6,
     "creation_step": 20
   },
   "tasks": [
@@ -507,6 +508,42 @@
       "difficulty": "hard",
       "category": "wrong_color+wrong_stroke_width",
       "instruction": "The oval chat bubble has a stray tint and weak strokes. Put it back to the default outline weight and color."
+    },
+    {
+      "task_id": "ha_021",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The GitHub logo has a bad tint, heavy outline, and a stray slash through it. Restore the clean original mark."
+    },
+    {
+      "task_id": "ha_022",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The GitLab logo is cropped, recolored, and has a ghost copy behind it. Return it to one complete neutral outline."
+    },
+    {
+      "task_id": "ha_023",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The Figma logo is too small, colored incorrectly, and has an extra dot beside it. Restore the single balanced outline."
+    },
+    {
+      "task_id": "ha_024",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The Chrome logo outline is faint, clipped, and has an extra center ring. Restore the complete original icon."
+    },
+    {
+      "task_id": "ha_025",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The Instagram logo is oversized, tinted, and duplicated slightly off-center. Keep one normal outline logo."
+    },
+    {
+      "task_id": "ha_026",
+      "difficulty": "hard",
+      "category": "company_logo_multi_repair",
+      "instruction": "The Slack logo is cropped, too bold, and has an unwanted corner mark. Restore the full clean outline."
     },
     {
       "task_id": "vh_001",

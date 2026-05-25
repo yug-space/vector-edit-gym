@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "installCommand": "npm --prefix viewer install",
+  "buildCommand": "npm --prefix viewer run build",
+  "outputDirectory": "viewer/.next"
+}

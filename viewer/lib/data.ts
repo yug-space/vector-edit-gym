@@ -4,6 +4,7 @@
 // helpers narrow so swapping in a database later means changing just this
 // module.
 
+import { existsSync } from "node:fs";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
@@ -46,7 +47,12 @@ export type IconEntry = {
 
 export type IconWithSvg = IconEntry & { svg: string };
 
-const DATA_DIR = path.resolve(process.cwd(), "..", "data");
+const DATA_DIR =
+  [
+    path.resolve(process.cwd(), "data"),
+    path.resolve(process.cwd(), "..", "data"),
+  ].find((candidate) => existsSync(candidate)) ??
+  path.resolve(process.cwd(), "..", "data");
 const TASKS_DIR = path.join(DATA_DIR, "tasks");
 const ICONS_DIR = path.join(DATA_DIR, "icons");
 
