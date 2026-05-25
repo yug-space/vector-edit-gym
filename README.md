@@ -59,6 +59,8 @@ The hosted viewer is deployed on Vercel as project `theta-rl-lab/viewer`. Deploy
 vercel deploy --prod
 ```
 
+The Vercel build runs `scripts/prepare-viewer-data.mjs` first, copying `data/` into `viewer/data/` so the serverless viewer can read the task and icon files at runtime.
+
 Current production alias: https://viewer-ashen-two.vercel.app
 
 ## Authoring

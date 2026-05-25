@@ -4,6 +4,7 @@ node_modules/
 *.log
 .vercel/
 viewer/.next/
+viewer/data/
 viewer/node_modules/
 viewer/out/
 

@@ -1,6 +1,11 @@
 {
   "framework": "nextjs",
-  "installCommand": "npm --prefix viewer install",
-  "buildCommand": "npm --prefix viewer run build",
-  "outputDirectory": "viewer/.next"
+  "installCommand": "npm install && npm --prefix viewer install",
+  "buildCommand": "node scripts/prepare-viewer-data.mjs && npm --prefix viewer run build",
+  "outputDirectory": "viewer/.next",
+  "functions": {
+    "app/**": {
+      "includeFiles": "viewer/data/**"
+    }
+  }
 }

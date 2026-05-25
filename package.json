@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "description": "VectorEditGym: a benchmark for SVG icon editing with exact-change ground truth.",
+  "dependencies": {
+    "next": "16.2.6"
+  },
+  "overrides": {
+    "postcss": "8.5.15"
+  },
   "scripts": {
     "generate:ve": "node scripts/generate-very-easy.mjs",
     "generate:easy": "node scripts/generate-easy.mjs",

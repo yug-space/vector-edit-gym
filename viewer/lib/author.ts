@@ -23,6 +23,7 @@ import * as corr from "./engine/corruptions.mjs";
 
 const ROOT =
   [
+    path.resolve(process.cwd(), "viewer"),
     process.cwd(),
     path.resolve(process.cwd(), ".."),
   ].find((candidate) => existsSync(path.join(candidate, "data"))) ??

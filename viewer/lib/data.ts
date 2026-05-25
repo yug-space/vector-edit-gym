@@ -49,6 +49,7 @@ export type IconWithSvg = IconEntry & { svg: string };
 
 const DATA_DIR =
   [
+    path.resolve(process.cwd(), "viewer", "data"),
     path.resolve(process.cwd(), "data"),
     path.resolve(process.cwd(), "..", "data"),
   ].find((candidate) => existsSync(candidate)) ??
