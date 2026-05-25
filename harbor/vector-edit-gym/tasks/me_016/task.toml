@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-016"
+name = "thetalab/vector-edit-gym-me-016"
 description = "The house window no longer reads as glass. Restore its original window color."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]

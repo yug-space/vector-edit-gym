@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-019"
+name = "thetalab/vector-edit-gym-ea-019"
 description = "The disabled lightning bolt is cut off at the edges. Restore the full visible icon."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "clipped_viewbox"]

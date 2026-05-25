@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-010"
+name = "thetalab/vector-edit-gym-me-010"
 description = "The flower has an extra petal that breaks the simple four-petal bloom. Remove it."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "extra_part"]

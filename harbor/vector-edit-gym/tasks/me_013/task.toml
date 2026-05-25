@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-013"
+name = "thetalab/vector-edit-gym-me-013"
 description = "The leafy crown no longer sits on the trunk. Recenter it above the tree."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "displaced_part"]

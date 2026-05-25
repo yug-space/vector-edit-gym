@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-010"
+name = "thetalab/vector-edit-gym-ea-010"
 description = "The empty battery outline is heavier than it should be. Match the normal icon weight."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_stroke_width"]

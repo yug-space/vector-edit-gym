@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-015"
+name = "thetalab/vector-edit-gym-me-015"
 description = "The rocket flame is tucked too high into the body. Place it back underneath."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "displaced_part"]

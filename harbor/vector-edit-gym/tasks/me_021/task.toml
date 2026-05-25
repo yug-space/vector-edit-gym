@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-021"
+name = "thetalab/vector-edit-gym-me-021"
 description = "The face has one eye mark too many. Remove the copied eye."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "duplicate_part"]

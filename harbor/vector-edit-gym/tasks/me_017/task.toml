@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-017"
+name = "thetalab/vector-edit-gym-me-017"
 description = "The left cheek blush turned into a dark mark. Restore the soft blush color."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]

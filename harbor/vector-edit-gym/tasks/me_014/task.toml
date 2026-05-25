@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-014"
+name = "thetalab/vector-edit-gym-me-014"
 description = "The cup handle drifted into the body. Move it back to the outside edge."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "displaced_part"]

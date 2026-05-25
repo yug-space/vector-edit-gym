@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-022"
+name = "thetalab/vector-edit-gym-me-022"
 description = "A second minute hand was copied onto the clock. Keep only the intended hand."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "duplicate_part"]

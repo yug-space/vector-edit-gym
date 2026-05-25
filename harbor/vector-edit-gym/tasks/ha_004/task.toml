@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ha-004"
+name = "thetalab/vector-edit-gym-ha-004"
 description = "The office building was recolored and clipped. Return the black outline and show the entire icon."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "hard", "wrong_color+clipped_viewbox"]

@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-014"
+name = "thetalab/vector-edit-gym-ea-014"
 description = "The alert bell is crowding the canvas. Resize it back to the standard icon fit."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_scale"]

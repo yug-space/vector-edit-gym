@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ha-014"
+name = "thetalab/vector-edit-gym-ha-014"
 description = "The pie chart icon was tinted and cropped. Restore the complete black outline."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "hard", "wrong_color+clipped_viewbox"]

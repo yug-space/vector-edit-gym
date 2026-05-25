@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-009"
+name = "thetalab/vector-edit-gym-ea-009"
 description = "The banknotes icon is too faint to match the set. Restore the usual line weight."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_stroke_width"]

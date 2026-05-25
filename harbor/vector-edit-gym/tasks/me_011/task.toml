@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-011"
+name = "thetalab/vector-edit-gym-me-011"
 description = "The front door slid away from the center of the house. Move it back into place."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "displaced_part"]

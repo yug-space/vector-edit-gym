@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-004"
+name = "thetalab/vector-edit-gym-me-004"
 description = "The birthday cake needs its candle restored on top."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "missing_part"]

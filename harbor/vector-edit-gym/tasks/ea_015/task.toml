@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-015"
+name = "thetalab/vector-edit-gym-ea-015"
 description = "The muted bell looks shrunken. Return it to the usual centered scale."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_scale"]

@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-004"
+name = "thetalab/vector-edit-gym-ea-004"
 description = "The archive download icon was highlighted yellow by mistake. Return it to the usual black outline."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_color"]

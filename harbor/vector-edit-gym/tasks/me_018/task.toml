@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-018"
+name = "thetalab/vector-edit-gym-me-018"
 description = "The fruit on the right blends into the leaves. Make it match the other fruit again."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]

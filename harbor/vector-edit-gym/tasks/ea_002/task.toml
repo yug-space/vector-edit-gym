@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-002"
+name = "thetalab/vector-edit-gym-ea-002"
 description = "The adjustment sliders should not be blue. Restore the standard monochrome outline."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_color"]

@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ha-020"
+name = "thetalab/vector-edit-gym-ha-020"
 description = "The oval chat bubble has a stray tint and weak strokes. Put it back to the default outline weight and color."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "hard", "wrong_color+wrong_stroke_width"]

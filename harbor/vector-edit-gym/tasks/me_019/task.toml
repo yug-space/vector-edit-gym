@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-019"
+name = "thetalab/vector-edit-gym-me-019"
 description = "The sail was painted like the water. Restore the sail's warm color."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]

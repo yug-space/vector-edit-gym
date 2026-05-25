@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-034"
+name = "thetalab/vector-edit-gym-me-034"
 description = "Restore the tree's fruit details: one fruit moved and another lost its ripe color."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "multi_repair"]

@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-me-008"
+name = "thetalab/vector-edit-gym-me-008"
 description = "The clock face has a stray side tick that should not be there. Remove the extra mark."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "medium", "extra_part"]

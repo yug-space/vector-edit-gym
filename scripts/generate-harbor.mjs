@@ -24,7 +24,7 @@ const DATA = join(ROOT, "data", "tasks");
 const OUT = join(ROOT, "harbor", "vector-edit-gym");
 
 const DRY_RUN = process.argv.includes("--dry-run");
-const ORG = "theta-rl-lab";
+const ORG = "thetalab";
 
 // ---- helpers ---------------------------------------------------------------
 

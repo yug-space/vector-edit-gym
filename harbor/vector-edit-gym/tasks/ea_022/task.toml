@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-022"
+name = "thetalab/vector-edit-gym-ea-022"
 description = "The slashed bookmark's outline is barely visible. Restore the normal stroke weight."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_stroke_width"]

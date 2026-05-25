@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-ea-023"
+name = "thetalab/vector-edit-gym-ea-023"
 description = "The square bookmark is a little oversized. Bring it back to the standard centered scale."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "easy", "wrong_scale"]

@@ -1,7 +1,7 @@
 schema_version = "1.1"
 
 [task]
-name = "theta-rl-lab/vector-edit-gym-vh-019"
+name = "thetalab/vector-edit-gym-vh-019"
 description = "Cap the rocket with a nose cone."
 authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
 keywords = ["svg", "visual-editing", "very_hard", "creation_step"]
