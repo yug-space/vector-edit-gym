@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-me-033"
+description = "Clean up the clock face: the center dot color is wrong and one side mark was duplicated."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "multi_repair"]
+
+[metadata]
+difficulty = "medium"
+category   = "multi_repair"
+task_id    = "me_033"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

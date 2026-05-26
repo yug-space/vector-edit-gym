@@ -1,0 +1,1 @@
+trunk,fruit-1,fruit-2,fruit-3,ground,bird

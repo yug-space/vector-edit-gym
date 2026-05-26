@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
+  <rect id="cup-body" fill="#f5f5f5" stroke="#222" stroke-width="2" x="36" y="56" width="48" height="48" />
+  <ellipse id="saucer" fill="#cccccc" cx="64" cy="108" rx="40" ry="6" />
+  <circle id="handle" fill="none" stroke="#222" stroke-width="3" cx="88" cy="80" r="10" />
+  <polyline id="steam-1" fill="none" stroke="#aaaaaa" stroke-width="2" points="54,40 50,32 56,24" />
+  <polyline id="steam-2" fill="none" stroke="#aaaaaa" stroke-width="2" points="64,40 60,32 66,24" />
+  <polyline id="steam-3" fill="none" stroke="#aaaaaa" stroke-width="2" points="74,40 70,32 76,24" />
+  <rect id="coaster" fill="#92400e" x="16" y="116" width="96" height="4" />
+  <polyline id="steam-2-dup" fill="none" stroke="#aaaaaa" stroke-width="2" points="74,40 70,32 76,24" />
+</svg>

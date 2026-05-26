@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
+  <circle id="face" fill="#ffffff" stroke="#222" stroke-width="2" cx="64" cy="64" r="48" />
+  <rect id="mark-12" fill="#222" x="62" y="18" width="4" height="8" />
+  <rect id="mark-6" fill="#222" x="62" y="102" width="4" height="8" />
+  <rect id="mark-3" fill="#222" x="102" y="62" width="8" height="4" />
+  <line id="hour-hand" stroke="#222" stroke-width="3" x1="64" y1="64" x2="64" y2="36" />
+  <line id="minute-hand" stroke="#222" stroke-width="2" x1="64" y1="64" x2="86" y2="64" />
+  <circle id="pivot" fill="#e63946" cx="64" cy="64" r="3" />
+  <line id="minute-hand-dup" stroke="#222" stroke-width="2" x1="64" y1="72" x2="86" y2="72" />
+</svg>

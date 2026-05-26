@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
+  <ellipse id="plate" fill="#888888" cx="64" cy="108" rx="44" ry="6" />
+  <rect id="base-layer" fill="#b85c38" x="24" y="72" width="80" height="32" />
+  <rect id="top-layer" fill="#f0c0c0" x="32" y="48" width="64" height="24" />
+  <polyline id="frosting" fill="none" stroke="#ffffff" stroke-width="2" points="32,48 40,40 48,48 56,40 64,48 72,40 80,48 88,40 96,48" />
+  <rect id="candle" fill="#f0c0c0" x="62" y="24" width="4" height="20" />
+  <ellipse id="flame" fill="#f97316" cx="64" cy="20" rx="3" ry="5" />
+  <circle id="cherry" fill="#e63946" cx="80" cy="48" r="3" />
+</svg>

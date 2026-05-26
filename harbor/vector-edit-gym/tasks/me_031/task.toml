@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-me-031"
+description = "Fix the house details: the window color is wrong and the chimney was copied."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "multi_repair"]
+
+[metadata]
+difficulty = "medium"
+category   = "multi_repair"
+task_id    = "me_031"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-ea-004"
+description = "The archive download icon was highlighted yellow by mistake. Return it to the usual black outline."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "wrong_color"]
+
+[metadata]
+difficulty = "easy"
+category   = "wrong_color"
+task_id    = "ea_004"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

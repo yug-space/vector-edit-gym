@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-ea-022"
+description = "The slashed bookmark's outline is barely visible. Restore the normal stroke weight."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "wrong_stroke_width"]
+
+[metadata]
+difficulty = "easy"
+category   = "wrong_stroke_width"
+task_id    = "ea_022"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

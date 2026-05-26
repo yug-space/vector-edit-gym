@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-me-017"
+description = "The left cheek blush turned into a dark mark. Restore the soft blush color."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "wrong_part_color"]
+
+[metadata]
+difficulty = "medium"
+category   = "wrong_part_color"
+task_id    = "me_017"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

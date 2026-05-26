@@ -1,0 +1,433 @@
+[dataset]
+name = "thetalab/vector-edit-gym"
+description = "106 hand-authored SVG editing tasks across four difficulty tiers (easy / medium / hard / very_hard). Each task is a corrupted SVG plus a natural-language fix instruction. Strict structural and preservation metrics catch stylistic drift."
+keywords = []
+[[dataset.authors]]
+name = "Prannay Hebbar"
+email = "prannay@hexo.ai"
+
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-001"
+digest = "sha256:2ecd6f6a11bfe5a91caa95665a12776b95e9255bb671c9e0b76a6308c347150a"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-002"
+digest = "sha256:5228b75d2a01bb4b4fdf74a0d152c0b03bd06eabcb18cf766ab1290441633c06"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-003"
+digest = "sha256:04a3da708ed5a729562e5beaadc7b24711fb93fbf508f979bf0b0e60643bbd49"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-004"
+digest = "sha256:8464df48f5ab1692bb66674977c1be47227a255651b330aaa5ca48499bf3fa9f"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-005"
+digest = "sha256:acec3f5c9de1fbbd0f5c4ad49e8817d3db124699333cc17236f7491a63273d22"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-006"
+digest = "sha256:adb814c87641c8ffc8b1f21f48f445172e4cc70e39baf2e981b147c809981190"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-007"
+digest = "sha256:7886ade8c880c03a627a426fd1ec261579e8914cfb11cd26f228c6da80d1ef25"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-008"
+digest = "sha256:a538766e6b95e299f2d86b6d3ef1e34dcc21b712a0108e9ae3a173c616adf9cb"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-009"
+digest = "sha256:915514a8b960e665aaad24493e7b0ee9eb32bcdddbf861a7d007aa280d70cca7"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-010"
+digest = "sha256:32a209d44feeea75662d29b1747c1e949c440fc4837574b687b3a982aa80299c"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-011"
+digest = "sha256:4d3debb2675ab83d2044b10077dfe4e44989208f37432640331ac7e0c788918c"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-012"
+digest = "sha256:5ee6f75259deeab86f0f397e979c95c488d60c26ab880d7f445b528a7e340565"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-013"
+digest = "sha256:09ca770670bc2f2430bc2b9931e3c8f010ccbbdbb35d699675991085ee1f3541"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-014"
+digest = "sha256:339ca08d73a061cf1b1831b2509ddc8fa9d78eabdfc5cb506c4ffd918e800925"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-015"
+digest = "sha256:9cca1fd32abd98db3a6129145e2fd05105edd0b81de318921cf777bd11220218"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-016"
+digest = "sha256:824f361310dddb1ecab920ba33565f9bc8b98fb181d19edfe37c753da2773fe3"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-017"
+digest = "sha256:e1eb023cf0840a04834a2a2344b5831d34f779b5fecf68cae51db3dc289f2bd6"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-018"
+digest = "sha256:acf9bc0ec239e53b44a99aef02283e16796b12a550e0b55a8c4d77b138f0adac"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-019"
+digest = "sha256:c004fa0865735ad2db2b7ce84c172e05bc7134e13bac9abe70d6172200ee5a93"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-020"
+digest = "sha256:e3b61d8e05055037267f2a535d1ec4894656db9b090020a7090ff22d5a5d8c46"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-021"
+digest = "sha256:e7ae93ed99f4d7b07b8ee340a35d21fd23f6da09dd705bc56c74fb4efc710703"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-022"
+digest = "sha256:c1dc6daf235237dca3c62d9211fc9244c7d6b030ba8427bfa7e35bc731954fcf"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-023"
+digest = "sha256:e3e24bae26710a1905ebf7c3620643675e2dbd269446fcc3ede4a972be927c8b"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-024"
+digest = "sha256:35534bf55d86598aa09f92ba07dcdb28d1355add5b9342f1e2ef22eee4178889"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ea-025"
+digest = "sha256:a6c4383c1026d2877f91d4bcfac65c7d8324abebd893c1f5e9923150c5e67198"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-001"
+digest = "sha256:ae2559b161cd155ba214d4e4fb8108d552c88425ae5e3b237c4ca4151e8672bd"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-002"
+digest = "sha256:c9bc7a7fab87bea0282fde5d2ac23c40de9186f526c7dd13a52d501c5b3478b0"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-003"
+digest = "sha256:ad532680ddfe2bf93fa18bdb7cb54e12d9a5bb35081c10ec8c1acb4950f65676"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-004"
+digest = "sha256:8591f22112b2e22798a760e2cc835a273b19926a54171659831d6f950bca1583"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-005"
+digest = "sha256:7f6ffc8fdeb4bd3e5c731a2a4feab393fc3c80923faa3c5ba4c2815c3629d7ce"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-006"
+digest = "sha256:cd10f411f53c3fdaf7fb69cdbbfd44c7ae9ff8b47f73125a722d778509dc369f"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-007"
+digest = "sha256:1786b88d417ebf121be1da400a6195e484f7d5389645d9dae3ef090e63b12909"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-008"
+digest = "sha256:820ecde1269fdac854582846decac12270fb65d94b41b53e59f1a85ce03d3375"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-009"
+digest = "sha256:993e4ba91a53f974a661f0d8b9014cc00ad76d6778f34b7b3744fb091ec80d9c"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-010"
+digest = "sha256:99523e00e267eeba87cda2ed2c8a32a511593b6c9ba8ad0489708702938ad795"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-011"
+digest = "sha256:62d5c9471186551103a8799a91e62f3515f34d5fcce8027a11ded4758275983e"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-012"
+digest = "sha256:6c41d9f40612092bbceda1c18b56b1b5e2ead6f1fd2b6953fe95e811332ae383"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-013"
+digest = "sha256:f5a06d71f5663c24ee0877e7fe18df44d85306fd9ce879aaf4c86aa08c1760ec"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-014"
+digest = "sha256:0fe7cad46f554327fa6241afb2f3cb4379ece77d7f195db7d01b2d0f80e08ab6"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-015"
+digest = "sha256:e0f096d9cca9a124981045c363973a6de464af98c1cceff573b97137ed2b8e33"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-016"
+digest = "sha256:49a6bfab5191fa8310802cf39582ccd8e7055db612203aea1e7e87242f617dd7"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-017"
+digest = "sha256:6197f600a25f89aadcc422c9db368f88510d5416e9fbb747512a16bec6e6b988"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-018"
+digest = "sha256:4cf20f57dd3bc9135ed9f754714d3cad32f64f236e374f0d4eb956e959d80974"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-019"
+digest = "sha256:1d9e0ea16051ebe7eb8f9aff4d0ddc5f0c7754889d4902cfcf78aafb221778bc"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-020"
+digest = "sha256:b57f573f7519f25980642c872087a083956883cec97712357a92a9a17e55d660"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-021"
+digest = "sha256:60a835b72b096ce519a61e6faf30d147812b2cd05755452a87fc0f1a374805e3"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-022"
+digest = "sha256:efd6249d3f5ce6fe75e6db6786e160099ff4704adaaf803fdc8e4db1644e5fe1"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-023"
+digest = "sha256:056e9d895bfaf968a5409ea08f5057f9192ea45e60cebfc7dc73335a231d0c77"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-024"
+digest = "sha256:c52c91a9d14400c25213c4a50f7e152a1cb941bc66bb9ce5dfae9207c8310fd6"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-025"
+digest = "sha256:01169a5a96494b86f3742e178d98deac09b82020e168056a6eb19f0e8da74aca"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-ha-026"
+digest = "sha256:d0d8b151505f00f81ff500d2e20f085ac46b522299928d6afc1aeeb75ae62cb8"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-001"
+digest = "sha256:8fc2e55d15d4db579173c5cc0c276692a5adbd12a53ef05fb082c4239b500b1e"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-002"
+digest = "sha256:83540edb3c876bfc5b8ca4f30ea6c35e78d8f2659ec98edf95f3b204635dd2b6"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-003"
+digest = "sha256:7eda8aa326210dfa8df373b2152b531b15ffad3eda2cf15c5d6151491fa300a1"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-004"
+digest = "sha256:cf959a152668ae17963704a80f53f6e07f77bea552a79fa5fe595d69af12a0b4"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-005"
+digest = "sha256:c77e843276d1c0ac225f05502e67f238c69435ba070e5401305ece3a93e4644a"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-006"
+digest = "sha256:6d77364a42e44b831ad1d87c167dd7bf68ba4f2e990c8fb93049c33d7a7e3e16"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-007"
+digest = "sha256:05f100cb2abd702459912f0dbca3075ef483b9209f26de5b5ea8632b6eae3d22"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-008"
+digest = "sha256:2594005e5164f51e5f55e1e275bead0cbdc8844f35d47019a8771bfe45b4731a"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-009"
+digest = "sha256:3e0e2568804441366626e5f0609725e68ebe69a10a69ec30c39f8fe2117614bd"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-010"
+digest = "sha256:6f0cd0b143a25f660133c61c057abd0308e1e8020c5f698f625b67a0f0bf5fce"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-011"
+digest = "sha256:6de9028bb37d9483ccbdf577d36227ba01140e088fd89501f7ab403c5651fdc6"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-012"
+digest = "sha256:11a00533305478e75207c0de0dae74f0dd2f0ea2c8e36e8dd69f67188d09327f"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-013"
+digest = "sha256:1c04c11f451c3aeb72224050c702421e1f87a10af6625c3788319a713d93231d"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-014"
+digest = "sha256:91c819912eedd80effff38134d1dea866f41821765c29685cc81d3b9a9f72e5f"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-015"
+digest = "sha256:0bd10d748d9e54cb9bcbbfabda0a0bee7e331d441939b2ff46ab9a70baaa6be4"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-016"
+digest = "sha256:aba2f13e76e5c9aba00bfc238d61b69bbf4892c2dbeee847a5ee302ce688b850"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-017"
+digest = "sha256:ff2c9aca80a749c9bea4d9f82297b6d2ff881274949c7d2af5b0eaf24dd8d141"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-018"
+digest = "sha256:897a479ca9a84007ebd729459c0ed0fc809c2f9add130256553cdce6d7ad47a9"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-019"
+digest = "sha256:7f72fd4fa751d8c4a7f643fbf85a7bf5cb8c38ff0c0813f0f77ff403abe473a4"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-020"
+digest = "sha256:148150b4a0014301b8103668b1ca7b989c4b32a391f43b1e4e65c0ec1eb1fa71"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-021"
+digest = "sha256:1c2073d010395e819d26387384111e6ec5974c85114a992dd6beb653d7aace77"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-022"
+digest = "sha256:ccc77b30e13331c274c1bd217a57c54fb19fa7b7828a0e68c50a90ff2d7112a4"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-023"
+digest = "sha256:3735ec9869cd30ca9d9d6ba11cf39540abe270ad3174e8ce3bd70a9ac6c896d5"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-024"
+digest = "sha256:02ca4d8468cf351abb30ff7e5fdac0a2db0128b2f793cfd5cd86564f5c532c12"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-025"
+digest = "sha256:883fc05f59371cea9a57478502377f34c8bc9a93a94e3530fc55395e3161d9f0"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-026"
+digest = "sha256:6f405a5988dc2ea502f5e68a1278e9e53dd95d37dad1debda27b3765c60f3597"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-027"
+digest = "sha256:120c79d2d0b886166fd89a70e431d969cbd03f990f5a03e1906e0a90e70ea34a"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-028"
+digest = "sha256:f0538bc2e2f669212a7373469d87efe3c40e7f20a4b2f2506797ef3571ae3f57"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-029"
+digest = "sha256:5c84691d859e1b2c44a1edc56ea6b2862b96055de732788e82ade5f7b37d3c78"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-030"
+digest = "sha256:0f2d378cbbac2757a0fd0a635438344f07aa4658461b486adceffd819e4c4a1d"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-031"
+digest = "sha256:3cedef4b4edf502b238bf6f495eedbfb797113315abae13d85f7ca5165f2c79e"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-032"
+digest = "sha256:7f5615350673409ca1fa232f322b59e63d3b5cf81f06c9f07d9eec8eb09941bc"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-033"
+digest = "sha256:f24f9329e6dcdbab590226e9cd79213f78c32f660ac99e2d838508f9ce28edc5"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-034"
+digest = "sha256:47071b9c3e72fd162c8b9102b6f5262f32dc05dc0580b3d22613091d28d9ced7"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-me-035"
+digest = "sha256:6f7922704a1e33301e3cdff9fa5241dd1531833e0f5da09eec8374a5ce46ca8b"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-001"
+digest = "sha256:13614576f98a8f4f3a77a63731de0ca7a6935fc841861f9b8a635172cfbaf1c3"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-002"
+digest = "sha256:7dbef4231e95be1a00ae31c21e8e9bbcde9b6fc50571d413d3c4ab931d05b162"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-003"
+digest = "sha256:05f0b02d1a6a96d37b909617c50bdfb85359ab460c580db823eadb2a5e98c46e"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-004"
+digest = "sha256:9cb2bda07d976e93d4c98c0381ab365fd9a26cd6c82943f8377ae48a0a46dade"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-005"
+digest = "sha256:50de5c5dc923c17024397341d3025ba3d29e04a18759c543067257574afc5160"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-006"
+digest = "sha256:8f06dadf44ec622c0fe81d63f90ff317718491bce07defe5e36c0063153791c5"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-007"
+digest = "sha256:6c8bd84d2e232112e48761be5fee38b53afa200dadc46264c7a5cee1479db0ca"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-008"
+digest = "sha256:88d99f07978a90cd80cb2dfddd5c5468f5bff9855bf72edbd0bf0ad2250bbbca"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-009"
+digest = "sha256:2f94b589362ae3ff63fecda8ebff434181715288d6e6b31a36d6463d2b075493"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-010"
+digest = "sha256:6f3158aa1905832f6a032b9901e684ffb3e026c2673dec3793540f0fbe09784b"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-011"
+digest = "sha256:60d0461694aa1717ee3cf2db49412ea22e362991689fff13f73293613c497a16"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-012"
+digest = "sha256:d5ee70aae3ef750fd4344b92345b9c92c02c1b704a5d3e4adfe5c97b36706eec"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-013"
+digest = "sha256:26f2b31548a58669289d1fbc0991002b1c1cf835942616b9b32d71cd6eec7c32"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-014"
+digest = "sha256:a603a5fa5e86d57fba47b223af28cc9fadec3c26e14e6dcf769b43a747521a05"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-015"
+digest = "sha256:cbd6a6b4d2cb6531db4d3c8d1f8eaae888e469bb0e644328cdecdcc64b00b759"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-016"
+digest = "sha256:87bb5e81f4b5f1b9cf53042fc831213efea4314acb7e1b856f3b6d29335b92b9"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-017"
+digest = "sha256:7e992953f2c51bd330b1d2be7255ed3e55713401f195cdc3d851d5673edd54f4"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-018"
+digest = "sha256:4992155649425aa748d34673ed3497747de089693bfc3cc9df22c5401cec32db"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-019"
+digest = "sha256:d00a52a18f9dcdcfedf3c0c488c5f8d646743f406035f73d7b2afb5ff3fb0a2f"
+
+[[tasks]]
+name = "thetalab/vector-edit-gym-vh-020"
+digest = "sha256:2f268722a1e8423e5361f5d8594293f7f306178c7d896b8361fde69ae4c63331"
+

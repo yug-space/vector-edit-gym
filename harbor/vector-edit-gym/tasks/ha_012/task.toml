@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-ha-012"
+description = "The chart tile has an unwanted blue tint and thin lines. Restore the default outline treatment."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "hard", "wrong_color+wrong_stroke_width"]
+
+[metadata]
+difficulty = "hard"
+category   = "wrong_color+wrong_stroke_width"
+task_id    = "ha_012"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

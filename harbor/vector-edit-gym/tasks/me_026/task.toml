@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-me-026"
+description = "The sail leans the wrong way. Flip it back so it attaches naturally to the mast."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "medium", "flipped_part"]
+
+[metadata]
+difficulty = "medium"
+category   = "flipped_part"
+task_id    = "me_026"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

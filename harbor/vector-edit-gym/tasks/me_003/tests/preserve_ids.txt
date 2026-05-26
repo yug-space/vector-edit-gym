@@ -1,0 +1,1 @@
+body,roof,wheel-left,wheel-right,headlight,license-plate

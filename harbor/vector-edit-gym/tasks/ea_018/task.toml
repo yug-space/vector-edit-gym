@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-ea-018"
+description = "The bold text icon is cropped. Fix the canvas so the entire mark is visible."
+authors = [{ name = "Prannay Hebbar", email = "prannay@hexo.ai" }]
+keywords = ["svg", "visual-editing", "easy", "clipped_viewbox"]
+
+[metadata]
+difficulty = "easy"
+category   = "clipped_viewbox"
+task_id    = "ea_018"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+allow_internet = false
+memory_mb = 512
