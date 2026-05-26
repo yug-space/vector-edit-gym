@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-25",
+  "updated_at": "2026-05-26",
   "note": "Manually curated. Submit your run via email (see README) to be added.",
   "entries": [
     {
@@ -10,34 +10,63 @@
       "exact": 1.0,
       "structural": 1.0,
       "preservation": 1.0,
-      "tasks_run": 1,
+      "expected_changes": 1.0,
+      "unexpected_parts": 0.0,
+      "error_rate": 0.0,
+      "mean_latency_ms": 0,
+      "tasks_run": 106,
       "submitted_by": "VectorEditGym",
-      "date": "2026-05-25"
+      "date": "2026-05-26"
     },
     {
       "rank": 2,
-      "name": "gpt-5-mini",
-      "provider": "OpenAI",
-      "model": "gpt-5-mini",
-      "exact": 0.0,
-      "structural": 0.0,
-      "preservation": 1.0,
-      "tasks_run": 5,
+      "name": "Gemini 3 Pro Preview",
+      "provider": "Google via LiteLLM",
+      "model": "gemini/gemini-3-pro-preview",
+      "exact": 0.29245283018867924,
+      "structural": 0.29245283018867924,
+      "preservation": 0.9811320754716981,
+      "expected_changes": 0.40804597701149425,
+      "unexpected_parts": 0.018867924528301886,
+      "error_rate": 0.0,
+      "mean_latency_ms": 9952.459454798922,
+      "tasks_run": 106,
       "submitted_by": "VectorEditGym",
-      "date": "2026-05-25",
-      "notes": "Semantically correct fixes but rewrites SVG syntax; strict metrics catch the stylistic drift."
+      "date": "2026-05-26",
+      "notes": "LiteLLM run on the active 106-task curriculum."
     },
     {
       "rank": 3,
+      "name": "Gemini 3 Flash Preview",
+      "provider": "Google via LiteLLM",
+      "model": "gemini/gemini-3-flash-preview",
+      "exact": 0.2358490566037736,
+      "structural": 0.2358490566037736,
+      "preservation": 0.9544025157232705,
+      "expected_changes": 0.39080459770114945,
+      "unexpected_parts": 0.08490566037735849,
+      "error_rate": 0.0,
+      "mean_latency_ms": 2900.3710684054618,
+      "tasks_run": 106,
+      "submitted_by": "VectorEditGym",
+      "date": "2026-05-26",
+      "notes": "LiteLLM run on the active 106-task curriculum."
+    },
+    {
+      "rank": 4,
       "name": "Noop (floor)",
       "provider": "internal",
       "model": "identity",
       "exact": 0.0,
       "structural": 0.0,
       "preservation": 1.0,
-      "tasks_run": 1,
+      "expected_changes": 0.0,
+      "unexpected_parts": 0.0,
+      "error_rate": 0.0,
+      "mean_latency_ms": 0,
+      "tasks_run": 106,
       "submitted_by": "VectorEditGym",
-      "date": "2026-05-25"
+      "date": "2026-05-26"
     }
   ]
 }

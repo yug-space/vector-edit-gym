@@ -133,7 +133,21 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
               const i = items[0]?.dataIndex;
               if (i === undefined) return "";
               const e = entries[i];
-              return [`Provider: ${e.provider}`, `Tasks run: ${e.tasks_run}`, `Date: ${e.date}`];
+              const details = [
+                `Provider: ${e.provider}`,
+                `Tasks run: ${e.tasks_run}`,
+                `Date: ${e.date}`,
+              ];
+              if (e.expected_changes !== undefined) {
+                details.push(`Expected changes: ${(e.expected_changes * 100).toFixed(1)}%`);
+              }
+              if (e.error_rate !== undefined) {
+                details.push(`Errors: ${(e.error_rate * 100).toFixed(1)}%`);
+              }
+              if (e.mean_latency_ms !== undefined) {
+                details.push(`Mean latency: ${fmtLatency(e.mean_latency_ms)}`);
+              }
+              return details;
             },
           },
         },
@@ -187,4 +201,10 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
       <Bar data={data} options={options} plugins={[valueLabelPlugin]} />
     </div>
   );
+}
+
+function fmtLatency(ms: number) {
+  if (ms <= 0) return "n/a";
+  if (ms < 1000) return `${Math.round(ms)} ms`;
+  return `${(ms / 1000).toFixed(1)} s`;
 }

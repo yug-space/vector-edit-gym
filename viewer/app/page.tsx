@@ -35,6 +35,9 @@ const SUBMIT_MAILTO =
       "Exact match:",
       "Structural match:",
       "Preservation:",
+      "Expected changes:",
+      "Error rate:",
+      "Mean latency:",
       "",
       "Reproduction (CLI + commit hash):",
     ].join("\n"),
@@ -103,50 +106,59 @@ export default async function HomePage() {
           </Card>
 
           <Card className="overflow-hidden">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[60px]">#</TableHead>
-                  <TableHead>Solver</TableHead>
-                  <TableHead>Provider</TableHead>
-                  <TableHead className="text-right">Exact</TableHead>
-                  <TableHead className="text-right">Structural</TableHead>
-                  <TableHead className="text-right">Preservation</TableHead>
-                  <TableHead className="text-right">Tasks</TableHead>
-                  <TableHead>Date</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {board.entries.map((e) => (
-                  <TableRow key={`${e.rank}-${e.name}`}>
-                    <TableCell className="font-mono text-xs">{e.rank}</TableCell>
-                    <TableCell>
-                      <div className="font-medium">{e.name}</div>
-                      {e.notes && <div className="mt-0.5 text-xs text-[hsl(var(--muted-foreground))]">{e.notes}</div>}
-                    </TableCell>
-                    <TableCell className="text-sm text-[hsl(var(--muted-foreground))]">{e.provider}</TableCell>
-                    <TableCell className="text-right font-mono">{fmtPct(e.exact)}</TableCell>
-                    <TableCell className="text-right font-mono">{fmtPct(e.structural)}</TableCell>
-                    <TableCell className="text-right font-mono">{fmtPct(e.preservation)}</TableCell>
-                    <TableCell className="text-right font-mono text-sm">{e.tasks_run}</TableCell>
-                    <TableCell className="text-sm text-[hsl(var(--muted-foreground))]">{e.date}</TableCell>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[60px] whitespace-nowrap">#</TableHead>
+                    <TableHead className="min-w-[220px]">Solver</TableHead>
+                    <TableHead className="whitespace-nowrap">Provider</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Exact</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Structural</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Preservation</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Expected changes</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Errors</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Mean latency</TableHead>
+                    <TableHead className="whitespace-nowrap text-right">Tasks</TableHead>
+                    <TableHead className="whitespace-nowrap">Date</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {board.entries.map((e) => (
+                    <TableRow key={`${e.rank}-${e.name}`}>
+                      <TableCell className="font-mono text-xs">{e.rank}</TableCell>
+                      <TableCell>
+                        <div className="font-medium">{e.name}</div>
+                        {e.notes && <div className="mt-0.5 text-xs text-[hsl(var(--muted-foreground))]">{e.notes}</div>}
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap text-sm text-[hsl(var(--muted-foreground))]">{e.provider}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.exact)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.structural)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.expected_changes)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.error_rate)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono">{fmtLatency(e.mean_latency_ms)}</TableCell>
+                      <TableCell className="whitespace-nowrap text-right font-mono text-sm">{e.tasks_run}</TableCell>
+                      <TableCell className="whitespace-nowrap text-sm text-[hsl(var(--muted-foreground))]">{e.date}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           </Card>
 
           <div className="mt-6 rounded-lg border bg-[hsl(var(--muted))]/40 p-4 text-sm">
             <p className="font-medium">How to be added</p>
             <p className="mt-1 text-[hsl(var(--muted-foreground))]">
-              Run the Python SDK against the published task set, then email us your numbers + the CLI command
-              + a commit hash. We re-run the oracle baseline against each submission for sanity and update this
-              table by hand.
+              Run the Python SDK or LiteLLM benchmark against the published task set, then email us your numbers
+              + the CLI command + a commit hash. We re-run the oracle baseline against each submission for sanity
+              and update this table by hand.
             </p>
             <pre className="mt-3 overflow-x-auto rounded bg-[hsl(var(--background))] p-3 font-mono text-xs">
-{`pip install -e 'sdk/python[openai]'
-export OPENAI_API_KEY=sk-...
-vec-edit-gym evaluate vector_edit_gym.examples.openai_solver:solve --json`}
+{`pip install -e 'sdk/python[litellm]'
+export LITELLM_BASE_URL=https://your-litellm-gateway.example
+export LITELLM_API_KEY=...
+python scripts/benchmark-litellm.py --models gemini/gemini-3-pro-preview gemini/gemini-3-flash-preview --save-svgs`}
             </pre>
           </div>
         </div>
@@ -160,6 +172,16 @@ function fmtPct(v: number) {
   return `${(v * 100).toFixed(1)}%`;
 }
 
+function fmtOptionalPct(v?: number) {
+  return v === undefined ? "—" : fmtPct(v);
+}
+
+function fmtLatency(ms?: number) {
+  if (ms === undefined || ms <= 0) return "—";
+  if (ms < 1000) return `${Math.round(ms)} ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+}
+
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
@@ -168,4 +190,3 @@ function Stat({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-

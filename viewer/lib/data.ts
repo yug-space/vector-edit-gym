@@ -65,6 +65,10 @@ export type LeaderboardEntry = {
   exact: number;
   structural: number;
   preservation: number;
+  expected_changes?: number;
+  unexpected_parts?: number;
+  error_rate?: number;
+  mean_latency_ms?: number;
   tasks_run: number;
   submitted_by: string;
   date: string;
