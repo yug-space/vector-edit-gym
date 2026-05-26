@@ -81,6 +81,50 @@ export type Leaderboard = {
   entries: LeaderboardEntry[];
 };
 
+export type ModelRun = {
+  name: string;
+  provider: string;
+  model: string;
+};
+
+export type ModelExpectedChange = {
+  part: string;
+  attribute: string;
+  expected_after: unknown;
+  produced: unknown;
+  passed: boolean;
+};
+
+export type TaskModelResult = {
+  name: string;
+  provider: string;
+  model: string;
+  status: "EXACT" | "STRUCT" | "PRES" | "FAIL" | "ERR";
+  exact: boolean;
+  structural: boolean;
+  preservation: number;
+  expected_changes_passed: number;
+  expected_changes_total: number;
+  expected_changes: ModelExpectedChange[];
+  unexpected_changed_parts: string[];
+  preservation_failures: string[];
+  elapsed_ms: number;
+  error: string | null;
+  produced_svg: string | null;
+};
+
+export type TaskModelResultSummary = Omit<
+  TaskModelResult,
+  "expected_changes" | "produced_svg"
+>;
+
+export type ModelResults = {
+  updated_at: string;
+  note: string;
+  runs: ModelRun[];
+  results: Record<string, TaskModelResult[]>;
+};
+
 export const getLeaderboard = async (): Promise<Leaderboard> => {
   const p = path.join(DATA_DIR, "leaderboard.json");
   try {
@@ -88,6 +132,30 @@ export const getLeaderboard = async (): Promise<Leaderboard> => {
   } catch {
     return { updated_at: "", note: "", entries: [] };
   }
+};
+
+export const getModelResults = async (): Promise<ModelResults> => {
+  const p = path.join(DATA_DIR, "model-results.json");
+  try {
+    return JSON.parse(await fs.readFile(p, "utf-8")) as ModelResults;
+  } catch {
+    return { updated_at: "", note: "", runs: [], results: {} };
+  }
+};
+
+export const getTaskModelResults = async (id: string): Promise<TaskModelResult[]> => {
+  const modelResults = await getModelResults();
+  return modelResults.results[id] ?? [];
+};
+
+export const getModelResultSummaries = async (): Promise<Record<string, TaskModelResultSummary[]>> => {
+  const modelResults = await getModelResults();
+  return Object.fromEntries(
+    Object.entries(modelResults.results).map(([taskId, results]) => [
+      taskId,
+      results.map(({ expected_changes, produced_svg, ...summary }) => summary),
+    ]),
+  );
 };
 
 const readJson = async <T>(p: string): Promise<T> =>

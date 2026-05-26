@@ -49,6 +49,7 @@ pip install -e sdk/python
 vec-edit-gym list
 vec-edit-gym score ea_001 produced.svg --json                        # one-task diff report
 python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini        # LiteLLM multi-model run
+npm run publish:model-results                                        # publish per-task model outputs to viewer
 ```
 
 ## Deployment
@@ -74,6 +75,8 @@ Latest runs on the active 106-task curriculum, published in `data/leaderboard.js
 | `gemini/gemini-3-flash-preview` | 23.6% | 23.6% | 95.4% | 39.1% | 0.0% | 2900 ms |
 
 Submit leaderboard results to `yug@thetalab.tech`.
+
+Per-task model outputs are published in `data/model-results.json` and rendered on `/tasks` and `/tasks/[id]`.
 
 ## Authoring
 

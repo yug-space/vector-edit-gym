@@ -1,10 +1,13 @@
-import { listTasks } from "@/lib/data";
+import { getModelResultSummaries, listTasks } from "@/lib/data";
 import { TaskFilters } from "./TaskFilters";
 
 export const dynamic = "force-dynamic";
 
 export default async function TasksPage() {
-  const tasks = await listTasks();
+  const [tasks, modelResults] = await Promise.all([
+    listTasks(),
+    getModelResultSummaries(),
+  ]);
   const categories = Array.from(new Set(tasks.map((t) => t.category))).sort();
   const difficulties = Array.from(new Set(tasks.map((t) => t.difficulty))).sort();
 
@@ -17,12 +20,18 @@ export default async function TasksPage() {
           <p className="section-copy mt-5">
             Each task is one corrupted SVG plus a natural-language fix instruction. Browse the{" "}
             <span className="text-[var(--brand)] font-medium">{tasks.length}</span> available below — click
-            into one to see the corrupted input, the target, and the structured diff.
+            into one to see the corrupted input, the target, the structured diff, and what each published
+            model produced.
           </p>
         </div>
 
         <div className="mt-10">
-          <TaskFilters tasks={tasks} categories={categories} difficulties={difficulties} />
+          <TaskFilters
+            tasks={tasks}
+            categories={categories}
+            difficulties={difficulties}
+            modelResults={modelResults}
+          />
         </div>
       </div>
     </section>

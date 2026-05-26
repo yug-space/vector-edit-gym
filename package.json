@@ -20,6 +20,7 @@
     "generate:all": "npm run generate:authored",
     "build:index": "node scripts/build-index.mjs",
     "scrape:icons": "node scripts/scrape-icons.mjs",
+    "publish:model-results": "node scripts/publish-model-results.mjs",
     "engine:sync": "cp scripts/lib/{icon-render,icon-edits,icon-catalog,icon-scenes,corruptions}.mjs viewer/lib/engine/",
     "viewer:dev": "npm run engine:sync && npm --prefix viewer run dev",
     "viewer:build": "npm --prefix viewer run build",

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { TaskSummary } from "@/lib/data";
+import type { TaskModelResultSummary, TaskSummary } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
@@ -10,9 +10,10 @@ type Props = {
   tasks: TaskSummary[];
   categories: string[];
   difficulties: string[];
+  modelResults: Record<string, TaskModelResultSummary[]>;
 };
 
-export function TaskFilters({ tasks, categories, difficulties }: Props) {
+export function TaskFilters({ tasks, categories, difficulties, modelResults }: Props) {
   const [cat, setCat] = useState<string | null>(null);
   const [diff, setDiff] = useState<string | null>(null);
   const [q, setQ] = useState("");
@@ -68,12 +69,59 @@ export function TaskFilters({ tasks, categories, difficulties }: Props) {
                 <Badge variant="secondary">{t.difficulty}</Badge>
                 <Badge variant="outline">{t.category}</Badge>
               </div>
+              <ModelResultChips results={modelResults[t.task_id] ?? []} />
             </div>
           </Link>
         ))}
       </div>
     </>
   );
+}
+
+function ModelResultChips({ results }: { results: TaskModelResultSummary[] }) {
+  if (results.length === 0) return null;
+
+  return (
+    <div className="mt-3 border-t border-[hsl(var(--border))] pt-2">
+      <div className="mb-1 mono-label">model outputs</div>
+      <div className="flex flex-wrap gap-1.5">
+        {results.map((result) => (
+          <span
+            key={result.model}
+            className={
+              "rounded-full border px-2 py-0.5 font-mono text-[10px] leading-4 " +
+              statusClass(result.status)
+            }
+            title={`${result.name}: ${result.status}, expected changes ${result.expected_changes_passed}/${result.expected_changes_total}, preservation ${(result.preservation * 100).toFixed(1)}%`}
+          >
+            {shortName(result.name)} {result.status}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function shortName(name: string) {
+  if (name.includes("Pro")) return "G-Pro";
+  if (name.includes("Flash")) return "G-Flash";
+  if (name.includes("GPT")) return "GPT";
+  return name;
+}
+
+function statusClass(status: TaskModelResultSummary["status"]) {
+  switch (status) {
+    case "EXACT":
+      return "border-emerald-200 bg-emerald-50 text-emerald-700";
+    case "STRUCT":
+      return "border-sky-200 bg-sky-50 text-sky-700";
+    case "PRES":
+      return "border-[color:color-mix(in_srgb,var(--brand)_28%,transparent)] bg-[color:color-mix(in_srgb,var(--brand)_10%,white)] text-[var(--brand)]";
+    case "ERR":
+      return "border-rose-200 bg-rose-50 text-rose-700";
+    default:
+      return "border-zinc-200 bg-zinc-50 text-zinc-600";
+  }
 }
 
 function ChipRow({
