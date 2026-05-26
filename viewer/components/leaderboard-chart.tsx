@@ -18,10 +18,11 @@ import type { LeaderboardEntry } from "@/lib/data";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
+// Theta brand palette: orange #f99c00 for the headline metric, then graded greys.
 const METRIC_COLOR = {
-  exact:        { bg: "rgba(24, 24, 27, 0.92)",   border: "rgba(24, 24, 27, 1)"    },
-  structural:   { bg: "rgba(113, 113, 122, 0.85)",border: "rgba(82, 82, 91, 1)"    },
-  preservation: { bg: "rgba(212, 212, 216, 0.95)",border: "rgba(161, 161, 170, 1)" },
+  exact:        { bg: "rgba(249, 156, 0, 0.92)",   border: "rgba(191, 118, 0, 1)"   },
+  structural:   { bg: "rgba(23, 23, 23, 0.88)",    border: "rgba(10, 10, 10, 1)"    },
+  preservation: { bg: "rgba(212, 212, 216, 0.95)", border: "rgba(161, 161, 170, 1)" },
 };
 
 // Draws "12.3%" at the end of each bar so 0%-valued bars (which would
@@ -46,7 +47,8 @@ const valueLabelPlugin: Plugin<"bar"> = {
         // place at the axis with a small offset so 0% labels are visible.
         const base = (bar as { base?: number | null }).base;
         const barEnd = isZero ? (base ?? x) + 4 : x + 4;
-        ctx.fillStyle = isZero ? "rgb(161, 161, 170)" : "rgb(39, 39, 42)";
+        const colorByDataset = ["rgb(191, 118, 0)", "rgb(23, 23, 23)", "rgb(82, 82, 91)"];
+        ctx.fillStyle = isZero ? "rgb(161, 161, 170)" : colorByDataset[dsIdx] ?? "rgb(39, 39, 42)";
         ctx.textAlign = "left";
         ctx.fillText(label, barEnd, y);
       });
