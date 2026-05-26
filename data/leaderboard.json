@@ -4,22 +4,6 @@
   "entries": [
     {
       "rank": 1,
-      "name": "Oracle (ceiling)",
-      "provider": "internal",
-      "model": "ground-truth",
-      "exact": 1.0,
-      "structural": 1.0,
-      "preservation": 1.0,
-      "expected_changes": 1.0,
-      "unexpected_parts": 0.0,
-      "error_rate": 0.0,
-      "mean_latency_ms": 0,
-      "tasks_run": 106,
-      "submitted_by": "VectorEditGym",
-      "date": "2026-05-26"
-    },
-    {
-      "rank": 2,
       "name": "Gemini 3 Pro Preview",
       "provider": "Google via LiteLLM",
       "model": "gemini/gemini-3-pro-preview",
@@ -36,7 +20,7 @@
       "notes": "LiteLLM run on the active 106-task curriculum."
     },
     {
-      "rank": 3,
+      "rank": 2,
       "name": "Gemini 3 Flash Preview",
       "provider": "Google via LiteLLM",
       "model": "gemini/gemini-3-flash-preview",
@@ -51,22 +35,6 @@
       "submitted_by": "VectorEditGym",
       "date": "2026-05-26",
       "notes": "LiteLLM run on the active 106-task curriculum."
-    },
-    {
-      "rank": 4,
-      "name": "Noop (floor)",
-      "provider": "internal",
-      "model": "identity",
-      "exact": 0.0,
-      "structural": 0.0,
-      "preservation": 1.0,
-      "expected_changes": 0.0,
-      "unexpected_parts": 0.0,
-      "error_rate": 0.0,
-      "mean_latency_ms": 0,
-      "tasks_run": 106,
-      "submitted_by": "VectorEditGym",
-      "date": "2026-05-26"
     }
   ]
 }
