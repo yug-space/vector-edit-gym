@@ -151,8 +151,8 @@ export default async function HomePage() {
             <p className="font-medium">How to be added</p>
             <p className="mt-1 text-[hsl(var(--muted-foreground))]">
               Run the Python SDK or LiteLLM benchmark against the published task set, then email us your numbers
-              + the CLI command + a commit hash. We re-run the oracle baseline against each submission for sanity
-              and update this table by hand.
+              + the CLI command + a commit hash. We verify submission artifacts for sanity and update this table
+              by hand.
             </p>
             <pre className="mt-3 overflow-x-auto rounded bg-[hsl(var(--background))] p-3 font-mono text-xs">
 {`pip install -e 'sdk/python[litellm]'

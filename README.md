@@ -47,8 +47,6 @@ cd viewer && npm install && npm run dev
 # 4. Install and use the Python SDK
 pip install -e sdk/python
 vec-edit-gym list
-vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve   # ceiling
-vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve     # floor
 vec-edit-gym score ea_001 produced.svg --json                        # one-task diff report
 python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini        # LiteLLM multi-model run
 ```
