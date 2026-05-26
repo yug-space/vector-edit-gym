@@ -26,7 +26,7 @@ import { getLeaderboard, listTasks } from "@/lib/data";
 export const dynamic = "force-dynamic";
 
 const SUBMIT_MAILTO =
-  "mailto:theta.computer01@gmail.com?subject=VectorEditGym%20leaderboard%20submission&body=" +
+  "mailto:yug@thetalab.tech?subject=VectorEditGym%20leaderboard%20submission&body=" +
   encodeURIComponent(
     [
       "Model:",

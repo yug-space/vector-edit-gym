@@ -74,6 +74,8 @@ Latest LiteLLM run on the active 106-task curriculum, published in `data/leaderb
 | `gemini/gemini-3-pro-preview` | 29.2% | 29.2% | 98.1% | 40.8% | 0.0% | 9952 ms |
 | `gemini/gemini-3-flash-preview` | 23.6% | 23.6% | 95.4% | 39.1% | 0.0% | 2900 ms |
 
+Submit leaderboard results to `yug@thetalab.tech`.
+
 ## Authoring
 
 The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 106 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.

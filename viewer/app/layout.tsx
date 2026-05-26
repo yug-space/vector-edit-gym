@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-[hsl(var(--muted-foreground))] sm:flex-row sm:items-center sm:justify-between">
             <span>VectorEditGym · a benchmark for surgical SVG editing</span>
             <span className="flex items-center gap-3">
-              <a href="mailto:theta.computer01@gmail.com?subject=VectorEditGym%20leaderboard%20submission" className="hover:text-[hsl(var(--foreground))]">Submit results</a>
+              <a href="mailto:yug@thetalab.tech?subject=VectorEditGym%20leaderboard%20submission" className="hover:text-[hsl(var(--foreground))]">Submit results</a>
               <span>·</span>
               <a href="https://github.com/yug-space/vector-edit-gym" target="_blank" rel="noreferrer" className="hover:text-[hsl(var(--foreground))]">GitHub</a>
             </span>
