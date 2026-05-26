@@ -2,7 +2,7 @@
 
 A benchmark that tests whether AI agents can edit SVG icons exactly as instructed without accidentally changing other parts.
 
-Live viewer: https://viewer-ashen-two.vercel.app
+Live viewer: https://svg-rl-env.vercel.app
 
 Each task has:
 
@@ -55,7 +55,7 @@ python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini        # LiteLLM m
 
 ## Deployment
 
-The hosted viewer is deployed on Vercel as project `theta-rl-lab/viewer`. Deploy from the repository root so the Next app and `data/` directory are uploaded together:
+The hosted viewer is deployed on Vercel as project `yug-guptas-projects/svg-rl-env`. Deploy from the repository root so the Next app and `data/` directory are uploaded together:
 
 ```sh
 vercel deploy --prod
@@ -63,7 +63,7 @@ vercel deploy --prod
 
 The Vercel build runs `scripts/prepare-viewer-data.mjs` first, copying `data/` into `viewer/data/` so the serverless viewer can read the task and icon files at runtime.
 
-Current production alias: https://viewer-ashen-two.vercel.app
+Current production alias: https://svg-rl-env.vercel.app
 
 ## Published Results
 
