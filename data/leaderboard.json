@@ -21,6 +21,23 @@
     },
     {
       "rank": 2,
+      "name": "GPT-5.5",
+      "provider": "OpenAI",
+      "model": "gpt-5.5",
+      "exact": 0.25471698113207547,
+      "structural": 0.2641509433962264,
+      "preservation": 0.9792452830188679,
+      "expected_changes": 0.3735632183908046,
+      "unexpected_parts": 0.07547169811320754,
+      "error_rate": 0.0,
+      "mean_latency_ms": 9078.521581010822,
+      "tasks_run": 106,
+      "submitted_by": "VectorEditGym",
+      "date": "2026-05-26",
+      "notes": "OpenAI API run on the active 106-task curriculum."
+    },
+    {
+      "rank": 3,
       "name": "Gemini 3 Flash Preview",
       "provider": "Google via LiteLLM",
       "model": "gemini/gemini-3-flash-preview",

@@ -65,11 +65,12 @@ Current production alias: https://svg-rl-env.vercel.app
 
 ## Published Results
 
-Latest LiteLLM run on the active 106-task curriculum, published in `data/leaderboard.json` for the viewer:
+Latest runs on the active 106-task curriculum, published in `data/leaderboard.json` for the viewer:
 
 | Model | Exact | Structural | Preservation | Expected changes | Errors | Mean latency |
 |-------|------:|-----------:|-------------:|-----------------:|-------:|-------------:|
 | `gemini/gemini-3-pro-preview` | 29.2% | 29.2% | 98.1% | 40.8% | 0.0% | 9952 ms |
+| `gpt-5.5` | 25.5% | 26.4% | 97.9% | 37.4% | 0.0% | 9079 ms |
 | `gemini/gemini-3-flash-preview` | 23.6% | 23.6% | 95.4% | 39.1% | 0.0% | 2900 ms |
 
 Submit leaderboard results to `yug@thetalab.tech`.

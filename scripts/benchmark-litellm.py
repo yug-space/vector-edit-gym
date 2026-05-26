@@ -62,6 +62,7 @@ def main(argv: list[str] | None = None) -> int:
                 "category": args.category,
                 "limit": args.limit,
                 "base_url": _normalise_base_url(args.base_url or os.environ.get("LITELLM_BASE_URL", "")),
+                "token_param": args.token_param,
             },
             indent=2,
         )
@@ -89,6 +90,12 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--base-url", help="override LITELLM_BASE_URL")
     parser.add_argument("--api-key-env", default="LITELLM_API_KEY", help="environment variable containing API key")
     parser.add_argument("--max-tokens", type=int, default=2048)
+    parser.add_argument(
+        "--token-param",
+        choices=("max_tokens", "max_completion_tokens"),
+        default="max_tokens",
+        help="chat completion token limit field used by the provider",
+    )
     parser.add_argument("--timeout", type=float, default=120)
     parser.add_argument("--temperature", type=float, help="optional chat temperature; omitted by default")
     parser.add_argument("--save-svgs", action="store_true", help="write produced SVGs as files")
@@ -216,8 +223,8 @@ def _solve(client, model: str, task: Task, args: argparse.Namespace) -> str:
                 ),
             },
         ],
-        "max_tokens": args.max_tokens,
     }
+    kwargs[args.token_param] = args.max_tokens
     if args.temperature is not None:
         kwargs["temperature"] = args.temperature
     resp = client.chat.completions.create(**kwargs)
