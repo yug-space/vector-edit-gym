@@ -9,6 +9,7 @@ import json
 import sys
 from pathlib import Path
 
+from .diffing import diff_report
 from .evaluate import evaluate
 from .tasks import load_task, load_tasks
 
@@ -101,6 +102,35 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_score(args: argparse.Namespace) -> int:
+    task = load_task(args.task_id)
+    produced = sys.stdin.read() if args.svg == "-" else Path(args.svg).read_text()
+    report = diff_report(task, produced)
+    if args.json:
+        print(json.dumps(report.to_dict(), indent=2))
+        return 0
+
+    print(f"Task: {task.task_id}")
+    print(f"exact:        {report.exact}")
+    print(f"structural:   {report.structural}")
+    print(f"preservation: {report.preservation:.1%}")
+    print(f"parse ok:     {report.produced_parse_ok}")
+    print()
+    print("Expected changes:")
+    for check in report.expected_changes:
+        marker = "OK" if check.passed else "FAIL"
+        print(
+            f"  {marker:<4} {check.part}.{check.attribute}: "
+            f"expected {check.expected_after!r}, produced {check.produced!r}"
+        )
+    if report.unexpected_changed_parts:
+        print()
+        print("Unexpected changed/preserved-part failures:")
+        for part in report.unexpected_changed_parts:
+            print(f"  {part}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="vec-edit-gym", description="VectorEditGym CLI")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -123,6 +153,12 @@ def main(argv: list[str] | None = None) -> int:
     pe.add_argument("--limit", type=int)
     pe.add_argument("--json", action="store_true")
     pe.set_defaults(fn=_cmd_evaluate)
+
+    pc = sub.add_parser("score", help="score one produced SVG against a task")
+    pc.add_argument("task_id")
+    pc.add_argument("svg", help="path to produced SVG, or '-' for stdin")
+    pc.add_argument("--json", action="store_true")
+    pc.set_defaults(fn=_cmd_score)
 
     args = p.parse_args(argv)
     return args.fn(args)

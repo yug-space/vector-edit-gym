@@ -15,6 +15,7 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+runs/
 
 # Secrets — never commit
 .env

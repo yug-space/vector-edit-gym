@@ -15,6 +15,7 @@ dependencies = []
 [project.optional-dependencies]
 anthropic = ["anthropic>=0.30"]
 openai = ["openai>=1.40"]
+litellm = ["openai>=1.40"]
 
 [project.scripts]
 vec-edit-gym = "vector_edit_gym.cli:main"

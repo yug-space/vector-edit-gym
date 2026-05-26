@@ -10,7 +10,9 @@ From the repo root:
 
 ```sh
 pip install -e sdk/python              # core
-pip install -e 'sdk/python[anthropic]' # also installs anthropic SDK for the Claude example
+pip install -e 'sdk/python[openai]'    # OpenAI SDK examples
+pip install -e 'sdk/python[litellm]'   # LiteLLM OpenAI-compatible proxy runner
+pip install -e 'sdk/python[anthropic]' # Anthropic SDK example
 ```
 
 The SDK auto-discovers `data/tasks/` by walking up from the install location. To point at a different dataset:
@@ -45,10 +47,20 @@ vec-edit-gym show ve_001 --field initial_svg            # just the SVG
 vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve
 vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve  # 100% exact
 vec-edit-gym evaluate ./my_solver.py:fix --limit 20
+vec-edit-gym score ea_001 produced.svg --json
 
 # With the Claude reference solver:
 export ANTHROPIC_API_KEY=...
 vec-edit-gym evaluate vector_edit_gym.examples.claude_solver:solve --difficulty very_easy --limit 5
+
+# With a LiteLLM OpenAI-compatible proxy:
+export LITELLM_API_KEY="..."
+export LITELLM_BASE_URL="https://your-litellm-proxy"
+VEG_LITELLM_MODEL=gpt-5-mini \
+  vec-edit-gym evaluate vector_edit_gym.examples.litellm_solver:solve --limit 5
+
+# Full multi-model benchmark with per-task diff reports:
+python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini
 ```
 
 ## The Task object
@@ -85,6 +97,15 @@ result.error_rate              # solver-raised exceptions
 result.mean_latency_ms         # solver wall time
 result.by_difficulty()         # {tier: {n, exact, structural, preservation, errors}}
 result.by_category()
+```
+
+## Diff reports
+
+Use `vec-edit-gym score` for one produced SVG, or `scripts/benchmark-litellm.py` for full runs. The report includes exact/structural/preservation metrics, every expected change from `expected_diff`, and preserve-part failures.
+
+```sh
+vec-edit-gym show ea_001 --field target_svg > /tmp/ea_001.svg
+vec-edit-gym score ea_001 /tmp/ea_001.svg
 ```
 
 ## Writing your own solver
