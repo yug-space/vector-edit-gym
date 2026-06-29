@@ -1,0 +1,110 @@
+<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky16" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fb8e0"/>
+      <stop offset="0.5" stop-color="#e8c8d8"/>
+      <stop offset="1" stop-color="#fbe8d0"/>
+    </linearGradient>
+    <radialGradient id="sun16" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6e0"/><stop offset="0.5" stop-color="#ffe0c0" stop-opacity="0.6"/><stop offset="1" stop-color="#ffe0c0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="field16" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a7ac0"/><stop offset="1" stop-color="#6a4a9a"/>
+    </linearGradient>
+    <linearGradient id="mill16" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8c8a8"/><stop offset="1" stop-color="#a8967a"/>
+    </linearGradient>
+    <filter id="haze16" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky16)"/>
+  <circle cx="1180" cy="260" r="280" fill="url(#sun16)"/>
+  <circle cx="1180" cy="260" r="64" fill="#fffaf0"/>
+
+  <!-- soft clouds -->
+  <g fill="#ffffff" opacity="0.6" filter="url(#haze16)">
+    <ellipse cx="400" cy="200" rx="220" ry="40"/><ellipse cx="800" cy="140" rx="180" ry="34"/><ellipse cx="300" cy="300" rx="160" ry="30"/>
+  </g>
+
+  <!-- distant tree line -->
+  <g fill="#7a8a6a" opacity="0.7">
+    <ellipse cx="120" cy="500" rx="60" ry="40"/><ellipse cx="220" cy="510" rx="50" ry="34"/><ellipse cx="320" cy="500" rx="56" ry="38"/>
+    <ellipse cx="1320" cy="500" rx="56" ry="38"/><ellipse cx="1440" cy="510" rx="50" ry="34"/><ellipse cx="1540" cy="500" rx="60" ry="40"/>
+  </g>
+  <!-- horizon strip -->
+  <rect x="0" y="520" width="1600" height="40" fill="#b0a878" opacity="0.6"/>
+
+  <!-- lavender field -->
+  <path d="M0 540 Q400 520 800 540 Q1200 560 1600 540 L1600 1000 L0 1000 Z" fill="url(#field16)"/>
+
+  <!-- converging lavender rows -->
+  <g>
+    <!-- rows are pairs of converging lines from vanishing point ~ (820,560) -->
+    <g stroke="#523a82" stroke-width="3" opacity="0.6">
+      <path d="M820 560 L60 1000"/><path d="M820 560 L260 1000"/><path d="M820 560 L460 1000"/>
+      <path d="M820 560 L660 1000"/><path d="M820 560 L860 1000"/><path d="M820 560 L1060 1000"/>
+      <path d="M820 560 L1280 1000"/><path d="M820 560 L1500 1000"/>
+    </g>
+    <!-- lavender textured bands (dashes) -->
+    <g stroke="#b89ad8" stroke-width="6" stroke-dasharray="10 14" opacity="0.7">
+      <path d="M810 590 L120 980"/><path d="M812 600 L360 980"/><path d="M816 610 L560 980"/>
+      <path d="M824 610 L760 980"/><path d="M828 600 L960 980"/><path d="M832 590 L1180 980"/><path d="M836 588 L1400 980"/>
+    </g>
+    <g stroke="#cbb0e8" stroke-width="3" stroke-dasharray="6 18" opacity="0.6">
+      <path d="M810 640 L160 970"/><path d="M820 660 L600 980"/><path d="M830 640 L1140 970"/>
+    </g>
+  </g>
+
+  <!-- dirt path up the middle -->
+  <path d="M770 560 L600 1000 L1000 1000 L850 560 Z" fill="#cbb088" opacity="0.85"/>
+  <path d="M790 560 L720 1000 L880 1000 L830 560 Z" fill="#d8c098" opacity="0.5"/>
+
+  <!-- stone windmill -->
+  <g transform="translate(560 360)">
+    <polygon points="-60,260 60,260 40,40 -40,40" fill="url(#mill16)"/>
+    <polygon points="-60,260 60,260 56,290 -56,290" fill="#9a8868"/>
+    <polygon points="-46,40 46,40 0,-30" fill="#8a4a3a"/>
+    <!-- windows + door -->
+    <rect x="-16" y="200" width="32" height="60" fill="#4a3424"/>
+    <rect x="-44" y="120" width="22" height="26" fill="#5a4432"/><rect x="22" y="120" width="22" height="26" fill="#5a4432"/>
+    <rect x="-14" y="70" width="28" height="24" fill="#5a4432"/>
+    <!-- sails -->
+    <g transform="translate(0 30)">
+      <circle r="10" fill="#6a4a32"/>
+      <g fill="#e8e0cc" stroke="#8a7a5a" stroke-width="2">
+        <polygon points="0,0 18,-6 150,-40 130,-10"/>
+        <polygon points="0,0 6,18 40,150 10,130"/>
+        <polygon points="0,0 -18,6 -150,40 -130,10"/>
+        <polygon points="0,0 -6,-18 -40,-150 -10,-130"/>
+      </g>
+      <g stroke="#8a7a5a" stroke-width="1.5">
+        <line x1="0" y1="0" x2="140" y2="-25"/><line x1="0" y1="0" x2="25" y2="140"/><line x1="0" y1="0" x2="-140" y2="25"/><line x1="0" y1="0" x2="-25" y2="-140"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- foreground lavender sprigs -->
+  <g>
+    <g stroke="#5a3e8a" stroke-width="3" stroke-linecap="round">
+      <line x1="120" y1="980" x2="120" y2="860"/><line x1="180" y1="1000" x2="180" y2="880"/><line x1="240" y1="970" x2="240" y2="850"/>
+      <line x1="1360" y1="980" x2="1360" y2="860"/><line x1="1420" y1="1000" x2="1420" y2="880"/><line x1="1480" y1="970" x2="1480" y2="850"/>
+    </g>
+    <g fill="#9a6ad0">
+      <ellipse cx="120" cy="850" rx="9" ry="26"/><ellipse cx="180" cy="870" rx="10" ry="30"/><ellipse cx="240" cy="840" rx="9" ry="26"/>
+      <ellipse cx="1360" cy="850" rx="9" ry="26"/><ellipse cx="1420" cy="870" rx="10" ry="30"/><ellipse cx="1480" cy="840" rx="9" ry="26"/>
+    </g>
+    <g fill="#c4a4e8" opacity="0.8">
+      <ellipse cx="120" cy="846" rx="6" ry="16"/><ellipse cx="180" cy="864" rx="6" ry="18"/><ellipse cx="1420" cy="864" rx="6" ry="18"/>
+    </g>
+  </g>
+
+  <!-- bees -->
+  <g>
+    <g transform="translate(400 700)"><ellipse rx="7" ry="4.5" fill="#f0c020"/><rect x="-3" y="-4.5" width="3" height="9" fill="#2a2010"/><rect x="3" y="-4.5" width="3" height="9" fill="#2a2010"/><ellipse cx="-2" cy="-6" rx="6" ry="3" fill="#fff" opacity="0.7"/><ellipse cx="4" cy="-6" rx="6" ry="3" fill="#fff" opacity="0.7"/></g>
+    <g transform="translate(950 760)"><ellipse rx="6" ry="4" fill="#f0c020"/><rect x="-2.6" y="-4" width="2.6" height="8" fill="#2a2010"/><rect x="2.6" y="-4" width="2.6" height="8" fill="#2a2010"/><ellipse cx="-2" cy="-5" rx="5" ry="2.6" fill="#fff" opacity="0.7"/><ellipse cx="3" cy="-5" rx="5" ry="2.6" fill="#fff" opacity="0.7"/></g>
+    <g transform="translate(700 640)"><ellipse rx="5.5" ry="3.6" fill="#f0c020"/><rect x="-2.4" y="-3.6" width="2.4" height="7.2" fill="#2a2010"/><rect x="2.4" y="-3.6" width="2.4" height="7.2" fill="#2a2010"/></g>
+  </g>
+
+  <!-- butterflies -->
+  <g transform="translate(1000 560)" fill="#e87a9a"><path d="M0 0 Q-16 -14 -22 -2 Q-16 6 0 0 Z"/><path d="M0 0 Q16 -14 22 -2 Q16 6 0 0 Z"/><line x1="0" y1="-6" x2="0" y2="6" stroke="#3a2030" stroke-width="2"/></g>
+</svg>

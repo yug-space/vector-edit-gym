@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky03" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#160a2e"/>
+      <stop offset="0.5" stop-color="#2a1147"/>
+      <stop offset="1" stop-color="#5a1a5e"/>
+    </linearGradient>
+    <linearGradient id="ground03" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a1a4a"/>
+      <stop offset="0.5" stop-color="#1a0c28"/>
+      <stop offset="1" stop-color="#0c0618"/>
+    </linearGradient>
+    <radialGradient id="haze03" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff2d95" stop-opacity="0.35"/><stop offset="1" stop-color="#ff2d95" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="neon03" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="neonbig03" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky03)"/>
+  <ellipse cx="800" cy="560" rx="700" ry="300" fill="url(#haze03)"/>
+
+  <!-- distant skyline -->
+  <g fill="#1c0f33" opacity="0.8">
+    <rect x="640" y="180" width="60" height="430"/><rect x="710" y="120" width="80" height="490"/>
+    <rect x="800" y="220" width="50" height="390"/><rect x="860" y="90" width="70" height="520"/>
+    <rect x="940" y="200" width="60" height="410"/>
+  </g>
+  <g fill="#3a2050" opacity="0.5">
+    <rect x="700" y="140" width="6" height="14"/><rect x="720" y="170" width="6" height="14"/>
+    <rect x="880" y="120" width="6" height="14"/><rect x="900" y="160" width="6" height="14"/>
+  </g>
+
+  <!-- left building block -->
+  <polygon points="0,80 520,200 520,1000 0,1000" fill="#241038"/>
+  <polygon points="0,80 520,200 520,260 0,150" fill="#180a28"/>
+  <g fill="#0c0618">
+    <rect x="40" y="240" width="420" height="760"/>
+  </g>
+  <!-- left windows grid -->
+  <g fill="#ffd27a" opacity="0.85">
+    <rect x="70" y="300" width="40" height="26"/><rect x="150" y="310" width="40" height="26"/><rect x="310" y="320" width="40" height="26"/>
+    <rect x="70" y="380" width="40" height="26" fill="#46e0ff"/><rect x="230" y="390" width="40" height="26"/><rect x="390" y="396" width="40" height="26" fill="#46e0ff"/>
+    <rect x="150" y="460" width="40" height="26"/><rect x="310" y="466" width="40" height="26" fill="#ff7bd0"/>
+    <rect x="70" y="540" width="40" height="26" fill="#46e0ff"/><rect x="230" y="546" width="40" height="26"/><rect x="390" y="552" width="40" height="26"/>
+    <rect x="150" y="620" width="40" height="26"/><rect x="310" y="624" width="40" height="26" fill="#46e0ff"/>
+  </g>
+
+  <!-- right building block -->
+  <polygon points="1600,60 1080,200 1080,1000 1600,1000" fill="#2a1240"/>
+  <polygon points="1600,60 1080,200 1080,260 1600,130" fill="#190a2c"/>
+  <rect x="1140" y="240" width="420" height="760" fill="#0c0618"/>
+  <g fill="#ffd27a" opacity="0.85">
+    <rect x="1180" y="300" width="40" height="26" fill="#46e0ff"/><rect x="1300" y="310" width="40" height="26"/><rect x="1460" y="320" width="40" height="26"/>
+    <rect x="1240" y="390" width="40" height="26"/><rect x="1400" y="396" width="40" height="26" fill="#ff7bd0"/>
+    <rect x="1180" y="470" width="40" height="26" fill="#46e0ff"/><rect x="1340" y="476" width="40" height="26"/>
+    <rect x="1240" y="550" width="40" height="26"/><rect x="1460" y="556" width="40" height="26" fill="#46e0ff"/>
+  </g>
+
+  <!-- neon signs left -->
+  <g filter="url(#neon03)">
+    <rect x="360" y="300" width="120" height="180" rx="6" fill="none" stroke="#ff2d95" stroke-width="6"/>
+    <text x="420" y="360" font-family="monospace" font-size="40" fill="#ff2d95" text-anchor="middle">夜</text>
+    <text x="420" y="420" font-family="monospace" font-size="40" fill="#ff2d95" text-anchor="middle">市</text>
+  </g>
+  <g filter="url(#neon03)">
+    <line x1="380" y1="540" x2="470" y2="540" stroke="#46e0ff" stroke-width="5"/>
+    <text x="425" y="585" font-family="monospace" font-size="30" fill="#46e0ff" text-anchor="middle">RAMEN</text>
+  </g>
+
+  <!-- neon signs right -->
+  <g filter="url(#neon03)">
+    <circle cx="1180" cy="420" r="46" fill="none" stroke="#ffe14d" stroke-width="6"/>
+    <text x="1180" y="434" font-family="monospace" font-size="34" fill="#ffe14d" text-anchor="middle">24</text>
+  </g>
+  <g filter="url(#neon03)">
+    <text x="1300" y="660" font-family="monospace" font-size="40" fill="#8aff5a" text-anchor="middle">電脳</text>
+  </g>
+
+  <!-- hanging lanterns / cables -->
+  <path d="M120 220 Q800 360 1500 200" stroke="#3a2050" stroke-width="2.5" fill="none"/>
+  <g>
+    <circle cx="400" cy="298" r="10" fill="#ff5a3c"/><circle cx="560" cy="316" r="10" fill="#ffb43c"/>
+    <circle cx="760" cy="332" r="10" fill="#ff5a3c"/><circle cx="980" cy="324" r="10" fill="#ffb43c"/><circle cx="1180" cy="300" r="10" fill="#ff5a3c"/>
+  </g>
+
+  <!-- wet ground -->
+  <rect x="0" y="700" width="1600" height="300" fill="url(#ground03)"/>
+  <!-- reflections -->
+  <g opacity="0.4">
+    <rect x="360" y="700" width="120" height="180" fill="#ff2d95" filter="url(#neonbig03)"/>
+    <rect x="1140" y="700" width="80" height="180" fill="#8aff5a" filter="url(#neonbig03)"/>
+    <rect x="700" y="700" width="200" height="220" fill="#ffd27a" filter="url(#neonbig03)" opacity="0.5"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="1" opacity="0.12">
+    <line x1="100" y1="760" x2="1500" y2="760"/><line x1="60" y1="840" x2="1540" y2="840"/><line x1="20" y1="930" x2="1580" y2="930"/>
+  </g>
+
+  <!-- steam -->
+  <ellipse cx="600" cy="720" rx="160" ry="40" fill="#caa0e0" opacity="0.25" filter="url(#neonbig03)"/>
+  <ellipse cx="1100" cy="740" rx="180" ry="44" fill="#a0c0e0" opacity="0.22" filter="url(#neonbig03)"/>
+
+  <!-- lone figure with umbrella -->
+  <g transform="translate(800 760)">
+    <path d="M-70 -150 Q0 -200 70 -150 Q0 -178 -70 -150 Z" fill="#12091f"/>
+    <line x1="0" y1="-160" x2="0" y2="-40" stroke="#12091f" stroke-width="4"/>
+    <ellipse cx="0" cy="-30" rx="20" ry="46" fill="#0a0514"/>
+    <circle cx="0" cy="-86" r="12" fill="#0a0514"/>
+    <ellipse cx="0" cy="6" rx="40" ry="10" fill="#ff2d95" opacity="0.3" filter="url(#neon03)"/>
+  </g>
+
+  <!-- rain -->
+  <g stroke="#bfd8ff" stroke-width="1.4" opacity="0.5">
+    <line x1="100" y1="0" x2="80" y2="60"/><line x1="240" y1="40" x2="220" y2="100"/><line x1="400" y1="0" x2="380" y2="70"/>
+    <line x1="560" y1="60" x2="540" y2="130"/><line x1="720" y1="0" x2="700" y2="70"/><line x1="880" y1="40" x2="860" y2="110"/>
+    <line x1="1040" y1="0" x2="1020" y2="70"/><line x1="1200" y1="50" x2="1180" y2="120"/><line x1="1360" y1="0" x2="1340" y2="70"/>
+    <line x1="1500" y1="40" x2="1480" y2="110"/><line x1="180" y1="200" x2="160" y2="270"/><line x1="500" y1="220" x2="480" y2="290"/>
+    <line x1="820" y1="200" x2="800" y2="270"/><line x1="1140" y1="240" x2="1120" y2="310"/><line x1="1420" y1="220" x2="1400" y2="290"/>
+    <line x1="320" y1="420" x2="300" y2="490"/><line x1="980" y1="440" x2="960" y2="510"/><line x1="1280" y1="420" x2="1260" y2="490"/>
+  </g>
+</svg>

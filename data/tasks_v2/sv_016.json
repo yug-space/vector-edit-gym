@@ -1,0 +1,223 @@
+{
+  "task_id": "sv_016",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "Apply the exact harbor patch: lighthouse-window color, light-beam position, extra-pier-buoy removal, sail-small fill, harbor-wave-long path, and crate-left position.\n\nPatch:\n- crate-left.x: 4 -> 12\n- crate-left.y: 81 -> 76\n- harbor-wave-long.d: \"M82 116 C96 126 112 108 128 116 S158 126 174 116\" -> \"M82 118 C98 112 112 124 128 118 S158 112 174 118\"\n- sail-small.fill: \"#fef3c7\" -> \"#e0f2fe\"\n- remove extra-pier-buoy\n- light-beam.points: [[188,26],[140,14],[140,38]] -> [[180,30],[132,18],[132,42]]\n- lighthouse-window.fill: \"#38bdf8\" -> \"#fde047\"",
+  "initial_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f5fffd\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#06b6d4\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#f8fafc\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#f8fafc\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#f59e0b\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#fefce8\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#ecfeff\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#fef3c7\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#0f766e\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#38bdf8\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 140,14 140,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" d=\"M82 116 C96 126 112 108 128 116 S158 126 174 116\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"4\" y=\"81\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"28\" y=\"76\" width=\"14\" height=\"12\" />\n  <ellipse id=\"skin-16-sub-wide-body\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"2.2\" opacity=\"0.9\" cx=\"53\" cy=\"112\" rx=\"43\" ry=\"18\" />\n  <circle id=\"skin-16-sub-wide-window\" fill=\"#bae6fd\" stroke=\"#075985\" stroke-width=\"1.5\" opacity=\"0.95\" cx=\"42\" cy=\"109\" r=\"7\" />\n  <polygon id=\"skin-16-sub-wide-tail\" fill=\"#f59e0b\" stroke=\"#854d0e\" stroke-width=\"1.5\" opacity=\"0.9\" points=\"93,112 116,96 116,128\" />\n  <ellipse id=\"identity-16-sub-body\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"1.5\" cx=\"52\" cy=\"112\" rx=\"28\" ry=\"11\" />\n  <circle id=\"identity-16-sub-window\" fill=\"#bae6fd\" stroke=\"#075985\" stroke-width=\"1\" cx=\"43\" cy=\"110\" r=\"4\" />\n  <polygon id=\"identity-16-sub-tail\" fill=\"#f59e0b\" stroke=\"#854d0e\" stroke-width=\"1\" points=\"80,112 94,104 94,120\" />\n  <polygon id=\"identity-16-fish\" fill=\"#fb7185\" opacity=\"0.95\" points=\"152,122 166,116 166,128\" />\n  <circle id=\"variant-16-dot\" fill=\"#0f766e\" opacity=\"0.72\" cx=\"42\" cy=\"18\" r=\"2.6\" />\n  <line id=\"variant-16-rule\" stroke=\"#0f766e\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"48\" y1=\"21\" x2=\"64\" y2=\"24\" />\n  <rect id=\"variant-16-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-12\" fill=\"#84cc16\" opacity=\"0.68\" x=\"179\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-16-pin-01\" fill=\"#6366f1\" opacity=\"0.66\" cx=\"24\" cy=\"23\" r=\"1.8\" />\n  <circle id=\"variant-16-pin-02\" fill=\"#8b5cf6\" opacity=\"0.66\" cx=\"197\" cy=\"37\" r=\"2.05\" />\n  <circle id=\"variant-16-pin-03\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"10\" cy=\"51\" r=\"2.3\" />\n  <circle id=\"variant-16-pin-04\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"207\" cy=\"65\" r=\"2.55\" />\n  <circle id=\"variant-16-pin-05\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"20\" cy=\"79\" r=\"1.8\" />\n  <circle id=\"variant-16-pin-06\" fill=\"#f97316\" opacity=\"0.66\" cx=\"193\" cy=\"93\" r=\"2.05\" />\n  <circle id=\"variant-16-pin-07\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"30\" cy=\"107\" r=\"2.3\" />\n  <circle id=\"variant-16-pin-08\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"203\" cy=\"121\" r=\"2.55\" />\n  <circle id=\"extra-pier-buoy\" fill=\"#facc15\" stroke=\"#222\" stroke-width=\"0.8\" cx=\"70\" cy=\"112\" r=\"5\" />\n</svg>",
+  "target_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f5fffd\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#06b6d4\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#f8fafc\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#f8fafc\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#f59e0b\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#fefce8\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#ecfeff\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#0f766e\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"180,30 132,18 132,42\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" d=\"M82 118 C98 112 112 124 128 118 S158 112 174 118\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"28\" y=\"76\" width=\"14\" height=\"12\" />\n  <ellipse id=\"skin-16-sub-wide-body\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"2.2\" opacity=\"0.9\" cx=\"53\" cy=\"112\" rx=\"43\" ry=\"18\" />\n  <circle id=\"skin-16-sub-wide-window\" fill=\"#bae6fd\" stroke=\"#075985\" stroke-width=\"1.5\" opacity=\"0.95\" cx=\"42\" cy=\"109\" r=\"7\" />\n  <polygon id=\"skin-16-sub-wide-tail\" fill=\"#f59e0b\" stroke=\"#854d0e\" stroke-width=\"1.5\" opacity=\"0.9\" points=\"93,112 116,96 116,128\" />\n  <ellipse id=\"identity-16-sub-body\" fill=\"#facc15\" stroke=\"#854d0e\" stroke-width=\"1.5\" cx=\"52\" cy=\"112\" rx=\"28\" ry=\"11\" />\n  <circle id=\"identity-16-sub-window\" fill=\"#bae6fd\" stroke=\"#075985\" stroke-width=\"1\" cx=\"43\" cy=\"110\" r=\"4\" />\n  <polygon id=\"identity-16-sub-tail\" fill=\"#f59e0b\" stroke=\"#854d0e\" stroke-width=\"1\" points=\"80,112 94,104 94,120\" />\n  <polygon id=\"identity-16-fish\" fill=\"#fb7185\" opacity=\"0.95\" points=\"152,122 166,116 166,128\" />\n  <circle id=\"variant-16-dot\" fill=\"#0f766e\" opacity=\"0.72\" cx=\"42\" cy=\"18\" r=\"2.6\" />\n  <line id=\"variant-16-rule\" stroke=\"#0f766e\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"48\" y1=\"21\" x2=\"64\" y2=\"24\" />\n  <rect id=\"variant-16-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-16-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-16-chip-12\" fill=\"#84cc16\" opacity=\"0.68\" x=\"179\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-16-pin-01\" fill=\"#6366f1\" opacity=\"0.66\" cx=\"24\" cy=\"23\" r=\"1.8\" />\n  <circle id=\"variant-16-pin-02\" fill=\"#8b5cf6\" opacity=\"0.66\" cx=\"197\" cy=\"37\" r=\"2.05\" />\n  <circle id=\"variant-16-pin-03\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"10\" cy=\"51\" r=\"2.3\" />\n  <circle id=\"variant-16-pin-04\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"207\" cy=\"65\" r=\"2.55\" />\n  <circle id=\"variant-16-pin-05\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"20\" cy=\"79\" r=\"1.8\" />\n  <circle id=\"variant-16-pin-06\" fill=\"#f97316\" opacity=\"0.66\" cx=\"193\" cy=\"93\" r=\"2.05\" />\n  <circle id=\"variant-16-pin-07\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"30\" cy=\"107\" r=\"2.3\" />\n  <circle id=\"variant-16-pin-08\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"203\" cy=\"121\" r=\"2.55\" />\n</svg>",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-16-sub-wide-body",
+    "skin-16-sub-wide-window",
+    "skin-16-sub-wide-tail",
+    "identity-16-sub-body",
+    "identity-16-sub-window",
+    "identity-16-sub-tail",
+    "identity-16-fish",
+    "variant-16-dot",
+    "variant-16-rule",
+    "variant-16-chip-01",
+    "variant-16-chip-02",
+    "variant-16-chip-03",
+    "variant-16-chip-04",
+    "variant-16-chip-05",
+    "variant-16-chip-06",
+    "variant-16-chip-07",
+    "variant-16-chip-08",
+    "variant-16-chip-09",
+    "variant-16-chip-10",
+    "variant-16-chip-11",
+    "variant-16-chip-12",
+    "variant-16-pin-01",
+    "variant-16-pin-02",
+    "variant-16-pin-03",
+    "variant-16-pin-04",
+    "variant-16-pin-05",
+    "variant-16-pin-06",
+    "variant-16-pin-07",
+    "variant-16-pin-08",
+    "extra-pier-buoy"
+  ],
+  "target_parts": [
+    "crate-left",
+    "harbor-wave-long",
+    "sail-small",
+    "extra-pier-buoy",
+    "light-beam",
+    "lighthouse-window"
+  ],
+  "expected_diff": [
+    {
+      "part": "crate-left",
+      "attribute": "x",
+      "before": 4,
+      "after": 12
+    },
+    {
+      "part": "crate-left",
+      "attribute": "y",
+      "before": 81,
+      "after": 76
+    },
+    {
+      "part": "harbor-wave-long",
+      "attribute": "d",
+      "before": "M82 116 C96 126 112 108 128 116 S158 126 174 116",
+      "after": "M82 118 C98 112 112 124 128 118 S158 112 174 118"
+    },
+    {
+      "part": "sail-small",
+      "attribute": "fill",
+      "before": "#fef3c7",
+      "after": "#e0f2fe"
+    },
+    {
+      "part": "extra-pier-buoy",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-pier-buoy",
+        "type": "circle",
+        "cx": 70,
+        "cy": 112,
+        "r": 5,
+        "fill": "#facc15",
+        "stroke": "#222",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "part": "light-beam",
+      "attribute": "points",
+      "before": [
+        [
+          188,
+          26
+        ],
+        [
+          140,
+          14
+        ],
+        [
+          140,
+          38
+        ]
+      ],
+      "after": [
+        [
+          180,
+          30
+        ],
+        [
+          132,
+          18
+        ],
+        [
+          132,
+          42
+        ]
+      ]
+    },
+    {
+      "part": "lighthouse-window",
+      "attribute": "fill",
+      "before": "#38bdf8",
+      "after": "#fde047"
+    }
+  ],
+  "should_preserve": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "wave-2",
+    "crate-right",
+    "skin-16-sub-wide-body",
+    "skin-16-sub-wide-window",
+    "skin-16-sub-wide-tail",
+    "identity-16-sub-body",
+    "identity-16-sub-window",
+    "identity-16-sub-tail",
+    "identity-16-fish",
+    "variant-16-dot",
+    "variant-16-rule",
+    "variant-16-chip-01",
+    "variant-16-chip-02",
+    "variant-16-chip-03",
+    "variant-16-chip-04",
+    "variant-16-chip-05",
+    "variant-16-chip-06",
+    "variant-16-chip-07",
+    "variant-16-chip-08",
+    "variant-16-chip-09",
+    "variant-16-chip-10",
+    "variant-16-chip-11",
+    "variant-16-chip-12",
+    "variant-16-pin-01",
+    "variant-16-pin-02",
+    "variant-16-pin-03",
+    "variant-16-pin-04",
+    "variant-16-pin-05",
+    "variant-16-pin-06",
+    "variant-16-pin-07",
+    "variant-16-pin-08"
+  ],
+  "authored_at": "2026-05-30T01:11:46.253Z",
+  "prompt_version": "v2",
+  "display_order": 31,
+  "input_svg_role": "disturbed",
+  "target_svg_role": "clean_original"
+}

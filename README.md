@@ -37,6 +37,7 @@ npm run scrape:icons
 
 # 2. Regenerate the curated 106-task curriculum
 npm run generate:authored
+npm run generate:authored:v2   # optional: 40-task scenic v2 corpus in data/tasks_v2
 
 # 3. Run the viewer + authoring UI
 cd viewer && npm install && npm run dev
@@ -49,8 +50,14 @@ pip install -e sdk/python
 vec-edit-gym list
 vec-edit-gym score ea_001 produced.svg --json                        # one-task diff report
 python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini        # LiteLLM multi-model run
+python scripts/benchmark-litellm.py --models gemini/gemini-3-flash-preview --data-dir data/tasks_v2 --prompt-version v2
+XAI_API_KEY=... python scripts/benchmark-litellm.py --models grok-4.3 --base-url https://api.x.ai/v1 --api-key-env XAI_API_KEY --data-dir data/tasks_v2 --prompt-version v2
 npm run publish:model-results                                        # publish per-task model outputs to viewer
 ```
+
+`data/tasks_v2/` is a mixed 40-task scenic repair corpus. Each task gives the model a disturbed SVG as `initial_svg` and scores it against the clean original in `target_svg`; the set combines curated scenes with SVGs imported from `data/scenic_svgs/`. It is intentionally separate from `data/tasks/` so v1 leaderboard artifacts remain comparable. The v2 prompt is just the task sentence plus a short exact patch list; pass `--expose-expected-diff` only for metadata-heavy smoke checks.
+
+Previous v2 xAI check before the 40-task scenic refresh: `grok-4.3` scored 85.0% exact, 85.0% structural, 100.0% preservation, and 85.9% expected-change pass rate (`runs/litellm/v2-diverse-hard-final-xai-grok-4-3-20260531`). That result is stale for the current corpus; re-run model results before comparing current tasks. The proxy did not expose xAI models; run xAI directly only with an authorized `XAI_API_KEY`.
 
 ## Deployment
 

@@ -29,12 +29,13 @@ export type Task = {
   target_parts?: string[];
   expected_diff: DiffEntry[];
   should_preserve: string[];
+  display_order?: number;
 };
 
 export type TaskSummary = Pick<
   Task,
   "task_id" | "difficulty" | "category" | "instruction" | "parts"
-> & { initial_svg: string };
+> & { initial_svg: string; corpus: "v1" | "v2"; display_order?: number };
 
 export type IconEntry = {
   source: string;
@@ -47,15 +48,21 @@ export type IconEntry = {
 
 export type IconWithSvg = IconEntry & { svg: string };
 
+const DATA_DIR_CANDIDATES = [
+  path.resolve(process.cwd(), "viewer", "data"),
+  path.resolve(process.cwd(), "data"),
+  path.resolve(process.cwd(), "..", "data"),
+].filter((candidate) => existsSync(candidate));
 const DATA_DIR =
-  [
-    path.resolve(process.cwd(), "viewer", "data"),
-    path.resolve(process.cwd(), "data"),
-    path.resolve(process.cwd(), "..", "data"),
-  ].find((candidate) => existsSync(candidate)) ??
+  DATA_DIR_CANDIDATES.find((candidate) => existsSync(path.join(candidate, "tasks_v2"))) ??
+  DATA_DIR_CANDIDATES[0] ??
   path.resolve(process.cwd(), "..", "data");
-const TASKS_DIR = path.join(DATA_DIR, "tasks");
+const TASKS_DIRS = ["tasks", "tasks_v2"]
+  .map((name) => path.join(DATA_DIR, name))
+  .filter((candidate) => existsSync(candidate));
 const ICONS_DIR = path.join(DATA_DIR, "icons");
+const corpusForDir = (tasksDir: string): "v1" | "v2" =>
+  path.basename(tasksDir) === "tasks_v2" ? "v2" : "v1";
 
 export type LeaderboardEntry = {
   rank: number;
@@ -170,22 +177,33 @@ const DIFFICULTY_ORDER: Record<string, number> = {
 };
 
 export const listTasks = async (): Promise<TaskSummary[]> => {
-  const files = (await fs.readdir(TASKS_DIR))
-    .filter((f) => /^[a-z]+_\d+\.json$/.test(f));
-  const tasks = await Promise.all(
-    files.map(async (f) => {
-      const t = await readJson<Task>(path.join(TASKS_DIR, f));
-      return {
-        task_id: t.task_id,
-        difficulty: t.difficulty,
-        category: t.category,
-        instruction: t.instruction,
-        parts: t.parts,
-        initial_svg: t.initial_svg,
-      };
+  const taskGroups = await Promise.all(
+    TASKS_DIRS.map(async (tasksDir) => {
+      const corpus = corpusForDir(tasksDir);
+      const files = (await fs.readdir(tasksDir))
+        .filter((f) => /^[a-z]+_\d+\.json$/.test(f));
+      return Promise.all(
+        files.map(async (f) => {
+          const t = await readJson<Task>(path.join(tasksDir, f));
+          return {
+            task_id: t.task_id,
+            difficulty: t.difficulty,
+            category: t.category,
+            instruction: t.instruction,
+            parts: t.parts,
+            initial_svg: t.initial_svg,
+            corpus,
+            display_order: t.display_order,
+          };
+        }),
+      );
     }),
   );
+  const tasks = taskGroups.flat();
   tasks.sort((a, b) => {
+    const oa = Number.isFinite(a.display_order) ? a.display_order! : Number.MAX_SAFE_INTEGER;
+    const ob = Number.isFinite(b.display_order) ? b.display_order! : Number.MAX_SAFE_INTEGER;
+    if (oa !== ob) return oa - ob;
     const da = DIFFICULTY_ORDER[a.difficulty] ?? 99;
     const db = DIFFICULTY_ORDER[b.difficulty] ?? 99;
     if (da !== db) return da - db;
@@ -195,12 +213,15 @@ export const listTasks = async (): Promise<TaskSummary[]> => {
 };
 
 export const getTask = async (id: string): Promise<Task | null> => {
-  const p = path.join(TASKS_DIR, `${id}.json`);
-  try {
-    return await readJson<Task>(p);
-  } catch {
-    return null;
+  for (const tasksDir of TASKS_DIRS) {
+    const p = path.join(tasksDir, `${id}.json`);
+    try {
+      return await readJson<Task>(p);
+    } catch {
+      // Try the next corpus directory.
+    }
   }
+  return null;
 };
 
 export const listIcons = async (): Promise<IconEntry[]> => {

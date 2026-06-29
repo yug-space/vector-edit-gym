@@ -17,6 +17,7 @@
     "generate:hard": "node scripts/generate-hard.mjs",
     "generate:very-hard": "node scripts/generate-very-hard.mjs",
     "generate:authored": "node scripts/author-all.mjs && node scripts/build-index.mjs",
+    "generate:authored:v2": "node scripts/author-all.mjs --prompt-version v2 && python3 scripts/import-scenic-downloads.py && python3 scripts/mix-v2-tasks.py && node scripts/build-index.mjs --tasks-dir data/tasks_v2",
     "generate:all": "npm run generate:authored",
     "build:index": "node scripts/build-index.mjs",
     "scrape:icons": "node scripts/scrape-icons.mjs",

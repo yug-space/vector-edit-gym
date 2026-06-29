@@ -1,0 +1,295 @@
+{
+  "generated_at": "2026-06-01T02:27:17.397Z",
+  "count": 40,
+  "by_difficulty": {
+    "hard": 10,
+    "very_hard": 30
+  },
+  "by_category": {
+    "scenic_multi": 16,
+    "downloaded_scenic_surgical": 20,
+    "scenic_very_hard": 4
+  },
+  "tasks": [
+    {
+      "task_id": "sv_001",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the smallest station patch: signal-amber has the wrong color, train-door slid right, and overhead-wire has the wrong curve. Fix only those ids.\n\nPatch:\n- overhead-wire.d: \"M8 24 C42 16 74 16 108 24 S176 32 212 24\" -> \"M8 18 C42 10 74 10 108 18 S176 26 212 18\"\n- train-door.x: 139 -> 128\n- signal-amber.fill: \"#000000\" -> \"#f59e0b\"",
+      "display_order": 1
+    },
+    {
+      "task_id": "sv_021",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: misty mountain sunrise.\n\nPatch:\n- remove sv_021-extra-survey-marker\n- download-sv_021-circle-002.fill: \"#ef4444\" -> \"#fff8e6\"\n- download-sv_021-circle-001.cx: 1125.0 -> 1090\n- download-sv_021-path-001.opacity: 0.25 -> 0.55",
+      "display_order": 2
+    },
+    {
+      "task_id": "sv_002",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the smallest harbor patch: buoy-green-stripe was repainted, mast is too thick, and rope-coil has the wrong path. Fix only those three defects.\n\nPatch:\n- rope-coil.d: \"M48 82 C54 70 74 72 76 86 C78 100 52 100 48 90 C44 78 58 76 66 88\" -> \"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\"\n- mast.stroke-width: 6 -> 3\n- buoy-green-stripe.fill: \"#ef4444\" -> \"#22c55e\"",
+      "display_order": 3
+    },
+    {
+      "task_id": "sv_022",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: bioluminescent deep sea.\n\nPatch:\n- remove sv_022-extra-survey-marker\n- download-sv_022-path-002.stroke: \"#f97316\" -> \"#ffd6f2\"\n- download-sv_022-circle-001.cx: 243.0 -> 200\n- download-sv_022-path-001.stroke-width: 8.0 -> 3\n- download-sv_022-polygon-002.opacity: 0.32 -> 0.7",
+      "display_order": 4
+    },
+    {
+      "task_id": "sv_003",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Repair the station locally: clock-hour is missing, clock-minute was duplicated, poster-blue shifted right, and platform-crack has the wrong path. Change only those parts.\n\nPatch:\n- platform-crack.d: \"M18 112 C32 116 42 103 56 112 S82 114 96 108\" -> \"M18 108 C32 104 42 111 56 108 S82 106 96 110\"\n- poster-blue.x: 185 -> 178\n- remove clock-minute-dup\n- add clock-hour: <line id=\"clock-hour\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"196\" y1=\"31\" x2=\"196\" y2=\"23\" />",
+      "display_order": 5
+    },
+    {
+      "task_id": "sv_023",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: rainy cyberpunk alley.\n\nPatch:\n- remove sv_023-extra-survey-marker\n- download-sv_023-rect-015.fill: \"#f59e0b\" -> \"#46e0ff\"\n- download-sv_023-ellipse-001.cx: 851.0 -> 800\n- download-sv_023-rect-035.stroke-width: 12.0 -> 6\n- download-sv_023-rect-039.opacity: 0.23 -> 0.5",
+      "display_order": 6
+    },
+    {
+      "task_id": "sv_004",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Repair the campsite locally: tent-flap moved, star-2 is missing, flame-front has the wrong color, and smoke-curl has the wrong path. Fix only those ids.\n\nPatch:\n- smoke-curl.d: \"M168 80 C182 72 150 66 172 58 C184 50 154 46 170 38\" -> \"M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38\"\n- flame-front.fill: \"#f97316\" -> \"#fde047\"\n- add star-2: <circle id=\"star-2\" fill=\"#fde68a\" cx=\"72\" cy=\"16\" r=\"1.8\" />\n- tent-flap.points: [[73,101],[87,71],[101,101]] -> [[82,96],[96,66],[110,96]]",
+      "display_order": 7
+    },
+    {
+      "task_id": "sv_024",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: enchanted glowing forest.\n\nPatch:\n- remove sv_024-extra-survey-marker\n- download-sv_024-path-007.fill: \"#22c55e\" -> \"#0d3a36\"\n- download-sv_024-ellipse-001.cx: 359.0 -> 300\n- download-sv_024-path-006.stroke-width: 6.0 -> 2\n- download-sv_024-rect-002.opacity: 0.1 -> 0.18",
+      "display_order": 8
+    },
+    {
+      "task_id": "sv_005",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Repair the market locally: remove the stray price sticker, restore pear-2's color, and restore bike-handlebar's curve. Preserve all stalls, fruit crates, shopper, and wheels.\n\nPatch:\n- bike-handlebar.d: \"M122 96 C134 82 142 94 138 104\" -> \"M122 96 C130 88 136 92 136 98\"\n- pear-2.fill: \"#dc2626\" -> \"#a3e635\"\n- remove stray-price-sticker",
+      "display_order": 9
+    },
+    {
+      "task_id": "sv_025",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: aurora arctic tundra.\n\nPatch:\n- remove sv_025-extra-survey-marker\n- download-sv_025-circle-021.fill: \"#06b6d4\" -> \"#fffef2\"\n- download-sv_025-circle-001.cx: 187.0 -> 120\n- download-sv_025-line-001.stroke-width: 11.0 -> 6\n- download-sv_025-path-002.opacity: 0.36 -> 0.8",
+      "display_order": 10
+    },
+    {
+      "task_id": "sv_006",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Repair the harbor locally: remove extra-orange-buoy, flip sail-main back, and move cabin-window back into the cabin. Leave the lighthouse and real buoys untouched.\n\nPatch:\n- cabin-window.x: 106 -> 114\n- cabin-window.y: 70 -> 67\n- sail-main.points: [[144.66666666666669,30],[116.66666666666669,76],[144.66666666666669,76]] -> [[126,30],[154,76],[126,76]]\n- remove extra-orange-buoy",
+      "display_order": 11
+    },
+    {
+      "task_id": "sv_026",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: tuscan vineyard golden hour.\n\nPatch:\n- remove sv_026-extra-survey-marker\n- download-sv_026-polygon-002.fill: \"#3b82f6\" -> \"#a8602c\"\n- download-sv_026-circle-001.cx: 1255.0 -> 1180\n- download-sv_026-rect-002.opacity: 0.23 -> 0.5",
+      "display_order": 12
+    },
+    {
+      "task_id": "sv_007",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Patch the station scene: restore missing clock-hour, remove the duplicate clock-minute, put platform-edge back to its thin height, and repair overhead-wire's path.\n\nPatch:\n- overhead-wire.d: \"M8 14 C42 28 74 2 108 14 S176 30 212 12\" -> \"M8 18 C42 10 74 10 108 18 S176 26 212 18\"\n- platform-edge.height: 10 -> 5\n- remove clock-minute-dup\n- add clock-hour: <line id=\"clock-hour\" stroke=\"#222\" stroke-width=\"1.5\" x1=\"196\" y1=\"31\" x2=\"196\" y2=\"23\" />",
+      "display_order": 13
+    },
+    {
+      "task_id": "sv_027",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: steampunk sky port.\n\nPatch:\n- remove sv_027-extra-survey-marker\n- download-sv_027-line-002.stroke: \"#8b5cf6\" -> \"#5a1812\"\n- download-sv_027-circle-001.cx: 835.0 -> 800\n- download-sv_027-ellipse-007.stroke-width: 7.0 -> 3\n- download-sv_027-circle-002.opacity: 0.41 -> 0.9",
+      "display_order": 14
+    },
+    {
+      "task_id": "sv_008",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Patch the campsite scene: restore missing star-2, remove the duplicate smoke-2, move moon back, and repair trail-curve's path. Do not redraw the tent or trees.\n\nPatch:\n- trail-curve.d: \"M86 104 C74 116 128 122 104 140\" -> \"M86 104 C100 112 98 126 112 140\"\n- moon.cx: 172 -> 184\n- moon.cy: 30 -> 24\n- remove smoke-2-dup\n- add star-2: <circle id=\"star-2\" fill=\"#fde68a\" cx=\"72\" cy=\"16\" r=\"1.8\" />",
+      "display_order": 15
+    },
+    {
+      "task_id": "sv_028",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: tropical coral reef.\n\nPatch:\n- remove sv_028-extra-survey-marker\n- download-sv_028-polygon-004.fill: \"#ec4899\" -> \"#ff8c1a\"\n- download-sv_028-circle-001.cx: 343.0 -> 300\n- download-sv_028-ellipse-002.stroke-width: 8.0 -> 3\n- download-sv_028-polygon-002.opacity: 0.32 -> 0.7",
+      "display_order": 16
+    },
+    {
+      "task_id": "sv_009",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Patch the market scene: remove the duplicate bike-wheel-right, restore left-awning-red-2's red fill, move shopper-bag back, and repair the left-awning-scallop path.\n\nPatch:\n- left-awning-scallop.d: \"M14 60 C24 52 30 68 38 60 S54 52 62 60 S78 68 86 60 S94 52 96 60\" -> \"M14 60 C22 68 30 52 38 60 S54 68 62 60 S78 52 86 60 S94 68 96 60\"\n- shopper-bag.y: 103 -> 94\n- left-awning-red-2.fill: \"#f8fafc\" -> \"#f97316\"\n- remove bike-wheel-right-dup",
+      "display_order": 17
+    },
+    {
+      "task_id": "sv_029",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: desert canyon dusk.\n\nPatch:\n- remove sv_029-extra-survey-marker\n- download-sv_029-path-009.stroke: \"#111827\" -> \"#fff0d0\"\n- download-sv_029-circle-001.cx: 171.0 -> 120\n- download-sv_029-path-001.opacity: 0.27 -> 0.6",
+      "display_order": 18
+    },
+    {
+      "task_id": "sv_010",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Patch the campsite scene: remove the duplicate smoke-2, restore tree-right-crown's polygon, repaint flame-front, and move backpack back to its original spot.\n\nPatch:\n- backpack.x: 50 -> 36\n- flame-front.fill: \"#f97316\" -> \"#fde047\"\n- tree-right-crown.points: [[184.28571428571428,40],[202.28571428571428,82],[190.28571428571428,76],[196.28571428571428,94],[168.28571428571428,92],[176.28571428571428,76],[164.28571428571428,82]] -> [[181.99999999999994,40],[163.99999999999994,82],[175.99999999999994,76],[169.99999999999994,94],[197.99999999999994,92],[189.99999999999994,76],[201.99999999999994,82]]\n- remove smoke-2-dup",
+      "display_order": 19
+    },
+    {
+      "task_id": "sv_030",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: japanese temple spring.\n\nPatch:\n- remove sv_030-extra-survey-marker\n- download-sv_030-ellipse-007.fill: \"#f8fafc\" -> \"#ffffff\"\n- download-sv_030-ellipse-001.cx: 859.0 -> 800\n- download-sv_030-ellipse-002.stroke-width: 8.0 -> 4\n- download-sv_030-path-001.opacity: 0.32 -> 0.7",
+      "display_order": 20
+    },
+    {
+      "task_id": "sv_011",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "Apply the exact harbor patch: mast stroke width, lighthouse-window color, light-beam position, harbor-wave-long path, and crate-right position are all wrong. Fix only these ids.\n\nPatch:\n- crate-right.x: 38 -> 28\n- crate-right.y: 80 -> 76\n- harbor-wave-long.d: \"M82 122 C98 126 112 110 128 122 S158 126 174 122\" -> \"M82 118 C98 112 112 124 128 118 S158 112 174 118\"\n- light-beam.points: [[188,26],[140,14],[140,38]] -> [[180,30],[132,18],[132,42]]\n- lighthouse-window.fill: \"#38bdf8\" -> \"#fde047\"\n- mast.stroke-width: 6 -> 3",
+      "display_order": 21
+    },
+    {
+      "task_id": "sv_031",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: cozy rainy library.\n\nPatch:\n- remove sv_031-extra-survey-marker\n- download-sv_031-rect-011.fill: \"#ef4444\" -> \"#caa04a\"\n- download-sv_031-ellipse-001.cx: 1247.0 -> 1180\n- download-sv_031-ellipse-004.stroke-width: 9.0 -> 4\n- download-sv_031-ellipse-002.opacity: 0.11 -> 0.25",
+      "display_order": 22
+    },
+    {
+      "task_id": "sv_012",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "Apply the exact market patch: bike-frame is too faint, bike-wheel-left is too heavy, right-awning-blue-2 was copied, pear-1 is wrong, and bike-handlebar path changed.\n\nPatch:\n- bike-handlebar.d: \"M122 96 C128 100 134 84 140 94\" -> \"M122 96 C130 88 136 92 136 98\"\n- pear-1.fill: \"#dc2626\" -> \"#a3e635\"\n- remove right-awning-blue-2-dup\n- bike-wheel-left.stroke-width: 4 -> 2\n- bike-frame.stroke-width: 0.5 -> 2",
+      "display_order": 23
+    },
+    {
+      "task_id": "sv_032",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: hot air balloon festival.\n\nPatch:\n- remove sv_032-extra-survey-marker\n- download-sv_032-rect-006.fill: \"#ef4444\" -> \"#6a4424\"\n- download-sv_032-circle-001.cx: 375.0 -> 300\n- download-sv_032-line-001.stroke-width: 8.0 -> 2\n- download-sv_032-path-005.opacity: 0.18 -> 0.4",
+      "display_order": 24
+    },
+    {
+      "task_id": "sv_013",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "Apply the exact harbor patch: sail-main flipped, buoy-red-stripe was recolored, cabin-window moved, stray-pier-rope was added, and rope-coil path changed.\n\nPatch:\n- rope-coil.d: \"M48 84 C62 70 74 80 68 90 C60 102 44 92 54 82 C62 74 66 86 60 90\" -> \"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\"\n- remove stray-pier-rope\n- cabin-window.x: 106 -> 114\n- cabin-window.y: 70 -> 67\n- buoy-red-stripe.fill: \"#22c55e\" -> \"#ef4444\"\n- sail-main.points: [[144.66666666666669,30],[116.66666666666669,76],[144.66666666666669,76]] -> [[126,30],[154,76],[126,76]]",
+      "display_order": 25
+    },
+    {
+      "task_id": "sv_033",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: ringed planet alien moon.\n\nPatch:\n- remove sv_033-extra-survey-marker\n- download-sv_033-rect-002.fill: \"#ef4444\" -> \"#c8ccd2\"\n- download-sv_033-ellipse-001.cx: 415.0 -> 380\n- download-sv_033-path-003.stroke-width: 44.0 -> 40\n- download-sv_033-ellipse-004.opacity: 0.18 -> 0.4",
+      "display_order": 26
+    },
+    {
+      "task_id": "sv_014",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "Apply the exact camp patch: tree-right-crown is mirrored, moon moved, star-4 is missing, smoke-curl path changed, and tent-line-right is too thick.\n\nPatch:\n- tent-line-right.stroke-width: 3 -> 1\n- smoke-curl.d: \"M168 80 C152 88 186 62 158 58 C146 52 180 44 160 38\" -> \"M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38\"\n- add star-4: <circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />\n- moon.cx: 194 -> 184\n- moon.cy: 17 -> 24\n- tree-right-crown.points: [[184.28571428571428,40],[202.28571428571428,82],[190.28571428571428,76],[196.28571428571428,94],[168.28571428571428,92],[176.28571428571428,76],[164.28571428571428,82]] -> [[181.99999999999994,40],[163.99999999999994,82],[175.99999999999994,76],[169.99999999999994,94],[197.99999999999994,92],[189.99999999999994,76],[201.99999999999994,82]]",
+      "display_order": 27
+    },
+    {
+      "task_id": "sv_034",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: jungle waterfall ruins.\n\nPatch:\n- remove sv_034-extra-survey-marker\n- download-sv_034-ellipse-009.fill: \"#ef4444\" -> \"#e03a2a\"\n- download-sv_034-ellipse-001.cx: 243.0 -> 200\n- download-sv_034-line-006.stroke-width: 8.0 -> 3\n- download-sv_034-ellipse-002.opacity: 0.32 -> 0.7",
+      "display_order": 28
+    },
+    {
+      "task_id": "sv_015",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact station patch: train-door color, clock-minute duplicate, poster-blue position, signal-green color, platform-crack path, and passenger-bag position are wrong.\n\nPatch:\n- passenger-bag.x: 114 -> 104\n- passenger-bag.y: 105 -> 108\n- platform-crack.d: \"M18 109 C30 116 44 101 58 111 S82 114 96 105\" -> \"M18 108 C32 104 42 111 56 108 S82 106 96 110\"\n- signal-green.fill: \"#ef4444\" -> \"#22c55e\"\n- poster-blue.x: 185 -> 178\n- remove clock-minute-dup\n- train-door.fill: \"#ffffff\" -> \"#fef3c7\"",
+      "display_order": 29
+    },
+    {
+      "task_id": "sv_035",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: snowy alpine village twilight.\n\nPatch:\n- remove sv_035-extra-survey-marker\n- download-sv_035-ellipse-002.stroke: \"#ef4444\" -> \"#e6e8f4\"\n- download-sv_035-circle-001.cx: 171.0 -> 120\n- download-sv_035-line-001.stroke-width: 9.0 -> 3\n- download-sv_035-circle-010.opacity: 0.27 -> 0.6",
+      "display_order": 30
+    },
+    {
+      "task_id": "sv_016",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact harbor patch: lighthouse-window color, light-beam position, extra-pier-buoy removal, sail-small fill, harbor-wave-long path, and crate-left position.\n\nPatch:\n- crate-left.x: 4 -> 12\n- crate-left.y: 81 -> 76\n- harbor-wave-long.d: \"M82 116 C96 126 112 108 128 116 S158 126 174 116\" -> \"M82 118 C98 112 112 124 128 118 S158 112 174 118\"\n- sail-small.fill: \"#fef3c7\" -> \"#e0f2fe\"\n- remove extra-pier-buoy\n- light-beam.points: [[188,26],[140,14],[140,38]] -> [[180,30],[132,18],[132,42]]\n- lighthouse-window.fill: \"#38bdf8\" -> \"#fde047\"",
+      "display_order": 31
+    },
+    {
+      "task_id": "sv_036",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: lavender field windmill.\n\nPatch:\n- remove sv_036-extra-survey-marker\n- download-sv_036-ellipse-021.fill: \"#ef4444\" -> \"#fff\"\n- download-sv_036-circle-001.cx: 1239.0 -> 1180\n- download-sv_036-line-011.stroke-width: 6.0 -> 2\n- download-sv_036-rect-002.opacity: 0.27 -> 0.6",
+      "display_order": 32
+    },
+    {
+      "task_id": "sv_017",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact camp patch: moon position, flame-front color, backpack duplicate, smoke-curl path, trail-curve path, and tent-flap position are wrong.\n\nPatch:\n- tent-flap.points: [[89,92],[103,62],[117,92]] -> [[82,96],[96,66],[110,96]]\n- trail-curve.d: \"M86 104 C110 100 92 132 120 140\" -> \"M86 104 C100 112 98 126 112 140\"\n- smoke-curl.d: \"M168 80 C186 72 150 64 174 56 C186 50 152 46 172 38\" -> \"M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38\"\n- remove backpack-dup\n- flame-front.fill: \"#f97316\" -> \"#fde047\"\n- moon.cx: 172 -> 184\n- moon.cy: 30 -> 24",
+      "display_order": 33
+    },
+    {
+      "task_id": "sv_037",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: volcanic eruption night.\n\nPatch:\n- remove sv_037-extra-survey-marker\n- download-sv_037-path-002.fill: \"#ef4444\" -> \"#1a0e10\"\n- download-sv_037-circle-001.cx: 187.0 -> 120\n- download-sv_037-path-009.stroke-width: 11.0 -> 6\n- download-sv_037-ellipse-001.opacity: 0.38 -> 0.85",
+      "display_order": 34
+    },
+    {
+      "task_id": "sv_018",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact market patch: pear-2 color, shopper-bag position, right-awning-blue-2 duplicate, left-awning-scallop path, bike-frame stroke width, and apple-3 color.\n\nPatch:\n- apple-3.fill: \"#a3e635\" -> \"#dc2626\"\n- bike-frame.stroke-width: 0.5 -> 2\n- left-awning-scallop.d: \"M14 60 C20 70 32 50 38 62 S54 70 62 58 S78 50 86 62 S94 70 96 58\" -> \"M14 60 C22 68 30 52 38 60 S54 68 62 60 S78 52 86 60 S94 68 96 60\"\n- remove right-awning-blue-2-dup\n- shopper-bag.y: 103 -> 94\n- pear-2.fill: \"#dc2626\" -> \"#a3e635\"",
+      "display_order": 35
+    },
+    {
+      "task_id": "sv_038",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: venetian canal sunset.\n\nPatch:\n- remove sv_038-extra-survey-marker\n- download-sv_038-rect-036.fill: \"#ef4444\" -> \"#6a1a1a\"\n- download-sv_038-circle-001.cx: 875.0 -> 800\n- download-sv_038-path-008.stroke-width: 10.0 -> 4\n- download-sv_038-rect-014.opacity: 0.36 -> 0.8",
+      "display_order": 36
+    },
+    {
+      "task_id": "sv_019",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact harbor patch: sail-main, buoy-red-stripe, cabin-window, stray-pier-rope, mast width, rope-coil path, and buoy-green position all need local repairs.\n\nPatch:\n- buoy-green.cx: 172 -> 184\n- buoy-green.cy: 116 -> 112\n- rope-coil.d: \"M48 82 C58 70 72 76 70 88 C68 100 50 94 52 84 C54 76 64 78 66 88\" -> \"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\"\n- mast.stroke-width: 6 -> 3\n- remove stray-pier-rope\n- cabin-window.x: 106 -> 114\n- cabin-window.y: 70 -> 67\n- buoy-red-stripe.fill: \"#22c55e\" -> \"#ef4444\"\n- sail-main.points: [[144.66666666666669,30],[116.66666666666669,76],[144.66666666666669,76]] -> [[126,30],[154,76],[126,76]]",
+      "display_order": 37
+    },
+    {
+      "task_id": "sv_039",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: african savanna sunset.\n\nPatch:\n- remove sv_039-extra-survey-marker\n- download-sv_039-ellipse-003.fill: \"#ef4444\" -> \"#fff0b0\"\n- download-sv_039-circle-001.cx: 835.0 -> 800\n- download-sv_039-ellipse-002.stroke-width: 7.0 -> 3\n- download-sv_039-rect-002.opacity: 0.18 -> 0.4",
+      "display_order": 38
+    },
+    {
+      "task_id": "sv_020",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Apply the exact station patch: signal-amber color, window-center position, passenger-bag duplicate, platform-edge height, overhead-wire path, train-roof color, and bench-seat position are wrong.\n\nPatch:\n- bench-seat.x: 29 -> 38\n- bench-seat.y: 104 -> 100\n- train-roof.fill: \"#f97316\" -> \"#0f172a\"\n- overhead-wire.d: \"M8 18 C48 30 72 2 108 18 S172 34 212 18\" -> \"M8 18 C42 10 74 10 108 18 S176 26 212 18\"\n- platform-edge.height: 10 -> 5\n- remove passenger-bag-dup\n- window-center.y: 38 -> 46\n- signal-amber.fill: \"#22c55e\" -> \"#f59e0b\"",
+      "display_order": 39
+    },
+    {
+      "task_id": "sv_040",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Repair the disturbed scenic SVG: floating islands fantasy.\n\nPatch:\n- remove sv_040-extra-survey-marker\n- download-sv_040-polygon-002.fill: \"#ef4444\" -> \"#7a4aa0\"\n- download-sv_040-circle-001.cx: 1283.0 -> 1240\n- download-sv_040-line-001.stroke-width: 8.0 -> 3\n- download-sv_040-ellipse-006.opacity: 0.27 -> 0.6",
+      "display_order": 40
+    }
+  ]
+}

@@ -43,6 +43,7 @@ class Task:
     target_parts: list[str] = field(default_factory=list)
     expected_diff: list[dict] = field(default_factory=list)
     should_preserve: list[str] = field(default_factory=list)
+    display_order: Optional[int] = None
     # Optional structured authoring data (present on tasks created via the
     # authoring UI; absent on legacy auto-generated ones).
     draft: Optional[dict] = None
@@ -61,6 +62,7 @@ class Task:
                                   and [d.get("part") for d in raw.get("expected_diff", [])]),
             expected_diff=raw.get("expected_diff", []),
             should_preserve=raw.get("should_preserve", []),
+            display_order=raw.get("display_order"),
             draft=raw.get("draft"),
         )
 
@@ -97,7 +99,7 @@ def load_tasks(
         data_dir: override the data/tasks directory.
 
     Returns:
-        Tasks sorted by (difficulty tier, task_id).
+        Tasks sorted by display_order when present, otherwise by (difficulty tier, task_id).
     """
     d = Path(data_dir) if data_dir else _default_data_dir()
     diff_set = _to_set(difficulty)
@@ -117,7 +119,11 @@ def load_tasks(
             continue
         out.append(t)
 
-    out.sort(key=lambda t: (_DIFFICULTY_ORDER.get(t.difficulty, 99), t.task_id))
+    out.sort(key=lambda t: (
+        t.display_order if t.display_order is not None else 10_000,
+        _DIFFICULTY_ORDER.get(t.difficulty, 99),
+        t.task_id,
+    ))
     return out
 
 

@@ -1,0 +1,108 @@
+<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="space13" cx="0.3" cy="0.3" r="1">
+      <stop offset="0" stop-color="#1a1840"/><stop offset="0.5" stop-color="#0c0a24"/><stop offset="1" stop-color="#04030f"/>
+    </radialGradient>
+    <radialGradient id="neb13a" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d44a9a" stop-opacity="0.6"/><stop offset="1" stop-color="#d44a9a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="neb13b" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4a7ad4" stop-opacity="0.55"/><stop offset="1" stop-color="#4a7ad4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="neb13c" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3acab0" stop-opacity="0.4"/><stop offset="1" stop-color="#3acab0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="planet13" cx="0.35" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#f0c88a"/><stop offset="0.5" stop-color="#d49a5a"/><stop offset="0.8" stop-color="#a06a3a"/><stop offset="1" stop-color="#5a3a22"/>
+    </radialGradient>
+    <linearGradient id="ring13" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4b88a" stop-opacity="0"/><stop offset="0.3" stop-color="#e8d0a0" stop-opacity="0.9"/><stop offset="0.5" stop-color="#fff0d0"/><stop offset="0.7" stop-color="#e8d0a0" stop-opacity="0.9"/><stop offset="1" stop-color="#d4b88a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ground13" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a44"/><stop offset="1" stop-color="#1a1226"/>
+    </linearGradient>
+    <filter id="nebblur13" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#space13)"/>
+
+  <!-- nebula clouds -->
+  <ellipse cx="380" cy="300" rx="420" ry="300" fill="url(#neb13a)" filter="url(#nebblur13)"/>
+  <ellipse cx="1100" cy="220" rx="500" ry="320" fill="url(#neb13b)" filter="url(#nebblur13)"/>
+  <ellipse cx="760" cy="460" rx="460" ry="260" fill="url(#neb13c)" filter="url(#nebblur13)"/>
+
+  <!-- stars -->
+  <g fill="#ffffff">
+    <circle cx="100" cy="80" r="1.8"/><circle cx="260" cy="140" r="1.2"/><circle cx="420" cy="60" r="2"/><circle cx="600" cy="120" r="1.4"/>
+    <circle cx="780" cy="60" r="1.8"/><circle cx="960" cy="140" r="1.2"/><circle cx="1140" cy="80" r="2"/><circle cx="1320" cy="120" r="1.4"/><circle cx="1500" cy="60" r="1.8"/>
+    <circle cx="180" cy="220" r="1"/><circle cx="360" cy="260" r="1.4"/><circle cx="540" cy="200" r="1"/><circle cx="720" cy="280" r="1.6"/>
+    <circle cx="900" cy="220" r="1"/><circle cx="1080" cy="300" r="1.4"/><circle cx="1260" cy="240" r="1"/><circle cx="1440" cy="280" r="1.6"/>
+    <circle cx="120" cy="380" r="1.2"/><circle cx="1520" cy="420" r="1.4"/><circle cx="80" cy="500" r="1"/><circle cx="1560" cy="540" r="1.2"/>
+    <circle cx="500" cy="380" r="0.9"/><circle cx="1100" cy="440" r="1.1"/><circle cx="820" cy="200" r="0.9"/>
+  </g>
+  <!-- twinkle bright stars -->
+  <g fill="#bfe0ff">
+    <g transform="translate(640 180)"><path d="M0 -10 L2 0 L0 10 L-2 0 Z M-10 0 L0 2 L10 0 L0 -2 Z"/></g>
+    <g transform="translate(1240 340)"><path d="M0 -8 L1.6 0 L0 8 L-1.6 0 Z M-8 0 L0 1.6 L8 0 L0 -1.6 Z"/></g>
+  </g>
+
+  <!-- ringed gas giant -->
+  <g transform="translate(1060 380)">
+    <!-- back ring -->
+    <path d="M-360 0 A360 90 0 0 1 360 0" fill="none" stroke="url(#ring13)" stroke-width="40" opacity="0.8"/>
+    <!-- planet -->
+    <circle cx="0" cy="0" r="230" fill="url(#planet13)"/>
+    <!-- bands -->
+    <g opacity="0.4">
+      <path d="M-220 -70 Q0 -90 220 -70" stroke="#b07a44" stroke-width="14" fill="none"/>
+      <path d="M-228 -10 Q0 -30 228 -10" stroke="#e0b070" stroke-width="20" fill="none"/>
+      <path d="M-224 60 Q0 40 224 60" stroke="#a86a38" stroke-width="16" fill="none"/>
+      <path d="M-200 120 Q0 100 200 120" stroke="#c89a5a" stroke-width="12" fill="none"/>
+    </g>
+    <ellipse cx="-70" cy="-60" rx="40" ry="24" fill="#8a5a30" opacity="0.4"/>
+    <!-- shadow on planet -->
+    <path d="M0 -230 A230 230 0 0 0 0 230 A150 230 0 0 1 0 -230 Z" fill="#1a0e08" opacity="0.35"/>
+    <!-- front ring -->
+    <path d="M-360 0 A360 90 0 0 0 360 0" fill="none" stroke="url(#ring13)" stroke-width="40"/>
+    <path d="M-310 0 A310 78 0 0 0 310 0" fill="none" stroke="#fff0d0" stroke-width="10" opacity="0.7"/>
+  </g>
+
+  <!-- a small moon -->
+  <circle cx="340" cy="240" r="44" fill="#9a9aae"/>
+  <circle cx="340" cy="240" r="44" fill="#04030f" opacity="0.2"/>
+  <circle cx="326" cy="226" r="8" fill="#7a7a8e"/><circle cx="352" cy="252" r="6" fill="#7a7a8e"/>
+
+  <!-- alien surface -->
+  <path d="M0 720 Q300 660 640 700 Q980 740 1600 680 L1600 1000 L0 1000 Z" fill="url(#ground13)"/>
+  <path d="M0 820 Q400 780 800 820 Q1200 860 1600 800 L1600 1000 L0 1000 Z" fill="#241830"/>
+  <!-- craters -->
+  <g fill="#140c1c" opacity="0.8">
+    <ellipse cx="300" cy="900" rx="90" ry="26"/><ellipse cx="1200" cy="880" rx="110" ry="30"/><ellipse cx="700" cy="960" rx="70" ry="20"/>
+  </g>
+  <g fill="#3a2a48" opacity="0.6">
+    <ellipse cx="300" cy="894" rx="90" ry="20"/><ellipse cx="1200" cy="874" rx="110" ry="24"/>
+  </g>
+  <!-- rocks -->
+  <g fill="#2a1c36">
+    <polygon points="160,760 200,720 240,760 220,790 180,790"/>
+    <polygon points="1380,800 1430,760 1480,800 1460,830 1400,830"/>
+  </g>
+
+  <!-- rover -->
+  <g transform="translate(560 740)">
+    <rect x="-50" y="-30" width="100" height="40" rx="6" fill="#c8ccd2"/>
+    <rect x="-50" y="-30" width="100" height="40" rx="6" fill="none" stroke="#8a8e94" stroke-width="2"/>
+    <rect x="-20" y="-54" width="40" height="26" rx="3" fill="#3a4452"/>
+    <rect x="-12" y="-50" width="24" height="14" fill="#7fd0ff" opacity="0.8"/>
+    <!-- solar panel -->
+    <rect x="-90" y="-44" width="50" height="20" fill="#1a3a6a" transform="rotate(-12 -65 -34)"/>
+    <line x1="-90" y1="-44" x2="-40" y2="-44" stroke="#4a6aaa" stroke-width="1" transform="rotate(-12 -65 -34)"/>
+    <!-- wheels -->
+    <circle cx="-34" cy="16" r="16" fill="#2a2e34"/><circle cx="0" cy="18" r="16" fill="#2a2e34"/><circle cx="34" cy="16" r="16" fill="#2a2e34"/>
+    <circle cx="-34" cy="16" r="6" fill="#5a5e64"/><circle cx="0" cy="18" r="6" fill="#5a5e64"/><circle cx="34" cy="16" r="6" fill="#5a5e64"/>
+    <!-- antenna -->
+    <line x1="40" y1="-30" x2="56" y2="-70" stroke="#8a8e94" stroke-width="2"/><circle cx="56" cy="-72" r="4" fill="#e04a4a"/>
+    <!-- tracks -->
+    <g stroke="#140c1c" stroke-width="3" opacity="0.5"><line x1="-160" y1="40" x2="-50" y2="34"/><line x1="-160" y1="48" x2="-50" y2="42"/></g>
+  </g>
+</svg>

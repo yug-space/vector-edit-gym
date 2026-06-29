@@ -28,6 +28,10 @@ SYSTEM = (
     "commentary, no explanation."
 )
 
+SYSTEM_V2 = (
+    "Return only the corrected complete <svg>...</svg>. Apply the requested patch."
+)
+
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
@@ -42,7 +46,14 @@ def main(argv: list[str] | None = None) -> int:
     if not models:
         raise SystemExit("provide --models or use --list-models")
 
-    tasks = load_tasks(difficulty=args.difficulty, category=args.category)
+    tasks = load_tasks(difficulty=args.difficulty, category=args.category, data_dir=args.data_dir)
+    task_ids = _parse_items(args.task_ids)
+    if task_ids:
+        by_id = {task.task_id: task for task in tasks}
+        missing = [task_id for task_id in task_ids if task_id not in by_id]
+        if missing:
+            raise SystemExit(f"task id(s) not selected or not found: {', '.join(missing)}")
+        tasks = [by_id[task_id] for task_id in task_ids]
     if args.limit:
         tasks = tasks[: args.limit]
     if not tasks:
@@ -61,6 +72,10 @@ def main(argv: list[str] | None = None) -> int:
                 "difficulty": args.difficulty,
                 "category": args.category,
                 "limit": args.limit,
+                "task_ids": task_ids,
+                "data_dir": str(args.data_dir) if args.data_dir else None,
+                "prompt_version": args.prompt_version,
+                "expose_expected_diff": args.expose_expected_diff,
                 "base_url": _normalise_base_url(args.base_url or os.environ.get("LITELLM_BASE_URL", "")),
                 "token_param": args.token_param,
             },
@@ -85,6 +100,14 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--difficulty", help="filter task difficulty")
     parser.add_argument("--category", help="filter task category")
     parser.add_argument("--limit", type=int, help="run only the first N selected tasks")
+    parser.add_argument("--task-ids", nargs="+", default=[], help="specific task ids, space or comma separated")
+    parser.add_argument("--data-dir", type=Path, help="task directory, e.g. data/tasks_v2")
+    parser.add_argument("--prompt-version", choices=("v1", "v2"), default="v1")
+    parser.add_argument(
+        "--expose-expected-diff",
+        action="store_true",
+        help="include structured expected_diff in v2 prompts; useful for prompt-smoke checks, not hard evaluation",
+    )
     parser.add_argument("--out", default="runs/litellm", help="artifact directory")
     parser.add_argument("--run-name", help="subdirectory name under --out")
     parser.add_argument("--base-url", help="override LITELLM_BASE_URL")
@@ -108,6 +131,10 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
 
 
 def _parse_models(items: list[str]) -> list[str]:
+    return _parse_items(items)
+
+
+def _parse_items(items: list[str]) -> list[str]:
     out: list[str] = []
     for item in items:
         out.extend(x.strip() for x in item.split(",") if x.strip())
@@ -212,17 +239,7 @@ def _run_model(
 def _solve(client, model: str, task: Task, args: argparse.Namespace) -> str:
     kwargs: dict[str, Any] = {
         "model": model,
-        "messages": [
-            {"role": "system", "content": SYSTEM},
-            {
-                "role": "user",
-                "content": (
-                    f"Instruction:\n{task.instruction}\n\n"
-                    f"Corrupted SVG:\n{task.initial_svg}\n\n"
-                    "Return the corrected SVG."
-                ),
-            },
-        ],
+        "messages": _messages(task, args.prompt_version, expose_expected_diff=args.expose_expected_diff),
     }
     kwargs[args.token_param] = args.max_tokens
     if args.temperature is not None:
@@ -230,6 +247,45 @@ def _solve(client, model: str, task: Task, args: argparse.Namespace) -> str:
     resp = client.chat.completions.create(**kwargs)
     text = resp.choices[0].message.content or ""
     return _extract_svg(text)
+
+
+def _messages(task: Task, prompt_version: str, *, expose_expected_diff: bool = False) -> list[dict[str, str]]:
+    if prompt_version == "v2":
+        content = f"Instruction:\n{task.instruction}\n\nCorrupted SVG:\n{task.initial_svg}"
+        if expose_expected_diff:
+            content += (
+                "\n\nExpected diff metadata:\n"
+                f"{json.dumps(_task_prompt_payload(task, expose_expected_diff=True), indent=2)}"
+            )
+        return [
+            {"role": "system", "content": SYSTEM_V2},
+            {"role": "user", "content": content},
+        ]
+    return [
+        {"role": "system", "content": SYSTEM},
+        {
+            "role": "user",
+            "content": (
+                f"Instruction:\n{task.instruction}\n\n"
+                f"Corrupted SVG:\n{task.initial_svg}\n\n"
+                "Return the corrected SVG."
+            ),
+        },
+    ]
+
+
+def _task_prompt_payload(task: Task, *, expose_expected_diff: bool = False) -> dict[str, Any]:
+    payload = {
+        "task_id": task.task_id,
+        "difficulty": task.difficulty,
+        "category": task.category,
+        "instruction": task.instruction,
+    }
+    if expose_expected_diff:
+        payload["target_parts"] = task.target_parts
+        payload["should_preserve"] = task.should_preserve
+        payload["expected_diff"] = task.expected_diff
+    return payload
 
 
 def _extract_svg(text: str) -> str:
@@ -263,6 +319,7 @@ def _summarise(model: str, records: list[dict[str, Any]]) -> dict[str, Any]:
         "structural_rate": _mean(records, lambda r: 1.0 if r["metrics"]["structural"] else 0.0),
         "preservation_mean": _mean(records, lambda r: float(r["metrics"]["preservation"])),
         "expected_change_pass_rate": _expected_change_pass_rate(records),
+        "by_expected_attribute": _expected_change_by_attribute(records),
         "unexpected_changed_parts_mean": _mean(
             records,
             lambda r: float(len((r.get("diff_report") or {}).get("unexpected_changed_parts", []))),
@@ -305,6 +362,26 @@ def _expected_change_pass_rate(records: list[dict[str, Any]]) -> float:
             if check.get("passed"):
                 passed += 1
     return passed / total if total else 0.0
+
+
+def _expected_change_by_attribute(records: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
+    totals: dict[str, int] = defaultdict(int)
+    passed: dict[str, int] = defaultdict(int)
+    for record in records:
+        report = record.get("diff_report") or {}
+        for check in report.get("expected_changes", []):
+            attr = str(check.get("attribute"))
+            totals[attr] += 1
+            if check.get("passed"):
+                passed[attr] += 1
+    return {
+        attr: {
+            "n": totals[attr],
+            "passed": passed[attr],
+            "rate": passed[attr] / totals[attr] if totals[attr] else 0.0,
+        }
+        for attr in sorted(totals)
+    }
 
 
 def _summary_markdown(summaries: list[dict[str, Any]]) -> str:

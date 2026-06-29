@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg04" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06121a"/>
+      <stop offset="0.5" stop-color="#0a2230"/>
+      <stop offset="1" stop-color="#06181f"/>
+    </linearGradient>
+    <radialGradient id="cap04a" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#bfffe8"/><stop offset="0.5" stop-color="#34d6a8"/><stop offset="1" stop-color="#0e7a6a"/>
+    </radialGradient>
+    <radialGradient id="cap04b" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#d8c4ff"/><stop offset="0.5" stop-color="#9a6fe0"/><stop offset="1" stop-color="#5a3aa0"/>
+    </radialGradient>
+    <radialGradient id="cap04c" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#9fe8ff"/><stop offset="0.5" stop-color="#3aa8e0"/><stop offset="1" stop-color="#1a6aa0"/>
+    </radialGradient>
+    <radialGradient id="glow04" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#aaffcc" stop-opacity="0.8"/><stop offset="1" stop-color="#aaffcc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="firefly04" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6b0"/><stop offset="1" stop-color="#fff6b0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stream04" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fe8d8" stop-opacity="0.7"/><stop offset="1" stop-color="#1a6a7a" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="blur04" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="fog04" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg04)"/>
+
+  <!-- background tree trunks -->
+  <g fill="#0a1c24" opacity="0.7">
+    <path d="M200 1000 L180 200 Q210 160 230 200 L250 1000 Z"/>
+    <path d="M520 1000 L505 140 Q535 100 555 140 L575 1000 Z"/>
+    <path d="M1050 1000 L1035 180 Q1065 130 1090 180 L1110 1000 Z"/>
+    <path d="M1380 1000 L1360 160 Q1390 120 1415 160 L1440 1000 Z"/>
+  </g>
+  <!-- canopy hints -->
+  <g fill="#0c2630" opacity="0.6" filter="url(#fog04)">
+    <ellipse cx="300" cy="120" rx="320" ry="160"/>
+    <ellipse cx="900" cy="80" rx="380" ry="170"/>
+    <ellipse cx="1400" cy="120" rx="320" ry="160"/>
+  </g>
+
+  <!-- atmospheric fog bands -->
+  <rect x="0" y="560" width="1600" height="160" fill="#2a6a6a" opacity="0.18" filter="url(#fog04)"/>
+  <rect x="0" y="760" width="1600" height="180" fill="#1a5a5a" opacity="0.2" filter="url(#fog04)"/>
+
+  <!-- winding stream -->
+  <path d="M620 1000 Q700 820 660 700 Q620 600 720 540 Q820 490 780 420 L860 420 Q900 500 820 560 Q740 620 800 720 Q860 840 820 1000 Z"
+        fill="url(#stream04)"/>
+  <path d="M700 940 Q740 820 710 720" stroke="#cffff0" stroke-width="2" fill="none" opacity="0.6"/>
+  <g fill="#fff" opacity="0.5"><circle cx="740" cy="780" r="2"/><circle cx="710" cy="840" r="2"/><circle cx="760" cy="700" r="2"/></g>
+
+  <!-- glowing mushrooms cluster (large foreground) -->
+  <g>
+    <!-- mushroom A -->
+    <circle cx="360" cy="720" r="120" fill="url(#glow04)"/>
+    <path d="M360 740 Q345 640 360 600 Q375 640 360 740 Z" fill="#0d3a36"/>
+    <path d="M270 700 Q360 600 450 700 Q420 730 360 728 Q300 730 270 700 Z" fill="url(#cap04a)"/>
+    <g fill="#eafff4" opacity="0.7"><circle cx="330" cy="680" r="5"/><circle cx="380" cy="668" r="6"/><circle cx="410" cy="690" r="4"/></g>
+
+    <!-- mushroom B -->
+    <circle cx="500" cy="800" r="90" fill="url(#glow04)" opacity="0.7"/>
+    <path d="M500 815 Q490 745 500 715 Q510 745 500 815 Z" fill="#0d3a36"/>
+    <path d="M440 790 Q500 720 560 790 Q535 812 500 810 Q465 812 440 790 Z" fill="url(#cap04b)"/>
+    <g fill="#f4eaff" opacity="0.7"><circle cx="478" cy="770" r="4"/><circle cx="516" cy="762" r="5"/></g>
+
+    <!-- mushroom C small -->
+    <circle cx="250" cy="850" r="60" fill="url(#glow04)" opacity="0.6"/>
+    <path d="M250 860 Q244 815 250 795 Q256 815 250 860 Z" fill="#0d3a36"/>
+    <path d="M214 845 Q250 800 286 845 Q268 860 250 858 Q232 860 214 845 Z" fill="url(#cap04c)"/>
+  </g>
+
+  <!-- right side mushrooms -->
+  <g>
+    <circle cx="1240" cy="780" r="110" fill="url(#glow04)" opacity="0.85"/>
+    <path d="M1240 798 Q1228 700 1240 660 Q1252 700 1240 798 Z" fill="#0d3a36"/>
+    <path d="M1160 760 Q1240 665 1320 760 Q1290 786 1240 784 Q1190 786 1160 760 Z" fill="url(#cap04c)"/>
+    <g fill="#eaf6ff" opacity="0.7"><circle cx="1212" cy="738" r="5"/><circle cx="1260" cy="728" r="6"/><circle cx="1288" cy="748" r="4"/></g>
+
+    <circle cx="1120" cy="860" r="70" fill="url(#glow04)" opacity="0.6"/>
+    <path d="M1120 870 Q1112 818 1120 796 Q1128 818 1120 870 Z" fill="#0d3a36"/>
+    <path d="M1078 852 Q1120 802 1162 852 Q1142 868 1120 866 Q1098 868 1078 852 Z" fill="url(#cap04a)"/>
+  </g>
+
+  <!-- glowing path stones -->
+  <g fill="#1a4a48" stroke="#5fe8c8" stroke-width="1.5" opacity="0.7">
+    <ellipse cx="780" cy="960" rx="40" ry="14"/><ellipse cx="720" cy="900" rx="34" ry="12"/>
+    <ellipse cx="760" cy="850" rx="28" ry="10"/><ellipse cx="710" cy="810" rx="24" ry="9"/>
+  </g>
+
+  <!-- fireflies -->
+  <g>
+    <circle cx="600" cy="300" r="14" fill="url(#firefly04)"/><circle cx="600" cy="300" r="3" fill="#fffde0"/>
+    <circle cx="820" cy="240" r="11" fill="url(#firefly04)"/><circle cx="820" cy="240" r="2.5" fill="#fffde0"/>
+    <circle cx="980" cy="360" r="13" fill="url(#firefly04)"/><circle cx="980" cy="360" r="3" fill="#fffde0"/>
+    <circle cx="430" cy="420" r="10" fill="url(#firefly04)"/><circle cx="430" cy="420" r="2.5" fill="#fffde0"/>
+    <circle cx="1180" cy="300" r="12" fill="url(#firefly04)"/><circle cx="1180" cy="300" r="3" fill="#fffde0"/>
+    <circle cx="700" cy="460" r="9" fill="url(#firefly04)"/><circle cx="700" cy="460" r="2" fill="#fffde0"/>
+    <circle cx="1320" cy="440" r="11" fill="url(#firefly04)"/><circle cx="1320" cy="440" r="2.5" fill="#fffde0"/>
+    <circle cx="540" cy="540" r="9" fill="url(#firefly04)"/><circle cx="900" cy="520" r="10" fill="url(#firefly04)"/>
+    <circle cx="1080" cy="480" r="8" fill="url(#firefly04)"/>
+  </g>
+
+  <!-- floating spores -->
+  <g fill="#bfffe0" opacity="0.5">
+    <circle cx="500" cy="640" r="1.6"/><circle cx="620" cy="600" r="1.2"/><circle cx="900" cy="650" r="1.8"/>
+    <circle cx="1180" cy="610" r="1.4"/><circle cx="320" cy="600" r="1.5"/><circle cx="1380" cy="640" r="1.4"/>
+  </g>
+</svg>

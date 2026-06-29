@@ -6,7 +6,7 @@
 //     bg: "white"            // optional
 //     base: { id, source, x, y, size, color, strokeWidth }  // optional real icon background
 //     parts: [
-//       { id, type: "rect"|"circle"|"polygon"|"line"|"polyline"|"ellipse"|"icon", ... }
+//       { id, type: "rect"|"circle"|"polygon"|"line"|"polyline"|"ellipse"|"path"|"icon", ... }
 //     ]
 //   }
 //
@@ -91,6 +91,8 @@ const renderPart = (p) => {
       const attrs = p.fill === undefined ? [...paint, `fill="none"`] : paint;
       return `<polyline ${base} ${attrs.join(" ")} points="${p.points.map((q) => q.join(",")).join(" ")}" />`;
     }
+    case "path":
+      return `<path ${base} ${paint.join(" ")} d="${escAttr(p.d)}" />`;
     default:
       throw new Error(`unknown part type ${p.type}`);
   }

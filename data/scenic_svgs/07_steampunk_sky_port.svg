@@ -1,0 +1,103 @@
+<svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky07" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4a7a"/>
+      <stop offset="0.4" stop-color="#9a6a8a"/>
+      <stop offset="0.7" stop-color="#e0986a"/>
+      <stop offset="1" stop-color="#f6c98a"/>
+    </linearGradient>
+    <radialGradient id="sun07" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff3d8"/><stop offset="0.5" stop-color="#ffd49a" stop-opacity="0.7"/><stop offset="1" stop-color="#ffd49a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="balloon07a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#7a201a"/>
+    </linearGradient>
+    <linearGradient id="balloon07b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e7a6a"/><stop offset="1" stop-color="#1a4a40"/>
+    </linearGradient>
+    <linearGradient id="brass07" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8c878"/><stop offset="1" stop-color="#9a7a32"/>
+    </linearGradient>
+    <linearGradient id="cloud07" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#e8b894"/>
+    </linearGradient>
+    <filter id="cloudblur07" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky07)"/>
+  <circle cx="800" cy="360" r="360" fill="url(#sun07)"/>
+  <circle cx="800" cy="360" r="90" fill="#fff6e0" opacity="0.9"/>
+
+  <!-- distant cloud banks -->
+  <g filter="url(#cloudblur07)" opacity="0.85">
+    <ellipse cx="300" cy="640" rx="320" ry="80" fill="url(#cloud07)"/>
+    <ellipse cx="900" cy="700" rx="420" ry="100" fill="url(#cloud07)"/>
+    <ellipse cx="1400" cy="600" rx="300" ry="76" fill="url(#cloud07)"/>
+    <ellipse cx="600" cy="820" rx="380" ry="90" fill="#f0c8a0"/>
+    <ellipse cx="1200" cy="860" rx="420" ry="100" fill="#e8bc94"/>
+  </g>
+
+  <!-- big airship (foreground) -->
+  <g transform="translate(420 380)">
+    <ellipse cx="0" cy="0" rx="240" ry="92" fill="url(#balloon07a)"/>
+    <ellipse cx="0" cy="0" rx="240" ry="92" fill="none" stroke="#5a1812" stroke-width="3"/>
+    <path d="M-240 0 Q0 -92 240 0 M-240 0 Q0 92 240 0" stroke="#e8c878" stroke-width="2" fill="none"/>
+    <line x1="-160" y1="-75" x2="-160" y2="75" stroke="#5a1812" stroke-width="2"/>
+    <line x1="-80" y1="-88" x2="-80" y2="88" stroke="#5a1812" stroke-width="2"/>
+    <line x1="0" y1="-92" x2="0" y2="92" stroke="#5a1812" stroke-width="2"/>
+    <line x1="80" y1="-88" x2="80" y2="88" stroke="#5a1812" stroke-width="2"/>
+    <line x1="160" y1="-75" x2="160" y2="75" stroke="#5a1812" stroke-width="2"/>
+    <polygon points="240,-30 320,-50 320,30 240,30" fill="#7a201a"/>
+    <!-- gondola -->
+    <path d="M-120 92 L120 92 L90 150 L-90 150 Z" fill="url(#brass07)"/>
+    <rect x="-100" y="100" width="20" height="20" fill="#5a3a1a"/><rect x="-60" y="100" width="20" height="20" fill="#5a3a1a"/>
+    <rect x="-20" y="100" width="20" height="20" fill="#5a3a1a"/><rect x="20" y="100" width="20" height="20" fill="#5a3a1a"/><rect x="60" y="100" width="20" height="20" fill="#5a3a1a"/>
+    <line x1="-90" y1="92" x2="-150" y2="40" stroke="#5a3a1a" stroke-width="2"/>
+    <line x1="90" y1="92" x2="150" y2="40" stroke="#5a3a1a" stroke-width="2"/>
+    <!-- propeller -->
+    <circle cx="-300" cy="0" r="10" fill="#5a3a1a"/>
+    <ellipse cx="-300" cy="-40" rx="8" ry="40" fill="#7a5a2a" opacity="0.8"/>
+    <ellipse cx="-300" cy="40" rx="8" ry="40" fill="#7a5a2a" opacity="0.8"/>
+  </g>
+
+  <!-- smaller airship -->
+  <g transform="translate(1180 280) scale(0.7)">
+    <ellipse cx="0" cy="0" rx="200" ry="76" fill="url(#balloon07b)"/>
+    <ellipse cx="0" cy="0" rx="200" ry="76" fill="none" stroke="#123a30" stroke-width="3"/>
+    <line x1="-80" y1="-72" x2="-80" y2="72" stroke="#123a30" stroke-width="2"/><line x1="0" y1="-76" x2="0" y2="76" stroke="#123a30" stroke-width="2"/><line x1="80" y1="-72" x2="80" y2="72" stroke="#123a30" stroke-width="2"/>
+    <polygon points="200,-24 270,-40 270,24 200,24" fill="#1a4a40"/>
+    <path d="M-100 76 L100 76 L76 124 L-76 124 Z" fill="url(#brass07)"/>
+    <circle cx="-250" cy="0" r="8" fill="#3a2a10"/><ellipse cx="-250" cy="-32" rx="6" ry="32" fill="#5a4a1a" opacity="0.8"/><ellipse cx="-250" cy="32" rx="6" ry="32" fill="#5a4a1a" opacity="0.8"/>
+  </g>
+
+  <!-- floating dock platform -->
+  <g transform="translate(820 760)">
+    <rect x="-180" y="0" width="360" height="40" fill="url(#brass07)"/>
+    <rect x="-180" y="0" width="360" height="40" fill="none" stroke="#6a5020" stroke-width="2"/>
+    <polygon points="-180,40 180,40 120,120 -120,120" fill="#8a6a2a"/>
+    <!-- pipes -->
+    <rect x="-160" y="-50" width="14" height="50" fill="url(#brass07)"/><circle cx="-153" cy="-56" r="12" fill="#9a7a32"/>
+    <rect x="146" y="-50" width="14" height="50" fill="url(#brass07)"/><circle cx="153" cy="-56" r="12" fill="#9a7a32"/>
+    <!-- mooring mast -->
+    <rect x="-6" y="-140" width="12" height="140" fill="#7a5a2a"/>
+    <circle cx="0" cy="-146" r="10" fill="#c0392b"/>
+    <!-- tiny figures -->
+    <g fill="#2a1a0e"><circle cx="-80" cy="-12" r="6"/><rect x="-84" y="-8" width="8" height="16"/><circle cx="60" cy="-12" r="6"/><rect x="56" y="-8" width="8" height="16"/></g>
+  </g>
+
+  <!-- floating gears decoration -->
+  <g fill="url(#brass07)" opacity="0.85">
+    <g transform="translate(200 200)"><circle r="40"/><circle r="16" fill="#9a7a32"/>
+      <g><rect x="-6" y="-50" width="12" height="14"/><rect x="-6" y="36" width="12" height="14"/><rect x="-50" y="-6" width="14" height="12"/><rect x="36" y="-6" width="14" height="12"/>
+      <rect x="-38" y="-38" width="12" height="12" transform="rotate(45 -32 -32)"/><rect x="26" y="26" width="12" height="12" transform="rotate(45 32 32)"/></g>
+    </g>
+    <g transform="translate(1420 420) scale(0.7)"><circle r="40"/><circle r="16" fill="#9a7a32"/>
+      <rect x="-6" y="-50" width="12" height="14"/><rect x="-6" y="36" width="12" height="14"/><rect x="-50" y="-6" width="14" height="12"/><rect x="36" y="-6" width="14" height="12"/>
+    </g>
+  </g>
+
+  <!-- birds -->
+  <g stroke="#5a3a1a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6">
+    <path d="M700 150 q12 -10 24 0 q12 -10 24 0"/><path d="M620 190 q10 -8 20 0 q10 -8 20 0"/>
+  </g>
+</svg>
