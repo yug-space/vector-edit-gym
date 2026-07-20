@@ -7,6 +7,8 @@ viewer/.next/
 viewer/data/
 viewer/node_modules/
 viewer/out/
+viewer/public/figures/
+viewer/public/vectoreditgym-paper.pdf
 
 # Python
 .venv/
@@ -16,9 +18,11 @@ __pycache__/
 dist/
 build/
 runs/
+tmp/
 
 # Secrets — never commit
 .env
 .env.*
 !.env.example
 jobs/
+.agent-sessions/

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#fbf8ff" />
+  <rect id="night-sky" fill="#111827" x="0" y="0" width="220" height="88" />
+  <rect id="ground" fill="#14532d" x="0" y="88" width="220" height="52" />
+  <polygon id="far-hill" fill="#14532d" points="0,88 42,50 88,88" />
+  <polygon id="mid-hill" fill="#166534" points="46,88 104,42 166,88" />
+  <circle id="moon" fill="#fef3c7" cx="172" cy="30" r="11" />
+  <circle id="star-1" fill="#fde68a" cx="28" cy="20" r="2" />
+  <circle id="star-2" fill="#fde68a" cx="72" cy="16" r="1.8" />
+  <circle id="star-3" fill="#fde68a" cx="130" cy="22" r="2.2" />
+  <circle id="star-4" fill="#fde68a" cx="204" cy="45" r="1.8" />
+  <polygon id="tent-body" fill="#f59e0b" stroke="#222" stroke-width="1" points="46,96 92,48 138,96" />
+  <polygon id="tent-side" fill="#b45309" stroke="#222" stroke-width="1" points="92,48 138,96 112,96" />
+  <polygon id="tent-flap" fill="#7c2d12" stroke="#222" stroke-width="1" points="89,92 103,62 117,92" />
+  <line id="tent-line-left" stroke="#f8fafc" stroke-width="1" x1="54" y1="92" x2="30" y2="110" />
+  <line id="tent-line-right" stroke="#f8fafc" stroke-width="1" x1="130" y1="92" x2="154" y2="110" />
+  <rect id="tree-left-trunk" fill="#854d0e" x="20" y="74" width="8" height="34" />
+  <polygon id="tree-left-crown" fill="#16a34a" points="24,42 8,80 40,80" />
+  <rect id="tree-right-trunk" fill="#854d0e" x="178" y="72" width="8" height="36" />
+  <polygon id="tree-right-crown" fill="#16a34a" points="182,40 164,82 176,76 170,94 198,92 190,76 202,82" />
+  <line id="log-left" stroke="#92400e" stroke-width="5" x1="150" y1="112" x2="176" y2="122" />
+  <line id="log-right" stroke="#92400e" stroke-width="5" x1="176" y1="112" x2="150" y2="122" />
+  <polygon id="flame-back" fill="#f97316" points="163,110 152,88 172,101 181,86 180,114" />
+  <polygon id="flame-front" fill="#f97316" points="166,111 160,96 170,104 175,96 174,114" />
+  <ellipse id="smoke-1" fill="#94a3b8" opacity="0.65" cx="160" cy="80" rx="6" ry="3" />
+  <ellipse id="smoke-2" fill="#94a3b8" opacity="0.5" cx="174" cy="72" rx="7" ry="4" />
+  <path id="smoke-curl" fill="none" stroke="#cbd5e1" stroke-width="1.4" d="M168 80 C186 72 150 64 174 56 C186 50 152 46 172 38" />
+  <rect id="backpack" fill="#2563eb" stroke="#111827" stroke-width="1" x="36" y="104" width="14" height="18" rx="3" ry="3" />
+  <polyline id="path" fill="none" stroke="#a3e635" stroke-width="5" points="96,100 108,114 118,140" />
+  <path id="trail-curve" fill="none" stroke="#bef264" stroke-width="2" d="M86 104 C110 100 92 132 120 140" />
+  <polyline id="skin-17-lantern-wide-wire" fill="none" stroke="#64748b" stroke-width="2.4" opacity="0.9" points="0,34 52,18 104,34 156,18 220,34" />
+  <rect id="skin-17-lantern-wide-a" fill="#fde047" stroke="#854d0e" stroke-width="1.5" opacity="0.94" x="44" y="17" width="19" height="25" rx="5" />
+  <rect id="skin-17-lantern-wide-b" fill="#fb7185" stroke="#881337" stroke-width="1.5" opacity="0.94" x="147" y="17" width="19" height="25" rx="5" />
+  <polyline id="identity-17-lantern-wire" fill="none" stroke="#64748b" stroke-width="1.4" points="18,28 58,20 98,28 138,20 182,28" />
+  <rect id="identity-17-lantern-a" fill="#fde047" stroke="#854d0e" stroke-width="1" x="51" y="19" width="11" height="15" rx="3" />
+  <rect id="identity-17-lantern-b" fill="#fb7185" stroke="#881337" stroke-width="1" x="132" y="19" width="11" height="15" rx="3" />
+  <circle id="identity-17-firefly-a" fill="#fef08a" opacity="0.9" cx="36" cy="84" r="3" />
+  <circle id="identity-17-firefly-b" fill="#fef08a" opacity="0.9" cx="188" cy="94" r="3" />
+  <circle id="variant-17-dot" fill="#7c3aed" opacity="0.72" cx="11" cy="29" r="3" />
+  <line id="variant-17-rule" stroke="#7c3aed" stroke-width="1.2" opacity="0.58" x1="17" y1="32" x2="33" y2="30" />
+  <rect id="variant-17-chip-01" fill="#14b8a6" opacity="0.68" x="13" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-17-chip-02" fill="#06b6d4" opacity="0.68" x="44" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-17-chip-03" fill="#3b82f6" opacity="0.68" x="81" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-17-chip-04" fill="#6366f1" opacity="0.68" x="112" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-17-chip-05" fill="#8b5cf6" opacity="0.68" x="149" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-17-chip-06" fill="#d946ef" opacity="0.68" x="180" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-17-chip-07" fill="#ec4899" opacity="0.68" x="13" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-17-chip-08" fill="#ef4444" opacity="0.68" x="44" y="141" width="7" height="4" rx="1" />
+  <rect id="variant-17-chip-09" fill="#f97316" opacity="0.68" x="81" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-17-chip-10" fill="#f59e0b" opacity="0.68" x="112" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-17-chip-11" fill="#84cc16" opacity="0.68" x="149" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-17-chip-12" fill="#22c55e" opacity="0.68" x="180" y="140" width="8" height="4" rx="1" />
+  <circle id="variant-17-pin-01" fill="#d946ef" opacity="0.66" cx="31" cy="24" r="2.05" />
+  <circle id="variant-17-pin-02" fill="#ec4899" opacity="0.66" cx="192" cy="38" r="2.3" />
+  <circle id="variant-17-pin-03" fill="#ef4444" opacity="0.66" cx="17" cy="52" r="2.55" />
+  <circle id="variant-17-pin-04" fill="#f97316" opacity="0.66" cx="202" cy="66" r="1.8" />
+  <circle id="variant-17-pin-05" fill="#f59e0b" opacity="0.66" cx="27" cy="80" r="2.05" />
+  <circle id="variant-17-pin-06" fill="#84cc16" opacity="0.66" cx="212" cy="94" r="2.3" />
+  <circle id="variant-17-pin-07" fill="#22c55e" opacity="0.66" cx="13" cy="108" r="2.55" />
+  <circle id="variant-17-pin-08" fill="#14b8a6" opacity="0.66" cx="198" cy="122" r="1.8" />
+  <rect id="backpack-dup" fill="#2563eb" stroke="#111827" stroke-width="1" x="50" y="104" width="14" height="18" rx="3" ry="3" />
+</svg>

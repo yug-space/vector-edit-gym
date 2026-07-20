@@ -1,14 +1,13 @@
-"""VectorEditGym — benchmark for SVG icon editing tasks.
+"""VectorEditGym: preservation-aware SVG repair evaluation.
 
 Quick start:
 
     from vector_edit_gym import load_tasks, evaluate
 
-    tasks = load_tasks(difficulty="very_easy")
+    tasks = load_tasks()
 
     def my_solver(task):
-        # Return the fixed SVG as a string. The simplest no-op solver:
-        return task.initial_svg
+        return call_model(task.instruction, task.initial_svg)
 
     results = evaluate(my_solver, tasks)
     print(results.summary())

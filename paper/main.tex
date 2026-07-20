@@ -1,0 +1,406 @@
+\documentclass[11pt]{article}
+
+\usepackage[preprint]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{url}
+
+\input{generated/results.tex}
+
+\title{VectorEditGym: Evaluating Specification-Faithful SVG Repair\\
+Under Preservation Constraints}
+
+\author{Yug Aditi Gupta \\
+  Theta Labs \\
+  \texttt{yug@thetalab.tech}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Instruction-based vector editing requires two capabilities: making a requested
+change and leaving everything else alone. The second is easy to miss when an
+output is judged only as a raster image. We introduce \textbf{VectorEditGym}, a
+compact, difficult benchmark of \TaskCount{} SVG repair tasks. Each task pairs a
+corrupted SVG program with a human visual instruction, a hidden target program,
+\MeanExpectedEdits{} annotated repairs on average, and an average of
+\MeanProtectedObjects{} protected objects. Instructions describe visible defects
+without exposing element identifiers, coordinates, color codes, or path data.
+We define a deterministic binary reward that is one only when the output parses,
+implements every annotated repair, and is canonically equivalent to the target;
+edit completion and Unintended Change Rate (UCR) diagnose partial outcomes. We
+evaluate \ModelCount{} model endpoints (\OpenModelCount{} listed as open-weight
+and \ControlModelCount{} inexpensive controls) over \RequestCount{} requests.
+The strongest endpoint reaches only \TopReward{} binary success, despite
+\TopEditCompletion{} requested-edit completion, showing that apparent repair
+progress and specification-faithful editing remain substantially different.
+All prompts, outputs, scoring code, costs, and per-task reports are released.
+\end{abstract}
+
+\section{Introduction}
+
+An instruction such as ``the amber signal has gone dark; fix it and leave the
+station alone'' defines both a positive requirement and a large set of negative
+requirements. The signal must change, while the train, clock, cables, platform,
+and every unrelated program detail must not. A model can produce a plausible
+raster while renaming elements, rewriting path data, shifting an unrelated
+object, or deleting metadata. These are not cosmetic differences for an SVG:
+they alter an executable, structured artifact~\citep{w3csvg2}.
+
+Most generation metrics emphasize final appearance. That is appropriate for
+open-ended synthesis, but insufficient for local editing. A repair benchmark
+must answer three separate questions: Did the requested objects change? Did
+unmentioned objects remain stable? Is the resulting program valid and usable?
+VectorEditGym makes all three observable through hidden target SVGs and explicit
+protected-object sets.
+
+The benchmark is deliberately small and dense rather than broad and shallow.
+Its \TaskCount{} tasks contain \ExpectedEditCount{} annotated repairs across
+station, harbor, campsite, market, and larger scenic illustrations. The public
+instruction never names a DOM identifier or serialized numeric/path value. Solvers must
+interpret the visible scene and edit the source accordingly. Figure~\ref{fig:examples}
+shows representative inputs and targets.
+
+Our contributions are:
+\begin{enumerate}
+  \item a frozen corpus of dense, human-described SVG repairs with explicit
+  intended edits and broad preservation surfaces;
+  \item a transparent executable evaluator with binary reward, edit completion,
+  validity, preservation, and UCR;
+  \item a reproducible \ModelCount{}-endpoint evaluation with response
+  provenance, token usage, cost, failures, and model-produced SVGs; and
+  \item an empirical account of the gap between completing visible repairs and
+  preserving the full vector program.
+\end{enumerate}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.98\textwidth]{figures/corpus-examples.pdf}
+  \caption{Representative corrupted inputs and hidden targets. Public prompts
+  describe visible mistakes in ordinary language; source IDs and serialized
+  numeric/path values remain evaluator-only annotations.}
+  \label{fig:examples}
+\end{figure*}
+
+\section{Related Work}
+
+\paragraph{Vector generation.}
+IconShop generates vector icons from text~\citep{wu2023iconshop}; StarVector
+generates SVG code from images and text~\citep{rodriguez2025starvector}; and
+LLM4SVG studies complex vector understanding and generation with language
+models~\citep{xing2025llm4svg}. These systems establish SVG as a useful meeting
+point between visual generation and program synthesis. VectorEditGym focuses on
+local repair rather than open-ended generation.
+
+\paragraph{Instruction-based SVG editing.}
+SVGEditBench introduced quantitative evaluation for LLM-based SVG editing
+\citep{nishina2024svgeditbench}, and SVGEditBench V2 expanded instruction-based
+editing evaluation~\citep{nishina2025svgeditbenchv2}. VectorEdits provides a
+larger dataset and benchmark for vector-graphics editing
+\citep{kuchar2025vectoredits}. Our scope is complementary: we emphasize dense
+multi-repair scenes, strict program equivalence after representation
+normalization, per-object preservation, and publication of every model output.
+We do not claim that a single structural target covers all visually acceptable
+edits; instead, we use it to measure specification-faithful repair under an
+explicitly strict contract.
+
+\section{Benchmark}
+\label{sec:benchmark}
+
+\subsection{Task Format}
+
+Each task is a tuple
+\[
+  \tau = (x, S_0, S^*, E, U),
+\]
+where $x$ is a human repair instruction, $S_0$ is the corrupted SVG, $S^*$ is
+the hidden target, $E$ is a set of expected object-attribute repairs, and $U$ is
+the set of object IDs that must be preserved. The model receives only $(x,S_0)$.
+Target source, expected diffs, target-part lists, and preserve lists are excluded
+from the prompt and recorded as hidden evaluator inputs.
+
+Instructions were rewritten after task freezing. They describe visible objects
+and relations---for example, a moon that drifted down and left or a jellyfish
+whose tentacles became too heavy---without SVG IDs, numeric coordinates, hex
+colors, path commands, or attribute names. A corpus regression hash covers every
+non-instruction task field, ensuring this language-only rewrite did not change
+inputs, targets, annotations, or ordering.
+
+\subsection{Composition and Difficulty}
+
+The corpus contains 20 compact but busy scenes derived from four authored scene
+templates and 20 larger scenic illustrations. Ten tasks are marked hard and 30
+very hard. Tasks require between three and eight repairs, including insertion or
+deletion, recoloring, displacement, path restoration, line-weight correction,
+and opacity restoration. All unrequested identified parts are protected.
+
+\begin{table}[t]
+  \centering
+  \small
+  \input{generated/corpus-table.tex}
+  \caption{Frozen corpus statistics. Element counts include non-rendering SVG
+  nodes; protected-object counts refer to identified scene objects.}
+  \label{tab:corpus}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/task-operations.pdf}
+  \caption{Repair operations and per-task edit density.}
+  \label{fig:operations}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/task-complexity.pdf}
+  \caption{SVG size and preservation surface. Marker area scales with the
+  number of requested repairs.}
+  \label{fig:complexity}
+\end{figure}
+
+\section{Executable Evaluation}
+\label{sec:evaluation}
+
+\subsection{Canonical Program Comparison}
+
+Let $C(S)$ parse an SVG and canonicalize representation-only variation. We
+discard namespace spelling differences and attribute order, normalize numeric
+spellings and separators in paths, points, transforms, and view boxes, and map
+common equivalent color spellings (for example, \texttt{white},
+\texttt{\#fff}, and \texttt{rgb(255,255,255)}) to one form. Element order,
+nesting, IDs, geometry, paint, text, and other program semantics remain strict.
+Malformed XML has no canonical form.
+
+The primary reward is binary:
+\[
+  R(S) = \mathbb{1}\left[C(S)=C(S^*)\right].
+\]
+Thus a solver receives one point only if every requested repair and every
+preservation constraint is satisfied. There is no learned judge, reference
+selection heuristic or synthetic reference agent in the public protocol.
+
+\subsection{Diagnostic Metrics}
+
+For expected checks $E$, edit completion is
+\[
+  \mathrm{Edit}(S)=\frac{1}{|E|}\sum_{e\in E}\mathbb{1}[e(S)=e(S^*)].
+\]
+For protected objects $U$, preservation and unintended-change rate are
+\[
+  \begin{aligned}
+  \mathrm{Pres}(S)&=\frac{1}{|U|}\sum_{u\in U}\mathbb{1}[C(u_S)=C(u_{S^*})],\\
+  \mathrm{UCR}(S)&=1-\mathrm{Pres}(S).
+  \end{aligned}
+\]
+We additionally report parse validity, normalized source exact match, canonical
+structural match, provider errors, scheduled elapsed time, tokens, and cost. A provider error
+or malformed output receives reward zero. Diagnostic metrics never replace the
+binary primary reward.
+
+\section{Model Study}
+\label{sec:study}
+
+\subsection{Protocol}
+
+We evaluate \OpenModelCount{} endpoints designated as open-weight in the study
+manifest and \ControlModelCount{} inexpensive closed controls through the
+OpenRouter chat-completions API~\citep{openrouter2026}. This designation records
+the endpoint grouping used for analysis and is not an independent license audit.
+The exact endpoint IDs appear in Appendix~\ref{sec:full-results}.
+
+Every model receives the same system instruction, human repair request, and
+corrupted SVG source. We record one scored outcome per task, omit temperature rather
+than imposing a provider-incompatible value, and adapt the output ceiling to
+input length (minimum 4,096; maximum 12,000 tokens). The runner retries rate
+limits and transient server failures against the same endpoint. It never falls
+back to another model; the client permits two transport retries inside each
+harness attempt. We record requested and resolved model IDs, response ID,
+finish reason, prompt, completion and reasoning tokens when supplied, scheduled
+wall-clock elapsed time, and provider-reported cost. Elapsed time begins when a
+model--task job is scheduled and therefore includes local concurrency-queue wait;
+we expose it for run auditing, not as endpoint latency. A reservation-based budget guard caps the run at
+\$25; the completed study cost \TotalCost{}.
+
+\subsection{Uncertainty}
+
+We compute 95\% confidence intervals by resampling the 40 tasks with replacement
+10,000 times independently for each model. These intervals quantify task-set
+uncertainty only. They do not estimate sampling variance because each
+model--task pair has one scored outcome and no repeated decoding. Endpoint tables are ordered by binary reward,
+then edit completion, lower UCR, and model name.
+
+\section{Results}
+\label{sec:results}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \input{generated/main-table.tex}
+  \caption{Top ten endpoints under binary reward. Reward, edit completion, and
+  UCR and validity are percentages; cost is the provider-reported cost for all 40 tasks.
+  Full results are in Appendix~\ref{sec:full-results}.}
+  \label{tab:main}
+\end{table*}
+
+\paragraph{Binary success remains rare.}
+The strongest endpoint, \TopModel{}, obtains \TopReward{} binary reward. Its
+edit completion is substantially higher at \TopEditCompletion{}, while its UCR
+is \TopUCR{} and its parse validity is \TopValidity{}. The difference is the central benchmark result: models frequently
+perform some requested visual work but fail the full repair-and-preserve
+contract. Figure~\ref{fig:reward} reports task-bootstrap intervals for every
+endpoint.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.84\textwidth]{figures/model-binary-reward.pdf}
+  \caption{Binary task success for all endpoints. Orange bars are inexpensive
+  controls; teal bars are endpoints listed as open-weight in the manifest.}
+  \label{fig:reward}
+\end{figure*}
+
+\paragraph{Repair and preservation are separate axes.}
+Figure~\ref{fig:edit-ucr} plots requested-edit completion against UCR. A model can
+move right by correcting visible defects while also moving upward by rewriting
+protected scene objects. Reporting completion alone would hide this behavior;
+reporting only full success would hide useful partial capability.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/edit-completion-vs-ucr.pdf}
+  \caption{Requested-edit completion versus unintended-change rate. Marker area
+  scales with binary reward. Lower right is preferable.}
+  \label{fig:edit-ucr}
+\end{figure}
+
+\paragraph{Operation families expose different bottlenecks.}
+Figure~\ref{fig:heatmap} decomposes the expected checks. Simple color or
+add/remove corrections need not predict path-shape or position restoration,
+especially because the prompt gives visual descriptions instead of literal DOM
+values. This decomposition also distinguishes an endpoint that attempted an edit
+but selected the wrong source element from one that returned an invalid or
+unchanged document.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.88\textwidth]{figures/operation-heatmap.pdf}
+  \caption{Expected-edit check success by operation family. Rows follow overall
+  binary-reward rank.}
+  \label{fig:heatmap}
+\end{figure*}
+
+\paragraph{Cost is not a sufficient capability proxy.}
+The run spans inexpensive small endpoints and larger reasoning or coding models.
+Figure~\ref{fig:pareto} shows edit completion against total 40-task cost. It is a
+descriptive endpoint comparison rather than a hardware-efficiency claim:
+OpenRouter pricing and routing can change, and the study uses one scored outcome
+per task.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/quality-cost-pareto.pdf}
+  \caption{Edit completion versus provider-reported run cost.}
+  \label{fig:pareto}
+\end{figure}
+
+\section{Error Analysis}
+
+\paragraph{Literal partial repair.}
+Models often identify an obvious semantic defect, such as a signal with the wrong
+color, while leaving a displaced object or malformed curve unresolved. These
+outputs earn partial edit-completion credit but binary reward zero.
+
+\paragraph{Global rewrites.}
+Some responses regenerate or reformat substantial portions of the SVG. Canonical
+normalization accepts harmless formatting, but changed paths, reordered scene
+objects, renamed IDs, or missing definitions count as program changes. Protected
+object checks identify which named scene components drifted; document-level
+checks catch anonymous definitions and root attributes.
+
+\paragraph{Ambiguous visual recovery.}
+Human prompts intentionally omit exact coordinates and path commands. A model may
+make a visually reasonable adjustment that differs from the frozen target. The
+strict reward records that as failure. This is useful for evaluating exact repair
+of structured assets but should not be interpreted as a complete perceptual
+quality judgment.
+
+\paragraph{Provider and truncation failures.}
+Only \OverallValidity{} of scored outcomes contain parseable SVG. The harness
+preserves raw malformed output, API errors, and finish reasons in the released
+records. Transient failures are retried only against the requested endpoint;
+persistent failures remain zero-scored observations. The aggregate provider
+error rate is \OverallErrorRate{}; parse failure is measured separately.
+
+\section{Limitations and Artifact Risks}
+
+VectorEditGym has only \TaskCount{} tasks and should be treated as a focused
+stress test, not a comprehensive measure of visual editing. Public targets make
+future contamination possible. The single-target structural reward can reject
+visually or semantically acceptable alternatives, and our basic color
+canonicalization is not a complete CSS equivalence engine. Conversely, canonical
+tree equality does not test downstream animation, scripting, accessibility, or
+editor-specific behavior.
+
+The evaluation uses one scored outcome per model--task pair and therefore cannot
+characterize sampling stability. OpenRouter can change prices, routing, model versions, and
+availability; requested and resolved IDs are published to make this visible.
+The ``open-weight'' grouping is manifest metadata, not a legal determination.
+
+Twenty scenic source files in the frozen corpus lack recoverable per-file
+provenance metadata. We do not claim original authorship of those illustrations.
+They are retained to preserve the evaluated task set, marked as provenance
+pending in the artifact, and should be treated as research-only until provenance
+is resolved. This limits redistribution confidence and is a material artifact
+risk.
+
+Finally, the benchmark evaluates text-and-source editing rather than multimodal
+screen interaction. Models see SVG code and a visual description, but not a
+raster preview or interactive editor. Performance therefore combines scene
+reasoning, source localization, and code generation under one protocol.
+
+\section{Conclusion}
+
+VectorEditGym isolates a practical requirement for editing agents: requested
+change is not enough; preservation is part of the specification. Human visual
+instructions make the task less like copying a patch, while executable SVG
+targets make every decision auditable. Across \ModelCount{} endpoints, partial
+repair is much more common than exact repair-and-preserve success. The released
+outputs and diff reports make that gap inspectable at the object and source level
+and provide a compact target for improving structured visual editors.
+
+\section*{Reproducibility Statement}
+
+The repository includes the frozen corpus hash, model manifest, prompt template,
+budgeted resumable runner, canonical evaluator, unit tests, raw-result schema,
+analysis script, generated tables, figures, paper source, Harbor tasks, and a web
+viewer for every model output. API credentials and ignored raw working
+directories are not included.
+
+\appendix
+\clearpage
+\onecolumn
+\section{Full Endpoint Results}
+\label{sec:full-results}
+
+Values are percentages. Errors include persistent provider failures and missing
+usable SVG output. Endpoint IDs, resolved IDs, response IDs, and per-task details
+are available in the machine-readable release.
+
+\small
+\input{generated/full-table.tex}
+\normalsize
+
+\twocolumn
+
+\bibliography{custom}
+
+\end{document}

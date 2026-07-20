@@ -1,1 +1,0 @@
-face,mark-12,mark-6,mark-3,hour-hand,minute-hand

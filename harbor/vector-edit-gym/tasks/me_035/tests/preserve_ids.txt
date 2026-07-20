@@ -1,1 +1,0 @@
-plate,base-layer,top-layer,candle,flame

@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-005"
+description = "A stray price sticker has appeared in the market, one pear is red instead of green, and the bicycle handlebar has a distorted bend. Clean up those three issues while keeping the stalls and shoppers unchanged."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
+
+[metadata]
+difficulty = "hard"
+category = "scenic_multi"
+task_id = "sv_005"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

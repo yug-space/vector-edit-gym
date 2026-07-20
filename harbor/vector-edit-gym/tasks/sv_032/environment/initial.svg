@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky12" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a5a8a" />
+      <stop offset="0.4" stop-color="#e08a7a" />
+      <stop offset="0.7" stop-color="#f6b878" />
+      <stop offset="1" stop-color="#fbe2b0" />
+    </linearGradient>
+    <radialGradient id="sun12" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffae8" /><stop offset="0.5" stop-color="#ffd89a" stop-opacity="0.7" /><stop offset="1" stop-color="#ffd89a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="b12a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0392b" /><stop offset="1" stop-color="#f0a83c" /></linearGradient>
+    <linearGradient id="b12b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e8acb" /><stop offset="1" stop-color="#7ad0e0" /></linearGradient>
+    <linearGradient id="b12c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a3acb" /><stop offset="1" stop-color="#e07ad0" /></linearGradient>
+    <linearGradient id="b12d" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e9a6a" /><stop offset="1" stop-color="#bce04c" /></linearGradient>
+    <filter id="cloud12" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky12)" id="download-sv_032-rect-001" />
+  <circle cx="375" cy="320" r="280" fill="url(#sun12)" id="download-sv_032-circle-001" />
+  <circle cx="300" cy="320" r="70" fill="#fff8e6" id="download-sv_032-circle-002" />
+
+
+  <g fill="#ffe6cc" opacity="0.7" filter="url(#cloud12)">
+    <ellipse cx="800" cy="200" rx="260" ry="50" id="download-sv_032-ellipse-001" /><ellipse cx="1300" cy="320" rx="240" ry="46" id="download-sv_032-ellipse-002" /><ellipse cx="500" cy="500" rx="220" ry="44" id="download-sv_032-ellipse-003" />
+  </g>
+
+
+
+  <g opacity="0.7">
+    <g transform="translate(1100 240) scale(0.4)"><path d="M0 -90 Q90 -90 90 0 Q90 70 0 150 Q-90 70 -90 0 Q-90 -90 0 -90 Z" fill="url(#b12b)" id="download-sv_032-path-001" /><rect x="-14" y="150" width="28" height="22" fill="#6a4424" id="download-sv_032-rect-002" /><line x1="-50" y1="80" x2="-14" y2="150" stroke="#5a3a1a" stroke-width="8" id="download-sv_032-line-001" /><line x1="50" y1="80" x2="14" y2="150" stroke="#5a3a1a" stroke-width="2" id="download-sv_032-line-002" /></g>
+    <g transform="translate(1380 180) scale(0.35)"><path d="M0 -90 Q90 -90 90 0 Q90 70 0 150 Q-90 70 -90 0 Q-90 -90 0 -90 Z" fill="url(#b12c)" id="download-sv_032-path-002" /><rect x="-14" y="150" width="28" height="22" fill="#6a4424" id="download-sv_032-rect-003" /></g>
+    <g transform="translate(900 360) scale(0.45)"><path d="M0 -90 Q90 -90 90 0 Q90 70 0 150 Q-90 70 -90 0 Q-90 -90 0 -90 Z" fill="url(#b12d)" id="download-sv_032-path-003" /><rect x="-14" y="150" width="28" height="22" fill="#6a4424" id="download-sv_032-rect-004" /></g>
+  </g>
+
+
+  <g transform="translate(620 360) scale(0.7)">
+    <path d="M0 -120 Q120 -120 120 10 Q120 100 0 200 Q-120 100 -120 10 Q-120 -120 0 -120 Z" fill="url(#b12c)" id="download-sv_032-path-004" />
+    <path d="M0 -120 Q-40 40 0 200 M0 -120 Q40 40 0 200 M-70 -100 Q-90 50 -50 180 M70 -100 Q90 50 50 180" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.18" id="download-sv_032-path-005" />
+    <rect x="-22" y="200" width="44" height="32" rx="4" fill="#6a4424" id="download-sv_032-rect-005" />
+    <line x1="-70" y1="120" x2="-22" y2="200" stroke="#5a3a1a" stroke-width="2.5" id="download-sv_032-line-003" /><line x1="70" y1="120" x2="22" y2="200" stroke="#5a3a1a" stroke-width="2.5" id="download-sv_032-line-004" />
+  </g>
+  <g transform="translate(1080 460) scale(0.8)">
+    <path d="M0 -120 Q120 -120 120 10 Q120 100 0 200 Q-120 100 -120 10 Q-120 -120 0 -120 Z" fill="url(#b12d)" id="download-sv_032-path-006" />
+    <path d="M-60 -106 L-60 190 M0 -120 L0 200 M60 -106 L60 190" stroke="#ffffff" stroke-width="3" opacity="0.4" id="download-sv_032-path-007" />
+    <rect x="-22" y="200" width="44" height="32" rx="4" fill="#ef4444" id="download-sv_032-rect-006" />
+    <line x1="-70" y1="120" x2="-22" y2="200" stroke="#5a3a1a" stroke-width="2.5" id="download-sv_032-line-005" /><line x1="70" y1="120" x2="22" y2="200" stroke="#5a3a1a" stroke-width="2.5" id="download-sv_032-line-006" />
+  </g>
+
+
+  <g transform="translate(440 420)">
+    <path d="M0 -160 Q160 -160 160 20 Q160 140 0 280 Q-160 140 -160 20 Q-160 -160 0 -160 Z" fill="url(#b12a)" id="download-sv_032-path-008" />
+    <path d="M0 -160 Q-56 60 0 280 M0 -160 Q56 60 0 280 M-90 -130 Q-120 70 -70 250 M90 -130 Q120 70 70 250" stroke="#ffffff" stroke-width="4" fill="none" opacity="0.4" id="download-sv_032-path-009" />
+    <path d="M-160 20 Q0 -10 160 20" stroke="#ffe14d" stroke-width="6" fill="none" id="download-sv_032-path-010" />
+    <rect x="-30" y="282" width="60" height="44" rx="6" fill="#7a5028" id="download-sv_032-rect-007" />
+    <rect x="-30" y="282" width="60" height="14" fill="#5a3a1a" id="download-sv_032-rect-008" />
+    <line x1="-100" y1="170" x2="-30" y2="282" stroke="#5a3a1a" stroke-width="3" id="download-sv_032-line-007" /><line x1="100" y1="170" x2="30" y2="282" stroke="#5a3a1a" stroke-width="3" id="download-sv_032-line-008" />
+
+    <ellipse cx="0" cy="270" rx="20" ry="14" fill="#ffd86a" opacity="0.8" id="download-sv_032-ellipse-004" />
+  </g>
+
+  <g transform="translate(1280 520) scale(0.92)">
+    <path d="M0 -160 Q160 -160 160 20 Q160 140 0 280 Q-160 140 -160 20 Q-160 -160 0 -160 Z" fill="url(#b12b)" id="download-sv_032-path-011" />
+    <path d="M-100 -120 L-100 240 M-50 -150 L-50 270 M0 -160 L0 280 M50 -150 L50 270 M100 -120 L100 240" stroke="#ffffff" stroke-width="4" opacity="0.35" id="download-sv_032-path-012" />
+    <path d="M-160 20 Q0 -10 160 20" stroke="#e0392b" stroke-width="6" fill="none" id="download-sv_032-path-013" />
+    <rect x="-30" y="282" width="60" height="44" rx="6" fill="#7a5028" id="download-sv_032-rect-009" />
+    <line x1="-100" y1="170" x2="-30" y2="282" stroke="#5a3a1a" stroke-width="3" id="download-sv_032-line-009" /><line x1="100" y1="170" x2="30" y2="282" stroke="#5a3a1a" stroke-width="3" id="download-sv_032-line-010" />
+  </g>
+
+
+  <path d="M0 760 Q400 720 800 760 Q1200 800 1600 760 L1600 1000 L0 1000 Z" fill="#8aae5a" id="download-sv_032-path-014" />
+  <g opacity="0.9">
+    <polygon points="0,820 300,800 280,1000 0,1000" fill="#a8bc52" id="download-sv_032-polygon-001" />
+    <polygon points="300,800 620,820 600,1000 280,1000" fill="#7a9a44" id="download-sv_032-polygon-002" />
+    <polygon points="620,820 940,800 960,1000 600,1000" fill="#c0c45a" id="download-sv_032-polygon-003" />
+    <polygon points="940,800 1280,824 1300,1000 960,1000" fill="#8aae5a" id="download-sv_032-polygon-004" />
+    <polygon points="1280,824 1600,800 1600,1000 1300,1000" fill="#9ab84c" id="download-sv_032-polygon-005" />
+  </g>
+  <g stroke="#5a7a36" stroke-width="2" opacity="0.5">
+    <line x1="0" y1="880" x2="1600" y2="870" id="download-sv_032-line-011" /><line x1="0" y1="940" x2="1600" y2="935" id="download-sv_032-line-012" />
+  </g>
+
+  <path d="M700 760 Q680 860 740 920 Q800 970 760 1000 L860 1000 Q820 960 880 910 Q940 860 880 760 Z" fill="#7ac0d8" opacity="0.7" id="download-sv_032-path-015" />
+
+  <g fill="#5a7a3a"><ellipse cx="120" cy="800" rx="30" ry="22" id="download-sv_032-ellipse-005" /><ellipse cx="520" cy="820" rx="26" ry="20" id="download-sv_032-ellipse-006" /><ellipse cx="1180" cy="810" rx="30" ry="22" id="download-sv_032-ellipse-007" /><ellipse cx="1480" cy="800" rx="26" ry="20" id="download-sv_032-ellipse-008" /></g>
+
+
+  <g stroke="#5a4a3a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6">
+    <path d="M700 180 q12 -10 24 0 q12 -10 24 0" id="download-sv_032-path-016" /><path d="M640 220 q10 -8 20 0 q10 -8 20 0" id="download-sv_032-path-017" />
+  </g>
+<circle id="sv_032-extra-survey-marker" cx="1360" cy="172" r="41" fill="#f97316" opacity="0.82" stroke="#111827" stroke-width="5" /></svg>

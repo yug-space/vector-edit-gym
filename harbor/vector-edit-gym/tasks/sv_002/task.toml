@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-002"
+description = "At the harbor, the green stripe on one buoy was painted red, the sailboat mast looks much too heavy, and the rope coil has lost its neat loop. Correct those small mistakes without changing the surrounding scene."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
+
+[metadata]
+difficulty = "hard"
+category = "scenic_multi"
+task_id = "sv_002"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

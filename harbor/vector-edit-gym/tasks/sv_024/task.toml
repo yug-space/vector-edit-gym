@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-024"
+description = "Remove the bright marker that does not belong in the enchanted forest. Shift the upper-left canopy glow back over the trees, make the large foreground mushroom stem deep green, thin the bright line along the stream, and soften the low band of fog. Preserve the other plants and lights."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
+
+[metadata]
+difficulty = "very_hard"
+category = "downloaded_scenic_surgical"
+task_id = "sv_024"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-031"
+description = "Take the stray marker out of the rainy library. Move the warm lamp glow back toward the right side, restore the golden book on the upper-left shelf, give the rug its normal outline, and keep the fireplace glow subtle rather than washed out. Do not change the furniture or cat."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
+
+[metadata]
+difficulty = "very_hard"
+category = "downloaded_scenic_surgical"
+task_id = "sv_031"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

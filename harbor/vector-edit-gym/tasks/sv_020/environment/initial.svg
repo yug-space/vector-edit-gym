@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#fff7f8" />
+  <rect id="sky-band" fill="#ffe4e6" x="0" y="0" width="220" height="64" />
+  <path id="overhead-wire" fill="none" stroke="#334155" stroke-width="1" d="M8 18 C48 30 72 2 108 18 S172 34 212 18" />
+  <rect id="station-wall" fill="#fecdd3" x="0" y="64" width="220" height="30" />
+  <rect id="platform" fill="#cbd5e1" x="0" y="94" width="220" height="46" />
+  <rect id="platform-edge" fill="#f472b6" x="0" y="94" width="220" height="10" />
+  <path id="platform-crack" fill="none" stroke="#94a3b8" stroke-width="1" d="M18 108 C32 104 42 111 56 108 S82 106 96 110" />
+  <line id="rail-back" stroke="#64748b" stroke-width="3" x1="0" y1="118" x2="220" y2="118" />
+  <line id="rail-front" stroke="#475569" stroke-width="3" x1="0" y1="130" x2="220" y2="130" />
+  <rect id="track-tie-1" fill="#7c2d12" x="18" y="116" width="7" height="18" />
+  <rect id="track-tie-2" fill="#7c2d12" x="56" y="116" width="7" height="18" />
+  <rect id="track-tie-3" fill="#7c2d12" x="94" y="116" width="7" height="18" />
+  <rect id="track-tie-4" fill="#7c2d12" x="132" y="116" width="7" height="18" />
+  <rect id="track-tie-5" fill="#7c2d12" x="170" y="116" width="7" height="18" />
+  <rect id="train-body" fill="#334155" stroke="#222" stroke-width="1.5" x="26" y="38" width="126" height="46" rx="6" ry="6" />
+  <rect id="train-roof" fill="#f97316" stroke="#222" stroke-width="1" x="34" y="30" width="110" height="12" rx="4" ry="4" />
+  <rect id="window-left" fill="#94a3b8" stroke="#222" stroke-width="1" x="38" y="46" width="24" height="16" />
+  <rect id="window-center" fill="#94a3b8" stroke="#222" stroke-width="1" x="68" y="38" width="24" height="16" />
+  <rect id="window-right" fill="#94a3b8" stroke="#222" stroke-width="1" x="98" y="46" width="24" height="16" />
+  <rect id="train-door" fill="#fef3c7" stroke="#222" stroke-width="1" x="128" y="44" width="16" height="34" />
+  <circle id="door-handle" fill="#222" cx="140" cy="61" r="1.6" />
+  <circle id="wheel-left" fill="#111827" cx="48" cy="86" r="6" />
+  <circle id="wheel-right" fill="#111827" cx="126" cy="86" r="6" />
+  <line id="signal-post" stroke="#334155" stroke-width="4" x1="170" y1="32" x2="170" y2="94" />
+  <rect id="signal-box" fill="#111827" x="162" y="22" width="16" height="34" rx="3" ry="3" />
+  <circle id="signal-red" fill="#ef4444" cx="170" cy="30" r="3" />
+  <circle id="signal-amber" fill="#22c55e" cx="170" cy="39" r="3" />
+  <circle id="signal-green" fill="#22c55e" cx="170" cy="48" r="3" />
+  <circle id="clock-face" fill="#ffffff" stroke="#222" stroke-width="1.5" cx="196" cy="31" r="12" />
+  <line id="clock-hour" stroke="#222" stroke-width="1.5" x1="196" y1="31" x2="196" y2="23" />
+  <line id="clock-minute" stroke="#222" stroke-width="1" x1="196" y1="31" x2="203" y2="31" />
+  <rect id="poster-blue" fill="#be123c" stroke="#222" stroke-width="0.8" x="178" y="62" width="14" height="20" />
+  <rect id="poster-pink" fill="#be123c" stroke="#222" stroke-width="0.8" x="198" y="64" width="12" height="18" />
+  <rect id="bench-seat" fill="#92400e" x="29" y="104" width="42" height="5" />
+  <line id="bench-leg-left" stroke="#451a03" stroke-width="2" x1="46" y1="105" x2="43" y2="114" />
+  <line id="bench-leg-right" stroke="#451a03" stroke-width="2" x1="72" y1="105" x2="75" y2="114" />
+  <circle id="passenger-head" fill="#f2c078" cx="98" cy="96" r="4" />
+  <rect id="passenger-body" fill="#16a34a" x="94" y="100" width="8" height="16" />
+  <rect id="passenger-bag" fill="#a16207" x="104" y="108" width="8" height="7" />
+  <rect id="skin-20-city-a" fill="#334155" opacity="0.78" x="1" y="58" width="24" height="58" />
+  <rect id="skin-20-city-b" fill="#1e293b" opacity="0.78" x="31" y="34" width="32" height="82" />
+  <rect id="skin-20-city-c" fill="#475569" opacity="0.78" x="70" y="67" width="27" height="49" />
+  <rect id="skin-20-city-window-a" fill="#fde68a" opacity="0.95" x="40" y="48" width="6" height="9" />
+  <rect id="skin-20-city-window-b" fill="#fde68a" opacity="0.95" x="77" y="80" width="6" height="9" />
+  <rect id="identity-20-skyline-a" fill="#334155" opacity="0.78" x="9" y="67" width="16" height="43" />
+  <rect id="identity-20-skyline-b" fill="#1e293b" opacity="0.78" x="29" y="50" width="21" height="60" />
+  <rect id="identity-20-skyline-c" fill="#475569" opacity="0.78" x="55" y="72" width="18" height="38" />
+  <rect id="identity-20-skyline-window-a" fill="#fde68a" x="35" y="60" width="4" height="6" />
+  <rect id="identity-20-skyline-window-b" fill="#fde68a" x="61" y="82" width="4" height="6" />
+  <circle id="variant-20-dot" fill="#be123c" opacity="0.72" cx="14" cy="34" r="3" />
+  <line id="variant-20-rule" stroke="#be123c" stroke-width="1.2" opacity="0.58" x1="20" y1="37" x2="36" y2="40" />
+  <rect id="variant-20-chip-01" fill="#6366f1" opacity="0.68" x="10" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-20-chip-02" fill="#8b5cf6" opacity="0.68" x="47" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-20-chip-03" fill="#d946ef" opacity="0.68" x="78" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-20-chip-04" fill="#ec4899" opacity="0.68" x="115" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-20-chip-05" fill="#ef4444" opacity="0.68" x="146" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-20-chip-06" fill="#f97316" opacity="0.68" x="183" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-20-chip-07" fill="#f59e0b" opacity="0.68" x="10" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-20-chip-08" fill="#84cc16" opacity="0.68" x="47" y="141" width="7" height="4" rx="1" />
+  <rect id="variant-20-chip-09" fill="#22c55e" opacity="0.68" x="78" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-20-chip-10" fill="#14b8a6" opacity="0.68" x="115" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-20-chip-11" fill="#06b6d4" opacity="0.68" x="146" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-20-chip-12" fill="#3b82f6" opacity="0.68" x="183" y="140" width="8" height="4" rx="1" />
+  <circle id="variant-20-pin-01" fill="#22c55e" opacity="0.66" cx="28" cy="22" r="1.8" />
+  <circle id="variant-20-pin-02" fill="#14b8a6" opacity="0.66" cx="201" cy="36" r="2.05" />
+  <circle id="variant-20-pin-03" fill="#06b6d4" opacity="0.66" cx="14" cy="50" r="2.3" />
+  <circle id="variant-20-pin-04" fill="#3b82f6" opacity="0.66" cx="211" cy="64" r="2.55" />
+  <circle id="variant-20-pin-05" fill="#6366f1" opacity="0.66" cx="24" cy="78" r="1.8" />
+  <circle id="variant-20-pin-06" fill="#8b5cf6" opacity="0.66" cx="197" cy="92" r="2.05" />
+  <circle id="variant-20-pin-07" fill="#d946ef" opacity="0.66" cx="10" cy="106" r="2.3" />
+  <circle id="variant-20-pin-08" fill="#ec4899" opacity="0.66" cx="207" cy="120" r="2.55" />
+  <rect id="passenger-bag-dup" fill="#a16207" x="114" y="105" width="8" height="7" />
+</svg>

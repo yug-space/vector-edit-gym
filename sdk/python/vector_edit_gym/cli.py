@@ -82,10 +82,10 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
         tasks = tasks[: args.limit]
     print(f"Running {len(tasks)} task(s) through {args.solver}...", file=sys.stderr)
     def progress(i: int, total: int, r):
-        marker = "✓" if r.exact else ("≈" if r.structural else ("·" if r.preservation else "✗"))
+        marker = "PASS" if r.reward else ("EDIT" if r.edit_completion else "FAIL")
         if r.error:
-            marker = "!"
-        print(f"  [{i:>4}/{total}] {r.task_id:<10} {marker} ({r.elapsed_ms:.0f} ms)",
+            marker = "ERR"
+        print(f"  [{i:>4}/{total}] {r.task_id:<10} {marker:<4} ({r.elapsed_ms:.0f} ms)",
               file=sys.stderr)
     out = evaluate(solver, tasks, on_progress=progress)
     print()
@@ -93,9 +93,13 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
     if args.json:
         print()
         print(json.dumps({
+            "binary_reward": out.reward_mean,
             "exact_rate": out.exact_rate,
             "structural_rate": out.structural_rate,
+            "validity_rate": out.validity_rate,
+            "edit_completion": out.edit_completion_mean,
             "preservation_mean": out.preservation_mean,
+            "unintended_change_rate": out.unintended_change_rate,
             "by_difficulty": out.by_difficulty(),
             "by_category": out.by_category(),
         }, indent=2))
@@ -111,9 +115,12 @@ def _cmd_score(args: argparse.Namespace) -> int:
         return 0
 
     print(f"Task: {task.task_id}")
+    print(f"reward:       {report.reward}")
     print(f"exact:        {report.exact}")
     print(f"structural:   {report.structural}")
+    print(f"edit complete:{report.edit_completion:>7.1%}")
     print(f"preservation: {report.preservation:.1%}")
+    print(f"UCR:          {report.unintended_change_rate:.1%}")
     print(f"parse ok:     {report.produced_parse_ok}")
     print()
     print("Expected changes:")

@@ -1,91 +1,188 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+#!/usr/bin/env node
+
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-
-const RUNS = [
-  {
-    name: "Gemini 3 Pro Preview",
-    provider: "Google via LiteLLM",
-    model: "gemini/gemini-3-pro-preview",
-    resultsPath: "runs/litellm/gemini3-flash-vs-pro/gemini-gemini-3-pro-preview/results.jsonl",
-  },
-  {
-    name: "GPT-5.5",
-    provider: "OpenAI",
-    model: "gpt-5.5",
-    resultsPath: "runs/openai/gpt55-fixed/gpt-5.5/results.jsonl",
-  },
-  {
-    name: "Gemini 3 Flash Preview",
-    provider: "Google via LiteLLM",
-    model: "gemini/gemini-3-flash-preview",
-    resultsPath: "runs/litellm/gemini3-flash-vs-pro/gemini-gemini-3-flash-preview/results.jsonl",
-  },
-];
-
-const statusFor = (record) => {
-  if (record.error) return "ERR";
-  if (record.metrics?.exact) return "EXACT";
-  if (record.metrics?.structural) return "STRUCT";
-  if ((record.metrics?.preservation ?? 0) > 0) return "PRES";
-  return "FAIL";
-};
-
-const loadJsonl = (relPath) => {
-  const raw = readFileSync(join(ROOT, relPath), "utf8").trim();
-  if (!raw) return [];
-  return raw.split("\n").map((line) => JSON.parse(line));
-};
-
-const results = {};
-
-for (const run of RUNS) {
-  for (const record of loadJsonl(run.resultsPath)) {
-    const report = record.diff_report ?? {};
-    const expectedChanges = report.expected_changes ?? [];
-    const preserveChecks = report.preserve_checks ?? [];
-    const taskResults = results[record.task_id] ?? [];
-
-    taskResults.push({
-      name: run.name,
-      provider: run.provider,
-      model: run.model,
-      status: statusFor(record),
-      exact: Boolean(record.metrics?.exact),
-      structural: Boolean(record.metrics?.structural),
-      preservation: Number(record.metrics?.preservation ?? 0),
-      expected_changes_passed: expectedChanges.filter((check) => check.passed).length,
-      expected_changes_total: expectedChanges.length,
-      expected_changes: expectedChanges.map((check) => ({
-        part: check.part,
-        attribute: check.attribute,
-        expected_after: check.expected_after,
-        produced: check.produced,
-        passed: Boolean(check.passed),
-      })),
-      unexpected_changed_parts: report.unexpected_changed_parts ?? [],
-      preservation_failures: preserveChecks
-        .filter((check) => !check.passed)
-        .map((check) => check.part),
-      elapsed_ms: Number(record.elapsed_ms ?? 0),
-      error: record.error ?? null,
-      produced_svg: record.produced_svg ?? null,
-    });
-
-    results[record.task_id] = taskResults;
-  }
+const runArg = process.argv[2];
+if (!runArg) throw new Error("usage: node scripts/publish-model-results.mjs RUN_DIRECTORY");
+const runDir = resolve(process.cwd(), runArg);
+const resultsPath = join(runDir, "results.jsonl");
+const summaryPath = join(runDir, "summary.json");
+const metaPath = join(runDir, "meta.json");
+for (const path of [resultsPath, summaryPath, metaPath]) {
+  if (!existsSync(path)) throw new Error(`missing benchmark artifact: ${path}`);
 }
 
-const output = {
-  updated_at: "2026-05-26",
-  note: "Per-task model outputs from published benchmark runs.",
-  runs: RUNS.map(({ name, provider, model }) => ({ name, provider, model })),
-  results,
+const records = readFileSync(resultsPath, "utf8")
+  .split("\n")
+  .filter(Boolean)
+  .map((line) => JSON.parse(line));
+const summaries = JSON.parse(readFileSync(summaryPath, "utf8"));
+const meta = JSON.parse(readFileSync(metaPath, "utf8"));
+if (!/^[a-f0-9]{64}$/.test(meta.corpus_hash ?? "")) {
+  throw new Error("run metadata is missing a valid corpus hash; rescore the run before publishing");
+}
+if (new Set(meta.models.map((model) => model.id)).size !== meta.models.length) {
+  throw new Error("run metadata contains duplicate model IDs");
+}
+if (new Set(meta.task_ids).size !== meta.task_ids.length || meta.task_ids.length !== meta.task_count) {
+  throw new Error("run metadata contains duplicate tasks or an inconsistent task count");
+}
+const expected = meta.models.length * meta.task_count;
+if (records.length !== expected) {
+  throw new Error(`run is incomplete: expected ${expected} records, found ${records.length}`);
+}
+
+const expectedPairs = new Set(
+  meta.models.flatMap((model) => meta.task_ids.map((taskId) => `${model.id}\u0000${taskId}`)),
+);
+const actualPairs = new Set();
+for (const record of records) {
+  const key = `${record.requested_model}\u0000${record.task_id}`;
+  if (!expectedPairs.has(key)) {
+    throw new Error(`unexpected model/task record: ${record.requested_model} / ${record.task_id}`);
+  }
+  if (actualPairs.has(key)) {
+    throw new Error(`duplicate model/task record: ${record.requested_model} / ${record.task_id}`);
+  }
+  actualPairs.add(key);
+}
+const missingPairs = [...expectedPairs].filter((key) => !actualPairs.has(key));
+if (missingPairs.length > 0) {
+  const [model, taskId] = missingPairs[0].split("\u0000");
+  throw new Error(`run is incomplete: missing ${missingPairs.length} pair(s), first is ${model} / ${taskId}`);
+}
+
+const expectedModelIds = new Set(meta.models.map((model) => model.id));
+const summaryModelIds = summaries.map((summary) => summary.id);
+if (
+  summaries.length !== meta.models.length
+  || new Set(summaryModelIds).size !== summaries.length
+  || summaryModelIds.some((id) => !expectedModelIds.has(id))
+  || summaries.some((summary) => summary.n !== meta.task_count)
+) {
+  throw new Error("summary does not match the completed model-task matrix; rescore the run before publishing");
+}
+
+const date = String(meta.created_at).slice(0, 10);
+const leaderboardEntries = summaries.map((summary, index) => ({
+  rank: index + 1,
+  name: summary.name,
+  provider: summary.family,
+  model: summary.id,
+  group: summary.group,
+  reward: Number(summary.binary_reward),
+  exact: Number(summary.exact_rate),
+  structural: Number(summary.structural_rate),
+  validity: Number(summary.validity_rate),
+  edit_completion: Number(summary.edit_completion),
+  preservation: Number(summary.preservation),
+  unintended_change_rate: Number(summary.unintended_change_rate),
+  error_rate: Number(summary.error_rate),
+  mean_elapsed_ms: Number(summary.mean_elapsed_ms ?? summary.mean_latency_ms),
+  cost_usd: Number(summary.cost_usd),
+  tasks_run: Number(summary.n),
+  submitted_by: "Theta Labs",
+  date,
+}));
+
+const perTask = {};
+for (const record of records) {
+  const report = record.diff_report ?? {};
+  const expectedChanges = report.expected_changes ?? [];
+  const preserveChecks = report.preserve_checks ?? [];
+  const item = {
+    name: record.model_name,
+    provider: record.family,
+    model: record.requested_model,
+    resolved_model: record.resolved_model,
+    response_id: record.response_id ?? null,
+    group: record.group,
+    status: record.status,
+    reward: Number(record.reward ?? 0),
+    exact: Boolean(record.exact),
+    structural: Boolean(record.structural),
+    edit_completion: Number(record.edit_completion ?? 0),
+    preservation: Number(record.preservation ?? 0),
+    unintended_change_rate: Number(record.unintended_change_rate ?? 1),
+    expected_changes_passed: expectedChanges.filter((check) => check.passed).length,
+    expected_changes_total: expectedChanges.length,
+    expected_changes: expectedChanges.map((check) => ({
+      part: check.part,
+      attribute: check.attribute,
+      expected_after: check.expected_after,
+      produced: check.produced,
+      passed: Boolean(check.passed),
+    })),
+    unexpected_changed_parts: report.unexpected_changed_parts ?? [],
+    preservation_failures: preserveChecks.filter((check) => !check.passed).map((check) => check.part),
+    elapsed_ms: Number(record.elapsed_ms ?? 0),
+    cost_usd: Number(record.cost_usd ?? 0),
+    prompt_tokens: Number(record.prompt_tokens ?? 0),
+    completion_tokens: Number(record.completion_tokens ?? 0),
+    finish_reason: record.finish_reason ?? null,
+    reasoning_tokens: Number(record.reasoning_tokens ?? 0),
+    max_output_tokens: Number(record.max_output_tokens ?? 0),
+    produced_parse_ok: Boolean(report.produced_parse_ok),
+    error: record.error ?? null,
+    produced_svg: report.produced_parse_ok ? (record.produced_svg ?? null) : null,
+    raw_response: report.produced_parse_ok ? null : (record.raw_response ?? record.produced_svg ?? null),
+  };
+  perTask[record.task_id] = [...(perTask[record.task_id] ?? []), item];
+}
+
+const modelOrder = new Map(leaderboardEntries.map((entry, index) => [entry.model, index]));
+for (const results of Object.values(perTask)) {
+  results.sort((left, right) => (modelOrder.get(left.model) ?? 999) - (modelOrder.get(right.model) ?? 999));
+}
+
+const leaderboard = {
+  updated_at: date,
+  note: "One scored outcome per model-task pair with temperature omitted. Ranked by binary reward, edit completion, lower UCR, then model name.",
+  protocol: meta.protocol,
+  corpus_hash: meta.corpus_hash,
+  run: basename(runDir),
+  entries: leaderboardEntries,
+};
+const modelResults = {
+  updated_at: date,
+  note: "Per-task outputs from the published OpenRouter evaluation. Provider errors are scored as zero and no fallback model is used.",
+  protocol: meta.protocol,
+  corpus_hash: meta.corpus_hash,
+  run: basename(runDir),
+  runs: leaderboardEntries.map(({ name, provider, model, group }) => ({ name, provider, model, group })),
+  results: perTask,
 };
 
-const outPath = join(ROOT, "data", "model-results.json");
-mkdirSync(dirname(outPath), { recursive: true });
-writeFileSync(outPath, `${JSON.stringify(output, null, 2)}\n`);
-console.log(`wrote ${outPath}`);
+const summaryResults = {
+  ...modelResults,
+  note: "Compact per-task diagnostics for the task catalog. Full outputs are stored in model-results.json and model-results/<task-id>.json.",
+  results: Object.fromEntries(
+    Object.entries(perTask).map(([taskId, results]) => [
+      taskId,
+      results.map(({ expected_changes, produced_svg, raw_response, ...summary }) => summary),
+    ]),
+  ),
+};
+
+for (const [name, value] of [
+  ["leaderboard.json", leaderboard],
+  ["model-results.json", modelResults],
+  ["model-results-summary.json", summaryResults],
+]) {
+  const path = join(ROOT, "data", name);
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`);
+  console.log(`wrote ${path}`);
+}
+
+const perTaskDirectory = join(ROOT, "data", "model-results");
+rmSync(perTaskDirectory, { recursive: true, force: true });
+mkdirSync(perTaskDirectory, { recursive: true });
+for (const [taskId, results] of Object.entries(perTask)) {
+  const path = join(perTaskDirectory, `${taskId}.json`);
+  writeFileSync(path, `${JSON.stringify(results, null, 2)}\n`);
+}
+console.log(`wrote ${Object.keys(perTask).length} task result files to ${perTaskDirectory}`);

@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-001"
+description = "The amber signal has gone dark, the train door is sitting too far to the right, and the overhead cable has an awkward sag. Put those three details back in place and leave the rest of the station alone."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
+
+[metadata]
+difficulty = "hard"
+category = "scenic_multi"
+task_id = "sv_001"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

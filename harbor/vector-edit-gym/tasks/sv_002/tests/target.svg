@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#f8fffb" />
+  <rect id="sky" fill="#bfdbfe" x="0" y="0" width="220" height="70" />
+  <rect id="water" fill="#0ea5e9" x="0" y="70" width="220" height="70" />
+  <line id="horizon" stroke="#0284c7" stroke-width="2" x1="0" y1="70" x2="220" y2="70" />
+  <circle id="sun" fill="#fde047" cx="190" cy="22" r="12" />
+  <ellipse id="cloud-left" fill="#f8fafc" cx="36" cy="26" rx="18" ry="7" />
+  <ellipse id="cloud-right" fill="#f8fafc" cx="56" cy="25" rx="14" ry="6" />
+  <rect id="pier-deck" fill="#92400e" x="0" y="88" width="72" height="10" />
+  <path id="rope-coil" fill="none" stroke="#f8fafc" stroke-width="2" d="M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86" />
+  <line id="pier-leg-1" stroke="#451a03" stroke-width="4" x1="16" y1="96" x2="13" y2="132" />
+  <line id="pier-leg-2" stroke="#451a03" stroke-width="4" x1="56" y1="96" x2="60" y2="132" />
+  <polygon id="boat-hull" fill="#0f766e" stroke="#222" stroke-width="1" points="84,84 158,84 146,104 96,104" />
+  <rect id="boat-cabin" fill="#f8fafc" stroke="#222" stroke-width="1" x="106" y="62" width="30" height="20" />
+  <rect id="cabin-window" fill="#93c5fd" stroke="#222" stroke-width="0.8" x="114" y="67" width="14" height="8" />
+  <line id="mast" stroke="#222" stroke-width="3" x1="126" y1="84" x2="126" y2="26" />
+  <polygon id="sail-main" fill="#fef3c7" stroke="#222" stroke-width="1" points="126,30 154,76 126,76" />
+  <polygon id="sail-small" fill="#e0f2fe" stroke="#222" stroke-width="1" points="124,34 100,76 124,76" />
+  <polygon id="flag" fill="#14b8a6" points="126,25 140,29 126,33" />
+  <polygon id="lighthouse-body" fill="#f8fafc" stroke="#222" stroke-width="1" points="176,82 206,82 200,28 182,28" />
+  <rect id="lighthouse-stripe-1" fill="#ef4444" x="181" y="48" width="20" height="7" />
+  <rect id="lighthouse-stripe-2" fill="#ef4444" x="179" y="64" width="24" height="7" />
+  <rect id="lighthouse-cap" fill="#0f172a" x="180" y="22" width="22" height="8" />
+  <rect id="lighthouse-window" fill="#fde047" stroke="#222" stroke-width="0.7" x="188" y="34" width="6" height="8" />
+  <polygon id="light-beam" fill="#fde68a" opacity="0.45" points="180,30 132,18 132,42" />
+  <circle id="buoy-red" fill="#f8fafc" stroke="#222" stroke-width="1" cx="42" cy="112" r="8" />
+  <rect id="buoy-red-stripe" fill="#ef4444" x="35" y="110" width="14" height="4" />
+  <circle id="buoy-green" fill="#f8fafc" stroke="#222" stroke-width="1" cx="184" cy="112" r="7" />
+  <rect id="buoy-green-stripe" fill="#22c55e" x="178" y="110" width="12" height="4" />
+  <polyline id="wave-1" fill="none" stroke="#0ea5e9" stroke-width="2" points="6,122 22,118 38,122 54,118 70,122" />
+  <path id="harbor-wave-long" fill="none" stroke="#0ea5e9" stroke-width="2" d="M82 118 C98 112 112 124 128 118 S158 112 174 118" />
+  <polyline id="wave-2" fill="none" stroke="#0ea5e9" stroke-width="2" points="128,120 146,116 164,120 182,116 200,120" />
+  <rect id="crate-left" fill="#a16207" stroke="#451a03" stroke-width="1" x="12" y="76" width="14" height="12" />
+  <rect id="crate-right" fill="#b45309" stroke="#451a03" stroke-width="1" x="28" y="76" width="14" height="12" />
+  <circle id="skin-02-sun-disc" fill="#fde047" stroke="#f59e0b" stroke-width="3" opacity="0.9" cx="32" cy="28" r="26" />
+  <polyline id="skin-02-sail-flags" fill="none" stroke="#334155" stroke-width="2" opacity="0.9" points="92,14 126,22 160,14 198,24" />
+  <circle id="identity-02-harbor-sun-ring" fill="#fde68a" stroke="#f59e0b" stroke-width="2" opacity="0.95" cx="34" cy="26" r="13" />
+  <line id="identity-02-pennant-line" stroke="#334155" stroke-width="1" x1="116" y1="19" x2="170" y2="28" />
+  <polygon id="identity-02-pennant-a" fill="#ef4444" points="122,20 130,21 125,29" />
+  <polygon id="identity-02-pennant-b" fill="#22c55e" points="142,23 150,24 145,32" />
+  <polygon id="identity-02-pennant-c" fill="#3b82f6" points="160,26 168,27 163,35" />
+  <circle id="variant-02-dot" fill="#14b8a6" opacity="0.72" cx="44" cy="32" r="3" />
+  <line id="variant-02-rule" stroke="#14b8a6" stroke-width="1.2" opacity="0.58" x1="50" y1="35" x2="66" y2="38" />
+  <rect id="variant-02-chip-01" fill="#f59e0b" opacity="0.68" x="10" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-02-chip-02" fill="#84cc16" opacity="0.68" x="47" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-02-chip-03" fill="#22c55e" opacity="0.68" x="78" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-02-chip-04" fill="#14b8a6" opacity="0.68" x="115" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-02-chip-05" fill="#06b6d4" opacity="0.68" x="146" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-02-chip-06" fill="#3b82f6" opacity="0.68" x="183" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-02-chip-07" fill="#6366f1" opacity="0.68" x="10" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-02-chip-08" fill="#8b5cf6" opacity="0.68" x="47" y="141" width="7" height="4" rx="1" />
+  <rect id="variant-02-chip-09" fill="#d946ef" opacity="0.68" x="78" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-02-chip-10" fill="#ec4899" opacity="0.68" x="115" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-02-chip-11" fill="#ef4444" opacity="0.68" x="146" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-02-chip-12" fill="#f97316" opacity="0.68" x="183" y="140" width="8" height="4" rx="1" />
+  <circle id="variant-02-pin-01" fill="#22c55e" opacity="0.66" cx="22" cy="24" r="2.3" />
+  <circle id="variant-02-pin-02" fill="#14b8a6" opacity="0.66" cx="195" cy="38" r="2.55" />
+  <circle id="variant-02-pin-03" fill="#06b6d4" opacity="0.66" cx="8" cy="52" r="1.8" />
+  <circle id="variant-02-pin-04" fill="#3b82f6" opacity="0.66" cx="205" cy="66" r="2.05" />
+  <circle id="variant-02-pin-05" fill="#6366f1" opacity="0.66" cx="18" cy="80" r="2.3" />
+  <circle id="variant-02-pin-06" fill="#8b5cf6" opacity="0.66" cx="191" cy="94" r="2.55" />
+  <circle id="variant-02-pin-07" fill="#d946ef" opacity="0.66" cx="28" cy="108" r="1.8" />
+  <circle id="variant-02-pin-08" fill="#ec4899" opacity="0.66" cx="201" cy="122" r="2.05" />
+</svg>

@@ -6,7 +6,7 @@ Install:
 
 Run:
     vec-edit-gym evaluate vector_edit_gym.examples.claude_solver:solve \
-        --difficulty very_easy --limit 10
+        --difficulty hard --limit 10
 """
 
 from __future__ import annotations

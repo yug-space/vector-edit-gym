@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-019"
+description = "Repair the harbor by turning the main sail around, making the red buoy stripe red again, and placing the cabin window back inside the cabin. Remove the stray pier rope, slim down the mast, neaten the rope coil, and return the green buoy to its proper spot."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "scenic_multi"]
+
+[metadata]
+difficulty = "very_hard"
+category = "scenic_multi"
+task_id = "sv_019"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky06" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7c873" />
+      <stop offset="0.4" stop-color="#f6b06a" />
+      <stop offset="0.7" stop-color="#f0d2a0" />
+      <stop offset="1" stop-color="#fbeccb" />
+    </linearGradient>
+    <radialGradient id="sun06" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffae8" /><stop offset="0.4" stop-color="#fff0c0" /><stop offset="1" stop-color="#ffd98c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="hill06a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9b87a" /><stop offset="1" stop-color="#b8a566" />
+    </linearGradient>
+    <linearGradient id="hill06b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8a35a" /><stop offset="1" stop-color="#8f9648" />
+    </linearGradient>
+    <linearGradient id="hill06c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7e8a3e" /><stop offset="1" stop-color="#637a32" />
+    </linearGradient>
+    <linearGradient id="hill06d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#566a2c" /><stop offset="1" stop-color="#3e5420" />
+    </linearGradient>
+    <filter id="haze06" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky06)" id="download-sv_026-rect-001" />
+  <circle cx="1180" cy="240" r="300" fill="url(#sun06)" id="download-sv_026-circle-001" />
+  <circle cx="1180" cy="240" r="80" fill="#fffbef" id="download-sv_026-circle-002" />
+
+
+  <rect x="0" y="380" width="1600" height="100" fill="#fff0cc" opacity="0.5" filter="url(#haze06)" id="download-sv_026-rect-002" />
+
+
+  <path d="M0 460 Q400 400 800 450 Q1200 500 1600 440 L1600 560 L0 560 Z" fill="url(#hill06a)" opacity="0.7" id="download-sv_026-path-001" />
+  <path d="M0 520 Q300 470 700 510 Q1100 550 1600 500 L1600 640 L0 640 Z" fill="url(#hill06b)" id="download-sv_026-path-002" />
+
+  <path d="M0 600 Q400 540 820 590 Q1200 640 1600 580 L1600 760 L0 760 Z" fill="url(#hill06c)" id="download-sv_026-path-003" />
+
+
+  <g fill="#4a5a26">
+    <ellipse cx="200" cy="500" rx="10" ry="38" id="download-sv_026-ellipse-001" /><ellipse cx="240" cy="498" rx="9" ry="34" id="download-sv_026-ellipse-002" /><ellipse cx="280" cy="502" rx="11" ry="40" id="download-sv_026-ellipse-003" />
+    <ellipse cx="320" cy="500" rx="9" ry="34" id="download-sv_026-ellipse-004" /><ellipse cx="360" cy="504" rx="10" ry="36" id="download-sv_026-ellipse-005" />
+  </g>
+
+
+  <g transform="translate(620 470)">
+    <rect x="0" y="0" width="160" height="100" fill="#e8d5a8" id="download-sv_026-rect-003" />
+    <rect x="160" y="20" width="70" height="80" fill="#d8c294" id="download-sv_026-rect-004" />
+    <polygon points="-8,0 80,-40 168,0" fill="#b8703c" id="download-sv_026-polygon-001" />
+    <polygon points="156,20 195,-6 234,20" fill="#a8602c" id="download-sv_026-polygon-002" />
+    <rect x="20" y="30" width="20" height="28" fill="#6a4a2a" id="download-sv_026-rect-005" /><rect x="60" y="30" width="20" height="28" fill="#6a4a2a" id="download-sv_026-rect-006" /><rect x="100" y="30" width="20" height="28" fill="#6a4a2a" id="download-sv_026-rect-007" />
+    <rect x="55" y="62" width="26" height="38" fill="#5a3a20" id="download-sv_026-rect-008" />
+    <rect x="178" y="40" width="16" height="22" fill="#6a4a2a" id="download-sv_026-rect-009" />
+  </g>
+
+  <g fill="#3e5022">
+    <ellipse cx="600" cy="500" rx="16" ry="80" id="download-sv_026-ellipse-006" /><ellipse cx="810" cy="500" rx="16" ry="80" id="download-sv_026-ellipse-007" />
+  </g>
+
+
+  <path d="M0 720 Q400 660 820 710 Q1200 760 1600 700 L1600 1000 L0 1000 Z" fill="url(#hill06d)" id="download-sv_026-path-004" />
+
+
+  <g stroke="#2e4018" stroke-width="3" opacity="0.85">
+    <path d="M780 720 L120 1000" id="download-sv_026-path-005" /><path d="M800 718 L320 1000" id="download-sv_026-path-006" /><path d="M820 716 L520 1000" id="download-sv_026-path-007" />
+    <path d="M840 716 L720 1000" id="download-sv_026-path-008" /><path d="M860 716 L920 1000" id="download-sv_026-path-009" /><path d="M880 718 L1120 1000" id="download-sv_026-path-010" />
+    <path d="M900 720 L1320 1000" id="download-sv_026-path-011" /><path d="M920 722 L1520 1000" id="download-sv_026-path-012" />
+  </g>
+
+  <g fill="#4a6624" opacity="0.8">
+    <circle cx="300" cy="900" r="10" id="download-sv_026-circle-003" /><circle cx="500" cy="940" r="11" id="download-sv_026-circle-004" /><circle cx="700" cy="960" r="10" id="download-sv_026-circle-005" />
+    <circle cx="900" cy="960" r="11" id="download-sv_026-circle-006" /><circle cx="1100" cy="940" r="10" id="download-sv_026-circle-007" /><circle cx="1300" cy="900" r="11" id="download-sv_026-circle-008" />
+    <circle cx="420" cy="820" r="9" id="download-sv_026-circle-009" /><circle cx="640" cy="840" r="9" id="download-sv_026-circle-010" /><circle cx="960" cy="840" r="9" id="download-sv_026-circle-011" /><circle cx="1180" cy="820" r="9" id="download-sv_026-circle-012" />
+  </g>
+
+
+  <g fill="#33441c">
+    <ellipse cx="120" cy="760" rx="30" ry="160" id="download-sv_026-ellipse-008" />
+    <ellipse cx="1480" cy="780" rx="34" ry="180" id="download-sv_026-ellipse-009" />
+  </g>
+
+
+  <g stroke="#5a4a2a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M880 180 q12 -10 24 0 q12 -10 24 0" id="download-sv_026-path-013" />
+    <path d="M960 220 q10 -8 20 0 q10 -8 20 0" id="download-sv_026-path-014" />
+  </g>
+</svg>

@@ -7,7 +7,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Callable, Iterable, Protocol
 
-from .metrics import exact_match, preservation_score, structural_match
+from .diffing import diff_report
 from .tasks import Task
 
 
@@ -22,9 +22,13 @@ class TaskResult:
     task_id: str
     difficulty: str
     category: str
+    reward: int
     exact: bool
     structural: bool
+    valid: bool
     preservation: float
+    edit_completion: float
+    unintended_change_rate: float
     elapsed_ms: float
     error: str | None = None
     produced: str | None = None  # set when keep_outputs=True
@@ -45,12 +49,28 @@ class EvaluationResult:
         return self._mean(lambda r: 1.0 if r.exact else 0.0)
 
     @property
+    def reward_mean(self) -> float:
+        return self._mean(lambda r: float(r.reward))
+
+    @property
     def structural_rate(self) -> float:
         return self._mean(lambda r: 1.0 if r.structural else 0.0)
 
     @property
+    def validity_rate(self) -> float:
+        return self._mean(lambda r: 1.0 if r.valid else 0.0)
+
+    @property
     def preservation_mean(self) -> float:
         return self._mean(lambda r: r.preservation)
+
+    @property
+    def edit_completion_mean(self) -> float:
+        return self._mean(lambda r: r.edit_completion)
+
+    @property
+    def unintended_change_rate(self) -> float:
+        return self._mean(lambda r: r.unintended_change_rate)
 
     @property
     def error_rate(self) -> float:
@@ -82,9 +102,13 @@ class EvaluationResult:
             n = len(rs)
             out[k] = {
                 "n": n,
+                "reward": sum(r.reward for r in rs) / n,
                 "exact": sum(1 for r in rs if r.exact) / n,
                 "structural": sum(1 for r in rs if r.structural) / n,
+                "validity": sum(1 for r in rs if r.valid) / n,
                 "preservation": sum(r.preservation for r in rs) / n,
+                "edit_completion": sum(r.edit_completion for r in rs) / n,
+                "unintended_change_rate": sum(r.unintended_change_rate for r in rs) / n,
                 "errors": sum(1 for r in rs if r.error) / n,
             }
         return out
@@ -93,22 +117,26 @@ class EvaluationResult:
 
     def summary(self) -> str:
         lines = [
-            f"VectorEditGym — {self.n} tasks",
+            f"VectorEditGym - {self.n} tasks",
+            f"  binary reward:      {self.reward_mean:.1%}",
             f"  exact-match:        {self.exact_rate:.1%}",
             f"  structural-match:   {self.structural_rate:.1%}",
+            f"  valid SVG:          {self.validity_rate:.1%}",
+            f"  edit completion:    {self.edit_completion_mean:.1%}",
             f"  preservation (avg): {self.preservation_mean:.1%}",
+            f"  unintended changes: {self.unintended_change_rate:.1%}",
             f"  errors:             {self.error_rate:.1%}",
             f"  mean latency:       {self.mean_latency_ms:.0f} ms",
             "",
             "By difficulty:",
         ]
         by_diff = self.by_difficulty()
-        for k in ("very_easy", "easy", "medium", "hard", "very_hard"):
+        for k in ("hard", "very_hard"):
             if k not in by_diff:
                 continue
             b = by_diff[k]
             lines.append(
-                f"  {k:<11} n={int(b['n']):<4} exact={b['exact']:.1%}  struct={b['structural']:.1%}  preserve={b['preservation']:.1%}"
+                f"  {k:<11} n={int(b['n']):<4} reward={b['reward']:.1%}  edit={b['edit_completion']:.1%}  ucr={b['unintended_change_rate']:.1%}"
             )
         return "\n".join(lines)
 
@@ -149,21 +177,30 @@ def evaluate(
                 task_id=task.task_id,
                 difficulty=task.difficulty,
                 category=task.category,
+                reward=0,
                 exact=False,
                 structural=False,
+                valid=False,
                 preservation=0.0,
+                edit_completion=0.0,
+                unintended_change_rate=1.0,
                 elapsed_ms=elapsed_ms,
                 error=err or "solver returned None",
                 produced=None,
             )
         else:
+            report = diff_report(task, produced)
             tr = TaskResult(
                 task_id=task.task_id,
                 difficulty=task.difficulty,
                 category=task.category,
-                exact=exact_match(produced, task.target_svg),
-                structural=structural_match(produced, task.target_svg),
-                preservation=preservation_score(produced, task.target_svg, task.should_preserve),
+                reward=report.reward,
+                exact=report.exact,
+                structural=report.structural,
+                valid=report.produced_parse_ok,
+                preservation=report.preservation,
+                edit_completion=report.edit_completion,
+                unintended_change_rate=report.unintended_change_rate,
                 elapsed_ms=elapsed_ms,
                 error=None,
                 produced=produced if keep_outputs else None,

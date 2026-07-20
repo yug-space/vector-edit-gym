@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "VectorEditGym: a benchmark for SVG icon editing with exact-change ground truth.",
+  "description": "VectorEditGym: a preservation-aware benchmark for human-described SVG repair.",
   "dependencies": {
     "next": "16.2.6"
   },
@@ -11,24 +11,15 @@
     "postcss": "8.5.15"
   },
   "scripts": {
-    "generate:ve": "node scripts/generate-very-easy.mjs",
-    "generate:easy": "node scripts/generate-easy.mjs",
-    "generate:medium": "node scripts/generate-medium.mjs",
-    "generate:hard": "node scripts/generate-hard.mjs",
-    "generate:very-hard": "node scripts/generate-very-hard.mjs",
-    "generate:authored": "node scripts/author-all.mjs && node scripts/build-index.mjs",
-    "generate:authored:v2": "node scripts/author-all.mjs --prompt-version v2 && python3 scripts/import-scenic-downloads.py && python3 scripts/mix-v2-tasks.py && node scripts/build-index.mjs --tasks-dir data/tasks_v2",
-    "generate:all": "npm run generate:authored",
-    "build:index": "node scripts/build-index.mjs",
-    "scrape:icons": "node scripts/scrape-icons.mjs",
+    "corpus:verify": "node scripts/humanize-instructions.mjs",
+    "test:sdk": ".venv/bin/python -m pytest sdk/python/tests -q",
+    "benchmark:dry-run": ".venv/bin/python scripts/benchmark-openrouter.py --dry-run",
+    "benchmark:rescore": ".venv/bin/python scripts/rescore-results.py",
     "publish:model-results": "node scripts/publish-model-results.mjs",
-    "engine:sync": "cp scripts/lib/{icon-render,icon-edits,icon-catalog,icon-scenes,corruptions}.mjs viewer/lib/engine/",
-    "viewer:dev": "npm run engine:sync && npm --prefix viewer run dev",
-    "viewer:build": "npm --prefix viewer run build",
+    "viewer:prepare": "node scripts/prepare-viewer-data.mjs",
+    "viewer:dev": "npm run viewer:prepare && npm --prefix viewer run dev",
+    "viewer:build": "npm run viewer:prepare && npm --prefix viewer run build",
     "viewer:start": "npm --prefix viewer start",
-    "build:all": "npm run scrape:icons && npm run generate:authored",
-    "generate:harbor": "node scripts/generate-harbor.mjs",
-    "test:harbor:oracle": "harbor run -p harbor/vector-edit-gym/tasks -a oracle -e docker --yes -n 12",
-    "test:harbor:noop": "harbor run -p harbor/vector-edit-gym/tasks -a nop -e docker --yes -n 12"
+    "generate:harbor": "node scripts/generate-harbor.mjs"
   }
 }

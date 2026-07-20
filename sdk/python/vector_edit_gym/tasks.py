@@ -14,8 +14,7 @@ from typing import Any, Iterable, Optional
 # The benchmark repo layout:  <repo>/sdk/python/vector_edit_gym/tasks.py
 #                            and  <repo>/data/tasks/*.json
 def _default_data_dir() -> Path:
-    # Env var wins so callers can point at data/tasks_legacy/ or any other
-    # corpus without editing code.
+    # The environment variable lets callers point at a packaged corpus.
     env = os.environ.get("VECTOR_EDIT_GYM_DATA")
     if env:
         return Path(env)
@@ -44,10 +43,6 @@ class Task:
     expected_diff: list[dict] = field(default_factory=list)
     should_preserve: list[str] = field(default_factory=list)
     display_order: Optional[int] = None
-    # Optional structured authoring data (present on tasks created via the
-    # authoring UI; absent on legacy auto-generated ones).
-    draft: Optional[dict] = None
-
     @classmethod
     def from_json(cls, raw: dict) -> "Task":
         return cls(
@@ -63,21 +58,23 @@ class Task:
             expected_diff=raw.get("expected_diff", []),
             should_preserve=raw.get("should_preserve", []),
             display_order=raw.get("display_order"),
-            draft=raw.get("draft"),
         )
 
 
 # --------------------------------------------------------------------------
 
 _DIFFICULTY_ORDER = {
-    "very_easy": 0, "easy": 1, "medium": 2, "hard": 3, "very_hard": 4,
+    "hard": 0,
+    "very_hard": 1,
 }
 
-_TASK_FILE_RE = re.compile(r"^[a-z]+_\d+\.json$")
+_TASK_FILE_RE = re.compile(r"^sv_\d{3}\.json$")
 
 
 def load_task(task_id: str, *, data_dir: Optional[Path] = None) -> Task:
-    """Load one task by id (e.g. 've_001')."""
+    """Load one frozen task by ID (for example, ``sv_001``)."""
+    if not re.fullmatch(r"sv_\d{3}", task_id):
+        raise ValueError(f"invalid task ID: {task_id}")
     d = Path(data_dir) if data_dir else _default_data_dir()
     path = d / f"{task_id}.json"
     if not path.is_file():

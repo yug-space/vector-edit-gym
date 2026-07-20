@@ -1,1 +1,0 @@
-hull,mast,sail,flag,wave-1,wave-2,sun

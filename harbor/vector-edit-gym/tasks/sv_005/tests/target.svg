@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#f7fff9" />
+  <rect id="back-wall" fill="#ffedd5" x="0" y="0" width="220" height="82" />
+  <rect id="street" fill="#dbeafe" x="0" y="82" width="220" height="58" />
+  <rect id="left-stall-counter" fill="#92400e" stroke="#451a03" stroke-width="1" x="18" y="76" width="74" height="34" />
+  <rect id="left-awning-base" fill="#f8fafc" stroke="#222" stroke-width="1" x="14" y="42" width="82" height="18" />
+  <rect id="left-awning-red-1" fill="#dc2626" x="14" y="42" width="14" height="18" />
+  <rect id="left-awning-red-2" fill="#dc2626" x="42" y="42" width="14" height="18" />
+  <rect id="left-awning-red-3" fill="#dc2626" x="70" y="42" width="14" height="18" />
+  <path id="left-awning-scallop" fill="none" stroke="#222" stroke-width="1" d="M14 60 C22 68 30 52 38 60 S54 68 62 60 S78 52 86 60 S94 68 96 60" />
+  <line id="left-post" stroke="#451a03" stroke-width="3" x1="22" y1="60" x2="22" y2="118" />
+  <line id="left-post-right" stroke="#451a03" stroke-width="3" x1="88" y1="60" x2="88" y2="118" />
+  <rect id="right-stall-counter" fill="#92400e" stroke="#451a03" stroke-width="1" x="128" y="78" width="72" height="32" />
+  <rect id="right-awning-base" fill="#f8fafc" stroke="#222" stroke-width="1" x="124" y="44" width="80" height="18" />
+  <rect id="right-awning-blue-1" fill="#2563eb" x="124" y="44" width="16" height="18" />
+  <rect id="right-awning-blue-2" fill="#2563eb" x="156" y="44" width="16" height="18" />
+  <rect id="right-awning-blue-3" fill="#2563eb" x="188" y="44" width="16" height="18" />
+  <line id="right-post-left" stroke="#451a03" stroke-width="3" x1="134" y1="62" x2="134" y2="118" />
+  <line id="right-post-right" stroke="#451a03" stroke-width="3" x1="196" y1="62" x2="196" y2="118" />
+  <circle id="apple-1" fill="#dc2626" cx="34" cy="72" r="5" />
+  <circle id="apple-2" fill="#dc2626" cx="48" cy="70" r="5" />
+  <circle id="apple-3" fill="#dc2626" cx="62" cy="72" r="5" />
+  <ellipse id="pear-1" fill="#a3e635" cx="148" cy="72" rx="5" ry="7" />
+  <ellipse id="pear-2" fill="#a3e635" cx="164" cy="70" rx="5" ry="7" />
+  <ellipse id="pear-3" fill="#a3e635" cx="180" cy="72" rx="5" ry="7" />
+  <rect id="crate-apples" fill="#a16207" stroke="#451a03" stroke-width="1" x="28" y="76" width="44" height="12" />
+  <rect id="crate-pears" fill="#a16207" stroke="#451a03" stroke-width="1" x="140" y="76" width="48" height="12" />
+  <rect id="hanging-sign" fill="#fef3c7" stroke="#222" stroke-width="1" x="92" y="18" width="36" height="18" />
+  <line id="sign-pin-left" stroke="#222" stroke-width="1" x1="100" y1="18" x2="100" y2="8" />
+  <line id="sign-pin-right" stroke="#222" stroke-width="1" x1="120" y1="18" x2="120" y2="8" />
+  <circle id="lamp" fill="#fde047" stroke="#222" stroke-width="1" cx="110" cy="10" r="5" />
+  <polyline id="bike-frame" fill="none" stroke="#334155" stroke-width="2" points="84,114 104,96 122,114 96,114 104,96" />
+  <path id="bike-handlebar" fill="none" stroke="#334155" stroke-width="2" d="M122 96 C130 88 136 92 136 98" />
+  <circle id="bike-wheel-left" fill="none" stroke="#334155" stroke-width="2" cx="84" cy="114" r="10" />
+  <circle id="bike-wheel-right" fill="none" stroke="#334155" stroke-width="2" cx="122" cy="114" r="10" />
+  <circle id="shopper-head" fill="#f2c078" cx="112" cy="78" r="4" />
+  <rect id="shopper-body" fill="#16a34a" x="108" y="82" width="8" height="18" />
+  <rect id="shopper-bag" fill="#f59e0b" x="118" y="94" width="8" height="10" />
+  <circle id="skin-05-balloon-big-a" fill="#ef4444" stroke="#7f1d1d" stroke-width="2" opacity="0.92" cx="126" cy="24" r="17" />
+  <circle id="skin-05-balloon-big-b" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" opacity="0.92" cx="151" cy="17" r="15" />
+  <circle id="skin-05-balloon-big-c" fill="#fde047" stroke="#854d0e" stroke-width="2" opacity="0.92" cx="176" cy="29" r="16" />
+  <circle id="identity-05-balloon-red" fill="#ef4444" stroke="#7f1d1d" stroke-width="1" cx="128" cy="18" r="9" />
+  <circle id="identity-05-balloon-blue" fill="#3b82f6" stroke="#1e3a8a" stroke-width="1" cx="143" cy="13" r="8" />
+  <circle id="identity-05-balloon-yellow" fill="#fde047" stroke="#854d0e" stroke-width="1" cx="157" cy="20" r="8" />
+  <polyline id="identity-05-balloon-strings" fill="none" stroke="#475569" stroke-width="1" points="128,27 134,44 143,21 138,45 157,28 143,45" />
+  <circle id="variant-05-dot" fill="#22c55e" opacity="0.72" cx="47" cy="37" r="3" />
+  <line id="variant-05-rule" stroke="#22c55e" stroke-width="1.2" opacity="0.58" x1="53" y1="40" x2="69" y2="38" />
+  <rect id="variant-05-chip-01" fill="#14b8a6" opacity="0.68" x="13" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-05-chip-02" fill="#06b6d4" opacity="0.68" x="44" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-05-chip-03" fill="#3b82f6" opacity="0.68" x="81" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-05-chip-04" fill="#6366f1" opacity="0.68" x="112" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-05-chip-05" fill="#8b5cf6" opacity="0.68" x="149" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-05-chip-06" fill="#d946ef" opacity="0.68" x="180" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-05-chip-07" fill="#ec4899" opacity="0.68" x="13" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-05-chip-08" fill="#ef4444" opacity="0.68" x="44" y="141" width="7" height="4" rx="1" />
+  <rect id="variant-05-chip-09" fill="#f97316" opacity="0.68" x="81" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-05-chip-10" fill="#f59e0b" opacity="0.68" x="112" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-05-chip-11" fill="#84cc16" opacity="0.68" x="149" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-05-chip-12" fill="#22c55e" opacity="0.68" x="180" y="140" width="8" height="4" rx="1" />
+  <circle id="variant-05-pin-01" fill="#d946ef" opacity="0.66" cx="19" cy="22" r="2.05" />
+  <circle id="variant-05-pin-02" fill="#ec4899" opacity="0.66" cx="204" cy="36" r="2.3" />
+  <circle id="variant-05-pin-03" fill="#ef4444" opacity="0.66" cx="29" cy="50" r="2.55" />
+  <circle id="variant-05-pin-04" fill="#f97316" opacity="0.66" cx="190" cy="64" r="1.8" />
+  <circle id="variant-05-pin-05" fill="#f59e0b" opacity="0.66" cx="15" cy="78" r="2.05" />
+  <circle id="variant-05-pin-06" fill="#84cc16" opacity="0.66" cx="200" cy="92" r="2.3" />
+  <circle id="variant-05-pin-07" fill="#22c55e" opacity="0.66" cx="25" cy="106" r="2.55" />
+  <circle id="variant-05-pin-08" fill="#14b8a6" opacity="0.66" cx="210" cy="120" r="1.8" />
+</svg>

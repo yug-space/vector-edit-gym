@@ -1,113 +1,90 @@
-# vector-edit-gym (Python SDK)
+# vector-edit-gym Python SDK
 
-Run the VectorEditGym benchmark from Python.
-
-Each task is one corrupted SVG (missing part / extra mark / displaced piece / wrong color / clipped viewBox) plus a natural-language fix instruction. A solver maps `Task -> str` (the fixed SVG). The SDK scores produced SVGs against the ground-truth target using three metrics: exact-match, structural-match (tag/attr equivalence), and preservation-score (fraction of `should_preserve` parts left untouched).
+The SDK loads the frozen 40-task corpus, evaluates solver-produced SVGs, and emits object-level diff reports.
 
 ## Install
 
-From the repo root:
+From the repository root:
 
 ```sh
-pip install -e sdk/python              # core
-pip install -e 'sdk/python[openai]'    # OpenAI SDK examples
-pip install -e 'sdk/python[litellm]'   # LiteLLM OpenAI-compatible proxy runner
-pip install -e 'sdk/python[anthropic]' # Anthropic SDK example
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e 'sdk/python[test]'
 ```
 
-The SDK auto-discovers `data/tasks/` by walking up from the install location. To point at a different dataset:
+Optional dependency groups:
 
 ```sh
-export VECTOR_EDIT_GYM_DATA=/abs/path/to/data/tasks
+python -m pip install -e 'sdk/python[openai]'
+python -m pip install -e 'sdk/python[anthropic]'
+python -m pip install -e 'sdk/python[litellm]'
+python -m pip install -e 'sdk/python[analysis]'
 ```
 
-## Quick start (Python)
+The package discovers `data/tasks/` from the repository. Override it with `VECTOR_EDIT_GYM_DATA=/absolute/path/to/tasks`.
+
+## Python API
 
 ```python
-from vector_edit_gym import load_tasks, evaluate
+from vector_edit_gym import evaluate, load_tasks
 
-def my_solver(task) -> str:
-    # Trivial: do nothing.
-    return task.initial_svg
+def solve(task) -> str:
+    # Use only task.instruction and task.initial_svg in a benchmark submission.
+    return call_your_model(task.instruction, task.initial_svg)
 
-tasks = load_tasks(difficulty="very_easy")
-result = evaluate(my_solver, tasks)
+result = evaluate(solve, load_tasks())
 print(result.summary())
+print(result.reward_mean)
+print(result.edit_completion_mean)
+print(result.unintended_change_rate)
+print(result.validity_rate)
 ```
 
-## CLI
-
-```sh
-vec-edit-gym list                                       # all tasks
-vec-edit-gym list --difficulty easy --category missing_part
-vec-edit-gym show ve_001                                # task as JSON
-vec-edit-gym show ve_001 --field initial_svg            # just the SVG
-
-# Run a solver (spec = module:function OR path/to/file.py:function)
-vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve
-vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve  # 100% exact
-vec-edit-gym evaluate ./my_solver.py:fix --limit 20
-vec-edit-gym score ea_001 produced.svg --json
-
-# With the Claude reference solver:
-export ANTHROPIC_API_KEY=...
-vec-edit-gym evaluate vector_edit_gym.examples.claude_solver:solve --difficulty very_easy --limit 5
-
-# With a LiteLLM OpenAI-compatible proxy:
-export LITELLM_API_KEY="..."
-export LITELLM_BASE_URL="https://your-litellm-proxy"
-VEG_LITELLM_MODEL=gpt-5-mini \
-  vec-edit-gym evaluate vector_edit_gym.examples.litellm_solver:solve --limit 5
-
-# Full multi-model benchmark with per-task diff reports:
-python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini
-```
-
-## The Task object
+`Task` includes the public input and private evaluator fields:
 
 ```python
-@dataclass
-class Task:
-    task_id: str            # e.g. "ve_001"
-    difficulty: str         # very_easy | easy | medium | hard | very_hard
-    category: str           # e.g. "missing_part", "wrong_color"
-    instruction: str        # natural-language fix request
-    initial_svg: str        # corrupted SVG
-    target_svg: str         # the correct fix
-    parts: list[str]        # every element id in the scene
-    target_parts: list[str] # ids that must change (the things to fix)
-    expected_diff: list[dict]   # structured diff: [{part, attribute, before, after}, ...]
-    should_preserve: list[str]  # ids that must be byte-identical between produced and target
-    draft: dict | None      # the structured authoring data (when present)
+Task(
+    task_id="sv_001",
+    difficulty="hard",
+    category="scenic_multi",
+    instruction="...human visual request...",
+    initial_svg="<svg>...</svg>",
+    target_svg="<svg>...</svg>",
+    target_parts=[...],
+    expected_diff=[...],
+    should_preserve=[...],
+)
 ```
 
 ## Metrics
 
-- **exact_match** — string-equal to the target (whitespace-normalized).
-- **structural_match** — element tree matches after parsing (tag / attrs / nesting), ignores formatting differences.
-- **preservation_score** — fraction of `should_preserve` element ids whose subtrees are byte-identical between the produced and target SVGs.
+- `reward`: integer `1` only for canonical target equivalence; otherwise `0`
+- `exact`: source equality after whitespace normalization
+- `structural`: canonical element-tree equality
+- `edit_completion`: fraction of private expected repairs passed
+- `preservation`: fraction of protected object subtrees unchanged
+- `unintended_change_rate`: fraction of protected object subtrees changed
+- `produced_parse_ok`: output XML validity
 
-## Aggregates
+Canonical comparison normalizes attribute ordering, namespaces, numeric spellings, path/list separators, and common equivalent CSS color spellings. Semantic SVG program changes remain strict.
 
-```python
-result.exact_rate              # float
-result.structural_rate         # float
-result.preservation_mean       # float
-result.error_rate              # solver-raised exceptions
-result.mean_latency_ms         # solver wall time
-result.by_difficulty()         # {tier: {n, exact, structural, preservation, errors}}
-result.by_category()
-```
-
-## Diff reports
-
-Use `vec-edit-gym score` for one produced SVG, or `scripts/benchmark-litellm.py` for full runs. The report includes exact/structural/preservation metrics, every expected change from `expected_diff`, and preserve-part failures.
+## CLI
 
 ```sh
-vec-edit-gym show ea_001 --field target_svg > /tmp/ea_001.svg
-vec-edit-gym score ea_001 /tmp/ea_001.svg
+vec-edit-gym list
+vec-edit-gym show sv_001
+vec-edit-gym show sv_001 --field initial_svg
+vec-edit-gym score sv_001 produced.svg
+vec-edit-gym score sv_001 produced.svg --json
+vec-edit-gym evaluate ./my_solver.py:solve --limit 5 --json
 ```
 
-## Writing your own solver
+The score report lists every requested-edit check, preservation failure, unexpected element, document-level mismatch, binary reward, edit completion, and UCR.
 
-A solver is any callable `(Task) -> str`. Inspect `task.instruction` and `task.initial_svg`; return the fixed SVG. See `vector_edit_gym/examples/claude_solver.py` for a Claude-API reference and `noop_solver.py` / `oracle_solver.py` for the floor/ceiling baselines.
+## Tests
+
+```sh
+python -m pytest sdk/python/tests -q
+```
+
+Tests cover canonical formatting equivalence, target success, unchanged-output failure, malformed SVG, protected-object deletion, and unknown-element insertion.

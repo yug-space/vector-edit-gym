@@ -1,139 +1,178 @@
 # VectorEditGym
 
-A benchmark that tests whether AI agents can edit SVG icons exactly as instructed without accidentally changing other parts.
+VectorEditGym evaluates whether a model can repair visible defects in an SVG without changing the rest of the vector program.
 
-Live viewer: https://svg-rl-env.vercel.app
+- Website: https://svg-rl-env.vercel.app
+- Paper: https://svg-rl-env.vercel.app/vectoreditgym-paper.pdf
+- Results submission: `yug@thetalab.tech`
 
-Each task has:
+The frozen release contains 40 dense repair tasks and 202 annotated edits. Instructions sound like human visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
 
-- `initial_svg` — the icon before editing
-- `instruction` — the natural-language edit request
-- `target_svg` — the correct result
-- `expected_diff` — list of `{part, attribute, before, after}` entries that should change
-- `should_preserve` — list of parts that must not change
+## Evaluation Contract
 
-## What's a task
+Each task contains:
 
-Each task is **one corrupted SVG icon** plus a **natural-language fix instruction**. The corruption is one of: missing part, extra mark, displaced piece, wrong color, wrong stroke-width, wrong scale, clipped viewBox, flipped part, duplicate part, company-logo repair, or a multi-corruption combo. The active 106-task curriculum is curated in `scripts/author-all.mjs` as one named task function per task so every prompt can be reviewed directly.
+- `instruction`: the public visual repair request
+- `initial_svg`: the corrupted SVG shown to the model
+- `target_svg`: the hidden canonical repair
+- `expected_diff`: private object-attribute checks for diagnostic scoring
+- `should_preserve`: private object IDs that must remain unchanged
 
-```jsonc
-{
-  "task_id": "ea_001",
-  "difficulty": "easy",
-  "category": "wrong_color",
-  "instruction": "The academic cap picked up a red accent. Put it back as a plain black outline.",
-  "initial_svg": "<svg ...>…corrupted…</svg>",
-  "target_svg":  "<svg ...>…clean…</svg>",
-  "expected_diff": [{ "part": "icon", "attribute": "color", "before": "#e63946", "after": "#222" }],
-  "should_preserve": []
-}
+The primary reward is binary:
+
+```text
+reward = 1 only when the output parses and its canonical SVG tree equals the target
+reward = 0 otherwise
 ```
 
-## Quick start
+Canonical comparison accepts representation-only differences such as attribute order, numeric spelling, path separators, namespace-prefix spelling, and common equivalent color spellings. It does not accept changed geometry, paint, IDs, element order, nesting, or anonymous definitions.
+
+Diagnostic metrics explain zero-reward outputs:
+
+- `edit_completion`: fraction of requested repairs completed
+- `preservation`: fraction of protected object subtrees unchanged
+- `unintended_change_rate`: `1 - preservation`
+- `valid`: whether the output is parseable SVG/XML
+
+## Setup
+
+Use a virtual environment. This avoids the macOS/Homebrew `externally-managed-environment` error from PEP 668.
 
 ```sh
-# 1. Scrape the real icon catalog (Heroicons, Feather, Iconify) — one-time
-npm run scrape:icons
-
-# 2. Regenerate the curated 106-task curriculum
-npm run generate:authored
-npm run generate:authored:v2   # optional: 40-task scenic v2 corpus in data/tasks_v2
-
-# 3. Run the viewer + authoring UI
-cd viewer && npm install && npm run dev
-# open http://localhost:3000           — browse tasks
-# open http://localhost:3000/author    — author a new task (live preview, save to disk)
-# open http://localhost:3000/icons     — browse the 955-icon catalog
-
-# 4. Install and use the Python SDK
-pip install -e sdk/python
-vec-edit-gym list
-vec-edit-gym score ea_001 produced.svg --json                        # one-task diff report
-python scripts/benchmark-litellm.py --models gpt-5 gpt-5-mini        # LiteLLM multi-model run
-python scripts/benchmark-litellm.py --models gemini/gemini-3-flash-preview --data-dir data/tasks_v2 --prompt-version v2
-XAI_API_KEY=... python scripts/benchmark-litellm.py --models grok-4.3 --base-url https://api.x.ai/v1 --api-key-env XAI_API_KEY --data-dir data/tasks_v2 --prompt-version v2
-npm run publish:model-results                                        # publish per-task model outputs to viewer
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e 'sdk/python[test,litellm,analysis]'
+npm --prefix viewer install
 ```
 
-`data/tasks_v2/` is a mixed 40-task scenic repair corpus. Each task gives the model a disturbed SVG as `initial_svg` and scores it against the clean original in `target_svg`; the set combines curated scenes with SVGs imported from `data/scenic_svgs/`. It is intentionally separate from `data/tasks/` so v1 leaderboard artifacts remain comparable. The v2 prompt is just the task sentence plus a short exact patch list; pass `--expose-expected-diff` only for metadata-heavy smoke checks.
+Verify the frozen corpus and evaluator:
 
-Previous v2 xAI check before the 40-task scenic refresh: `grok-4.3` scored 85.0% exact, 85.0% structural, 100.0% preservation, and 85.9% expected-change pass rate (`runs/litellm/v2-diverse-hard-final-xai-grok-4-3-20260531`). That result is stale for the current corpus; re-run model results before comparing current tasks. The proxy did not expose xAI models; run xAI directly only with an authorized `XAI_API_KEY`.
+```sh
+npm run corpus:verify
+npm run test:sdk
+vec-edit-gym list
+vec-edit-gym score sv_001 path/to/output.svg --json
+```
 
-## Deployment
+The corpus check must print this non-instruction hash:
 
-The hosted viewer is deployed on Vercel as project `yug-guptas-projects/svg-rl-env`. Deploy from the repository root so the Next app and `data/` directory are uploaded together:
+```text
+2a62410b5de7383030c1a8b77d5d4d416e6be8efd11dc7322393a04f54e464d1
+```
+
+## Run the Benchmark
+
+Credentials are read only from the process environment. Do not place API keys in source files, commands committed to shell scripts, or result JSON.
+
+```sh
+export OPENROUTER_API_KEY='...'
+
+# Validate the 30-model manifest and estimate catalog cost.
+python scripts/benchmark-openrouter.py --dry-run
+
+# Smoke test one model and task.
+python scripts/benchmark-openrouter.py \
+  --models google/gemini-3.1-flash-lite-preview \
+  --task-ids sv_001 \
+  --run-name smoke
+
+# Reproducible 30 x 40 study with a hard budget guard.
+python scripts/benchmark-openrouter.py \
+  --manifest benchmarks/openrouter-30.json \
+  --budget-usd 25 \
+  --concurrency 20 \
+  --run-name openrouter-30-human
+```
+
+Runs are resumable. Records are stored under `runs/openrouter/<run-name>/`:
+
+- `meta.json`: prompt protocol, selected tasks/models, budget, and hidden fields
+- `results.jsonl`: one scored outcome, SVG or error, diff report, usage, and cost per model/task
+- `summary.json` and `summary.md`: model aggregates
+- `cost.json`: recorded spend and cap
+
+`runs/` is intentionally ignored by Git. Publish a completed run into the tracked website data with:
+
+```sh
+python scripts/rescore-results.py runs/openrouter/openrouter-30-human
+node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
+```
+
+The rescorer atomically applies the repository's current evaluator to the recorded responses. The exporter refuses incomplete or duplicated model-task matrices.
+
+## Analysis and Paper
+
+Generate all statistics, bootstrap confidence intervals, tables, and figures from the same JSONL:
+
+```sh
+python scripts/analyze-results.py runs/openrouter/openrouter-30-human
+```
+
+Compile and inspect the arXiv preprint:
+
+```sh
+mkdir -p output/pdf tmp/pdfs
+tectonic --keep-logs --keep-intermediates --outdir tmp/pdfs paper/main.tex
+cp tmp/pdfs/main.pdf output/pdf/vectoreditgym-paper.pdf
+pdftoppm -png -r 150 output/pdf/vectoreditgym-paper.pdf tmp/pdfs/page
+```
+
+Generated paper numbers live in `paper/generated/`; figures live in `paper/figures/`. The manuscript contains no hand-entered benchmark result values.
+
+## Website
+
+```sh
+npm run viewer:build
+npm run viewer:dev
+```
+
+The viewer publishes:
+
+- a top-ten chart and full 30-model table
+- the 40-task catalog
+- corrupted and target SVGs
+- every model-produced SVG
+- expected-edit checks, preservation failures, UCR, scheduled elapsed time, tokens, and cost
+- requested/resolved endpoint IDs, response IDs, parse failures, and raw non-SVG responses
+- the paper PDF and aggregate analysis figures
+
+Production deployment uses the Vercel project `yug-guptas-projects/svg-rl-env`:
 
 ```sh
 vercel deploy --prod
 ```
 
-The Vercel build runs `scripts/prepare-viewer-data.mjs` first, copying `data/` into `viewer/data/` so the serverless viewer can read the task and icon files at runtime.
+## Harbor
 
-Current production alias: https://svg-rl-env.vercel.app
+Generate standalone Harbor tasks:
 
-## Published Results
-
-Latest runs on the active 106-task curriculum, published in `data/leaderboard.json` for the viewer:
-
-| Model | Exact | Structural | Preservation | Expected changes | Errors | Mean latency |
-|-------|------:|-----------:|-------------:|-----------------:|-------:|-------------:|
-| `gemini/gemini-3-pro-preview` | 29.2% | 29.2% | 98.1% | 40.8% | 0.0% | 9952 ms |
-| `gpt-5.5` | 25.5% | 26.4% | 97.9% | 37.4% | 0.0% | 9079 ms |
-| `gemini/gemini-3-flash-preview` | 23.6% | 23.6% | 95.4% | 39.1% | 0.0% | 2900 ms |
-
-Submit leaderboard results to `yug@thetalab.tech`.
-
-Per-task model outputs are published in `data/model-results.json` and rendered on `/tasks` and `/tasks/[id]`.
-
-## Authoring
-
-The curated benchmark is authored in `scripts/author-all.mjs`. Each of the 106 active tasks has its own function, unique instruction text, and explicit corruption setup. The `/author` page is still useful for previewing or experimenting with new tasks before promoting them into the curated script.
-
-## Curriculum (106 tasks)
-
-| Difficulty | Tasks | Notes |
-|------------|-------|-------|
-| Easy       | 25    | Single real-icon repairs: color, line weight, scale, and clipping |
-| Medium     | 35    | Composite-scene repairs: missing, extra, displaced, recolored, duplicated, flipped, and multi-repair |
-| Hard       | 26    | Multi-issue real-icon repairs plus six company-logo repair tasks from bundled Feather brand SVGs |
-| Very Hard  | 20    | Contextual creation steps that add one missing scene element |
-
-The older generated tasks remain in `data/tasks_legacy/` as a reference.
-
-## Layout
-
-```
-data/
-  tasks/             hand-authored task JSON files (one per task)
-  tasks_legacy/      retired auto-generated batch (kept for reference)
-  icons/             scraped real-world SVG icons (Heroicons, Feather, Iconify)
-scripts/
-  scrape-icons.mjs   icon catalog scraper
-  lib/               rendering + corruption + edit operations
-                     used by both the viewer's API routes and any future bulk tooling
-sdk/python/          Python SDK + CLI (`pip install -e .` → `vec-edit-gym`)
-viewer/              Next.js 16 app
-  app/               /, /tasks/[id], /icons, /author, /api/author/*
-  engine-lib         symlink to scripts/lib (so Next routes can import the engine)
+```sh
+npm run generate:harbor
 ```
 
-Composite workflow scenes are in `scripts/lib/workflow-scenes.mjs`; each part has a semantically meaningful id so instructions can reference parts by name and diffs are unambiguous.
+The generated dataset contains 40 tasks and the same binary verifier. It does not ship a solution directory or synthetic baseline agents.
 
-## Task schema
+## Repository Layout
 
-```jsonc
-{
-  "task_id": "me_011",
-  "difficulty": "medium",
-  "category": "displaced_part",
-  "instruction": "The front door slid away from the center of the house. Move it back into place.",
-  "initial_svg": "<svg ...>...</svg>",
-  "target_svg":  "<svg ...>...</svg>",
-  "parts": ["walls", "roof", "door", "window", "chimney", "doorknob", "smoke"],
-  "target_parts": ["door"],
-  "expected_diff": [
-    { "part": "door", "attribute": "x", "before": 74, "after": 56 }
-  ],
-  "should_preserve": ["walls", "roof", "window", "chimney", "doorknob", "smoke"]
-}
+```text
+benchmarks/                 fixed model manifests
+data/tasks/                 frozen 40-task corpus
+data/leaderboard.json       published aggregate results
+data/model-results.json     complete published model outputs
+data/model-results/         task-sharded website output data
+data/model-results-summary.json  compact task catalog diagnostics
+data/scenic_svgs/           scenic source assets
+harbor/vector-edit-gym/     generated Harbor dataset
+paper/                      ACL-style arXiv paper and generated figures
+scripts/                    runner, analysis, publishing, and build tooling
+sdk/python/                 evaluator package and CLI
+viewer/                     Next.js results browser
 ```
+
+## Provenance Limitation
+
+Twenty scenic source files do not have recoverable per-file provenance metadata. The project does not claim original authorship of those illustrations. They are retained to preserve the frozen evaluated corpus and should be treated as research-only while provenance remains unresolved. This limitation is disclosed in the paper and website artifact.
+
+## Submission
+
+Send the run directory metadata, commit hash, model endpoint, and reproduction command to `yug@thetalab.tech`. Submitted rows are verified against the frozen corpus hash and evaluator before publication.

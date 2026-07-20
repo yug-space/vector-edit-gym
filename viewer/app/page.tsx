@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, FileText, Mail } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -9,31 +9,26 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { LeaderboardChart } from "@/components/leaderboard-chart";
+import { GithubMark } from "@/components/github-mark";
 import { getLeaderboard, listTasks } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
-
-function GithubMark(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" {...props}>
-      <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
-    </svg>
-  );
-}
 
 const SUBMIT_MAILTO =
   "mailto:yug@thetalab.tech?subject=VectorEditGym%20leaderboard%20submission&body=" +
   encodeURIComponent(
     [
       "Model:",
-      "Provider:",
-      "Tasks run (split):",
-      "Exact match:",
-      "Structural match:",
+      "Requested endpoint:",
+      "Run name:",
+      "Corpus hash:",
+      "Tasks run:",
+      "Binary reward:",
+      "Edit completion:",
+      "Unintended change rate:",
       "Preservation:",
-      "Expected changes:",
       "Error rate:",
-      "Mean latency:",
+      "Recorded cost:",
       "",
       "Reproduction (CLI + commit hash):",
     ].join("\n"),
@@ -41,7 +36,6 @@ const SUBMIT_MAILTO =
 
 const AUTHORS = [
   { name: "Yug Aditi Gupta", email: "yug@thetalab.tech" },
-  { name: "Prannay Hebber", email: null },
 ];
 
 export default async function HomePage() {
@@ -54,8 +48,8 @@ export default async function HomePage() {
       <Section
         id="leaderboard"
         eyebrow="leaderboard"
-        title="Where the frontier currently sits."
-        intro="Manually curated runs from the Python SDK and our LiteLLM benchmark harness. Submit yours by email and we'll verify and add it."
+        title="Repair is not the same as preservation."
+        intro="Thirty model endpoints, one scored outcome per task, no fallback routing. Binary reward is one only when every requested repair and every preservation constraint passes."
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <span className="mono-label">
@@ -74,7 +68,7 @@ export default async function HomePage() {
               <span className="signal-dot signal-dot-brand" />
               <span className="signal-dot" />
             </div>
-            <span>solver / scoreboard</span>
+            <span>top ten / reward diagnostics</span>
           </div>
           <div className="p-4 sm:p-6">
             <LeaderboardChart entries={board.entries} />
@@ -93,12 +87,13 @@ export default async function HomePage() {
                   <TableHead className="w-[60px] whitespace-nowrap">#</TableHead>
                   <TableHead className="min-w-[220px]">Solver</TableHead>
                   <TableHead className="whitespace-nowrap">Provider</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Exact</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Structural</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Reward</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Edit</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">UCR</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Valid</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Preservation</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Expected changes</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Errors</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Mean latency</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Cost</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Tasks</TableHead>
                   <TableHead className="whitespace-nowrap">Date</TableHead>
                 </TableRow>
@@ -120,18 +115,42 @@ export default async function HomePage() {
                     <TableCell className="whitespace-nowrap text-sm text-[hsl(var(--muted-foreground))]">
                       {e.provider}
                     </TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.exact)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.structural)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono font-semibold">{fmtPct(e.reward)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.edit_completion)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.unintended_change_rate)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.validity)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.expected_changes)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.error_rate)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtLatency(e.mean_latency_ms)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">${e.cost_usd.toFixed(3)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono text-sm">{e.tasks_run}</TableCell>
                     <TableCell className="whitespace-nowrap text-sm text-[hsl(var(--muted-foreground))]">{e.date}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
+          </div>
+        </div>
+
+        <div className="mt-14 border-t border-[hsl(var(--border))] pt-10">
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow">paper analysis</p>
+              <h3 className="mt-3 text-2xl font-semibold">The aggregate score hides two different failures.</h3>
+            </div>
+            <a href="/vectoreditgym-paper.pdf" className="theta-button">
+              <FileText className="h-4 w-4" />
+              Full paper
+            </a>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <figure className="border-t border-[hsl(var(--border))] pt-3">
+              <img src="/figures/edit-completion-vs-ucr.png" alt="Scatter plot of requested edit completion against unintended change rate" className="w-full bg-white" />
+              <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Edit completion and collateral change are measured independently.</figcaption>
+            </figure>
+            <figure className="border-t border-[hsl(var(--border))] pt-3">
+              <img src="/figures/quality-cost-pareto.png" alt="Scatter plot of model edit completion against benchmark run cost" className="w-full bg-white" />
+              <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Provider cost does not fully predict repair quality.</figcaption>
+            </figure>
           </div>
         </div>
       </Section>
@@ -147,12 +166,11 @@ function Hero({ totalTasks }: { totalTasks: number }) {
         <div className="narrow-shell">
           <p className="eyebrow">theta labs / svg editing benchmark</p>
           <h1 className="section-heading mt-6">
-            A benchmark for <span className="brand-underline italic">surgical</span> SVG editing.
+            <span className="brand-underline italic">VectorEditGym</span>
           </h1>
           <p className="section-copy mt-6">
-            Each task is one corrupted SVG plus a natural-language fix instruction. Models have to
-            repair what is broken without touching anything else. Strict structural and preservation
-            metrics catch stylistic drift, not just visual approximation.
+            Human visual repair instructions, hidden SVG targets, and a binary contract: fix every
+            requested defect while preserving the rest of the program exactly.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -163,6 +181,10 @@ function Hero({ totalTasks }: { totalTasks: number }) {
             <Link href="#leaderboard" className="theta-button theta-button-brand">
               See the leaderboard
             </Link>
+            <a href="/vectoreditgym-paper.pdf" className="theta-button">
+              <FileText className="h-4 w-4" />
+              Read the paper
+            </a>
             <a
               href="https://github.com/yug-space/vector-edit-gym"
               target="_blank"
@@ -235,8 +257,3 @@ function Section({
 
 function fmtPct(v: number) { return `${(v * 100).toFixed(1)}%`; }
 function fmtOptionalPct(v?: number) { return v === undefined ? "—" : fmtPct(v); }
-function fmtLatency(ms?: number) {
-  if (ms === undefined || ms <= 0) return "—";
-  if (ms < 1000) return `${Math.round(ms)} ms`;
-  return `${(ms / 1000).toFixed(1)}s`;
-}

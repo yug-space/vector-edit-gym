@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#f4feff" />
+  <rect id="sky-band" fill="#cffafe" x="0" y="0" width="220" height="64" />
+  <path id="overhead-wire" fill="none" stroke="#334155" stroke-width="1" d="M8 18 C42 10 74 10 108 18 S176 26 212 18" />
+  <rect id="station-wall" fill="#cffafe" x="0" y="64" width="220" height="30" />
+  <rect id="platform" fill="#94a3b8" x="0" y="94" width="220" height="46" />
+  <rect id="platform-edge" fill="#38bdf8" x="0" y="94" width="220" height="5" />
+  <path id="platform-crack" fill="none" stroke="#94a3b8" stroke-width="1" d="M18 108 C32 104 42 111 56 108 S82 106 96 110" />
+  <line id="rail-back" stroke="#64748b" stroke-width="3" x1="0" y1="118" x2="220" y2="118" />
+  <line id="rail-front" stroke="#475569" stroke-width="3" x1="0" y1="130" x2="220" y2="130" />
+  <rect id="track-tie-1" fill="#7c2d12" x="18" y="116" width="7" height="18" />
+  <rect id="track-tie-2" fill="#7c2d12" x="56" y="116" width="7" height="18" />
+  <rect id="track-tie-3" fill="#7c2d12" x="94" y="116" width="7" height="18" />
+  <rect id="track-tie-4" fill="#7c2d12" x="132" y="116" width="7" height="18" />
+  <rect id="track-tie-5" fill="#7c2d12" x="170" y="116" width="7" height="18" />
+  <rect id="train-body" fill="#0ea5e9" stroke="#222" stroke-width="1.5" x="26" y="38" width="126" height="46" rx="6" ry="6" />
+  <rect id="train-roof" fill="#0369a1" stroke="#222" stroke-width="1" x="34" y="30" width="110" height="12" rx="4" ry="4" />
+  <rect id="window-left" fill="#bfdbfe" stroke="#222" stroke-width="1" x="38" y="46" width="24" height="16" />
+  <rect id="window-center" fill="#bfdbfe" stroke="#222" stroke-width="1" x="68" y="46" width="24" height="16" />
+  <rect id="window-right" fill="#bfdbfe" stroke="#222" stroke-width="1" x="98" y="46" width="24" height="16" />
+  <rect id="train-door" fill="#fef3c7" stroke="#222" stroke-width="1" x="128" y="44" width="16" height="34" />
+  <circle id="door-handle" fill="#222" cx="140" cy="61" r="1.6" />
+  <circle id="wheel-left" fill="#111827" cx="48" cy="86" r="6" />
+  <circle id="wheel-right" fill="#111827" cx="126" cy="86" r="6" />
+  <line id="signal-post" stroke="#334155" stroke-width="4" x1="170" y1="32" x2="170" y2="94" />
+  <rect id="signal-box" fill="#111827" x="162" y="22" width="16" height="34" rx="3" ry="3" />
+  <circle id="signal-red" fill="#ef4444" cx="170" cy="30" r="3" />
+  <circle id="signal-amber" fill="#f59e0b" cx="170" cy="39" r="3" />
+  <circle id="signal-green" fill="#22c55e" cx="170" cy="48" r="3" />
+  <circle id="clock-face" fill="#ffffff" stroke="#222" stroke-width="1.5" cx="196" cy="31" r="12" />
+  <line id="clock-minute" stroke="#222" stroke-width="1" x1="196" y1="31" x2="203" y2="31" />
+  <rect id="poster-blue" fill="#0891b2" stroke="#222" stroke-width="0.8" x="178" y="62" width="14" height="20" />
+  <rect id="poster-pink" fill="#06b6d4" stroke="#222" stroke-width="0.8" x="198" y="64" width="12" height="18" />
+  <rect id="bench-seat" fill="#92400e" x="38" y="100" width="42" height="5" />
+  <line id="bench-leg-left" stroke="#451a03" stroke-width="2" x1="46" y1="105" x2="43" y2="114" />
+  <line id="bench-leg-right" stroke="#451a03" stroke-width="2" x1="72" y1="105" x2="75" y2="114" />
+  <circle id="passenger-head" fill="#f2c078" cx="98" cy="96" r="4" />
+  <rect id="passenger-body" fill="#2563eb" x="94" y="100" width="8" height="16" />
+  <rect id="passenger-bag" fill="#a16207" x="104" y="108" width="8" height="7" />
+  <ellipse id="skin-07-storm-cloud-wide-a" fill="#cbd5e1" opacity="0.9" cx="42" cy="28" rx="36" ry="17" />
+  <ellipse id="skin-07-storm-cloud-wide-b" fill="#94a3b8" opacity="0.9" cx="78" cy="30" rx="31" ry="20" />
+  <line id="skin-07-storm-rain-wide-a" stroke="#0284c7" stroke-width="4" opacity="0.82" x1="34" y1="52" x2="20" y2="90" />
+  <line id="skin-07-storm-rain-wide-b" stroke="#0284c7" stroke-width="4" opacity="0.82" x1="72" y1="52" x2="58" y2="92" />
+  <ellipse id="identity-07-rain-cloud-a" fill="#cbd5e1" cx="42" cy="23" rx="19" ry="9" />
+  <ellipse id="identity-07-rain-cloud-b" fill="#94a3b8" cx="58" cy="22" rx="15" ry="11" />
+  <line id="identity-07-rain-1" stroke="#0284c7" stroke-width="2" x1="38" y1="38" x2="33" y2="51" />
+  <line id="identity-07-rain-2" stroke="#0284c7" stroke-width="2" x1="55" y1="38" x2="50" y2="52" />
+  <line id="identity-07-rain-3" stroke="#0284c7" stroke-width="2" x1="70" y1="36" x2="65" y2="49" />
+  <circle id="variant-07-dot" fill="#06b6d4" opacity="0.72" cx="33" cy="31" r="2.6" />
+  <line id="variant-07-rule" stroke="#06b6d4" stroke-width="1.2" opacity="0.58" x1="39" y1="34" x2="55" y2="32" />
+  <rect id="variant-07-chip-01" fill="#3b82f6" opacity="0.68" x="9" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-07-chip-02" fill="#6366f1" opacity="0.68" x="46" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-07-chip-03" fill="#8b5cf6" opacity="0.68" x="77" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-07-chip-04" fill="#d946ef" opacity="0.68" x="114" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-07-chip-05" fill="#ec4899" opacity="0.68" x="145" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-07-chip-06" fill="#ef4444" opacity="0.68" x="182" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-07-chip-07" fill="#f97316" opacity="0.68" x="9" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-07-chip-08" fill="#f59e0b" opacity="0.68" x="46" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-07-chip-09" fill="#84cc16" opacity="0.68" x="77" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-07-chip-10" fill="#22c55e" opacity="0.68" x="114" y="140" width="8" height="4" rx="1" />
+  <rect id="variant-07-chip-11" fill="#14b8a6" opacity="0.68" x="145" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-07-chip-12" fill="#06b6d4" opacity="0.68" x="182" y="141" width="7" height="4" rx="1" />
+  <circle id="variant-07-pin-01" fill="#f59e0b" opacity="0.66" cx="9" cy="24" r="2.55" />
+  <circle id="variant-07-pin-02" fill="#84cc16" opacity="0.66" cx="194" cy="38" r="1.8" />
+  <circle id="variant-07-pin-03" fill="#22c55e" opacity="0.66" cx="19" cy="52" r="2.05" />
+  <circle id="variant-07-pin-04" fill="#14b8a6" opacity="0.66" cx="204" cy="66" r="2.3" />
+  <circle id="variant-07-pin-05" fill="#06b6d4" opacity="0.66" cx="29" cy="80" r="2.55" />
+  <circle id="variant-07-pin-06" fill="#3b82f6" opacity="0.66" cx="190" cy="94" r="1.8" />
+  <circle id="variant-07-pin-07" fill="#6366f1" opacity="0.66" cx="15" cy="108" r="2.05" />
+  <circle id="variant-07-pin-08" fill="#8b5cf6" opacity="0.66" cx="200" cy="122" r="2.3" />
+  <line id="clock-hour" stroke="#222" stroke-width="1.5" x1="196" y1="31" x2="196" y2="23" />
+</svg>

@@ -23,7 +23,7 @@ except ImportError as e:  # pragma: no cover
     ) from e
 
 MODEL = os.environ.get("VEG_LITELLM_MODEL") or os.environ.get("VEG_MODEL", "gpt-5-mini")
-MAX_TOKENS = int(os.environ.get("VEG_LITELLM_MAX_TOKENS", "2048"))
+MAX_TOKENS = int(os.environ.get("VEG_LITELLM_MAX_TOKENS", "12000"))
 TIMEOUT = float(os.environ.get("VEG_LITELLM_TIMEOUT", "120"))
 
 SYSTEM = (
@@ -69,6 +69,7 @@ def _extract_svg(text: str) -> str:
 
 def solve(task) -> str:
     client = _get_client()
+    max_tokens = min(MAX_TOKENS, max(4096, int(len(task.initial_svg) / 2.5) + 1536))
     resp = client.chat.completions.create(
         model=MODEL,
         messages=[
@@ -82,7 +83,7 @@ def solve(task) -> str:
                 ),
             },
         ],
-        max_tokens=MAX_TOKENS,
+        max_tokens=max_tokens,
     )
     text = resp.choices[0].message.content or ""
     return _extract_svg(text)

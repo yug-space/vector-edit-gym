@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-007"
+description = "The station clock needs its missing hour hand back and its duplicate minute hand removed. The bright platform edge is too thick, and the overhead wire should follow a smoother, shallower curve. Change nothing else."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
+
+[metadata]
+difficulty = "hard"
+category = "scenic_multi"
+task_id = "sv_007"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

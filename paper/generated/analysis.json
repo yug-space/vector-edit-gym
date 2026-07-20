@@ -1,0 +1,53 @@
+{
+  "protocol": "human-visual-instruction-2026-07",
+  "models": 30,
+  "open_weight_models": 25,
+  "cheap_control_models": 5,
+  "requests": 1200,
+  "total_cost_usd": 7.61636229909,
+  "error_count": 41,
+  "error_rate": 0.034166666666666665,
+  "validity_rate": 0.5691666666666667,
+  "binary_passes": 1,
+  "binary_pass_rate": 0.0008333333333333334,
+  "top_model": "Gemma 4 31B IT",
+  "top_model_id": "google/gemma-4-31b-it",
+  "top_reward": 0.025,
+  "top_reward_ci_low": 0.0,
+  "top_reward_ci_high": 0.075,
+  "top_edit_completion": 0.4066369047619047,
+  "top_ucr": 0.10776029720429922,
+  "top_validity": 0.9,
+  "corpus": {
+    "tasks": 40,
+    "hard": 10,
+    "very_hard": 30,
+    "expected_edits_total": 202,
+    "expected_edits_mean": 5.05,
+    "expected_edits_min": 3,
+    "expected_edits_max": 9,
+    "protected_objects_total": 2422,
+    "protected_objects_mean": 60.55,
+    "protected_objects_min": 34,
+    "protected_objects_max": 119,
+    "svg_nodes_mean": 85.4,
+    "svg_nodes_min": 55,
+    "svg_nodes_max": 160,
+    "input_characters_mean": 7369.95,
+    "input_characters_total": 294798,
+    "operations": {
+      "Add/remove": 40,
+      "Color": 39,
+      "Line weight": 24,
+      "Opacity": 20,
+      "Other": 2,
+      "Path shape": 19,
+      "Position/shape": 58
+    },
+    "categories": {
+      "downloaded_scenic_surgical": 20,
+      "scenic_multi": 16,
+      "scenic_very_hard": 4
+    }
+  }
+}

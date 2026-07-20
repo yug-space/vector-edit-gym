@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-006"
+description = "Remove the extra orange buoy from the water, turn the main sail back the right way, and place the little cabin window neatly inside the cabin again. Keep the lighthouse and the real buoys as they are."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
+
+[metadata]
+difficulty = "hard"
+category = "scenic_multi"
+task_id = "sv_006"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

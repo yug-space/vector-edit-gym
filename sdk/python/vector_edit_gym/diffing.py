@@ -7,7 +7,16 @@ import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
-from .metrics import exact_match, preservation_score, structural_match
+from .metrics import (
+    binary_reward,
+    element_by_id,
+    exact_match,
+    normalize_attribute,
+    parse_svg,
+    preservation_score,
+    structural_match,
+    trees_equal,
+)
 from .tasks import Task
 
 
@@ -32,9 +41,12 @@ class PreserveCheck:
 @dataclass
 class DiffReport:
     task_id: str
+    reward: int
     exact: bool
     structural: bool
     preservation: float
+    edit_completion: float
+    unintended_change_rate: float
     produced_parse_ok: bool
     target_parse_ok: bool
     expected_changes: list[ExpectedChangeCheck] = field(default_factory=list)
@@ -47,34 +59,38 @@ class DiffReport:
 
 def diff_report(task: Task, produced_svg: str) -> DiffReport:
     """Score one produced SVG and explain expected/preserved part status."""
-    produced_root = _parse(produced_svg)
-    target_root = _parse(task.target_svg)
+    produced_root = parse_svg(produced_svg)
+    target_root = parse_svg(task.target_svg)
     expected_parts = {d.get("part") for d in task.expected_diff}
 
-    expected_checks = [
-        ExpectedChangeCheck(
-            part=str(d.get("part")),
-            attribute=str(d.get("attribute")),
-            expected_before=d.get("before"),
-            expected_after=d.get("after"),
-            produced=_part_attr_value(produced_root, str(d.get("part")), str(d.get("attribute"))),
-            passed=_values_equal(
-                _part_attr_value(produced_root, str(d.get("part")), str(d.get("attribute"))),
-                d.get("after"),
-            ),
+    expected_checks = []
+    for expected in task.expected_diff:
+        part = str(expected.get("part"))
+        attribute = str(expected.get("attribute"))
+        produced_value = _part_attr_value(produced_root, part, attribute)
+        expected_checks.append(
+            ExpectedChangeCheck(
+                part=part,
+                attribute=attribute,
+                expected_before=expected.get("before"),
+                expected_after=expected.get("after"),
+                produced=produced_value,
+                passed=(
+                    produced_root is not None
+                    and _values_equal(produced_value, expected.get("after"), attribute)
+                ),
+            )
         )
-        for d in task.expected_diff
-    ]
 
     preserve_checks: list[PreserveCheck] = []
     unexpected_changed_parts: list[str] = []
     for part in task.should_preserve:
-        target_el = _element_by_id(target_root, part)
-        produced_el = _element_by_id(produced_root, part)
+        target_el = element_by_id(target_root, part)
+        produced_el = element_by_id(produced_root, part)
         passed = (
             target_el is not None
             and produced_el is not None
-            and _tree_eq(target_el, produced_el)
+            and trees_equal(target_el, produced_el)
         )
         preserve_checks.append(
             PreserveCheck(
@@ -92,18 +108,41 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     for part in task.parts:
         if part in expected_parts or part in task.should_preserve or part == "__svg":
             continue
-        target_el = _element_by_id(target_root, part)
-        produced_el = _element_by_id(produced_root, part)
+        target_el = element_by_id(target_root, part)
+        produced_el = element_by_id(produced_root, part)
         if target_el is None and produced_el is None:
             continue
-        if target_el is None or produced_el is None or not _tree_eq(target_el, produced_el):
+        if target_el is None or produced_el is None or not trees_equal(target_el, produced_el):
             unexpected_changed_parts.append(part)
+
+    target_ids = _ids(target_root)
+    produced_ids = _ids(produced_root)
+    unexpected_changed_parts.extend(f"+{part}" for part in produced_ids - target_ids - expected_parts)
+
+    structural = structural_match(produced_svg, task.target_svg)
+    expected_passed = sum(1 for check in expected_checks if check.passed)
+    edit_completion = expected_passed / len(expected_checks) if expected_checks else 1.0
+    preserve_failures = sum(1 for check in preserve_checks if not check.passed)
+    unintended_change_rate = preserve_failures / len(preserve_checks) if preserve_checks else 0.0
+
+    # A mismatch with all named checks passing means an anonymous node, root
+    # attribute, ordering, or other document-level detail changed.
+    if (
+        not structural
+        and edit_completion == 1.0
+        and preserve_failures == 0
+        and not unexpected_changed_parts
+    ):
+        unexpected_changed_parts.append("__document__")
 
     return DiffReport(
         task_id=task.task_id,
+        reward=binary_reward(produced_svg, task.target_svg),
         exact=exact_match(produced_svg, task.target_svg),
-        structural=structural_match(produced_svg, task.target_svg),
+        structural=structural,
         preservation=preservation_score(produced_svg, task.target_svg, task.should_preserve),
+        edit_completion=edit_completion,
+        unintended_change_rate=unintended_change_rate,
         produced_parse_ok=produced_root is not None,
         target_parse_ok=target_root is not None,
         expected_changes=expected_checks,
@@ -112,50 +151,14 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     )
 
 
-def _parse(svg: str) -> ET.Element | None:
-    try:
-        return ET.fromstring(svg)
-    except ET.ParseError:
-        return None
-
-
-def _strip_ns(tag: str) -> str:
-    return tag.split("}", 1)[-1] if "}" in tag else tag
-
-
-def _norm_attrs(attrs: dict[str, str]) -> dict[str, str]:
-    out = {}
-    for key, value in attrs.items():
-        key = key.split("}", 1)[-1] if "}" in key else key
-        out[key] = re.sub(r"\s+", " ", value.strip())
-    return out
-
-
-def _tree_eq(a: ET.Element, b: ET.Element) -> bool:
-    if _strip_ns(a.tag) != _strip_ns(b.tag):
-        return False
-    if _norm_attrs(a.attrib) != _norm_attrs(b.attrib):
-        return False
-    a_children = list(a)
-    b_children = list(b)
-    if len(a_children) != len(b_children):
-        return False
-    return all(_tree_eq(x, y) for x, y in zip(a_children, b_children))
-
-
-def _element_by_id(root: ET.Element | None, part: str) -> ET.Element | None:
+def _ids(root: ET.Element | None) -> set[str]:
     if root is None:
-        return None
-    if part == "__svg":
-        return root
-    for el in root.iter():
-        if el.attrib.get("id") == part:
-            return el
-    return None
+        return set()
+    return {element.attrib["id"] for element in root.iter() if "id" in element.attrib}
 
 
 def _part_attr_value(root: ET.Element | None, part: str, attr: str) -> Any:
-    el = _element_by_id(root, part)
+    el = element_by_id(root, part)
     if attr == "exists":
         return el is not None
     if el is None:
@@ -243,7 +246,7 @@ def _maybe_number(value: str) -> Any:
     return number
 
 
-def _values_equal(actual: Any, expected: Any) -> bool:
+def _values_equal(actual: Any, expected: Any, attribute: str = "") -> bool:
     if isinstance(expected, bool):
         return actual is expected
     if isinstance(expected, (int, float)):
@@ -254,5 +257,7 @@ def _values_equal(actual: Any, expected: Any) -> bool:
     if isinstance(expected, list):
         if not isinstance(actual, list) or len(actual) != len(expected):
             return False
-        return all(_values_equal(a, e) for a, e in zip(actual, expected))
-    return str(actual).strip() == str(expected).strip()
+        return all(_values_equal(a, e, attribute) for a, e in zip(actual, expected))
+    if actual is None:
+        return expected is None
+    return normalize_attribute(attribute, str(actual)) == normalize_attribute(attribute, str(expected))

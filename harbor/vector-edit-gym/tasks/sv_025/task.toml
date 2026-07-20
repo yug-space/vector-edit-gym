@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-025"
+description = "Take the stray marker out of the arctic sky. Return the displaced star to the upper-left, make the moon a soft white, restore the strong green aurora streak on the left, and bring back the brighter second aurora curtain. Do not disturb the snowy landscape."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
+
+[metadata]
+difficulty = "very_hard"
+category = "downloaded_scenic_surgical"
+task_id = "sv_025"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

@@ -18,11 +18,11 @@ import type { LeaderboardEntry } from "@/lib/data";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
-// Theta brand palette: orange #f99c00 for the headline metric, then graded greys.
+// Headline reward plus complementary repair and preservation diagnostics.
 const METRIC_COLOR = {
-  exact:        { bg: "rgba(249, 156, 0, 0.92)",   border: "rgba(191, 118, 0, 1)"   },
-  structural:   { bg: "rgba(23, 23, 23, 0.88)",    border: "rgba(10, 10, 10, 1)"    },
-  preservation: { bg: "rgba(212, 212, 216, 0.95)", border: "rgba(161, 161, 170, 1)" },
+  reward:       { bg: "rgba(249, 93, 30, 0.92)",   border: "rgba(194, 65, 12, 1)"   },
+  edit:         { bg: "rgba(15, 118, 110, 0.88)",  border: "rgba(17, 94, 89, 1)"    },
+  preservation: { bg: "rgba(37, 99, 235, 0.80)",  border: "rgba(30, 64, 175, 1)"   },
 };
 
 // Draws "12.3%" at the end of each bar so 0%-valued bars (which would
@@ -47,7 +47,7 @@ const valueLabelPlugin: Plugin<"bar"> = {
         // place at the axis with a small offset so 0% labels are visible.
         const base = (bar as { base?: number | null }).base;
         const barEnd = isZero ? (base ?? x) + 4 : x + 4;
-        const colorByDataset = ["rgb(191, 118, 0)", "rgb(23, 23, 23)", "rgb(82, 82, 91)"];
+        const colorByDataset = ["rgb(194, 65, 12)", "rgb(17, 94, 89)", "rgb(30, 64, 175)"];
         ctx.fillStyle = isZero ? "rgb(161, 161, 170)" : colorByDataset[dsIdx] ?? "rgb(39, 39, 42)";
         ctx.textAlign = "left";
         ctx.fillText(label, barEnd, y);
@@ -62,25 +62,26 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
   useEffect(() => setMounted(true), []);
 
   const data = useMemo(() => {
-    const labels = entries.map((e) => e.name);
+    const topEntries = entries.slice(0, 10);
+    const labels = topEntries.map((e) => e.name);
     return {
       labels,
       datasets: [
         {
-          label: "Exact",
-          data: entries.map((e) => +(e.exact * 100).toFixed(1)),
-          backgroundColor: METRIC_COLOR.exact.bg,
-          borderColor: METRIC_COLOR.exact.border,
+          label: "Binary reward",
+          data: topEntries.map((e) => +(e.reward * 100).toFixed(1)),
+          backgroundColor: METRIC_COLOR.reward.bg,
+          borderColor: METRIC_COLOR.reward.border,
           borderWidth: 1,
           borderRadius: 4,
           barPercentage: 0.92,
           categoryPercentage: 0.78,
         },
         {
-          label: "Structural",
-          data: entries.map((e) => +(e.structural * 100).toFixed(1)),
-          backgroundColor: METRIC_COLOR.structural.bg,
-          borderColor: METRIC_COLOR.structural.border,
+          label: "Edit completion",
+          data: topEntries.map((e) => +(e.edit_completion * 100).toFixed(1)),
+          backgroundColor: METRIC_COLOR.edit.bg,
+          borderColor: METRIC_COLOR.edit.border,
           borderWidth: 1,
           borderRadius: 4,
           barPercentage: 0.92,
@@ -88,7 +89,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
         },
         {
           label: "Preservation",
-          data: entries.map((e) => +(e.preservation * 100).toFixed(1)),
+          data: topEntries.map((e) => +(e.preservation * 100).toFixed(1)),
           backgroundColor: METRIC_COLOR.preservation.bg,
           borderColor: METRIC_COLOR.preservation.border,
           borderWidth: 1,
@@ -134,20 +135,18 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
             afterBody: (items) => {
               const i = items[0]?.dataIndex;
               if (i === undefined) return "";
-              const e = entries[i];
+              const e = entries.slice(0, 10)[i];
               const details = [
                 `Provider: ${e.provider}`,
                 `Tasks run: ${e.tasks_run}`,
                 `Date: ${e.date}`,
               ];
-              if (e.expected_changes !== undefined) {
-                details.push(`Expected changes: ${(e.expected_changes * 100).toFixed(1)}%`);
-              }
+              details.push(`UCR: ${(e.unintended_change_rate * 100).toFixed(1)}%`);
               if (e.error_rate !== undefined) {
                 details.push(`Errors: ${(e.error_rate * 100).toFixed(1)}%`);
               }
-              if (e.mean_latency_ms !== undefined) {
-                details.push(`Mean latency: ${fmtLatency(e.mean_latency_ms)}`);
+              if (e.mean_elapsed_ms !== undefined) {
+                details.push(`Mean elapsed: ${fmtElapsed(e.mean_elapsed_ms)}`);
               }
               return details;
             },
@@ -193,10 +192,10 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
     );
   }
 
-  // Scale height by entry count so each solver always has a comfortable row.
-  const rowPx = 72;
+  const shown = Math.min(entries.length, 10);
+  const rowPx = 66;
   const minHeight = 220;
-  const height = Math.max(minHeight, entries.length * rowPx + 56);
+  const height = Math.max(minHeight, shown * rowPx + 56);
 
   return (
     <div style={{ height }} className="w-full">
@@ -205,7 +204,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
   );
 }
 
-function fmtLatency(ms: number) {
+function fmtElapsed(ms: number) {
   if (ms <= 0) return "n/a";
   if (ms < 1000) return `${Math.round(ms)} ms`;
   return `${(ms / 1000).toFixed(1)} s`;

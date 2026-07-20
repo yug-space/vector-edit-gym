@@ -10,7 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getTask, getTaskModelResults, type DiffEntry, type TaskModelResult } from "@/lib/data";
+import { getTask, getTaskModelResults, type DiffEntry } from "@/lib/data";
+import { ModelOutputExplorer } from "./ModelOutputExplorer";
 
 export const dynamic = "force-dynamic";
 
@@ -80,7 +81,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
           </div>
         </div>
 
-        <ModelOutputs results={modelResults} />
+        <ModelOutputExplorer results={modelResults} />
 
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="theta-frame overflow-hidden">
@@ -146,119 +147,6 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
   );
 }
 
-function ModelOutputs({ results }: { results: TaskModelResult[] }) {
-  if (results.length === 0) return null;
-
-  return (
-    <div className="mt-10">
-      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="eyebrow">published model outputs</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight">What each model produced.</h2>
-        </div>
-        <span className="mono-label text-[var(--brand)]">{results.length} runs</span>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {results.map((result) => (
-          <div key={result.model} className="theta-frame overflow-hidden">
-            <div className="frame-header">
-              <span>{result.name}</span>
-              <span className={statusClass(result.status)}>{result.status}</span>
-            </div>
-            <div className="p-5">
-              {result.error ? (
-                <div className="rounded-md border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
-                  {result.error}
-                </div>
-              ) : result.produced_svg ? (
-                <img
-                  alt={`${result.name} output`}
-                  src={svgDataUri(result.produced_svg)}
-                  className="mx-auto aspect-square w-full max-w-sm rounded-md border border-[hsl(var(--border))] bg-white object-contain p-2"
-                />
-              ) : (
-                <div className="flex aspect-square items-center justify-center rounded-md border border-[hsl(var(--border))] bg-white text-sm text-[hsl(var(--muted-foreground))]">
-                  No SVG output.
-                </div>
-              )}
-
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <Metric label="exact" value={result.exact ? "yes" : "no"} />
-                <Metric label="structural" value={result.structural ? "yes" : "no"} />
-                <Metric label="preserve" value={fmtPct(result.preservation)} />
-                <Metric label="latency" value={fmtLatency(result.elapsed_ms)} />
-              </div>
-
-              <div className="mt-4 rounded-md border border-[hsl(var(--border))] bg-white/70 p-3">
-                <div className="mono-label mb-2">
-                  expected changes {result.expected_changes_passed}/{result.expected_changes_total}
-                </div>
-                {result.expected_changes.length === 0 ? (
-                  <p className="text-sm text-[hsl(var(--muted-foreground))]">No expected-change checks.</p>
-                ) : (
-                  <div className="space-y-2">
-                    {result.expected_changes.map((check, index) => (
-                      <div key={`${check.part}-${check.attribute}-${index}`} className="text-xs">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-mono">{check.part}.{check.attribute}</span>
-                          <span className={check.passed ? "text-emerald-700" : "text-rose-700"}>
-                            {check.passed ? "passed" : "missed"}
-                          </span>
-                        </div>
-                        <div className="mt-0.5 text-[hsl(var(--muted-foreground))]">
-                          expected {fmt(check.expected_after)} · got {fmt(check.produced)}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <IssueList
-                title="unexpected changes"
-                items={result.unexpected_changed_parts}
-                empty="none"
-              />
-              <IssueList
-                title="preservation failures"
-                items={result.preservation_failures}
-                empty="none"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Metric({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-md border border-[hsl(var(--border))] bg-white/70 p-2">
-      <div className="mono-label">{label}</div>
-      <div className="mt-1 font-mono text-sm">{value}</div>
-    </div>
-  );
-}
-
-function IssueList({ title, items, empty }: { title: string; items: string[]; empty: string }) {
-  return (
-    <div className="mt-3">
-      <div className="mono-label mb-1">{title}</div>
-      {items.length === 0 ? (
-        <span className="text-sm text-[hsl(var(--muted-foreground))]">{empty}</span>
-      ) : (
-        <div className="flex flex-wrap gap-1">
-          {items.map((item) => (
-            <Badge key={item} variant="outline">{item}</Badge>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 function DiffTable({ diff }: { diff: DiffEntry[] }) {
   if (diff.length === 0) {
     return <p className="px-3 py-4 text-sm text-[hsl(var(--muted-foreground))]">No diff entries.</p>;
@@ -291,32 +179,4 @@ function fmt(v: unknown): string {
   if (v === null || v === undefined) return "—";
   if (typeof v === "object") return JSON.stringify(v);
   return String(v);
-}
-
-function fmtPct(v: number) {
-  return `${(v * 100).toFixed(1)}%`;
-}
-
-function fmtLatency(ms: number) {
-  if (ms < 1000) return `${Math.round(ms)} ms`;
-  return `${(ms / 1000).toFixed(1)}s`;
-}
-
-function svgDataUri(svg: string) {
-  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-}
-
-function statusClass(status: TaskModelResult["status"]) {
-  switch (status) {
-    case "EXACT":
-      return "text-emerald-700";
-    case "STRUCT":
-      return "text-sky-700";
-    case "PRES":
-      return "text-[var(--brand)]";
-    case "ERR":
-      return "text-rose-700";
-    default:
-      return "text-[hsl(var(--muted-foreground))]";
-  }
 }

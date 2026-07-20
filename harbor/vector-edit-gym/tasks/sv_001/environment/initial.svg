@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+<rect id="__bg" x="0" y="0" width="220" height="140" fill="#f8fafc" />
+  <rect id="sky-band" fill="#e0f2fe" x="0" y="0" width="220" height="64" />
+  <path id="overhead-wire" fill="none" stroke="#334155" stroke-width="1" d="M8 24 C42 16 74 16 108 24 S176 32 212 24" />
+  <rect id="station-wall" fill="#f8fafc" x="0" y="64" width="220" height="30" />
+  <rect id="platform" fill="#cbd5e1" x="0" y="94" width="220" height="46" />
+  <rect id="platform-edge" fill="#facc15" x="0" y="94" width="220" height="5" />
+  <path id="platform-crack" fill="none" stroke="#94a3b8" stroke-width="1" d="M18 108 C32 104 42 111 56 108 S82 106 96 110" />
+  <line id="rail-back" stroke="#64748b" stroke-width="3" x1="0" y1="118" x2="220" y2="118" />
+  <line id="rail-front" stroke="#475569" stroke-width="3" x1="0" y1="130" x2="220" y2="130" />
+  <rect id="track-tie-1" fill="#7c2d12" x="18" y="116" width="7" height="18" />
+  <rect id="track-tie-2" fill="#7c2d12" x="56" y="116" width="7" height="18" />
+  <rect id="track-tie-3" fill="#7c2d12" x="94" y="116" width="7" height="18" />
+  <rect id="track-tie-4" fill="#7c2d12" x="132" y="116" width="7" height="18" />
+  <rect id="track-tie-5" fill="#7c2d12" x="170" y="116" width="7" height="18" />
+  <rect id="train-body" fill="#f97316" stroke="#222" stroke-width="1.5" x="26" y="38" width="126" height="46" rx="6" ry="6" />
+  <rect id="train-roof" fill="#ea580c" stroke="#222" stroke-width="1" x="34" y="30" width="110" height="12" rx="4" ry="4" />
+  <rect id="window-left" fill="#bfdbfe" stroke="#222" stroke-width="1" x="38" y="46" width="24" height="16" />
+  <rect id="window-center" fill="#bfdbfe" stroke="#222" stroke-width="1" x="68" y="46" width="24" height="16" />
+  <rect id="window-right" fill="#bfdbfe" stroke="#222" stroke-width="1" x="98" y="46" width="24" height="16" />
+  <rect id="train-door" fill="#fef3c7" stroke="#222" stroke-width="1" x="139" y="44" width="16" height="34" />
+  <circle id="door-handle" fill="#222" cx="140" cy="61" r="1.6" />
+  <circle id="wheel-left" fill="#111827" cx="48" cy="86" r="6" />
+  <circle id="wheel-right" fill="#111827" cx="126" cy="86" r="6" />
+  <line id="signal-post" stroke="#334155" stroke-width="4" x1="170" y1="32" x2="170" y2="94" />
+  <rect id="signal-box" fill="#111827" x="162" y="22" width="16" height="34" rx="3" ry="3" />
+  <circle id="signal-red" fill="#ef4444" cx="170" cy="30" r="3" />
+  <circle id="signal-amber" fill="#000000" cx="170" cy="39" r="3" />
+  <circle id="signal-green" fill="#22c55e" cx="170" cy="48" r="3" />
+  <circle id="clock-face" fill="#ffffff" stroke="#222" stroke-width="1.5" cx="196" cy="31" r="12" />
+  <line id="clock-hour" stroke="#222" stroke-width="1.5" x1="196" y1="31" x2="196" y2="23" />
+  <line id="clock-minute" stroke="#222" stroke-width="1" x1="196" y1="31" x2="203" y2="31" />
+  <rect id="poster-blue" fill="#2563eb" stroke="#222" stroke-width="0.8" x="178" y="62" width="14" height="20" />
+  <rect id="poster-pink" fill="#0ea5e9" stroke="#222" stroke-width="0.8" x="198" y="64" width="12" height="18" />
+  <rect id="bench-seat" fill="#92400e" x="38" y="100" width="42" height="5" />
+  <line id="bench-leg-left" stroke="#451a03" stroke-width="2" x1="46" y1="105" x2="43" y2="114" />
+  <line id="bench-leg-right" stroke="#451a03" stroke-width="2" x1="72" y1="105" x2="75" y2="114" />
+  <circle id="passenger-head" fill="#f2c078" cx="98" cy="96" r="4" />
+  <rect id="passenger-body" fill="#2563eb" x="94" y="100" width="8" height="16" />
+  <rect id="passenger-bag" fill="#a16207" x="104" y="108" width="8" height="7" />
+  <path id="skin-01-metro-arch" fill="none" stroke="#2563eb" stroke-width="10" opacity="0.45" d="M130 118 C134 48 206 48 210 118" />
+  <rect id="skin-01-metro-panel" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2" opacity="0.92" x="136" y="18" width="64" height="24" rx="4" />
+  <rect id="identity-01-billboard" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.2" opacity="0.95" x="142" y="9" width="46" height="19" rx="2" />
+  <rect id="identity-01-billboard-stripe-1" fill="#f97316" x="148" y="14" width="30" height="3" />
+  <rect id="identity-01-billboard-stripe-2" fill="#2563eb" x="148" y="21" width="20" height="3" />
+  <circle id="variant-01-dot" fill="#0ea5e9" opacity="0.72" cx="27" cy="21" r="2.6" />
+  <line id="variant-01-rule" stroke="#0ea5e9" stroke-width="1.2" opacity="0.58" x1="33" y1="24" x2="49" y2="22" />
+  <rect id="variant-01-chip-01" fill="#f97316" opacity="0.68" x="9" y="5" width="8" height="3" rx="1" />
+  <rect id="variant-01-chip-02" fill="#f59e0b" opacity="0.68" x="46" y="6" width="9" height="4" rx="1" />
+  <rect id="variant-01-chip-03" fill="#84cc16" opacity="0.68" x="77" y="4" width="7" height="3" rx="1" />
+  <rect id="variant-01-chip-04" fill="#22c55e" opacity="0.68" x="114" y="5" width="8" height="4" rx="1" />
+  <rect id="variant-01-chip-05" fill="#14b8a6" opacity="0.68" x="145" y="6" width="9" height="3" rx="1" />
+  <rect id="variant-01-chip-06" fill="#06b6d4" opacity="0.68" x="182" y="4" width="7" height="4" rx="1" />
+  <rect id="variant-01-chip-07" fill="#3b82f6" opacity="0.68" x="9" y="140" width="8" height="3" rx="1" />
+  <rect id="variant-01-chip-08" fill="#6366f1" opacity="0.68" x="46" y="139" width="9" height="4" rx="1" />
+  <rect id="variant-01-chip-09" fill="#8b5cf6" opacity="0.68" x="77" y="141" width="7" height="3" rx="1" />
+  <rect id="variant-01-chip-10" fill="#d946ef" opacity="0.68" x="114" y="140" width="8" height="4" rx="1" />
+  <rect id="variant-01-chip-11" fill="#ec4899" opacity="0.68" x="145" y="139" width="9" height="3" rx="1" />
+  <rect id="variant-01-chip-12" fill="#ef4444" opacity="0.68" x="182" y="141" width="7" height="4" rx="1" />
+  <circle id="variant-01-pin-01" fill="#f59e0b" opacity="0.66" cx="15" cy="23" r="2.05" />
+  <circle id="variant-01-pin-02" fill="#84cc16" opacity="0.66" cx="200" cy="37" r="2.3" />
+  <circle id="variant-01-pin-03" fill="#22c55e" opacity="0.66" cx="25" cy="51" r="2.55" />
+  <circle id="variant-01-pin-04" fill="#14b8a6" opacity="0.66" cx="210" cy="65" r="1.8" />
+  <circle id="variant-01-pin-05" fill="#06b6d4" opacity="0.66" cx="11" cy="79" r="2.05" />
+  <circle id="variant-01-pin-06" fill="#3b82f6" opacity="0.66" cx="196" cy="93" r="2.3" />
+  <circle id="variant-01-pin-07" fill="#6366f1" opacity="0.66" cx="21" cy="107" r="2.55" />
+  <circle id="variant-01-pin-08" fill="#8b5cf6" opacity="0.66" cx="206" cy="121" r="1.8" />
+</svg>

@@ -1,1 +1,0 @@
-body,nose-cone,fin-left,fin-right,flame,star

@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
-  <ellipse id="plate" fill="#888888" cx="64" cy="108" rx="44" ry="6" />
-  <rect id="base-layer" fill="#b85c38" x="24" y="72" width="80" height="32" />
-</svg>

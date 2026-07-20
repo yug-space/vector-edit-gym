@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <radialGradient id="space13" cx="0.3" cy="0.3" r="1">
+      <stop offset="0" stop-color="#1a1840" /><stop offset="0.5" stop-color="#0c0a24" /><stop offset="1" stop-color="#04030f" />
+    </radialGradient>
+    <radialGradient id="neb13a" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#d44a9a" stop-opacity="0.6" /><stop offset="1" stop-color="#d44a9a" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="neb13b" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4a7ad4" stop-opacity="0.55" /><stop offset="1" stop-color="#4a7ad4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="neb13c" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3acab0" stop-opacity="0.4" /><stop offset="1" stop-color="#3acab0" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="planet13" cx="0.35" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#f0c88a" /><stop offset="0.5" stop-color="#d49a5a" /><stop offset="0.8" stop-color="#a06a3a" /><stop offset="1" stop-color="#5a3a22" />
+    </radialGradient>
+    <linearGradient id="ring13" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4b88a" stop-opacity="0" /><stop offset="0.3" stop-color="#e8d0a0" stop-opacity="0.9" /><stop offset="0.5" stop-color="#fff0d0" /><stop offset="0.7" stop-color="#e8d0a0" stop-opacity="0.9" /><stop offset="1" stop-color="#d4b88a" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="ground13" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a44" /><stop offset="1" stop-color="#1a1226" />
+    </linearGradient>
+    <filter id="nebblur13" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#space13)" id="download-sv_033-rect-001" />
+
+
+  <ellipse cx="380" cy="300" rx="420" ry="300" fill="url(#neb13a)" filter="url(#nebblur13)" id="download-sv_033-ellipse-001" />
+  <ellipse cx="1100" cy="220" rx="500" ry="320" fill="url(#neb13b)" filter="url(#nebblur13)" id="download-sv_033-ellipse-002" />
+  <ellipse cx="760" cy="460" rx="460" ry="260" fill="url(#neb13c)" filter="url(#nebblur13)" id="download-sv_033-ellipse-003" />
+
+
+  <g fill="#ffffff">
+    <circle cx="100" cy="80" r="1.8" id="download-sv_033-circle-001" /><circle cx="260" cy="140" r="1.2" id="download-sv_033-circle-002" /><circle cx="420" cy="60" r="2" id="download-sv_033-circle-003" /><circle cx="600" cy="120" r="1.4" id="download-sv_033-circle-004" />
+    <circle cx="780" cy="60" r="1.8" id="download-sv_033-circle-005" /><circle cx="960" cy="140" r="1.2" id="download-sv_033-circle-006" /><circle cx="1140" cy="80" r="2" id="download-sv_033-circle-007" /><circle cx="1320" cy="120" r="1.4" id="download-sv_033-circle-008" /><circle cx="1500" cy="60" r="1.8" id="download-sv_033-circle-009" />
+    <circle cx="180" cy="220" r="1" id="download-sv_033-circle-010" /><circle cx="360" cy="260" r="1.4" id="download-sv_033-circle-011" /><circle cx="540" cy="200" r="1" id="download-sv_033-circle-012" /><circle cx="720" cy="280" r="1.6" id="download-sv_033-circle-013" />
+    <circle cx="900" cy="220" r="1" id="download-sv_033-circle-014" /><circle cx="1080" cy="300" r="1.4" id="download-sv_033-circle-015" /><circle cx="1260" cy="240" r="1" id="download-sv_033-circle-016" /><circle cx="1440" cy="280" r="1.6" id="download-sv_033-circle-017" />
+    <circle cx="120" cy="380" r="1.2" id="download-sv_033-circle-018" /><circle cx="1520" cy="420" r="1.4" id="download-sv_033-circle-019" /><circle cx="80" cy="500" r="1" id="download-sv_033-circle-020" /><circle cx="1560" cy="540" r="1.2" id="download-sv_033-circle-021" />
+    <circle cx="500" cy="380" r="0.9" id="download-sv_033-circle-022" /><circle cx="1100" cy="440" r="1.1" id="download-sv_033-circle-023" /><circle cx="820" cy="200" r="0.9" id="download-sv_033-circle-024" />
+  </g>
+
+  <g fill="#bfe0ff">
+    <g transform="translate(640 180)"><path d="M0 -10 L2 0 L0 10 L-2 0 Z M-10 0 L0 2 L10 0 L0 -2 Z" id="download-sv_033-path-001" /></g>
+    <g transform="translate(1240 340)"><path d="M0 -8 L1.6 0 L0 8 L-1.6 0 Z M-8 0 L0 1.6 L8 0 L0 -1.6 Z" id="download-sv_033-path-002" /></g>
+  </g>
+
+
+  <g transform="translate(1060 380)">
+
+    <path d="M-360 0 A360 90 0 0 1 360 0" fill="none" stroke="url(#ring13)" stroke-width="40" opacity="0.8" id="download-sv_033-path-003" />
+
+    <circle cx="0" cy="0" r="230" fill="url(#planet13)" id="download-sv_033-circle-025" />
+
+    <g opacity="0.4">
+      <path d="M-220 -70 Q0 -90 220 -70" stroke="#b07a44" stroke-width="14" fill="none" id="download-sv_033-path-004" />
+      <path d="M-228 -10 Q0 -30 228 -10" stroke="#e0b070" stroke-width="20" fill="none" id="download-sv_033-path-005" />
+      <path d="M-224 60 Q0 40 224 60" stroke="#a86a38" stroke-width="16" fill="none" id="download-sv_033-path-006" />
+      <path d="M-200 120 Q0 100 200 120" stroke="#c89a5a" stroke-width="12" fill="none" id="download-sv_033-path-007" />
+    </g>
+    <ellipse cx="-70" cy="-60" rx="40" ry="24" fill="#8a5a30" opacity="0.4" id="download-sv_033-ellipse-004" />
+
+    <path d="M0 -230 A230 230 0 0 0 0 230 A150 230 0 0 1 0 -230 Z" fill="#1a0e08" opacity="0.35" id="download-sv_033-path-008" />
+
+    <path d="M-360 0 A360 90 0 0 0 360 0" fill="none" stroke="url(#ring13)" stroke-width="40" id="download-sv_033-path-009" />
+    <path d="M-310 0 A310 78 0 0 0 310 0" fill="none" stroke="#fff0d0" stroke-width="10" opacity="0.7" id="download-sv_033-path-010" />
+  </g>
+
+
+  <circle cx="340" cy="240" r="44" fill="#9a9aae" id="download-sv_033-circle-026" />
+  <circle cx="340" cy="240" r="44" fill="#04030f" opacity="0.2" id="download-sv_033-circle-027" />
+  <circle cx="326" cy="226" r="8" fill="#7a7a8e" id="download-sv_033-circle-028" /><circle cx="352" cy="252" r="6" fill="#7a7a8e" id="download-sv_033-circle-029" />
+
+
+  <path d="M0 720 Q300 660 640 700 Q980 740 1600 680 L1600 1000 L0 1000 Z" fill="url(#ground13)" id="download-sv_033-path-011" />
+  <path d="M0 820 Q400 780 800 820 Q1200 860 1600 800 L1600 1000 L0 1000 Z" fill="#241830" id="download-sv_033-path-012" />
+
+  <g fill="#140c1c" opacity="0.8">
+    <ellipse cx="300" cy="900" rx="90" ry="26" id="download-sv_033-ellipse-005" /><ellipse cx="1200" cy="880" rx="110" ry="30" id="download-sv_033-ellipse-006" /><ellipse cx="700" cy="960" rx="70" ry="20" id="download-sv_033-ellipse-007" />
+  </g>
+  <g fill="#3a2a48" opacity="0.6">
+    <ellipse cx="300" cy="894" rx="90" ry="20" id="download-sv_033-ellipse-008" /><ellipse cx="1200" cy="874" rx="110" ry="24" id="download-sv_033-ellipse-009" />
+  </g>
+
+  <g fill="#2a1c36">
+    <polygon points="160,760 200,720 240,760 220,790 180,790" id="download-sv_033-polygon-001" />
+    <polygon points="1380,800 1430,760 1480,800 1460,830 1400,830" id="download-sv_033-polygon-002" />
+  </g>
+
+
+  <g transform="translate(560 740)">
+    <rect x="-50" y="-30" width="100" height="40" rx="6" fill="#c8ccd2" id="download-sv_033-rect-002" />
+    <rect x="-50" y="-30" width="100" height="40" rx="6" fill="none" stroke="#8a8e94" stroke-width="2" id="download-sv_033-rect-003" />
+    <rect x="-20" y="-54" width="40" height="26" rx="3" fill="#3a4452" id="download-sv_033-rect-004" />
+    <rect x="-12" y="-50" width="24" height="14" fill="#7fd0ff" opacity="0.8" id="download-sv_033-rect-005" />
+
+    <rect x="-90" y="-44" width="50" height="20" fill="#1a3a6a" transform="rotate(-12 -65 -34)" id="download-sv_033-rect-006" />
+    <line x1="-90" y1="-44" x2="-40" y2="-44" stroke="#4a6aaa" stroke-width="1" transform="rotate(-12 -65 -34)" id="download-sv_033-line-001" />
+
+    <circle cx="-34" cy="16" r="16" fill="#2a2e34" id="download-sv_033-circle-030" /><circle cx="0" cy="18" r="16" fill="#2a2e34" id="download-sv_033-circle-031" /><circle cx="34" cy="16" r="16" fill="#2a2e34" id="download-sv_033-circle-032" />
+    <circle cx="-34" cy="16" r="6" fill="#5a5e64" id="download-sv_033-circle-033" /><circle cx="0" cy="18" r="6" fill="#5a5e64" id="download-sv_033-circle-034" /><circle cx="34" cy="16" r="6" fill="#5a5e64" id="download-sv_033-circle-035" />
+
+    <line x1="40" y1="-30" x2="56" y2="-70" stroke="#8a8e94" stroke-width="2" id="download-sv_033-line-002" /><circle cx="56" cy="-72" r="4" fill="#e04a4a" id="download-sv_033-circle-036" />
+
+    <g stroke="#140c1c" stroke-width="3" opacity="0.5"><line x1="-160" y1="40" x2="-50" y2="34" id="download-sv_033-line-003" /><line x1="-160" y1="48" x2="-50" y2="42" id="download-sv_033-line-004" /></g>
+  </g>
+</svg>

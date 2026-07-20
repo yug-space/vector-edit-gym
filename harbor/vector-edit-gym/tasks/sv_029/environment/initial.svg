@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky09" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1a4a" />
+      <stop offset="0.35" stop-color="#7a3a6a" />
+      <stop offset="0.65" stop-color="#d4624a" />
+      <stop offset="0.85" stop-color="#f0964a" />
+      <stop offset="1" stop-color="#fbd08a" />
+    </linearGradient>
+    <radialGradient id="sun09" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff0c0" /><stop offset="0.4" stop-color="#ffb86a" stop-opacity="0.7" /><stop offset="1" stop-color="#ffb86a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="mesa09a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a4a5a" /><stop offset="1" stop-color="#6a3448" />
+    </linearGradient>
+    <linearGradient id="mesa09b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a85a48" /><stop offset="1" stop-color="#7a3a32" />
+    </linearGradient>
+    <linearGradient id="mesa09c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c06a44" /><stop offset="1" stop-color="#8a3e28" />
+    </linearGradient>
+    <linearGradient id="mesa09d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a2a26" /><stop offset="1" stop-color="#3a1a18" />
+    </linearGradient>
+    <linearGradient id="river09" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6c98a" /><stop offset="1" stop-color="#c4783a" />
+    </linearGradient>
+    <filter id="haze09" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky09)" id="download-sv_029-rect-001" />
+
+
+  <g fill="#fff" opacity="0.8">
+    <circle cx="171" cy="60" r="1.5" id="download-sv_029-circle-001" /><circle cx="320" cy="100" r="1.2" id="download-sv_029-circle-002" /><circle cx="200" cy="160" r="1" id="download-sv_029-circle-003" />
+    <circle cx="500" cy="60" r="1.3" id="download-sv_029-circle-004" /><circle cx="60" cy="120" r="1.2" id="download-sv_029-circle-005" /><circle cx="420" cy="180" r="1" id="download-sv_029-circle-006" />
+  </g>
+
+
+  <circle cx="820" cy="420" r="260" fill="url(#sun09)" id="download-sv_029-circle-007" />
+  <circle cx="820" cy="430" r="64" fill="#fff2cc" id="download-sv_029-circle-008" />
+
+
+  <path d="M0 470 L180 470 L200 420 L360 420 L380 470 L600 470 L600 600 L0 600 Z" fill="url(#mesa09a)" opacity="0.27" filter="url(#haze09)" id="download-sv_029-path-001" />
+  <path d="M1000 460 L1180 460 L1200 410 L1360 410 L1380 460 L1600 460 L1600 600 L1000 600 Z" fill="url(#mesa09a)" opacity="0.6" filter="url(#haze09)" id="download-sv_029-path-002" />
+
+
+  <path d="M0 560 L120 560 L140 500 L300 500 L320 560 L0 560 Z M0 560 L0 700 L420 700 L420 560 Z" fill="url(#mesa09b)" opacity="0.85" id="download-sv_029-path-003" />
+  <path d="M1080 540 L1240 540 L1260 480 L1440 480 L1460 540 L1600 540 L1600 700 L1080 700 Z" fill="url(#mesa09b)" opacity="0.85" id="download-sv_029-path-004" />
+
+
+  <path d="M0 620 L260 620 L290 540 L460 540 L490 620 L560 620 L560 1000 L0 1000 Z" fill="url(#mesa09c)" id="download-sv_029-path-005" />
+  <path d="M1040 620 L1100 620 L1130 540 L1320 540 L1350 620 L1600 620 L1600 1000 L1040 1000 Z" fill="url(#mesa09c)" id="download-sv_029-path-006" />
+
+  <g stroke="#7a3422" stroke-width="3" opacity="0.4">
+    <line x1="20" y1="700" x2="540" y2="700" id="download-sv_029-line-001" /><line x1="40" y1="780" x2="540" y2="780" id="download-sv_029-line-002" /><line x1="20" y1="860" x2="540" y2="860" id="download-sv_029-line-003" />
+    <line x1="1060" y1="700" x2="1580" y2="700" id="download-sv_029-line-004" /><line x1="1060" y1="780" x2="1580" y2="780" id="download-sv_029-line-005" /><line x1="1060" y1="860" x2="1580" y2="860" id="download-sv_029-line-006" />
+  </g>
+
+
+  <path d="M560 620 L1040 620 L1040 1000 L560 1000 Z" fill="url(#mesa09d)" id="download-sv_029-path-007" />
+
+
+  <path d="M800 620 Q780 720 820 760 Q870 800 800 860 Q740 910 800 1000 L880 1000 Q840 910 900 860 Q960 810 900 760 Q860 720 880 620 Z" fill="url(#river09)" opacity="0.9" id="download-sv_029-path-008" />
+  <path d="M820 700 Q800 780 840 840" stroke="#111827" stroke-width="2" fill="none" opacity="0.7" id="download-sv_029-path-009" />
+
+
+  <g fill="#2a3a1a">
+    <g transform="translate(660 700)">
+      <rect x="-12" y="0" width="24" height="200" rx="12" id="download-sv_029-rect-002" />
+      <path d="M-12 60 q-40 0 -40 40 l0 30 q0 12 12 12 q12 0 12 -12 l0 -50" fill="#2a3a1a" id="download-sv_029-path-010" />
+      <path d="M12 90 q40 0 40 40 l0 24 q0 12 12 12 q12 0 12 -12 l0 -44" fill="#2a3a1a" id="download-sv_029-path-011" />
+    </g>
+    <g transform="translate(960 740) scale(0.8)">
+      <rect x="-12" y="0" width="24" height="200" rx="12" id="download-sv_029-rect-003" />
+      <path d="M12 70 q40 0 40 40 l0 30 q0 12 12 12 q12 0 12 -12 l0 -50" fill="#2a3a1a" id="download-sv_029-path-012" />
+    </g>
+    <g transform="translate(180 880) scale(0.7)">
+      <rect x="-12" y="0" width="24" height="160" rx="12" id="download-sv_029-rect-004" />
+      <path d="M-12 50 q-36 0 -36 36 l0 24 q0 12 12 12 q12 0 12 -12 l0 -44" fill="#2a3a1a" id="download-sv_029-path-013" />
+    </g>
+    <g transform="translate(1420 860) scale(0.75)">
+      <rect x="-12" y="0" width="24" height="170" rx="12" id="download-sv_029-rect-005" />
+      <path d="M12 60 q36 0 36 36 l0 24 q0 12 12 12 q12 0 12 -12 l0 -44" fill="#2a3a1a" id="download-sv_029-path-014" />
+    </g>
+  </g>
+
+
+  <g fill="#2a1614">
+    <ellipse cx="700" cy="980" rx="80" ry="30" id="download-sv_029-ellipse-001" /><ellipse cx="920" cy="990" rx="70" ry="26" id="download-sv_029-ellipse-002" />
+  </g>
+
+
+  <g stroke="#3a1a1a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6">
+    <path d="M500 240 q12 -10 24 0 q12 -10 24 0" id="download-sv_029-path-015" /><path d="M1100 200 q10 -8 20 0 q10 -8 20 0" id="download-sv_029-path-016" />
+  </g>
+<circle id="sv_029-extra-survey-marker" cx="1120" cy="296" r="32" fill="#111827" opacity="0.82" stroke="#111827" stroke-width="5" /></svg>

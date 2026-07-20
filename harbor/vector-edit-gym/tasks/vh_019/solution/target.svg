@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
-  <rect id="body" fill="#cccccc" stroke="#222" stroke-width="2" x="48" y="40" width="32" height="70" />
-  <polygon id="nose-cone" fill="#e63946" points="48,40 80,40 64,12" />
-</svg>

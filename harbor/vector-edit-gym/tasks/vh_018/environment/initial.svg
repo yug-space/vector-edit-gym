@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-<rect id="__bg" x="0" y="0" width="128" height="128" fill="white" />
-  <line id="stem" stroke="#22c55e" stroke-width="3" x1="64" y1="72" x2="64" y2="116" />
-  <ellipse id="petal-n" fill="#ec4899" cx="64" cy="36" rx="10" ry="16" />
-  <ellipse id="petal-e" fill="#ec4899" cx="84" cy="56" rx="16" ry="10" />
-  <ellipse id="petal-s" fill="#ec4899" cx="64" cy="76" rx="10" ry="16" />
-  <ellipse id="petal-w" fill="#ec4899" cx="44" cy="56" rx="16" ry="10" />
-</svg>

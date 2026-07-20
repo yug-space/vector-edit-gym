@@ -1,90 +1,61 @@
-# Running solvers
+# Running Model Solvers
 
-Every solver reads its API key from the environment. Nothing is ever written to disk.
+Keep credentials in environment variables and install dependencies inside a virtual environment.
 
-## OpenAI (gpt-5-mini default)
-
-```sh
-# from the repo root
-export OPENAI_API_KEY="sk-..."     # never commit this
-export VEG_OPENAI_MODEL="gpt-5-mini"          # optional; this is the default
-
-# install once
-pip install -e 'sdk/python[openai]'
-
-# run against the hand-authored set (data/tasks/)
-vec-edit-gym evaluate vector_edit_gym.examples.openai_solver:solve
-
-# run against the 300 legacy auto-generated tasks
-VECTOR_EDIT_GYM_DATA="$PWD/data/tasks_legacy" \
-  vec-edit-gym evaluate vector_edit_gym.examples.openai_solver:solve \
-  --difficulty very_easy --limit 10
-```
-
-## LiteLLM proxy
-
-The LiteLLM runner uses the OpenAI SDK against an OpenAI-compatible base URL. Keep secrets in your shell environment; do not commit them.
+## OpenRouter Study
 
 ```sh
-export LITELLM_API_KEY="..."
-export LITELLM_BASE_URL="https://your-litellm-proxy"
-pip install -e 'sdk/python[litellm]'
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e 'sdk/python[litellm]'
+export OPENROUTER_API_KEY='...'
 
-# See what the proxy exposes.
-python scripts/benchmark-litellm.py --list-models
-
-# Smoke-test one model on a few tasks.
-VEG_LITELLM_MODEL=gpt-5-mini \
-  vec-edit-gym evaluate vector_edit_gym.examples.litellm_solver:solve --limit 5
-
-# Benchmark GPT-5 and GPT-5 mini with per-task diff reports.
-python scripts/benchmark-litellm.py \
-  --models gpt-5 gpt-5-mini \
-  --out runs/litellm \
-  --run-name gpt5-vs-mini
+python scripts/benchmark-openrouter.py --dry-run
+python scripts/benchmark-openrouter.py \
+  --manifest benchmarks/openrouter-30.json \
+  --budget-usd 25 \
+  --concurrency 20 \
+  --run-name openrouter-30-human
 ```
 
-Artifacts are written under `runs/litellm/<run-name>/`:
+The runner gives the model only the human instruction and corrupted SVG. It records target and preservation checks after the response returns. Retries use the same requested model; fallback routing to a different model is not allowed by the harness.
 
-- `summary.json` / `summary.md` aggregate scores per model.
-- `<model>/results.jsonl` one record per task, including metrics, expected diff checks, preservation failures, and the produced SVG.
-- `<model>/svgs/*.svg` when `--save-svgs` is passed.
-
-## Anthropic (claude-sonnet-4-6 default)
+## SDK Provider Examples
 
 ```sh
-export ANTHROPIC_API_KEY="..."
-pip install -e 'sdk/python[anthropic]'
-vec-edit-gym evaluate vector_edit_gym.examples.claude_solver:solve --limit 10
+# OpenAI-compatible endpoint
+export OPENAI_API_KEY='...'
+export VEG_OPENAI_MODEL='gpt-5-mini'
+vec-edit-gym evaluate vector_edit_gym.examples.openai_solver:solve --limit 5
+
+# Anthropic
+export ANTHROPIC_API_KEY='...'
+vec-edit-gym evaluate vector_edit_gym.examples.claude_solver:solve --limit 5
+
+# LiteLLM-compatible proxy
+export LITELLM_API_KEY='...'
+export LITELLM_BASE_URL='https://your-proxy.example/v1'
+export VEG_LITELLM_MODEL='your-model'
+vec-edit-gym evaluate vector_edit_gym.examples.litellm_solver:solve --limit 5
 ```
 
-## Sanity baselines (no API needed)
+These examples are convenience adapters. The published study uses `scripts/benchmark-openrouter.py` because it adds resumability, a model manifest, budget reservations, retries, provenance fields, token accounting, and per-task JSONL.
+
+## Artifacts
+
+```text
+runs/openrouter/<run>/meta.json
+runs/openrouter/<run>/results.jsonl
+runs/openrouter/<run>/summary.json
+runs/openrouter/<run>/summary.md
+runs/openrouter/<run>/cost.json
+```
+
+`runs/` is ignored by Git. After the complete model-task matrix has finished, rescore the recorded responses and then publish them:
 
 ```sh
-vec-edit-gym evaluate vector_edit_gym.examples.oracle_solver:solve  # 100% on all metrics
-vec-edit-gym evaluate vector_edit_gym.examples.noop_solver:solve    # floor: 0% exact, 100% preservation
+python scripts/rescore-results.py runs/openrouter/openrouter-30-human
+node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
 ```
 
-## Output
-
-```
-VectorEditGym — N tasks
-  exact-match:        x%     <- whitespace-normalized byte equality
-  structural-match:   x%     <- parsed element tree equality (tag + attrs + nesting)
-  preservation (avg): x%     <- fraction of should_preserve elements byte-identical
-  errors:             x%     <- solver exceptions
-  mean latency:       x ms
-
-By difficulty:
-  very_easy   n=N  exact=x%  struct=x%  preserve=x%
-  ...
-```
-
-Add `--json` to get machine-readable results.
-
-For a single produced SVG:
-
-```sh
-vec-edit-gym score ea_001 produced.svg
-vec-edit-gym score ea_001 produced.svg --json
-```
+The rescorer does not call a model or alter its response. It atomically regenerates scores and summaries with the current canonical evaluator.

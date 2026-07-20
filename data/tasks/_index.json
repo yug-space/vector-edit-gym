@@ -1,669 +1,297 @@
 {
-  "generated_at": "2026-05-25T02:26:51.016Z",
-  "count": 106,
+  "benchmark": "VectorEditGym",
+  "release": "2026-07",
+  "count": 40,
+  "frozen_content_sha256": "2a62410b5de7383030c1a8b77d5d4d416e6be8efd11dc7322393a04f54e464d1",
   "by_difficulty": {
-    "easy": 25,
-    "medium": 35,
-    "hard": 26,
-    "very_hard": 20
+    "hard": 10,
+    "very_hard": 30
   },
   "by_category": {
-    "wrong_color": 9,
-    "wrong_stroke_width": 6,
-    "wrong_scale": 6,
-    "clipped_viewbox": 4,
-    "missing_part": 5,
-    "extra_part": 5,
-    "displaced_part": 5,
-    "wrong_part_color": 5,
-    "duplicate_part": 5,
-    "flipped_part": 5,
-    "multi_repair": 5,
-    "wrong_color+clipped_viewbox": 6,
-    "wrong_color+wrong_stroke_width": 6,
-    "wrong_scale+wrong_stroke_width": 4,
-    "wrong_scale+clipped_viewbox": 2,
-    "wrong_stroke_width+clipped_viewbox": 1,
-    "wrong_color+wrong_scale": 1,
-    "company_logo_multi_repair": 6,
-    "creation_step": 20
+    "scenic_multi": 16,
+    "scenic_very_hard": 4,
+    "downloaded_scenic_surgical": 20
   },
   "tasks": [
     {
-      "task_id": "ea_001",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The academic cap picked up a red accent. Put it back as a plain black outline."
-    },
-    {
-      "task_id": "ea_002",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The adjustment sliders should not be blue. Restore the standard monochrome outline."
-    },
-    {
-      "task_id": "ea_003",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The vertical adjustment control has an accidental green tint. Make it look like a normal outline icon again."
-    },
-    {
-      "task_id": "ea_004",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The archive download icon was highlighted yellow by mistake. Return it to the usual black outline."
-    },
-    {
-      "task_id": "ea_005",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The archive removal icon has a purple cast. Remove the tint and keep the outline style."
-    },
-    {
-      "task_id": "ea_006",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The archive box should be a neutral outline, not orange. Restore its default look."
-    },
-    {
-      "task_id": "ea_007",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The at-sign has a pink tint that does not belong. Make it a clean black outline again."
-    },
-    {
-      "task_id": "ea_008",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The backspace icon's lines look too bold. Bring the outline weight back to normal."
-    },
-    {
-      "task_id": "ea_009",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The banknotes icon is too faint to match the set. Restore the usual line weight."
-    },
-    {
-      "task_id": "ea_010",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The empty battery outline is heavier than it should be. Match the normal icon weight."
-    },
-    {
-      "task_id": "ea_011",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The full battery icon looks unusually delicate. Restore the standard outline thickness."
-    },
-    {
-      "task_id": "ea_012",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The half battery icon has oversized strokes. Make the line weight consistent with the default set."
-    },
-    {
-      "task_id": "ea_013",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The beaker is undersized on the canvas. Restore its normal centered presence."
-    },
-    {
-      "task_id": "ea_014",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The alert bell is crowding the canvas. Resize it back to the standard icon fit."
-    },
-    {
-      "task_id": "ea_015",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The muted bell looks shrunken. Return it to the usual centered scale."
-    },
-    {
-      "task_id": "ea_016",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The snooze bell is slightly too large for the canvas. Restore the balanced icon size."
-    },
-    {
-      "task_id": "ea_017",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The regular bell no longer matches the icon set's sizing. Put it back to the normal fit."
-    },
-    {
-      "task_id": "ea_018",
-      "difficulty": "easy",
-      "category": "clipped_viewbox",
-      "instruction": "The bold text icon is cropped. Fix the canvas so the entire mark is visible."
-    },
-    {
-      "task_id": "ea_019",
-      "difficulty": "easy",
-      "category": "clipped_viewbox",
-      "instruction": "The disabled lightning bolt is cut off at the edges. Restore the full visible icon."
-    },
-    {
-      "task_id": "ea_020",
-      "difficulty": "easy",
-      "category": "clipped_viewbox",
-      "instruction": "The lightning bolt does not fit inside its viewport. Make the complete outline show again."
-    },
-    {
-      "task_id": "ea_021",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The open book has been colored cyan. Return it to a simple black outline."
-    },
-    {
-      "task_id": "ea_022",
-      "difficulty": "easy",
-      "category": "wrong_stroke_width",
-      "instruction": "The slashed bookmark's outline is barely visible. Restore the normal stroke weight."
-    },
-    {
-      "task_id": "ea_023",
-      "difficulty": "easy",
-      "category": "wrong_scale",
-      "instruction": "The square bookmark is a little oversized. Bring it back to the standard centered scale."
-    },
-    {
-      "task_id": "ea_024",
-      "difficulty": "easy",
-      "category": "clipped_viewbox",
-      "instruction": "The bookmark is partly outside the visible area. Repair the viewport so the whole shape appears."
-    },
-    {
-      "task_id": "ea_025",
-      "difficulty": "easy",
-      "category": "wrong_color",
-      "instruction": "The briefcase picked up a red tint. Restore the icon to the neutral outline style."
-    },
-    {
-      "task_id": "me_001",
-      "difficulty": "medium",
-      "category": "missing_part",
-      "instruction": "The house lost its roof. Rebuild the missing top piece."
-    },
-    {
-      "task_id": "me_002",
-      "difficulty": "medium",
-      "category": "missing_part",
-      "instruction": "The face has eyes and cheeks but no smile. Add the missing mouth back."
-    },
-    {
-      "task_id": "me_003",
-      "difficulty": "medium",
-      "category": "missing_part",
-      "instruction": "The car body is missing its windshield. Restore the glass area."
-    },
-    {
-      "task_id": "me_004",
-      "difficulty": "medium",
-      "category": "missing_part",
-      "instruction": "The birthday cake needs its candle restored on top."
-    },
-    {
-      "task_id": "me_005",
-      "difficulty": "medium",
-      "category": "missing_part",
-      "instruction": "The rocket is missing its round porthole. Put the window back."
-    },
-    {
-      "task_id": "me_006",
-      "difficulty": "medium",
-      "category": "extra_part",
-      "instruction": "A stray blue spot was added to the house wall. Remove the unwanted mark."
-    },
-    {
-      "task_id": "me_007",
-      "difficulty": "medium",
-      "category": "extra_part",
-      "instruction": "The smiley has an extra eyebrow-like stroke above one eye. Clean it off."
-    },
-    {
-      "task_id": "me_008",
-      "difficulty": "medium",
-      "category": "extra_part",
-      "instruction": "The clock face has a stray side tick that should not be there. Remove the extra mark."
-    },
-    {
-      "task_id": "me_009",
-      "difficulty": "medium",
-      "category": "extra_part",
-      "instruction": "A loose rock appeared in the water under the boat. Delete the stray shape."
-    },
-    {
-      "task_id": "me_010",
-      "difficulty": "medium",
-      "category": "extra_part",
-      "instruction": "The flower has an extra petal that breaks the simple four-petal bloom. Remove it."
-    },
-    {
-      "task_id": "me_011",
-      "difficulty": "medium",
-      "category": "displaced_part",
-      "instruction": "The front door slid away from the center of the house. Move it back into place."
-    },
-    {
-      "task_id": "me_012",
-      "difficulty": "medium",
-      "category": "displaced_part",
-      "instruction": "The car's right wheel floated upward. Put it back under the body."
-    },
-    {
-      "task_id": "me_013",
-      "difficulty": "medium",
-      "category": "displaced_part",
-      "instruction": "The leafy crown no longer sits on the trunk. Recenter it above the tree."
-    },
-    {
-      "task_id": "me_014",
-      "difficulty": "medium",
-      "category": "displaced_part",
-      "instruction": "The cup handle drifted into the body. Move it back to the outside edge."
-    },
-    {
-      "task_id": "me_015",
-      "difficulty": "medium",
-      "category": "displaced_part",
-      "instruction": "The rocket flame is tucked too high into the body. Place it back underneath."
-    },
-    {
-      "task_id": "me_016",
-      "difficulty": "medium",
-      "category": "wrong_part_color",
-      "instruction": "The house window no longer reads as glass. Restore its original window color."
-    },
-    {
-      "task_id": "me_017",
-      "difficulty": "medium",
-      "category": "wrong_part_color",
-      "instruction": "The left cheek blush turned into a dark mark. Restore the soft blush color."
-    },
-    {
-      "task_id": "me_018",
-      "difficulty": "medium",
-      "category": "wrong_part_color",
-      "instruction": "The fruit on the right blends into the leaves. Make it match the other fruit again."
-    },
-    {
-      "task_id": "me_019",
-      "difficulty": "medium",
-      "category": "wrong_part_color",
-      "instruction": "The sail was painted like the water. Restore the sail's warm color."
-    },
-    {
-      "task_id": "me_020",
-      "difficulty": "medium",
-      "category": "wrong_part_color",
-      "instruction": "The rocket nose cone lost its accent color. Repaint it to match the fins."
-    },
-    {
-      "task_id": "me_021",
-      "difficulty": "medium",
-      "category": "duplicate_part",
-      "instruction": "The face has one eye mark too many. Remove the copied eye."
-    },
-    {
-      "task_id": "me_022",
-      "difficulty": "medium",
-      "category": "duplicate_part",
-      "instruction": "A second minute hand was copied onto the clock. Keep only the intended hand."
-    },
-    {
-      "task_id": "me_023",
-      "difficulty": "medium",
-      "category": "duplicate_part",
-      "instruction": "The car has an extra wheel mark near the left side. Remove the duplicate."
-    },
-    {
-      "task_id": "me_024",
-      "difficulty": "medium",
-      "category": "duplicate_part",
-      "instruction": "There is one steam wisp too many above the cup. Delete the copied wisp."
-    },
-    {
-      "task_id": "me_025",
-      "difficulty": "medium",
-      "category": "duplicate_part",
-      "instruction": "A second leaf was accidentally added to the stem. Remove the duplicate leaf."
-    },
-    {
-      "task_id": "me_026",
-      "difficulty": "medium",
-      "category": "flipped_part",
-      "instruction": "The sail leans the wrong way. Flip it back so it attaches naturally to the mast."
-    },
-    {
-      "task_id": "me_027",
-      "difficulty": "medium",
-      "category": "flipped_part",
-      "instruction": "The left fin faces inward instead of bracing the rocket. Turn it back around."
-    },
-    {
-      "task_id": "me_028",
-      "difficulty": "medium",
-      "category": "flipped_part",
-      "instruction": "The right fin is mirrored away from its proper stance. Restore its orientation."
-    },
-    {
-      "task_id": "me_029",
-      "difficulty": "medium",
-      "category": "flipped_part",
-      "instruction": "The left steam curl bends the wrong direction. Mirror it back into the rising steam pattern."
-    },
-    {
-      "task_id": "me_030",
-      "difficulty": "medium",
-      "category": "flipped_part",
-      "instruction": "The small corner star has been mirrored. Restore its original sparkle shape."
-    },
-    {
-      "task_id": "me_031",
-      "difficulty": "medium",
-      "category": "multi_repair",
-      "instruction": "Fix the house details: the window color is wrong and the chimney was copied."
-    },
-    {
-      "task_id": "me_032",
-      "difficulty": "medium",
-      "category": "multi_repair",
-      "instruction": "Repair the car's front details by restoring the headlight and bringing back the plate."
-    },
-    {
-      "task_id": "me_033",
-      "difficulty": "medium",
-      "category": "multi_repair",
-      "instruction": "Clean up the clock face: the center dot color is wrong and one side mark was duplicated."
-    },
-    {
-      "task_id": "me_034",
-      "difficulty": "medium",
-      "category": "multi_repair",
-      "instruction": "Restore the tree's fruit details: one fruit moved and another lost its ripe color."
-    },
-    {
-      "task_id": "me_035",
-      "difficulty": "medium",
-      "category": "multi_repair",
-      "instruction": "Finish repairing the cake by restoring the cherry and the white frosting."
-    },
-    {
-      "task_id": "ha_001",
+      "task_id": "sv_001",
       "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The bug icon is both tinted and cropped. Restore the plain outline and make the full insect visible."
+      "category": "scenic_multi",
+      "instruction": "The amber signal has gone dark, the train door is sitting too far to the right, and the overhead cable has an awkward sag. Put those three details back in place and leave the rest of the station alone.",
+      "display_order": 1
     },
     {
-      "task_id": "ha_002",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The library building icon has the wrong color and weight. Bring it back to the standard black outline style."
-    },
-    {
-      "task_id": "ha_003",
-      "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The office tower looks shrunken and too heavy. Restore its normal size and outline balance."
-    },
-    {
-      "task_id": "ha_004",
-      "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The office building was recolored and clipped. Return the black outline and show the entire icon."
-    },
-    {
-      "task_id": "ha_005",
-      "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The storefront icon is oversized and too faint. Restore the usual centered outline appearance."
-    },
-    {
-      "task_id": "ha_006",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The cake icon should not be colored or extra bold. Reset it to the standard outline style."
-    },
-    {
-      "task_id": "ha_007",
-      "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The calculator icon is tinted and partly cut off. Make it a complete neutral outline again."
-    },
-    {
-      "task_id": "ha_008",
-      "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The date-range calendar has the wrong size and line weight. Put it back into the default icon style."
-    },
-    {
-      "task_id": "ha_009",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The calendar days icon is colored and too heavy. Restore the regular black outline."
-    },
-    {
-      "task_id": "ha_010",
-      "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The calendar is both green and cropped. Return it to a full black outline icon."
-    },
-    {
-      "task_id": "ha_011",
-      "difficulty": "hard",
-      "category": "wrong_scale+clipped_viewbox",
-      "instruction": "The camera is mis-sized and clipped by its canvas. Restore the normal fit with the whole camera visible."
-    },
-    {
-      "task_id": "ha_012",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The chart tile has an unwanted blue tint and thin lines. Restore the default outline treatment."
-    },
-    {
-      "task_id": "ha_013",
-      "difficulty": "hard",
-      "category": "wrong_scale+wrong_stroke_width",
-      "instruction": "The bar chart looks too small and too bold. Bring it back to the normal icon proportions."
-    },
-    {
-      "task_id": "ha_014",
-      "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The pie chart icon was tinted and cropped. Restore the complete black outline."
-    },
-    {
-      "task_id": "ha_015",
-      "difficulty": "hard",
-      "category": "wrong_stroke_width+clipped_viewbox",
-      "instruction": "The text chat bubble has the wrong line weight and is cut off. Fix the outline and viewport together."
-    },
-    {
-      "task_id": "ha_016",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_scale",
-      "instruction": "The centered chat bubble is tinted and no longer fits the canvas correctly. Restore the default look."
-    },
-    {
-      "task_id": "ha_017",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The chat bubble with ellipsis has the wrong color and heavy strokes. Return it to the regular outline style."
-    },
-    {
-      "task_id": "ha_018",
-      "difficulty": "hard",
-      "category": "wrong_scale+clipped_viewbox",
-      "instruction": "The left-right chat icon is oversized and clipped. Make it fit normally with no edges cut off."
-    },
-    {
-      "task_id": "ha_019",
-      "difficulty": "hard",
-      "category": "wrong_color+clipped_viewbox",
-      "instruction": "The single chat bubble is purple and cropped. Restore the full neutral outline."
-    },
-    {
-      "task_id": "ha_020",
-      "difficulty": "hard",
-      "category": "wrong_color+wrong_stroke_width",
-      "instruction": "The oval chat bubble has a stray tint and weak strokes. Put it back to the default outline weight and color."
-    },
-    {
-      "task_id": "ha_021",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The GitHub logo has a bad tint, heavy outline, and a stray slash through it. Restore the clean original mark."
-    },
-    {
-      "task_id": "ha_022",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The GitLab logo is cropped, recolored, and has a ghost copy behind it. Return it to one complete neutral outline."
-    },
-    {
-      "task_id": "ha_023",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The Figma logo is too small, colored incorrectly, and has an extra dot beside it. Restore the single balanced outline."
-    },
-    {
-      "task_id": "ha_024",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The Chrome logo outline is faint, clipped, and has an extra center ring. Restore the complete original icon."
-    },
-    {
-      "task_id": "ha_025",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The Instagram logo is oversized, tinted, and duplicated slightly off-center. Keep one normal outline logo."
-    },
-    {
-      "task_id": "ha_026",
-      "difficulty": "hard",
-      "category": "company_logo_multi_repair",
-      "instruction": "The Slack logo is cropped, too bold, and has an unwanted corner mark. Restore the full clean outline."
-    },
-    {
-      "task_id": "vh_001",
+      "task_id": "sv_021",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Finish the basic house silhouette by adding the roof."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the obvious colored marker from the mountain sunrise. Center the broad sun glow behind the pale sun, return the sun itself to a warm ivory, and make the most distant mountain ridge a little more visible. Keep the village and foreground untouched.",
+      "display_order": 2
     },
     {
-      "task_id": "vh_002",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the chimney that belongs on the roof."
+      "task_id": "sv_002",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "At the harbor, the green stripe on one buoy was painted red, the sailboat mast looks much too heavy, and the rope coil has lost its neat loop. Correct those small mistakes without changing the surrounding scene.",
+      "display_order": 3
     },
     {
-      "task_id": "vh_003",
+      "task_id": "sv_022",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Give the face its first eye."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "In the deep-sea scene, remove the stray colored marker and move the displaced glowing particle back toward the nearby cluster. The large jellyfish should have fine tentacles and a soft pink lower rim, while the second shaft of light should be clearly visible. Leave the other creatures alone.",
+      "display_order": 4
     },
     {
-      "task_id": "vh_004",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the smile so the expression reads happy."
+      "task_id": "sv_003",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "The station clock is missing its hour hand and has an extra minute hand. The blue poster has also shifted sideways, and a crack along the platform has been bent out of shape. Repair only those details.",
+      "display_order": 5
     },
     {
-      "task_id": "vh_005",
+      "task_id": "sv_023",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the top tick mark to start the clock face."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Clean the stray marker out of the rainy alley. A small window on the far-left building should glow cyan, the broad haze should be centered over the street, and the tall pink sign should have its normal bold outline. Restore the warm reflection near the middle of the wet road as well.",
+      "display_order": 6
     },
     {
-      "task_id": "vh_006",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the shorter hand pointing upward from the center."
+      "task_id": "sv_004",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "The tent flap is out of alignment, one star has disappeared, the front of the campfire is the wrong color, and the smoke curls the wrong way. Restore the campsite without touching the trees or other objects.",
+      "display_order": 7
     },
     {
-      "task_id": "vh_007",
+      "task_id": "sv_024",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Build the top cabin of the car."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the bright marker that does not belong in the enchanted forest. Shift the upper-left canopy glow back over the trees, make the large foreground mushroom stem deep green, thin the bright line along the stream, and soften the low band of fog. Preserve the other plants and lights.",
+      "display_order": 8
     },
     {
-      "task_id": "vh_008",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the second wheel so the car stands evenly."
+      "task_id": "sv_005",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "A stray price sticker has appeared in the market, one pear is red instead of green, and the bicycle handlebar has a distorted bend. Clean up those three issues while keeping the stalls and shoppers unchanged.",
+      "display_order": 9
     },
     {
-      "task_id": "vh_009",
+      "task_id": "sv_025",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the leafy canopy above the trunk."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Take the stray marker out of the arctic sky. Return the displaced star to the upper-left, make the moon a soft white, restore the strong green aurora streak on the left, and bring back the brighter second aurora curtain. Do not disturb the snowy landscape.",
+      "display_order": 10
     },
     {
-      "task_id": "vh_010",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Place one small fruit in the open space on the lower crown."
+      "task_id": "sv_006",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Remove the extra orange buoy from the water, turn the main sail back the right way, and place the little cabin window neatly inside the cabin again. Keep the lighthouse and the real buoys as they are.",
+      "display_order": 11
     },
     {
-      "task_id": "vh_011",
+      "task_id": "sv_026",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the lower cake layer on the plate."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the accidental marker from the vineyard sunset. Recenter the large golden sun glow behind the sun, restore the warm brown roof on the stone villa, and make the pale horizon haze clearly visible again. Leave the vines and cypress trees unchanged.",
+      "display_order": 12
     },
     {
-      "task_id": "vh_012",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Put a candle on top of the cake."
+      "task_id": "sv_007",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "The station clock needs its missing hour hand back and its duplicate minute hand removed. The bright platform edge is too thick, and the overhead wire should follow a smoother, shallower curve. Change nothing else.",
+      "display_order": 13
     },
     {
-      "task_id": "vh_013",
+      "task_id": "sv_027",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Raise the mast from the boat."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Clear the stray marker from the steampunk sky port. The glowing sun should be centered, the foreground airship should have a slimmer dark-red outline and matching vertical seam, and the bright center of the sun should be nearly solid. Keep the docks and other airships intact.",
+      "display_order": 14
     },
     {
-      "task_id": "vh_014",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the sail attached to the mast."
+      "task_id": "sv_008",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "A star is missing from the campsite sky, there is an extra puff of smoke, and the moon has drifted down and left. The trail through the ground also bends the wrong way. Fix these without redrawing the tent or trees.",
+      "display_order": 15
     },
     {
-      "task_id": "vh_015",
+      "task_id": "sv_028",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Set the cup on a saucer."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the colored marker from the reef and return the loose bubble to the small group at upper left. One fish in the school should be orange again, the turtle shell outline should be light rather than heavy, and the second underwater sunbeam should regain its brightness. Preserve the remaining coral and fish.",
+      "display_order": 16
     },
     {
-      "task_id": "vh_016",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add steam rising above the cup."
+      "task_id": "sv_009",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "The market bicycle has gained a second right wheel, one red awning panel has turned white, and the shopper's bag hangs too low. Restore the wavy edge of the left awning as well, leaving everything else intact.",
+      "display_order": 17
     },
     {
-      "task_id": "vh_017",
+      "task_id": "sv_029",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the first petal above the stem."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Delete the stray marker in the canyon sky and move the displaced star back to the upper-left cluster. The far-left mesa should be more distinct through the haze, and the bright winding river should return to its pale reflective color. Leave the rocks and cacti unchanged.",
+      "display_order": 18
     },
     {
-      "task_id": "vh_018",
-      "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Complete the bloom with its center."
+      "task_id": "sv_010",
+      "difficulty": "hard",
+      "category": "scenic_multi",
+      "instruction": "Remove the duplicate smoke puff, turn the right-hand treetop back the correct way, make the front flame yellow again, and move the backpack back beside the tent. Preserve the rest of the campsite.",
+      "display_order": 19
     },
     {
-      "task_id": "vh_019",
+      "task_id": "sv_030",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Cap the rocket with a nose cone."
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the unwanted marker from the spring temple scene. Center the koi pond and restore its medium-weight rim, make the pale koi white again, and bring back the softly visible mountain in the distance. Keep the bridge, temple, and blossoms as they are.",
+      "display_order": 20
     },
     {
-      "task_id": "vh_020",
+      "task_id": "sv_011",
       "difficulty": "very_hard",
-      "category": "creation_step",
-      "instruction": "Add the flame below the rocket."
+      "category": "scenic_very_hard",
+      "instruction": "The harbor mast and the outline of the long wave are too heavy and misshapen, the lighthouse window is blue instead of glowing yellow, and its beam has shifted. The crate on the right also needs to sit back with the other cargo. Repair only these visible mistakes.",
+      "display_order": 21
+    },
+    {
+      "task_id": "sv_031",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Take the stray marker out of the rainy library. Move the warm lamp glow back toward the right side, restore the golden book on the upper-left shelf, give the rug its normal outline, and keep the fireplace glow subtle rather than washed out. Do not change the furniture or cat.",
+      "display_order": 22
+    },
+    {
+      "task_id": "sv_012",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "The bicycle frame is almost invisible while its left wheel is drawn too heavily. Remove the copied blue awning panel, make the odd red pear green again, and smooth out the handlebar. Leave the rest of the market untouched.",
+      "display_order": 23
+    },
+    {
+      "task_id": "sv_032",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the extra marker from the balloon festival and recenter the large sun glow toward the left. A basket beneath one middle balloon should be brown, the rigging on a small distant balloon should be delicate, and the white panel lines on the middle balloon should be softly visible. Preserve all other balloons and fields.",
+      "display_order": 24
+    },
+    {
+      "task_id": "sv_013",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "The main sail is facing the wrong way, the red buoy stripe has turned green, and the cabin window has slipped out of place. Remove the stray rope by the pier and tidy the rope coil, without changing anything else in the harbor.",
+      "display_order": 25
+    },
+    {
+      "task_id": "sv_033",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Clear the stray marker from the alien moon scene. Move the left nebula cloud back into place, restore the rover's silver body, return the rear planetary ring to its broad band, and make the darker oval band on the planet gently visible again. Leave the stars and moon surface untouched.",
+      "display_order": 26
+    },
+    {
+      "task_id": "sv_014",
+      "difficulty": "very_hard",
+      "category": "scenic_very_hard",
+      "instruction": "Turn the right treetop back around, return the moon to the upper-right sky, and replace the missing star nearby. The campfire smoke should curl naturally, and the right tent seam should be thin again. Keep all other campsite details as they are.",
+      "display_order": 27
+    },
+    {
+      "task_id": "sv_034",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the accidental marker from the jungle ruins. Shift the left canopy mass back toward the edge, restore the red body of the macaw, thin the smaller waterfall on the right, and make the central background canopy more visible. Keep the temple and foreground plants unchanged.",
+      "display_order": 28
+    },
+    {
+      "task_id": "sv_015",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Make the train door pale yellow again, remove the extra clock hand, and slide the blue poster back into line. The green signal should be green, the platform crack should follow its original shallow zigzag, and the passenger's bag should sit beside them again.",
+      "display_order": 29
+    },
+    {
+      "task_id": "sv_035",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Delete the stray marker from the alpine village sky and return the displaced star to the upper-left. The frozen pond should have its pale outline, the skater's thin limb should no longer look heavy, and the faint spot on the moon should be visible again. Preserve the chalets and mountains.",
+      "display_order": 30
+    },
+    {
+      "task_id": "sv_016",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "The lighthouse window should glow yellow and its beam should point cleanly across the harbor. Remove the extra buoy near the pier, make the small sail light blue, smooth the long wave, and return the left crate to the cargo stack. Do not alter the rest.",
+      "display_order": 31
+    },
+    {
+      "task_id": "sv_036",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the unwanted marker from the lavender field. Recenter the large sun glow on the right, make the pale wing on the small bee visible again, slim the butterfly's body line, and strengthen the narrow horizon strip. Leave the windmill and lavender rows untouched.",
+      "display_order": 32
+    },
+    {
+      "task_id": "sv_017",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Move the moon back up and right, make the front flame yellow, and remove the duplicate backpack. Restore the gentle shapes of both the smoke and the trail, then center the tent flap again. Everything else at the campsite should remain unchanged.",
+      "display_order": 33
+    },
+    {
+      "task_id": "sv_037",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Take the stray marker out of the volcanic night sky and return the displaced star to the upper-left. The smaller peak should be nearly black, the bright core of the left lava flow should be narrower, and the ash cloud should regain its dense smoky appearance. Do not alter the main volcano or lake.",
+      "display_order": 34
+    },
+    {
+      "task_id": "sv_018",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "One pear should be green, one apple should be red, and the shopper's bag should hang higher. Remove the copied blue awning panel, restore the scalloped edge on the left awning, and give the bicycle frame its normal line weight. Preserve the rest of the market.",
+      "display_order": 35
+    },
+    {
+      "task_id": "sv_038",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the colored marker from the Venetian sunset. Center the large sun glow behind the canal, restore the dark red body of the gondola, slim the main arch of the bridge, and bring back the warm glow in the affected window. Keep the other buildings and reflections intact.",
+      "display_order": 36
+    },
+    {
+      "task_id": "sv_019",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "Repair the harbor by turning the main sail around, making the red buoy stripe red again, and placing the cabin window back inside the cabin. Remove the stray pier rope, slim down the mast, neaten the rope coil, and return the green buoy to its proper spot.",
+      "display_order": 37
+    },
+    {
+      "task_id": "sv_039",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Clear the stray marker from the savanna scene. Center the huge setting sun, restore the pale reflection in the watering hole, slim the watering hole's outer rim, and make the golden heat band above the horizon more visible. Leave the animals and trees unchanged.",
+      "display_order": 38
+    },
+    {
+      "task_id": "sv_020",
+      "difficulty": "very_hard",
+      "category": "scenic_multi",
+      "instruction": "The amber signal should be amber, the middle train window has shifted upward, and the passenger has an extra bag. Thin the platform edge, smooth the overhead cable, return the train roof to its dark color, and move the bench seat back into line. Leave all other station details alone.",
+      "display_order": 39
+    },
+    {
+      "task_id": "sv_040",
+      "difficulty": "very_hard",
+      "category": "downloaded_scenic_surgical",
+      "instruction": "Remove the accidental marker from the floating-islands sky. Move the large sun glow back toward the upper right, restore the purple roof on the castle tower, slim the little flagpole, and make the grass edge on the main island more visible. Preserve the waterfalls, bridge, and distant islands.",
+      "display_order": 40
     }
   ]
 }

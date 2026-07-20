@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-033"
+description = "Clear the stray marker from the alien moon scene. Move the left nebula cloud back into place, restore the rover's silver body, return the rear planetary ring to its broad band, and make the darker oval band on the planet gently visible again. Leave the stars and moon surface untouched."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
+
+[metadata]
+difficulty = "very_hard"
+category = "downloaded_scenic_surgical"
+task_id = "sv_033"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

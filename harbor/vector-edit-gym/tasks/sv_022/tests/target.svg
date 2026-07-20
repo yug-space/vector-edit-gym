@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sea02" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a4f6e" />
+      <stop offset="0.3" stop-color="#073a55" />
+      <stop offset="0.6" stop-color="#04243a" />
+      <stop offset="1" stop-color="#01101f" />
+    </linearGradient>
+    <linearGradient id="ray02" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fe3ff" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#8fe3ff" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="jelly02" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#ff8fd0" />
+      <stop offset="0.6" stop-color="#c060c8" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#7040a8" stop-opacity="0.1" />
+    </radialGradient>
+    <radialGradient id="jelly02b" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#9fffe0" />
+      <stop offset="0.6" stop-color="#37c8b8" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#1a7a8a" stop-opacity="0.1" />
+    </radialGradient>
+    <radialGradient id="glow02" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#bfffe0" /><stop offset="1" stop-color="#bfffe0" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="cone02" cx="0.5" cy="0" r="1">
+      <stop offset="0" stop-color="#d8f6ff" stop-opacity="0.55" />
+      <stop offset="1" stop-color="#d8f6ff" stop-opacity="0" />
+    </radialGradient>
+    <filter id="blur02" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" /></filter>
+    <filter id="blurbig02" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="16" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sea02)" id="download-sv_022-rect-001" />
+
+
+  <g filter="url(#blurbig02)">
+    <polygon points="300,-40 360,-40 540,1000 180,1000" fill="url(#ray02)" id="download-sv_022-polygon-001" />
+    <polygon points="760,-40 820,-40 940,1000 640,1000" fill="url(#ray02)" opacity="0.7" id="download-sv_022-polygon-002" />
+    <polygon points="1180,-40 1250,-40 1340,1000 1060,1000" fill="url(#ray02)" opacity="0.5" id="download-sv_022-polygon-003" />
+  </g>
+
+
+  <g fill="#bfeaff">
+    <circle cx="200" cy="220" r="2" opacity="0.6" id="download-sv_022-circle-001" /><circle cx="420" cy="160" r="1.5" opacity="0.5" id="download-sv_022-circle-002" />
+    <circle cx="640" cy="300" r="2.4" opacity="0.5" id="download-sv_022-circle-003" /><circle cx="900" cy="180" r="1.6" opacity="0.6" id="download-sv_022-circle-004" />
+    <circle cx="1100" cy="260" r="2" opacity="0.4" id="download-sv_022-circle-005" /><circle cx="1300" cy="200" r="2.2" opacity="0.5" id="download-sv_022-circle-006" />
+    <circle cx="520" cy="420" r="1.8" opacity="0.4" id="download-sv_022-circle-007" /><circle cx="1000" cy="440" r="2.2" opacity="0.4" id="download-sv_022-circle-008" />
+    <circle cx="260" cy="500" r="1.6" opacity="0.4" id="download-sv_022-circle-009" /><circle cx="1380" cy="500" r="2" opacity="0.4" id="download-sv_022-circle-010" />
+  </g>
+
+
+  <g transform="translate(420 360)">
+    <ellipse cx="0" cy="0" rx="120" ry="90" fill="url(#jelly02)" filter="url(#blur02)" id="download-sv_022-ellipse-001" />
+    <path d="M-80 0 Q-78 90 -70 150 M-40 10 Q-46 120 -34 200 M0 14 Q-6 140 6 230 M40 10 Q46 120 34 200 M80 0 Q78 90 70 150" stroke="#e58fd8" stroke-width="3" fill="none" opacity="0.7" id="download-sv_022-path-001" />
+    <path d="M-100 -6 Q0 60 100 -6" stroke="#ffd6f2" stroke-width="2" fill="none" opacity="0.6" id="download-sv_022-path-002" />
+  </g>
+
+
+  <g transform="translate(1180 480)">
+    <ellipse cx="0" cy="0" rx="90" ry="68" fill="url(#jelly02b)" filter="url(#blur02)" id="download-sv_022-ellipse-002" />
+    <path d="M-60 0 Q-58 80 -50 130 M-25 8 Q-30 100 -20 170 M0 12 Q-4 120 4 190 M25 8 Q30 100 20 170 M60 0 Q58 80 50 130" stroke="#7fe8d8" stroke-width="2.6" fill="none" opacity="0.7" id="download-sv_022-path-003" />
+  </g>
+
+
+  <g>
+    <circle cx="760" cy="540" r="22" fill="url(#glow02)" id="download-sv_022-circle-011" /><circle cx="760" cy="540" r="5" fill="#dfffe8" id="download-sv_022-circle-012" />
+    <circle cx="980" cy="660" r="18" fill="url(#glow02)" id="download-sv_022-circle-013" /><circle cx="980" cy="660" r="4" fill="#dfffe8" id="download-sv_022-circle-014" />
+    <circle cx="560" cy="700" r="16" fill="url(#glow02)" id="download-sv_022-circle-015" /><circle cx="560" cy="700" r="4" fill="#dfffe8" id="download-sv_022-circle-016" />
+  </g>
+
+
+  <g transform="translate(840 780)">
+    <path d="M0 0 Q120 -70 260 -30 Q300 -18 300 0 Q300 22 250 40 Q120 80 0 30 Q-30 14 0 0 Z" fill="#0a2230" id="download-sv_022-path-004" />
+    <path d="M260 -30 Q330 -60 360 -120" stroke="#0a2230" stroke-width="6" fill="none" id="download-sv_022-path-005" />
+    <circle cx="366" cy="-128" r="14" fill="url(#glow02)" id="download-sv_022-circle-017" /><circle cx="366" cy="-128" r="6" fill="#eaffd0" id="download-sv_022-circle-018" />
+    <circle cx="250" cy="-8" r="9" fill="#dfffe8" id="download-sv_022-circle-019" /><circle cx="250" cy="-8" r="4" fill="#06202d" id="download-sv_022-circle-020" />
+    <path d="M30 22 L70 6 L60 26 L100 14 L88 32 L130 22" stroke="#eaffd0" stroke-width="2" fill="none" opacity="0.7" id="download-sv_022-path-006" />
+    <polygon points="-20,2 -70,-26 -64,2 -70,30" fill="#0a2230" id="download-sv_022-polygon-004" />
+  </g>
+
+
+  <path d="M0 1000 L0 900 Q200 850 380 905 Q560 870 760 910 Q980 860 1200 905 Q1400 870 1600 905 L1600 1000 Z" fill="#02151f" id="download-sv_022-path-007" />
+  <g fill="#031c28">
+    <path d="M120 905 q-10 -90 20 -130 q-30 -10 -40 -70 q40 30 50 -10 q20 50 -6 90 q30 -10 26 60 q10 -40 30 -10 q-6 50 -40 80 Z" id="download-sv_022-path-008" />
+    <path d="M1320 905 q-14 -100 24 -150 q-26 50 0 90 q20 -40 40 -10 q-10 50 -40 80 Z" id="download-sv_022-path-009" />
+    <path d="M700 910 q-8 -70 14 -100 q24 30 12 100 Z" id="download-sv_022-path-010" />
+  </g>
+
+
+  <g transform="translate(260 470)">
+    <ellipse cx="0" cy="0" rx="86" ry="50" fill="#d6e3ea" id="download-sv_022-ellipse-003" />
+    <ellipse cx="0" cy="0" rx="86" ry="50" fill="none" stroke="#9fb3bd" stroke-width="3" id="download-sv_022-ellipse-004" />
+    <circle cx="36" cy="-4" r="22" fill="#0c3a4e" id="download-sv_022-circle-021" /><circle cx="36" cy="-4" r="22" fill="none" stroke="#f0f6f9" stroke-width="3" id="download-sv_022-circle-022" />
+    <circle cx="30" cy="-10" r="5" fill="#bfe9ff" opacity="0.8" id="download-sv_022-circle-023" />
+    <rect x="-96" y="-12" width="22" height="24" rx="4" fill="#9fb3bd" id="download-sv_022-rect-002" />
+    <circle cx="-90" cy="0" r="8" fill="#fffbe0" id="download-sv_022-circle-024" />
+    <polygon points="70,0 150,-110 230,-30" fill="url(#cone02)" id="download-sv_022-polygon-005" />
+    <line x1="-30" y1="48" x2="-30" y2="80" stroke="#9fb3bd" stroke-width="4" id="download-sv_022-line-001" />
+    <line x1="30" y1="48" x2="30" y2="80" stroke="#9fb3bd" stroke-width="4" id="download-sv_022-line-002" />
+  </g>
+
+
+  <g fill="none" stroke="#bfeaff" stroke-width="1.5" opacity="0.6">
+    <circle cx="360" cy="420" r="5" id="download-sv_022-circle-025" /><circle cx="380" cy="380" r="3" id="download-sv_022-circle-026" /><circle cx="372" cy="340" r="6" id="download-sv_022-circle-027" /><circle cx="390" cy="300" r="3" id="download-sv_022-circle-028" />
+  </g>
+</svg>

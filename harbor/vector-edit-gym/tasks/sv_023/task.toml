@@ -1,0 +1,22 @@
+schema_version = "1.1"
+
+[task]
+name = "thetalab/vector-edit-gym-sv-023"
+description = "Clean the stray marker out of the rainy alley. A small window on the far-left building should glow cyan, the broad haze should be centered over the street, and the tall pink sign should have its normal bold outline. Restore the warm reflection near the middle of the wet road as well."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
+
+[metadata]
+difficulty = "very_hard"
+category = "downloaded_scenic_surgical"
+task_id = "sv_023"
+
+[verifier]
+timeout_sec = 30.0
+
+[agent]
+timeout_sec = 180.0
+
+[environment]
+allow_internet = false
+memory_mb = 512

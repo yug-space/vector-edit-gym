@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky15" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2150" />
+      <stop offset="0.45" stop-color="#3a3a72" />
+      <stop offset="0.75" stop-color="#7a5a8a" />
+      <stop offset="1" stop-color="#d49a9a" />
+    </linearGradient>
+    <linearGradient id="mtn15" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a8ab0" /><stop offset="1" stop-color="#5a5a82" />
+    </linearGradient>
+    <linearGradient id="mtn15b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6a6a96" /><stop offset="1" stop-color="#42426a" />
+    </linearGradient>
+    <linearGradient id="snow15" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6e8f4" /><stop offset="1" stop-color="#b8c2dc" />
+    </linearGradient>
+    <linearGradient id="pond15" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fb4d8" /><stop offset="1" stop-color="#6a82ac" />
+    </linearGradient>
+    <radialGradient id="moon15" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fffdf0" /><stop offset="0.5" stop-color="#e8eaff" stop-opacity="0.5" /><stop offset="1" stop-color="#e8eaff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="win15" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#ffe7a0" /><stop offset="1" stop-color="#ffc857" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky15)" id="download-sv_035-rect-001" />
+
+
+  <g fill="#fff" opacity="0.85">
+    <circle cx="171" cy="70" r="1.6" id="download-sv_035-circle-001" /><circle cx="320" cy="40" r="1.2" id="download-sv_035-circle-002" /><circle cx="520" cy="90" r="1.4" id="download-sv_035-circle-003" /><circle cx="200" cy="160" r="1" id="download-sv_035-circle-004" />
+    <circle cx="700" cy="60" r="1.3" id="download-sv_035-circle-005" /><circle cx="60" cy="120" r="1.2" id="download-sv_035-circle-006" /><circle cx="420" cy="200" r="1" id="download-sv_035-circle-007" />
+  </g>
+
+
+  <circle cx="380" cy="200" r="110" fill="url(#moon15)" id="download-sv_035-circle-008" />
+  <circle cx="380" cy="200" r="44" fill="#fffdf2" id="download-sv_035-circle-009" />
+  <circle cx="360" cy="186" r="8" fill="#e0e2ee" opacity="0.27" id="download-sv_035-circle-010" />
+
+
+  <path d="M0 520 L220 300 L420 480 L640 280 L900 500 L1140 320 L1380 500 L1600 360 L1600 640 L0 640 Z" fill="url(#mtn15b)" id="download-sv_035-path-001" />
+  <path d="M0 600 L280 420 L520 580 L780 400 L1040 580 L1320 420 L1600 580 L1600 700 L0 700 Z" fill="url(#mtn15)" id="download-sv_035-path-002" />
+
+  <g fill="#eef0fa" opacity="0.9">
+    <polygon points="220,300 180,370 270,360" id="download-sv_035-polygon-001" /><polygon points="640,280 596,360 690,350" id="download-sv_035-polygon-002" /><polygon points="1140,320 1098,396 1186,388" id="download-sv_035-polygon-003" />
+    <polygon points="280,420 244,476 320,470" id="download-sv_035-polygon-004" /><polygon points="780,400 740,460 824,454" id="download-sv_035-polygon-005" /><polygon points="1320,420 1280,480 1360,474" id="download-sv_035-polygon-006" />
+  </g>
+
+
+  <path d="M0 640 Q400 600 800 640 Q1200 680 1600 640 L1600 1000 L0 1000 Z" fill="url(#snow15)" id="download-sv_035-path-003" />
+
+
+  <g fill="#26365a">
+    <g transform="translate(140 560)"><polygon points="0,150 -42,150 0,40 42,150" id="download-sv_035-polygon-007" /><polygon points="0,96 -34,96 0,4 34,96" id="download-sv_035-polygon-008" /><polygon points="0,52 -24,52 0,-12 24,52" id="download-sv_035-polygon-009" /><rect x="-6" y="150" width="12" height="22" id="download-sv_035-rect-002" /></g>
+    <g transform="translate(260 600)"><polygon points="0,130 -36,130 0,34 36,130" id="download-sv_035-polygon-010" /><polygon points="0,82 -28,82 0,6 28,82" id="download-sv_035-polygon-011" /><rect x="-5" y="130" width="10" height="20" id="download-sv_035-rect-003" /></g>
+    <g transform="translate(1380 580)"><polygon points="0,140 -40,140 0,36 40,140" id="download-sv_035-polygon-012" /><polygon points="0,90 -32,90 0,6 32,90" id="download-sv_035-polygon-013" /><polygon points="0,48 -22,48 0,-12 22,48" id="download-sv_035-polygon-014" /><rect x="-6" y="140" width="12" height="20" id="download-sv_035-rect-004" /></g>
+    <g transform="translate(1500 620)"><polygon points="0,120 -34,120 0,30 34,120" id="download-sv_035-polygon-015" /><polygon points="0,74 -26,74 0,4 26,74" id="download-sv_035-polygon-016" /><rect x="-5" y="120" width="10" height="18" id="download-sv_035-rect-005" /></g>
+  </g>
+
+  <g fill="#e6e8f4" opacity="0.7">
+    <polygon points="140,600 118,612 162,612" id="download-sv_035-polygon-017" /><polygon points="1380,616 1356,628 1404,628" id="download-sv_035-polygon-018" />
+  </g>
+
+
+  <g>
+
+    <g transform="translate(560 660)">
+      <rect x="0" y="0" width="150" height="110" fill="#4a3424" id="download-sv_035-rect-006" />
+      <polygon points="-20,0 75,-70 170,0" fill="#e6e8f4" id="download-sv_035-polygon-019" />
+      <polygon points="-14,4 75,-62 164,4" fill="#3a2818" id="download-sv_035-polygon-020" />
+      <rect x="22" y="34" width="30" height="36" fill="url(#win15)" id="download-sv_035-rect-007" /><rect x="98" y="34" width="30" height="36" fill="url(#win15)" id="download-sv_035-rect-008" />
+      <rect x="60" y="64" width="32" height="46" fill="#2a1c10" id="download-sv_035-rect-009" />
+      <rect x="58" y="-30" width="16" height="30" fill="#3a2818" id="download-sv_035-rect-010" />
+    </g>
+
+    <g transform="translate(760 700)">
+      <rect x="0" y="0" width="120" height="90" fill="#3e2c1e" id="download-sv_035-rect-011" />
+      <polygon points="-16,0 60,-58 136,0" fill="#e6e8f4" id="download-sv_035-polygon-021" />
+      <polygon points="-10,4 60,-50 130,4" fill="#322216" id="download-sv_035-polygon-022" />
+      <rect x="18" y="28" width="26" height="30" fill="url(#win15)" id="download-sv_035-rect-012" /><rect x="76" y="28" width="26" height="30" fill="url(#win15)" id="download-sv_035-rect-013" />
+      <rect x="48" y="54" width="26" height="36" fill="#241810" id="download-sv_035-rect-014" />
+    </g>
+
+    <g transform="translate(940 720) scale(0.85)">
+      <rect x="0" y="0" width="110" height="80" fill="#4a3424" id="download-sv_035-rect-015" />
+      <polygon points="-14,0 55,-52 124,0" fill="#e6e8f4" id="download-sv_035-polygon-023" />
+      <polygon points="-8,4 55,-46 118,4" fill="#3a2818" id="download-sv_035-polygon-024" />
+      <rect x="16" y="24" width="24" height="28" fill="url(#win15)" id="download-sv_035-rect-016" /><rect x="68" y="24" width="24" height="28" fill="url(#win15)" id="download-sv_035-rect-017" />
+    </g>
+  </g>
+
+  <g fill="#ffd86a" opacity="0.25">
+    <circle cx="597" cy="712" r="40" id="download-sv_035-circle-011" /><circle cx="673" cy="712" r="40" id="download-sv_035-circle-012" /><circle cx="789" cy="743" r="34" id="download-sv_035-circle-013" />
+  </g>
+
+
+  <ellipse cx="800" cy="900" rx="440" ry="80" fill="url(#pond15)" id="download-sv_035-ellipse-001" />
+  <ellipse cx="800" cy="900" rx="440" ry="80" fill="none" stroke="#ef4444" stroke-width="4" opacity="0.6" id="download-sv_035-ellipse-002" />
+  <g stroke="#dfe6f4" stroke-width="1.5" opacity="0.5" fill="none">
+    <path d="M620 890 Q700 880 760 900" id="download-sv_035-path-004" /><path d="M860 910 Q940 896 1000 906" id="download-sv_035-path-005" />
+  </g>
+
+  <g>
+    <g transform="translate(700 890)"><ellipse cx="0" cy="14" rx="12" ry="3" fill="#1a2238" opacity="0.4" id="download-sv_035-ellipse-003" /><rect x="-5" y="-20" width="10" height="22" rx="4" fill="#c0392b" id="download-sv_035-rect-018" /><circle cx="0" cy="-26" r="7" fill="#e8c9a0" id="download-sv_035-circle-014" /><line x1="-5" y1="-2" x2="-12" y2="14" stroke="#3a2818" stroke-width="9" id="download-sv_035-line-001" /><line x1="5" y1="-2" x2="10" y2="14" stroke="#3a2818" stroke-width="3" id="download-sv_035-line-002" /></g>
+    <g transform="translate(900 910)"><ellipse cx="0" cy="14" rx="12" ry="3" fill="#1a2238" opacity="0.4" id="download-sv_035-ellipse-004" /><rect x="-5" y="-20" width="10" height="22" rx="4" fill="#2e6acb" id="download-sv_035-rect-019" /><circle cx="0" cy="-26" r="7" fill="#e8c9a0" id="download-sv_035-circle-015" /><line x1="-5" y1="-2" x2="-10" y2="14" stroke="#3a2818" stroke-width="3" id="download-sv_035-line-003" /><line x1="5" y1="-2" x2="12" y2="14" stroke="#3a2818" stroke-width="3" id="download-sv_035-line-004" /></g>
+    <g transform="translate(820 940) scale(0.9)"><ellipse cx="0" cy="14" rx="12" ry="3" fill="#1a2238" opacity="0.4" id="download-sv_035-ellipse-005" /><rect x="-5" y="-20" width="10" height="22" rx="4" fill="#2a8a5a" id="download-sv_035-rect-020" /><circle cx="0" cy="-26" r="7" fill="#e8c9a0" id="download-sv_035-circle-016" /><line x1="-5" y1="-2" x2="-12" y2="14" stroke="#3a2818" stroke-width="3" id="download-sv_035-line-005" /><line x1="5" y1="-2" x2="10" y2="14" stroke="#3a2818" stroke-width="3" id="download-sv_035-line-006" /></g>
+  </g>
+
+
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="150" cy="300" r="3" id="download-sv_035-circle-017" /><circle cx="400" cy="420" r="2.4" id="download-sv_035-circle-018" /><circle cx="650" cy="320" r="3" id="download-sv_035-circle-019" /><circle cx="950" cy="440" r="2.4" id="download-sv_035-circle-020" />
+    <circle cx="1200" cy="340" r="3" id="download-sv_035-circle-021" /><circle cx="1450" cy="420" r="2.4" id="download-sv_035-circle-022" /><circle cx="300" cy="560" r="2.6" id="download-sv_035-circle-023" /><circle cx="1050" cy="560" r="2.6" id="download-sv_035-circle-024" />
+    <circle cx="500" cy="640" r="2.2" id="download-sv_035-circle-025" /><circle cx="1300" cy="640" r="2.2" id="download-sv_035-circle-026" /><circle cx="780" cy="540" r="2.4" id="download-sv_035-circle-027" /><circle cx="200" cy="700" r="2.6" id="download-sv_035-circle-028" />
+    <circle cx="1400" cy="720" r="2.6" id="download-sv_035-circle-029" /><circle cx="600" cy="760" r="2.2" id="download-sv_035-circle-030" />
+  </g>
+<circle id="sv_035-extra-survey-marker" cx="1280" cy="358" r="38" fill="#06b6d4" opacity="0.82" stroke="#111827" stroke-width="5" /></svg>
