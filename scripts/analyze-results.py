@@ -10,6 +10,7 @@ import random
 import shutil
 import subprocess
 import tempfile
+import textwrap
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -134,25 +135,34 @@ def corpus_stats(tasks: list[dict[str, Any]]) -> dict[str, Any]:
 
 def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
     best = summaries[0]
+    frontier = [summary for summary in summaries if summary["group"] == "frontier"]
+    frontier_best = frontier[0] if frontier else None
     total_cost = sum(float(record.get("cost_usd") or 0) for record in records)
     errors = sum(record.get("error") is not None for record in records)
+    truncations = sum(record.get("finish_reason") == "length" for record in records)
     valid = sum(
         bool((record.get("diff_report") or {}).get("produced_parse_ok"))
         for record in records
     )
     passes = sum(int(record.get("reward") or 0) for record in records)
+    partials = sum(record.get("status") == "PARTIAL" for record in records)
     return {
         "protocol": meta.get("protocol"),
         "models": len(summaries),
         "open_weight_models": sum(summary["group"] == "open-weight" for summary in summaries),
         "cheap_control_models": sum(summary["group"] == "cheap-control" for summary in summaries),
+        "frontier_models": sum(summary["group"] == "frontier" for summary in summaries),
         "requests": len(records),
         "total_cost_usd": total_cost,
         "error_count": errors,
         "error_rate": errors / len(records),
+        "truncation_count": truncations,
+        "truncation_rate": truncations / len(records),
         "validity_rate": valid / len(records),
         "binary_passes": passes,
         "binary_pass_rate": passes / len(records),
+        "partial_outcomes": partials,
+        "partial_outcome_rate": partials / len(records),
         "top_model": best["name"],
         "top_model_id": best["id"],
         "top_reward": best["binary_reward"],
@@ -161,6 +171,11 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         "top_edit_completion": best["edit_completion"],
         "top_ucr": best["unintended_change_rate"],
         "top_validity": best["validity_rate"],
+        "frontier_top_model": frontier_best["name"] if frontier_best else "n/a",
+        "frontier_top_reward": frontier_best["binary_reward"] if frontier_best else 0.0,
+        "frontier_top_edit_completion": frontier_best["edit_completion"] if frontier_best else 0.0,
+        "frontier_top_validity": frontier_best["validity_rate"] if frontier_best else 0.0,
+        "frontier_top_truncation": frontier_best["truncation_rate"] if frontier_best else 0.0,
         "corpus": corpus,
     }
 
@@ -228,20 +243,51 @@ def figure_examples(tasks, output_dir: Path) -> None:
     converter = shutil.which("rsvg-convert")
     if not converter:
         return
-    fig, axes = plt.subplots(len(selected), 2, figsize=(7.1, 5.5))
+    fig = plt.figure(figsize=(7.1, 7.0))
+    grid = fig.add_gridspec(
+        len(selected) * 3,
+        2,
+        height_ratios=[0.36, 2.7, 1.12] * len(selected),
+        hspace=0.04,
+        wspace=0.04,
+    )
     with tempfile.TemporaryDirectory() as directory:
         directory = Path(directory)
         for row, task in enumerate(selected):
             for column, field in enumerate(("initial_svg", "target_svg")):
+                label_axis = fig.add_subplot(grid[row * 3, column])
+                label_axis.axis("off")
+                label_axis.text(
+                    0,
+                    0,
+                    "Corrupted input" if column == 0 else "Hidden target",
+                    transform=label_axis.transAxes,
+                    fontsize=11,
+                    ha="left",
+                    va="bottom",
+                )
+
+                axis = fig.add_subplot(grid[row * 3 + 1, column])
                 svg_path = directory / f"{task['task_id']}-{field}.svg"
                 png_path = svg_path.with_suffix(".png")
                 svg_path.write_text(task[field])
                 subprocess.run([converter, "-w", "900", "-o", str(png_path), str(svg_path)], check=True)
-                axes[row, column].imshow(Image.open(png_path))
-                axes[row, column].axis("off")
-                axes[row, column].set_title("Corrupted input" if column == 0 else "Hidden target", loc="left")
-            axes[row, 0].text(0, -0.12, task["instruction"], transform=axes[row, 0].transAxes, fontsize=7, va="top", wrap=True)
-    fig.subplots_adjust(hspace=0.56, wspace=0.04)
+                axis.imshow(Image.open(png_path))
+                axis.axis("off")
+
+            prompt_axis = fig.add_subplot(grid[row * 3 + 2, :])
+            prompt_axis.axis("off")
+            prompt_axis.text(
+                0,
+                0.96,
+                textwrap.fill(task["instruction"], width=104),
+                transform=prompt_axis.transAxes,
+                fontsize=7,
+                linespacing=1.18,
+                ha="left",
+                va="top",
+                clip_on=True,
+            )
     save(fig, output_dir, "corpus-examples")
 
 
@@ -286,7 +332,7 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
     values = np.array([row["binary_reward"] for row in rows])
     lower = values - np.array([row["reward_ci_low"] for row in rows])
     upper = np.array([row["reward_ci_high"] for row in rows]) - values
-    colors = [ORANGE if row["group"] == "cheap-control" else TEAL for row in rows]
+    colors = [group_color(row["group"]) for row in rows]
     fig, ax = plt.subplots(figsize=(7.1, 7.8))
     ax.barh(y, values * 100, color=colors, alpha=0.88)
     ax.errorbar(values * 100, y, xerr=np.vstack([lower, upper]) * 100, fmt="none", ecolor=INK, capsize=2, linewidth=0.8)
@@ -302,10 +348,15 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
 def figure_edit_vs_ucr(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
-        color = ORANGE if row["group"] == "cheap-control" else TEAL
+        color = group_color(row["group"])
         ax.scatter(row["edit_completion"] * 100, row["unintended_change_rate"] * 100, s=26 + row["binary_reward"] * 120, color=color, alpha=0.8)
-    for row in summaries[:5]:
-        ax.annotate(row["name"], (row["edit_completion"] * 100, row["unintended_change_rate"] * 100), xytext=(4, 4), textcoords="offset points", fontsize=7)
+    for row in highlighted_summaries(summaries):
+        annotate_point(
+            ax,
+            row["name"],
+            row["edit_completion"] * 100,
+            row["unintended_change_rate"] * 100,
+        )
     ax.set_xlabel("Requested edits completed (%)")
     ax.set_ylabel("Unintended change rate (%)")
     ax.set_title("Repair progress and collateral change are distinct", loc="left")
@@ -349,10 +400,16 @@ def figure_operation_heatmap(records, summaries, tasks, output_dir: Path) -> Non
 def figure_cost_pareto(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
-        color = ORANGE if row["group"] == "cheap-control" else BLUE
+        color = group_color(row["group"])
         ax.scatter(max(row["cost_usd"], 1e-5), row["edit_completion"] * 100, color=color, s=32, alpha=0.82)
-    for row in sorted(summaries, key=lambda item: (-item["edit_completion"], item["cost_usd"]))[:5]:
-        ax.annotate(row["name"], (max(row["cost_usd"], 1e-5), row["edit_completion"] * 100), xytext=(4, 4), textcoords="offset points", fontsize=7)
+    for row in highlighted_summaries(summaries):
+        annotate_point(
+            ax,
+            row["name"],
+            max(row["cost_usd"], 1e-5),
+            row["edit_completion"] * 100,
+            log_x=True,
+        )
     ax.set_xscale("log")
     ax.set_xlabel("Run cost for 40 tasks (USD, log scale)")
     ax.set_ylabel("Requested edits completed (%)")
@@ -369,7 +426,12 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "ModelCount": results["models"],
         "OpenModelCount": results["open_weight_models"],
         "ControlModelCount": results["cheap_control_models"],
+        "FrontierModelCount": results["frontier_models"],
         "RequestCount": results["requests"],
+        "BinaryPassCount": results["binary_passes"],
+        "BinaryPassRate": f"{results['binary_pass_rate'] * 100:.2f}\\%",
+        "PartialOutcomeCount": results["partial_outcomes"],
+        "PartialOutcomeRate": f"{results['partial_outcome_rate'] * 100:.1f}\\%",
         "ExpectedEditCount": corpus["expected_edits_total"],
         "MeanExpectedEdits": f"{corpus['expected_edits_mean']:.2f}",
         "MeanProtectedObjects": f"{corpus['protected_objects_mean']:.2f}",
@@ -378,11 +440,45 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "TopEditCompletion": f"{results['top_edit_completion'] * 100:.1f}\\%",
         "TopUCR": f"{results['top_ucr'] * 100:.1f}\\%",
         "TopValidity": f"{results['top_validity'] * 100:.1f}\\%",
+        "FrontierTopModel": latex_escape(results["frontier_top_model"]),
+        "FrontierTopReward": f"{results['frontier_top_reward'] * 100:.1f}\\%",
+        "FrontierTopEditCompletion": f"{results['frontier_top_edit_completion'] * 100:.1f}\\%",
+        "FrontierTopValidity": f"{results['frontier_top_validity'] * 100:.1f}\\%",
+        "FrontierTopTruncation": f"{results['frontier_top_truncation'] * 100:.1f}\\%",
         "TotalCost": f"\\${results['total_cost_usd']:.2f}",
         "OverallErrorRate": f"{results['error_rate'] * 100:.1f}\\%",
+        "OverallTruncationRate": f"{results['truncation_rate'] * 100:.1f}\\%",
         "OverallValidity": f"{results['validity_rate'] * 100:.1f}\\%",
     }
     path.write_text("\n".join(f"\\newcommand{{\\{name}}}{{{value}}}" for name, value in macros.items()) + "\n")
+
+
+def group_color(group: str) -> str:
+    return {
+        "open-weight": TEAL,
+        "cheap-control": ORANGE,
+        "frontier": PURPLE,
+    }.get(group, GRAY)
+
+
+def highlighted_summaries(summaries) -> list[dict[str, Any]]:
+    highlighted = [summaries[0]]
+    highlighted.extend(row for row in summaries if row["group"] == "frontier")
+    return list({row["id"]: row for row in highlighted}.values())
+
+
+def annotate_point(ax, label: str, x: float, y: float, *, log_x: bool = False) -> None:
+    align_right = x > (1.5 if log_x else 34)
+    vertical_offset = -8 if y > 92 else (7 if y < 4 else 4)
+    ax.annotate(
+        label,
+        (x, y),
+        xytext=(-5 if align_right else 5, vertical_offset),
+        textcoords="offset points",
+        fontsize=7,
+        ha="right" if align_right else "left",
+        va="bottom" if vertical_offset >= 0 else "top",
+    )
 
 
 def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -402,12 +498,13 @@ def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
 
 
 def write_full_table(path: Path, rows: list[dict[str, Any]]) -> None:
-    lines = [r"\begin{longtable}{llrrrrr}", r"\toprule", r"Model & Group & Reward & Edit & UCR & Valid & Errors \\", r"\midrule", r"\endhead"]
+    lines = [r"\begin{longtable}{llrrrrrr}", r"\toprule", r"Model & Group & Reward & Edit & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
     for row in rows:
         lines.append(
             f"{latex_escape(row['name'])} & {latex_escape(row['group'])} & {row['binary_reward'] * 100:.1f} & "
             f"{row['edit_completion'] * 100:.1f} & {row['unintended_change_rate'] * 100:.1f} & "
-            f"{row['validity_rate'] * 100:.1f} & {row['error_rate'] * 100:.1f} \\\\"
+            f"{row['validity_rate'] * 100:.1f} & {row['truncation_rate'] * 100:.1f} & "
+            f"{row['error_rate'] * 100:.1f} \\\\"
         )
     lines.extend([r"\bottomrule", r"\end{longtable}"])
     path.write_text("\n".join(lines) + "\n")

@@ -605,6 +605,92 @@
     "raw_response": null
   },
   {
+    "name": "Claude Haiku 4.5",
+    "provider": "Anthropic",
+    "model": "anthropic/claude-haiku-4.5",
+    "resolved_model": "anthropic/claude-haiku-4.5",
+    "response_id": "gen-1784563245-2HDIxMLPq24ZQSrNLFx9",
+    "group": "frontier",
+    "status": "PARTIAL",
+    "reward": 0,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0.25,
+    "preservation": 1,
+    "unintended_change_rate": 0,
+    "expected_changes_passed": 1,
+    "expected_changes_total": 4,
+    "expected_changes": [
+      {
+        "part": "smoke-curl",
+        "attribute": "d",
+        "expected_after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38",
+        "produced": "M168 80 C154 72 182 66 168 58 C156 50 186 46 170 38",
+        "passed": false
+      },
+      {
+        "part": "flame-front",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": "#fbbf24",
+        "passed": false
+      },
+      {
+        "part": "star-2",
+        "attribute": "exists",
+        "expected_after": true,
+        "produced": true,
+        "passed": true
+      },
+      {
+        "part": "tent-flap",
+        "attribute": "points",
+        "expected_after": [
+          [
+            82,
+            96
+          ],
+          [
+            96,
+            66
+          ],
+          [
+            110,
+            96
+          ]
+        ],
+        "produced": [
+          [
+            83,
+            101
+          ],
+          [
+            92,
+            71
+          ],
+          [
+            101,
+            101
+          ]
+        ],
+        "passed": false
+      }
+    ],
+    "unexpected_changed_parts": [],
+    "preservation_failures": [],
+    "elapsed_ms": 738422.2302919952,
+    "cost_usd": 0.01486,
+    "prompt_tokens": 2540,
+    "completion_tokens": 2464,
+    "finish_reason": "stop",
+    "reasoning_tokens": 0,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": true,
+    "error": null,
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#fffaf5\" />\n  <rect id=\"night-sky\" fill=\"#0f172a\" x=\"0\" y=\"0\" width=\"220\" height=\"88\" />\n  <rect id=\"ground\" fill=\"#0f766e\" x=\"0\" y=\"88\" width=\"220\" height=\"52\" />\n  <polygon id=\"far-hill\" fill=\"#14532d\" points=\"0,88 42,50 88,88\" />\n  <polygon id=\"mid-hill\" fill=\"#166534\" points=\"46,88 104,42 166,88\" />\n  <circle id=\"moon\" fill=\"#fef3c7\" cx=\"184\" cy=\"24\" r=\"11\" />\n  <circle id=\"star-1\" fill=\"#fde68a\" cx=\"28\" cy=\"20\" r=\"2\" />\n  <circle id=\"star-2\" fill=\"#fde68a\" cx=\"70\" cy=\"18\" r=\"2\" />\n  <circle id=\"star-3\" fill=\"#fde68a\" cx=\"130\" cy=\"22\" r=\"2.2\" />\n  <circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />\n  <polygon id=\"tent-body\" fill=\"#f97316\" stroke=\"#222\" stroke-width=\"1\" points=\"46,96 92,48 138,96\" />\n  <polygon id=\"tent-side\" fill=\"#ea580c\" stroke=\"#222\" stroke-width=\"1\" points=\"92,48 138,96 112,96\" />\n  <polygon id=\"tent-flap\" fill=\"#7c2d12\" stroke=\"#222\" stroke-width=\"1\" points=\"83,101 92,71 101,101\" />\n  <line id=\"tent-line-left\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"54\" y1=\"92\" x2=\"30\" y2=\"110\" />\n  <line id=\"tent-line-right\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"130\" y1=\"92\" x2=\"154\" y2=\"110\" />\n  <rect id=\"tree-left-trunk\" fill=\"#854d0e\" x=\"20\" y=\"74\" width=\"8\" height=\"34\" />\n  <polygon id=\"tree-left-crown\" fill=\"#15803d\" points=\"24,42 8,80 40,80\" />\n  <rect id=\"tree-right-trunk\" fill=\"#854d0e\" x=\"178\" y=\"72\" width=\"8\" height=\"36\" />\n  <polygon id=\"tree-right-crown\" fill=\"#15803d\" points=\"182,40 164,82 176,76 170,94 198,92 190,76 202,82\" />\n  <line id=\"log-left\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"150\" y1=\"112\" x2=\"176\" y2=\"122\" />\n  <line id=\"log-right\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"176\" y1=\"112\" x2=\"150\" y2=\"122\" />\n  <polygon id=\"flame-back\" fill=\"#f97316\" points=\"163,110 152,88 172,101 181,86 180,114\" />\n  <polygon id=\"flame-front\" fill=\"#fbbf24\" points=\"166,111 160,96 170,104 175,96 174,114\" />\n  <ellipse id=\"smoke-1\" fill=\"#94a3b8\" opacity=\"0.65\" cx=\"160\" cy=\"80\" rx=\"6\" ry=\"3\" />\n  <ellipse id=\"smoke-2\" fill=\"#94a3b8\" opacity=\"0.5\" cx=\"174\" cy=\"72\" rx=\"7\" ry=\"4\" />\n  <path id=\"smoke-curl\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.4\" d=\"M168 80 C154 72 182 66 168 58 C156 50 186 46 170 38\" />\n  <rect id=\"backpack\" fill=\"#2563eb\" stroke=\"#111827\" stroke-width=\"1\" x=\"36\" y=\"104\" width=\"14\" height=\"18\" rx=\"3\" ry=\"3\" />\n  <polyline id=\"path\" fill=\"none\" stroke=\"#a3e635\" stroke-width=\"5\" points=\"96,100 108,114 118,140\" />\n  <path id=\"trail-curve\" fill=\"none\" stroke=\"#bef264\" stroke-width=\"2\" d=\"M86 104 C100 112 98 126 112 140\" />\n  <path id=\"skin-04-aurora-wide-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"10\" opacity=\"0.48\" d=\"M4 24 C42 0 70 50 108 24 S170 4 216 30\" />\n  <path id=\"skin-04-aurora-wide-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"8\" opacity=\"0.42\" d=\"M0 48 C54 16 92 68 138 38 S182 24 220 54\" />\n  <path id=\"identity-04-aurora-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"5\" opacity=\"0.42\" d=\"M10 24 C38 6 62 42 90 22 S144 4 196 26\" />\n  <path id=\"identity-04-aurora-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"4\" opacity=\"0.4\" d=\"M12 38 C48 18 78 52 114 34 S166 22 208 42\" />\n  <circle id=\"variant-04-dot\" fill=\"#f97316\" opacity=\"0.72\" cx=\"30\" cy=\"26\" r=\"2.6\" />\n  <line id=\"variant-04-rule\" stroke=\"#f97316\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"36\" y1=\"29\" x2=\"52\" y2=\"32\" />\n  <rect id=\"variant-04-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-12\" fill=\"#84cc16\" opacity=\"0.68\" x=\"179\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-04-pin-01\" fill=\"#6366f1\" opacity=\"0.66\" cx=\"12\" cy=\"26\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-02\" fill=\"#8b5cf6\" opacity=\"0.66\" cx=\"209\" cy=\"40\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-03\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"22\" cy=\"54\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-04\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"195\" cy=\"68\" r=\"2.55\" />\n  <circle id=\"variant-04-pin-05\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"8\" cy=\"82\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-06\" fill=\"#f97316\" opacity=\"0.66\" cx=\"205\" cy=\"96\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-07\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"18\" cy=\"110\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-08\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"191\" cy=\"124\" r=\"2.55\" />\n</svg>",
+    "raw_response": null
+  },
+  {
     "name": "Gemini 3.1 Flash Lite",
     "provider": "Google",
     "model": "google/gemini-3.1-flash-lite-preview",
@@ -864,6 +950,92 @@
     "produced_parse_ok": true,
     "error": null,
     "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#fffaf5\" />\n  <rect id=\"night-sky\" fill=\"#0f172a\" x=\"0\" y=\"0\" width=\"220\" height=\"88\" />\n  <rect id=\"ground\" fill=\"#0f766e\" x=\"0\" y=\"88\" width=\"220\" height=\"52\" />\n  <polygon id=\"far-hill\" fill=\"#14532d\" points=\"0,88 42,50 88,88\" />\n  <polygon id=\"mid-hill\" fill=\"#166534\" points=\"46,88 104,42 166,88\" />\n  <circle id=\"moon\" fill=\"#fef3c7\" cx=\"184\" cy=\"24\" r=\"11\" />\n  <circle id=\"star-1\" fill=\"#fde68a\" cx=\"28\" cy=\"20\" r=\"2\" />\n  <circle id=\"star-2\" fill=\"#fde68a\" cx=\"64\" cy=\"18\" r=\"2\" />\n  <circle id=\"star-3\" fill=\"#fde68a\" cx=\"130\" cy=\"22\" r=\"2.2\" />\n  <circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />\n  <polygon id=\"tent-body\" fill=\"#f97316\" stroke=\"#222\" stroke-width=\"1\" points=\"46,96 92,48 138,96\" />\n  <polygon id=\"tent-side\" fill=\"#ea580c\" stroke=\"#222\" stroke-width=\"1\" points=\"92,48 138,96 112,96\" />\n  <polygon id=\"tent-flap\" fill=\"#7c2d12\" stroke=\"#222\" stroke-width=\"1\" points=\"96,100 110,70 124,100\" />\n  <line id=\"tent-line-left\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"54\" y1=\"92\" x2=\"30\" y2=\"110\" />\n  <line id=\"tent-line-right\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"130\" y1=\"92\" x2=\"154\" y2=\"110\" />\n  <rect id=\"tree-left-trunk\" fill=\"#854d0e\" x=\"20\" y=\"74\" width=\"8\" height=\"34\" />\n  <polygon id=\"tree-left-crown\" fill=\"#15803d\" points=\"24,42 8,80 40,80\" />\n  <rect id=\"tree-right-trunk\" fill=\"#854d0e\" x=\"178\" y=\"72\" width=\"8\" height=\"36\" />\n  <polygon id=\"tree-right-crown\" fill=\"#15803d\" points=\"182,40 164,82 176,76 170,94 198,92 190,76 202,82\" />\n  <line id=\"log-left\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"150\" y1=\"112\" x2=\"176\" y2=\"122\" />\n  <line id=\"log-right\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"176\" y1=\"112\" x2=\"150\" y2=\"122\" />\n  <polygon id=\"flame-back\" fill=\"#f59e0b\" points=\"163,110 152,88 172,101 181,86 180,114\" />\n  <polygon id=\"flame-front\" fill=\"#f59e0b\" points=\"166,111 160,96 170,104 175,96 174,114\" />\n  <ellipse id=\"smoke-1\" fill=\"#94a3b8\" opacity=\"0.65\" cx=\"160\" cy=\"80\" rx=\"6\" ry=\"3\" />\n  <ellipse id=\"smoke-2\" fill=\"#94a3b8\" opacity=\"0.5\" cx=\"174\" cy=\"72\" rx=\"7\" ry=\"4\" />\n  <path id=\"smoke-curl\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.4\" d=\"M168 80 C162 70 178 74 172 58 C180 51 154 48 170 38\" />\n  <rect id=\"backpack\" fill=\"#2563eb\" stroke=\"#111827\" stroke-width=\"1\" x=\"36\" y=\"104\" width=\"14\" height=\"18\" rx=\"3\" ry=\"3\" />\n  <polyline id=\"path\" fill=\"none\" stroke=\"#a3e635\" stroke-width=\"5\" points=\"96,100 108,114 118,140\" />\n  <path id=\"trail-curve\" fill=\"none\" stroke=\"#bef264\" stroke-width=\"2\" d=\"M86 104 C100 112 98 126 112 140\" />\n  <path id=\"skin-04-aurora-wide-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"10\" opacity=\"0.48\" d=\"M4 24 C42 0 70 50 108 24 S170 4 216 30\" />\n  <path id=\"skin-04-aurora-wide-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"8\" opacity=\"0.42\" d=\"M0 48 C54 16 92 68 138 38 S182 24 220 54\" />\n  <path id=\"identity-04-aurora-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"5\" opacity=\"0.42\" d=\"M10 24 C38 6 62 42 90 22 S144 4 196 26\" />\n  <path id=\"identity-04-aurora-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"4\" opacity=\"0.4\" d=\"M12 38 C48 18 78 52 114 34 S166 22 208 42\" />\n  <circle id=\"variant-04-dot\" fill=\"#f97316\" opacity=\"0.72\" cx=\"30\" cy=\"26\" r=\"2.6\" />\n  <line id=\"variant-04-rule\" stroke=\"#f97316\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"36\" y1=\"29\" x2=\"52\" y2=\"32\" />\n  <rect id=\"variant-04-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-12\" fill=\"#84cc16\" opacity=\"0.68\" x=\"179\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-04-pin-01\" fill=\"#6366f1\" opacity=\"0.66\" cx=\"12\" cy=\"26\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-02\" fill=\"#8b5cf6\" opacity=\"0.66\" cx=\"209\" cy=\"40\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-03\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"22\" cy=\"54\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-04\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"195\" cy=\"68\" r=\"2.55\" />\n  <circle id=\"variant-04-pin-05\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"8\" cy=\"82\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-06\" fill=\"#f97316\" opacity=\"0.66\" cx=\"205\" cy=\"96\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-07\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"18\" cy=\"110\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-08\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"191\" cy=\"124\" r=\"2.55\" />\n</svg>",
+    "raw_response": null
+  },
+  {
+    "name": "Claude Sonnet 5",
+    "provider": "Anthropic",
+    "model": "anthropic/claude-sonnet-5",
+    "resolved_model": "anthropic/claude-sonnet-5",
+    "response_id": "gen-1784563323-6HSpouDSppETeCPZeb0x",
+    "group": "frontier",
+    "status": "PARTIAL",
+    "reward": 0,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0.25,
+    "preservation": 1,
+    "unintended_change_rate": 0,
+    "expected_changes_passed": 1,
+    "expected_changes_total": 4,
+    "expected_changes": [
+      {
+        "part": "smoke-curl",
+        "attribute": "d",
+        "expected_after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38",
+        "produced": "M172 80 C158 72 190 66 168 58 C156 50 186 46 170 38",
+        "passed": false
+      },
+      {
+        "part": "flame-front",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": "#fbbf24",
+        "passed": false
+      },
+      {
+        "part": "star-2",
+        "attribute": "exists",
+        "expected_after": true,
+        "produced": true,
+        "passed": true
+      },
+      {
+        "part": "tent-flap",
+        "attribute": "points",
+        "expected_after": [
+          [
+            82,
+            96
+          ],
+          [
+            96,
+            66
+          ],
+          [
+            110,
+            96
+          ]
+        ],
+        "produced": [
+          [
+            78,
+            101
+          ],
+          [
+            92,
+            71
+          ],
+          [
+            106,
+            101
+          ]
+        ],
+        "passed": false
+      }
+    ],
+    "unexpected_changed_parts": [],
+    "preservation_failures": [],
+    "elapsed_ms": 829439.2767910613,
+    "cost_usd": 0.039532,
+    "prompt_tokens": 3031,
+    "completion_tokens": 3347,
+    "finish_reason": "stop",
+    "reasoning_tokens": 0,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": true,
+    "error": null,
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#fffaf5\" />\n  <rect id=\"night-sky\" fill=\"#0f172a\" x=\"0\" y=\"0\" width=\"220\" height=\"88\" />\n  <rect id=\"ground\" fill=\"#0f766e\" x=\"0\" y=\"88\" width=\"220\" height=\"52\" />\n  <polygon id=\"far-hill\" fill=\"#14532d\" points=\"0,88 42,50 88,88\" />\n  <polygon id=\"mid-hill\" fill=\"#166534\" points=\"46,88 104,42 166,88\" />\n  <circle id=\"moon\" fill=\"#fef3c7\" cx=\"184\" cy=\"24\" r=\"11\" />\n  <circle id=\"star-1\" fill=\"#fde68a\" cx=\"28\" cy=\"20\" r=\"2\" />\n  <circle id=\"star-2\" fill=\"#fde68a\" cx=\"60\" cy=\"15\" r=\"2\" />\n  <circle id=\"star-3\" fill=\"#fde68a\" cx=\"130\" cy=\"22\" r=\"2.2\" />\n  <circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />\n  <polygon id=\"tent-body\" fill=\"#f97316\" stroke=\"#222\" stroke-width=\"1\" points=\"46,96 92,48 138,96\" />\n  <polygon id=\"tent-side\" fill=\"#ea580c\" stroke=\"#222\" stroke-width=\"1\" points=\"92,48 138,96 112,96\" />\n  <polygon id=\"tent-flap\" fill=\"#7c2d12\" stroke=\"#222\" stroke-width=\"1\" points=\"78,101 92,71 106,101\" />\n  <line id=\"tent-line-left\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"54\" y1=\"92\" x2=\"30\" y2=\"110\" />\n  <line id=\"tent-line-right\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"130\" y1=\"92\" x2=\"154\" y2=\"110\" />\n  <rect id=\"tree-left-trunk\" fill=\"#854d0e\" x=\"20\" y=\"74\" width=\"8\" height=\"34\" />\n  <polygon id=\"tree-left-crown\" fill=\"#15803d\" points=\"24,42 8,80 40,80\" />\n  <rect id=\"tree-right-trunk\" fill=\"#854d0e\" x=\"178\" y=\"72\" width=\"8\" height=\"36\" />\n  <polygon id=\"tree-right-crown\" fill=\"#15803d\" points=\"182,40 164,82 176,76 170,94 198,92 190,76 202,82\" />\n  <line id=\"log-left\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"150\" y1=\"112\" x2=\"176\" y2=\"122\" />\n  <line id=\"log-right\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"176\" y1=\"112\" x2=\"150\" y2=\"122\" />\n  <polygon id=\"flame-back\" fill=\"#f97316\" points=\"163,110 152,88 172,101 181,86 180,114\" />\n  <polygon id=\"flame-front\" fill=\"#fbbf24\" points=\"166,111 160,96 170,104 175,96 174,114\" />\n  <ellipse id=\"smoke-1\" fill=\"#94a3b8\" opacity=\"0.65\" cx=\"160\" cy=\"80\" rx=\"6\" ry=\"3\" />\n  <ellipse id=\"smoke-2\" fill=\"#94a3b8\" opacity=\"0.5\" cx=\"174\" cy=\"72\" rx=\"7\" ry=\"4\" />\n  <path id=\"smoke-curl\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.4\" d=\"M172 80 C158 72 190 66 168 58 C156 50 186 46 170 38\" />\n  <rect id=\"backpack\" fill=\"#2563eb\" stroke=\"#111827\" stroke-width=\"1\" x=\"36\" y=\"104\" width=\"14\" height=\"18\" rx=\"3\" ry=\"3\" />\n  <polyline id=\"path\" fill=\"none\" stroke=\"#a3e635\" stroke-width=\"5\" points=\"96,100 108,114 118,140\" />\n  <path id=\"trail-curve\" fill=\"none\" stroke=\"#bef264\" stroke-width=\"2\" d=\"M86 104 C100 112 98 126 112 140\" />\n  <path id=\"skin-04-aurora-wide-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"10\" opacity=\"0.48\" d=\"M4 24 C42 0 70 50 108 24 S170 4 216 30\" />\n  <path id=\"skin-04-aurora-wide-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"8\" opacity=\"0.42\" d=\"M0 48 C54 16 92 68 138 38 S182 24 220 54\" />\n  <path id=\"identity-04-aurora-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"5\" opacity=\"0.42\" d=\"M10 24 C38 6 62 42 90 22 S144 4 196 26\" />\n  <path id=\"identity-04-aurora-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"4\" opacity=\"0.4\" d=\"M12 38 C48 18 78 52 114 34 S166 22 208 42\" />\n  <circle id=\"variant-04-dot\" fill=\"#f97316\" opacity=\"0.72\" cx=\"30\" cy=\"26\" r=\"2.6\" />\n  <line id=\"variant-04-rule\" stroke=\"#f97316\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"36\" y1=\"29\" x2=\"52\" y2=\"32\" />\n  <rect id=\"variant-04-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-12\" fill=\"#84cc16\" opacity=\"0.68\" x=\"179\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-04-pin-01\" fill=\"#6366f1\" opacity=\"0.66\" cx=\"12\" cy=\"26\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-02\" fill=\"#8b5cf6\" opacity=\"0.66\" cx=\"209\" cy=\"40\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-03\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"22\" cy=\"54\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-04\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"195\" cy=\"68\" r=\"2.55\" />\n  <circle id=\"variant-04-pin-05\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"8\" cy=\"82\" r=\"1.8\" />\n  <circle id=\"variant-04-pin-06\" fill=\"#f97316\" opacity=\"0.66\" cx=\"205\" cy=\"96\" r=\"2.05\" />\n  <circle id=\"variant-04-pin-07\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"18\" cy=\"110\" r=\"2.3\" />\n  <circle id=\"variant-04-pin-08\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"191\" cy=\"124\" r=\"2.55\" />\n</svg>",
     "raw_response": null
   },
   {
@@ -2376,6 +2548,181 @@
     "raw_response": null
   },
   {
+    "name": "GPT-5",
+    "provider": "OpenAI",
+    "model": "openai/gpt-5",
+    "resolved_model": "openai/gpt-5",
+    "response_id": "gen-1784564032-0SSZfkFMe66rs3G07dKo",
+    "group": "frontier",
+    "status": "FAIL",
+    "reward": 0,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0,
+    "preservation": 0,
+    "unintended_change_rate": 1,
+    "expected_changes_passed": 0,
+    "expected_changes_total": 4,
+    "expected_changes": [
+      {
+        "part": "smoke-curl",
+        "attribute": "d",
+        "expected_after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38",
+        "produced": null,
+        "passed": false
+      },
+      {
+        "part": "flame-front",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": null,
+        "passed": false
+      },
+      {
+        "part": "star-2",
+        "attribute": "exists",
+        "expected_after": true,
+        "produced": false,
+        "passed": false
+      },
+      {
+        "part": "tent-flap",
+        "attribute": "points",
+        "expected_after": [
+          [
+            82,
+            96
+          ],
+          [
+            96,
+            66
+          ],
+          [
+            110,
+            96
+          ]
+        ],
+        "produced": null,
+        "passed": false
+      }
+    ],
+    "unexpected_changed_parts": [
+      "backpack",
+      "far-hill",
+      "flame-back",
+      "ground",
+      "identity-04-aurora-a",
+      "identity-04-aurora-b",
+      "log-left",
+      "log-right",
+      "mid-hill",
+      "moon",
+      "night-sky",
+      "path",
+      "skin-04-aurora-wide-a",
+      "skin-04-aurora-wide-b",
+      "smoke-1",
+      "smoke-2",
+      "star-1",
+      "star-3",
+      "star-4",
+      "tent-body",
+      "tent-line-left",
+      "tent-line-right",
+      "tent-side",
+      "trail-curve",
+      "tree-left-crown",
+      "tree-left-trunk",
+      "tree-right-crown",
+      "tree-right-trunk",
+      "variant-04-chip-01",
+      "variant-04-chip-02",
+      "variant-04-chip-03",
+      "variant-04-chip-04",
+      "variant-04-chip-05",
+      "variant-04-chip-06",
+      "variant-04-chip-07",
+      "variant-04-chip-08",
+      "variant-04-chip-09",
+      "variant-04-chip-10",
+      "variant-04-chip-11",
+      "variant-04-chip-12",
+      "variant-04-dot",
+      "variant-04-pin-01",
+      "variant-04-pin-02",
+      "variant-04-pin-03",
+      "variant-04-pin-04",
+      "variant-04-pin-05",
+      "variant-04-pin-06",
+      "variant-04-pin-07",
+      "variant-04-pin-08",
+      "variant-04-rule"
+    ],
+    "preservation_failures": [
+      "night-sky",
+      "ground",
+      "far-hill",
+      "mid-hill",
+      "moon",
+      "star-1",
+      "star-3",
+      "star-4",
+      "tent-body",
+      "tent-side",
+      "tent-line-left",
+      "tent-line-right",
+      "tree-left-trunk",
+      "tree-left-crown",
+      "tree-right-trunk",
+      "tree-right-crown",
+      "log-left",
+      "log-right",
+      "flame-back",
+      "smoke-1",
+      "smoke-2",
+      "backpack",
+      "path",
+      "trail-curve",
+      "skin-04-aurora-wide-a",
+      "skin-04-aurora-wide-b",
+      "identity-04-aurora-a",
+      "identity-04-aurora-b",
+      "variant-04-dot",
+      "variant-04-rule",
+      "variant-04-chip-01",
+      "variant-04-chip-02",
+      "variant-04-chip-03",
+      "variant-04-chip-04",
+      "variant-04-chip-05",
+      "variant-04-chip-06",
+      "variant-04-chip-07",
+      "variant-04-chip-08",
+      "variant-04-chip-09",
+      "variant-04-chip-10",
+      "variant-04-chip-11",
+      "variant-04-chip-12",
+      "variant-04-pin-01",
+      "variant-04-pin-02",
+      "variant-04-pin-03",
+      "variant-04-pin-04",
+      "variant-04-pin-05",
+      "variant-04-pin-06",
+      "variant-04-pin-07",
+      "variant-04-pin-08"
+    ],
+    "elapsed_ms": 1557925.8310829755,
+    "cost_usd": 0.0439625,
+    "prompt_tokens": 2402,
+    "completion_tokens": 4096,
+    "finish_reason": "length",
+    "reasoning_tokens": 2112,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": false,
+    "error": null,
+    "produced_svg": null,
+    "raw_response": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#fffaf5\" />\n  <rect id=\"night-sky\" fill=\"#0f172a\" x=\"0\" y=\"0\" width=\"220\" height=\"88\" />\n  <rect id=\"ground\" fill=\"#0f766e\" x=\"0\" y=\"88\" width=\"220\" height=\"52\" />\n  <polygon id=\"far-hill\" fill=\"#14532d\" points=\"0,88 42,50 88,88\" />\n  <polygon id=\"mid-hill\" fill=\"#166534\" points=\"46,88 104,42 166,88\" />\n  <circle id=\"moon\" fill=\"#fef3c7\" cx=\"184\" cy=\"24\" r=\"11\" />\n  <circle id=\"star-1\" fill=\"#fde68a\" cx=\"28\" cy=\"20\" r=\"2\" />\n  <circle id=\"star-2\" fill=\"#fde68a\" cx=\"84\" cy=\"18\" r=\"1.8\" />\n  <circle id=\"star-3\" fill=\"#fde68a\" cx=\"130\" cy=\"22\" r=\"2.2\" />\n  <circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />\n  <polygon id=\"tent-body\" fill=\"#f97316\" stroke=\"#222\" stroke-width=\"1\" points=\"46,96 92,48 138,96\" />\n  <polygon id=\"tent-side\" fill=\"#ea580c\" stroke=\"#222\" stroke-width=\"1\" points=\"92,48 138,96 112,96\" />\n  <polygon id=\"tent-flap\" fill=\"#7c2d12\" stroke=\"#222\" stroke-width=\"1\" points=\"84,96 92,64 100,96\" />\n  <line id=\"tent-line-left\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"54\" y1=\"92\" x2=\"30\" y2=\"110\" />\n  <line id=\"tent-line-right\" stroke=\"#f8fafc\" stroke-width=\"1\" x1=\"130\" y1=\"92\" x2=\"154\" y2=\"110\" />\n  <rect id=\"tree-left-trunk\" fill=\"#854d0e\" x=\"20\" y=\"74\" width=\"8\" height=\"34\" />\n  <polygon id=\"tree-left-crown\" fill=\"#15803d\" points=\"24,42 8,80 40,80\" />\n  <rect id=\"tree-right-trunk\" fill=\"#854d0e\" x=\"178\" y=\"72\" width=\"8\" height=\"36\" />\n  <polygon id=\"tree-right-crown\" fill=\"#15803d\" points=\"182,40 164,82 176,76 170,94 198,92 190,76 202,82\" />\n  <line id=\"log-left\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"150\" y1=\"112\" x2=\"176\" y2=\"122\" />\n  <line id=\"log-right\" stroke=\"#92400e\" stroke-width=\"5\" x1=\"176\" y1=\"112\" x2=\"150\" y2=\"122\" />\n  <polygon id=\"flame-back\" fill=\"#f97316\" points=\"163,110 152,88 172,101 181,86 180,114\" />\n  <polygon id=\"flame-front\" fill=\"#fbbf24\" points=\"166,111 160,96 170,104 175,96 174,114\" />\n  <ellipse id=\"smoke-1\" fill=\"#94a3b8\" opacity=\"0.65\" cx=\"160\" cy=\"80\" rx=\"6\" ry=\"3\" />\n  <ellipse id=\"smoke-2\" fill=\"#94a3b8\" opacity=\"0.5\" cx=\"174\" cy=\"72\" rx=\"7\" ry=\"4\" />\n  <path id=\"smoke-curl\" fill=\"none\" stroke=\"#cbd5e1\" stroke-width=\"1.4\" d=\"M168 80 C154 72 186 66 164 58 C152 50 182 46 166 38\" />\n  <rect id=\"backpack\" fill=\"#2563eb\" stroke=\"#111827\" stroke-width=\"1\" x=\"36\" y=\"104\" width=\"14\" height=\"18\" rx=\"3\" ry=\"3\" />\n  <polyline id=\"path\" fill=\"none\" stroke=\"#a3e635\" stroke-width=\"5\" points=\"96,100 108,114 118,140\" />\n  <path id=\"trail-curve\" fill=\"none\" stroke=\"#bef264\" stroke-width=\"2\" d=\"M86 104 C100 112 98 126 112 140\" />\n  <path id=\"skin-04-aurora-wide-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"10\" opacity=\"0.48\" d=\"M4 24 C42 0 70 50 108 24 S170 4 216 30\" />\n  <path id=\"skin-04-aurora-wide-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"8\" opacity=\"0.42\" d=\"M0 48 C54 16 92 68 138 38 S182 24 220 54\" />\n  <path id=\"identity-04-aurora-a\" fill=\"none\" stroke=\"#22d3ee\" stroke-width=\"5\" opacity=\"0.42\" d=\"M10 24 C38 6 62 42 90 22 S144 4 196 26\" />\n  <path id=\"identity-04-aurora-b\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"4\" opacity=\"0.4\" d=\"M12 38 C48 18 78 52 114 34 S166 22 208 42\" />\n  <circle id=\"variant-04-dot\" fill=\"#f97316\" opacity=\"0.72\" cx=\"30\" cy=\"26\" r=\"2.6\" />\n  <line id=\"variant-04-rule\" stroke=\"#f97316\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"36\" y1=\"29\" x2=\"52\" y2=\"32\" />\n  <rect id=\"variant-04-chip-01\" fill=\"#22c55e\" opacity=\"0.68\" x=\"12\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-02\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"43\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-03\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"80\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-04\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"111\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-05\" fill=\"#6366f1\" opacity=\"0.68\" x=\"148\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-06\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"179\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-07\" fill=\"#d946ef\" opacity=\"0.68\" x=\"12\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-08\" fill=\"#ec4899\" opacity=\"0.68\" x=\"43\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-09\" fill=\"#ef4444\" opacity=\"0.68\" x=\"80\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-04-chip-10\" fill=\"#f97316\" opacity=\"0.68\" x=\"111\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-04-chip-11\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"148\" y=\"139\" width"
+  },
+  {
     "name": "Nemotron 3 Ultra",
     "provider": "NVIDIA",
     "model": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -3249,6 +3596,181 @@
     "error": null,
     "produced_svg": null,
     "raw_response": ""
+  },
+  {
+    "name": "Gemini 3.1 Pro Preview",
+    "provider": "Google",
+    "model": "google/gemini-3.1-pro-preview",
+    "resolved_model": "google/gemini-3.1-pro-preview",
+    "response_id": "gen-1784563670-e7353wkY9wIN1k7kKKHQ",
+    "group": "frontier",
+    "status": "FAIL",
+    "reward": 0,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0,
+    "preservation": 0,
+    "unintended_change_rate": 1,
+    "expected_changes_passed": 0,
+    "expected_changes_total": 4,
+    "expected_changes": [
+      {
+        "part": "smoke-curl",
+        "attribute": "d",
+        "expected_after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38",
+        "produced": null,
+        "passed": false
+      },
+      {
+        "part": "flame-front",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": null,
+        "passed": false
+      },
+      {
+        "part": "star-2",
+        "attribute": "exists",
+        "expected_after": true,
+        "produced": false,
+        "passed": false
+      },
+      {
+        "part": "tent-flap",
+        "attribute": "points",
+        "expected_after": [
+          [
+            82,
+            96
+          ],
+          [
+            96,
+            66
+          ],
+          [
+            110,
+            96
+          ]
+        ],
+        "produced": null,
+        "passed": false
+      }
+    ],
+    "unexpected_changed_parts": [
+      "backpack",
+      "far-hill",
+      "flame-back",
+      "ground",
+      "identity-04-aurora-a",
+      "identity-04-aurora-b",
+      "log-left",
+      "log-right",
+      "mid-hill",
+      "moon",
+      "night-sky",
+      "path",
+      "skin-04-aurora-wide-a",
+      "skin-04-aurora-wide-b",
+      "smoke-1",
+      "smoke-2",
+      "star-1",
+      "star-3",
+      "star-4",
+      "tent-body",
+      "tent-line-left",
+      "tent-line-right",
+      "tent-side",
+      "trail-curve",
+      "tree-left-crown",
+      "tree-left-trunk",
+      "tree-right-crown",
+      "tree-right-trunk",
+      "variant-04-chip-01",
+      "variant-04-chip-02",
+      "variant-04-chip-03",
+      "variant-04-chip-04",
+      "variant-04-chip-05",
+      "variant-04-chip-06",
+      "variant-04-chip-07",
+      "variant-04-chip-08",
+      "variant-04-chip-09",
+      "variant-04-chip-10",
+      "variant-04-chip-11",
+      "variant-04-chip-12",
+      "variant-04-dot",
+      "variant-04-pin-01",
+      "variant-04-pin-02",
+      "variant-04-pin-03",
+      "variant-04-pin-04",
+      "variant-04-pin-05",
+      "variant-04-pin-06",
+      "variant-04-pin-07",
+      "variant-04-pin-08",
+      "variant-04-rule"
+    ],
+    "preservation_failures": [
+      "night-sky",
+      "ground",
+      "far-hill",
+      "mid-hill",
+      "moon",
+      "star-1",
+      "star-3",
+      "star-4",
+      "tent-body",
+      "tent-side",
+      "tent-line-left",
+      "tent-line-right",
+      "tree-left-trunk",
+      "tree-left-crown",
+      "tree-right-trunk",
+      "tree-right-crown",
+      "log-left",
+      "log-right",
+      "flame-back",
+      "smoke-1",
+      "smoke-2",
+      "backpack",
+      "path",
+      "trail-curve",
+      "skin-04-aurora-wide-a",
+      "skin-04-aurora-wide-b",
+      "identity-04-aurora-a",
+      "identity-04-aurora-b",
+      "variant-04-dot",
+      "variant-04-rule",
+      "variant-04-chip-01",
+      "variant-04-chip-02",
+      "variant-04-chip-03",
+      "variant-04-chip-04",
+      "variant-04-chip-05",
+      "variant-04-chip-06",
+      "variant-04-chip-07",
+      "variant-04-chip-08",
+      "variant-04-chip-09",
+      "variant-04-chip-10",
+      "variant-04-chip-11",
+      "variant-04-chip-12",
+      "variant-04-pin-01",
+      "variant-04-pin-02",
+      "variant-04-pin-03",
+      "variant-04-pin-04",
+      "variant-04-pin-05",
+      "variant-04-pin-06",
+      "variant-04-pin-07",
+      "variant-04-pin-08"
+    ],
+    "elapsed_ms": 1181167.0857500285,
+    "cost_usd": 0.055138,
+    "prompt_tokens": 3017,
+    "completion_tokens": 4092,
+    "finish_reason": "length",
+    "reasoning_tokens": 3934,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": false,
+    "error": null,
+    "produced_svg": null,
+    "raw_response": "`172 -> 164`\n184 -> 152\n154 -> 182\n170 -> 166\nLet's see if there's any other meaning of \"curls the wrong way\". Maybe it's going down, i.e., `C` needs to be swapped? No, the Y values decrease, so it goes up, which is correct for smoke. Curling the wrong way refers to the left/right waving motion. I'll use the mirrored values.\n\nWait, are there any other stars?\n`star-1` (28, 20)\n`star-3` (130, 22)\n`star-4`"
   },
   {
     "name": "OLMo 3 32B Think",

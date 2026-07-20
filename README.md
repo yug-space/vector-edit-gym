@@ -33,6 +33,7 @@ Diagnostic metrics explain zero-reward outputs:
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: `1 - preservation`
 - `valid`: whether the output is parseable SVG/XML
+- `truncation_rate`: fraction of endpoint responses ending at the output-length limit
 
 ## Setup
 
@@ -67,8 +68,9 @@ Credentials are read only from the process environment. Do not place API keys in
 ```sh
 export OPENROUTER_API_KEY='...'
 
-# Validate the 30-model manifest and estimate catalog cost.
-python scripts/benchmark-openrouter.py --dry-run
+# Validate either manifest and estimate catalog cost.
+python scripts/benchmark-openrouter.py --manifest benchmarks/openrouter-30.json --dry-run
+python scripts/benchmark-openrouter.py --manifest benchmarks/openrouter-frontier-4.json --dry-run
 
 # Smoke test one model and task.
 python scripts/benchmark-openrouter.py \
@@ -82,6 +84,13 @@ python scripts/benchmark-openrouter.py \
   --budget-usd 25 \
   --concurrency 20 \
   --run-name openrouter-30-human
+
+# Reproducible frontier 4 x 40 cohort under the same protocol.
+python scripts/benchmark-openrouter.py \
+  --manifest benchmarks/openrouter-frontier-4.json \
+  --budget-usd 25 \
+  --concurrency 4 \
+  --run-name openrouter-frontier-4
 ```
 
 Runs are resumable. Records are stored under `runs/openrouter/<run-name>/`:
@@ -98,7 +107,15 @@ python scripts/rescore-results.py runs/openrouter/openrouter-30-human
 node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
 ```
 
-The rescorer atomically applies the repository's current evaluator to the recorded responses. The exporter refuses incomplete or duplicated model-task matrices.
+The rescorer atomically applies the repository's current evaluator to the recorded responses. The exporter refuses incomplete or duplicated model-task matrices. Compatible completed cohorts can be combined without altering their recorded outcomes:
+
+```sh
+python scripts/merge-runs.py runs/openrouter/openrouter-combined \
+  runs/openrouter/openrouter-30-human \
+  runs/openrouter/openrouter-frontier-4
+python scripts/rescore-results.py runs/openrouter/openrouter-combined
+node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
+```
 
 ## Analysis and Paper
 
@@ -128,11 +145,11 @@ npm run viewer:dev
 
 The viewer publishes:
 
-- a top-ten chart and full 30-model table
+- a top-ten chart and full published model table
 - the 40-task catalog
 - corrupted and target SVGs
 - every model-produced SVG
-- expected-edit checks, preservation failures, UCR, scheduled elapsed time, tokens, and cost
+- expected-edit checks, preservation failures, UCR, truncation, scheduled elapsed time, tokens, and cost
 - requested/resolved endpoint IDs, response IDs, parse failures, and raw non-SVG responses
 - the paper PDF and aggregate analysis figures
 

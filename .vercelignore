@@ -5,4 +5,5 @@ tmp/
 node_modules/
 viewer/node_modules/
 viewer/.next/
+*.tsbuildinfo
 data/model-results.json

@@ -55,12 +55,14 @@ const TASKS_DIR = path.join(DATA_DIR, "tasks");
 const ICONS_DIR = path.join(DATA_DIR, "icons");
 const MODEL_RESULTS_DIR = path.join(DATA_DIR, "model-results");
 
+export type ModelGroup = "open-weight" | "cheap-control" | "frontier";
+
 export type LeaderboardEntry = {
   rank: number;
   name: string;
   provider: string;
   model: string;
-  group: "open-weight" | "cheap-control";
+  group: ModelGroup;
   reward: number;
   exact: number;
   structural: number;
@@ -69,6 +71,7 @@ export type LeaderboardEntry = {
   edit_completion: number;
   unintended_change_rate: number;
   error_rate?: number;
+  truncation_rate?: number;
   mean_elapsed_ms?: number;
   cost_usd: number;
   tasks_run: number;
@@ -90,7 +93,7 @@ export type ModelRun = {
   name: string;
   provider: string;
   model: string;
-  group: "open-weight" | "cheap-control";
+  group: ModelGroup;
 };
 
 export type ModelExpectedChange = {
@@ -107,7 +110,7 @@ export type TaskModelResult = {
   model: string;
   resolved_model: string | null;
   response_id: string | null;
-  group: "open-weight" | "cheap-control";
+  group: ModelGroup;
   status: "PASS" | "PARTIAL" | "FAIL" | "ERR";
   reward: number;
   exact: boolean;

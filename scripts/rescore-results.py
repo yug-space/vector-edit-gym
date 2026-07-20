@@ -121,6 +121,7 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
                 "preservation": mean(items, "preservation"),
                 "unintended_change_rate": mean(items, "unintended_change_rate"),
                 "error_rate": sum(record.get("error") is not None for record in items) / n,
+                "truncation_rate": sum(record.get("finish_reason") == "length" for record in items) / n,
                 "mean_elapsed_ms": mean(items, "elapsed_ms"),
                 "cost_usd": sum(float(record.get("cost_usd") or 0) for record in items),
                 "prompt_tokens": sum(int(record.get("prompt_tokens") or 0) for record in items),
@@ -144,14 +145,14 @@ def mean(items: list[dict[str, Any]], key: str) -> float:
 
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
-        "| model | group | n | reward | edit completion | UCR | valid | errors | cost |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| model | group | n | reward | edit completion | UCR | valid | truncated | errors | cost |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
             f"| {row['name']} | {row['group']} | {row['n']} | {row['binary_reward']:.1%} | "
             f"{row['edit_completion']:.1%} | {row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
-            f"{row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
+            f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )
     return "\n".join(lines) + "\n"
 

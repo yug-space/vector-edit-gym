@@ -39,8 +39,9 @@ without exposing element identifiers, coordinates, color codes, or path data.
 We define a deterministic binary reward that is one only when the output parses,
 implements every annotated repair, and is canonically equivalent to the target;
 edit completion and Unintended Change Rate (UCR) diagnose partial outcomes. We
-evaluate \ModelCount{} model endpoints (\OpenModelCount{} listed as open-weight
-and \ControlModelCount{} inexpensive controls) over \RequestCount{} requests.
+evaluate \ModelCount{} model endpoints (\OpenModelCount{} listed as open-weight,
+\ControlModelCount{} inexpensive controls, and \FrontierModelCount{} frontier
+closed endpoints) over \RequestCount{} requests.
 The strongest endpoint reaches only \TopReward{} binary success, despite
 \TopEditCompletion{} requested-edit completion, showing that apparent repair
 progress and specification-faithful editing remain substantially different.
@@ -87,8 +88,8 @@ Our contributions are:
   \centering
   \includegraphics[width=0.98\textwidth]{figures/corpus-examples.pdf}
   \caption{Representative corrupted inputs and hidden targets. Public prompts
-  describe visible mistakes in ordinary language; source IDs and serialized
-  numeric/path values remain evaluator-only annotations.}
+  describe visible mistakes in ordinary language without naming source IDs or
+  revealing target numeric/path values.}
   \label{fig:examples}
 \end{figure*}
 
@@ -213,9 +214,10 @@ binary primary reward.
 \subsection{Protocol}
 
 We evaluate \OpenModelCount{} endpoints designated as open-weight in the study
-manifest and \ControlModelCount{} inexpensive closed controls through the
-OpenRouter chat-completions API~\citep{openrouter2026}. This designation records
-the endpoint grouping used for analysis and is not an independent license audit.
+manifest, \ControlModelCount{} inexpensive closed controls, and
+\FrontierModelCount{} frontier closed endpoints through the OpenRouter
+chat-completions API~\citep{openrouter2026}. These designations record the
+endpoint grouping used for analysis and are not an independent license audit.
 The exact endpoint IDs appear in Appendix~\ref{sec:full-results}.
 
 Every model receives the same system instruction, human repair request, and
@@ -228,8 +230,9 @@ harness attempt. We record requested and resolved model IDs, response ID,
 finish reason, prompt, completion and reasoning tokens when supplied, scheduled
 wall-clock elapsed time, and provider-reported cost. Elapsed time begins when a
 model--task job is scheduled and therefore includes local concurrency-queue wait;
-we expose it for run auditing, not as endpoint latency. A reservation-based budget guard caps the run at
-\$25; the completed study cost \TotalCost{}.
+we expose it for run auditing, not as endpoint latency. Each source cohort uses
+a reservation-based budget guard capped at \$25; the completed combined study
+cost \TotalCost{}.
 
 \subsection{Uncertainty}
 
@@ -253,18 +256,29 @@ then edit completion, lower UCR, and model name.
 \end{table*}
 
 \paragraph{Binary success remains rare.}
-The strongest endpoint, \TopModel{}, obtains \TopReward{} binary reward. Its
+Only \BinaryPassCount{} of \RequestCount{} outcomes receive binary reward one
+(\BinaryPassRate{}), while \PartialOutcomeCount{} (\PartialOutcomeRate{}) make
+at least one annotated repair. The strongest endpoint, \TopModel{}, obtains
+\TopReward{} binary reward. Its
 edit completion is substantially higher at \TopEditCompletion{}, while its UCR
 is \TopUCR{} and its parse validity is \TopValidity{}. The difference is the central benchmark result: models frequently
 perform some requested visual work but fail the full repair-and-preserve
 contract. Figure~\ref{fig:reward} reports task-bootstrap intervals for every
 endpoint.
 
+\paragraph{Frontier endpoints remain subject to the same bottlenecks.}
+Within the frontier cohort, \FrontierTopModel{} ranks highest with
+\FrontierTopReward{} binary reward and \FrontierTopEditCompletion{} edit
+completion. Its parse validity is \FrontierTopValidity{} and its truncation rate
+is \FrontierTopTruncation{}. Length-limited outcomes elsewhere in the cohort
+remain failures because the protocol requires a complete usable artifact.
+
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.84\textwidth]{figures/model-binary-reward.pdf}
   \caption{Binary task success for all endpoints. Orange bars are inexpensive
-  controls; teal bars are endpoints listed as open-weight in the manifest.}
+  controls, teal bars are endpoints listed as open-weight, and purple bars are
+  frontier closed endpoints.}
   \label{fig:reward}
 \end{figure*}
 
@@ -338,7 +352,8 @@ Only \OverallValidity{} of scored outcomes contain parseable SVG. The harness
 preserves raw malformed output, API errors, and finish reasons in the released
 records. Transient failures are retried only against the requested endpoint;
 persistent failures remain zero-scored observations. The aggregate provider
-error rate is \OverallErrorRate{}; parse failure is measured separately.
+error rate is \OverallErrorRate{}, and \OverallTruncationRate{} of all outcomes
+end at the provider's output-length limit; parse failure is measured separately.
 
 \section{Limitations and Artifact Risks}
 
@@ -379,11 +394,9 @@ and provide a compact target for improving structured visual editors.
 
 \section*{Reproducibility Statement}
 
-The repository includes the frozen corpus hash, model manifest, prompt template,
-budgeted resumable runner, canonical evaluator, unit tests, raw-result schema,
-analysis script, generated tables, figures, paper source, Harbor tasks, and a web
-viewer for every model output. API credentials and ignored raw working
-directories are not included.
+The release includes the frozen corpus, manifests, prompt, runner, evaluator,
+tests, result schema, analysis, paper source, Harbor tasks, and per-output viewer.
+Credentials and ignored raw runs are excluded.
 
 \appendix
 \clearpage

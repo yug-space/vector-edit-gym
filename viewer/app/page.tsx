@@ -27,6 +27,7 @@ const SUBMIT_MAILTO =
       "Edit completion:",
       "Unintended change rate:",
       "Preservation:",
+      "Truncation rate:",
       "Error rate:",
       "Recorded cost:",
       "",
@@ -49,7 +50,7 @@ export default async function HomePage() {
         id="leaderboard"
         eyebrow="leaderboard"
         title="Repair is not the same as preservation."
-        intro="Thirty model endpoints, one scored outcome per task, no fallback routing. Binary reward is one only when every requested repair and every preservation constraint passes."
+        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. Binary reward is one only when every requested repair and every preservation constraint passes.`}
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <span className="mono-label">
@@ -92,6 +93,7 @@ export default async function HomePage() {
                   <TableHead className="whitespace-nowrap text-right">UCR</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Valid</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Preservation</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Truncated</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Errors</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Cost</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Tasks</TableHead>
@@ -120,6 +122,7 @@ export default async function HomePage() {
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.unintended_change_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.validity)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.truncation_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.error_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">${e.cost_usd.toFixed(3)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono text-sm">{e.tasks_run}</TableCell>

@@ -16,9 +16,17 @@ python scripts/benchmark-openrouter.py \
   --budget-usd 25 \
   --concurrency 20 \
   --run-name openrouter-30-human
+
+python scripts/benchmark-openrouter.py \
+  --manifest benchmarks/openrouter-frontier-4.json \
+  --budget-usd 25 \
+  --concurrency 4 \
+  --run-name openrouter-frontier-4
 ```
 
 The runner gives the model only the human instruction and corrupted SVG. It records target and preservation checks after the response returns. Retries use the same requested model; fallback routing to a different model is not allowed by the harness.
+
+Binary reward remains all-or-nothing. Use `edit_completion`, `preservation`, `produced_parse_ok`, and aggregate `truncation_rate` to distinguish incomplete semantic repairs from malformed or length-limited responses.
 
 ## SDK Provider Examples
 
@@ -59,3 +67,15 @@ node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
 ```
 
 The rescorer does not call a model or alter its response. It atomically regenerates scores and summaries with the current canonical evaluator.
+
+To publish compatible cohorts as one leaderboard, merge their complete matrices first:
+
+```sh
+python scripts/merge-runs.py runs/openrouter/openrouter-combined \
+  runs/openrouter/openrouter-30-human \
+  runs/openrouter/openrouter-frontier-4
+python scripts/rescore-results.py runs/openrouter/openrouter-combined
+node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
+```
+
+The merger rejects corpus, protocol, prompt, task-order, duplicate-model, and incomplete-matrix mismatches.
