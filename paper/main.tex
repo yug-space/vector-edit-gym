@@ -510,9 +510,9 @@ per task.
 \section{Error Analysis}
 \label{sec:error-analysis}
 
-Appendix~\ref{sec:trace} walks one scored failure through every gate, and
-Appendix~\ref{sec:trace-example} traces a full pass; together they make the
-failure modes below concrete.
+Appendix~\ref{sec:trace-example} traces a full pass and
+Appendix~\ref{sec:trace} a full failure; both make the failure modes below
+concrete.
 
 \paragraph{Literal partial repair.}
 Models often identify an obvious semantic defect, such as a signal with the wrong
@@ -680,32 +680,30 @@ per-edit distances, preservation report, and score history at
 \section{A Worked Failure Trace}
 \label{sec:trace}
 
-Complementing the full pass above, Figure~\ref{fig:trace} follows a failing
-response through the same pipeline: the station task from the introduction
-(\texttt{sv\_001}), answered by the strongest overall endpoint, Claude
-Sonnet 5. The output looks plausible and passes the validity gate, but only
-the amber signal is actually repaired ($\Delta E_{76}=0$): the door is moved
-24 user units past the hidden target, the reshaped wire ends up farther from
-the target than the corrupted input was, and the door handle, a protected
-object the corruption never touched, is dragged along with the door. One
-completed repair out of three and one collateral change leave the response in
-the ``valid, incomplete repair'' bucket that dominates
-Figure~\ref{fig:gates}, and the binary reward is zero. This is the paper's
-central gap, visible repair work without the full repair-and-preserve
-contract, compressed into a single trace, and it shows how the failure modes
-of Section~\ref{sec:error-analysis} co-occur inside one response. Every
-per-check distance, tolerance, and rendered before/after is browsable in the
-released
-viewer.\footnote{\url{https://www.vecbench.xyz/traces/run?task=sv_001&model=anthropic/claude-sonnet-5}}
+The trace above shows a pass; this one shows why passes are rare. In
+Figure~\ref{fig:trace}, the strongest endpoint in the study, Claude Sonnet 5,
+answers the station task this paper opens with (\texttt{sv\_001}). The output
+looks plausible and is valid SVG. But only the signal is repaired
+($\Delta E_{76}=0$). The door overshoots the hidden target by 24 user units.
+The reshaped wire lands farther from the target than the corruption it was
+asked to fix. The model also drags the door handle, a protected object the
+corruption never touched, along with the door. One repair out of three plus
+one collateral change put the response in the ``valid, incomplete repair''
+bucket that dominates Figure~\ref{fig:gates}. The reward is zero. This is the
+paper's central gap in a single trace: visible repair work, not the
+repair-and-preserve contract. The failure modes of
+Section~\ref{sec:error-analysis} co-occur in one response. The released
+viewer exposes every per-check distance, tolerance, and rendered
+before/after.\footnote{\url{https://www.vecbench.xyz/traces/run?task=sv_001&model=anthropic/claude-sonnet-5}}
 
 \begin{figure*}[h]
   \centering
   \includegraphics[width=0.92\textwidth]{figures/trace-sv001.png}
-  \caption{One scored trace, end to end. Top: the corrupted input, the model
-  output, and the hidden target. Bottom: the three-gate evaluation of that
-  output. The document is valid (gate 1), but only the signal-fill repair
-  meets its tolerance (gate 2), and moving the door handle changes a
-  protected object (gate 3), so the specification reward is zero.}
+  \caption{One scored trace, end to end. Top: corrupted input, model output,
+  hidden target. Bottom: the three-gate evaluation. The document is valid
+  (gate 1). Only the signal-fill repair meets its tolerance (gate 2). Moving
+  the door handle changes a protected object (gate 3). The specification
+  reward is zero.}
   \label{fig:trace}
 \end{figure*}
 
