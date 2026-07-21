@@ -196,17 +196,17 @@
 
 .hero-band {
   overflow: hidden;
-  background: var(--surface);
+  background: linear-gradient(145deg, #ffffff 0%, #f8f8f7 56%, #fff1e3 100%);
 }
 
 .hero-shell {
   display: flex;
   width: min(100%, 56rem);
-  min-height: 35rem;
+  min-height: 36rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-block: 5rem 3.5rem;
+  padding: 5rem 2rem 3.5rem;
   border-inline: 1px solid hsl(var(--border));
   text-align: center;
 }
@@ -218,15 +218,18 @@
   font-weight: 720;
   line-height: 1;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 .hero-title span:last-child { color: var(--brand-strong); }
 
 .hero-question {
+  max-width: 36rem;
   margin-top: 2.1rem;
   font-size: 1.35rem;
   font-weight: 650;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 .hero-copy {
@@ -235,13 +238,15 @@
   color: hsl(var(--muted-foreground));
   font-size: 1rem;
   line-height: 1.75;
+  text-wrap: balance;
 }
 
 .hero-authors {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.25rem 0.5rem;
   margin-top: 1rem;
   color: hsl(var(--muted-foreground));
   font-family: var(--font-mono);
@@ -258,6 +263,7 @@
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
   gap: 0.75rem;
   margin-top: 2.25rem;
@@ -270,6 +276,7 @@
   margin-top: 3.25rem;
   border-top: 1px solid hsl(var(--border));
   border-bottom: 1px solid hsl(var(--border));
+  background: rgb(255 255 255 / 0.5);
   text-align: center;
 }
 
@@ -572,7 +579,7 @@
     border-top: 1px solid hsl(var(--border));
   }
   .mobile-nav .nav-link { white-space: nowrap; }
-  .hero-shell { min-height: 32rem; padding-block: 4rem 3.5rem; }
+  .hero-shell { min-height: 32rem; padding: 4rem 1.5rem 3.5rem; }
   .hero-title { font-size: 4rem; }
 }
 
@@ -581,13 +588,13 @@
   .section-pad { padding-block: 3.75rem; }
   .site-header-row { min-height: 3rem; }
   .site-mark-copy strong { font-size: 0.7rem; }
-  .hero-shell { min-height: auto; padding-block: 2.75rem 2rem; }
+  .hero-shell { min-height: auto; padding: 2.75rem 1rem 2rem; }
   .hero-title { margin-top: 1rem; font-size: 3rem; }
   .hero-question { margin-top: 1.25rem; font-size: 1.05rem; }
   .hero-copy { margin-top: 0.8rem; font-size: 0.94rem; }
   .hero-actions { margin-top: 1.5rem; }
   .hero-actions { width: 100%; }
-  .hero-actions .theta-button { flex: 1 1 10rem; }
+  .hero-actions .theta-button { width: 100%; flex: 1 1 100%; }
   .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.75rem; }
   .hero-facts > div:nth-child(2) { border-right: 0; }
   .hero-facts > div:nth-child(-n + 2) { border-bottom: 1px solid hsl(var(--border)); }
