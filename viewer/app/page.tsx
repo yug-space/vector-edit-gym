@@ -179,7 +179,7 @@ export default async function HomePage() {
           <div className="section-intro">
             <p className="eyebrow eyebrow-centered">Team</p>
             <h2 className="subheading mt-5">Shared research, shared material.</h2>
-            <p className="section-copy mt-5">Vector-Bench and its paper are equal-contribution work by both authors.</p>
+            <p className="section-copy mt-5">Vector-Bench and its paper were created by Yug Gupta and Prannay Hebbar.</p>
           </div>
           <div className="team-grid">
             {AUTHORS.map(({ name, email, affiliation }) => (
@@ -204,10 +204,18 @@ function Hero({ totalTasks, totalEndpoints, totalTraces }: { totalTasks: number;
   return (
     <section className="hero-band screen-line-after">
       <div className="page-shell hero-shell">
-        <p className="eyebrow eyebrow-centered">A thetalab benchmark</p>
+        <div className="hero-status" aria-label={`Public benchmark with ${totalTasks} tasks`}>
+          <span><i aria-hidden="true" />Public benchmark</span>
+          <span>{totalTasks} tasks</span>
+        </div>
         <h1 className="hero-title"><span>Vector-</span><span>Bench</span></h1>
         <p className="hero-question">Can models surgically edit SVG code?</p>
         <p className="hero-copy">Natural-language repairs, hidden structural targets, and a binary specification reward that rejects collateral changes.</p>
+        <div className="hero-authors" aria-label="Authors">
+          <a href="mailto:yug@thetalab.tech">Yug Gupta</a>
+          <span aria-hidden="true">and</span>
+          <a href="mailto:prannay@warping.co">Prannay Hebbar</a>
+        </div>
 
         <div className="hero-actions">
             <Link href="/tasks" className="theta-button theta-button-brand">
@@ -221,11 +229,22 @@ function Hero({ totalTasks, totalEndpoints, totalTraces }: { totalTasks: number;
             <Link href="/traces" className="theta-button">Browse traces</Link>
         </div>
 
-        <div className="hero-facts" aria-label="Benchmark summary">
-          <HeroFact value={String(totalTasks)} label="tasks" />
-          <HeroFact value="202" label="repairs" />
-          <HeroFact value={String(totalEndpoints)} label="endpoints" />
-          <HeroFact value={totalTraces.toLocaleString()} label="traces" />
+        <div className="hero-index">
+          <div className="hero-index-head">
+            <span>One binary outcome</span>
+            <span>Three required gates</span>
+          </div>
+          <div className="hero-gates" aria-label="Specification pass requirements">
+            <span><b>01</b>Complete the requested repair</span>
+            <span><b>02</b>Preserve everything else</span>
+            <span><b>03</b>Return valid SVG</span>
+          </div>
+          <div className="hero-facts" aria-label="Benchmark summary">
+            <HeroFact value={String(totalTasks)} label="tasks" />
+            <HeroFact value="202" label="repairs" />
+            <HeroFact value={String(totalEndpoints)} label="endpoints" />
+            <HeroFact value={totalTraces.toLocaleString()} label="traces" />
+          </div>
         </div>
       </div>
     </section>

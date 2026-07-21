@@ -94,7 +94,7 @@ function SiteFooter() {
               visible defects closely enough without changing the rest of the vector program.
             </p>
             <p className="mt-3 text-sm text-[hsl(var(--muted-foreground))]">
-              Yug Gupta and Prannay Hebbar, equal contribution.
+              By Yug Gupta and Prannay Hebbar.
             </p>
           </div>
 
