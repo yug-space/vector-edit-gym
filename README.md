@@ -4,13 +4,13 @@ VectorEditGym evaluates whether a model can repair visible defects in an SVG wit
 
 - Website: https://svg-rl-env.vercel.app
 - Paper: https://svg-rl-env.vercel.app/vectoreditgym-paper.pdf
-- Results submission: `yug@thetalab.tech`
+- Results submission: `yug@thetalab.tech` or `prannay@warping.co`
 
 The frozen release contains 40 dense repair tasks and 202 annotated edits. Instructions sound like human visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
 
 The published results use evaluator `semantic-perceptual-binary-2026-07`.
 
-**Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work.
+**Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
 
 ## Evaluation Contract
 

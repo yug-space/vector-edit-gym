@@ -10,6 +10,7 @@ authors:
     email: yug@thetalab.tech
   - family-names: Hebbar
     given-names: Prannay
+    email: prannay@warping.co
 abstract: "A frozen benchmark, deterministic evaluator, model study, and results browser for preservation-aware SVG repair. Both authors contributed equally."
 repository-code: "https://github.com/yug-space/vector-edit-gym"
 url: "https://svg-rl-env.vercel.app"
