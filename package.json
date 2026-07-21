@@ -14,7 +14,7 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
-    "next": "16.2.6"
+    "next": "16.2.10"
   },
   "overrides": {
     "postcss": "8.5.15"
