@@ -6,7 +6,7 @@ version: 0.2.0
 date-released: 2026-07-21
 authors:
   - family-names: Gupta
-    given-names: Yug Aditi
+    given-names: Yug
     email: yug@thetalab.tech
   - family-names: Hebbar
     given-names: Prannay
@@ -27,6 +27,6 @@ preferred-citation:
   year: 2026
   authors:
     - family-names: Gupta
-      given-names: Yug Aditi
+      given-names: Yug
     - family-names: Hebbar
       given-names: Prannay

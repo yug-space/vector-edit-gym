@@ -39,7 +39,7 @@ const SUBMIT_MAILTO =
   );
 
 const AUTHORS = [
-  { name: "Yug Aditi Gupta", email: "yug@thetalab.tech", affiliation: "Theta Labs" },
+  { name: "Yug Gupta", email: "yug@thetalab.tech", affiliation: "Theta Labs" },
   { name: "Prannay Hebbar", email: "prannay@warping.co", affiliation: "Warping" },
 ];
 

@@ -28,7 +28,7 @@ path data, or evaluator metadata. Published results use evaluator
 > [licensing notice](NOTICE.md) and [dataset card](DATASET_CARD.md) before redistributing
 > the complete corpus.
 
-**Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
+**Authors:** Yug Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
 
 ## What Is Included
 

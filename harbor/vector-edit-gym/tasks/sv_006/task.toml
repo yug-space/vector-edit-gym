@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-006"
 description = "Remove the extra orange buoy from the water, turn the main sail back the right way, and place the little cabin window neatly inside the cabin again. Keep the lighthouse and the real buoys as they are."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

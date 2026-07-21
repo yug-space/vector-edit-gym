@@ -1,6 +1,6 @@
 # Notices and Licensing Scope
 
-Copyright 2026 Yug Aditi Gupta and Prannay Hebbar.
+Copyright 2026 Yug Gupta and Prannay Hebbar.
 
 The source code, evaluator, task metadata authored for this project, documentation, and website code are available under the [MIT License](LICENSE), except where stated below.
 

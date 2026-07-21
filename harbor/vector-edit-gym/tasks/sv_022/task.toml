@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-022"
 description = "In the deep-sea scene, remove the stray colored marker and move the displaced glowing particle back toward the nearby cluster. The large jellyfish should have fine tentacles and a soft pink lower rim, while the second shaft of light should be clearly visible. Leave the other creatures alone."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
 
 [metadata]

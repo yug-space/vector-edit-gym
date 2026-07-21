@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-035"
 description = "Delete the stray marker from the alpine village sky and return the displaced star to the upper-left. The frozen pond should have its pale outline, the skater's thin limb should no longer look heavy, and the faint spot on the moon should be visible again. Preserve the chalets and mountains."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
 
 [metadata]

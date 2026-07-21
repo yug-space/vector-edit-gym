@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-036"
 description = "Remove the unwanted marker from the lavender field. Recenter the large sun glow on the right, make the pale wing on the small bee visible again, slim the butterfly's body line, and strengthen the narrow horizon strip. Leave the windmill and lavender rows untouched."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
 
 [metadata]
