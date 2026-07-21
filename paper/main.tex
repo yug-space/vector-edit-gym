@@ -15,6 +15,32 @@
 \usepackage{longtable}
 \usepackage{url}
 \usepackage{placeins}
+\usepackage{enumitem}
+
+% Compact layout: aggressive float packing and tightened vertical spacing.
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\setlist{nosep,leftmargin=*}
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}%
+  \setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}%
+  \setlength{\abovedisplayshortskip}{2pt plus 1pt}%
+  \setlength{\belowdisplayshortskip}{2pt plus 1pt}%
+}
 
 \input{generated/results.tex}
 
@@ -100,8 +126,6 @@ Our contributions are:
   \label{fig:examples}
 \end{figure*}
 
-\FloatBarrier
-
 \section{Related Work}
 
 \paragraph{Vector generation.}
@@ -179,8 +203,6 @@ preservation gate; $U$ enumerates the identified scene objects used for UCR.
   number of requested repairs.}
   \label{fig:complexity}
 \end{figure}
-
-\FloatBarrier
 
 \section{Executable Evaluation}
 \label{sec:evaluation}
@@ -507,7 +529,6 @@ persistent failures remain zero-scored observations. The aggregate provider
 error rate is \OverallErrorRate{}, and \OverallTruncationRate{} of all outcomes
 end at the provider's output-length limit; parse failure is measured separately.
 
-\FloatBarrier
 \section{Limitations and Artifact Risks}
 
 VectorEditGym has only \TaskCount{} tasks and should be treated as a focused
