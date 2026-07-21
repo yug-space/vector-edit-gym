@@ -362,7 +362,12 @@ wall-clock elapsed time, and provider-reported cost. Elapsed time begins when a
 model--task job is scheduled and therefore includes local concurrency-queue wait;
 we expose it for run auditing, not as endpoint latency. Each source cohort uses
 a reservation-based budget guard capped at \$25; the completed combined study
-cost \TotalCost{}.
+cost \TotalCost{}. The current runner additionally emits credential-redacted,
+append-only request, retry, response, extraction, and scoring events. Because the
+reported study predates this complete attempt logger, its public rows are marked
+\texttt{legacy\_final\_record}: the extracted final SVG (or malformed final body)
+and metadata are retained, but discarded retry envelopes and response wrappers
+cannot be reconstructed.
 
 This is an endpoint comparison, not a general ranking of model intelligence.
 It uses one decoded response per model--task pair and does not include a human
@@ -583,8 +588,11 @@ and provide a compact target for improving structured visual editors.
 
 \paragraph{Reproducibility.}
 The release includes the frozen corpus, prompts, runner, evaluator, tests,
-analysis, paper source, Harbor tasks, and per-output viewer. Credentials and
-transport-level API envelopes are excluded. The public artifact is available at
+analysis, paper source, Harbor tasks, and a chronological per-output trace viewer.
+Credentials and authorization headers are excluded. The released study includes
+sanitized final-response records and verifier snapshots; unavailable legacy retry
+and transport envelopes are explicitly labeled rather than inferred. New runs
+retain these events append-only. The public artifact is available at
 \url{https://www.vecbench.xyz}, with source at
 \url{https://github.com/yug-space/vector-edit-gym}.
 
@@ -603,5 +611,62 @@ are available in the machine-readable release.
 \scriptsize
 \input{generated/full-table.tex}
 \small
+\clearpage
+
+\section{Representative Output Trace}
+\label{sec:trace-example}
+
+Table~\ref{tab:trace-example} follows one published outcome through request,
+extraction, tolerant repair checks, preservation, validity, and binary reward.
+The example is useful because the generated handlebar is not the canonical path,
+yet its sampled geometry lies inside the released tolerance. Thus an acceptable
+approximation passes without weakening the requirement that unrequested content
+remain unchanged.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{0.18\linewidth}p{0.76\linewidth}}
+\toprule
+Trace event & Recorded value \\
+\midrule
+Identity & Task \texttt{sv\_005}; requested and resolved endpoint
+\texttt{anthropic/claude-sonnet-5}; trace
+\texttt{legacy:anthropic/claude-sonnet-5:sv\_005}. \\
+Instruction & ``A stray price sticker has appeared in the market, one pear is
+red instead of green, and the bicycle handlebar has a distorted bend. Clean up
+those three issues while keeping the stalls and shoppers unchanged.'' \\
+Request & System repair protocol plus the corrupted SVG; provider-default
+temperature; 4,243-token output ceiling. The request used 3,700 prompt tokens. \\
+Response & Response \texttt{gen-1784563591-dtcYmLQV0qHEuDb7ucuZ}; stop reason
+\texttt{stop}; 3,521 completion tokens; recorded cost \$0.04261. \\
+Extraction & A complete SVG was extracted. This historical row is labeled
+\texttt{legacy\_final\_record}: the extracted SVG is retained, but the original
+response wrapper and retry envelopes were not retained and are not reconstructed. \\
+Handlebar check & Expected path
+\texttt{M122 96 C130 88 136 92 136 98}; produced path
+\texttt{M122 96 C128 90 132 90 134 96}. Sampled-geometry distance
+$1.883 \leq 2.961$; check passed; repair progress 55.5\%. \\
+Pear check & Expected and produced fill \texttt{\#a3e635};
+$\Delta E_{76}=0 \leq 18$; check passed; repair progress 100\%. \\
+Sticker check & Expected absence and produced absence; check passed; repair
+progress 100\%. \\
+Preservation & Every protected object passed semantic comparison;
+preservation 100\%; valid-output UCR 0\%. \\
+Validity & The output parsed and passed standalone SVG validity checks. \\
+Outcome & All three required repairs passed, semantic preservation passed, and
+validity passed. Binary reward $=1$; mean soft repair progress $=85.2\%$. \\
+\bottomrule
+\end{tabular}
+\caption{Chronological verifier trace for a published full pass. Soft progress
+retains information about approximate repair magnitude; it is not an additional
+binary gate once each requested edit is within tolerance.}
+\label{tab:trace-example}
+\end{table}
+
+The interactive release exposes the corresponding prompt, response artifact,
+per-edit distances, preservation report, and score history at
+\url{https://www.vecbench.xyz/traces/run} using task \texttt{sv\_005} and model
+\texttt{anthropic/claude-sonnet-5}.
 
 \end{document}

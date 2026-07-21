@@ -23,6 +23,7 @@
     "benchmark:merge": ".venv/bin/python scripts/merge-runs.py",
     "benchmark:rescore": ".venv/bin/python scripts/rescore-results.py",
     "publish:model-results": "node scripts/publish-model-results.mjs",
+    "traces:verify": "node scripts/verify-published-traces.mjs",
     "viewer:prepare": "node scripts/prepare-viewer-data.mjs",
     "viewer:lint": "npm --prefix viewer run lint",
     "viewer:dev": "npm run viewer:prepare && npm --prefix viewer run dev",

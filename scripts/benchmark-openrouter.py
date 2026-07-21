@@ -11,6 +11,7 @@ import re
 import sys
 import time
 import urllib.request
+import uuid
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -22,6 +23,14 @@ sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
 from vector_edit_gym.diffing import EVALUATOR_VERSION, diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import Task, load_tasks  # noqa: E402
+from vector_edit_gym.tracing import (  # noqa: E402
+    TRACE_SCHEMA_VERSION,
+    AppendOnlyTraceWriter,
+    append_evaluation,
+    prompt_messages,
+    sanitize_trace,
+    utc_now,
+)
 
 
 BASE_URL = "https://openrouter.ai/api/v1"
@@ -131,6 +140,7 @@ async def async_main(args: argparse.Namespace) -> int:
     run_dir = args.out / run_name
     run_dir.mkdir(parents=True, exist_ok=True)
     results_path = run_dir / "results.jsonl"
+    trace_writer = AppendOnlyTraceWriter(run_dir / "traces.jsonl", secrets=(api_key,))
     completed = read_completed(results_path) if not args.no_resume else {}
     client = AsyncOpenAI(
         api_key=api_key,
@@ -145,7 +155,7 @@ async def async_main(args: argparse.Namespace) -> int:
     semaphore = asyncio.Semaphore(max(1, args.concurrency))
     write_lock = asyncio.Lock()
     jobs = [
-        run_one(client, model, task, pricing[model.id], args, budget, semaphore)
+        run_one(client, model, task, pricing[model.id], args, budget, semaphore, trace_writer)
         for model in models
         for task in tasks
         if (model.id, task.task_id) not in completed
@@ -178,19 +188,79 @@ async def async_main(args: argparse.Namespace) -> int:
     return 0
 
 
-async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: argparse.Namespace, budget: Budget, semaphore: asyncio.Semaphore) -> dict[str, Any]:
+async def run_one(
+    client,
+    model: ModelSpec,
+    task: Task,
+    pricing: Pricing,
+    args: argparse.Namespace,
+    budget: Budget,
+    semaphore: asyncio.Semaphore,
+    trace_writer: AppendOnlyTraceWriter,
+) -> dict[str, Any]:
     max_tokens = adaptive_max_tokens(task, args.max_output_tokens)
     estimate = estimate_request_cost(task, pricing, args.max_output_tokens)
+    trace_id = uuid.uuid4().hex
+    request_payload = {
+        "base_url": args.base_url.rstrip("/"),
+        "model": model.id,
+        "messages": messages(task),
+        "max_output_tokens": max_tokens,
+        "temperature": "provider_default",
+    }
     # Reserve a 20% pricing/routing margin without claiming it as final spend.
     reservation = estimate * 1.2
     if not await budget.reserve(reservation):
-        return error_record(model, task, "budget_exhausted", "Budget cap reached before request")
+        trace = {
+            "schema_version": TRACE_SCHEMA_VERSION,
+            "trace_id": trace_id,
+            "retention": "complete",
+            "limitations": [],
+            "request": request_payload,
+            "attempts": [],
+            "extraction": {"raw_response": None, "produced_svg": None},
+            "evaluations": [],
+        }
+        record = error_record(
+            model,
+            task,
+            "budget_exhausted",
+            "Budget cap reached before request",
+            trace=trace,
+        )
+        append_evaluation(trace, record, EVALUATOR_VERSION, utc_now())
+        await trace_writer.emit(
+            {
+                "event": "request_skipped",
+                "trace_id": trace_id,
+                "requested_model": model.id,
+                "task_id": task.task_id,
+                "request": request_payload,
+                "error": record["error"],
+            }
+        )
+        return record
 
     started = time.perf_counter()
+    started_at = utc_now()
     response_payload: dict[str, Any] | None = None
     error: str | None = None
+    attempts: list[dict[str, Any]] = []
     async with semaphore:
         for attempt in range(args.retries + 1):
+            attempt_number = attempt + 1
+            attempt_started = time.perf_counter()
+            attempt_started_at = utc_now()
+            await trace_writer.emit(
+                {
+                    "event": "request_started",
+                    "trace_id": trace_id,
+                    "requested_model": model.id,
+                    "task_id": task.task_id,
+                    "attempt": attempt_number,
+                    "request": request_payload,
+                }
+            )
             try:
                 response = await client.chat.completions.create(
                     model=model.id,
@@ -202,11 +272,53 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
                     },
                 )
                 response_payload = response.model_dump()
+                attempt_record = {
+                    "attempt": attempt_number,
+                    "started_at": attempt_started_at,
+                    "finished_at": utc_now(),
+                    "elapsed_ms": (time.perf_counter() - attempt_started) * 1000,
+                    "response": response_payload,
+                    "error": None,
+                }
+                attempts.append(attempt_record)
+                await trace_writer.emit(
+                    {
+                        "event": "response_received",
+                        "trace_id": trace_id,
+                        "requested_model": model.id,
+                        "task_id": task.task_id,
+                        **attempt_record,
+                    }
+                )
                 break
             except Exception as exc:  # noqa: BLE001 - provider failures belong in the result set
                 error = f"{type(exc).__name__}: {exc}"
                 status_code = getattr(exc, "status_code", None)
                 retryable = status_code == 429 or (isinstance(status_code, int) and status_code >= 500)
+                attempt_error = {
+                    "type": type(exc).__name__,
+                    "message": str(exc),
+                    "status_code": status_code,
+                    "retryable": retryable,
+                }
+                attempt_record = {
+                    "attempt": attempt_number,
+                    "started_at": attempt_started_at,
+                    "finished_at": utc_now(),
+                    "elapsed_ms": (time.perf_counter() - attempt_started) * 1000,
+                    "response": None,
+                    "error": attempt_error,
+                }
+                attempts.append(attempt_record)
+                await trace_writer.emit(
+                    {
+                        "event": "request_failed",
+                        "trace_id": trace_id,
+                        "requested_model": model.id,
+                        "task_id": task.task_id,
+                        **attempt_record,
+                    }
+                )
                 if attempt >= args.retries or not retryable:
                     break
                 await asyncio.sleep(min(20.0, 1.5 * (2**attempt)))
@@ -218,8 +330,37 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
         usage.get("cost_usd") if response_payload is not None else 0.0,
     )
     if response_payload is None:
-        record = error_record(model, task, "request_error", error or "unknown provider error")
+        trace = {
+            "schema_version": TRACE_SCHEMA_VERSION,
+            "trace_id": trace_id,
+            "retention": "complete",
+            "limitations": [],
+            "started_at": started_at,
+            "finished_at": utc_now(),
+            "request": request_payload,
+            "attempts": attempts,
+            "extraction": {"raw_response": None, "produced_svg": None},
+            "evaluations": [],
+        }
+        record = error_record(
+            model,
+            task,
+            "request_error",
+            str(sanitize_trace(error or "unknown provider error", trace_writer.secrets)),
+            trace=trace,
+        )
         record.update({"elapsed_ms": elapsed_ms, "cost_usd": charged})
+        append_evaluation(trace, record, EVALUATOR_VERSION, utc_now())
+        record["trace"] = sanitize_trace(trace, trace_writer.secrets)
+        await trace_writer.emit(
+            {
+                "event": "evaluation_completed",
+                "trace_id": trace_id,
+                "requested_model": model.id,
+                "task_id": task.task_id,
+                "evaluation": trace["evaluations"][-1],
+            }
+        )
         return record
 
     choice = (response_payload.get("choices") or [{}])[0]
@@ -228,7 +369,24 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
     produced = extract_svg(raw_text)
     report = diff_report(task, produced).to_dict()
     status = outcome_status(report)
-    return {
+    trace = {
+        "schema_version": TRACE_SCHEMA_VERSION,
+        "trace_id": trace_id,
+        "retention": "complete",
+        "limitations": [],
+        "started_at": started_at,
+        "finished_at": utc_now(),
+        "request": request_payload,
+        "attempts": attempts,
+        "extraction": {
+            "raw_response": raw_text,
+            "raw_response_source": "recorded",
+            "produced_svg": produced,
+            "method": extraction_method(raw_text, produced),
+        },
+        "evaluations": [],
+    }
+    record = {
         "requested_model": model.id,
         "resolved_model": response_payload.get("model"),
         "model_name": model.name,
@@ -254,7 +412,7 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
         "unintended_change_rate": report["unintended_change_rate"],
         "diff_report": report,
         "produced_svg": produced,
-        "raw_response": raw_text if produced == raw_text and not produced.startswith("<svg") else None,
+        "raw_response": raw_text,
         "response_id": response_payload.get("id"),
         "finish_reason": choice.get("finish_reason"),
         "elapsed_ms": elapsed_ms,
@@ -264,17 +422,41 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
         "reasoning_tokens": usage.get("reasoning_tokens", 0),
         "cost_usd": charged,
         "error": None,
+        "trace": trace,
     }
+    append_evaluation(trace, record, EVALUATOR_VERSION, utc_now())
+    record["trace"] = sanitize_trace(trace, trace_writer.secrets)
+    await trace_writer.emit(
+        {
+            "event": "extraction_completed",
+            "trace_id": trace_id,
+            "requested_model": model.id,
+            "task_id": task.task_id,
+            "extraction": trace["extraction"],
+        }
+    )
+    await trace_writer.emit(
+        {
+            "event": "evaluation_completed",
+            "trace_id": trace_id,
+            "requested_model": model.id,
+            "task_id": task.task_id,
+            "evaluation": trace["evaluations"][-1],
+        }
+    )
+    return record
 
 
 def messages(task: Task) -> list[dict[str, str]]:
-    return [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {
-            "role": "user",
-            "content": f"Repair request:\n{task.instruction}\n\nCorrupted SVG:\n{task.initial_svg}",
-        },
-    ]
+    return prompt_messages(task, SYSTEM_PROMPT)
+
+
+def extraction_method(raw_text: str, produced: str) -> str:
+    if produced == raw_text.strip():
+        return "complete_response"
+    if re.search(r"```(?:svg|xml)?\s*<svg", raw_text, re.IGNORECASE):
+        return "markdown_fence"
+    return "inline_svg"
 
 
 def adaptive_max_tokens(task: Task, ceiling: int) -> int:
@@ -336,7 +518,13 @@ def extract_svg(text: str) -> str:
     return inline.group(1).strip() if inline else text.strip()
 
 
-def error_record(model: ModelSpec, task: Task, code: str, message: str) -> dict[str, Any]:
+def error_record(
+    model: ModelSpec,
+    task: Task,
+    code: str,
+    message: str,
+    trace: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     return {
         "requested_model": model.id,
         "resolved_model": None,
@@ -373,6 +561,7 @@ def error_record(model: ModelSpec, task: Task, code: str, message: str) -> dict[
         "reasoning_tokens": 0,
         "cost_usd": 0.0,
         "error": {"code": code, "message": message},
+        "trace": trace,
     }
 
 
@@ -432,6 +621,10 @@ def write_meta(run_dir: Path, manifest: dict[str, Any], models: list[ModelSpec],
         "retries": args.retries,
         "sdk_max_retries": SDK_MAX_RETRIES,
         "base_url": args.base_url,
+        "trace_schema": TRACE_SCHEMA_VERSION,
+        "trace_file": "traces.jsonl",
+        "trace_retention": "append_only_complete",
+        "credentials_recorded": False,
     }
     (run_dir / "meta.json").write_text(json.dumps(meta, indent=2) + "\n")
 

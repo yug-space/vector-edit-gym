@@ -119,7 +119,73 @@ export type ModelExpectedChange = {
   detail: string | null;
 };
 
+export type TraceMessage = {
+  role: string;
+  content: string | null;
+  content_ref?: "task.prompt" | string;
+  content_sha256?: string;
+};
+
+export type TraceAttempt = {
+  attempt: number;
+  started_at?: string | null;
+  finished_at?: string | null;
+  elapsed_ms: number;
+  response: Record<string, unknown> | null;
+  error: Record<string, unknown> | null;
+  legacy_reconstruction?: boolean;
+};
+
+export type TraceEvaluation = {
+  evaluator: string;
+  scored_at?: string | null;
+  status?: string | null;
+  reward?: number | null;
+  specification_pass?: boolean | null;
+  near_pass?: boolean | null;
+  repair_pass?: boolean | null;
+  preservation_pass?: boolean | null;
+  source_preservation_pass?: boolean | null;
+  validity_pass?: boolean | null;
+  edit_completion?: number | null;
+  repair_progress?: number | null;
+  preservation?: number | null;
+  source_preservation?: number | null;
+  unintended_change_rate?: number | null;
+  diff_report?: Record<string, unknown> | null;
+  diff_report_ref?: "result.verifier_report" | string;
+};
+
+export type BenchmarkTrace = {
+  schema_version: string;
+  trace_id: string;
+  retention: "complete" | "legacy_final_record" | string;
+  limitations: string[];
+  started_at?: string | null;
+  finished_at?: string | null;
+  request: {
+    base_url?: string | null;
+    model?: string | null;
+    messages: TraceMessage[];
+    max_output_tokens?: number;
+    temperature?: string | number | null;
+  };
+  attempts: TraceAttempt[];
+  extraction: {
+    raw_response?: string | null;
+    raw_response_source?: string;
+    raw_response_ref?: "result.raw_response" | "result.produced_svg" | string;
+    raw_response_sha256?: string;
+    produced_svg?: string | null;
+    produced_svg_ref?: "result.produced_svg" | string;
+    produced_svg_sha256?: string;
+    method?: string;
+  };
+  evaluations: TraceEvaluation[];
+};
+
 export type TaskModelResult = {
+  task_id: string;
   name: string;
   provider: string;
   model: string;
@@ -158,13 +224,15 @@ export type TaskModelResult = {
   produced_parse_ok: boolean;
   produced_valid_svg: boolean;
   error: { code: string; message: string } | null;
+  verifier_report: Record<string, unknown>;
   produced_svg: string | null;
   raw_response: string | null;
+  trace: BenchmarkTrace | null;
 };
 
 export type TaskModelResultSummary = Omit<
   TaskModelResult,
-  "expected_changes" | "produced_svg" | "raw_response"
+  "expected_changes" | "verifier_report" | "produced_svg" | "raw_response" | "trace"
 >;
 
 export type ModelResults = {
@@ -174,6 +242,8 @@ export type ModelResults = {
   evaluator?: string;
   corpus_hash?: string;
   run?: string;
+  trace_schema?: string | null;
+  trace_retention?: string;
   runs: ModelRun[];
   results: Record<string, TaskModelResult[]>;
 };

@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AlertTriangle, Check, CircleX } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, Check, CircleX, ListTree } from "lucide-react";
 import type { TaskModelResult } from "@/lib/data";
 
 export function ModelOutputExplorer({ results }: { results: TaskModelResult[] }) {
@@ -67,7 +68,16 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 </div>
                 <p className="mt-1 break-all font-mono text-[11px] text-[hsl(var(--muted-foreground))]">{selected.model}</p>
               </div>
-              <span className={"rounded border px-2 py-1 font-mono text-xs " + statusBadge(selected.status)}>{formatStatus(selected.status)}</span>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`/traces/run?task=${encodeURIComponent(selected.task_id)}&model=${encodeURIComponent(selected.model)}`}
+                  className="theta-button min-h-8 px-2.5 py-1 font-mono text-[10px] uppercase"
+                >
+                  <ListTree className="h-3.5 w-3.5" />
+                  Trace
+                </Link>
+                <span className={"rounded border px-2 py-1 font-mono text-xs " + statusBadge(selected.status)}>{formatStatus(selected.status)}</span>
+              </div>
             </div>
 
             <div className="mt-5 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] xl:grid-cols-5">

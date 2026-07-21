@@ -54,6 +54,8 @@ These examples are convenience adapters. The published study uses `scripts/bench
 ```text
 runs/openrouter/<run>/meta.json
 runs/openrouter/<run>/results.jsonl
+runs/openrouter/<run>/traces.jsonl
+runs/openrouter/<run>/history/<timestamp>/
 runs/openrouter/<run>/summary.json
 runs/openrouter/<run>/summary.md
 runs/openrouter/<run>/cost.json
@@ -66,7 +68,7 @@ python scripts/rescore-results.py runs/openrouter/openrouter-30-human
 node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
 ```
 
-The rescorer does not call a model or alter its response. It atomically regenerates scores and summaries with the current deterministic specification evaluator.
+The runner appends a credential-safe event before and after every provider attempt, then records extraction and evaluation events. `results.jsonl` also embeds the complete final trace for each model--task pair. The rescorer does not call a model or alter its response: it first archives the prior rows, atomically regenerates scores and summaries, and appends the new evaluator snapshot to the trace history.
 
 To publish compatible cohorts as one leaderboard, merge their complete matrices first:
 
@@ -78,4 +80,4 @@ python scripts/rescore-results.py runs/openrouter/openrouter-combined
 node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
 ```
 
-The merger rejects corpus, protocol, prompt, task-order, duplicate-model, and incomplete-matrix mismatches.
+The merger rejects corpus, protocol, prompt, task-order, duplicate-model, and incomplete-matrix mismatches. Existing `traces.jsonl` streams are validated and concatenated without rewriting their events.

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -21,6 +22,10 @@ const records = readFileSync(resultsPath, "utf8")
   .map((line) => JSON.parse(line));
 const summaries = JSON.parse(readFileSync(summaryPath, "utf8"));
 const meta = JSON.parse(readFileSync(metaPath, "utf8"));
+const tasks = new Map(meta.task_ids.map((taskId) => [
+  taskId,
+  JSON.parse(readFileSync(join(ROOT, "data", "tasks", `${taskId}.json`), "utf8")),
+]));
 if (!/^[a-f0-9]{64}$/.test(meta.corpus_hash ?? "")) {
   throw new Error("run metadata is missing a valid corpus hash; rescore the run before publishing");
 }
@@ -101,9 +106,11 @@ const leaderboardEntries = summaries.map((summary, index) => ({
 const perTask = {};
 for (const record of records) {
   const report = record.diff_report ?? {};
+  const task = tasks.get(record.task_id);
   const expectedChanges = report.expected_changes ?? [];
   const preserveChecks = report.preserve_checks ?? [];
   const item = {
+    task_id: record.task_id,
     name: record.model_name,
     provider: record.family,
     model: record.requested_model,
@@ -155,8 +162,11 @@ for (const record of records) {
     produced_parse_ok: Boolean(report.produced_parse_ok),
     produced_valid_svg: Boolean(report.produced_valid_svg),
     error: record.error ?? null,
-    produced_svg: report.produced_parse_ok ? (record.produced_svg ?? null) : null,
-    raw_response: report.produced_parse_ok ? null : (record.raw_response ?? record.produced_svg ?? null),
+    verifier_report: sanitizeForPublication(report),
+    // Malformed and empty outputs are still part of the benchmark trace.
+    produced_svg: sanitizeForPublication(record.produced_svg ?? null),
+    raw_response: compactRawResponse(record),
+    trace: compactTraceForPublication(record, task, report),
   };
   perTask[record.task_id] = [...(perTask[record.task_id] ?? []), item];
 }
@@ -182,17 +192,19 @@ const modelResults = {
   evaluator: meta.evaluator,
   corpus_hash: meta.corpus_hash,
   run: basename(runDir),
+  trace_schema: meta.trace_schema ?? null,
+  trace_retention: meta.trace_retention ?? "legacy_final_record",
   runs: leaderboardEntries.map(({ name, provider, model, group }) => ({ name, provider, model, group })),
   results: perTask,
 };
 
 const summaryResults = {
   ...modelResults,
-  note: "Compact per-task diagnostics for the task catalog. Full outputs are stored in model-results.json and model-results/<task-id>.json.",
+  note: "Compact per-task diagnostics for the task catalog. Full outputs and sanitized traces are stored in model-results.json and model-results/<task-id>.json.",
   results: Object.fromEntries(
     Object.entries(perTask).map(([taskId, results]) => [
       taskId,
-      results.map(({ expected_changes, produced_svg, raw_response, ...summary }) => summary),
+      results.map(({ expected_changes, verifier_report, produced_svg, raw_response, trace, ...summary }) => summary),
     ]),
   ),
 };
@@ -216,3 +228,97 @@ for (const [taskId, results] of Object.entries(perTask)) {
   writeFileSync(path, `${JSON.stringify(results, null, 2)}\n`);
 }
 console.log(`wrote ${Object.keys(perTask).length} task result files to ${perTaskDirectory}`);
+
+function sanitizeForPublication(value) {
+  if (Array.isArray(value)) return value.map(sanitizeForPublication);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, child]) => [
+      key,
+      /^(authorization|proxy-authorization|cookie|set-cookie|x-api-key|api[-_]?key)$/i.test(key)
+        ? "[REDACTED]"
+        : sanitizeForPublication(child),
+    ]));
+  }
+  if (typeof value !== "string") return value;
+  return value
+    .replace(/\bBearer\s+[A-Za-z0-9._~+/=-]{12,}/gi, "Bearer [REDACTED]")
+    .replace(/\bsk-(?:proj-|or-v1-)?[A-Za-z0-9_-]{16,}\b/g, "[REDACTED]");
+}
+
+function compactRawResponse(record) {
+  const raw = sanitizeForPublication(record.raw_response ?? null);
+  const produced = sanitizeForPublication(record.produced_svg ?? null);
+  return raw === produced ? null : raw;
+}
+
+function compactTraceForPublication(record, task, report) {
+  const trace = sanitizeForPublication(record.trace ?? null);
+  if (!trace) return null;
+  const rawResponse = sanitizeForPublication(record.raw_response ?? null);
+  const producedSvg = sanitizeForPublication(record.produced_svg ?? null);
+
+  if (Array.isArray(trace.request?.messages)) {
+    trace.request.messages = trace.request.messages.map((message) => {
+      if (message.role !== "user" || typeof message.content !== "string" || !task) return message;
+      const expected = `Repair request:\n${task.instruction}\n\nCorrupted SVG:\n${task.initial_svg}`;
+      if (message.content !== expected) return message;
+      return {
+        ...message,
+        content: null,
+        content_ref: "task.prompt",
+        content_sha256: sha256(message.content),
+      };
+    });
+  }
+
+  for (const attempt of trace.attempts ?? []) {
+    for (const choice of attempt.response?.choices ?? []) {
+      const message = choice?.message;
+      if (!message || typeof message.content !== "string") continue;
+      if (message.content === rawResponse || message.content === producedSvg) {
+        const reference = typeof rawResponse === "string" && rawResponse !== producedSvg
+          ? "result.raw_response"
+          : "result.produced_svg";
+        message.content_sha256 = sha256(message.content);
+        message.content_ref = reference;
+        message.content = null;
+      }
+    }
+  }
+
+  if (trace.extraction) {
+    if (
+      typeof trace.extraction.raw_response === "string"
+      && (
+        trace.extraction.raw_response === rawResponse
+        || trace.extraction.raw_response === producedSvg
+      )
+    ) {
+      trace.extraction.raw_response_sha256 = sha256(trace.extraction.raw_response);
+      trace.extraction.raw_response_ref = typeof rawResponse === "string" && rawResponse !== producedSvg
+        ? "result.raw_response"
+        : "result.produced_svg";
+      trace.extraction.raw_response = null;
+    }
+    if (
+      typeof trace.extraction.produced_svg === "string"
+      && trace.extraction.produced_svg === producedSvg
+    ) {
+      trace.extraction.produced_svg_sha256 = sha256(trace.extraction.produced_svg);
+      trace.extraction.produced_svg_ref = "result.produced_svg";
+      trace.extraction.produced_svg = null;
+    }
+  }
+
+  for (const evaluation of trace.evaluations ?? []) {
+    if (JSON.stringify(evaluation.diff_report) === JSON.stringify(report)) {
+      evaluation.diff_report = null;
+      evaluation.diff_report_ref = "result.verifier_report";
+    }
+  }
+  return trace;
+}
+
+function sha256(value) {
+  return createHash("sha256").update(value).digest("hex");
+}
