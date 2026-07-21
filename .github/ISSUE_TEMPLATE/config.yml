@@ -1,5 +1,8 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
+  - name: Benchmark results
+    url: https://github.com/yug-space/vector-edit-gym#submission
+    about: Submit a complete benchmark run for verification and publication.
   - name: Security report
     url: https://github.com/yug-space/vector-edit-gym/security/policy
     about: Report vulnerabilities and exposed credentials privately.

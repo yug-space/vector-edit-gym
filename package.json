@@ -10,6 +10,9 @@
     "url": "https://github.com/yug-space/vector-edit-gym.git"
   },
   "homepage": "https://www.vecbench.xyz",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "dependencies": {
     "next": "16.2.6"
   },
@@ -18,10 +21,10 @@
   },
   "scripts": {
     "corpus:verify": "node scripts/humanize-instructions.mjs",
-    "test:sdk": ".venv/bin/python -m pytest sdk/python/tests -q",
-    "benchmark:dry-run": ".venv/bin/python scripts/benchmark-openrouter.py --dry-run",
-    "benchmark:merge": ".venv/bin/python scripts/merge-runs.py",
-    "benchmark:rescore": ".venv/bin/python scripts/rescore-results.py",
+    "test:sdk": "python -m pytest sdk/python/tests -q",
+    "benchmark:dry-run": "python scripts/benchmark-openrouter.py --dry-run",
+    "benchmark:merge": "python scripts/merge-runs.py",
+    "benchmark:rescore": "python scripts/rescore-results.py",
     "publish:model-results": "node scripts/publish-model-results.mjs",
     "traces:verify": "node scripts/verify-published-traces.mjs",
     "viewer:prepare": "node scripts/prepare-viewer-data.mjs",

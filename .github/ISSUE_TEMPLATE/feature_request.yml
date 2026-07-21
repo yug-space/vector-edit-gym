@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose an evaluator, tooling, dataset, paper, or viewer improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete limitation or workflow problem should be addressed?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the behavior, interface, or evaluation change you recommend.
+    validations:
+      required: true
+  - type: textarea
+    id: benchmark_impact
+    attributes:
+      label: Benchmark impact
+      description: Note any effect on scoring, prompts, tasks, corpus hash, or published results.
+    validations:
+      required: true
+  - type: checkboxes
+    id: provenance
+    attributes:
+      label: Data and assets
+      options:
+        - label: Any proposed data or visual assets have documented sources and licenses.

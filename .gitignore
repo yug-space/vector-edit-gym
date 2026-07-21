@@ -1,6 +1,7 @@
 node_modules/
 .next/
 .DS_Store
+Thumbs.db
 *.log
 *.tsbuildinfo
 .vercel/
@@ -16,10 +17,26 @@ viewer/public/vectoreditgym-paper.pdf
 __pycache__/
 *.py[cod]
 *.egg-info/
+.coverage
+.coverage.*
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.nox/
+coverage/
+htmlcov/
 dist/
 build/
 runs/
 tmp/
+
+# Editors and local scratch files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 
 # Secrets - never commit
 .env

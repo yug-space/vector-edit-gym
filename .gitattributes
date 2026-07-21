@@ -1,0 +1,19 @@
+* text=auto eol=lf
+
+*.pdf binary
+*.png binary
+*.zip binary
+
+# Keep generated benchmark evidence reviewable without distorting language stats.
+data/leaderboard.json linguist-generated=true
+data/model-results.json linguist-generated=true
+data/model-results-summary.json linguist-generated=true
+data/model-results/*.json linguist-generated=true
+harbor/vector-edit-gym/tasks/** linguist-generated=true
+paper/generated/** linguist-generated=true
+
+# These files are mirrored from upstream projects and retain their own licenses.
+data/icons/** linguist-vendored=true
+paper/acl.sty linguist-vendored=true
+paper/acl_natbib.bst linguist-vendored=true
+third_party/** linguist-vendored=true

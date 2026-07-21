@@ -1,17 +1,43 @@
 # VectorEditGym
 
-VectorEditGym evaluates whether a model can repair visible defects in an SVG without changing the rest of the vector program.
+[![CI](https://github.com/yug-space/vector-edit-gym/actions/workflows/ci.yml/badge.svg)](https://github.com/yug-space/vector-edit-gym/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/code%20license-MIT-2f6f4e.svg)](LICENSE)
+[![Corpus: 40 tasks](https://img.shields.io/badge/corpus-40%20tasks-c05a32.svg)](DATASET_CARD.md)
+[![Published traces: 1,360](https://img.shields.io/badge/traces-1%2C360-315f85.svg)](https://www.vecbench.xyz/traces)
 
-- Website: https://www.vecbench.xyz
-- Paper: https://www.vecbench.xyz/vectoreditgym-paper.pdf
-- Vercel mirror: https://svg-rl-env.vercel.app
-- Results submission: `yug@thetalab.tech` or `prannay@warping.co`
+VectorEditGym is a frozen, preservation-aware benchmark for repairing visible defects
+in SVGs. It tests whether a model can make every requested change while leaving the
+rest of the vector program intact, then assigns a deterministic binary reward.
 
-The frozen release contains 40 dense repair tasks and 202 annotated edits. Author-written instructions sound like ordinary visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
+[Results](https://www.vecbench.xyz) ·
+[Tasks](https://www.vecbench.xyz/tasks) ·
+[Traces](https://www.vecbench.xyz/traces) ·
+[Paper](https://www.vecbench.xyz/vectoreditgym-paper.pdf) ·
+[Dataset card](DATASET_CARD.md) ·
+[Changelog](CHANGELOG.md)
 
-The published results use evaluator `semantic-perceptual-binary-2026-07-21`.
+The `0.2.0` release contains 40 dense repair tasks, 202 annotated edits, 34 model
+endpoints, and 1,360 published model-task traces. Author-written instructions sound
+like ordinary visual requests: they do not expose SVG IDs, coordinates, color codes,
+path data, or evaluator metadata. Published results use evaluator
+`semantic-perceptual-binary-2026-07-21`.
+
+> [!IMPORTANT]
+> Project-authored code and metadata are MIT licensed. Twenty scenic illustrations
+> have unresolved per-file provenance and are not covered by that grant. Read the
+> [licensing notice](NOTICE.md) and [dataset card](DATASET_CARD.md) before redistributing
+> the complete corpus.
 
 **Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
+
+## What Is Included
+
+- a deterministic Python evaluator and `vec-edit-gym` CLI
+- the frozen task corpus, hidden evaluator annotations, and corpus hash
+- a resumable multi-provider benchmark runner with budget and retry controls
+- complete published outputs, verifier evidence, and retained trace records
+- an interactive Next.js results and trace browser
+- a generated Harbor benchmark package and an ACL-style research paper
 
 ## Evaluation Contract
 
@@ -56,7 +82,9 @@ Aggregate UCR on the leaderboard is computed over valid SVG outputs and is `n/a`
 
 ## Setup
 
-Use a virtual environment. This avoids the macOS/Homebrew `externally-managed-environment` error from PEP 668.
+Prerequisites are Python 3.9 or newer, Node.js 20.9 or newer, and npm. Use a
+Python virtual environment; this also avoids the macOS/Homebrew
+`externally-managed-environment` error from PEP 668.
 
 ```sh
 python3 -m venv .venv
@@ -70,6 +98,7 @@ Verify the frozen corpus and evaluator:
 ```sh
 npm run corpus:verify
 npm run test:sdk
+npm run traces:verify
 vec-edit-gym list
 vec-edit-gym score sv_001 path/to/output.svg --json
 ```

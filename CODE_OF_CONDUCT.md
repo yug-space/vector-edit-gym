@@ -8,6 +8,9 @@ Unacceptable conduct includes intimidation, sustained disruption, sexualized lan
 
 ## Enforcement
 
-Report conduct concerns privately to `yug@thetalab.tech`. Maintainers may edit or remove contributions, restrict participation, or ban contributors when needed to protect the project community. Reports will be handled as confidentially as practical.
+Report conduct concerns privately to `yug@thetalab.tech` or `prannay@warping.co`.
+Maintainers may edit or remove contributions, restrict participation, or ban contributors
+when needed to protect the project community. Reports will be handled as confidentially
+as practical.
 
 This policy applies in repository spaces and when representing the project in public forums.
