@@ -299,34 +299,6 @@
   margin-top: 2.25rem;
 }
 
-.hero-facts {
-  display: grid;
-  width: min(100%, 44rem);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 3.25rem;
-  background: transparent;
-  text-align: center;
-}
-
-.hero-facts > div {
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.8rem 0.75rem;
-}
-
-.hero-facts strong {
-  color: #090909;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-}
-
-.hero-facts span {
-  color: rgb(9 9 9 / 0.62);
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  text-transform: uppercase;
-}
-
 .section-intro {
   display: flex;
   max-width: 50rem;
@@ -658,7 +630,6 @@
   .hero-actions { margin-top: 1.5rem; }
   .hero-actions { width: 100%; }
   .hero-actions .theta-button { width: 100%; flex: 1 1 100%; }
-  .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.75rem; }
   .subheading { font-size: 1.75rem; }
   .section-heading { font-size: 2.4rem; }
   .team-grid { grid-template-columns: 1fr; }

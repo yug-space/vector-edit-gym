@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { LeaderboardChart } from "@/components/leaderboard-chart";
 import { GithubMark } from "@/components/github-mark";
-import { getLeaderboard, listTasks } from "@/lib/data";
+import { getLeaderboard } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
@@ -44,15 +44,11 @@ const AUTHORS = [
 ];
 
 export default async function HomePage() {
-  const [board, tasks] = await Promise.all([getLeaderboard(), listTasks()]);
+  const board = await getLeaderboard();
 
   return (
     <>
-      <Hero
-        totalTasks={tasks.length}
-        totalEndpoints={board.entries.length}
-        totalTraces={board.entries.reduce((sum, entry) => sum + entry.tasks_run, 0)}
-      />
+      <Hero />
 
       <Section
         id="leaderboard"
@@ -200,7 +196,7 @@ export default async function HomePage() {
   );
 }
 
-function Hero({ totalTasks, totalEndpoints, totalTraces }: { totalTasks: number; totalEndpoints: number; totalTraces: number }) {
+function Hero() {
   return (
     <section className="hero-band screen-line-after">
       <div className="page-shell hero-shell">
@@ -226,19 +222,9 @@ function Hero({ totalTasks, totalEndpoints, totalTraces }: { totalTasks: number;
             <Link href="/traces" className="theta-button">Browse traces</Link>
         </div>
 
-        <div className="hero-facts" aria-label="Benchmark summary">
-          <HeroFact value={String(totalTasks)} label="tasks" />
-          <HeroFact value="202" label="repairs" />
-          <HeroFact value={String(totalEndpoints)} label="endpoints" />
-          <HeroFact value={totalTraces.toLocaleString()} label="traces" />
-        </div>
       </div>
     </section>
   );
-}
-
-function HeroFact({ value, label }: { value: string; label: string }) {
-  return <div><strong>{value}</strong><span>{label}</span></div>;
 }
 
 function Section({
