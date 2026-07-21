@@ -1,8 +1,95 @@
 {
+  "task_id": "sv_002",
+  "difficulty": "hard",
+  "category": "scenic_multi",
+  "instruction": "At the harbor, the green stripe on one buoy was painted red, the sailboat mast looks much too heavy, and the rope coil has lost its neat loop. Correct those small mistakes without changing the surrounding scene.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-02-sun-disc",
+    "skin-02-sail-flags",
+    "identity-02-harbor-sun-ring",
+    "identity-02-pennant-line",
+    "identity-02-pennant-a",
+    "identity-02-pennant-b",
+    "identity-02-pennant-c",
+    "variant-02-dot",
+    "variant-02-rule",
+    "variant-02-chip-01",
+    "variant-02-chip-02",
+    "variant-02-chip-03",
+    "variant-02-chip-04",
+    "variant-02-chip-05",
+    "variant-02-chip-06",
+    "variant-02-chip-07",
+    "variant-02-chip-08",
+    "variant-02-chip-09",
+    "variant-02-chip-10",
+    "variant-02-chip-11",
+    "variant-02-chip-12",
+    "variant-02-pin-01",
+    "variant-02-pin-02",
+    "variant-02-pin-03",
+    "variant-02-pin-04",
+    "variant-02-pin-05",
+    "variant-02-pin-06",
+    "variant-02-pin-07",
+    "variant-02-pin-08"
+  ],
   "target_parts": [
     "rope-coil",
     "mast",
     "buoy-green-stripe"
+  ],
+  "expected_diff": [
+    {
+      "part": "rope-coil",
+      "attribute": "d",
+      "before": "M48 82 C54 70 74 72 76 86 C78 100 52 100 48 90 C44 78 58 76 66 88",
+      "after": "M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86"
+    },
+    {
+      "part": "mast",
+      "attribute": "stroke-width",
+      "before": 6,
+      "after": 3
+    },
+    {
+      "part": "buoy-green-stripe",
+      "attribute": "fill",
+      "before": "#ef4444",
+      "after": "#22c55e"
+    }
   ],
   "should_preserve": [
     "sky",
@@ -63,5 +150,6 @@
     "variant-02-pin-06",
     "variant-02-pin-07",
     "variant-02-pin-08"
-  ]
+  ],
+  "display_order": 3
 }

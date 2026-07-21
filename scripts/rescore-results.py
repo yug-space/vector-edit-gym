@@ -16,7 +16,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
-from vector_edit_gym.diffing import diff_report  # noqa: E402
+from vector_edit_gym.diffing import diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import load_tasks  # noqa: E402
 
 
@@ -39,12 +39,27 @@ def main() -> int:
     changed = 0
     for record in records:
         if record.get("error") is not None:
+            updates = {
+                "status": "ERR",
+                "reward": 0,
+                "specification_pass": False,
+                "repair_pass": False,
+                "preservation_pass": False,
+                "validity_pass": False,
+            }
+            if any(record.get(key) != value for key, value in updates.items()):
+                changed += 1
+            record.update(updates)
             continue
         task = tasks[record["task_id"]]
         report = diff_report(task, str(record.get("produced_svg") or "")).to_dict()
         updates = {
-            "status": "PASS" if report["reward"] else ("PARTIAL" if report["edit_completion"] > 0 else "FAIL"),
+            "status": outcome_status(report),
             "reward": report["reward"],
+            "specification_pass": report["specification_pass"],
+            "repair_pass": report["repair_pass"],
+            "preservation_pass": report["preservation_pass"],
+            "validity_pass": report["validity_pass"],
             "exact": report["exact"],
             "structural": report["structural"],
             "edit_completion": report["edit_completion"],
@@ -59,7 +74,7 @@ def main() -> int:
     summaries = summarize(records, meta["models"])
     task_index = json.loads((args.tasks / "_index.json").read_text())
     meta["rescored_at"] = datetime.now(timezone.utc).isoformat()
-    meta["evaluator"] = "canonical-svg-binary-2026-07"
+    meta["evaluator"] = "tolerant-specification-binary-2026-07"
     meta["corpus_hash"] = task_index["frozen_content_sha256"]
     meta.setdefault("sdk_max_retries", 2)
     atomic_write(results_path, "".join(json.dumps(record, ensure_ascii=True) + "\n" for record in records))
@@ -110,11 +125,14 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
             {
                 **model,
                 "n": n,
+                "spec_pass_rate": mean(items, "reward"),
                 "binary_reward": mean(items, "reward"),
+                "repair_pass_rate": mean(items, "repair_pass"),
+                "preservation_pass_rate": mean(items, "preservation_pass"),
                 "exact_rate": mean(items, "exact"),
                 "structural_rate": mean(items, "structural"),
                 "validity_rate": sum(
-                    bool((record.get("diff_report") or {}).get("produced_parse_ok"))
+                    bool((record.get("diff_report") or {}).get("validity_pass"))
                     for record in items
                 ) / n,
                 "edit_completion": mean(items, "edit_completion"),
@@ -131,7 +149,8 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
     return sorted(
         summaries,
         key=lambda row: (
-            -row["binary_reward"],
+            -row["spec_pass_rate"],
+            -row["repair_pass_rate"],
             -row["edit_completion"],
             row["unintended_change_rate"],
             row["name"],
@@ -145,13 +164,14 @@ def mean(items: list[dict[str, Any]], key: str) -> float:
 
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
-        "| model | group | n | reward | edit completion | UCR | valid | truncated | errors | cost |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| model | group | n | spec pass | repair pass | edit completion | clean | UCR | valid | truncated | errors | cost |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
-            f"| {row['name']} | {row['group']} | {row['n']} | {row['binary_reward']:.1%} | "
-            f"{row['edit_completion']:.1%} | {row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
+            f"| {row['name']} | {row['group']} | {row['n']} | {row['spec_pass_rate']:.1%} | "
+            f"{row['repair_pass_rate']:.1%} | {row['edit_completion']:.1%} | {row['preservation_pass_rate']:.1%} | "
+            f"{row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
             f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )
     return "\n".join(lines) + "\n"

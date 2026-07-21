@@ -1,9 +1,15 @@
 {
   "name": "vector-edit-gym",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "VectorEditGym: a preservation-aware benchmark for human-described SVG repair.",
+  "description": "VectorEditGym: a preservation-aware benchmark for naturalistic SVG repair.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yug-space/vector-edit-gym.git"
+  },
+  "homepage": "https://svg-rl-env.vercel.app",
   "dependencies": {
     "next": "16.2.6"
   },

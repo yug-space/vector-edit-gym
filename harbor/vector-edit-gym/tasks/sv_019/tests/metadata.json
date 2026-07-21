@@ -1,4 +1,72 @@
 {
+  "task_id": "sv_019",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "Repair the harbor by turning the main sail around, making the red buoy stripe red again, and placing the cabin window back inside the cabin. Remove the stray pier rope, slim down the mast, neaten the rope coil, and return the green buoy to its proper spot.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-19-thunder-cloud-a",
+    "skin-19-thunder-cloud-b",
+    "skin-19-thunder-bolt",
+    "identity-19-storm-cloud-a",
+    "identity-19-storm-cloud-b",
+    "identity-19-lightning",
+    "identity-19-storm-rain",
+    "variant-19-dot",
+    "variant-19-rule",
+    "variant-19-chip-01",
+    "variant-19-chip-02",
+    "variant-19-chip-03",
+    "variant-19-chip-04",
+    "variant-19-chip-05",
+    "variant-19-chip-06",
+    "variant-19-chip-07",
+    "variant-19-chip-08",
+    "variant-19-chip-09",
+    "variant-19-chip-10",
+    "variant-19-chip-11",
+    "variant-19-chip-12",
+    "variant-19-pin-01",
+    "variant-19-pin-02",
+    "variant-19-pin-03",
+    "variant-19-pin-04",
+    "variant-19-pin-05",
+    "variant-19-pin-06",
+    "variant-19-pin-07",
+    "variant-19-pin-08",
+    "stray-pier-rope"
+  ],
   "target_parts": [
     "buoy-green",
     "rope-coil",
@@ -7,6 +75,109 @@
     "cabin-window",
     "buoy-red-stripe",
     "sail-main"
+  ],
+  "expected_diff": [
+    {
+      "part": "buoy-green",
+      "attribute": "cx",
+      "before": 172,
+      "after": 184
+    },
+    {
+      "part": "buoy-green",
+      "attribute": "cy",
+      "before": 116,
+      "after": 112
+    },
+    {
+      "part": "rope-coil",
+      "attribute": "d",
+      "before": "M48 82 C58 70 72 76 70 88 C68 100 50 94 52 84 C54 76 64 78 66 88",
+      "after": "M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86"
+    },
+    {
+      "part": "mast",
+      "attribute": "stroke-width",
+      "before": 6,
+      "after": 3
+    },
+    {
+      "part": "stray-pier-rope",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "stray-pier-rope",
+        "type": "polyline",
+        "points": [
+          [
+            8,
+            84
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            32,
+            84
+          ]
+        ],
+        "stroke": "#f8fafc",
+        "strokeWidth": 2,
+        "fill": "none"
+      }
+    },
+    {
+      "part": "cabin-window",
+      "attribute": "x",
+      "before": 106,
+      "after": 114
+    },
+    {
+      "part": "cabin-window",
+      "attribute": "y",
+      "before": 70,
+      "after": 67
+    },
+    {
+      "part": "buoy-red-stripe",
+      "attribute": "fill",
+      "before": "#22c55e",
+      "after": "#ef4444"
+    },
+    {
+      "part": "sail-main",
+      "attribute": "points",
+      "before": [
+        [
+          144.66666666666669,
+          30
+        ],
+        [
+          116.66666666666669,
+          76
+        ],
+        [
+          144.66666666666669,
+          76
+        ]
+      ],
+      "after": [
+        [
+          126,
+          30
+        ],
+        [
+          154,
+          76
+        ],
+        [
+          126,
+          76
+        ]
+      ]
+    }
   ],
   "should_preserve": [
     "sky",
@@ -64,5 +235,6 @@
     "variant-19-pin-06",
     "variant-19-pin-07",
     "variant-19-pin-08"
-  ]
+  ],
+  "display_order": 37
 }

@@ -1,10 +1,141 @@
 {
+  "task_id": "sv_011",
+  "difficulty": "very_hard",
+  "category": "scenic_very_hard",
+  "instruction": "The harbor mast and the outline of the long wave are too heavy and misshapen, the lighthouse window is blue instead of glowing yellow, and its beam has shifted. The crate on the right also needs to sit back with the other cargo. Repair only these visible mistakes.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-11-beacon-beam",
+    "skin-11-bird-wide-a",
+    "skin-11-bird-wide-b",
+    "identity-11-beam-wide",
+    "identity-11-gull-a",
+    "identity-11-gull-b",
+    "identity-11-gull-c",
+    "variant-11-dot",
+    "variant-11-rule",
+    "variant-11-chip-01",
+    "variant-11-chip-02",
+    "variant-11-chip-03",
+    "variant-11-chip-04",
+    "variant-11-chip-05",
+    "variant-11-chip-06",
+    "variant-11-chip-07",
+    "variant-11-chip-08",
+    "variant-11-chip-09",
+    "variant-11-chip-10",
+    "variant-11-chip-11",
+    "variant-11-chip-12",
+    "variant-11-pin-01",
+    "variant-11-pin-02",
+    "variant-11-pin-03",
+    "variant-11-pin-04",
+    "variant-11-pin-05",
+    "variant-11-pin-06",
+    "variant-11-pin-07",
+    "variant-11-pin-08"
+  ],
   "target_parts": [
     "crate-right",
     "harbor-wave-long",
     "light-beam",
     "lighthouse-window",
     "mast"
+  ],
+  "expected_diff": [
+    {
+      "part": "crate-right",
+      "attribute": "x",
+      "before": 38,
+      "after": 28
+    },
+    {
+      "part": "crate-right",
+      "attribute": "y",
+      "before": 80,
+      "after": 76
+    },
+    {
+      "part": "harbor-wave-long",
+      "attribute": "d",
+      "before": "M82 122 C98 126 112 110 128 122 S158 126 174 122",
+      "after": "M82 118 C98 112 112 124 128 118 S158 112 174 118"
+    },
+    {
+      "part": "light-beam",
+      "attribute": "points",
+      "before": [
+        [
+          188,
+          26
+        ],
+        [
+          140,
+          14
+        ],
+        [
+          140,
+          38
+        ]
+      ],
+      "after": [
+        [
+          180,
+          30
+        ],
+        [
+          132,
+          18
+        ],
+        [
+          132,
+          42
+        ]
+      ]
+    },
+    {
+      "part": "lighthouse-window",
+      "attribute": "fill",
+      "before": "#38bdf8",
+      "after": "#fde047"
+    },
+    {
+      "part": "mast",
+      "attribute": "stroke-width",
+      "before": 6,
+      "after": 3
+    }
   ],
   "should_preserve": [
     "sky",
@@ -63,5 +194,6 @@
     "variant-11-pin-06",
     "variant-11-pin-07",
     "variant-11-pin-08"
-  ]
+  ],
+  "display_order": 21
 }

@@ -1,10 +1,238 @@
 {
+  "task_id": "sv_014",
+  "difficulty": "very_hard",
+  "category": "scenic_very_hard",
+  "instruction": "Turn the right treetop back around, return the moon to the upper-right sky, and replace the missing star nearby. The campfire smoke should curl naturally, and the right tent seam should be thin again. Keep all other campsite details as they are.",
+  "parts": [
+    "night-sky",
+    "ground",
+    "far-hill",
+    "mid-hill",
+    "moon",
+    "star-1",
+    "star-2",
+    "star-3",
+    "tent-body",
+    "tent-side",
+    "tent-flap",
+    "tent-line-left",
+    "tent-line-right",
+    "tree-left-trunk",
+    "tree-left-crown",
+    "tree-right-trunk",
+    "tree-right-crown",
+    "log-left",
+    "log-right",
+    "flame-back",
+    "flame-front",
+    "smoke-1",
+    "smoke-2",
+    "smoke-curl",
+    "backpack",
+    "path",
+    "trail-curve",
+    "skin-14-mountain-wide-left",
+    "skin-14-mountain-wide-snow",
+    "skin-14-mountain-wide-right",
+    "identity-14-ridge-left",
+    "identity-14-ridge-snow",
+    "identity-14-ridge-right",
+    "variant-14-dot",
+    "variant-14-rule",
+    "variant-14-chip-01",
+    "variant-14-chip-02",
+    "variant-14-chip-03",
+    "variant-14-chip-04",
+    "variant-14-chip-05",
+    "variant-14-chip-06",
+    "variant-14-chip-07",
+    "variant-14-chip-08",
+    "variant-14-chip-09",
+    "variant-14-chip-10",
+    "variant-14-chip-11",
+    "variant-14-chip-12",
+    "variant-14-pin-01",
+    "variant-14-pin-02",
+    "variant-14-pin-03",
+    "variant-14-pin-04",
+    "variant-14-pin-05",
+    "variant-14-pin-06",
+    "variant-14-pin-07",
+    "variant-14-pin-08",
+    "star-4"
+  ],
   "target_parts": [
     "tent-line-right",
     "smoke-curl",
     "star-4",
     "moon",
     "tree-right-crown"
+  ],
+  "expected_diff": [
+    {
+      "part": "tent-line-right",
+      "attribute": "stroke-width",
+      "before": 3,
+      "after": 1
+    },
+    {
+      "part": "smoke-curl",
+      "attribute": "d",
+      "before": "M168 80 C152 88 186 62 158 58 C146 52 180 44 160 38",
+      "after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38"
+    },
+    {
+      "part": "star-4",
+      "attribute": "exists",
+      "before": false,
+      "after": true,
+      "added": {
+        "id": "star-4",
+        "type": "circle",
+        "cx": 204,
+        "cy": 45,
+        "r": 1.8,
+        "fill": "#fde68a"
+      },
+      "insert_index": 55,
+      "insert_after": "variant-14-pin-08",
+      "insert_before": null,
+      "final_part_order": [
+        "night-sky",
+        "ground",
+        "far-hill",
+        "mid-hill",
+        "moon",
+        "star-1",
+        "star-2",
+        "star-3",
+        "tent-body",
+        "tent-side",
+        "tent-flap",
+        "tent-line-left",
+        "tent-line-right",
+        "tree-left-trunk",
+        "tree-left-crown",
+        "tree-right-trunk",
+        "tree-right-crown",
+        "log-left",
+        "log-right",
+        "flame-back",
+        "flame-front",
+        "smoke-1",
+        "smoke-2",
+        "smoke-curl",
+        "backpack",
+        "path",
+        "trail-curve",
+        "skin-14-mountain-wide-left",
+        "skin-14-mountain-wide-snow",
+        "skin-14-mountain-wide-right",
+        "identity-14-ridge-left",
+        "identity-14-ridge-snow",
+        "identity-14-ridge-right",
+        "variant-14-dot",
+        "variant-14-rule",
+        "variant-14-chip-01",
+        "variant-14-chip-02",
+        "variant-14-chip-03",
+        "variant-14-chip-04",
+        "variant-14-chip-05",
+        "variant-14-chip-06",
+        "variant-14-chip-07",
+        "variant-14-chip-08",
+        "variant-14-chip-09",
+        "variant-14-chip-10",
+        "variant-14-chip-11",
+        "variant-14-chip-12",
+        "variant-14-pin-01",
+        "variant-14-pin-02",
+        "variant-14-pin-03",
+        "variant-14-pin-04",
+        "variant-14-pin-05",
+        "variant-14-pin-06",
+        "variant-14-pin-07",
+        "variant-14-pin-08",
+        "star-4"
+      ],
+      "svg_element": "<circle id=\"star-4\" fill=\"#fde68a\" cx=\"204\" cy=\"45\" r=\"1.8\" />"
+    },
+    {
+      "part": "moon",
+      "attribute": "cx",
+      "before": 194,
+      "after": 184
+    },
+    {
+      "part": "moon",
+      "attribute": "cy",
+      "before": 17,
+      "after": 24
+    },
+    {
+      "part": "tree-right-crown",
+      "attribute": "points",
+      "before": [
+        [
+          184.28571428571428,
+          40
+        ],
+        [
+          202.28571428571428,
+          82
+        ],
+        [
+          190.28571428571428,
+          76
+        ],
+        [
+          196.28571428571428,
+          94
+        ],
+        [
+          168.28571428571428,
+          92
+        ],
+        [
+          176.28571428571428,
+          76
+        ],
+        [
+          164.28571428571428,
+          82
+        ]
+      ],
+      "after": [
+        [
+          181.99999999999994,
+          40
+        ],
+        [
+          163.99999999999994,
+          82
+        ],
+        [
+          175.99999999999994,
+          76
+        ],
+        [
+          169.99999999999994,
+          94
+        ],
+        [
+          197.99999999999994,
+          92
+        ],
+        [
+          189.99999999999994,
+          76
+        ],
+        [
+          201.99999999999994,
+          82
+        ]
+      ]
+    }
   ],
   "should_preserve": [
     "night-sky",
@@ -58,5 +286,6 @@
     "variant-14-pin-06",
     "variant-14-pin-07",
     "variant-14-pin-08"
-  ]
+  ],
+  "display_order": 27
 }

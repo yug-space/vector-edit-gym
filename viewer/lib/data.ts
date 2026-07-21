@@ -63,7 +63,10 @@ export type LeaderboardEntry = {
   provider: string;
   model: string;
   group: ModelGroup;
+  specification_pass: number;
   reward: number;
+  repair_pass: number;
+  preservation_pass: number;
   exact: number;
   structural: number;
   validity: number;
@@ -84,6 +87,7 @@ export type Leaderboard = {
   updated_at: string;
   note: string;
   protocol?: string;
+  evaluator?: string;
   corpus_hash?: string;
   run?: string;
   entries: LeaderboardEntry[];
@@ -102,6 +106,11 @@ export type ModelExpectedChange = {
   expected_after: unknown;
   produced: unknown;
   passed: boolean;
+  comparison: string;
+  distance: number | null;
+  tolerance: number | null;
+  unit: string | null;
+  detail: string | null;
 };
 
 export type TaskModelResult = {
@@ -111,8 +120,12 @@ export type TaskModelResult = {
   resolved_model: string | null;
   response_id: string | null;
   group: ModelGroup;
-  status: "PASS" | "PARTIAL" | "FAIL" | "ERR";
+  status: "PASS" | "SIDE_EFFECTS" | "PARTIAL" | "INVALID" | "FAIL" | "ERR";
   reward: number;
+  specification_pass: boolean;
+  repair_pass: boolean;
+  preservation_pass: boolean;
+  validity_pass: boolean;
   exact: boolean;
   structural: boolean;
   edit_completion: number;
@@ -122,6 +135,7 @@ export type TaskModelResult = {
   expected_changes_total: number;
   expected_changes: ModelExpectedChange[];
   unexpected_changed_parts: string[];
+  failure_reasons: string[];
   preservation_failures: string[];
   elapsed_ms: number;
   cost_usd: number;
@@ -131,6 +145,7 @@ export type TaskModelResult = {
   max_output_tokens: number;
   finish_reason: string | null;
   produced_parse_ok: boolean;
+  produced_valid_svg: boolean;
   error: { code: string; message: string } | null;
   produced_svg: string | null;
   raw_response: string | null;
@@ -145,6 +160,7 @@ export type ModelResults = {
   updated_at: string;
   note: string;
   protocol?: string;
+  evaluator?: string;
   corpus_hash?: string;
   run?: string;
   runs: ModelRun[];

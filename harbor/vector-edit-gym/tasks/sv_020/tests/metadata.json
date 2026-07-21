@@ -1,4 +1,81 @@
 {
+  "task_id": "sv_020",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "The amber signal should be amber, the middle train window has shifted upward, and the passenger has an extra bag. Thin the platform edge, smooth the overhead cable, return the train roof to its dark color, and move the bench seat back into line. Leave all other station details alone.",
+  "parts": [
+    "sky-band",
+    "overhead-wire",
+    "station-wall",
+    "platform",
+    "platform-edge",
+    "platform-crack",
+    "rail-back",
+    "rail-front",
+    "track-tie-1",
+    "track-tie-2",
+    "track-tie-3",
+    "track-tie-4",
+    "track-tie-5",
+    "train-body",
+    "train-roof",
+    "window-left",
+    "window-center",
+    "window-right",
+    "train-door",
+    "door-handle",
+    "wheel-left",
+    "wheel-right",
+    "signal-post",
+    "signal-box",
+    "signal-red",
+    "signal-amber",
+    "signal-green",
+    "clock-face",
+    "clock-hour",
+    "clock-minute",
+    "poster-blue",
+    "poster-pink",
+    "bench-seat",
+    "bench-leg-left",
+    "bench-leg-right",
+    "passenger-head",
+    "passenger-body",
+    "passenger-bag",
+    "skin-20-city-a",
+    "skin-20-city-b",
+    "skin-20-city-c",
+    "skin-20-city-window-a",
+    "skin-20-city-window-b",
+    "identity-20-skyline-a",
+    "identity-20-skyline-b",
+    "identity-20-skyline-c",
+    "identity-20-skyline-window-a",
+    "identity-20-skyline-window-b",
+    "variant-20-dot",
+    "variant-20-rule",
+    "variant-20-chip-01",
+    "variant-20-chip-02",
+    "variant-20-chip-03",
+    "variant-20-chip-04",
+    "variant-20-chip-05",
+    "variant-20-chip-06",
+    "variant-20-chip-07",
+    "variant-20-chip-08",
+    "variant-20-chip-09",
+    "variant-20-chip-10",
+    "variant-20-chip-11",
+    "variant-20-chip-12",
+    "variant-20-pin-01",
+    "variant-20-pin-02",
+    "variant-20-pin-03",
+    "variant-20-pin-04",
+    "variant-20-pin-05",
+    "variant-20-pin-06",
+    "variant-20-pin-07",
+    "variant-20-pin-08",
+    "passenger-bag-dup"
+  ],
   "target_parts": [
     "bench-seat",
     "train-roof",
@@ -7,6 +84,65 @@
     "passenger-bag-dup",
     "window-center",
     "signal-amber"
+  ],
+  "expected_diff": [
+    {
+      "part": "bench-seat",
+      "attribute": "x",
+      "before": 29,
+      "after": 38
+    },
+    {
+      "part": "bench-seat",
+      "attribute": "y",
+      "before": 104,
+      "after": 100
+    },
+    {
+      "part": "train-roof",
+      "attribute": "fill",
+      "before": "#f97316",
+      "after": "#0f172a"
+    },
+    {
+      "part": "overhead-wire",
+      "attribute": "d",
+      "before": "M8 18 C48 30 72 2 108 18 S172 34 212 18",
+      "after": "M8 18 C42 10 74 10 108 18 S176 26 212 18"
+    },
+    {
+      "part": "platform-edge",
+      "attribute": "height",
+      "before": 10,
+      "after": 5
+    },
+    {
+      "part": "passenger-bag-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "passenger-bag-dup",
+        "type": "rect",
+        "x": 114,
+        "y": 105,
+        "width": 8,
+        "height": 7,
+        "fill": "#a16207"
+      }
+    },
+    {
+      "part": "window-center",
+      "attribute": "y",
+      "before": 38,
+      "after": 46
+    },
+    {
+      "part": "signal-amber",
+      "attribute": "fill",
+      "before": "#22c55e",
+      "after": "#f59e0b"
+    }
   ],
   "should_preserve": [
     "sky-band",
@@ -73,5 +209,6 @@
     "variant-20-pin-06",
     "variant-20-pin-07",
     "variant-20-pin-08"
-  ]
+  ],
+  "display_order": 39
 }

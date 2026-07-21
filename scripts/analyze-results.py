@@ -140,12 +140,16 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
     total_cost = sum(float(record.get("cost_usd") or 0) for record in records)
     errors = sum(record.get("error") is not None for record in records)
     truncations = sum(record.get("finish_reason") == "length" for record in records)
-    valid = sum(
-        bool((record.get("diff_report") or {}).get("produced_parse_ok"))
+    valid = sum(bool(record.get("validity_pass")) for record in records)
+    passes = sum(int(record.get("reward") or 0) for record in records)
+    repairs = sum(bool(record.get("repair_pass")) for record in records)
+    preserved = sum(bool(record.get("preservation_pass")) for record in records)
+    target_matches = sum(bool(record.get("structural")) for record in records)
+    partials = sum(
+        not record.get("reward") and float(record.get("edit_completion") or 0) > 0
         for record in records
     )
-    passes = sum(int(record.get("reward") or 0) for record in records)
-    partials = sum(record.get("status") == "PARTIAL" for record in records)
+    side_effects = sum(record.get("status") == "SIDE_EFFECTS" for record in records)
     return {
         "protocol": meta.get("protocol"),
         "models": len(summaries),
@@ -159,20 +163,32 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         "truncation_count": truncations,
         "truncation_rate": truncations / len(records),
         "validity_rate": valid / len(records),
-        "binary_passes": passes,
-        "binary_pass_rate": passes / len(records),
+        "specification_passes": passes,
+        "specification_pass_rate": passes / len(records),
+        "repair_passes": repairs,
+        "repair_pass_rate": repairs / len(records),
+        "preservation_passes": preserved,
+        "preservation_pass_rate": preserved / len(records),
+        "target_matches": target_matches,
+        "target_match_rate": target_matches / len(records),
         "partial_outcomes": partials,
         "partial_outcome_rate": partials / len(records),
+        "side_effect_outcomes": side_effects,
+        "side_effect_outcome_rate": side_effects / len(records),
         "top_model": best["name"],
         "top_model_id": best["id"],
-        "top_reward": best["binary_reward"],
+        "top_reward": best["spec_pass_rate"],
+        "top_repair_pass": best["repair_pass_rate"],
+        "top_preservation_pass": best["preservation_pass_rate"],
         "top_reward_ci_low": best["reward_ci_low"],
         "top_reward_ci_high": best["reward_ci_high"],
         "top_edit_completion": best["edit_completion"],
         "top_ucr": best["unintended_change_rate"],
         "top_validity": best["validity_rate"],
         "frontier_top_model": frontier_best["name"] if frontier_best else "n/a",
-        "frontier_top_reward": frontier_best["binary_reward"] if frontier_best else 0.0,
+        "frontier_top_reward": frontier_best["spec_pass_rate"] if frontier_best else 0.0,
+        "frontier_top_repair_pass": frontier_best["repair_pass_rate"] if frontier_best else 0.0,
+        "frontier_top_preservation_pass": frontier_best["preservation_pass_rate"] if frontier_best else 0.0,
         "frontier_top_edit_completion": frontier_best["edit_completion"] if frontier_best else 0.0,
         "frontier_top_validity": frontier_best["validity_rate"] if frontier_best else 0.0,
         "frontier_top_truncation": frontier_best["truncation_rate"] if frontier_best else 0.0,
@@ -243,12 +259,12 @@ def figure_examples(tasks, output_dir: Path) -> None:
     converter = shutil.which("rsvg-convert")
     if not converter:
         return
-    fig = plt.figure(figsize=(7.1, 7.0))
+    fig = plt.figure(figsize=(7.1, 8.25))
     grid = fig.add_gridspec(
         len(selected) * 3,
         2,
-        height_ratios=[0.36, 2.7, 1.12] * len(selected),
-        hspace=0.04,
+        height_ratios=[0.34, 2.5, 1.48] * len(selected),
+        hspace=0.10,
         wspace=0.04,
     )
     with tempfile.TemporaryDirectory() as directory:
@@ -280,7 +296,7 @@ def figure_examples(tasks, output_dir: Path) -> None:
             prompt_axis.text(
                 0,
                 0.96,
-                textwrap.fill(task["instruction"], width=104),
+                textwrap.fill(task["instruction"], width=96),
                 transform=prompt_axis.transAxes,
                 fontsize=7,
                 linespacing=1.18,
@@ -329,7 +345,7 @@ def figure_complexity(tasks, output_dir: Path) -> None:
 def figure_model_rewards(summaries, output_dir: Path) -> None:
     rows = list(reversed(summaries))
     y = np.arange(len(rows))
-    values = np.array([row["binary_reward"] for row in rows])
+    values = np.array([row["spec_pass_rate"] for row in rows])
     lower = values - np.array([row["reward_ci_low"] for row in rows])
     upper = np.array([row["reward_ci_high"] for row in rows]) - values
     colors = [group_color(row["group"]) for row in rows]
@@ -337,8 +353,8 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
     ax.barh(y, values * 100, color=colors, alpha=0.88)
     ax.errorbar(values * 100, y, xerr=np.vstack([lower, upper]) * 100, fmt="none", ecolor=INK, capsize=2, linewidth=0.8)
     ax.set_yticks(y, [row["name"] for row in rows], fontsize=7.5)
-    ax.set_xlabel("Binary task success (%)")
-    ax.set_title("Exact repair-and-preserve success with 95% task-bootstrap CIs", loc="left")
+    ax.set_xlabel("Specification pass (%)")
+    ax.set_title("Tolerant repair with strict preservation (95% task-bootstrap CIs)", loc="left")
     ax.set_xlim(0, max(5.0, float(np.max(values + upper)) * 115))
     ax.grid(axis="x", alpha=0.18)
     fig.tight_layout()
@@ -349,7 +365,7 @@ def figure_edit_vs_ucr(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
         color = group_color(row["group"])
-        ax.scatter(row["edit_completion"] * 100, row["unintended_change_rate"] * 100, s=26 + row["binary_reward"] * 120, color=color, alpha=0.8)
+        ax.scatter(row["edit_completion"] * 100, row["unintended_change_rate"] * 100, s=26 + row["spec_pass_rate"] * 120, color=color, alpha=0.8)
     for row in highlighted_summaries(summaries):
         annotate_point(
             ax,
@@ -428,20 +444,31 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "ControlModelCount": results["cheap_control_models"],
         "FrontierModelCount": results["frontier_models"],
         "RequestCount": results["requests"],
-        "BinaryPassCount": results["binary_passes"],
-        "BinaryPassRate": f"{results['binary_pass_rate'] * 100:.2f}\\%",
+        "SpecificationPassCount": results["specification_passes"],
+        "SpecificationPassRate": f"{results['specification_pass_rate'] * 100:.2f}\\%",
+        "RepairPassCount": results["repair_passes"],
+        "RepairPassRate": f"{results['repair_pass_rate'] * 100:.2f}\\%",
+        "CleanPassCount": results["preservation_passes"],
+        "CleanPassRate": f"{results['preservation_pass_rate'] * 100:.2f}\\%",
+        "TargetMatchCount": results["target_matches"],
+        "TargetMatchRate": f"{results['target_match_rate'] * 100:.2f}\\%",
         "PartialOutcomeCount": results["partial_outcomes"],
         "PartialOutcomeRate": f"{results['partial_outcome_rate'] * 100:.1f}\\%",
+        "SideEffectCount": results["side_effect_outcomes"],
         "ExpectedEditCount": corpus["expected_edits_total"],
         "MeanExpectedEdits": f"{corpus['expected_edits_mean']:.2f}",
         "MeanProtectedObjects": f"{corpus['protected_objects_mean']:.2f}",
         "TopModel": latex_escape(results["top_model"]),
         "TopReward": f"{results['top_reward'] * 100:.1f}\\%",
+        "TopRepairPass": f"{results['top_repair_pass'] * 100:.1f}\\%",
+        "TopPreservationPass": f"{results['top_preservation_pass'] * 100:.1f}\\%",
         "TopEditCompletion": f"{results['top_edit_completion'] * 100:.1f}\\%",
         "TopUCR": f"{results['top_ucr'] * 100:.1f}\\%",
         "TopValidity": f"{results['top_validity'] * 100:.1f}\\%",
         "FrontierTopModel": latex_escape(results["frontier_top_model"]),
         "FrontierTopReward": f"{results['frontier_top_reward'] * 100:.1f}\\%",
+        "FrontierTopRepairPass": f"{results['frontier_top_repair_pass'] * 100:.1f}\\%",
+        "FrontierTopPreservationPass": f"{results['frontier_top_preservation_pass'] * 100:.1f}\\%",
         "FrontierTopEditCompletion": f"{results['frontier_top_edit_completion'] * 100:.1f}\\%",
         "FrontierTopValidity": f"{results['frontier_top_validity'] * 100:.1f}\\%",
         "FrontierTopTruncation": f"{results['frontier_top_truncation'] * 100:.1f}\\%",
@@ -483,14 +510,15 @@ def annotate_point(ax, label: str, x: float, y: float, *, log_x: bool = False) -
 
 def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
     lines = [
-        r"\begin{tabular}{lrrrrr}",
+        r"\begin{tabular}{lrrrrrrr}",
         r"\toprule",
-        r"Model & Reward $\uparrow$ & Edit $\uparrow$ & UCR $\downarrow$ & Valid $\uparrow$ & Cost \\",
+        r"Model & Spec. $\uparrow$ & Repair $\uparrow$ & Clean $\uparrow$ & Edit $\uparrow$ & UCR $\downarrow$ & Valid $\uparrow$ & Cost \\",
         r"\midrule",
     ]
     for row in rows:
         lines.append(
-            f"{latex_escape(row['name'])} & {row['binary_reward'] * 100:.1f} & {row['edit_completion'] * 100:.1f} & "
+            f"{latex_escape(row['name'])} & {row['spec_pass_rate'] * 100:.1f} & {row['repair_pass_rate'] * 100:.1f} & "
+            f"{row['preservation_pass_rate'] * 100:.1f} & {row['edit_completion'] * 100:.1f} & "
             f"{row['unintended_change_rate'] * 100:.1f} & {row['validity_rate'] * 100:.1f} & \\${row['cost_usd']:.3f} \\\\"
         )
     lines.extend([r"\bottomrule", r"\end{tabular}"])
@@ -498,10 +526,11 @@ def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
 
 
 def write_full_table(path: Path, rows: list[dict[str, Any]]) -> None:
-    lines = [r"\begin{longtable}{llrrrrrr}", r"\toprule", r"Model & Group & Reward & Edit & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
+    lines = [r"\begin{longtable}{llrrrrrrrr}", r"\toprule", r"Model & Group & Spec. & Repair & Clean & Edit & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
     for row in rows:
         lines.append(
-            f"{latex_escape(row['name'])} & {latex_escape(row['group'])} & {row['binary_reward'] * 100:.1f} & "
+            f"{latex_escape(row['name'])} & {latex_escape(row['group'])} & {row['spec_pass_rate'] * 100:.1f} & "
+            f"{row['repair_pass_rate'] * 100:.1f} & {row['preservation_pass_rate'] * 100:.1f} & "
             f"{row['edit_completion'] * 100:.1f} & {row['unintended_change_rate'] * 100:.1f} & "
             f"{row['validity_rate'] * 100:.1f} & {row['truncation_rate'] * 100:.1f} & "
             f"{row['error_rate'] * 100:.1f} \\\\"

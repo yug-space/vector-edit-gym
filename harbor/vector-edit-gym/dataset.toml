@@ -1,4 +1,4 @@
 [dataset]
 name = "thetalab/vector-edit-gym"
-description = "40 dense SVG repair tasks with human visual instructions, exact targets, and preservation-aware binary rewards."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+description = "40 dense SVG repair tasks with naturalistic instructions, tolerant requested edits, and strict preservation-aware binary rewards."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]

@@ -1,4 +1,69 @@
 {
+  "task_id": "sv_017",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "Move the moon back up and right, make the front flame yellow, and remove the duplicate backpack. Restore the gentle shapes of both the smoke and the trail, then center the tent flap again. Everything else at the campsite should remain unchanged.",
+  "parts": [
+    "night-sky",
+    "ground",
+    "far-hill",
+    "mid-hill",
+    "moon",
+    "star-1",
+    "star-2",
+    "star-3",
+    "star-4",
+    "tent-body",
+    "tent-side",
+    "tent-flap",
+    "tent-line-left",
+    "tent-line-right",
+    "tree-left-trunk",
+    "tree-left-crown",
+    "tree-right-trunk",
+    "tree-right-crown",
+    "log-left",
+    "log-right",
+    "flame-back",
+    "flame-front",
+    "smoke-1",
+    "smoke-2",
+    "smoke-curl",
+    "backpack",
+    "path",
+    "trail-curve",
+    "skin-17-lantern-wide-wire",
+    "skin-17-lantern-wide-a",
+    "skin-17-lantern-wide-b",
+    "identity-17-lantern-wire",
+    "identity-17-lantern-a",
+    "identity-17-lantern-b",
+    "identity-17-firefly-a",
+    "identity-17-firefly-b",
+    "variant-17-dot",
+    "variant-17-rule",
+    "variant-17-chip-01",
+    "variant-17-chip-02",
+    "variant-17-chip-03",
+    "variant-17-chip-04",
+    "variant-17-chip-05",
+    "variant-17-chip-06",
+    "variant-17-chip-07",
+    "variant-17-chip-08",
+    "variant-17-chip-09",
+    "variant-17-chip-10",
+    "variant-17-chip-11",
+    "variant-17-chip-12",
+    "variant-17-pin-01",
+    "variant-17-pin-02",
+    "variant-17-pin-03",
+    "variant-17-pin-04",
+    "variant-17-pin-05",
+    "variant-17-pin-06",
+    "variant-17-pin-07",
+    "variant-17-pin-08",
+    "backpack-dup"
+  ],
   "target_parts": [
     "tent-flap",
     "trail-curve",
@@ -6,6 +71,89 @@
     "backpack-dup",
     "flame-front",
     "moon"
+  ],
+  "expected_diff": [
+    {
+      "part": "tent-flap",
+      "attribute": "points",
+      "before": [
+        [
+          89,
+          92
+        ],
+        [
+          103,
+          62
+        ],
+        [
+          117,
+          92
+        ]
+      ],
+      "after": [
+        [
+          82,
+          96
+        ],
+        [
+          96,
+          66
+        ],
+        [
+          110,
+          96
+        ]
+      ]
+    },
+    {
+      "part": "trail-curve",
+      "attribute": "d",
+      "before": "M86 104 C110 100 92 132 120 140",
+      "after": "M86 104 C100 112 98 126 112 140"
+    },
+    {
+      "part": "smoke-curl",
+      "attribute": "d",
+      "before": "M168 80 C186 72 150 64 174 56 C186 50 152 46 172 38",
+      "after": "M168 80 C154 72 178 64 164 56 C154 50 174 46 166 38"
+    },
+    {
+      "part": "backpack-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "backpack-dup",
+        "type": "rect",
+        "x": 50,
+        "y": 104,
+        "width": 14,
+        "height": 18,
+        "rx": 3,
+        "ry": 3,
+        "fill": "#2563eb",
+        "stroke": "#111827",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "part": "flame-front",
+      "attribute": "fill",
+      "before": "#f97316",
+      "after": "#fde047"
+    },
+    {
+      "part": "moon",
+      "attribute": "cx",
+      "before": 172,
+      "after": 184
+    },
+    {
+      "part": "moon",
+      "attribute": "cy",
+      "before": 30,
+      "after": 24
+    }
   ],
   "should_preserve": [
     "night-sky",
@@ -61,5 +209,6 @@
     "variant-17-pin-06",
     "variant-17-pin-07",
     "variant-17-pin-08"
-  ]
+  ],
+  "display_order": 33
 }

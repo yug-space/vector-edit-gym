@@ -1,4 +1,79 @@
 {
+  "task_id": "sv_018",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "One pear should be green, one apple should be red, and the shopper's bag should hang higher. Remove the copied blue awning panel, restore the scalloped edge on the left awning, and give the bicycle frame its normal line weight. Preserve the rest of the market.",
+  "parts": [
+    "back-wall",
+    "street",
+    "left-stall-counter",
+    "left-awning-base",
+    "left-awning-red-1",
+    "left-awning-red-2",
+    "left-awning-red-3",
+    "left-awning-scallop",
+    "left-post",
+    "left-post-right",
+    "right-stall-counter",
+    "right-awning-base",
+    "right-awning-blue-1",
+    "right-awning-blue-2",
+    "right-awning-blue-3",
+    "right-post-left",
+    "right-post-right",
+    "apple-1",
+    "apple-2",
+    "apple-3",
+    "pear-1",
+    "pear-2",
+    "pear-3",
+    "crate-apples",
+    "crate-pears",
+    "hanging-sign",
+    "sign-pin-left",
+    "sign-pin-right",
+    "lamp",
+    "bike-frame",
+    "bike-handlebar",
+    "bike-wheel-left",
+    "bike-wheel-right",
+    "shopper-head",
+    "shopper-body",
+    "shopper-bag",
+    "skin-18-flower-cart-wide",
+    "skin-18-flower-wide-a",
+    "skin-18-flower-wide-b",
+    "skin-18-flower-wide-c",
+    "identity-18-flower-cart",
+    "identity-18-cart-wheel-a",
+    "identity-18-cart-wheel-b",
+    "identity-18-flower-a",
+    "identity-18-flower-b",
+    "identity-18-flower-c",
+    "variant-18-dot",
+    "variant-18-rule",
+    "variant-18-chip-01",
+    "variant-18-chip-02",
+    "variant-18-chip-03",
+    "variant-18-chip-04",
+    "variant-18-chip-05",
+    "variant-18-chip-06",
+    "variant-18-chip-07",
+    "variant-18-chip-08",
+    "variant-18-chip-09",
+    "variant-18-chip-10",
+    "variant-18-chip-11",
+    "variant-18-chip-12",
+    "variant-18-pin-01",
+    "variant-18-pin-02",
+    "variant-18-pin-03",
+    "variant-18-pin-04",
+    "variant-18-pin-05",
+    "variant-18-pin-06",
+    "variant-18-pin-07",
+    "variant-18-pin-08",
+    "right-awning-blue-2-dup"
+  ],
   "target_parts": [
     "apple-3",
     "bike-frame",
@@ -6,6 +81,53 @@
     "right-awning-blue-2-dup",
     "shopper-bag",
     "pear-2"
+  ],
+  "expected_diff": [
+    {
+      "part": "apple-3",
+      "attribute": "fill",
+      "before": "#a3e635",
+      "after": "#dc2626"
+    },
+    {
+      "part": "bike-frame",
+      "attribute": "stroke-width",
+      "before": 0.5,
+      "after": 2
+    },
+    {
+      "part": "left-awning-scallop",
+      "attribute": "d",
+      "before": "M14 60 C20 70 32 50 38 62 S54 70 62 58 S78 50 86 62 S94 70 96 58",
+      "after": "M14 60 C22 68 30 52 38 60 S54 68 62 60 S78 52 86 60 S94 68 96 60"
+    },
+    {
+      "part": "right-awning-blue-2-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "right-awning-blue-2-dup",
+        "type": "rect",
+        "x": 164,
+        "y": 44,
+        "width": 16,
+        "height": 18,
+        "fill": "#84cc16"
+      }
+    },
+    {
+      "part": "shopper-bag",
+      "attribute": "y",
+      "before": 103,
+      "after": 94
+    },
+    {
+      "part": "pear-2",
+      "attribute": "fill",
+      "before": "#dc2626",
+      "after": "#a3e635"
+    }
   ],
   "should_preserve": [
     "back-wall",
@@ -71,5 +193,6 @@
     "variant-18-pin-06",
     "variant-18-pin-07",
     "variant-18-pin-08"
-  ]
+  ],
+  "display_order": 35
 }

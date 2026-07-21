@@ -1,9 +1,99 @@
 {
+  "task_id": "sv_026",
+  "difficulty": "very_hard",
+  "category": "downloaded_scenic_surgical",
+  "instruction": "Remove the accidental marker from the vineyard sunset. Recenter the large golden sun glow behind the sun, restore the warm brown roof on the stone villa, and make the pale horizon haze clearly visible again. Leave the vines and cypress trees unchanged.",
+  "parts": [
+    "download-sv_026-rect-001",
+    "download-sv_026-circle-001",
+    "download-sv_026-circle-002",
+    "download-sv_026-rect-002",
+    "download-sv_026-path-001",
+    "download-sv_026-path-002",
+    "download-sv_026-path-003",
+    "download-sv_026-ellipse-001",
+    "download-sv_026-ellipse-002",
+    "download-sv_026-ellipse-003",
+    "download-sv_026-ellipse-004",
+    "download-sv_026-ellipse-005",
+    "download-sv_026-rect-003",
+    "download-sv_026-rect-004",
+    "download-sv_026-polygon-001",
+    "download-sv_026-polygon-002",
+    "download-sv_026-rect-005",
+    "download-sv_026-rect-006",
+    "download-sv_026-rect-007",
+    "download-sv_026-rect-008",
+    "download-sv_026-rect-009",
+    "download-sv_026-ellipse-006",
+    "download-sv_026-ellipse-007",
+    "download-sv_026-path-004",
+    "download-sv_026-path-005",
+    "download-sv_026-path-006",
+    "download-sv_026-path-007",
+    "download-sv_026-path-008",
+    "download-sv_026-path-009",
+    "download-sv_026-path-010",
+    "download-sv_026-path-011",
+    "download-sv_026-path-012",
+    "download-sv_026-circle-003",
+    "download-sv_026-circle-004",
+    "download-sv_026-circle-005",
+    "download-sv_026-circle-006",
+    "download-sv_026-circle-007",
+    "download-sv_026-circle-008",
+    "download-sv_026-circle-009",
+    "download-sv_026-circle-010",
+    "download-sv_026-circle-011",
+    "download-sv_026-circle-012",
+    "download-sv_026-ellipse-008",
+    "download-sv_026-ellipse-009",
+    "download-sv_026-path-013",
+    "download-sv_026-path-014",
+    "sv_026-extra-survey-marker"
+  ],
   "target_parts": [
     "sv_026-extra-survey-marker",
     "download-sv_026-polygon-002",
     "download-sv_026-circle-001",
     "download-sv_026-rect-002"
+  ],
+  "expected_diff": [
+    {
+      "part": "sv_026-extra-survey-marker",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "sv_026-extra-survey-marker",
+        "tag": "circle",
+        "cx": 1200,
+        "cy": 110,
+        "r": 35,
+        "fill": "#3b82f6",
+        "opacity": 0.82,
+        "stroke": "#111827",
+        "stroke-width": 5
+      }
+    },
+    {
+      "part": "download-sv_026-polygon-002",
+      "attribute": "fill",
+      "before": "#3b82f6",
+      "after": "#a8602c"
+    },
+    {
+      "part": "download-sv_026-circle-001",
+      "attribute": "cx",
+      "before": 1255,
+      "after": 1180
+    },
+    {
+      "part": "download-sv_026-rect-002",
+      "attribute": "opacity",
+      "before": 0.23,
+      "after": 0.5
+    }
   ],
   "should_preserve": [
     "download-sv_026-rect-001",
@@ -49,5 +139,6 @@
     "download-sv_026-ellipse-009",
     "download-sv_026-path-013",
     "download-sv_026-path-014"
-  ]
+  ],
+  "display_order": 12
 }

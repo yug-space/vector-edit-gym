@@ -1,10 +1,113 @@
 {
+  "task_id": "sv_032",
+  "difficulty": "very_hard",
+  "category": "downloaded_scenic_surgical",
+  "instruction": "Remove the extra marker from the balloon festival and recenter the large sun glow toward the left. A basket beneath one middle balloon should be brown, the rigging on a small distant balloon should be delicate, and the white panel lines on the middle balloon should be softly visible. Preserve all other balloons and fields.",
+  "parts": [
+    "download-sv_032-rect-001",
+    "download-sv_032-circle-001",
+    "download-sv_032-circle-002",
+    "download-sv_032-ellipse-001",
+    "download-sv_032-ellipse-002",
+    "download-sv_032-ellipse-003",
+    "download-sv_032-path-001",
+    "download-sv_032-rect-002",
+    "download-sv_032-line-001",
+    "download-sv_032-line-002",
+    "download-sv_032-path-002",
+    "download-sv_032-rect-003",
+    "download-sv_032-path-003",
+    "download-sv_032-rect-004",
+    "download-sv_032-path-004",
+    "download-sv_032-path-005",
+    "download-sv_032-rect-005",
+    "download-sv_032-line-003",
+    "download-sv_032-line-004",
+    "download-sv_032-path-006",
+    "download-sv_032-path-007",
+    "download-sv_032-rect-006",
+    "download-sv_032-line-005",
+    "download-sv_032-line-006",
+    "download-sv_032-path-008",
+    "download-sv_032-path-009",
+    "download-sv_032-path-010",
+    "download-sv_032-rect-007",
+    "download-sv_032-rect-008",
+    "download-sv_032-line-007",
+    "download-sv_032-line-008",
+    "download-sv_032-ellipse-004",
+    "download-sv_032-path-011",
+    "download-sv_032-path-012",
+    "download-sv_032-path-013",
+    "download-sv_032-rect-009",
+    "download-sv_032-line-009",
+    "download-sv_032-line-010",
+    "download-sv_032-path-014",
+    "download-sv_032-polygon-001",
+    "download-sv_032-polygon-002",
+    "download-sv_032-polygon-003",
+    "download-sv_032-polygon-004",
+    "download-sv_032-polygon-005",
+    "download-sv_032-line-011",
+    "download-sv_032-line-012",
+    "download-sv_032-path-015",
+    "download-sv_032-ellipse-005",
+    "download-sv_032-ellipse-006",
+    "download-sv_032-ellipse-007",
+    "download-sv_032-ellipse-008",
+    "download-sv_032-path-016",
+    "download-sv_032-path-017",
+    "sv_032-extra-survey-marker"
+  ],
   "target_parts": [
     "sv_032-extra-survey-marker",
     "download-sv_032-rect-006",
     "download-sv_032-circle-001",
     "download-sv_032-line-001",
     "download-sv_032-path-005"
+  ],
+  "expected_diff": [
+    {
+      "part": "sv_032-extra-survey-marker",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "sv_032-extra-survey-marker",
+        "tag": "circle",
+        "cx": 1360,
+        "cy": 172,
+        "r": 41,
+        "fill": "#f97316",
+        "opacity": 0.82,
+        "stroke": "#111827",
+        "stroke-width": 5
+      }
+    },
+    {
+      "part": "download-sv_032-rect-006",
+      "attribute": "fill",
+      "before": "#ef4444",
+      "after": "#6a4424"
+    },
+    {
+      "part": "download-sv_032-circle-001",
+      "attribute": "cx",
+      "before": 375,
+      "after": 300
+    },
+    {
+      "part": "download-sv_032-line-001",
+      "attribute": "stroke-width",
+      "before": 8,
+      "after": 2
+    },
+    {
+      "part": "download-sv_032-path-005",
+      "attribute": "opacity",
+      "before": 0.18,
+      "after": 0.4
+    }
   ],
   "should_preserve": [
     "download-sv_032-rect-001",
@@ -56,5 +159,6 @@
     "download-sv_032-ellipse-008",
     "download-sv_032-path-016",
     "download-sv_032-path-017"
-  ]
+  ],
+  "display_order": 24
 }

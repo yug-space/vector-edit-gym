@@ -1,8 +1,139 @@
 {
+  "task_id": "sv_006",
+  "difficulty": "hard",
+  "category": "scenic_multi",
+  "instruction": "Remove the extra orange buoy from the water, turn the main sail back the right way, and place the little cabin window neatly inside the cabin again. Keep the lighthouse and the real buoys as they are.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-06-island-wide",
+    "skin-06-palm-trunk-wide",
+    "skin-06-palm-leaf-wide-a",
+    "skin-06-palm-leaf-wide-b",
+    "identity-06-tiny-island",
+    "identity-06-palm-trunk",
+    "identity-06-palm-leaf-a",
+    "identity-06-palm-leaf-b",
+    "variant-06-dot",
+    "variant-06-rule",
+    "variant-06-chip-01",
+    "variant-06-chip-02",
+    "variant-06-chip-03",
+    "variant-06-chip-04",
+    "variant-06-chip-05",
+    "variant-06-chip-06",
+    "variant-06-chip-07",
+    "variant-06-chip-08",
+    "variant-06-chip-09",
+    "variant-06-chip-10",
+    "variant-06-chip-11",
+    "variant-06-chip-12",
+    "variant-06-pin-01",
+    "variant-06-pin-02",
+    "variant-06-pin-03",
+    "variant-06-pin-04",
+    "variant-06-pin-05",
+    "variant-06-pin-06",
+    "variant-06-pin-07",
+    "variant-06-pin-08",
+    "extra-orange-buoy"
+  ],
   "target_parts": [
     "cabin-window",
     "sail-main",
     "extra-orange-buoy"
+  ],
+  "expected_diff": [
+    {
+      "part": "cabin-window",
+      "attribute": "x",
+      "before": 106,
+      "after": 114
+    },
+    {
+      "part": "cabin-window",
+      "attribute": "y",
+      "before": 70,
+      "after": 67
+    },
+    {
+      "part": "sail-main",
+      "attribute": "points",
+      "before": [
+        [
+          144.66666666666669,
+          30
+        ],
+        [
+          116.66666666666669,
+          76
+        ],
+        [
+          144.66666666666669,
+          76
+        ]
+      ],
+      "after": [
+        [
+          126,
+          30
+        ],
+        [
+          154,
+          76
+        ],
+        [
+          126,
+          76
+        ]
+      ]
+    },
+    {
+      "part": "extra-orange-buoy",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-orange-buoy",
+        "type": "circle",
+        "cx": 116,
+        "cy": 116,
+        "r": 6,
+        "fill": "#f97316",
+        "stroke": "#222",
+        "strokeWidth": 1
+      }
+    }
   ],
   "should_preserve": [
     "sky",
@@ -65,5 +196,6 @@
     "variant-06-pin-06",
     "variant-06-pin-07",
     "variant-06-pin-08"
-  ]
+  ],
+  "display_order": 11
 }

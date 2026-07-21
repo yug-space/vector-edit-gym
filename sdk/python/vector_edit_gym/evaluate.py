@@ -23,6 +23,8 @@ class TaskResult:
     difficulty: str
     category: str
     reward: int
+    repair_pass: bool
+    preservation_pass: bool
     exact: bool
     structural: bool
     valid: bool
@@ -51,6 +53,18 @@ class EvaluationResult:
     @property
     def reward_mean(self) -> float:
         return self._mean(lambda r: float(r.reward))
+
+    @property
+    def specification_pass_rate(self) -> float:
+        return self.reward_mean
+
+    @property
+    def repair_pass_rate(self) -> float:
+        return self._mean(lambda r: 1.0 if r.repair_pass else 0.0)
+
+    @property
+    def preservation_pass_rate(self) -> float:
+        return self._mean(lambda r: 1.0 if r.preservation_pass else 0.0)
 
     @property
     def structural_rate(self) -> float:
@@ -103,6 +117,9 @@ class EvaluationResult:
             out[k] = {
                 "n": n,
                 "reward": sum(r.reward for r in rs) / n,
+                "specification_pass": sum(r.reward for r in rs) / n,
+                "repair_pass": sum(1 for r in rs if r.repair_pass) / n,
+                "preservation_pass": sum(1 for r in rs if r.preservation_pass) / n,
                 "exact": sum(1 for r in rs if r.exact) / n,
                 "structural": sum(1 for r in rs if r.structural) / n,
                 "validity": sum(1 for r in rs if r.valid) / n,
@@ -118,9 +135,11 @@ class EvaluationResult:
     def summary(self) -> str:
         lines = [
             f"VectorEditGym - {self.n} tasks",
-            f"  binary reward:      {self.reward_mean:.1%}",
+            f"  specification pass: {self.specification_pass_rate:.1%}",
+            f"  requested repairs:  {self.repair_pass_rate:.1%}",
+            f"  clean preservation: {self.preservation_pass_rate:.1%}",
             f"  exact-match:        {self.exact_rate:.1%}",
-            f"  structural-match:   {self.structural_rate:.1%}",
+            f"  target-match:       {self.structural_rate:.1%}",
             f"  valid SVG:          {self.validity_rate:.1%}",
             f"  edit completion:    {self.edit_completion_mean:.1%}",
             f"  preservation (avg): {self.preservation_mean:.1%}",
@@ -178,6 +197,8 @@ def evaluate(
                 difficulty=task.difficulty,
                 category=task.category,
                 reward=0,
+                repair_pass=False,
+                preservation_pass=False,
                 exact=False,
                 structural=False,
                 valid=False,
@@ -195,9 +216,11 @@ def evaluate(
                 difficulty=task.difficulty,
                 category=task.category,
                 reward=report.reward,
+                repair_pass=report.repair_pass,
+                preservation_pass=report.preservation_pass,
                 exact=report.exact,
                 structural=report.structural,
-                valid=report.produced_parse_ok,
+                valid=report.validity_pass,
                 preservation=report.preservation,
                 edit_completion=report.edit_completion,
                 unintended_change_rate=report.unintended_change_rate,

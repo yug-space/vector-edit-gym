@@ -1,9 +1,166 @@
 {
+  "task_id": "sv_010",
+  "difficulty": "hard",
+  "category": "scenic_multi",
+  "instruction": "Remove the duplicate smoke puff, turn the right-hand treetop back the correct way, make the front flame yellow again, and move the backpack back beside the tent. Preserve the rest of the campsite.",
+  "parts": [
+    "night-sky",
+    "ground",
+    "far-hill",
+    "mid-hill",
+    "moon",
+    "star-1",
+    "star-2",
+    "star-3",
+    "star-4",
+    "tent-body",
+    "tent-side",
+    "tent-flap",
+    "tent-line-left",
+    "tent-line-right",
+    "tree-left-trunk",
+    "tree-left-crown",
+    "tree-right-trunk",
+    "tree-right-crown",
+    "log-left",
+    "log-right",
+    "flame-back",
+    "flame-front",
+    "smoke-1",
+    "smoke-2",
+    "smoke-curl",
+    "backpack",
+    "path",
+    "trail-curve",
+    "skin-10-comet-wide-trail",
+    "skin-10-comet-wide-core",
+    "skin-10-comet-wide-glow",
+    "identity-10-comet-trail",
+    "identity-10-comet-core",
+    "identity-10-comet-glow",
+    "variant-10-dot",
+    "variant-10-rule",
+    "variant-10-chip-01",
+    "variant-10-chip-02",
+    "variant-10-chip-03",
+    "variant-10-chip-04",
+    "variant-10-chip-05",
+    "variant-10-chip-06",
+    "variant-10-chip-07",
+    "variant-10-chip-08",
+    "variant-10-chip-09",
+    "variant-10-chip-10",
+    "variant-10-chip-11",
+    "variant-10-chip-12",
+    "variant-10-pin-01",
+    "variant-10-pin-02",
+    "variant-10-pin-03",
+    "variant-10-pin-04",
+    "variant-10-pin-05",
+    "variant-10-pin-06",
+    "variant-10-pin-07",
+    "variant-10-pin-08",
+    "smoke-2-dup"
+  ],
   "target_parts": [
     "backpack",
     "flame-front",
     "tree-right-crown",
     "smoke-2-dup"
+  ],
+  "expected_diff": [
+    {
+      "part": "backpack",
+      "attribute": "x",
+      "before": 50,
+      "after": 36
+    },
+    {
+      "part": "flame-front",
+      "attribute": "fill",
+      "before": "#f97316",
+      "after": "#fde047"
+    },
+    {
+      "part": "tree-right-crown",
+      "attribute": "points",
+      "before": [
+        [
+          184.28571428571428,
+          40
+        ],
+        [
+          202.28571428571428,
+          82
+        ],
+        [
+          190.28571428571428,
+          76
+        ],
+        [
+          196.28571428571428,
+          94
+        ],
+        [
+          168.28571428571428,
+          92
+        ],
+        [
+          176.28571428571428,
+          76
+        ],
+        [
+          164.28571428571428,
+          82
+        ]
+      ],
+      "after": [
+        [
+          181.99999999999994,
+          40
+        ],
+        [
+          163.99999999999994,
+          82
+        ],
+        [
+          175.99999999999994,
+          76
+        ],
+        [
+          169.99999999999994,
+          94
+        ],
+        [
+          197.99999999999994,
+          92
+        ],
+        [
+          189.99999999999994,
+          76
+        ],
+        [
+          201.99999999999994,
+          82
+        ]
+      ]
+    },
+    {
+      "part": "smoke-2-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "smoke-2-dup",
+        "type": "ellipse",
+        "cx": 164,
+        "cy": 66,
+        "rx": 7,
+        "ry": 4,
+        "fill": "#94a3b8",
+        "opacity": 0.5
+      }
+    }
   ],
   "should_preserve": [
     "night-sky",
@@ -59,5 +216,6 @@
     "variant-10-pin-06",
     "variant-10-pin-07",
     "variant-10-pin-08"
-  ]
+  ],
+  "display_order": 19
 }

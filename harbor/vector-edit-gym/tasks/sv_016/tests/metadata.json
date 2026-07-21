@@ -1,4 +1,72 @@
 {
+  "task_id": "sv_016",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "The lighthouse window should glow yellow and its beam should point cleanly across the harbor. Remove the extra buoy near the pier, make the small sail light blue, smooth the long wave, and return the left crate to the cargo stack. Do not alter the rest.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-16-sub-wide-body",
+    "skin-16-sub-wide-window",
+    "skin-16-sub-wide-tail",
+    "identity-16-sub-body",
+    "identity-16-sub-window",
+    "identity-16-sub-tail",
+    "identity-16-fish",
+    "variant-16-dot",
+    "variant-16-rule",
+    "variant-16-chip-01",
+    "variant-16-chip-02",
+    "variant-16-chip-03",
+    "variant-16-chip-04",
+    "variant-16-chip-05",
+    "variant-16-chip-06",
+    "variant-16-chip-07",
+    "variant-16-chip-08",
+    "variant-16-chip-09",
+    "variant-16-chip-10",
+    "variant-16-chip-11",
+    "variant-16-chip-12",
+    "variant-16-pin-01",
+    "variant-16-pin-02",
+    "variant-16-pin-03",
+    "variant-16-pin-04",
+    "variant-16-pin-05",
+    "variant-16-pin-06",
+    "variant-16-pin-07",
+    "variant-16-pin-08",
+    "extra-pier-buoy"
+  ],
   "target_parts": [
     "crate-left",
     "harbor-wave-long",
@@ -6,6 +74,86 @@
     "extra-pier-buoy",
     "light-beam",
     "lighthouse-window"
+  ],
+  "expected_diff": [
+    {
+      "part": "crate-left",
+      "attribute": "x",
+      "before": 4,
+      "after": 12
+    },
+    {
+      "part": "crate-left",
+      "attribute": "y",
+      "before": 81,
+      "after": 76
+    },
+    {
+      "part": "harbor-wave-long",
+      "attribute": "d",
+      "before": "M82 116 C96 126 112 108 128 116 S158 126 174 116",
+      "after": "M82 118 C98 112 112 124 128 118 S158 112 174 118"
+    },
+    {
+      "part": "sail-small",
+      "attribute": "fill",
+      "before": "#fef3c7",
+      "after": "#e0f2fe"
+    },
+    {
+      "part": "extra-pier-buoy",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "extra-pier-buoy",
+        "type": "circle",
+        "cx": 70,
+        "cy": 112,
+        "r": 5,
+        "fill": "#facc15",
+        "stroke": "#222",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "part": "light-beam",
+      "attribute": "points",
+      "before": [
+        [
+          188,
+          26
+        ],
+        [
+          140,
+          14
+        ],
+        [
+          140,
+          38
+        ]
+      ],
+      "after": [
+        [
+          180,
+          30
+        ],
+        [
+          132,
+          18
+        ],
+        [
+          132,
+          42
+        ]
+      ]
+    },
+    {
+      "part": "lighthouse-window",
+      "attribute": "fill",
+      "before": "#38bdf8",
+      "after": "#fde047"
+    }
   ],
   "should_preserve": [
     "sky",
@@ -64,5 +212,6 @@
     "variant-16-pin-06",
     "variant-16-pin-07",
     "variant-16-pin-08"
-  ]
+  ],
+  "display_order": 31
 }

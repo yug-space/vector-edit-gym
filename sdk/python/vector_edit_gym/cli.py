@@ -9,7 +9,7 @@ import json
 import sys
 from pathlib import Path
 
-from .diffing import diff_report
+from .diffing import diff_report, outcome_status
 from .evaluate import evaluate
 from .tasks import load_task, load_tasks
 
@@ -82,7 +82,13 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
         tasks = tasks[: args.limit]
     print(f"Running {len(tasks)} task(s) through {args.solver}...", file=sys.stderr)
     def progress(i: int, total: int, r):
-        marker = "PASS" if r.reward else ("EDIT" if r.edit_completion else "FAIL")
+        marker = outcome_status({
+            "reward": r.reward,
+            "repair_pass": r.repair_pass,
+            "preservation_pass": r.preservation_pass,
+            "validity_pass": r.valid,
+            "edit_completion": r.edit_completion,
+        })
         if r.error:
             marker = "ERR"
         print(f"  [{i:>4}/{total}] {r.task_id:<10} {marker:<4} ({r.elapsed_ms:.0f} ms)",
@@ -93,7 +99,9 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
     if args.json:
         print()
         print(json.dumps({
-            "binary_reward": out.reward_mean,
+            "specification_pass_rate": out.specification_pass_rate,
+            "repair_pass_rate": out.repair_pass_rate,
+            "preservation_pass_rate": out.preservation_pass_rate,
             "exact_rate": out.exact_rate,
             "structural_rate": out.structural_rate,
             "validity_rate": out.validity_rate,
@@ -115,13 +123,16 @@ def _cmd_score(args: argparse.Namespace) -> int:
         return 0
 
     print(f"Task: {task.task_id}")
-    print(f"reward:       {report.reward}")
+    print(f"status:       {outcome_status(report)}")
+    print(f"spec pass:    {report.specification_pass}")
+    print(f"repair pass:  {report.repair_pass}")
+    print(f"preservation: {report.preservation_pass}")
+    print(f"valid SVG:    {report.validity_pass}")
     print(f"exact:        {report.exact}")
-    print(f"structural:   {report.structural}")
+    print(f"target match: {report.structural}")
     print(f"edit complete:{report.edit_completion:>7.1%}")
-    print(f"preservation: {report.preservation:.1%}")
+    print(f"named preserve:{report.preservation:>6.1%}")
     print(f"UCR:          {report.unintended_change_rate:.1%}")
-    print(f"parse ok:     {report.produced_parse_ok}")
     print()
     print("Expected changes:")
     for check in report.expected_changes:
@@ -130,6 +141,11 @@ def _cmd_score(args: argparse.Namespace) -> int:
             f"  {marker:<4} {check.part}.{check.attribute}: "
             f"expected {check.expected_after!r}, produced {check.produced!r}"
         )
+        if check.distance is not None and check.tolerance is not None:
+            print(
+                f"       {check.comparison}: {check.distance:g} <= "
+                f"{check.tolerance:g} {check.unit or ''}".rstrip()
+            )
     if report.unexpected_changed_parts:
         print()
         print("Unexpected changed/preserved-part failures:")

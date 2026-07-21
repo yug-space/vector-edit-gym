@@ -1,9 +1,94 @@
 {
+  "task_id": "sv_021",
+  "difficulty": "very_hard",
+  "category": "downloaded_scenic_surgical",
+  "instruction": "Remove the obvious colored marker from the mountain sunrise. Center the broad sun glow behind the pale sun, return the sun itself to a warm ivory, and make the most distant mountain ridge a little more visible. Keep the village and foreground untouched.",
+  "parts": [
+    "download-sv_021-rect-001",
+    "download-sv_021-circle-001",
+    "download-sv_021-circle-002",
+    "download-sv_021-circle-003",
+    "download-sv_021-circle-004",
+    "download-sv_021-circle-005",
+    "download-sv_021-circle-006",
+    "download-sv_021-circle-007",
+    "download-sv_021-circle-008",
+    "download-sv_021-path-001",
+    "download-sv_021-rect-002",
+    "download-sv_021-path-002",
+    "download-sv_021-rect-003",
+    "download-sv_021-path-003",
+    "download-sv_021-path-004",
+    "download-sv_021-path-005",
+    "download-sv_021-path-006",
+    "download-sv_021-path-007",
+    "download-sv_021-rect-004",
+    "download-sv_021-polygon-001",
+    "download-sv_021-rect-005",
+    "download-sv_021-rect-006",
+    "download-sv_021-rect-007",
+    "download-sv_021-polygon-002",
+    "download-sv_021-rect-008",
+    "download-sv_021-rect-009",
+    "download-sv_021-polygon-003",
+    "download-sv_021-rect-010",
+    "download-sv_021-rect-011",
+    "download-sv_021-rect-012",
+    "download-sv_021-polygon-004",
+    "download-sv_021-rect-013",
+    "download-sv_021-rect-014",
+    "download-sv_021-polygon-005",
+    "download-sv_021-rect-015",
+    "download-sv_021-rect-016",
+    "download-sv_021-ellipse-001",
+    "download-sv_021-ellipse-002",
+    "download-sv_021-path-008",
+    "download-sv_021-path-009",
+    "download-sv_021-path-010",
+    "sv_021-extra-survey-marker"
+  ],
   "target_parts": [
     "sv_021-extra-survey-marker",
     "download-sv_021-circle-002",
     "download-sv_021-circle-001",
     "download-sv_021-path-001"
+  ],
+  "expected_diff": [
+    {
+      "part": "sv_021-extra-survey-marker",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "sv_021-extra-survey-marker",
+        "tag": "circle",
+        "cx": 1120,
+        "cy": 110,
+        "r": 32,
+        "fill": "#ef4444",
+        "opacity": 0.82,
+        "stroke": "#111827",
+        "stroke-width": 5
+      }
+    },
+    {
+      "part": "download-sv_021-circle-002",
+      "attribute": "fill",
+      "before": "#ef4444",
+      "after": "#fff8e6"
+    },
+    {
+      "part": "download-sv_021-circle-001",
+      "attribute": "cx",
+      "before": 1125,
+      "after": 1090
+    },
+    {
+      "part": "download-sv_021-path-001",
+      "attribute": "opacity",
+      "before": 0.25,
+      "after": 0.55
+    }
   ],
   "should_preserve": [
     "download-sv_021-rect-001",
@@ -44,5 +129,6 @@
     "download-sv_021-path-008",
     "download-sv_021-path-009",
     "download-sv_021-path-010"
-  ]
+  ],
+  "display_order": 2
 }

@@ -20,7 +20,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
-from vector_edit_gym.diffing import diff_report  # noqa: E402
+from vector_edit_gym.diffing import diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import Task, load_tasks  # noqa: E402
 
 
@@ -227,7 +227,7 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
     raw_text = content_text(message.get("content"))
     produced = extract_svg(raw_text)
     report = diff_report(task, produced).to_dict()
-    status = "PASS" if report["reward"] else ("PARTIAL" if report["edit_completion"] > 0 else "FAIL")
+    status = outcome_status(report)
     return {
         "requested_model": model.id,
         "resolved_model": response_payload.get("model"),
@@ -239,6 +239,10 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
         "category": task.category,
         "status": status,
         "reward": report["reward"],
+        "specification_pass": report["specification_pass"],
+        "repair_pass": report["repair_pass"],
+        "preservation_pass": report["preservation_pass"],
+        "validity_pass": report["validity_pass"],
         "exact": report["exact"],
         "structural": report["structural"],
         "edit_completion": report["edit_completion"],
@@ -338,6 +342,10 @@ def error_record(model: ModelSpec, task: Task, code: str, message: str) -> dict[
         "category": task.category,
         "status": "ERR",
         "reward": 0,
+        "specification_pass": False,
+        "repair_pass": False,
+        "preservation_pass": False,
+        "validity_pass": False,
         "exact": False,
         "structural": False,
         "edit_completion": 0.0,
@@ -430,11 +438,14 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
         summaries.append({
             **asdict(model),
             "n": n,
+            "spec_pass_rate": mean(items, "reward"),
             "binary_reward": mean(items, "reward"),
+            "repair_pass_rate": mean(items, "repair_pass"),
+            "preservation_pass_rate": mean(items, "preservation_pass"),
             "exact_rate": mean(items, "exact"),
             "structural_rate": mean(items, "structural"),
             "validity_rate": sum(
-                bool((item.get("diff_report") or {}).get("produced_parse_ok"))
+                bool((item.get("diff_report") or {}).get("validity_pass"))
                 for item in items
             ) / n,
             "edit_completion": mean(items, "edit_completion"),
@@ -447,7 +458,7 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
             "prompt_tokens": sum(int(item.get("prompt_tokens") or 0) for item in items),
             "completion_tokens": sum(int(item.get("completion_tokens") or 0) for item in items),
         })
-    return sorted(summaries, key=lambda row: (-row["binary_reward"], -row["edit_completion"], row["unintended_change_rate"], row["name"]))
+    return sorted(summaries, key=lambda row: (-row["spec_pass_rate"], -row["repair_pass_rate"], -row["edit_completion"], row["unintended_change_rate"], row["name"]))
 
 
 def mean(items: list[dict[str, Any]], key: str) -> float:
@@ -456,13 +467,14 @@ def mean(items: list[dict[str, Any]], key: str) -> float:
 
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
-        "| model | group | n | reward | edit completion | UCR | valid | truncated | errors | cost |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| model | group | n | spec pass | repair pass | edit completion | clean | UCR | valid | truncated | errors | cost |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
-            f"| {row['name']} | {row['group']} | {row['n']} | {row['binary_reward']:.1%} | "
-            f"{row['edit_completion']:.1%} | {row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
+            f"| {row['name']} | {row['group']} | {row['n']} | {row['spec_pass_rate']:.1%} | "
+            f"{row['repair_pass_rate']:.1%} | {row['edit_completion']:.1%} | {row['preservation_pass_rate']:.1%} | "
+            f"{row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
             f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )
     return "\n".join(lines) + "\n"

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            viewer/package-lock.json
+      - name: Install Python package
+        run: python -m pip install -e 'sdk/python[test]'
+      - name: Install Node dependencies
+        run: |
+          npm ci
+          npm --prefix viewer ci
+      - name: Verify frozen corpus
+        run: npm run corpus:verify
+      - name: Test evaluator
+        run: python -m pytest sdk/python/tests -q
+      - name: Type-check viewer
+        run: npm run viewer:lint
+      - name: Build viewer
+        run: npm run viewer:build

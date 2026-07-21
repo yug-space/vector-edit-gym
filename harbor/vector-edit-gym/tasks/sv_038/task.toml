@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-038"
 description = "Remove the colored marker from the Venetian sunset. Center the large sun glow behind the canal, restore the dark red body of the gondola, slim the main arch of the bridge, and bring back the warm glow in the affected window. Keep the other buildings and reflections intact."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "downloaded_scenic_surgical"]
 
 [metadata]

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s · VectorEditGym",
   },
   description:
-    "VectorEditGym is a preservation-aware benchmark for human-described SVG repair with binary rewards and inspectable model outputs.",
+    "VectorEditGym is a preservation-aware SVG repair benchmark with tolerant requested edits, strict side-effect checks, and inspectable model outputs.",
 };
 
 const NAV_LINKS = [
@@ -109,8 +109,11 @@ function SiteFooter() {
               </span>
             </div>
             <p className="section-copy mt-5 max-w-xl">
-              Forty human-described SVG repairs with hidden structural targets. Models must fix
-              visible defects without changing the rest of the vector program.
+              Forty naturalistic SVG repairs with hidden structural targets. Models must fix
+              visible defects closely enough without changing the rest of the vector program.
+            </p>
+            <p className="mt-3 text-sm text-[hsl(var(--muted-foreground))]">
+              Yug Aditi Gupta and Prannay Hebbar, equal contribution.
             </p>
           </div>
 

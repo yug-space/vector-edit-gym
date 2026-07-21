@@ -6,7 +6,11 @@ import type { TaskModelResult } from "@/lib/data";
 
 export function ModelOutputExplorer({ results }: { results: TaskModelResult[] }) {
   const defaultModel = useMemo(
-    () => [...results].sort((left, right) => right.reward - left.reward || right.edit_completion - left.edit_completion)[0]?.model,
+    () => [...results].sort((left, right) =>
+      right.reward - left.reward
+      || Number(right.repair_pass) - Number(left.repair_pass)
+      || right.edit_completion - left.edit_completion,
+    )[0]?.model,
     [results],
   );
   const [selectedModel, setSelectedModel] = useState(defaultModel);
@@ -45,7 +49,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                   <span className={"mt-1 block truncate font-mono text-[10px] " + (selected.model === result.model ? "text-white/60" : "text-[hsl(var(--muted-foreground))]")}>{result.provider}</span>
                 </span>
                 <span className="text-right font-mono text-[10px] leading-5">
-                  <span className={selected.model === result.model ? "text-white" : statusText(result.status)}>{result.status}</span>
+                  <span className={selected.model === result.model ? "text-white" : statusText(result.status)}>{formatStatus(result.status)}</span>
                   <span className={"block " + (selected.model === result.model ? "text-white/60" : "text-[hsl(var(--muted-foreground))]")}>edit {(result.edit_completion * 100).toFixed(0)}%</span>
                 </span>
               </button>
@@ -61,8 +65,35 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 </div>
                 <p className="mt-1 break-all font-mono text-[11px] text-[hsl(var(--muted-foreground))]">{selected.model}</p>
               </div>
-              <span className={"rounded border px-2 py-1 font-mono text-xs " + statusBadge(selected.status)}>{selected.status}</span>
+              <span className={"rounded border px-2 py-1 font-mono text-xs " + statusBadge(selected.status)}>{formatStatus(selected.status)}</span>
             </div>
+
+            <div className="mt-5 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] xl:grid-cols-4">
+              <Gate
+                label="requested repairs"
+                passed={selected.repair_pass}
+                value={`${selected.expected_changes_passed}/${selected.expected_changes_total}`}
+              />
+              <Gate
+                label="preservation"
+                passed={selected.preservation_pass}
+                value={selected.preservation_pass ? "clean" : "changed"}
+              />
+              <Gate
+                label="SVG validity"
+                passed={selected.validity_pass}
+                value={selected.validity_pass ? "valid" : "invalid"}
+              />
+              <Gate
+                label="target match"
+                passed={selected.structural}
+                value="match"
+                diagnostic
+              />
+            </div>
+            <p className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">
+              Pass requires the first three gates. Canonical target match is shown only as a diagnostic.
+            </p>
 
             <div className="mt-5 grid gap-6 xl:grid-cols-[minmax(280px,0.9fr)_minmax(340px,1.1fr)]">
               <div>
@@ -88,7 +119,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 )}
 
                 <div className="mt-4 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] sm:grid-cols-3">
-                  <Metric label="reward" value={String(selected.reward)} />
+                  <Metric label="spec" value={selected.specification_pass ? "pass" : "fail"} />
                   <Metric label="edit" value={fmtPct(selected.edit_completion)} />
                   <Metric label="UCR" value={fmtPct(selected.unintended_change_rate)} />
                   <Metric label="preserve" value={fmtPct(selected.preservation)} />
@@ -110,10 +141,24 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                         <span className={check.passed ? "text-emerald-700" : "text-rose-700"}>{check.passed ? "passed" : "missed"}</span>
                       </div>
                       <div className="mt-1 break-all text-[hsl(var(--muted-foreground))]">expected {formatValue(check.expected_after)} / produced {formatValue(check.produced)}</div>
+                      <div className="mt-1 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
+                        {formatComparison(check)}
+                      </div>
                     </div>
                   ))}
                 </div>
 
+                {selected.specification_pass ? (
+                  <div className="mt-4 border-t border-[hsl(var(--border))] pt-3">
+                    <div className="mono-label">Specification outcome</div>
+                    <div className="mt-2 flex items-center gap-2 text-xs text-emerald-700">
+                      <Check className="h-4 w-4" />
+                      All required gates passed.
+                    </div>
+                  </div>
+                ) : (
+                  <IssueList title="Why it did not pass" items={selected.failure_reasons.map(formatFailureReason)} />
+                )}
                 <IssueList title="Unexpected changes" items={selected.unexpected_changed_parts} />
                 <IssueList title="Preservation failures" items={selected.preservation_failures} />
 
@@ -140,7 +185,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
 
 function StatusIcon({ status }: { status: TaskModelResult["status"] }) {
   if (status === "PASS") return <Check className="h-5 w-5 text-emerald-700" />;
-  if (status === "ERR") return <CircleX className="h-5 w-5 text-rose-700" />;
+  if (status === "ERR" || status === "INVALID") return <CircleX className="h-5 w-5 text-rose-700" />;
   return <AlertTriangle className="h-5 w-5 text-[var(--brand)]" />;
 }
 
@@ -149,6 +194,34 @@ function Metric({ label, value }: { label: string; value: string }) {
     <div className="min-w-0 border-b border-r border-[hsl(var(--border))] bg-white px-3 py-2.5">
       <div className="mono-label">{label}</div>
       <div className="mt-1 truncate font-mono text-sm">{value}</div>
+    </div>
+  );
+}
+
+function Gate({
+  label,
+  passed,
+  value,
+  diagnostic = false,
+}: {
+  label: string;
+  passed: boolean;
+  value: string;
+  diagnostic?: boolean;
+}) {
+  return (
+    <div className="min-w-0 border-b border-r border-[hsl(var(--border))] bg-white px-3 py-3">
+      <div className="flex items-center gap-2">
+        {passed ? (
+          <Check className="h-4 w-4 shrink-0 text-emerald-700" />
+        ) : (
+          <CircleX className={"h-4 w-4 shrink-0 " + (diagnostic ? "text-zinc-400" : "text-rose-700")} />
+        )}
+        <span className="truncate font-mono text-[10px] uppercase text-[hsl(var(--muted-foreground))]">{label}</span>
+      </div>
+      <div className={"mt-1 pl-6 font-mono text-xs " + (passed ? "text-emerald-700" : diagnostic ? "text-zinc-500" : "text-rose-700")}>
+        {passed ? value : diagnostic ? "different" : value}
+      </div>
     </div>
   );
 }
@@ -170,15 +243,15 @@ function IssueList({ title, items }: { title: string; items: string[] }) {
 
 function statusText(status: TaskModelResult["status"]) {
   if (status === "PASS") return "text-emerald-700";
-  if (status === "ERR") return "text-rose-700";
-  if (status === "PARTIAL") return "text-[var(--brand)]";
+  if (status === "ERR" || status === "INVALID") return "text-rose-700";
+  if (status === "PARTIAL" || status === "SIDE_EFFECTS") return "text-[var(--brand)]";
   return "text-[hsl(var(--muted-foreground))]";
 }
 
 function statusBadge(status: TaskModelResult["status"]) {
   if (status === "PASS") return "border-emerald-200 bg-emerald-50 text-emerald-700";
-  if (status === "ERR") return "border-rose-200 bg-rose-50 text-rose-700";
-  if (status === "PARTIAL") return "border-orange-200 bg-orange-50 text-orange-700";
+  if (status === "ERR" || status === "INVALID") return "border-rose-200 bg-rose-50 text-rose-700";
+  if (status === "PARTIAL" || status === "SIDE_EFFECTS") return "border-orange-200 bg-orange-50 text-orange-700";
   return "border-zinc-200 bg-zinc-50 text-zinc-600";
 }
 
@@ -188,5 +261,25 @@ function formatValue(value: unknown) {
   if (value === null || value === undefined) return "none";
   const text = typeof value === "object" ? JSON.stringify(value) : String(value);
   return text.length > 120 ? `${text.slice(0, 117)}...` : text;
+}
+function formatStatus(status: TaskModelResult["status"]) {
+  return status.replace("_", " ");
+}
+function formatComparison(check: TaskModelResult["expected_changes"][number]) {
+  if (check.distance !== null && check.tolerance !== null) {
+    return `${check.comparison}: ${formatNumber(check.distance)} <= ${formatNumber(check.tolerance)} ${check.unit ?? ""}`.trim();
+  }
+  return check.detail ?? check.comparison;
+}
+function formatFailureReason(reason: string) {
+  const labels: Record<string, string> = {
+    invalid_svg: "invalid SVG",
+    requested_repairs_incomplete: "requested repairs incomplete",
+    unintended_document_changes: "unintended document changes",
+  };
+  return labels[reason] ?? reason.replaceAll("_", " ");
+}
+function formatNumber(value: number) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
 }
 function svgDataUri(svg: string) { return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`; }

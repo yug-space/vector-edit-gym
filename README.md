@@ -8,6 +8,8 @@ VectorEditGym evaluates whether a model can repair visible defects in an SVG wit
 
 The frozen release contains 40 dense repair tasks and 202 annotated edits. Instructions sound like human visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
 
+**Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work.
+
 ## Evaluation Contract
 
 Each task contains:
@@ -18,21 +20,30 @@ Each task contains:
 - `expected_diff`: private object-attribute checks for diagnostic scoring
 - `should_preserve`: private object IDs that must remain unchanged
 
-The primary reward is binary:
+The primary reward is binary, but requested values do not have to reproduce the hidden target exactly:
 
 ```text
-reward = 1 only when the output parses and its canonical SVG tree equals the target
-reward = 0 otherwise
+specification_pass = repair_pass AND preservation_pass AND validity_pass
+reward = 1 when specification_pass is true; otherwise 0
 ```
 
-Canonical comparison accepts representation-only differences such as attribute order, numeric spelling, path separators, namespace-prefix spelling, and common equivalent color spellings. It does not accept changed geometry, paint, IDs, element order, nesting, or anonymous definitions.
+The three gates are:
+
+- `repair_pass`: every requested edit is within a deterministic attribute-aware tolerance. Numeric placement uses viewport- and mutation-bounded distance, colors use CIE Lab Delta E76, and paths/points use coordinate RMS with matching topology.
+- `preservation_pass`: after masking only requested fields, the complete canonical output tree equals the complete target tree. Unrequested attributes, definitions, anonymous nodes, IDs, nesting, and order remain strict.
+- `validity_pass`: the output is a complete, well-formed SVG with unique nonempty IDs and valid normalized SVG syntax.
+
+`structural` is canonical full-target equality and is diagnostic only. A bounded repair can pass even when `structural` is false. Each expected-edit report includes the comparison method, measured distance, tolerance, unit, and outcome.
 
 Diagnostic metrics explain zero-reward outputs:
 
 - `edit_completion`: fraction of requested repairs completed
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: `1 - preservation`
-- `valid`: whether the output is parseable SVG/XML
+- `repair_pass`: whether all requested checks pass
+- `preservation_pass`: whether the masked full document is unchanged
+- `validity_pass`: whether the output passes structural SVG validity
+- `structural`: canonical target match, reported only as a diagnostic
 - `truncation_rate`: fraction of endpoint responses ending at the output-length limit
 
 ## Setup
@@ -122,7 +133,7 @@ node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
 Generate all statistics, bootstrap confidence intervals, tables, and figures from the same JSONL:
 
 ```sh
-python scripts/analyze-results.py runs/openrouter/openrouter-30-human
+python scripts/analyze-results.py runs/openrouter/openrouter-combined
 ```
 
 Compile and inspect the arXiv preprint:
@@ -167,7 +178,7 @@ Generate standalone Harbor tasks:
 npm run generate:harbor
 ```
 
-The generated dataset contains 40 tasks and the same binary verifier. It does not ship a solution directory or synthetic baseline agents.
+The generated dataset contains 40 tasks and the same tolerance-aware binary verifier. It does not ship a solution directory or synthetic baseline agents.
 
 ## Repository Layout
 
@@ -189,6 +200,12 @@ viewer/                     Next.js results browser
 ## Provenance Limitation
 
 Twenty scenic source files do not have recoverable per-file provenance metadata. The project does not claim original authorship of those illustrations. They are retained to preserve the frozen evaluated corpus and should be treated as research-only while provenance remains unresolved. This limitation is disclosed in the paper and website artifact.
+
+## License and Citation
+
+Project-authored code and metadata are available under the [MIT License](LICENSE). The unresolved scenic illustrations and third-party icon collections are excluded from that blanket grant; review [NOTICE.md](NOTICE.md) and [DATASET_CARD.md](DATASET_CARD.md) before redistribution.
+
+Citation metadata is provided in [CITATION.cff](CITATION.cff). Contributions follow [CONTRIBUTING.md](CONTRIBUTING.md), the [Code of Conduct](CODE_OF_CONDUCT.md), and the [Security Policy](SECURITY.md).
 
 ## Submission
 

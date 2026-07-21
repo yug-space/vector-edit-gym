@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use VectorEditGym, cite the paper and software artifact."
+title: "VectorEditGym: Evaluating Specification-Faithful SVG Repair Under Preservation Constraints"
+type: software
+version: 0.2.0
+date-released: 2026-07-20
+authors:
+  - family-names: Gupta
+    given-names: Yug Aditi
+    email: yug@thetalab.tech
+  - family-names: Hebbar
+    given-names: Prannay
+abstract: "A frozen benchmark, deterministic evaluator, model study, and results browser for preservation-aware SVG repair. Both authors contributed equally."
+repository-code: "https://github.com/yug-space/vector-edit-gym"
+url: "https://svg-rl-env.vercel.app"
+license: MIT
+keywords:
+  - SVG
+  - visual editing
+  - benchmark
+  - program repair
+  - preservation
+preferred-citation:
+  type: article
+  title: "VectorEditGym: Evaluating Specification-Faithful SVG Repair Under Preservation Constraints"
+  year: 2026
+  authors:
+    - family-names: Gupta
+      given-names: Yug Aditi
+    - family-names: Hebbar
+      given-names: Prannay

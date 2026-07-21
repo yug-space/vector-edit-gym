@@ -1,10 +1,116 @@
 {
+  "task_id": "sv_039",
+  "difficulty": "very_hard",
+  "category": "downloaded_scenic_surgical",
+  "instruction": "Clear the stray marker from the savanna scene. Center the huge setting sun, restore the pale reflection in the watering hole, slim the watering hole's outer rim, and make the golden heat band above the horizon more visible. Leave the animals and trees unchanged.",
+  "parts": [
+    "download-sv_039-rect-001",
+    "download-sv_039-circle-001",
+    "download-sv_039-circle-002",
+    "download-sv_039-rect-002",
+    "download-sv_039-rect-003",
+    "download-sv_039-path-001",
+    "download-sv_039-path-002",
+    "download-sv_039-ellipse-001",
+    "download-sv_039-ellipse-002",
+    "download-sv_039-ellipse-003",
+    "download-sv_039-path-003",
+    "download-sv_039-path-004",
+    "download-sv_039-path-005",
+    "download-sv_039-rect-004",
+    "download-sv_039-path-006",
+    "download-sv_039-ellipse-004",
+    "download-sv_039-ellipse-005",
+    "download-sv_039-rect-005",
+    "download-sv_039-path-007",
+    "download-sv_039-path-008",
+    "download-sv_039-rect-006",
+    "download-sv_039-path-009",
+    "download-sv_039-ellipse-006",
+    "download-sv_039-path-010",
+    "download-sv_039-path-011",
+    "download-sv_039-line-001",
+    "download-sv_039-line-002",
+    "download-sv_039-rect-007",
+    "download-sv_039-rect-008",
+    "download-sv_039-rect-009",
+    "download-sv_039-rect-010",
+    "download-sv_039-path-012",
+    "download-sv_039-ellipse-007",
+    "download-sv_039-path-013",
+    "download-sv_039-path-014",
+    "download-sv_039-line-003",
+    "download-sv_039-line-004",
+    "download-sv_039-rect-011",
+    "download-sv_039-rect-012",
+    "download-sv_039-rect-013",
+    "download-sv_039-rect-014",
+    "download-sv_039-ellipse-008",
+    "download-sv_039-circle-003",
+    "download-sv_039-path-015",
+    "download-sv_039-path-016",
+    "download-sv_039-path-017",
+    "download-sv_039-rect-015",
+    "download-sv_039-rect-016",
+    "download-sv_039-rect-017",
+    "download-sv_039-rect-018",
+    "download-sv_039-path-018",
+    "download-sv_039-path-019",
+    "download-sv_039-path-020",
+    "download-sv_039-path-021",
+    "download-sv_039-path-022",
+    "download-sv_039-path-023",
+    "sv_039-extra-survey-marker"
+  ],
   "target_parts": [
     "sv_039-extra-survey-marker",
     "download-sv_039-ellipse-003",
     "download-sv_039-circle-001",
     "download-sv_039-ellipse-002",
     "download-sv_039-rect-002"
+  ],
+  "expected_diff": [
+    {
+      "part": "sv_039-extra-survey-marker",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "sv_039-extra-survey-marker",
+        "tag": "circle",
+        "cx": 1280,
+        "cy": 296,
+        "r": 38,
+        "fill": "#111827",
+        "opacity": 0.82,
+        "stroke": "#111827",
+        "stroke-width": 5
+      }
+    },
+    {
+      "part": "download-sv_039-ellipse-003",
+      "attribute": "fill",
+      "before": "#ef4444",
+      "after": "#fff0b0"
+    },
+    {
+      "part": "download-sv_039-circle-001",
+      "attribute": "cx",
+      "before": 835,
+      "after": 800
+    },
+    {
+      "part": "download-sv_039-ellipse-002",
+      "attribute": "stroke-width",
+      "before": 7,
+      "after": 3
+    },
+    {
+      "part": "download-sv_039-rect-002",
+      "attribute": "opacity",
+      "before": 0.18,
+      "after": 0.4
+    }
   ],
   "should_preserve": [
     "download-sv_039-rect-001",
@@ -59,5 +165,6 @@
     "download-sv_039-path-021",
     "download-sv_039-path-022",
     "download-sv_039-path-023"
-  ]
+  ],
+  "display_order": 38
 }

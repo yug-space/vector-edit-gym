@@ -16,8 +16,8 @@ export default async function TasksPage() {
           <p className="eyebrow">theta labs / task catalog</p>
           <h1 className="subheading mt-5">Browse the task catalog.</h1>
           <p className="section-copy mt-5">
-            Forty dense SVG repair tasks with human visual instructions, hidden canonical targets,
-            and object-level preservation checks.
+            Forty dense SVG repair tasks with naturalistic visual instructions, hidden canonical
+            targets, tolerant repair checks, and strict whole-document preservation.
           </p>
         </div>
 

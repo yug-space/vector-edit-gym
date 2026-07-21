@@ -23,7 +23,9 @@ const SUBMIT_MAILTO =
       "Run name:",
       "Corpus hash:",
       "Tasks run:",
-      "Binary reward:",
+      "Specification pass rate:",
+      "All-repairs pass rate:",
+      "Clean-preservation pass rate:",
       "Edit completion:",
       "Unintended change rate:",
       "Preservation:",
@@ -37,6 +39,7 @@ const SUBMIT_MAILTO =
 
 const AUTHORS = [
   { name: "Yug Aditi Gupta", email: "yug@thetalab.tech" },
+  { name: "Prannay Hebbar", email: null },
 ];
 
 export default async function HomePage() {
@@ -49,13 +52,15 @@ export default async function HomePage() {
       <Section
         id="leaderboard"
         eyebrow="leaderboard"
-        title="Repair is not the same as preservation."
-        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. Binary reward is one only when every requested repair and every preservation constraint passes.`}
+        title="A repair can be approximate. Its side effects cannot."
+        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A specification pass requires every requested repair within a deterministic visual tolerance, a valid SVG, and no change outside the requested fields.`}
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-          <span className="mono-label">
-            Last updated <span className="text-[var(--brand)]">{board.updated_at || "—"}</span>
-          </span>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 mono-label">
+            <span>Updated <span className="text-[var(--brand)]">{board.updated_at || "—"}</span></span>
+            <span>Evaluator <span className="text-[hsl(var(--foreground))]">{board.evaluator ?? "—"}</span></span>
+            <span>Corpus <span className="text-[hsl(var(--foreground))]">{board.corpus_hash?.slice(0, 12) ?? "—"}</span></span>
+          </div>
           <a href={SUBMIT_MAILTO} className="theta-button theta-button-brand">
             <Mail className="h-4 w-4" />
             Submit your run
@@ -69,7 +74,7 @@ export default async function HomePage() {
               <span className="signal-dot signal-dot-brand" />
               <span className="signal-dot" />
             </div>
-            <span>top ten / reward diagnostics</span>
+            <span>top ten / specification gates</span>
           </div>
           <div className="p-4 sm:p-6">
             <LeaderboardChart entries={board.entries} />
@@ -88,11 +93,13 @@ export default async function HomePage() {
                   <TableHead className="w-[60px] whitespace-nowrap">#</TableHead>
                   <TableHead className="min-w-[220px]">Solver</TableHead>
                   <TableHead className="whitespace-nowrap">Provider</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Reward</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Spec pass</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Repairs</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Clean</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Edit</TableHead>
                   <TableHead className="whitespace-nowrap text-right">UCR</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Valid</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Preservation</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Target</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Truncated</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Errors</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Cost</TableHead>
@@ -117,11 +124,13 @@ export default async function HomePage() {
                     <TableCell className="whitespace-nowrap text-sm text-[hsl(var(--muted-foreground))]">
                       {e.provider}
                     </TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono font-semibold">{fmtPct(e.reward)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono font-semibold">{fmtPct(e.specification_pass)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.repair_pass)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation_pass)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.edit_completion)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.unintended_change_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.validity)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.structural)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.truncation_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.error_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">${e.cost_usd.toFixed(3)}</TableCell>
@@ -172,8 +181,8 @@ function Hero({ totalTasks }: { totalTasks: number }) {
             <span className="brand-underline italic">VectorEditGym</span>
           </h1>
           <p className="section-copy mt-6">
-            Human visual repair instructions, hidden SVG targets, and a binary contract: fix every
-            requested defect while preserving the rest of the program exactly.
+            Human visual repair instructions, hidden SVG targets, and a binary specification:
+            repair the visible defects closely enough while preserving the rest of the SVG exactly.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -224,6 +233,9 @@ function Hero({ totalTasks }: { totalTasks: number }) {
                 </div>
               ))}
             </div>
+            <p className="mt-3 text-sm text-[hsl(var(--muted-foreground))]">
+              Shared material and equal contribution by both authors.
+            </p>
           </div>
         </div>
       </div>

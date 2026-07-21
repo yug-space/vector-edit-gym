@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security report
+    url: https://github.com/yug-space/vector-edit-gym/security/policy
+    about: Report vulnerabilities and exposed credentials privately.

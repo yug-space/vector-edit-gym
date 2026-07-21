@@ -34,7 +34,9 @@ def solve(task) -> str:
 
 result = evaluate(solve, load_tasks())
 print(result.summary())
-print(result.reward_mean)
+print(result.specification_pass_rate)
+print(result.repair_pass_rate)
+print(result.preservation_pass_rate)
 print(result.edit_completion_mean)
 print(result.unintended_change_rate)
 print(result.validity_rate)
@@ -58,15 +60,19 @@ Task(
 
 ## Metrics
 
-- `reward`: integer `1` only for canonical target equivalence; otherwise `0`
+- `reward`: integer `1` only when requested repairs, strict preservation, and SVG validity all pass
+- `repair_pass`: every requested value is within its deterministic attribute-aware tolerance
+- `preservation_pass`: the complete canonical document is unchanged after masking requested fields
+- `validity_pass`: complete SVG root, valid XML/SVG syntax, and unique nonempty IDs
 - `exact`: source equality after whitespace normalization
-- `structural`: canonical element-tree equality
+- `structural`: canonical full-target equality, retained as a diagnostic only
 - `edit_completion`: fraction of private expected repairs passed
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: fraction of protected object subtrees changed
-- `produced_parse_ok`: output XML validity
+- `produced_parse_ok`: whether the output parses as XML
+- `produced_valid_svg`: whether the parsed output passes structural SVG validity
 
-Canonical comparison normalizes attribute ordering, namespaces, numeric spellings, path/list separators, and common equivalent CSS color spellings. Semantic SVG program changes remain strict.
+Requested numeric, color, path, and point values use deterministic visual tolerances. Canonical comparison normalizes attribute ordering, namespaces, numeric spellings, path/list separators, and common equivalent CSS color spellings. Everything outside requested fields remains strict.
 
 ## CLI
 
@@ -79,7 +85,7 @@ vec-edit-gym score sv_001 produced.svg --json
 vec-edit-gym evaluate ./my_solver.py:solve --limit 5 --json
 ```
 
-The score report lists every requested-edit check, preservation failure, unexpected element, document-level mismatch, binary reward, edit completion, and UCR.
+The score report lists every requested-edit check and tolerance, all three binary gates, preservation failures, unexpected document changes, edit completion, target match, and UCR.
 
 ## Tests
 
@@ -87,4 +93,4 @@ The score report lists every requested-edit check, preservation failure, unexpec
 python -m pytest sdk/python/tests -q
 ```
 
-Tests cover canonical formatting equivalence, target success, unchanged-output failure, malformed SVG, protected-object deletion, and unknown-element insertion.
+Tests cover canonical formatting equivalence, approximate repair success, tolerance rejection, strict whole-document preservation, malformed SVG, duplicate IDs, protected-object deletion, and unknown-element insertion.

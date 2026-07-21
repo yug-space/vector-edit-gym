@@ -1,10 +1,164 @@
 {
+  "task_id": "sv_013",
+  "difficulty": "very_hard",
+  "category": "scenic_very_hard",
+  "instruction": "The main sail is facing the wrong way, the red buoy stripe has turned green, and the cabin window has slipped out of place. Remove the stray rope by the pier and tidy the rope coil, without changing anything else in the harbor.",
+  "parts": [
+    "sky",
+    "water",
+    "horizon",
+    "sun",
+    "cloud-left",
+    "cloud-right",
+    "pier-deck",
+    "rope-coil",
+    "pier-leg-1",
+    "pier-leg-2",
+    "boat-hull",
+    "boat-cabin",
+    "cabin-window",
+    "mast",
+    "sail-main",
+    "sail-small",
+    "flag",
+    "lighthouse-body",
+    "lighthouse-stripe-1",
+    "lighthouse-stripe-2",
+    "lighthouse-cap",
+    "lighthouse-window",
+    "light-beam",
+    "buoy-red",
+    "buoy-red-stripe",
+    "buoy-green",
+    "buoy-green-stripe",
+    "wave-1",
+    "harbor-wave-long",
+    "wave-2",
+    "crate-left",
+    "crate-right",
+    "skin-13-anchor-wide-ring",
+    "skin-13-anchor-wide-stem",
+    "skin-13-anchor-wide-bar",
+    "skin-13-anchor-wide-hook",
+    "identity-13-anchor-ring",
+    "identity-13-anchor-stem",
+    "identity-13-anchor-bar",
+    "identity-13-anchor-hook",
+    "variant-13-dot",
+    "variant-13-rule",
+    "variant-13-chip-01",
+    "variant-13-chip-02",
+    "variant-13-chip-03",
+    "variant-13-chip-04",
+    "variant-13-chip-05",
+    "variant-13-chip-06",
+    "variant-13-chip-07",
+    "variant-13-chip-08",
+    "variant-13-chip-09",
+    "variant-13-chip-10",
+    "variant-13-chip-11",
+    "variant-13-chip-12",
+    "variant-13-pin-01",
+    "variant-13-pin-02",
+    "variant-13-pin-03",
+    "variant-13-pin-04",
+    "variant-13-pin-05",
+    "variant-13-pin-06",
+    "variant-13-pin-07",
+    "variant-13-pin-08",
+    "stray-pier-rope"
+  ],
   "target_parts": [
     "rope-coil",
     "stray-pier-rope",
     "cabin-window",
     "buoy-red-stripe",
     "sail-main"
+  ],
+  "expected_diff": [
+    {
+      "part": "rope-coil",
+      "attribute": "d",
+      "before": "M48 84 C62 70 74 80 68 90 C60 102 44 92 54 82 C62 74 66 86 60 90",
+      "after": "M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86"
+    },
+    {
+      "part": "stray-pier-rope",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "stray-pier-rope",
+        "type": "polyline",
+        "points": [
+          [
+            8,
+            84
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            32,
+            84
+          ]
+        ],
+        "stroke": "#f8fafc",
+        "strokeWidth": 2,
+        "fill": "none"
+      }
+    },
+    {
+      "part": "cabin-window",
+      "attribute": "x",
+      "before": 106,
+      "after": 114
+    },
+    {
+      "part": "cabin-window",
+      "attribute": "y",
+      "before": 70,
+      "after": 67
+    },
+    {
+      "part": "buoy-red-stripe",
+      "attribute": "fill",
+      "before": "#22c55e",
+      "after": "#ef4444"
+    },
+    {
+      "part": "sail-main",
+      "attribute": "points",
+      "before": [
+        [
+          144.66666666666669,
+          30
+        ],
+        [
+          116.66666666666669,
+          76
+        ],
+        [
+          144.66666666666669,
+          76
+        ]
+      ],
+      "after": [
+        [
+          126,
+          30
+        ],
+        [
+          154,
+          76
+        ],
+        [
+          126,
+          76
+        ]
+      ]
+    }
   ],
   "should_preserve": [
     "sky",
@@ -65,5 +219,6 @@
     "variant-13-pin-06",
     "variant-13-pin-07",
     "variant-13-pin-08"
-  ]
+  ],
+  "display_order": 25
 }

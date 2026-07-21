@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-013"
 description = "The main sail is facing the wrong way, the red buoy stripe has turned green, and the cabin window has slipped out of place. Remove the stray rope by the pier and tidy the rope coil, without changing anything else in the harbor."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "scenic_very_hard"]
 
 [metadata]

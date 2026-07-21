@@ -1,4 +1,79 @@
 {
+  "task_id": "sv_015",
+  "difficulty": "very_hard",
+  "category": "scenic_multi",
+  "instruction": "Make the train door pale yellow again, remove the extra clock hand, and slide the blue poster back into line. The green signal should be green, the platform crack should follow its original shallow zigzag, and the passenger's bag should sit beside them again.",
+  "parts": [
+    "sky-band",
+    "overhead-wire",
+    "station-wall",
+    "platform",
+    "platform-edge",
+    "platform-crack",
+    "rail-back",
+    "rail-front",
+    "track-tie-1",
+    "track-tie-2",
+    "track-tie-3",
+    "track-tie-4",
+    "track-tie-5",
+    "train-body",
+    "train-roof",
+    "window-left",
+    "window-center",
+    "window-right",
+    "train-door",
+    "door-handle",
+    "wheel-left",
+    "wheel-right",
+    "signal-post",
+    "signal-box",
+    "signal-red",
+    "signal-amber",
+    "signal-green",
+    "clock-face",
+    "clock-hour",
+    "clock-minute",
+    "poster-blue",
+    "poster-pink",
+    "bench-seat",
+    "bench-leg-left",
+    "bench-leg-right",
+    "passenger-head",
+    "passenger-body",
+    "passenger-bag",
+    "skin-15-snowbank-wide",
+    "skin-15-flake-wide-a",
+    "skin-15-flake-wide-b",
+    "skin-15-flake-wide-c",
+    "identity-15-snowbank",
+    "identity-15-flake-a",
+    "identity-15-flake-b",
+    "identity-15-flake-c",
+    "variant-15-dot",
+    "variant-15-rule",
+    "variant-15-chip-01",
+    "variant-15-chip-02",
+    "variant-15-chip-03",
+    "variant-15-chip-04",
+    "variant-15-chip-05",
+    "variant-15-chip-06",
+    "variant-15-chip-07",
+    "variant-15-chip-08",
+    "variant-15-chip-09",
+    "variant-15-chip-10",
+    "variant-15-chip-11",
+    "variant-15-chip-12",
+    "variant-15-pin-01",
+    "variant-15-pin-02",
+    "variant-15-pin-03",
+    "variant-15-pin-04",
+    "variant-15-pin-05",
+    "variant-15-pin-06",
+    "variant-15-pin-07",
+    "variant-15-pin-08",
+    "clock-minute-dup"
+  ],
   "target_parts": [
     "passenger-bag",
     "platform-crack",
@@ -6,6 +81,60 @@
     "poster-blue",
     "clock-minute-dup",
     "train-door"
+  ],
+  "expected_diff": [
+    {
+      "part": "passenger-bag",
+      "attribute": "x",
+      "before": 114,
+      "after": 104
+    },
+    {
+      "part": "passenger-bag",
+      "attribute": "y",
+      "before": 105,
+      "after": 108
+    },
+    {
+      "part": "platform-crack",
+      "attribute": "d",
+      "before": "M18 109 C30 116 44 101 58 111 S82 114 96 105",
+      "after": "M18 108 C32 104 42 111 56 108 S82 106 96 110"
+    },
+    {
+      "part": "signal-green",
+      "attribute": "fill",
+      "before": "#ef4444",
+      "after": "#22c55e"
+    },
+    {
+      "part": "poster-blue",
+      "attribute": "x",
+      "before": 185,
+      "after": 178
+    },
+    {
+      "part": "clock-minute-dup",
+      "attribute": "exists",
+      "before": true,
+      "after": false,
+      "removed": {
+        "id": "clock-minute-dup",
+        "type": "line",
+        "x1": 191,
+        "y1": 38,
+        "x2": 198,
+        "y2": 38,
+        "stroke": "#222",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "part": "train-door",
+      "attribute": "fill",
+      "before": "#ffffff",
+      "after": "#fef3c7"
+    }
   ],
   "should_preserve": [
     "sky-band",
@@ -71,5 +200,6 @@
     "variant-15-pin-06",
     "variant-15-pin-07",
     "variant-15-pin-08"
-  ]
+  ],
+  "display_order": 29
 }

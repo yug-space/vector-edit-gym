@@ -17,9 +17,12 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const DATA = join(ROOT, "data", "tasks");
 const OUT = join(ROOT, "harbor", "vector-edit-gym");
 const DRY_RUN = process.argv.includes("--dry-run");
-const SDK_METRICS = readFileSync(
-  join(ROOT, "sdk", "python", "vector_edit_gym", "metrics.py"),
-  "utf8",
+const SDK_DIR = join(ROOT, "sdk", "python", "vector_edit_gym");
+const SDK_MODULES = Object.fromEntries(
+  ["metrics.py", "tolerance.py", "tasks.py", "diffing.py"].map((name) => [
+    name,
+    readFileSync(join(SDK_DIR, name), "utf8"),
+  ]),
 );
 
 const write = (path, content, executable = false) => {
@@ -32,18 +35,15 @@ const write = (path, content, executable = false) => {
 const VERIFY_PY = String.raw`import argparse
 import json
 import os
-from metrics import element_by_id, parse_svg, trees_equal
 
-
-def subtree_equal(left, right):
-    if left is None or right is None:
-        return left is right
-    return trees_equal(left, right)
+from vector_edit_gym.diffing import diff_report
+from vector_edit_gym.tasks import Task
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--produced", required=True)
+    parser.add_argument("--initial", required=True)
     parser.add_argument("--target", required=True)
     parser.add_argument("--metadata", required=True)
     args = parser.parse_args()
@@ -51,36 +51,21 @@ def main():
         produced_text = open(args.produced).read()
     except FileNotFoundError:
         produced_text = ""
+    initial_text = open(args.initial).read()
     target_text = open(args.target).read()
     metadata = json.load(open(args.metadata))
-    produced = parse_svg(produced_text)
-    target = parse_svg(target_text)
-
-    reward = int(produced is not None and target is not None and trees_equal(produced, target))
-    expected = metadata["target_parts"]
-    edit_hits = 0
-    if produced is not None:
-        for part in expected:
-            produced_part = element_by_id(produced, part)
-            target_part = element_by_id(target, part)
-            if target_part is None:
-                edit_hits += int(produced_part is None)
-            else:
-                edit_hits += int(subtree_equal(produced_part, target_part))
-    edit_completion = edit_hits / len(expected) if expected else 1.0
-
-    preserve = metadata["should_preserve"]
-    preserved = sum(
-        subtree_equal(element_by_id(produced, part), element_by_id(target, part))
-        for part in preserve
-    )
-    preservation = preserved / len(preserve) if preserve else 1.0
+    task = Task(initial_svg=initial_text, target_svg=target_text, **metadata)
+    report = diff_report(task, produced_text)
     result = {
-        "reward": reward,
-        "edit_completion": edit_completion,
-        "preservation": preservation,
-        "unintended_change_rate": 1.0 - preservation,
-        "valid": int(produced is not None),
+        "reward": report.reward,
+        "specification_pass": int(report.specification_pass),
+        "repair_pass": int(report.repair_pass),
+        "preservation_pass": int(report.preservation_pass),
+        "validity_pass": int(report.validity_pass),
+        "target_match": int(report.structural),
+        "edit_completion": report.edit_completion,
+        "preservation": report.preservation,
+        "unintended_change_rate": report.unintended_change_rate,
     }
     log_dir = os.environ.get("HARBOR_LOG_DIR", "/logs/verifier")
     os.makedirs(log_dir, exist_ok=True)
@@ -96,6 +81,7 @@ set -eu
 mkdir -p /logs/verifier
 python3 /tests/test_verify.py \\
   --produced /workspace/output.svg \\
+  --initial /workspace/initial.svg \\
   --target /tests/target.svg \\
   --metadata /tests/metadata.json
 `;
@@ -107,14 +93,14 @@ COPY initial.svg /workspace/initial.svg
 
 const DATASET_TOML = `[dataset]
 name = "thetalab/vector-edit-gym"
-description = "40 dense SVG repair tasks with human visual instructions, exact targets, and preservation-aware binary rewards."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+description = "40 dense SVG repair tasks with naturalistic instructions, tolerant requested edits, and strict preservation-aware binary rewards."
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 `;
 
 const METRICS_PY = `def mean(rewards: list[dict]) -> dict:
     if not rewards:
         return {"reward": 0.0}
-    keys = {"reward", "edit_completion", "preservation", "unintended_change_rate", "valid"}
+    keys = {"reward", "specification_pass", "repair_pass", "preservation_pass", "validity_pass", "target_match", "edit_completion", "preservation", "unintended_change_rate"}
     return {key: sum(row.get(key, 0.0) for row in rewards) / len(rewards) for key in keys}
 `;
 
@@ -123,7 +109,7 @@ const taskToml = (task) => `schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-${task.task_id.replaceAll("_", "-")}"
 description = ${JSON.stringify(task.instruction)}
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", ${JSON.stringify(task.difficulty)}, ${JSON.stringify(task.category)}]
 
 [metadata]
@@ -172,10 +158,23 @@ for (const file of files) {
   write(join(taskDir, "environment", "Dockerfile"), DOCKERFILE);
   write(join(taskDir, "environment", "initial.svg"), cleanSvg(task.initial_svg));
   write(join(taskDir, "tests", "target.svg"), cleanSvg(task.target_svg));
-  write(join(taskDir, "tests", "metrics.py"), SDK_METRICS);
+  write(join(taskDir, "tests", "vector_edit_gym", "__init__.py"), "");
+  for (const [name, source] of Object.entries(SDK_MODULES)) {
+    write(join(taskDir, "tests", "vector_edit_gym", name), source);
+  }
   write(
     join(taskDir, "tests", "metadata.json"),
-    `${JSON.stringify({ target_parts: task.target_parts, should_preserve: task.should_preserve }, null, 2)}\n`,
+    `${JSON.stringify({
+      task_id: task.task_id,
+      difficulty: task.difficulty,
+      category: task.category,
+      instruction: task.instruction,
+      parts: task.parts,
+      target_parts: task.target_parts,
+      expected_diff: task.expected_diff,
+      should_preserve: task.should_preserve,
+      display_order: task.display_order,
+    }, null, 2)}\n`,
   );
   write(join(taskDir, "tests", "test_verify.py"), VERIFY_PY);
   write(join(taskDir, "tests", "test.sh"), TEST_SH, true);

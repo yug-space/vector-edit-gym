@@ -3,7 +3,7 @@ schema_version = "1.1"
 [task]
 name = "thetalab/vector-edit-gym-sv-016"
 description = "The lighthouse window should glow yellow and its beam should point cleanly across the harbor. Remove the extra buoy near the pier, make the small sail light blue, smooth the long wave, and return the left crate to the cargo stack. Do not alter the rest."
-authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }]
+authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "very_hard", "scenic_multi"]
 
 [metadata]
