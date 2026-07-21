@@ -677,4 +677,36 @@ per-edit distances, preservation report, and score history at
 \url{https://www.vecbench.xyz/traces/run} using task \texttt{sv\_005} and model
 \texttt{anthropic/claude-sonnet-5}.
 
+\section{A Worked Failure Trace}
+\label{sec:trace}
+
+Complementing the full pass above, Figure~\ref{fig:trace} follows a failing
+response through the same pipeline: the station task from the introduction
+(\texttt{sv\_001}), answered by the strongest overall endpoint, Claude
+Sonnet 5. The output looks plausible and passes the validity gate, but only
+the amber signal is actually repaired ($\Delta E_{76}=0$): the door is moved
+24 user units past the hidden target, the reshaped wire ends up farther from
+the target than the corrupted input was, and the door handle---a protected
+object the corruption never touched---is dragged along with the door. One
+completed repair out of three and one collateral change leave the response in
+the ``valid, incomplete repair'' bucket that dominates
+Figure~\ref{fig:gates}, and the binary reward is zero. This is the paper's
+central gap---visible repair work without the full repair-and-preserve
+contract---compressed into a single trace, and it shows how the failure modes
+of Section~\ref{sec:error-analysis} co-occur inside one response. Every
+per-check distance, tolerance, and rendered before/after is browsable in the
+released
+viewer.\footnote{\url{https://www.vecbench.xyz/traces/run?task=sv_001&model=anthropic/claude-sonnet-5}}
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.92\textwidth]{figures/trace-sv001.png}
+  \caption{One scored trace, end to end. Top: the corrupted input, the model
+  output, and the hidden target. Bottom: the three-gate evaluation of that
+  output. The document is valid (gate 1), but only the signal-fill repair
+  meets its tolerance (gate 2), and moving the door handle changes a
+  protected object (gate 3), so the specification reward is zero.}
+  \label{fig:trace}
+\end{figure*}
+
 \end{document}
