@@ -36,10 +36,11 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
         <div className="grid min-h-[680px] lg:grid-cols-[280px_minmax(0,1fr)]">
           <div className="max-h-[320px] overflow-y-auto border-b border-[hsl(var(--border))] bg-white/55 lg:max-h-[680px] lg:border-b-0 lg:border-r">
             {results.map((result) => (
-              <button
-                key={result.model}
-                type="button"
-                onClick={() => setSelectedModel(result.model)}
+                <button
+                  key={result.model}
+                  type="button"
+                  aria-pressed={selected.model === result.model}
+                  onClick={() => setSelectedModel(result.model)}
                 className={
                   "grid w-full grid-cols-[minmax(0,1fr)_auto] gap-3 border-b border-[hsl(var(--border))] px-4 py-3 text-left transition-colors last:border-b-0 " +
                   (selected.model === result.model ? "bg-[hsl(var(--foreground))] text-white" : "hover:bg-white")
@@ -126,9 +127,12 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 )}
 
                 <div className="mt-4 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] sm:grid-cols-3">
-                  <Metric label="outcome" value={selected.near_pass ? "near" : selected.specification_pass ? "pass" : "fail"} />
+                  <Metric label="outcome" value={formatOutcome(selected.status)} />
                   <Metric label="progress" value={fmtPct(selected.repair_progress)} />
-                  <Metric label="UCR" value={fmtPct(selected.unintended_change_rate)} />
+                  <Metric
+                    label="UCR"
+                    value={selected.validity_pass ? fmtPct(selected.unintended_change_rate) : "n/a"}
+                  />
                   <Metric label="preserve" value={fmtPct(selected.preservation)} />
                   <Metric label="elapsed" value={fmtElapsed(selected.elapsed_ms)} />
                   <Metric label="cost" value={`$${selected.cost_usd.toFixed(4)}`} />
@@ -280,6 +284,9 @@ function formatValue(value: unknown) {
 }
 function formatStatus(status: TaskModelResult["status"]) {
   return status.replace("_", " ");
+}
+function formatOutcome(status: TaskModelResult["status"]) {
+  return status === "ERR" ? "error" : formatStatus(status).toLowerCase();
 }
 function formatComparison(check: TaskModelResult["expected_changes"][number]) {
   if (check.distance !== null && check.tolerance !== null) {

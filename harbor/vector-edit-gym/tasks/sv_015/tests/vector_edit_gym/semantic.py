@@ -8,7 +8,10 @@ import xml.etree.ElementTree as ET
 from .metrics import element_by_id, normalize_attribute, strip_namespace
 
 
-_URL_REFERENCE_RE = re.compile(r"url\(\s*#([^\s)]+)\s*\)", re.IGNORECASE)
+_URL_REFERENCE_RE = re.compile(
+    r"url\(\s*(?P<quote>['\"]?)#(?P<id>[^\s)'\"]+)(?P=quote)\s*\)",
+    re.IGNORECASE,
+)
 _DIRECT_REFERENCE_ATTRIBUTES = {"href"}
 
 
@@ -25,7 +28,7 @@ def corresponding_element(
     if reference is None:
         return None
     path = element_path(reference_root, reference)
-    candidate = element_at_path(produced_root, path)
+    candidate = aligned_element_at_path(produced_root, reference_root, path)
     if candidate is None or candidate.tag != reference.tag:
         return None
     return candidate
@@ -54,9 +57,38 @@ def element_at_path(root: ET.Element, path: tuple[int, ...] | None) -> ET.Elemen
     return current
 
 
-def semantic_trees_equal(produced: ET.Element, target: ET.Element) -> bool:
-    """Compare rendering-relevant structure while allowing harmless ID rewrites."""
-    produced_aliases, target_aliases = aligned_id_aliases(produced, target)
+def aligned_element_at_path(
+    produced_root: ET.Element,
+    reference_root: ET.Element,
+    path: tuple[int, ...] | None,
+) -> ET.Element | None:
+    """Resolve a positional alias only while sibling structure remains aligned."""
+    if path is None:
+        return None
+    produced = produced_root
+    reference = reference_root
+    for index in path:
+        produced_children = list(produced)
+        reference_children = list(reference)
+        if len(produced_children) != len(reference_children) or index >= len(produced_children):
+            return None
+        produced = produced_children[index]
+        reference = reference_children[index]
+        if produced.tag != reference.tag:
+            return None
+    return produced
+
+
+def semantic_trees_equal(
+    produced: ET.Element,
+    target: ET.Element,
+    *,
+    produced_aliases: dict[str, str] | None = None,
+    target_aliases: dict[str, str] | None = None,
+) -> bool:
+    """Compare rendering- and application-relevant structure with ID aliases."""
+    if produced_aliases is None or target_aliases is None:
+        produced_aliases, target_aliases = aligned_id_aliases(produced, target)
     return _semantic_trees_equal(produced, target, produced_aliases, target_aliases)
 
 
@@ -65,7 +97,7 @@ def semantic_tree_differences(
     target: ET.Element | None,
     fallback: str = "__document__",
 ) -> list[str]:
-    """Return concise labels for rendering-relevant tree differences."""
+    """Return concise labels for rendering- or application-relevant differences."""
     if produced is None or target is None:
         return [fallback]
     produced_aliases, target_aliases = aligned_id_aliases(produced, target)
@@ -96,7 +128,11 @@ def aligned_id_aliases(
             produced_aliases[left_id] = canonical
         if right_id:
             target_aliases[right_id] = canonical
-        for index, (left_child, right_child) in enumerate(zip(left, right)):
+        left_children = list(left)
+        right_children = list(right)
+        if len(left_children) != len(right_children):
+            return
+        for index, (left_child, right_child) in enumerate(zip(left_children, right_children)):
             walk(left_child, right_child, (*path, index))
 
     walk(produced, target, ())
@@ -224,7 +260,7 @@ def _style_declarations(style: str) -> dict[str, str] | None:
 
 def _normalize_reference_value(name: str, value: str, aliases: dict[str, str]) -> str:
     def replace_url(match: re.Match[str]) -> str:
-        reference = match.group(1)
+        reference = match.group("id")
         return f"url({aliases.get(reference, '#' + reference)})"
 
     value = _URL_REFERENCE_RE.sub(replace_url, value)

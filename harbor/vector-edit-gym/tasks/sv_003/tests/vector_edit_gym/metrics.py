@@ -7,6 +7,8 @@ import xml.etree.ElementTree as ET
 from decimal import Decimal
 from typing import Optional
 
+from svg.path import parse_path
+
 
 _NUMBER = r"[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?"
 _NUMBER_RE = re.compile(f"^{_NUMBER}$")
@@ -23,6 +25,10 @@ _TRANSFORM_ARITY = {
 }
 _INVALID_PREFIX = "__invalid_svg_syntax__:"
 _COLOR_ATTRS = {"color", "fill", "flood-color", "lighting-color", "stop-color", "stroke"}
+_URL_REFERENCE_RE = re.compile(
+    r"url\(\s*(?P<quote>['\"]?)#(?P<id>[^\s)'\"]+)(?P=quote)\s*\)",
+    re.IGNORECASE,
+)
 _BASIC_COLORS = {
     "aqua": "#00ffff",
     "black": "#000000",
@@ -75,8 +81,47 @@ def valid_svg_tree(root: ET.Element | None) -> bool:
                 return False
             seen_ids.add(part_id)
         for name, value in element.attrib.items():
-            if normalize_attribute(name, value).startswith(_INVALID_PREFIX):
+            if not _valid_attribute_syntax(name, value):
                 return False
+    for element in root.iter():
+        for raw_name, value in element.attrib.items():
+            name = strip_namespace(raw_name)
+            stripped_value = value.strip()
+            if name == "href" and stripped_value.startswith("#") and stripped_value[1:] not in seen_ids:
+                return False
+            if any(
+                match.group("id") not in seen_ids
+                for match in _URL_REFERENCE_RE.finditer(value)
+            ):
+                return False
+        if strip_namespace(element.tag) == "style" and any(
+            match.group("id") not in seen_ids
+            for match in _URL_REFERENCE_RE.finditer(element.text or "")
+        ):
+            return False
+    return True
+
+
+def _valid_attribute_syntax(name: str, value: str) -> bool:
+    name = strip_namespace(name)
+    normalized = normalize_attribute(name, value)
+    if normalized.startswith(_INVALID_PREFIX):
+        return False
+    if name == "d":
+        try:
+            parse_path(value)
+        except (IndexError, TypeError, ValueError, ZeroDivisionError):
+            return False
+    elif name == "points" and normalized:
+        if len(normalized.split()) % 2:
+            return False
+    elif name == "viewBox":
+        try:
+            values = [float(token) for token in normalized.split()]
+        except ValueError:
+            return False
+        if len(values) != 4 or values[2] <= 0 or values[3] <= 0:
+            return False
     return True
 
 

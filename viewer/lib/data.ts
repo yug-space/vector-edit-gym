@@ -76,7 +76,7 @@ export type LeaderboardEntry = {
   source_preservation: number;
   edit_completion: number;
   repair_progress: number;
-  unintended_change_rate: number;
+  unintended_change_rate: number | null;
   error_rate?: number;
   truncation_rate?: number;
   mean_elapsed_ms?: number;

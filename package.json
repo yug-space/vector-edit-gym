@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/yug-space/vector-edit-gym.git"
   },
-  "homepage": "https://svg-rl-env.vercel.app",
+  "homepage": "https://www.vecbench.xyz",
   "dependencies": {
     "next": "16.2.6"
   },

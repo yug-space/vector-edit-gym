@@ -14,7 +14,7 @@
 \usepackage{xcolor}
 \usepackage{longtable}
 \usepackage{url}
-\usepackage[section]{placeins}
+\usepackage{placeins}
 
 \input{generated/results.tex}
 
@@ -28,22 +28,23 @@ Under Preservation Constraints}
 
 \begin{document}
 \maketitle
+\raggedbottom
 
 \begin{abstract}
 Instruction-based vector editing requires two capabilities: making a requested
 change and leaving everything else alone. The second is easy to miss when an
 output is judged only as a raster image. We introduce \textbf{VectorEditGym}, a
 compact, difficult benchmark of \TaskCount{} SVG repair tasks. Each task pairs a
-corrupted SVG program with a human-authored visual instruction, a hidden target program,
+corrupted SVG program with an author-written visual instruction, a hidden target program,
 \MeanExpectedEdits{} annotated repairs on average, and an average of
 \MeanProtectedObjects{} protected objects. Instructions describe visible defects
 without exposing element identifiers, coordinates, color codes, or path data.
 We define a deterministic binary specification reward: requested repairs use
-attribute-aware perceptual tolerances, while unrequested rendering-relevant
+attribute-aware perceptual tolerances, while unrequested rendering- or application-relevant
 structure must remain semantically unchanged and the result must be a valid SVG.
 Canonical target equality and stricter source fidelity are retained as
-diagnostics. Continuous repair progress, a near-complete tier, and Unintended
-Change Rate (UCR) explain partial outcomes. We
+diagnostics. Validity-gated repair progress, a near-complete tier, and
+valid-output Unintended Change Rate (UCR) explain partial outcomes. We
 evaluate \ModelCount{} model endpoints (\OpenModelCount{} listed as open-weight,
 \ControlModelCount{} inexpensive controls, and \FrontierModelCount{} frontier
 closed endpoints) over \RequestCount{} requests.
@@ -79,10 +80,10 @@ shows representative inputs and targets.
 
 Our contributions are:
 \begin{enumerate}
-  \item a frozen corpus of dense, human-described SVG repairs with explicit
+  \item a frozen corpus of dense, author-described SVG repairs with explicit
   intended edits and broad preservation surfaces;
   \item a transparent executable evaluator whose binary specification reward
-  combines tolerant requested-edit checks, rendering-relevant semantic
+  combines tolerant requested-edit checks, rendering- and application-relevant semantic
   preservation, and SVG validity, while retaining source fidelity separately;
   \item a reproducible \ModelCount{}-endpoint evaluation with response
   provenance, token usage, cost, failures, and model-produced SVGs; and
@@ -98,6 +99,8 @@ Our contributions are:
   revealing target numeric/path values.}
   \label{fig:examples}
 \end{figure*}
+
+\FloatBarrier
 
 \section{Related Work}
 
@@ -129,9 +132,11 @@ Each task is a tuple
 \[
   \tau = (x, S_0, S^*, E, U),
 \]
-where $x$ is a human repair instruction, $S_0$ is the corrupted SVG, $S^*$ is
+where $x$ is an author-written repair instruction, $S_0$ is the corrupted SVG, $S^*$ is
 the hidden target, $E$ is a set of expected object-attribute repairs, and $U$ is
-the set of object IDs that must be preserved. The model receives only $(x,S_0)$.
+the scene-object subset used for object-level preservation diagnostics. The
+whole-document preservation gate covers every unrequested node, including nodes
+outside $U$. The model receives only $(x,S_0)$.
 Target source, expected diffs, target-part lists, and preserve lists are excluded
 from the prompt and recorded as hidden evaluator inputs.
 
@@ -148,11 +153,12 @@ The corpus contains 20 compact but busy scenes derived from four authored scene
 templates and 20 larger scenic illustrations. Ten tasks are marked hard and 30
 very hard. Tasks require between three and eight repairs, including insertion or
 deletion, recoloring, displacement, path restoration, line-weight correction,
-and opacity restoration. All unrequested identified parts are protected.
+and opacity restoration. Every unrequested node is covered by the semantic
+preservation gate; $U$ enumerates the identified scene objects used for UCR.
 
 \begin{table}[t]
   \centering
-  \small
+  \scriptsize
   \input{generated/corpus-table.tex}
   \caption{Frozen corpus statistics. Element counts include non-rendering SVG
   nodes; protected-object counts refer to identified scene objects.}
@@ -174,6 +180,8 @@ and opacity restoration. All unrequested identified parts are protected.
   \label{fig:complexity}
 \end{figure}
 
+\FloatBarrier
+
 \section{Executable Evaluation}
 \label{sec:evaluation}
 
@@ -184,7 +192,7 @@ discard namespace spelling differences and attribute order, normalize numeric
 spellings and separators in paths, points, transforms, and view boxes, and map
 common equivalent color spellings (for example, \texttt{white},
 \texttt{\#fff}, and \texttt{rgb(255,255,255)}) to one form. A second form
-$V(S)$ represents rendering-relevant semantics: consistently renamed IDs and
+$V(S)$ represents rendering- and application-relevant semantics: consistently renamed IDs and
 their local references are aligned by tree position, and equivalent inline-style
 and presentation-attribute storage is merged. Element order, nesting, geometry,
 paint, text, and unresolved references remain strict. Malformed XML has neither
@@ -195,7 +203,7 @@ For each requested edit $e\in E$, an attribute-aware predicate
 $\operatorname{ok}_e(S)$ compares the produced value with the hidden target.
 Existence and non-visual values are exact. Scalar geometry uses absolute error;
 colors use CIE Lab $\Delta E_{76}$; and point lists use coordinate RMS. Paths
-are sampled at 129 arc-length positions and compared with a symmetric
+are sampled at 129 length-normalized positions and compared with a symmetric
 nearest-point distance combining RMS and the 95th percentile. This admits the
 same visible curve expressed with different SVG commands. For matching command
 streams, coordinate RMS remains an additional acceptance route. When the
@@ -218,8 +226,9 @@ $V(M_E(S))=V(M_E(S^*))$. It accepts consistent ID renaming and style-storage
 rewrites but catches changes to unlisted definitions, anonymous nodes, root
 attributes, element order, and unrequested visual attributes. We separately
 report the stricter source predicate $C(M_E(S))=C(M_E(S^*))$. The validity gate
-requires a complete SVG root, well-formed XML, unique nonempty IDs, and
-syntactically valid normalized attributes.
+requires a complete SVG root, well-formed XML, unique nonempty IDs, valid path,
+point-list, transform, and view-box syntax, and resolvable local URL and
+\texttt{href} references.
 
 The primary reward remains binary:
 \[
@@ -232,6 +241,17 @@ The primary reward remains binary:
 Canonical target equality $\mathbb{1}[C(S)=C(S^*)]$ and source preservation are
 diagnostics and are not required for a pass. No learned judge or model-based
 grader appears in the public protocol.
+
+\begin{table*}[t]
+  \centering
+  \small
+  \input{generated/controls-table.tex}
+  \caption{Deterministic evaluator controls over all \TaskCount{} tasks. Values
+  are percentages; UCR is conditional on valid SVGs and is undefined when none
+  are valid. The protected-mutation control verifies that completing every
+  repair cannot compensate for an unrequested change.}
+  \label{tab:controls}
+\end{table*}
 
 \subsection{Evaluator Audit}
 \label{sec:evaluator-audit}
@@ -248,15 +268,24 @@ over every non-instruction task field. These checks establish implementation
 invariants, not human perceptual validity: the comparator's scope and the
 absence of a human agreement study remain limitations.
 
+Table~\ref{tab:controls} reports four deterministic controls over all tasks.
+Returning the corrupted input remains valid and perfectly preserved but earns
+no repair credit. Copying the hidden target is the evaluator upper bound. Adding
+one protected metadata mutation to each target preserves all requested repairs
+but forces the binary reward to zero, and malformed targets receive neither
+validity nor progress credit. These are evaluator controls, not solver baselines:
+the target is unavailable to evaluated models.
+
 \subsection{Diagnostic Metrics}
 
 For expected checks $E$, tolerance-aware edit completion is
 \[
   \mathrm{Edit}(S)=\frac{1}{|E|}\sum_{e\in E}\mathbb{1}[\operatorname{ok}_e(S)].
 \]
-For checks with a distance, repair progress is
+For valid outputs and checks with a distance, repair progress is
 $q_e=\operatorname{clip}(1-d_e/\delta_e,0,1)$; exact and existence checks use
-binary progress. We report $|E|^{-1}\sum_e q_e$ in addition to completion. A
+binary progress. Invalid outputs set every $q_e$ to zero, preventing a missing
+document from receiving deletion credit. We report $|E|^{-1}\sum_e q_e$ in addition to completion. A
 \emph{near-complete} output is valid and semantically preserved, misses at most
 one requested check, and has at least 80\% mean progress. It still receives zero
 binary reward.
@@ -269,10 +298,23 @@ For protected objects $U$, preservation and unintended-change rate are
   \end{aligned}
 \]
 We additionally report all-repairs pass rate, whole-document semantic-clean
-rate, source-preservation rate, SVG validity, source exact match, canonical
-target match, provider errors, scheduled elapsed time, tokens, and cost.
+rate, source-preservation rate, SVG validity, whitespace-normalized source-string
+equality to the target, canonical target match, provider errors, scheduled
+elapsed time, tokens, and cost.
 Model-level UCR is averaged over valid outputs so truncation is not mislabeled
-as collateral editing. A provider error or invalid output receives reward zero.
+as collateral editing; it is undefined when a model has no valid output. A
+provider error or invalid output receives reward and repair progress zero.
+
+\begin{table*}[t]
+  \centering
+  \small
+  \input{generated/main-table.tex}
+  \caption{Top ten endpoints under binary specification reward. Full, Near,
+  Repair, Progress, Clean, UCR, and Valid are percentages; UCR is conditional
+  on valid outputs, and cost is provider-reported for all 40 tasks.
+  Full results are in Appendix~\ref{sec:full-results}.}
+  \label{tab:main}
+\end{table*}
 
 \section{Model Study}
 \label{sec:study}
@@ -286,7 +328,7 @@ chat-completions API~\citep{openrouter2026}. These designations record the
 endpoint grouping used for analysis and are not an independent license audit.
 The exact endpoint IDs appear in Appendix~\ref{sec:full-results}.
 
-Every model receives the same system instruction, human repair request, and
+Every model receives the same system instruction, author-written repair request, and
 corrupted SVG source. We record one scored outcome per task and omit temperature
 rather than imposing a provider-incompatible value. In this run, input-adaptive
 output ceilings range from 4,096 to 7,002 tokens. The runner retries rate
@@ -302,38 +344,30 @@ cost \TotalCost{}.
 
 This is an endpoint comparison, not a general ranking of model intelligence.
 It uses one decoded response per model--task pair and does not include a human
-or oracle-editing baseline. The released artifact supports exact reruns of the
+performance baseline. The released artifact supports exact reruns of the
 scored protocol, but does not estimate sampling variance, human performance, or
 performance on unseen SVG distributions.
 
 \subsection{Uncertainty}
 
-We compute 95\% confidence intervals by resampling the 40 tasks with replacement
-10,000 times independently for each model. These intervals quantify task-set
-uncertainty only. They do not estimate sampling variance because each
-model--task pair has one scored outcome and no repeated decoding. Endpoint tables
+We report two-sided 95\% Wilson score intervals over the 40 binary task outcomes
+for each model. Unlike a nonparametric bootstrap, Wilson intervals remain
+informative when a model records zero passes. They quantify uncertainty under a
+Bernoulli task-sampling interpretation only; they do not estimate decoding
+variance because each model--task pair has one scored outcome. Endpoint tables
 are ordered by full specification pass, mean repair progress, lower valid-output
 UCR, validity, and model name.
 
 \section{Results}
 \label{sec:results}
 
-\begin{table*}[t]
-  \centering
-  \small
-  \input{generated/main-table.tex}
-  \caption{Top ten endpoints under binary specification reward. Full, Near,
-  Repair, Progress, Clean, UCR, and Valid are percentages; UCR is conditional
-  on valid outputs, and cost is provider-reported for all 40 tasks.
-  Full results are in Appendix~\ref{sec:full-results}.}
-  \label{tab:main}
-\end{table*}
-
 \paragraph{Specification success remains rare.}
 Only \SpecificationPassCount{} of \RequestCount{} outcomes satisfy all three
 gates (\SpecificationPassRate{}), while \NearPassCount{} (\NearPassRate{}) are
 near-complete and \PartialOutcomeCount{} (\PartialOutcomeRate{}) make at least
-one annotated repair. Mean repair progress is \OverallRepairProgress{}.
+one annotated repair. Validity-gated repair progress is \OverallRepairProgress{}
+over all scheduled outcomes and \ValidRepairProgress{} conditional on valid
+outputs. Valid-output UCR is \OverallValidUCR{} overall.
 Across all outcomes, \RepairPassRate{} satisfy every requested repair and
 \CleanPassRate{} preserve the masked document semantically; the stricter source
 gate passes \SourceCleanPassRate{}, and only \TargetMatchRate{} canonically
@@ -342,7 +376,7 @@ match the full hidden target. The strongest endpoint, \TopModel{}, obtains
 at \TopRepairProgress{}, while its valid-output UCR is \TopUCR{} and SVG validity is
 \TopValidity{}. The difference is the central benchmark result: models frequently
 perform some requested visual work but fail the full repair-and-preserve
-contract. Figure~\ref{fig:reward} reports task-bootstrap intervals for every
+contract. Figure~\ref{fig:reward} reports Wilson intervals for every
 endpoint.
 
 \paragraph{Frontier endpoints remain subject to the same bottlenecks.}
@@ -360,6 +394,41 @@ remain failures because the protocol requires a complete usable artifact.
   frontier closed endpoints.}
   \label{fig:reward}
 \end{figure*}
+
+\paragraph{The failure mass is mostly incomplete or unusable output.}
+Figure~\ref{fig:gates} partitions every model--task pair into exactly one gate
+outcome. This decomposition prevents low binary success from being interpreted
+as one homogeneous failure mode: a valid partial repair, an all-repairs output
+with collateral changes, and an invalid or missing SVG all receive zero reward
+for different reasons.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.82\textwidth]{figures/gate-decomposition.pdf}
+  \caption{Mutually exclusive decomposition of all \RequestCount{} outcomes.
+  The first two rows distinguish clean specification success from completed
+  repairs with side effects; the remaining rows isolate incomplete valid edits
+  from invalid or missing artifacts.}
+  \label{fig:gates}
+\end{figure*}
+
+\paragraph{The conclusion is stable to moderate tolerance changes.}
+Table~\ref{tab:sensitivity} rescales every distance-based tolerance while
+retaining exact structural checks, validity, semantic preservation, and the
+rule that the known corruption cannot pass. The absolute pass rate changes, as
+expected, but remains low under both stricter and looser settings. Thus the
+result is not created by requiring canonical target equality, although the
+precise binary rate remains calibration-dependent.
+
+\begin{table}[t]
+  \centering
+  \small
+  \input{generated/sensitivity-table.tex}
+  \caption{Tolerance sensitivity over the same \RequestCount{} recorded
+  outcomes; the primary setting is bold. Rates are percentages. Scaling applies only to distance-based
+  requested-edit tolerances; all other reward gates are unchanged.}
+  \label{tab:sensitivity}
+\end{table}
 
 \paragraph{Repair and preservation are separate axes.}
 Figure~\ref{fig:tradeoffs} (left) plots mean repair progress against valid-output UCR. A model can
@@ -438,6 +507,7 @@ persistent failures remain zero-scored observations. The aggregate provider
 error rate is \OverallErrorRate{}, and \OverallTruncationRate{} of all outcomes
 end at the provider's output-length limit; parse failure is measured separately.
 
+\FloatBarrier
 \section{Limitations and Artifact Risks}
 
 VectorEditGym has only \TaskCount{} tasks and should be treated as a focused
@@ -449,6 +519,12 @@ CIE76 is only an approximate color metric, and viewport-relative caps may be too
 strict or permissive for particular scenes. The semantic comparator does not
 execute arbitrary CSS, browser layout, animation, scripting, accessibility, or
 editor-specific behavior.
+
+Instructions and acceptable edits were authored and checked by the benchmark
+authors; no independent annotator-agreement or human-performance study was run.
+The sensitivity analysis varies tolerance width but is not a substitute for
+human calibration. Consequently, binary reward should be interpreted as success
+under this released executable specification, not universal perceptual approval.
 
 The evaluation uses one scored outcome per model--task pair and therefore cannot
 characterize sampling stability. OpenRouter can change prices, routing, model versions, and
@@ -470,12 +546,14 @@ reasoning, source localization, and code generation under one protocol.
 \section{Conclusion}
 
 VectorEditGym isolates a practical requirement for editing agents: requested
-change is not enough; preservation is part of the specification. Human visual
-instructions make the task less like copying a patch, while executable SVG
-targets make every decision auditable. Across \ModelCount{} endpoints, partial
+change is not enough; preservation is part of the specification. Author-written
+visual instructions make the task less like copying a patch, while executable SVG
+targets make evaluator decisions inspectable. Across \ModelCount{} endpoints, partial
 repair is much more common than specification-faithful repair. The released
 outputs and diff reports make that gap inspectable at the object and source level
 and provide a compact target for improving structured visual editors.
+
+\bibliography{custom}
 
 \appendix
 \clearpage
@@ -485,7 +563,9 @@ and provide a compact target for improving structured visual editors.
 \paragraph{Reproducibility.}
 The release includes the frozen corpus, prompts, runner, evaluator, tests,
 analysis, paper source, Harbor tasks, and per-output viewer. Credentials and
-transport-level API envelopes are excluded.
+transport-level API envelopes are excluded. The public artifact is available at
+\url{https://www.vecbench.xyz}, with source at
+\url{https://github.com/yug-space/vector-edit-gym}.
 
 \paragraph{Shared authorship.}
 Yug Aditi Gupta and Prannay Hebbar contributed equally to the benchmark,
@@ -502,9 +582,5 @@ are available in the machine-readable release.
 \scriptsize
 \input{generated/full-table.tex}
 \small
-
-\twocolumn
-
-\bibliography{custom}
 
 \end{document}

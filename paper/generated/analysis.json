@@ -1,6 +1,6 @@
 {
   "protocol": "human-visual-instruction-2026-07",
-  "evaluator": "semantic-perceptual-binary-2026-07",
+  "evaluator": "semantic-perceptual-binary-2026-07-21",
   "models": 34,
   "open_weight_models": 25,
   "cheap_control_models": 5,
@@ -11,7 +11,7 @@
   "error_rate": 0.030147058823529412,
   "truncation_count": 514,
   "truncation_rate": 0.3779411764705882,
-  "validity_rate": 0.5419117647058823,
+  "validity_rate": 0.5397058823529411,
   "specification_passes": 32,
   "specification_pass_rate": 0.023529411764705882,
   "near_passes": 14,
@@ -22,23 +22,70 @@
   "preservation_pass_rate": 0.19852941176470587,
   "source_preservation_passes": 269,
   "source_preservation_pass_rate": 0.19779411764705881,
-  "repair_progress": 0.35313761716911757,
+  "repair_progress": 0.2745594526517273,
+  "valid_repair_progress": 0.5087205117252713,
+  "valid_output_ucr": 0.02447688277116956,
   "target_matches": 1,
   "target_match_rate": 0.0007352941176470588,
-  "partial_outcomes": 682,
-  "partial_outcome_rate": 0.5014705882352941,
+  "partial_outcomes": 679,
+  "partial_outcome_rate": 0.49926470588235294,
   "side_effect_outcomes": 12,
   "side_effect_outcome_rate": 0.008823529411764706,
+  "gate_decomposition": [
+    {
+      "label": "Full specification pass",
+      "count": 32,
+      "rate": 0.023529411764705882
+    },
+    {
+      "label": "All repairs, side effects",
+      "count": 12,
+      "rate": 0.008823529411764706
+    },
+    {
+      "label": "Valid, incomplete repair",
+      "count": 690,
+      "rate": 0.5073529411764706
+    },
+    {
+      "label": "Invalid or missing SVG",
+      "count": 626,
+      "rate": 0.4602941176470588
+    }
+  ],
+  "tolerance_sensitivity": [
+    {
+      "scale": 0.5,
+      "specification_passes": 11,
+      "specification_pass_rate": 0.008088235294117648,
+      "repair_passes": 13,
+      "repair_pass_rate": 0.009558823529411765
+    },
+    {
+      "scale": 1.0,
+      "specification_passes": 32,
+      "specification_pass_rate": 0.023529411764705882,
+      "repair_passes": 44,
+      "repair_pass_rate": 0.03235294117647059
+    },
+    {
+      "scale": 1.5,
+      "specification_passes": 46,
+      "specification_pass_rate": 0.033823529411764704,
+      "repair_passes": 67,
+      "repair_pass_rate": 0.04926470588235294
+    }
+  ],
   "top_model": "Claude Sonnet 5",
   "top_model_id": "anthropic/claude-sonnet-5",
   "top_reward": 0.15,
   "top_near_pass": 0.025,
   "top_repair_pass": 0.15,
   "top_preservation_pass": 0.425,
-  "top_reward_ci_low": 0.05,
-  "top_reward_ci_high": 0.275,
+  "top_reward_ci_low": 0.07061187717320358,
+  "top_reward_ci_high": 0.2907232436648971,
   "top_edit_completion": 0.4498511904761905,
-  "top_repair_progress": 0.5055991131646825,
+  "top_repair_progress": 0.4367499068154762,
   "top_ucr": 0.007746386281064034,
   "top_validity": 0.625,
   "frontier_top_model": "Claude Sonnet 5",
@@ -47,7 +94,7 @@
   "frontier_top_repair_pass": 0.15,
   "frontier_top_preservation_pass": 0.425,
   "frontier_top_edit_completion": 0.4498511904761905,
-  "frontier_top_repair_progress": 0.5055991131646825,
+  "frontier_top_repair_progress": 0.4367499068154762,
   "frontier_top_validity": 0.625,
   "frontier_top_truncation": 0.4,
   "corpus": {
@@ -81,5 +128,43 @@
       "scenic_multi": 16,
       "scenic_very_hard": 4
     }
-  }
+  },
+  "evaluator_controls": [
+    {
+      "name": "Return corrupted input",
+      "full": 0.0,
+      "repair": 0.0,
+      "progress": 0.0,
+      "clean": 1.0,
+      "valid": 1.0,
+      "ucr": 0.0
+    },
+    {
+      "name": "Hidden target copy",
+      "full": 1.0,
+      "repair": 1.0,
+      "progress": 1.0,
+      "clean": 1.0,
+      "valid": 1.0,
+      "ucr": 0.0
+    },
+    {
+      "name": "Target + protected mutation",
+      "full": 0.0,
+      "repair": 1.0,
+      "progress": 1.0,
+      "clean": 0.0,
+      "valid": 1.0,
+      "ucr": 0.017300713452392907
+    },
+    {
+      "name": "Malformed target",
+      "full": 0.0,
+      "repair": 0.0,
+      "progress": 0.0,
+      "clean": 0.0,
+      "valid": 0.0,
+      "ucr": null
+    }
+  ]
 }

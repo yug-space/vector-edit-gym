@@ -65,19 +65,19 @@ Task(
 - `reward`: integer `1` only when requested repairs, semantic preservation, and SVG validity all pass
 - `near_pass`: valid, semantically clean output with at most one missed repair and at least 80% aggregate repair progress; diagnostic only
 - `repair_pass`: every requested value is within its deterministic attribute-aware tolerance
-- `preservation_pass`: the rendering-relevant document is unchanged after masking requested fields; consistent ID aliases and style storage rewrites are accepted
+- `preservation_pass`: the rendering- and application-relevant document is unchanged after masking requested fields; consistent ID aliases and style storage rewrites are accepted
 - `source_preservation_pass`: strict source-tree preservation after masking requested fields, reported as a diagnostic
-- `validity_pass`: complete SVG root, valid XML/SVG syntax, and unique nonempty IDs
+- `validity_pass`: complete SVG root, valid XML/geometry syntax, unique nonempty IDs, and resolvable local references
 - `exact`: source equality after whitespace normalization
 - `structural`: canonical full-target equality, retained as a diagnostic only
 - `edit_completion`: fraction of private expected repairs passed
-- `repair_progress`: mean clipped progress from each corrupted value toward its hidden target
+- `repair_progress`: mean clipped progress from each corrupted value toward its hidden target; invalid outputs receive zero progress
 - `preservation`: fraction of protected object subtrees unchanged
-- `unintended_change_rate`: fraction of protected object subtrees changed
+- `unintended_change_rate`: fraction of protected object subtrees changed; aggregate UCR is conditional on valid outputs and may be `None`
 - `produced_parse_ok`: whether the output parses as XML
 - `produced_valid_svg`: whether the parsed output passes structural SVG validity
 
-Requested numeric, color, path, and point values use deterministic perceptual tolerances. Paths are compared by sampled geometry, not command-string topology. The semantic preservation comparator aligns elements by ID and stable tree position, canonicalizes style storage, and aliases consistent ID rewrites. Everything outside requested fields remains rendering-relevant and order-sensitive.
+Requested numeric, color, path, and point values use deterministic perceptual tolerances. Paths are compared by sampled geometry, not command-string topology. The semantic preservation comparator aligns elements by ID and stable tree position, canonicalizes style storage, and aliases consistent ID rewrites. Outside requested fields, rendering- and application-relevant structure remains strict and order-sensitive.
 
 ## CLI
 

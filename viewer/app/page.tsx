@@ -54,7 +54,7 @@ export default async function HomePage() {
         id="leaderboard"
         eyebrow="leaderboard"
         title="A repair can be approximate. Its side effects cannot."
-        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A full pass requires every requested repair within calibrated perceptual tolerance, a valid SVG, and semantic preservation outside the requested fields. Near-complete and repair progress show useful non-binary behavior.`}
+        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A full pass requires every requested repair within calibrated perceptual tolerance, a valid SVG, and semantic preservation outside the requested fields. Invalid outputs receive zero repair progress; UCR is conditional on valid outputs.`}
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div className="flex flex-wrap gap-x-5 gap-y-2 mono-label">
@@ -131,7 +131,7 @@ export default async function HomePage() {
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.repair_progress)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation_pass)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.source_preservation_pass)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.unintended_change_rate)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtNullablePct(e.unintended_change_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.validity)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.structural)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtOptionalPct(e.truncation_rate)}</TableCell>
@@ -150,7 +150,7 @@ export default async function HomePage() {
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
               <p className="eyebrow">paper analysis</p>
-              <h3 className="mt-3 text-2xl font-semibold">The aggregate score hides two different failures.</h3>
+              <h3 className="mt-3 text-2xl font-semibold">The binary score separates four distinct outcomes.</h3>
             </div>
             <a href="/vectoreditgym-paper.pdf" className="theta-button">
               <FileText className="h-4 w-4" />
@@ -158,6 +158,10 @@ export default async function HomePage() {
             </a>
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
+            <figure className="border-t border-[hsl(var(--border))] pt-3 lg:col-span-2">
+              <img src="/figures/gate-decomposition.png" alt="Mutually exclusive decomposition of benchmark outcomes by evaluation gate" className="mx-auto w-full max-w-4xl bg-white" />
+              <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Each output is assigned once: full pass, completed repair with side effects, valid incomplete repair, or invalid artifact.</figcaption>
+            </figure>
             <figure className="border-t border-[hsl(var(--border))] pt-3">
               <img src="/figures/edit-completion-vs-ucr.png" alt="Scatter plot of repair progress against valid-output unintended change rate" className="w-full bg-white" />
               <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Repair progress and collateral change on valid outputs are measured independently.</figcaption>
@@ -274,4 +278,5 @@ function Section({
 }
 
 function fmtPct(v: number) { return `${(v * 100).toFixed(1)}%`; }
+function fmtNullablePct(v: number | null) { return v === null ? "n/a" : fmtPct(v); }
 function fmtOptionalPct(v?: number) { return v === undefined ? "—" : fmtPct(v); }

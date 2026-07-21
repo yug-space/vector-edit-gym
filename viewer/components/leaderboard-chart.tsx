@@ -141,7 +141,9 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
                 `Tasks run: ${e.tasks_run}`,
                 `Date: ${e.date}`,
               ];
-              details.push(`Valid-output UCR: ${(e.unintended_change_rate * 100).toFixed(1)}%`);
+              details.push(
+                `Valid-output UCR: ${e.unintended_change_rate === null ? "n/a" : `${(e.unintended_change_rate * 100).toFixed(1)}%`}`,
+              );
               if (e.error_rate !== undefined) {
                 details.push(`Errors: ${(e.error_rate * 100).toFixed(1)}%`);
               }

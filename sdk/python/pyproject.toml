@@ -11,7 +11,7 @@ requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
   { name = "Yug Aditi Gupta", email = "yug@thetalab.tech" },
-  { name = "Prannay Hebbar" },
+  { name = "Prannay Hebbar", email = "prannay@warping.co" },
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -23,9 +23,9 @@ classifiers = [
 dependencies = ["svg.path>=7.0,<8"]
 
 [project.urls]
-Homepage = "https://svg-rl-env.vercel.app"
+Homepage = "https://www.vecbench.xyz"
 Repository = "https://github.com/yug-space/vector-edit-gym"
-Paper = "https://svg-rl-env.vercel.app/vectoreditgym-paper.pdf"
+Paper = "https://www.vecbench.xyz/vectoreditgym-paper.pdf"
 Issues = "https://github.com/yug-space/vector-edit-gym/issues"
 
 [project.optional-dependencies]

@@ -100,7 +100,10 @@ function ModelResultChips({ results }: { results: TaskModelResultSummary[] }) {
   const clean = results.filter((result) => result.preservation_pass).length;
   const errors = results.filter((result) => result.status === "ERR").length;
   const averageProgress = results.reduce((sum, result) => sum + result.repair_progress, 0) / results.length;
-  const averageUcr = results.reduce((sum, result) => sum + result.unintended_change_rate, 0) / results.length;
+  const validResults = results.filter((result) => result.validity_pass);
+  const averageUcr = validResults.length
+    ? validResults.reduce((sum, result) => sum + result.unintended_change_rate, 0) / validResults.length
+    : null;
 
   return (
     <div className="mt-3 border-t border-[hsl(var(--border))] pt-2">
@@ -115,7 +118,7 @@ function ModelResultChips({ results }: { results: TaskModelResultSummary[] }) {
       </div>
       <div className="mt-1 grid grid-cols-2 gap-2 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
         <span>progress {(averageProgress * 100).toFixed(0)}%</span>
-        <span>ucr {(averageUcr * 100).toFixed(1)}%</span>
+        <span>ucr {averageUcr === null ? "n/a" : `${(averageUcr * 100).toFixed(1)}%`}</span>
       </div>
     </div>
   );

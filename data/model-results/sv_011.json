@@ -350,7 +350,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -364,7 +364,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -378,7 +378,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -405,7 +405,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -419,7 +419,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -433,7 +433,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -1137,7 +1137,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -1151,7 +1151,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -1165,7 +1165,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -1192,7 +1192,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -1206,7 +1206,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -1220,7 +1220,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -1453,7 +1453,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -1467,7 +1467,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -1481,7 +1481,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -1508,7 +1508,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -1522,7 +1522,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -1536,7 +1536,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -2401,7 +2401,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -2415,7 +2415,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -2429,7 +2429,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -2456,7 +2456,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -2470,7 +2470,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -2484,7 +2484,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -2717,7 +2717,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -2731,7 +2731,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -2745,7 +2745,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -2772,7 +2772,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -2786,7 +2786,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -2800,7 +2800,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -3631,165 +3631,6 @@
     "raw_response": null
   },
   {
-    "name": "GPT-OSS 20B",
-    "provider": "OpenAI",
-    "model": "openai/gpt-oss-20b",
-    "resolved_model": "openai/gpt-oss-20b",
-    "response_id": "gen-1784546930-XLaLlM2e8E2LWwjl93pN",
-    "group": "open-weight",
-    "status": "PARTIAL",
-    "reward": 0,
-    "specification_pass": false,
-    "near_pass": false,
-    "repair_pass": false,
-    "preservation_pass": false,
-    "source_preservation_pass": false,
-    "validity_pass": true,
-    "exact": false,
-    "structural": false,
-    "edit_completion": 0.5,
-    "repair_progress": 0.47918466666666665,
-    "preservation": 1,
-    "source_preservation": 1,
-    "unintended_change_rate": 0,
-    "expected_changes_passed": 3,
-    "expected_changes_total": 6,
-    "expected_changes": [
-      {
-        "part": "crate-right",
-        "attribute": "x",
-        "expected_after": 28,
-        "produced": 38,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": 10,
-        "tolerance": 5,
-        "baseline_distance": 10,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "crate-right",
-        "attribute": "y",
-        "expected_after": 76,
-        "produced": 76,
-        "passed": true,
-        "comparison": "numeric-delta",
-        "distance": 0,
-        "tolerance": 2,
-        "baseline_distance": 4,
-        "progress": 1,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "harbor-wave-long",
-        "attribute": "d",
-        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
-        "produced": "M82 122 C98 126 112 110 128 120 S158 126 174 122",
-        "passed": false,
-        "comparison": "path-shape",
-        "distance": 12.659138,
-        "tolerance": 4.2,
-        "baseline_distance": 14.557341,
-        "progress": 0.130395,
-        "unit": "sampled geometry",
-        "detail": "command topology is ignored; rendered path shape is compared"
-      },
-      {
-        "part": "light-beam",
-        "attribute": "points",
-        "expected_after": [
-          [
-            180,
-            30
-          ],
-          [
-            132,
-            18
-          ],
-          [
-            132,
-            42
-          ]
-        ],
-        "produced": [
-          [
-            188,
-            28
-          ],
-          [
-            140,
-            20
-          ],
-          [
-            140,
-            40
-          ]
-        ],
-        "passed": false,
-        "comparison": "points-rms",
-        "distance": 5.830952,
-        "tolerance": 3.478505,
-        "baseline_distance": 6.324555,
-        "progress": 0.078046,
-        "unit": "coordinate RMS",
-        "detail": null
-      },
-      {
-        "part": "lighthouse-window",
-        "attribute": "fill",
-        "expected_after": "#fde047",
-        "produced": "#fde047",
-        "passed": true,
-        "comparison": "color-lab",
-        "distance": 0,
-        "tolerance": 18,
-        "baseline_distance": 115.161861,
-        "progress": 1,
-        "unit": "Delta E76",
-        "detail": null
-      },
-      {
-        "part": "mast",
-        "attribute": "stroke-width",
-        "expected_after": 3,
-        "produced": 2,
-        "passed": true,
-        "comparison": "line-weight-delta",
-        "distance": 1,
-        "tolerance": 1.2,
-        "baseline_distance": 3,
-        "progress": 0.666667,
-        "unit": "user units",
-        "detail": null
-      }
-    ],
-    "unexpected_changed_parts": [
-      "harbor-wave-long",
-      "lighthouse-window"
-    ],
-    "failure_reasons": [
-      "requested_repairs_incomplete",
-      "unintended_document_changes"
-    ],
-    "preservation_failures": [],
-    "source_preservation_failures": [],
-    "elapsed_ms": 2260849.26620801,
-    "cost_usd": 0.000537995,
-    "prompt_tokens": 2775,
-    "completion_tokens": 3268,
-    "finish_reason": "stop",
-    "reasoning_tokens": 687,
-    "max_output_tokens": 4096,
-    "produced_parse_ok": true,
-    "produced_valid_svg": true,
-    "error": null,
-    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"2\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.5\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,28 140,20 140,40\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112 110 128 120 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"38\" y=\"76\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
-    "raw_response": null
-  },
-  {
     "name": "Mistral Small 2603",
     "provider": "Mistral",
     "model": "mistralai/mistral-small-2603",
@@ -4126,6 +3967,335 @@
     "raw_response": null
   },
   {
+    "name": "GPT-OSS 20B",
+    "provider": "OpenAI",
+    "model": "openai/gpt-oss-20b",
+    "resolved_model": "openai/gpt-oss-20b",
+    "response_id": "gen-1784546930-XLaLlM2e8E2LWwjl93pN",
+    "group": "open-weight",
+    "status": "PARTIAL",
+    "reward": 0,
+    "specification_pass": false,
+    "near_pass": false,
+    "repair_pass": false,
+    "preservation_pass": false,
+    "source_preservation_pass": false,
+    "validity_pass": true,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0.5,
+    "repair_progress": 0.47918466666666665,
+    "preservation": 1,
+    "source_preservation": 1,
+    "unintended_change_rate": 0,
+    "expected_changes_passed": 3,
+    "expected_changes_total": 6,
+    "expected_changes": [
+      {
+        "part": "crate-right",
+        "attribute": "x",
+        "expected_after": 28,
+        "produced": 38,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": 10,
+        "tolerance": 5,
+        "baseline_distance": 10,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "crate-right",
+        "attribute": "y",
+        "expected_after": 76,
+        "produced": 76,
+        "passed": true,
+        "comparison": "numeric-delta",
+        "distance": 0,
+        "tolerance": 2,
+        "baseline_distance": 4,
+        "progress": 1,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "harbor-wave-long",
+        "attribute": "d",
+        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
+        "produced": "M82 122 C98 126 112 110 128 120 S158 126 174 122",
+        "passed": false,
+        "comparison": "path-shape",
+        "distance": 12.659138,
+        "tolerance": 4.2,
+        "baseline_distance": 14.557341,
+        "progress": 0.130395,
+        "unit": "sampled geometry",
+        "detail": "command topology is ignored; rendered path shape is compared"
+      },
+      {
+        "part": "light-beam",
+        "attribute": "points",
+        "expected_after": [
+          [
+            180,
+            30
+          ],
+          [
+            132,
+            18
+          ],
+          [
+            132,
+            42
+          ]
+        ],
+        "produced": [
+          [
+            188,
+            28
+          ],
+          [
+            140,
+            20
+          ],
+          [
+            140,
+            40
+          ]
+        ],
+        "passed": false,
+        "comparison": "points-rms",
+        "distance": 5.830952,
+        "tolerance": 3.478505,
+        "baseline_distance": 6.324555,
+        "progress": 0.078046,
+        "unit": "coordinate RMS",
+        "detail": null
+      },
+      {
+        "part": "lighthouse-window",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": "#fde047",
+        "passed": true,
+        "comparison": "color-lab",
+        "distance": 0,
+        "tolerance": 18,
+        "baseline_distance": 115.161861,
+        "progress": 1,
+        "unit": "Delta E76",
+        "detail": null
+      },
+      {
+        "part": "mast",
+        "attribute": "stroke-width",
+        "expected_after": 3,
+        "produced": 2,
+        "passed": true,
+        "comparison": "line-weight-delta",
+        "distance": 1,
+        "tolerance": 1.2,
+        "baseline_distance": 3,
+        "progress": 0.666667,
+        "unit": "user units",
+        "detail": null
+      }
+    ],
+    "unexpected_changed_parts": [
+      "harbor-wave-long",
+      "lighthouse-window"
+    ],
+    "failure_reasons": [
+      "requested_repairs_incomplete",
+      "unintended_document_changes"
+    ],
+    "preservation_failures": [],
+    "source_preservation_failures": [],
+    "elapsed_ms": 2260849.26620801,
+    "cost_usd": 0.000537995,
+    "prompt_tokens": 2775,
+    "completion_tokens": 3268,
+    "finish_reason": "stop",
+    "reasoning_tokens": 687,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": true,
+    "produced_valid_svg": true,
+    "error": null,
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"2\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.5\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,28 140,20 140,40\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112 110 128 120 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"38\" y=\"76\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
+    "raw_response": null
+  },
+  {
+    "name": "Phi-4",
+    "provider": "Microsoft",
+    "model": "microsoft/phi-4",
+    "resolved_model": "microsoft/phi-4",
+    "response_id": "gen-1784547729-GNyFHs9cfPkKedA1dxfI",
+    "group": "open-weight",
+    "status": "PARTIAL",
+    "reward": 0,
+    "specification_pass": false,
+    "near_pass": false,
+    "repair_pass": false,
+    "preservation_pass": false,
+    "source_preservation_pass": false,
+    "validity_pass": true,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0.3333333333333333,
+    "repair_progress": 0.35167299999999996,
+    "preservation": 0.9464285714285714,
+    "source_preservation": 0.9464285714285714,
+    "unintended_change_rate": 0.05357142857142857,
+    "expected_changes_passed": 2,
+    "expected_changes_total": 6,
+    "expected_changes": [
+      {
+        "part": "crate-right",
+        "attribute": "x",
+        "expected_after": 28,
+        "produced": 40,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": 12,
+        "tolerance": 5,
+        "baseline_distance": 10,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "crate-right",
+        "attribute": "y",
+        "expected_after": 76,
+        "produced": 80,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": 4,
+        "tolerance": 2,
+        "baseline_distance": 4,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "harbor-wave-long",
+        "attribute": "d",
+        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
+        "produced": "M82 122 C98 126 112 114 128 122 S158 126 174 122",
+        "passed": false,
+        "comparison": "path-shape",
+        "distance": 12.955477,
+        "tolerance": 4.2,
+        "baseline_distance": 14.557341,
+        "progress": 0.110038,
+        "unit": "sampled geometry",
+        "detail": "command topology is ignored; rendered path shape is compared"
+      },
+      {
+        "part": "light-beam",
+        "attribute": "points",
+        "expected_after": [
+          [
+            180,
+            30
+          ],
+          [
+            132,
+            18
+          ],
+          [
+            132,
+            42
+          ]
+        ],
+        "produced": [
+          [
+            188,
+            26
+          ],
+          [
+            180,
+            12
+          ],
+          [
+            180,
+            38
+          ]
+        ],
+        "passed": false,
+        "comparison": "points-rms",
+        "distance": 28.106939,
+        "tolerance": 3.478505,
+        "baseline_distance": 6.324555,
+        "progress": 0,
+        "unit": "coordinate RMS",
+        "detail": null
+      },
+      {
+        "part": "lighthouse-window",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": "#fde047",
+        "passed": true,
+        "comparison": "color-lab",
+        "distance": 0,
+        "tolerance": 18,
+        "baseline_distance": 115.161861,
+        "progress": 1,
+        "unit": "Delta E76",
+        "detail": null
+      },
+      {
+        "part": "mast",
+        "attribute": "stroke-width",
+        "expected_after": 3,
+        "produced": 3,
+        "passed": true,
+        "comparison": "line-weight-delta",
+        "distance": 0,
+        "tolerance": 1.2,
+        "baseline_distance": 3,
+        "progress": 1,
+        "unit": "user units",
+        "detail": null
+      }
+    ],
+    "unexpected_changed_parts": [
+      "flag",
+      "harbor-wave-long",
+      "mast",
+      "sail-main",
+      "sail-small"
+    ],
+    "failure_reasons": [
+      "requested_repairs_incomplete",
+      "unintended_document_changes"
+    ],
+    "preservation_failures": [
+      "sail-main",
+      "sail-small",
+      "flag"
+    ],
+    "source_preservation_failures": [
+      "sail-main",
+      "sail-small",
+      "flag"
+    ],
+    "elapsed_ms": 2859370.156374993,
+    "cost_usd": 0.00055748,
+    "prompt_tokens": 2730,
+    "completion_tokens": 2617,
+    "finish_reason": "stop",
+    "reasoning_tokens": 0,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": true,
+    "produced_valid_svg": true,
+    "error": null,
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n  <rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"36\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,38 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,42 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,33 140,37 126,41\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 180,12 180,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1.5\" d=\"M82 122 C98 126 112 114 128 122 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"40\" y=\"80\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
+    "raw_response": null
+  },
+  {
     "name": "Laguna M.1",
     "provider": "Poolside",
     "model": "poolside/laguna-m.1",
@@ -4160,7 +4330,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -4174,7 +4344,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -4188,7 +4358,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -4215,7 +4385,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -4229,7 +4399,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -4243,7 +4413,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -4442,12 +4612,12 @@
     "raw_response": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"202,26 220,10 220,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1.5\" d=\"M82 122 C94 118 106 124 120 120 C134 116 146 122 160 122 C174 122 174 122 174 122\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"48\" y=\"88\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\""
   },
   {
-    "name": "Phi-4",
-    "provider": "Microsoft",
-    "model": "microsoft/phi-4",
-    "resolved_model": "microsoft/phi-4",
-    "response_id": "gen-1784547729-GNyFHs9cfPkKedA1dxfI",
-    "group": "open-weight",
+    "name": "Ling 2.6 Flash",
+    "provider": "InclusionAI",
+    "model": "inclusionai/ling-2.6-flash",
+    "resolved_model": "inclusionai/ling-2.6-flash",
+    "response_id": "gen-1784545317-fbqhJ1O8YR7T6dcIDaWZ",
+    "group": "cheap-control",
     "status": "PARTIAL",
     "reward": 0,
     "specification_pass": false,
@@ -4458,22 +4628,22 @@
     "validity_pass": true,
     "exact": false,
     "structural": false,
-    "edit_completion": 0.3333333333333333,
-    "repair_progress": 0.35167299999999996,
-    "preservation": 0.9464285714285714,
-    "source_preservation": 0.9464285714285714,
-    "unintended_change_rate": 0.05357142857142857,
-    "expected_changes_passed": 2,
+    "edit_completion": 0.16666666666666666,
+    "repair_progress": 0.15417533333333333,
+    "preservation": 0.9821428571428571,
+    "source_preservation": 0.9821428571428571,
+    "unintended_change_rate": 0.017857142857142856,
+    "expected_changes_passed": 1,
     "expected_changes_total": 6,
     "expected_changes": [
       {
         "part": "crate-right",
         "attribute": "x",
         "expected_after": 28,
-        "produced": 40,
+        "produced": 100,
         "passed": false,
         "comparison": "numeric-delta",
-        "distance": 12,
+        "distance": 72,
         "tolerance": 5,
         "baseline_distance": 10,
         "progress": 0,
@@ -4498,13 +4668,13 @@
         "part": "harbor-wave-long",
         "attribute": "d",
         "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
-        "produced": "M82 122 C98 126 112 114 128 122 S158 126 174 122",
+        "produced": "M82 122 C98 126 112 110 128 122 S158 126 174 122",
         "passed": false,
         "comparison": "path-shape",
-        "distance": 12.955477,
+        "distance": 14.557341,
         "tolerance": 4.2,
         "baseline_distance": 14.557341,
-        "progress": 0.110038,
+        "progress": 0,
         "unit": "sampled geometry",
         "detail": "command topology is ignored; rendered path shape is compared"
       },
@@ -4531,17 +4701,17 @@
             26
           ],
           [
-            180,
-            12
+            120,
+            14
           ],
           [
-            180,
+            120,
             38
           ]
         ],
         "passed": false,
         "comparison": "points-rms",
-        "distance": 28.106939,
+        "distance": 8.164966,
         "tolerance": 3.478505,
         "baseline_distance": 6.324555,
         "progress": 0,
@@ -4552,13 +4722,176 @@
         "part": "lighthouse-window",
         "attribute": "fill",
         "expected_after": "#fde047",
-        "produced": "#fde047",
+        "produced": "#fdd03a",
         "passed": true,
         "comparison": "color-lab",
-        "distance": 0,
+        "distance": 8.631161,
         "tolerance": 18,
         "baseline_distance": 115.161861,
-        "progress": 1,
+        "progress": 0.925052,
+        "unit": "Delta E76",
+        "detail": null
+      },
+      {
+        "part": "mast",
+        "attribute": "stroke-width",
+        "expected_after": 3,
+        "produced": 6,
+        "passed": false,
+        "comparison": "line-weight-delta",
+        "distance": 3,
+        "tolerance": 1.2,
+        "baseline_distance": 3,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      }
+    ],
+    "unexpected_changed_parts": [
+      "cabin-window",
+      "lighthouse-window"
+    ],
+    "failure_reasons": [
+      "requested_repairs_incomplete",
+      "unintended_document_changes"
+    ],
+    "preservation_failures": [
+      "cabin-window"
+    ],
+    "source_preservation_failures": [
+      "cabin-window"
+    ],
+    "elapsed_ms": 1429195.458375034,
+    "cost_usd": 0.00013041,
+    "prompt_tokens": 3357,
+    "completion_tokens": 3228,
+    "finish_reason": "stop",
+    "reasoning_tokens": 0,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": true,
+    "produced_valid_svg": true,
+    "error": null,
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#fdd03a\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"6\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fdd03a\" stroke=\"#222\" stroke-width=\"0.7\" x=\"192\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 120,14 120,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" d=\"M82 122 C98 126 112 110 128 122 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"100\" y=\"80\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
+    "raw_response": null
+  },
+  {
+    "name": "Granite 4.1 8B",
+    "provider": "IBM",
+    "model": "ibm-granite/granite-4.1-8b",
+    "resolved_model": "ibm-granite/granite-4.1-8b",
+    "response_id": "gen-1784547936-PX3qzNjVL0YaAEx4C97S",
+    "group": "open-weight",
+    "status": "PARTIAL",
+    "reward": 0,
+    "specification_pass": false,
+    "near_pass": false,
+    "repair_pass": false,
+    "preservation_pass": false,
+    "source_preservation_pass": false,
+    "validity_pass": true,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0.3333333333333333,
+    "repair_progress": 0.31336633333333336,
+    "preservation": 0.9107142857142857,
+    "source_preservation": 0.9107142857142857,
+    "unintended_change_rate": 0.08928571428571429,
+    "expected_changes_passed": 2,
+    "expected_changes_total": 6,
+    "expected_changes": [
+      {
+        "part": "crate-right",
+        "attribute": "x",
+        "expected_after": 28,
+        "produced": 38,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": 10,
+        "tolerance": 5,
+        "baseline_distance": 10,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "crate-right",
+        "attribute": "y",
+        "expected_after": 76,
+        "produced": 86,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": 10,
+        "tolerance": 2,
+        "baseline_distance": 4,
+        "progress": 0,
+        "unit": "user units",
+        "detail": null
+      },
+      {
+        "part": "harbor-wave-long",
+        "attribute": "d",
+        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
+        "produced": "M82 122 C98 126 112 110 128 122 S158 126 174 122",
+        "passed": false,
+        "comparison": "path-shape",
+        "distance": 14.557341,
+        "tolerance": 4.2,
+        "baseline_distance": 14.557341,
+        "progress": 0,
+        "unit": "sampled geometry",
+        "detail": "command topology is ignored; rendered path shape is compared"
+      },
+      {
+        "part": "light-beam",
+        "attribute": "points",
+        "expected_after": [
+          [
+            180,
+            30
+          ],
+          [
+            132,
+            18
+          ],
+          [
+            132,
+            42
+          ]
+        ],
+        "produced": [
+          [
+            188,
+            26
+          ],
+          [
+            140,
+            14
+          ],
+          [
+            140,
+            38
+          ]
+        ],
+        "passed": false,
+        "comparison": "points-rms",
+        "distance": 6.324555,
+        "tolerance": 3.478505,
+        "baseline_distance": 6.324555,
+        "progress": 0,
+        "unit": "coordinate RMS",
+        "detail": null
+      },
+      {
+        "part": "lighthouse-window",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": "#ffdb00",
+        "passed": true,
+        "comparison": "color-lab",
+        "distance": 13.796666,
+        "tolerance": 18,
+        "baseline_distance": 115.161861,
+        "progress": 0.880198,
         "unit": "Delta E76",
         "detail": null
       },
@@ -4578,37 +4911,42 @@
       }
     ],
     "unexpected_changed_parts": [
-      "flag",
       "harbor-wave-long",
-      "mast",
-      "sail-main",
-      "sail-small"
+      "variant-11-chip-03",
+      "variant-11-chip-10",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04"
     ],
     "failure_reasons": [
       "requested_repairs_incomplete",
       "unintended_document_changes"
     ],
     "preservation_failures": [
-      "sail-main",
-      "sail-small",
-      "flag"
+      "variant-11-chip-03",
+      "variant-11-chip-10",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04"
     ],
     "source_preservation_failures": [
-      "sail-main",
-      "sail-small",
-      "flag"
+      "variant-11-chip-03",
+      "variant-11-chip-10",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04"
     ],
-    "elapsed_ms": 2859370.156374993,
-    "cost_usd": 0.00055748,
-    "prompt_tokens": 2730,
-    "completion_tokens": 2617,
+    "elapsed_ms": 3049729.751041974,
+    "cost_usd": 0.00041115,
+    "prompt_tokens": 2869,
+    "completion_tokens": 2677,
     "finish_reason": "stop",
     "reasoning_tokens": 0,
     "max_output_tokens": 4096,
     "produced_parse_ok": true,
     "produced_valid_svg": true,
     "error": null,
-    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n  <rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"36\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,38 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,42 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,33 140,37 126,41\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde047\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 180,12 180,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1.5\" d=\"M82 122 C98 126 112 114 128 122 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"40\" y=\"80\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
+    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" /> \n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" /> \n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" /> \n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" /> \n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" /> \n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" /> \n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" /> \n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" /> \n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" /> \n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" /> \n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" /> \n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" /> \n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" /> \n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" /> \n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" /> \n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" /> \n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" /> \n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" /> \n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" /> \n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" /> \n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" /> \n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" /> \n  <rect id=\"lighthouse-window\" fill=\"#ffdb00\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" /> \n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 140,14 140,38\" /> \n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" /> \n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" /> \n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" /> \n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" /> \n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" /> \n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112 110 128 122 S158 126 174 122\" /> \n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" /> \n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" /> \n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"38\" y=\"86\" width=\"14\" height=\"12\" /> \n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" /> \n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" /> \n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" /> \n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" /> \n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" /> \n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" /> \n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" /> \n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" /> \n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" /> \n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-03\" fill=\"#f97e16\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-10\" fill=\"#6b66f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" /> \n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" /> \n  <circle id=\"variant-11-pin-02\" fill=\"#ec48d9\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" /> \n  <circle id=\"variant-11-pin-03\" fill=\"#ef44e4\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" /> \n  <circle id=\"variant-11-pin-04\" fill=\"#f97e16\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" /> \n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" /> \n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" /> \n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" /> \n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" /> \n</svg>",
     "raw_response": null
   },
   {
@@ -4646,7 +4984,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -4660,7 +4998,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -4674,7 +5012,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -4701,7 +5039,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -4715,7 +5053,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -4729,7 +5067,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -4928,181 +5266,6 @@
     "raw_response": ""
   },
   {
-    "name": "Granite 4.1 8B",
-    "provider": "IBM",
-    "model": "ibm-granite/granite-4.1-8b",
-    "resolved_model": "ibm-granite/granite-4.1-8b",
-    "response_id": "gen-1784547936-PX3qzNjVL0YaAEx4C97S",
-    "group": "open-weight",
-    "status": "PARTIAL",
-    "reward": 0,
-    "specification_pass": false,
-    "near_pass": false,
-    "repair_pass": false,
-    "preservation_pass": false,
-    "source_preservation_pass": false,
-    "validity_pass": true,
-    "exact": false,
-    "structural": false,
-    "edit_completion": 0.3333333333333333,
-    "repair_progress": 0.31336633333333336,
-    "preservation": 0.9107142857142857,
-    "source_preservation": 0.9107142857142857,
-    "unintended_change_rate": 0.08928571428571429,
-    "expected_changes_passed": 2,
-    "expected_changes_total": 6,
-    "expected_changes": [
-      {
-        "part": "crate-right",
-        "attribute": "x",
-        "expected_after": 28,
-        "produced": 38,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": 10,
-        "tolerance": 5,
-        "baseline_distance": 10,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "crate-right",
-        "attribute": "y",
-        "expected_after": 76,
-        "produced": 86,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": 10,
-        "tolerance": 2,
-        "baseline_distance": 4,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "harbor-wave-long",
-        "attribute": "d",
-        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
-        "produced": "M82 122 C98 126 112 110 128 122 S158 126 174 122",
-        "passed": false,
-        "comparison": "path-shape",
-        "distance": 14.557341,
-        "tolerance": 4.2,
-        "baseline_distance": 14.557341,
-        "progress": 0,
-        "unit": "sampled geometry",
-        "detail": "command topology is ignored; rendered path shape is compared"
-      },
-      {
-        "part": "light-beam",
-        "attribute": "points",
-        "expected_after": [
-          [
-            180,
-            30
-          ],
-          [
-            132,
-            18
-          ],
-          [
-            132,
-            42
-          ]
-        ],
-        "produced": [
-          [
-            188,
-            26
-          ],
-          [
-            140,
-            14
-          ],
-          [
-            140,
-            38
-          ]
-        ],
-        "passed": false,
-        "comparison": "points-rms",
-        "distance": 6.324555,
-        "tolerance": 3.478505,
-        "baseline_distance": 6.324555,
-        "progress": 0,
-        "unit": "coordinate RMS",
-        "detail": null
-      },
-      {
-        "part": "lighthouse-window",
-        "attribute": "fill",
-        "expected_after": "#fde047",
-        "produced": "#ffdb00",
-        "passed": true,
-        "comparison": "color-lab",
-        "distance": 13.796666,
-        "tolerance": 18,
-        "baseline_distance": 115.161861,
-        "progress": 0.880198,
-        "unit": "Delta E76",
-        "detail": null
-      },
-      {
-        "part": "mast",
-        "attribute": "stroke-width",
-        "expected_after": 3,
-        "produced": 3,
-        "passed": true,
-        "comparison": "line-weight-delta",
-        "distance": 0,
-        "tolerance": 1.2,
-        "baseline_distance": 3,
-        "progress": 1,
-        "unit": "user units",
-        "detail": null
-      }
-    ],
-    "unexpected_changed_parts": [
-      "harbor-wave-long",
-      "variant-11-chip-03",
-      "variant-11-chip-10",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04"
-    ],
-    "failure_reasons": [
-      "requested_repairs_incomplete",
-      "unintended_document_changes"
-    ],
-    "preservation_failures": [
-      "variant-11-chip-03",
-      "variant-11-chip-10",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04"
-    ],
-    "source_preservation_failures": [
-      "variant-11-chip-03",
-      "variant-11-chip-10",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04"
-    ],
-    "elapsed_ms": 3049729.751041974,
-    "cost_usd": 0.00041115,
-    "prompt_tokens": 2869,
-    "completion_tokens": 2677,
-    "finish_reason": "stop",
-    "reasoning_tokens": 0,
-    "max_output_tokens": 4096,
-    "produced_parse_ok": true,
-    "produced_valid_svg": true,
-    "error": null,
-    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" /> \n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" /> \n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" /> \n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" /> \n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" /> \n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" /> \n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" /> \n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" /> \n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" /> \n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" /> \n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" /> \n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" /> \n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" /> \n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" /> \n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"3\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" /> \n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" /> \n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" /> \n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" /> \n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" /> \n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" /> \n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" /> \n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" /> \n  <rect id=\"lighthouse-window\" fill=\"#ffdb00\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" /> \n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 140,14 140,38\" /> \n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" /> \n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" /> \n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" /> \n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" /> \n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" /> \n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112 110 128 122 S158 126 174 122\" /> \n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" /> \n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" /> \n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"38\" y=\"86\" width=\"14\" height=\"12\" /> \n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" /> \n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" /> \n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" /> \n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" /> \n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" /> \n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" /> \n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" /> \n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" /> \n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" /> \n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-03\" fill=\"#f97e16\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-10\" fill=\"#6b66f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" /> \n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" /> \n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" /> \n  <circle id=\"variant-11-pin-02\" fill=\"#ec48d9\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" /> \n  <circle id=\"variant-11-pin-03\" fill=\"#ef44e4\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" /> \n  <circle id=\"variant-11-pin-04\" fill=\"#f97e16\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" /> \n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" /> \n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" /> \n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" /> \n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" /> \n</svg>",
-    "raw_response": null
-  },
-  {
     "name": "MiMo V2.5 Pro",
     "provider": "Xiaomi",
     "model": "xiaomi/mimo-v2.5-pro",
@@ -5137,7 +5300,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5151,7 +5314,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5165,7 +5328,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -5192,7 +5355,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -5206,7 +5369,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -5220,7 +5383,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -5453,7 +5616,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5467,7 +5630,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5481,7 +5644,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -5508,7 +5671,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -5522,7 +5685,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -5536,7 +5699,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -5735,169 +5898,6 @@
     "raw_response": ""
   },
   {
-    "name": "Ling 2.6 Flash",
-    "provider": "InclusionAI",
-    "model": "inclusionai/ling-2.6-flash",
-    "resolved_model": "inclusionai/ling-2.6-flash",
-    "response_id": "gen-1784545317-fbqhJ1O8YR7T6dcIDaWZ",
-    "group": "cheap-control",
-    "status": "PARTIAL",
-    "reward": 0,
-    "specification_pass": false,
-    "near_pass": false,
-    "repair_pass": false,
-    "preservation_pass": false,
-    "source_preservation_pass": false,
-    "validity_pass": true,
-    "exact": false,
-    "structural": false,
-    "edit_completion": 0.16666666666666666,
-    "repair_progress": 0.15417533333333333,
-    "preservation": 0.9821428571428571,
-    "source_preservation": 0.9821428571428571,
-    "unintended_change_rate": 0.017857142857142856,
-    "expected_changes_passed": 1,
-    "expected_changes_total": 6,
-    "expected_changes": [
-      {
-        "part": "crate-right",
-        "attribute": "x",
-        "expected_after": 28,
-        "produced": 100,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": 72,
-        "tolerance": 5,
-        "baseline_distance": 10,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "crate-right",
-        "attribute": "y",
-        "expected_after": 76,
-        "produced": 80,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": 4,
-        "tolerance": 2,
-        "baseline_distance": 4,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      },
-      {
-        "part": "harbor-wave-long",
-        "attribute": "d",
-        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
-        "produced": "M82 122 C98 126 112 110 128 122 S158 126 174 122",
-        "passed": false,
-        "comparison": "path-shape",
-        "distance": 14.557341,
-        "tolerance": 4.2,
-        "baseline_distance": 14.557341,
-        "progress": 0,
-        "unit": "sampled geometry",
-        "detail": "command topology is ignored; rendered path shape is compared"
-      },
-      {
-        "part": "light-beam",
-        "attribute": "points",
-        "expected_after": [
-          [
-            180,
-            30
-          ],
-          [
-            132,
-            18
-          ],
-          [
-            132,
-            42
-          ]
-        ],
-        "produced": [
-          [
-            188,
-            26
-          ],
-          [
-            120,
-            14
-          ],
-          [
-            120,
-            38
-          ]
-        ],
-        "passed": false,
-        "comparison": "points-rms",
-        "distance": 8.164966,
-        "tolerance": 3.478505,
-        "baseline_distance": 6.324555,
-        "progress": 0,
-        "unit": "coordinate RMS",
-        "detail": null
-      },
-      {
-        "part": "lighthouse-window",
-        "attribute": "fill",
-        "expected_after": "#fde047",
-        "produced": "#fdd03a",
-        "passed": true,
-        "comparison": "color-lab",
-        "distance": 8.631161,
-        "tolerance": 18,
-        "baseline_distance": 115.161861,
-        "progress": 0.925052,
-        "unit": "Delta E76",
-        "detail": null
-      },
-      {
-        "part": "mast",
-        "attribute": "stroke-width",
-        "expected_after": 3,
-        "produced": 6,
-        "passed": false,
-        "comparison": "line-weight-delta",
-        "distance": 3,
-        "tolerance": 1.2,
-        "baseline_distance": 3,
-        "progress": 0,
-        "unit": "user units",
-        "detail": null
-      }
-    ],
-    "unexpected_changed_parts": [
-      "cabin-window",
-      "lighthouse-window"
-    ],
-    "failure_reasons": [
-      "requested_repairs_incomplete",
-      "unintended_document_changes"
-    ],
-    "preservation_failures": [
-      "cabin-window"
-    ],
-    "source_preservation_failures": [
-      "cabin-window"
-    ],
-    "elapsed_ms": 1429195.458375034,
-    "cost_usd": 0.00013041,
-    "prompt_tokens": 3357,
-    "completion_tokens": 3228,
-    "finish_reason": "stop",
-    "reasoning_tokens": 0,
-    "max_output_tokens": 4096,
-    "produced_parse_ok": true,
-    "produced_valid_svg": true,
-    "error": null,
-    "produced_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#fdd03a\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"6\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fdd03a\" stroke=\"#222\" stroke-width=\"0.7\" x=\"192\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 120,14 120,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" d=\"M82 122 C98 126 112 110 128 122 S158 126 174 122\" />\n  <polyline id=\"wave-2\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"128,120 146,116 164,120 182,116 200,120\" />\n  <rect id=\"crate-left\" fill=\"#a16207\" stroke=\"#451a03\" stroke-width=\"1\" x=\"12\" y=\"76\" width=\"14\" height=\"12\" />\n  <rect id=\"crate-right\" fill=\"#b45309\" stroke=\"#451a03\" stroke-width=\"1\" x=\"100\" y=\"80\" width=\"14\" height=\"12\" />\n  <polygon id=\"skin-11-beacon-beam\" fill=\"#fde68a\" opacity=\"0.58\" points=\"150,48 220,10 220,78\" />\n  <polyline id=\"skin-11-bird-wide-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"16,40 28,30 40,40\" />\n  <polyline id=\"skin-11-bird-wide-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"3\" opacity=\"0.92\" points=\"54,28 68,18 82,28\" />\n  <polygon id=\"identity-11-beam-wide\" fill=\"#fde68a\" opacity=\"0.45\" points=\"161,32 212,12 212,48\" />\n  <polyline id=\"identity-11-gull-a\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"24,36 30,31 36,36\" />\n  <polyline id=\"identity-11-gull-b\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"48,25 55,20 62,25\" />\n  <polyline id=\"identity-11-gull-c\" fill=\"none\" stroke=\"#334155\" stroke-width=\"1.7\" points=\"76,41 82,36 88,41\" />\n  <circle id=\"variant-11-dot\" fill=\"#3b82f6\" opacity=\"0.72\" cx=\"53\" cy=\"19\" r=\"3\" />\n  <line id=\"variant-11-rule\" stroke=\"#3b82f6\" stroke-width=\"1.2\" opacity=\"0.58\" x1=\"59\" y1=\"22\" x2=\"75\" y2=\"20\" />\n  <rect id=\"variant-11-chip-01\" fill=\"#ec4899\" opacity=\"0.68\" x=\"13\" y=\"6\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-02\" fill=\"#ef4444\" opacity=\"0.68\" x=\"44\" y=\"4\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-03\" fill=\"#f97316\" opacity=\"0.68\" x=\"81\" y=\"5\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-04\" fill=\"#f59e0b\" opacity=\"0.68\" x=\"112\" y=\"6\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-05\" fill=\"#84cc16\" opacity=\"0.68\" x=\"149\" y=\"4\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-06\" fill=\"#22c55e\" opacity=\"0.68\" x=\"180\" y=\"5\" width=\"8\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-07\" fill=\"#14b8a6\" opacity=\"0.68\" x=\"13\" y=\"139\" width=\"9\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-08\" fill=\"#06b6d4\" opacity=\"0.68\" x=\"44\" y=\"141\" width=\"7\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-09\" fill=\"#3b82f6\" opacity=\"0.68\" x=\"81\" y=\"140\" width=\"8\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-10\" fill=\"#6366f1\" opacity=\"0.68\" x=\"112\" y=\"139\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect id=\"variant-11-chip-11\" fill=\"#8b5cf6\" opacity=\"0.68\" x=\"149\" y=\"141\" width=\"7\" height=\"3\" rx=\"1\" />\n  <rect id=\"variant-11-chip-12\" fill=\"#d946ef\" opacity=\"0.68\" x=\"180\" y=\"140\" width=\"8\" height=\"4\" rx=\"1\" />\n  <circle id=\"variant-11-pin-01\" fill=\"#d946ef\" opacity=\"0.66\" cx=\"13\" cy=\"23\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-02\" fill=\"#ec4899\" opacity=\"0.66\" cx=\"198\" cy=\"37\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-03\" fill=\"#ef4444\" opacity=\"0.66\" cx=\"23\" cy=\"51\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-04\" fill=\"#f97316\" opacity=\"0.66\" cx=\"208\" cy=\"65\" r=\"2.3\" />\n  <circle id=\"variant-11-pin-05\" fill=\"#f59e0b\" opacity=\"0.66\" cx=\"9\" cy=\"79\" r=\"2.55\" />\n  <circle id=\"variant-11-pin-06\" fill=\"#84cc16\" opacity=\"0.66\" cx=\"194\" cy=\"93\" r=\"1.8\" />\n  <circle id=\"variant-11-pin-07\" fill=\"#22c55e\" opacity=\"0.66\" cx=\"19\" cy=\"107\" r=\"2.05\" />\n  <circle id=\"variant-11-pin-08\" fill=\"#14b8a6\" opacity=\"0.66\" cx=\"204\" cy=\"121\" r=\"2.3\" />\n</svg>",
-    "raw_response": null
-  },
-  {
     "name": "Trinity Large Thinking",
     "provider": "Arcee AI",
     "model": "arcee-ai/trinity-large-thinking",
@@ -5932,7 +5932,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5946,7 +5946,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -5960,7 +5960,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -5987,7 +5987,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -6001,7 +6001,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -6015,7 +6015,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -6214,322 +6214,6 @@
     "raw_response": ""
   },
   {
-    "name": "Nemotron 3 Nano",
-    "provider": "NVIDIA",
-    "model": "nvidia/nemotron-3-nano-30b-a3b",
-    "resolved_model": "nvidia/nemotron-3-nano-30b-a3b",
-    "response_id": "gen-1784543956-Q297SlLTZRYBSt45vDKH",
-    "group": "open-weight",
-    "status": "INVALID",
-    "reward": 0,
-    "specification_pass": false,
-    "near_pass": false,
-    "repair_pass": false,
-    "preservation_pass": false,
-    "source_preservation_pass": false,
-    "validity_pass": false,
-    "exact": false,
-    "structural": false,
-    "edit_completion": 0,
-    "repair_progress": 0,
-    "preservation": 0,
-    "source_preservation": 0,
-    "unintended_change_rate": 1,
-    "expected_changes_passed": 0,
-    "expected_changes_total": 6,
-    "expected_changes": [
-      {
-        "part": "crate-right",
-        "attribute": "x",
-        "expected_after": 28,
-        "produced": null,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "produced value is not numeric"
-      },
-      {
-        "part": "crate-right",
-        "attribute": "y",
-        "expected_after": 76,
-        "produced": null,
-        "passed": false,
-        "comparison": "numeric-delta",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "produced value is not numeric"
-      },
-      {
-        "part": "harbor-wave-long",
-        "attribute": "d",
-        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
-        "produced": null,
-        "passed": false,
-        "comparison": "exact",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "value is missing"
-      },
-      {
-        "part": "light-beam",
-        "attribute": "points",
-        "expected_after": [
-          [
-            180,
-            30
-          ],
-          [
-            132,
-            18
-          ],
-          [
-            132,
-            42
-          ]
-        ],
-        "produced": null,
-        "passed": false,
-        "comparison": "points-rms",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "numeric shape differs"
-      },
-      {
-        "part": "lighthouse-window",
-        "attribute": "fill",
-        "expected_after": "#fde047",
-        "produced": null,
-        "passed": false,
-        "comparison": "exact",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "value is missing"
-      },
-      {
-        "part": "mast",
-        "attribute": "stroke-width",
-        "expected_after": 3,
-        "produced": null,
-        "passed": false,
-        "comparison": "line-weight-delta",
-        "distance": null,
-        "tolerance": null,
-        "baseline_distance": null,
-        "progress": null,
-        "unit": null,
-        "detail": "produced value is not numeric"
-      }
-    ],
-    "unexpected_changed_parts": [
-      "__document__",
-      "boat-cabin",
-      "boat-hull",
-      "buoy-green",
-      "buoy-green-stripe",
-      "buoy-red",
-      "buoy-red-stripe",
-      "cabin-window",
-      "cloud-left",
-      "cloud-right",
-      "crate-left",
-      "flag",
-      "horizon",
-      "identity-11-beam-wide",
-      "identity-11-gull-a",
-      "identity-11-gull-b",
-      "identity-11-gull-c",
-      "lighthouse-body",
-      "lighthouse-cap",
-      "lighthouse-stripe-1",
-      "lighthouse-stripe-2",
-      "pier-deck",
-      "pier-leg-1",
-      "pier-leg-2",
-      "rope-coil",
-      "sail-main",
-      "sail-small",
-      "skin-11-beacon-beam",
-      "skin-11-bird-wide-a",
-      "skin-11-bird-wide-b",
-      "sky",
-      "sun",
-      "variant-11-chip-01",
-      "variant-11-chip-02",
-      "variant-11-chip-03",
-      "variant-11-chip-04",
-      "variant-11-chip-05",
-      "variant-11-chip-06",
-      "variant-11-chip-07",
-      "variant-11-chip-08",
-      "variant-11-chip-09",
-      "variant-11-chip-10",
-      "variant-11-chip-11",
-      "variant-11-chip-12",
-      "variant-11-dot",
-      "variant-11-pin-01",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04",
-      "variant-11-pin-05",
-      "variant-11-pin-06",
-      "variant-11-pin-07",
-      "variant-11-pin-08",
-      "variant-11-rule",
-      "water",
-      "wave-1",
-      "wave-2"
-    ],
-    "failure_reasons": [
-      "invalid_svg",
-      "requested_repairs_incomplete",
-      "unintended_document_changes"
-    ],
-    "preservation_failures": [
-      "sky",
-      "water",
-      "horizon",
-      "sun",
-      "cloud-left",
-      "cloud-right",
-      "pier-deck",
-      "rope-coil",
-      "pier-leg-1",
-      "pier-leg-2",
-      "boat-hull",
-      "boat-cabin",
-      "cabin-window",
-      "sail-main",
-      "sail-small",
-      "flag",
-      "lighthouse-body",
-      "lighthouse-stripe-1",
-      "lighthouse-stripe-2",
-      "lighthouse-cap",
-      "buoy-red",
-      "buoy-red-stripe",
-      "buoy-green",
-      "buoy-green-stripe",
-      "wave-1",
-      "wave-2",
-      "crate-left",
-      "skin-11-beacon-beam",
-      "skin-11-bird-wide-a",
-      "skin-11-bird-wide-b",
-      "identity-11-beam-wide",
-      "identity-11-gull-a",
-      "identity-11-gull-b",
-      "identity-11-gull-c",
-      "variant-11-dot",
-      "variant-11-rule",
-      "variant-11-chip-01",
-      "variant-11-chip-02",
-      "variant-11-chip-03",
-      "variant-11-chip-04",
-      "variant-11-chip-05",
-      "variant-11-chip-06",
-      "variant-11-chip-07",
-      "variant-11-chip-08",
-      "variant-11-chip-09",
-      "variant-11-chip-10",
-      "variant-11-chip-11",
-      "variant-11-chip-12",
-      "variant-11-pin-01",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04",
-      "variant-11-pin-05",
-      "variant-11-pin-06",
-      "variant-11-pin-07",
-      "variant-11-pin-08"
-    ],
-    "source_preservation_failures": [
-      "sky",
-      "water",
-      "horizon",
-      "sun",
-      "cloud-left",
-      "cloud-right",
-      "pier-deck",
-      "rope-coil",
-      "pier-leg-1",
-      "pier-leg-2",
-      "boat-hull",
-      "boat-cabin",
-      "cabin-window",
-      "sail-main",
-      "sail-small",
-      "flag",
-      "lighthouse-body",
-      "lighthouse-stripe-1",
-      "lighthouse-stripe-2",
-      "lighthouse-cap",
-      "buoy-red",
-      "buoy-red-stripe",
-      "buoy-green",
-      "buoy-green-stripe",
-      "wave-1",
-      "wave-2",
-      "crate-left",
-      "skin-11-beacon-beam",
-      "skin-11-bird-wide-a",
-      "skin-11-bird-wide-b",
-      "identity-11-beam-wide",
-      "identity-11-gull-a",
-      "identity-11-gull-b",
-      "identity-11-gull-c",
-      "variant-11-dot",
-      "variant-11-rule",
-      "variant-11-chip-01",
-      "variant-11-chip-02",
-      "variant-11-chip-03",
-      "variant-11-chip-04",
-      "variant-11-chip-05",
-      "variant-11-chip-06",
-      "variant-11-chip-07",
-      "variant-11-chip-08",
-      "variant-11-chip-09",
-      "variant-11-chip-10",
-      "variant-11-chip-11",
-      "variant-11-chip-12",
-      "variant-11-pin-01",
-      "variant-11-pin-02",
-      "variant-11-pin-03",
-      "variant-11-pin-04",
-      "variant-11-pin-05",
-      "variant-11-pin-06",
-      "variant-11-pin-07",
-      "variant-11-pin-08"
-    ],
-    "elapsed_ms": 77501.97087496053,
-    "cost_usd": 0.00118098,
-    "prompt_tokens": 3299,
-    "completion_tokens": 4096,
-    "finish_reason": "length",
-    "reasoning_tokens": 1837,
-    "max_output_tokens": 4096,
-    "produced_parse_ok": false,
-    "produced_valid_svg": false,
-    "error": null,
-    "produced_svg": null,
-    "raw_response": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"4\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde68a\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 150,12 150,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112"
-  },
-  {
     "name": "Gemini 3.1 Pro Preview",
     "provider": "Google",
     "model": "google/gemini-3.1-pro-preview",
@@ -6564,7 +6248,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -6578,7 +6262,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -6592,7 +6276,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -6619,7 +6303,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -6633,7 +6317,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -6647,7 +6331,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -6846,6 +6530,367 @@
     "raw_response": "114 122` etc.\n     Given the original is `M82 122 C98 126 112 110 128 122 S158 126 174 122`.\n     What if I change Ys:\n     `M82 122 C98 118 112 118 128 122 S158 126 174 122`\n     Wait! If `112 110` was a copy-paste error for `112 126`, no, C dictates control point"
   },
   {
+    "name": "Nemotron 3 Nano",
+    "provider": "NVIDIA",
+    "model": "nvidia/nemotron-3-nano-30b-a3b",
+    "resolved_model": "nvidia/nemotron-3-nano-30b-a3b",
+    "response_id": "gen-1784543956-Q297SlLTZRYBSt45vDKH",
+    "group": "open-weight",
+    "status": "INVALID",
+    "reward": 0,
+    "specification_pass": false,
+    "near_pass": false,
+    "repair_pass": false,
+    "preservation_pass": false,
+    "source_preservation_pass": false,
+    "validity_pass": false,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0,
+    "repair_progress": 0,
+    "preservation": 0,
+    "source_preservation": 0,
+    "unintended_change_rate": 1,
+    "expected_changes_passed": 0,
+    "expected_changes_total": 6,
+    "expected_changes": [
+      {
+        "part": "crate-right",
+        "attribute": "x",
+        "expected_after": 28,
+        "produced": null,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "produced value is not numeric"
+      },
+      {
+        "part": "crate-right",
+        "attribute": "y",
+        "expected_after": 76,
+        "produced": null,
+        "passed": false,
+        "comparison": "numeric-delta",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "produced value is not numeric"
+      },
+      {
+        "part": "harbor-wave-long",
+        "attribute": "d",
+        "expected_after": "M82 118 C98 112 112 124 128 118 S158 112 174 118",
+        "produced": null,
+        "passed": false,
+        "comparison": "exact",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "value is missing"
+      },
+      {
+        "part": "light-beam",
+        "attribute": "points",
+        "expected_after": [
+          [
+            180,
+            30
+          ],
+          [
+            132,
+            18
+          ],
+          [
+            132,
+            42
+          ]
+        ],
+        "produced": null,
+        "passed": false,
+        "comparison": "points-rms",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "numeric shape differs"
+      },
+      {
+        "part": "lighthouse-window",
+        "attribute": "fill",
+        "expected_after": "#fde047",
+        "produced": null,
+        "passed": false,
+        "comparison": "exact",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "value is missing"
+      },
+      {
+        "part": "mast",
+        "attribute": "stroke-width",
+        "expected_after": 3,
+        "produced": null,
+        "passed": false,
+        "comparison": "line-weight-delta",
+        "distance": null,
+        "tolerance": null,
+        "baseline_distance": null,
+        "progress": 0,
+        "unit": null,
+        "detail": "produced value is not numeric"
+      }
+    ],
+    "unexpected_changed_parts": [
+      "__document__",
+      "boat-cabin",
+      "boat-hull",
+      "buoy-green",
+      "buoy-green-stripe",
+      "buoy-red",
+      "buoy-red-stripe",
+      "cabin-window",
+      "cloud-left",
+      "cloud-right",
+      "crate-left",
+      "flag",
+      "horizon",
+      "identity-11-beam-wide",
+      "identity-11-gull-a",
+      "identity-11-gull-b",
+      "identity-11-gull-c",
+      "lighthouse-body",
+      "lighthouse-cap",
+      "lighthouse-stripe-1",
+      "lighthouse-stripe-2",
+      "pier-deck",
+      "pier-leg-1",
+      "pier-leg-2",
+      "rope-coil",
+      "sail-main",
+      "sail-small",
+      "skin-11-beacon-beam",
+      "skin-11-bird-wide-a",
+      "skin-11-bird-wide-b",
+      "sky",
+      "sun",
+      "variant-11-chip-01",
+      "variant-11-chip-02",
+      "variant-11-chip-03",
+      "variant-11-chip-04",
+      "variant-11-chip-05",
+      "variant-11-chip-06",
+      "variant-11-chip-07",
+      "variant-11-chip-08",
+      "variant-11-chip-09",
+      "variant-11-chip-10",
+      "variant-11-chip-11",
+      "variant-11-chip-12",
+      "variant-11-dot",
+      "variant-11-pin-01",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04",
+      "variant-11-pin-05",
+      "variant-11-pin-06",
+      "variant-11-pin-07",
+      "variant-11-pin-08",
+      "variant-11-rule",
+      "water",
+      "wave-1",
+      "wave-2"
+    ],
+    "failure_reasons": [
+      "invalid_svg",
+      "requested_repairs_incomplete",
+      "unintended_document_changes"
+    ],
+    "preservation_failures": [
+      "sky",
+      "water",
+      "horizon",
+      "sun",
+      "cloud-left",
+      "cloud-right",
+      "pier-deck",
+      "rope-coil",
+      "pier-leg-1",
+      "pier-leg-2",
+      "boat-hull",
+      "boat-cabin",
+      "cabin-window",
+      "sail-main",
+      "sail-small",
+      "flag",
+      "lighthouse-body",
+      "lighthouse-stripe-1",
+      "lighthouse-stripe-2",
+      "lighthouse-cap",
+      "buoy-red",
+      "buoy-red-stripe",
+      "buoy-green",
+      "buoy-green-stripe",
+      "wave-1",
+      "wave-2",
+      "crate-left",
+      "skin-11-beacon-beam",
+      "skin-11-bird-wide-a",
+      "skin-11-bird-wide-b",
+      "identity-11-beam-wide",
+      "identity-11-gull-a",
+      "identity-11-gull-b",
+      "identity-11-gull-c",
+      "variant-11-dot",
+      "variant-11-rule",
+      "variant-11-chip-01",
+      "variant-11-chip-02",
+      "variant-11-chip-03",
+      "variant-11-chip-04",
+      "variant-11-chip-05",
+      "variant-11-chip-06",
+      "variant-11-chip-07",
+      "variant-11-chip-08",
+      "variant-11-chip-09",
+      "variant-11-chip-10",
+      "variant-11-chip-11",
+      "variant-11-chip-12",
+      "variant-11-pin-01",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04",
+      "variant-11-pin-05",
+      "variant-11-pin-06",
+      "variant-11-pin-07",
+      "variant-11-pin-08"
+    ],
+    "source_preservation_failures": [
+      "sky",
+      "water",
+      "horizon",
+      "sun",
+      "cloud-left",
+      "cloud-right",
+      "pier-deck",
+      "rope-coil",
+      "pier-leg-1",
+      "pier-leg-2",
+      "boat-hull",
+      "boat-cabin",
+      "cabin-window",
+      "sail-main",
+      "sail-small",
+      "flag",
+      "lighthouse-body",
+      "lighthouse-stripe-1",
+      "lighthouse-stripe-2",
+      "lighthouse-cap",
+      "buoy-red",
+      "buoy-red-stripe",
+      "buoy-green",
+      "buoy-green-stripe",
+      "wave-1",
+      "wave-2",
+      "crate-left",
+      "skin-11-beacon-beam",
+      "skin-11-bird-wide-a",
+      "skin-11-bird-wide-b",
+      "identity-11-beam-wide",
+      "identity-11-gull-a",
+      "identity-11-gull-b",
+      "identity-11-gull-c",
+      "variant-11-dot",
+      "variant-11-rule",
+      "variant-11-chip-01",
+      "variant-11-chip-02",
+      "variant-11-chip-03",
+      "variant-11-chip-04",
+      "variant-11-chip-05",
+      "variant-11-chip-06",
+      "variant-11-chip-07",
+      "variant-11-chip-08",
+      "variant-11-chip-09",
+      "variant-11-chip-10",
+      "variant-11-chip-11",
+      "variant-11-chip-12",
+      "variant-11-pin-01",
+      "variant-11-pin-02",
+      "variant-11-pin-03",
+      "variant-11-pin-04",
+      "variant-11-pin-05",
+      "variant-11-pin-06",
+      "variant-11-pin-07",
+      "variant-11-pin-08"
+    ],
+    "elapsed_ms": 77501.97087496053,
+    "cost_usd": 0.00118098,
+    "prompt_tokens": 3299,
+    "completion_tokens": 4096,
+    "finish_reason": "length",
+    "reasoning_tokens": 1837,
+    "max_output_tokens": 4096,
+    "produced_parse_ok": false,
+    "produced_valid_svg": false,
+    "error": null,
+    "produced_svg": null,
+    "raw_response": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 220 140\" width=\"220\" height=\"140\">\n<rect id=\"__bg\" x=\"0\" y=\"0\" width=\"220\" height=\"140\" fill=\"#f8fbff\" />\n  <rect id=\"sky\" fill=\"#dbeafe\" x=\"0\" y=\"0\" width=\"220\" height=\"70\" />\n  <rect id=\"water\" fill=\"#38bdf8\" x=\"0\" y=\"70\" width=\"220\" height=\"70\" />\n  <line id=\"horizon\" stroke=\"#0284c7\" stroke-width=\"2\" x1=\"0\" y1=\"70\" x2=\"220\" y2=\"70\" />\n  <circle id=\"sun\" fill=\"#fde047\" cx=\"190\" cy=\"22\" r=\"12\" />\n  <ellipse id=\"cloud-left\" fill=\"#ffffff\" cx=\"36\" cy=\"26\" rx=\"18\" ry=\"7\" />\n  <ellipse id=\"cloud-right\" fill=\"#ffffff\" cx=\"56\" cy=\"25\" rx=\"14\" ry=\"6\" />\n  <rect id=\"pier-deck\" fill=\"#92400e\" x=\"0\" y=\"88\" width=\"72\" height=\"10\" />\n  <path id=\"rope-coil\" fill=\"none\" stroke=\"#f8fafc\" stroke-width=\"2\" d=\"M48 82 C58 72 70 74 70 84 C70 94 54 96 50 88 C46 80 60 78 62 86\" />\n  <line id=\"pier-leg-1\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"16\" y1=\"96\" x2=\"13\" y2=\"132\" />\n  <line id=\"pier-leg-2\" stroke=\"#451a03\" stroke-width=\"4\" x1=\"56\" y1=\"96\" x2=\"60\" y2=\"132\" />\n  <polygon id=\"boat-hull\" fill=\"#be123c\" stroke=\"#222\" stroke-width=\"1\" points=\"84,84 158,84 146,104 96,104\" />\n  <rect id=\"boat-cabin\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" x=\"106\" y=\"62\" width=\"30\" height=\"20\" />\n  <rect id=\"cabin-window\" fill=\"#93c5fd\" stroke=\"#222\" stroke-width=\"0.8\" x=\"114\" y=\"67\" width=\"14\" height=\"8\" />\n  <line id=\"mast\" stroke=\"#222\" stroke-width=\"4\" x1=\"126\" y1=\"84\" x2=\"126\" y2=\"26\" />\n  <polygon id=\"sail-main\" fill=\"#fef9c3\" stroke=\"#222\" stroke-width=\"1\" points=\"126,30 154,76 126,76\" />\n  <polygon id=\"sail-small\" fill=\"#e0f2fe\" stroke=\"#222\" stroke-width=\"1\" points=\"124,34 100,76 124,76\" />\n  <polygon id=\"flag\" fill=\"#3b82f6\" points=\"126,25 140,29 126,33\" />\n  <polygon id=\"lighthouse-body\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" points=\"176,82 206,82 200,28 182,28\" />\n  <rect id=\"lighthouse-stripe-1\" fill=\"#ef4444\" x=\"181\" y=\"48\" width=\"20\" height=\"7\" />\n  <rect id=\"lighthouse-stripe-2\" fill=\"#ef4444\" x=\"179\" y=\"64\" width=\"24\" height=\"7\" />\n  <rect id=\"lighthouse-cap\" fill=\"#0f172a\" x=\"180\" y=\"22\" width=\"22\" height=\"8\" />\n  <rect id=\"lighthouse-window\" fill=\"#fde68a\" stroke=\"#222\" stroke-width=\"0.7\" x=\"188\" y=\"34\" width=\"6\" height=\"8\" />\n  <polygon id=\"light-beam\" fill=\"#fde68a\" opacity=\"0.45\" points=\"188,26 150,12 150,38\" />\n  <circle id=\"buoy-red\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"42\" cy=\"112\" r=\"8\" />\n  <rect id=\"buoy-red-stripe\" fill=\"#ef4444\" x=\"35\" y=\"110\" width=\"14\" height=\"4\" />\n  <circle id=\"buoy-green\" fill=\"#f8fafc\" stroke=\"#222\" stroke-width=\"1\" cx=\"184\" cy=\"112\" r=\"7\" />\n  <rect id=\"buoy-green-stripe\" fill=\"#22c55e\" x=\"178\" y=\"110\" width=\"12\" height=\"4\" />\n  <polyline id=\"wave-1\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"2\" points=\"6,122 22,118 38,122 54,118 70,122\" />\n  <path id=\"harbor-wave-long\" fill=\"none\" stroke=\"#0ea5e9\" stroke-width=\"1\" d=\"M82 122 C98 126 112"
+  },
+  {
+    "name": "OLMo 3 32B Think",
+    "provider": "AI2",
+    "model": "allenai/olmo-3-32b-think",
+    "resolved_model": null,
+    "response_id": null,
+    "group": "open-weight",
+    "status": "ERR",
+    "reward": 0,
+    "specification_pass": false,
+    "near_pass": false,
+    "repair_pass": false,
+    "preservation_pass": false,
+    "source_preservation_pass": false,
+    "validity_pass": false,
+    "exact": false,
+    "structural": false,
+    "edit_completion": 0,
+    "repair_progress": 0,
+    "preservation": 0,
+    "source_preservation": 0,
+    "unintended_change_rate": 1,
+    "expected_changes_passed": 0,
+    "expected_changes_total": 0,
+    "expected_changes": [],
+    "unexpected_changed_parts": [],
+    "failure_reasons": [],
+    "preservation_failures": [],
+    "source_preservation_failures": [],
+    "elapsed_ms": 880159.4684580341,
+    "cost_usd": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "finish_reason": null,
+    "reasoning_tokens": 0,
+    "max_output_tokens": 0,
+    "produced_parse_ok": false,
+    "produced_valid_svg": false,
+    "error": {
+      "code": "request_error",
+      "message": "NotFoundError: Error code: 404 - {'error': {'message': 'No endpoints found for allenai/olmo-3-32b-think.', 'code': 404}, 'user_id': 'user_2xG7jOzrfs0MhI1Kc5pwtILaalX'}"
+    },
+    "produced_svg": null,
+    "raw_response": null
+  },
+  {
     "name": "Reka Flash 3",
     "provider": "Reka",
     "model": "rekaai/reka-flash-3",
@@ -6880,7 +6925,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -6894,7 +6939,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -6908,7 +6953,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -6935,7 +6980,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -6949,7 +6994,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -6963,7 +7008,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -7196,7 +7241,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -7210,7 +7255,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       },
@@ -7224,7 +7269,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -7251,7 +7296,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "numeric shape differs"
       },
@@ -7265,7 +7310,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "value is missing"
       },
@@ -7279,7 +7324,7 @@
         "distance": null,
         "tolerance": null,
         "baseline_distance": null,
-        "progress": null,
+        "progress": 0,
         "unit": null,
         "detail": "produced value is not numeric"
       }
@@ -7476,50 +7521,5 @@
     "error": null,
     "produced_svg": null,
     "raw_response": ""
-  },
-  {
-    "name": "OLMo 3 32B Think",
-    "provider": "AI2",
-    "model": "allenai/olmo-3-32b-think",
-    "resolved_model": null,
-    "response_id": null,
-    "group": "open-weight",
-    "status": "ERR",
-    "reward": 0,
-    "specification_pass": false,
-    "near_pass": false,
-    "repair_pass": false,
-    "preservation_pass": false,
-    "source_preservation_pass": false,
-    "validity_pass": false,
-    "exact": false,
-    "structural": false,
-    "edit_completion": 0,
-    "repair_progress": 0,
-    "preservation": 0,
-    "source_preservation": 0,
-    "unintended_change_rate": 1,
-    "expected_changes_passed": 0,
-    "expected_changes_total": 0,
-    "expected_changes": [],
-    "unexpected_changed_parts": [],
-    "failure_reasons": [],
-    "preservation_failures": [],
-    "source_preservation_failures": [],
-    "elapsed_ms": 880159.4684580341,
-    "cost_usd": 0,
-    "prompt_tokens": 0,
-    "completion_tokens": 0,
-    "finish_reason": null,
-    "reasoning_tokens": 0,
-    "max_output_tokens": 0,
-    "produced_parse_ok": false,
-    "produced_valid_svg": false,
-    "error": {
-      "code": "request_error",
-      "message": "NotFoundError: Error code: 404 - {'error': {'message': 'No endpoints found for allenai/olmo-3-32b-think.', 'code': 404}, 'user_id': 'user_2xG7jOzrfs0MhI1Kc5pwtILaalX'}"
-    },
-    "produced_svg": null,
-    "raw_response": null
   }
 ]

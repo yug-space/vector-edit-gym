@@ -86,7 +86,9 @@ const leaderboardEntries = summaries.map((summary, index) => ({
   repair_progress: Number(summary.repair_progress ?? summary.edit_completion),
   preservation: Number(summary.preservation),
   source_preservation: Number(summary.source_preservation ?? summary.preservation),
-  unintended_change_rate: Number(summary.unintended_change_rate),
+  unintended_change_rate: summary.unintended_change_rate == null
+    ? null
+    : Number(summary.unintended_change_rate),
   error_rate: Number(summary.error_rate),
   truncation_rate: Number(summary.truncation_rate),
   mean_elapsed_ms: Number(summary.mean_elapsed_ms ?? summary.mean_latency_ms),

@@ -108,8 +108,8 @@ def load_tasks(
             continue
         try:
             t = Task.from_json(json.loads((d / f).read_text()))
-        except Exception:
-            continue
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+            raise ValueError(f"invalid task file {d / f}: {error}") from error
         if diff_set and t.difficulty not in diff_set:
             continue
         if cat_set and t.category not in cat_set:

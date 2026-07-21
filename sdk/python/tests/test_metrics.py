@@ -7,7 +7,8 @@ from pathlib import Path
 import pytest
 
 from vector_edit_gym.diffing import diff_report, outcome_status
-from vector_edit_gym.metrics import structural_match, target_match_reward
+from vector_edit_gym.evaluate import EvaluationResult, TaskResult
+from vector_edit_gym.metrics import parse_svg, structural_match, target_match_reward, valid_svg_tree
 from vector_edit_gym.semantic import semantic_trees_equal
 from vector_edit_gym.tasks import Task
 
@@ -99,6 +100,16 @@ def test_unknown_element_is_reported(task: Task) -> None:
     assert "+unrequested-dot" in report.unexpected_changed_parts
 
 
+def test_anonymous_added_element_fails_preservation(task: Task) -> None:
+    root = ET.fromstring(task.target_svg)
+    root.append(ET.Element("circle", {"cx": "1", "cy": "1", "r": "1"}))
+    report = diff_report(task, ET.tostring(root, encoding="unicode"))
+    assert report.repair_pass
+    assert not report.preservation_pass
+    assert report.reward == 0
+    assert "__svg" in report.unexpected_changed_parts
+
+
 def _single_edit_task(*, attribute: str = "x", before=10, after=30) -> Task:
     box_x = before if attribute == "x" else 10
     box_fill = before if attribute == "fill" else "#6a1a1a"
@@ -171,6 +182,17 @@ def test_unrequested_attribute_on_repaired_object_fails_preservation() -> None:
     assert report.repair_pass
     assert not report.preservation_pass
     assert "box" in report.unexpected_changed_parts
+
+
+def test_scene_reordering_fails_preservation() -> None:
+    task = _single_edit_task()
+    root = ET.fromstring(task.target_svg)
+    children = list(root)
+    root[:] = [children[0], children[2], children[1]]
+    report = diff_report(task, ET.tostring(root, encoding="unicode"))
+    assert report.repair_pass
+    assert not report.preservation_pass
+    assert report.reward == 0
 
 
 def test_duplicate_ids_make_svg_invalid() -> None:
@@ -261,7 +283,7 @@ def test_consistent_referenced_id_renaming_is_equivalent() -> None:
     )
     renamed = ET.fromstring(
         '<svg><defs><linearGradient id="gradient"><stop offset="0" /></linearGradient></defs>'
-        '<rect id="subject" fill="url(#gradient)" /></svg>'
+        '<rect id="subject" fill="url(&quot;#gradient&quot;)" /></svg>'
     )
     broken = ET.fromstring(
         '<svg><defs><linearGradient id="gradient"><stop offset="0" /></linearGradient></defs>'
@@ -269,6 +291,37 @@ def test_consistent_referenced_id_renaming_is_equivalent() -> None:
     )
     assert semantic_trees_equal(renamed, target)
     assert not semantic_trees_equal(broken, target)
+
+
+def test_ucr_accepts_a_protected_external_reference_renamed_consistently() -> None:
+    initial = (
+        '<svg><defs><linearGradient id="paint"><stop id="stop" offset="0" /></linearGradient></defs>'
+        '<rect id="box" x="10" /><circle id="keep" fill="url(#paint)" /></svg>'
+    )
+    target = initial.replace('x="10"', 'x="30"')
+    task = Task(
+        task_id="sv_994",
+        difficulty="hard",
+        category="test",
+        instruction="Move the box back into place.",
+        initial_svg=initial,
+        target_svg=target,
+        parts=["paint", "stop", "box", "keep"],
+        target_parts=["box"],
+        expected_diff=[{"part": "box", "attribute": "x", "before": 10, "after": 30}],
+        should_preserve=["keep"],
+    )
+    produced = (
+        target.replace('id="paint"', 'id="gradient"')
+        .replace('id="stop"', 'id="gradient-stop"')
+        .replace('id="box"', 'id="subject"')
+        .replace('id="keep"', 'id="protected"')
+        .replace("url(#paint)", "url('#gradient')")
+    )
+    report = diff_report(task, produced)
+    assert report.reward == 1
+    assert report.preservation_pass
+    assert report.unintended_change_rate == 0.0
 
 
 def test_near_status_is_distinct_from_partial() -> None:
@@ -288,10 +341,28 @@ def test_requested_addition_uses_visual_tolerances() -> None:
         expected_diff=[{"part": "panel", "attribute": "exists", "before": False, "after": True}],
         should_preserve=["keep"],
     )
-    produced = '<svg viewBox="0 0 200 100"><circle id="keep" cx="150" cy="50" r="8" /><rect id="panel" x="23" y="20" width="30" height="15" fill="#6b1a1a" /></svg>'
+    produced = '<svg viewBox="0 0 200 100"><circle id="keep" cx="150" cy="50" r="8" /><rect id="panel-renamed" x="23" y="20" width="30" height="15" style="fill:#6b1a1a" /></svg>'
     report = diff_report(task, produced)
     assert report.reward == 1
     assert report.expected_changes[0].comparison == "inserted-subtree"
+
+
+def test_missing_addition_does_not_alias_a_shifted_sibling() -> None:
+    task = Task(
+        task_id="sv_997",
+        difficulty="hard",
+        category="test",
+        instruction="Put the missing panel back.",
+        initial_svg='<svg><rect id="keep" x="20" width="30" /></svg>',
+        target_svg='<svg><rect id="panel" x="20" width="30" /><rect id="keep" x="20" width="30" /></svg>',
+        parts=["panel", "keep"],
+        target_parts=["panel"],
+        expected_diff=[{"part": "panel", "attribute": "exists", "before": False, "after": True}],
+        should_preserve=["keep"],
+    )
+    report = diff_report(task, task.initial_svg)
+    assert report.expected_changes[0].produced is False
+    assert not report.expected_changes[0].passed
 
 
 def test_malformed_svg_gets_zero(task: Task) -> None:
@@ -317,6 +388,57 @@ def test_malformed_svg_does_not_pass_a_deletion_check() -> None:
     report = diff_report(deletion_task, "<svg><g></svg>")
     assert report.reward == 0
     assert report.edit_completion == 0.0
+    assert report.repair_progress == 0.0
+
+
+@pytest.mark.parametrize(
+    "svg",
+    [
+        '<svg><path d="M0 0 L" /></svg>',
+        '<svg><polyline points="0,0 10" /></svg>',
+        '<svg viewBox="0 0 0 100" />',
+        '<svg><rect fill="url(#missing)" /></svg>',
+        '<svg><rect fill="url(&quot;#missing&quot;)" /></svg>',
+        '<svg><use href="#missing" /></svg>',
+    ],
+)
+def test_svg_validity_rejects_broken_geometry_and_references(svg: str) -> None:
+    assert not valid_svg_tree(parse_svg(svg))
+
+
+def test_svg_validity_accepts_resolved_quoted_local_reference() -> None:
+    svg = (
+        '<svg><defs><filter id="shadow" /></defs>'
+        '<rect filter="url(&quot;#shadow&quot;)" /></svg>'
+    )
+    assert valid_svg_tree(parse_svg(svg))
+
+
+def test_valid_output_ucr_excludes_invalid_outputs() -> None:
+    shared = dict(
+        task_id="sv_999",
+        difficulty="hard",
+        category="test",
+        reward=0,
+        near_pass=False,
+        repair_pass=False,
+        preservation_pass=False,
+        source_preservation_pass=False,
+        exact=False,
+        structural=False,
+        preservation=0.0,
+        source_preservation=0.0,
+        edit_completion=0.0,
+        repair_progress=0.0,
+        elapsed_ms=1.0,
+    )
+    result = EvaluationResult([
+        TaskResult(valid=False, unintended_change_rate=1.0, **shared),
+        TaskResult(valid=True, unintended_change_rate=0.2, **shared),
+    ])
+    assert result.unintended_change_rate == pytest.approx(0.2)
+    invalid_only = EvaluationResult([TaskResult(valid=False, unintended_change_rate=1.0, **shared)])
+    assert invalid_only.unintended_change_rate is None
 
 
 def test_invalid_requested_numeric_list_returns_a_report() -> None:

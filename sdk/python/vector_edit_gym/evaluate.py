@@ -95,8 +95,11 @@ class EvaluationResult:
         return self._mean(lambda r: r.repair_progress)
 
     @property
-    def unintended_change_rate(self) -> float:
-        return self._mean(lambda r: r.unintended_change_rate)
+    def unintended_change_rate(self) -> float | None:
+        valid = [result for result in self.results if result.valid]
+        if not valid:
+            return None
+        return sum(result.unintended_change_rate for result in valid) / len(valid)
 
     @property
     def error_rate(self) -> float:
@@ -113,17 +116,17 @@ class EvaluationResult:
 
     # ---- breakdowns -----------------------------------------------------
 
-    def by_difficulty(self) -> dict[str, dict[str, float]]:
+    def by_difficulty(self) -> dict[str, dict[str, float | None]]:
         return self._bucket(lambda r: r.difficulty)
 
-    def by_category(self) -> dict[str, dict[str, float]]:
+    def by_category(self) -> dict[str, dict[str, float | None]]:
         return self._bucket(lambda r: r.category)
 
-    def _bucket(self, key: Callable[[TaskResult], str]) -> dict[str, dict[str, float]]:
+    def _bucket(self, key: Callable[[TaskResult], str]) -> dict[str, dict[str, float | None]]:
         buckets: dict[str, list[TaskResult]] = defaultdict(list)
         for r in self.results:
             buckets[key(r)].append(r)
-        out: dict[str, dict[str, float]] = {}
+        out: dict[str, dict[str, float | None]] = {}
         for k, rs in buckets.items():
             n = len(rs)
             out[k] = {
@@ -139,7 +142,12 @@ class EvaluationResult:
                 "preservation": sum(r.preservation for r in rs) / n,
                 "edit_completion": sum(r.edit_completion for r in rs) / n,
                 "repair_progress": sum(r.repair_progress for r in rs) / n,
-                "unintended_change_rate": sum(r.unintended_change_rate for r in rs) / n,
+                "unintended_change_rate": (
+                    sum(r.unintended_change_rate for r in rs if r.valid)
+                    / sum(1 for r in rs if r.valid)
+                    if any(r.valid for r in rs)
+                    else None
+                ),
                 "errors": sum(1 for r in rs if r.error) / n,
             }
         return out
@@ -159,7 +167,7 @@ class EvaluationResult:
             f"  edit completion:    {self.edit_completion_mean:.1%}",
             f"  repair progress:    {self.repair_progress_mean:.1%}",
             f"  preservation (avg): {self.preservation_mean:.1%}",
-            f"  unintended changes: {self.unintended_change_rate:.1%}",
+            f"  unintended changes: {self.unintended_change_rate:.1%}" if self.unintended_change_rate is not None else "  unintended changes: n/a",
             f"  errors:             {self.error_rate:.1%}",
             f"  mean latency:       {self.mean_latency_ms:.0f} ms",
             "",
@@ -171,9 +179,13 @@ class EvaluationResult:
                 continue
             b = by_diff[k]
             lines.append(
-                f"  {k:<11} n={int(b['n']):<4} reward={b['reward']:.1%}  edit={b['edit_completion']:.1%}  ucr={b['unintended_change_rate']:.1%}"
+                f"  {k:<11} n={int(b['n']):<4} reward={b['reward']:.1%}  edit={b['edit_completion']:.1%}  ucr={_format_rate(b['unintended_change_rate'])}"
             )
         return "\n".join(lines)
+
+
+def _format_rate(value: float | None) -> str:
+    return f"{value:.1%}" if value is not None else "n/a"
 
 
 # --------------------------------------------------------------------------

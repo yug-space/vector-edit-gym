@@ -35,7 +35,11 @@ const PUBLIC_FIGURES = join(PUBLIC, "figures");
 if (existsSync(PAPER_FIGURES)) {
   rmSync(PUBLIC_FIGURES, { recursive: true, force: true });
   mkdirSync(PUBLIC_FIGURES, { recursive: true });
-  for (const name of ["edit-completion-vs-ucr.png", "quality-cost-pareto.png"]) {
+  for (const name of [
+    "edit-completion-vs-ucr.png",
+    "quality-cost-pareto.png",
+    "gate-decomposition.png",
+  ]) {
     const source = join(PAPER_FIGURES, name);
     if (existsSync(source)) cpSync(source, join(PUBLIC_FIGURES, name));
   }

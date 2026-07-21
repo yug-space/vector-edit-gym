@@ -2,13 +2,14 @@
 
 VectorEditGym evaluates whether a model can repair visible defects in an SVG without changing the rest of the vector program.
 
-- Website: https://svg-rl-env.vercel.app
-- Paper: https://svg-rl-env.vercel.app/vectoreditgym-paper.pdf
+- Website: https://www.vecbench.xyz
+- Paper: https://www.vecbench.xyz/vectoreditgym-paper.pdf
+- Vercel mirror: https://svg-rl-env.vercel.app
 - Results submission: `yug@thetalab.tech` or `prannay@warping.co`
 
-The frozen release contains 40 dense repair tasks and 202 annotated edits. Instructions sound like human visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
+The frozen release contains 40 dense repair tasks and 202 annotated edits. Author-written instructions sound like ordinary visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
 
-The published results use evaluator `semantic-perceptual-binary-2026-07`.
+The published results use evaluator `semantic-perceptual-binary-2026-07-21`.
 
 **Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
 
@@ -32,8 +33,8 @@ reward = 1 when specification_pass is true; otherwise 0
 The three gates are:
 
 - `repair_pass`: every requested edit is within a deterministic perceptual tolerance. Numeric placement uses viewport- and mutation-bounded distance, colors use CIE Lab Delta E76, and paths use sampled geometry so equivalent command decompositions are accepted.
-- `preservation_pass`: after masking only requested fields, the rendering-relevant document tree remains unchanged. Consistent ID renaming and style-versus-presentation rewrites are accepted; unrequested visible attributes, definitions, anonymous nodes, nesting, and order remain strict.
-- `validity_pass`: the output is a complete, well-formed SVG with unique nonempty IDs and valid normalized SVG syntax.
+- `preservation_pass`: after masking only requested fields, the rendering- and application-relevant document tree remains unchanged. Consistent ID renaming and style-versus-presentation rewrites are accepted; unrequested visible attributes, `data-*` metadata, definitions, anonymous nodes, nesting, and order remain strict.
+- `validity_pass`: the output is a complete, well-formed SVG with unique nonempty IDs, valid path, point-list, transform, and viewBox syntax, and resolvable local URL/href references.
 - `near_pass`: the output is valid and semantically clean, with at most one missed repair and at least 80% aggregate repair progress. It is diagnostic and does not receive binary reward.
 
 `structural` is canonical full-target equality and is diagnostic only. A bounded repair can pass even when `structural` is false. Each expected-edit report includes the comparison method, measured distance, tolerance, unit, and outcome.
@@ -41,7 +42,7 @@ The three gates are:
 Diagnostic metrics explain zero-reward outputs:
 
 - `edit_completion`: fraction of requested repairs completed
-- `repair_progress`: average progress toward each hidden target, using the corrupted value as the baseline
+- `repair_progress`: average progress toward each hidden target, using the corrupted value as the baseline; invalid outputs receive zero progress
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: `1 - preservation`
 - `repair_pass`: whether all requested checks pass
@@ -51,7 +52,7 @@ Diagnostic metrics explain zero-reward outputs:
 - `structural`: canonical target match, reported only as a diagnostic
 - `truncation_rate`: fraction of endpoint responses ending at the output-length limit
 
-Aggregate UCR on the leaderboard is computed over valid SVG outputs. Invalid and truncated responses are reported separately through `validity_rate`, `error_rate`, and `truncation_rate`.
+Aggregate UCR on the leaderboard is computed over valid SVG outputs and is `n/a` when a model has none. Invalid and truncated responses are reported separately through `validity_rate`, `error_rate`, and `truncation_rate`.
 
 ## Setup
 
@@ -137,7 +138,7 @@ node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
 
 ## Analysis and Paper
 
-Generate all statistics, bootstrap confidence intervals, tables, and figures from the same JSONL:
+Generate all statistics, Wilson confidence intervals, deterministic evaluator controls, sensitivity tables, and figures from the same JSONL:
 
 ```sh
 python scripts/analyze-results.py runs/openrouter/openrouter-combined

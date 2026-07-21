@@ -20,12 +20,18 @@ from .metrics import (
     trees_equal,
     valid_svg_tree,
 )
-from .semantic import corresponding_element, semantic_tree_differences, semantic_trees_equal
+from .semantic import (
+    aligned_id_aliases,
+    corresponding_element,
+    semantic_attributes,
+    semantic_tree_differences,
+    semantic_trees_equal,
+)
 from .tasks import Task
 from .tolerance import ValueMatch, compare_expected_value, compare_visual_attribute, viewport_from_root
 
 
-EVALUATOR_VERSION = "semantic-perceptual-binary-2026-07"
+EVALUATOR_VERSION = "semantic-perceptual-binary-2026-07-21"
 
 
 @dataclass
@@ -107,6 +113,13 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     viewport = viewport_from_root(target_root)
     produced_valid = valid_svg_tree(produced_root)
     target_valid = valid_svg_tree(target_root)
+    document_produced_aliases: dict[str, str] = {}
+    document_target_aliases: dict[str, str] = {}
+    if produced_root is not None and target_root is not None:
+        document_produced_aliases, document_target_aliases = aligned_id_aliases(
+            produced_root,
+            target_root,
+        )
 
     expected_checks = []
     for expected in task.expected_diff:
@@ -129,6 +142,8 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
         )
         if attribute == "exists" and expected.get("after") is True and match.passed:
             match = _requested_addition_match(produced_root, target_root, part, viewport)
+            if not match.passed and element_by_id(produced_root, part) is None:
+                produced_value = False
         expected_checks.append(
             ExpectedChangeCheck(
                 part=part,
@@ -141,7 +156,10 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
                 distance=match.distance,
                 tolerance=match.tolerance,
                 baseline_distance=match.baseline_distance,
-                progress=match.progress,
+                # Invalid documents receive no repair credit. In particular,
+                # a parse failure must not satisfy a requested deletion merely
+                # because every element is absent from the missing tree.
+                progress=match.progress if produced_valid else 0.0,
                 unit=match.unit,
                 detail=match.detail,
             )
@@ -155,7 +173,12 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
         passed = (
             target_el is not None
             and produced_el is not None
-            and semantic_trees_equal(produced_el, target_el)
+            and semantic_trees_equal(
+                produced_el,
+                target_el,
+                produced_aliases=document_produced_aliases,
+                target_aliases=document_target_aliases,
+            )
         )
         source_passed = (
             target_el is not None
@@ -368,7 +391,14 @@ def _requested_addition_match(
     target = element_by_id(target_root, part)
     if produced is None or target is None:
         return ValueMatch(False, "inserted-subtree", detail="requested element is missing")
-    passed, maximum_ratio, detail = _visual_subtrees_match(produced, target, viewport)
+    produced_aliases, target_aliases = aligned_id_aliases(produced, target)
+    passed, maximum_ratio, detail = _visual_subtrees_match(
+        produced,
+        target,
+        viewport,
+        produced_aliases,
+        target_aliases,
+    )
     return ValueMatch(
         passed=passed,
         comparison="inserted-subtree",
@@ -384,25 +414,30 @@ def _visual_subtrees_match(
     produced: ET.Element,
     target: ET.Element,
     viewport: tuple[float, float],
+    produced_aliases: dict[str, str],
+    target_aliases: dict[str, str],
 ) -> tuple[bool, float | None, str | None]:
     if produced.tag != target.tag:
         return (False, None, "inserted element type differs")
-    produced_attributes = {key for key in produced.attrib if strip_namespace(key) != "id"}
-    target_attributes = {key for key in target.attrib if strip_namespace(key) != "id"}
-    if produced_attributes != target_attributes:
+    produced_attributes = semantic_attributes(produced, produced_aliases)
+    target_attributes = semantic_attributes(target, target_aliases)
+    if produced_attributes.keys() != target_attributes.keys():
         return (False, None, "inserted element attributes differ")
     maximum_ratio = 0.0
-    for attribute, expected in target.attrib.items():
-        if strip_namespace(attribute) == "id":
-            continue
-        actual = produced.attrib[attribute]
+    all_passed = True
+    first_failure: str | None = None
+    for attribute, expected in target_attributes.items():
+        actual = produced_attributes[attribute]
         if normalize_attribute(attribute, actual) == normalize_attribute(attribute, expected):
             continue
-        match = compare_visual_attribute(actual, expected, strip_namespace(attribute), viewport)
-        if not match.passed:
-            return (False, None, f"inserted element {strip_namespace(attribute)} is outside tolerance")
+        match = compare_visual_attribute(actual, expected, attribute, viewport)
         if match.distance is not None and match.tolerance:
             maximum_ratio = max(maximum_ratio, match.distance / match.tolerance)
+        elif not match.passed:
+            return (False, None, f"inserted element {attribute} differs exactly")
+        if not match.passed:
+            all_passed = False
+            first_failure = first_failure or f"inserted element {attribute} is outside tolerance"
     if _normalized_text(produced.text) != _normalized_text(target.text):
         return (False, None, "inserted element text differs")
     produced_children = list(produced)
@@ -410,12 +445,25 @@ def _visual_subtrees_match(
     if len(produced_children) != len(target_children):
         return (False, None, "inserted element child count differs")
     for produced_child, target_child in zip(produced_children, target_children):
-        passed, ratio, detail = _visual_subtrees_match(produced_child, target_child, viewport)
+        passed, ratio, detail = _visual_subtrees_match(
+            produced_child,
+            target_child,
+            viewport,
+            produced_aliases,
+            target_aliases,
+        )
         if not passed:
-            return (False, None, detail)
+            if ratio is None:
+                return (False, None, detail)
+            all_passed = False
+            first_failure = first_failure or detail
         if ratio is not None:
             maximum_ratio = max(maximum_ratio, ratio)
-    return (True, maximum_ratio, "inserted element is within visual tolerances")
+    return (
+        all_passed,
+        maximum_ratio,
+        "inserted element is within visual tolerances" if all_passed else first_failure,
+    )
 
 
 def _mask_requested_changes(

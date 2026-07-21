@@ -2,9 +2,9 @@
 
 ## Summary
 
-VectorEditGym is a frozen benchmark for localized SVG repair. It contains 40 tasks, 202 requested object-attribute repairs, naturalistic instructions, corrupted SVG inputs, hidden canonical targets, and preservation annotations.
+VectorEditGym is a frozen benchmark for localized SVG repair. It contains 40 tasks, 202 requested object-attribute repairs, author-written naturalistic instructions, corrupted SVG inputs, hidden canonical targets, and preservation annotations.
 
-The published release uses evaluator `semantic-perceptual-binary-2026-07`.
+The published release uses evaluator `semantic-perceptual-binary-2026-07-21`.
 
 The public benchmark input for each task is `instruction` plus `initial_svg`. `target_svg`, `expected_diff`, and `should_preserve` are evaluator data and must not be exposed to a solver during a scored run.
 
@@ -13,10 +13,10 @@ The public benchmark input for each task is `instruction` plus `initial_svg`. `t
 The primary score is binary. A task passes only when:
 
 1. every requested repair is within its deterministic attribute-aware tolerance;
-2. the rendering-relevant SVG is unchanged outside the requested fields; consistent ID aliases and equivalent style storage are tolerated; and
-3. the output is a structurally valid SVG with unique nonempty IDs.
+2. the rendering- and application-relevant SVG is unchanged outside the requested fields; consistent ID aliases and equivalent style storage are tolerated; and
+3. the output is a structurally valid SVG with unique nonempty IDs, valid path, point-list, transform, and viewBox syntax, and resolvable local URL/href references.
 
-Canonical equality with the complete hidden target is diagnostic only. Per-check distance, tolerance, baseline distance, repair progress, near-complete status, semantic preservation, strict source preservation, named-object preservation, UCR, validity, and provider failures are also reported.
+Canonical equality with the complete hidden target is diagnostic only. Per-check distance, tolerance, baseline distance, validity-gated repair progress, near-complete status, semantic preservation, strict source preservation, named-object preservation, valid-output UCR, validity, and provider failures are also reported. UCR is undefined when a model produces no valid SVG.
 
 ## Composition
 
@@ -31,6 +31,8 @@ Canonical equality with the complete hidden target is diagnostic only. Per-check
 Use the benchmark to evaluate source-aware SVG editors, preservation-aware program editing, and failure modes hidden by raster-only metrics. Report the corpus hash, evaluator version, model endpoint, task count, decoding settings, errors, and whether any task metadata was available to the solver.
 
 Do not use the public hidden targets as training data and then report the resulting model as zero-shot on this release. Do not treat the score as a general measure of artistic quality, accessibility, browser interoperability, or open-ended SVG generation.
+
+The instructions and acceptable repairs were authored and checked by the benchmark authors. No independent annotator-agreement or human-performance study has been completed; tolerance sensitivity is reported in the paper but is not a substitute for human calibration.
 
 ## Provenance and License
 

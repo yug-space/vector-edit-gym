@@ -197,7 +197,7 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
                     messages=messages(task),
                     max_tokens=max_tokens,
                     extra_headers={
-                        "HTTP-Referer": "https://svg-rl-env.vercel.app",
+                        "HTTP-Referer": "https://www.vecbench.xyz",
                         "X-Title": "VectorEditGym",
                     },
                 )
@@ -478,7 +478,7 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
         key=lambda row: (
             -row["spec_pass_rate"],
             -row["repair_progress"],
-            row["unintended_change_rate"],
+            row["unintended_change_rate"] if row["unintended_change_rate"] is not None else float("inf"),
             -row["validity_rate"],
             row["name"],
         ),
@@ -489,9 +489,9 @@ def mean(items: list[dict[str, Any]], key: str) -> float:
     return sum(float(item.get(key) or 0) for item in items) / len(items)
 
 
-def mean_valid(items: list[dict[str, Any]], key: str) -> float:
+def mean_valid(items: list[dict[str, Any]], key: str) -> float | None:
     valid = [item for item in items if item.get("validity_pass")]
-    return mean(valid, key) if valid else 1.0
+    return mean(valid, key) if valid else None
 
 
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
@@ -500,10 +500,11 @@ def summary_markdown(rows: list[dict[str, Any]]) -> str:
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
+        ucr = f"{row['unintended_change_rate']:.1%}" if row["unintended_change_rate"] is not None else "n/a"
         lines.append(
             f"| {row['name']} | {row['group']} | {row['n']} | {row['spec_pass_rate']:.1%} | "
             f"{row['near_pass_rate']:.1%} | {row['repair_progress']:.1%} | {row['preservation_pass_rate']:.1%} | "
-            f"{row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
+            f"{ucr} | {row['validity_rate']:.1%} | "
             f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )
     return "\n".join(lines) + "\n"

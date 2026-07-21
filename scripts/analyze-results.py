@@ -6,9 +6,9 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import random
 import shutil
 import subprocess
+import sys
 import tempfile
 import textwrap
 import xml.etree.ElementTree as ET
@@ -22,6 +22,10 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "sdk" / "python"))
+
+from vector_edit_gym.diffing import diff_report  # noqa: E402
+from vector_edit_gym.tasks import Task  # noqa: E402
 ORANGE = "#ff5a1f"
 INK = "#171717"
 GRAY = "#6b7280"
@@ -37,8 +41,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tasks", type=Path, default=ROOT / "data" / "tasks")
     parser.add_argument("--out", type=Path, default=ROOT / "paper" / "generated")
     parser.add_argument("--figures", type=Path, default=ROOT / "paper" / "figures")
-    parser.add_argument("--bootstrap", type=int, default=10_000)
-    parser.add_argument("--seed", type=int, default=731)
     return parser.parse_args()
 
 
@@ -52,18 +54,21 @@ def main() -> int:
     tasks = [json.loads(path.read_text()) for path in sorted(args.tasks.glob("sv_*.json"))]
     validate_record_matrix(records, meta)
 
-    rng = random.Random(args.seed)
-    confidence = bootstrap_intervals(records, args.bootstrap, rng)
+    confidence = wilson_intervals(records)
     for summary in summaries:
         summary["reward_ci_low"], summary["reward_ci_high"] = confidence[summary["id"]]
 
     corpus = corpus_stats(tasks)
     results = result_stats(records, summaries, meta, corpus)
+    results["evaluator_controls"] = evaluator_controls(tasks)
     (args.out / "analysis.json").write_text(json.dumps(results, indent=2) + "\n")
     write_macros(args.out / "results.tex", results)
     write_main_table(args.out / "main-table.tex", summaries[:10])
     write_full_table(args.out / "full-table.tex", summaries)
     write_corpus_table(args.out / "corpus-table.tex", corpus)
+    write_gate_table(args.out / "gate-table.tex", results["gate_decomposition"])
+    write_sensitivity_table(args.out / "sensitivity-table.tex", results["tolerance_sensitivity"])
+    write_controls_table(args.out / "controls-table.tex", results["evaluator_controls"])
 
     set_style()
     figure_examples(tasks, args.figures)
@@ -73,6 +78,7 @@ def main() -> int:
     figure_edit_vs_ucr(summaries, args.figures)
     figure_operation_heatmap(records, summaries, tasks, args.figures)
     figure_cost_pareto(summaries, args.figures)
+    figure_gate_decomposition(results["gate_decomposition"], args.figures)
     print(f"Generated analysis in {args.out} and {args.figures}")
     return 0
 
@@ -152,6 +158,9 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         for record in records
     )
     side_effects = sum(record.get("status") == "SIDE_EFFECTS" for record in records)
+    valid_records = [record for record in records if record.get("validity_pass")]
+    gate_decomposition = outcome_decomposition(records)
+    sensitivity = tolerance_sensitivity(records)
     return {
         "protocol": meta.get("protocol"),
         "evaluator": meta.get("evaluator"),
@@ -177,12 +186,22 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         "source_preservation_passes": source_preserved,
         "source_preservation_pass_rate": source_preserved / len(records),
         "repair_progress": float(np.mean([float(record.get("repair_progress") or 0) for record in records])),
+        "valid_repair_progress": (
+            float(np.mean([float(record.get("repair_progress") or 0) for record in valid_records]))
+            if valid_records else 0.0
+        ),
+        "valid_output_ucr": (
+            float(np.mean([float(record.get("unintended_change_rate") or 0) for record in valid_records]))
+            if valid_records else 1.0
+        ),
         "target_matches": target_matches,
         "target_match_rate": target_matches / len(records),
         "partial_outcomes": partials,
         "partial_outcome_rate": partials / len(records),
         "side_effect_outcomes": side_effects,
         "side_effect_outcome_rate": side_effects / len(records),
+        "gate_decomposition": gate_decomposition,
+        "tolerance_sensitivity": sensitivity,
         "top_model": best["name"],
         "top_model_id": best["id"],
         "top_reward": best["spec_pass_rate"],
@@ -208,17 +227,120 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
     }
 
 
-def bootstrap_intervals(records, samples: int, rng: random.Random) -> dict[str, tuple[float, float]]:
+def wilson_intervals(records, z: float = 1.959963984540054) -> dict[str, tuple[float, float]]:
+    """Wilson score intervals remain informative for zero observed passes."""
     grouped = defaultdict(list)
     for record in records:
-        grouped[record["requested_model"]].append(float(record.get("reward") or 0))
+        grouped[record["requested_model"]].append(int(bool(record.get("reward"))))
     intervals = {}
     for model, values in grouped.items():
-        means = []
-        for _ in range(samples):
-            means.append(sum(rng.choice(values) for _ in values) / len(values))
-        intervals[model] = (float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5)))
+        n = len(values)
+        rate = sum(values) / n
+        denominator = 1 + z * z / n
+        center = (rate + z * z / (2 * n)) / denominator
+        margin = z * math.sqrt(rate * (1 - rate) / n + z * z / (4 * n * n)) / denominator
+        intervals[model] = (max(0.0, center - margin), min(1.0, center + margin))
     return intervals
+
+
+def outcome_decomposition(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    counts = Counter()
+    for record in records:
+        if not record.get("validity_pass"):
+            counts["Invalid or missing SVG"] += 1
+        elif not record.get("repair_pass"):
+            counts["Valid, incomplete repair"] += 1
+        elif not record.get("preservation_pass"):
+            counts["All repairs, side effects"] += 1
+        else:
+            counts["Full specification pass"] += 1
+    order = [
+        "Full specification pass",
+        "All repairs, side effects",
+        "Valid, incomplete repair",
+        "Invalid or missing SVG",
+    ]
+    total = len(records)
+    rows = [{"label": label, "count": counts[label], "rate": counts[label] / total} for label in order]
+    assert sum(row["count"] for row in rows) == total
+    return rows
+
+
+def tolerance_sensitivity(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows = []
+    for scale in (0.5, 1.0, 1.5):
+        passes = repairs = 0
+        for record in records:
+            valid = bool(record.get("validity_pass"))
+            checks = (record.get("diff_report") or {}).get("expected_changes", [])
+            check_results = []
+            for check in checks:
+                distance = check.get("distance")
+                tolerance = check.get("tolerance")
+                if distance is None or tolerance is None:
+                    check_results.append(bool(check.get("passed")))
+                    continue
+                threshold = float(tolerance) * scale
+                baseline = check.get("baseline_distance")
+                if baseline is not None and float(baseline) > 0:
+                    threshold = min(threshold, 0.9 * float(baseline))
+                check_results.append(valid and float(distance) <= threshold + 1e-9)
+            repair = valid and all(check_results)
+            repairs += int(repair)
+            passes += int(repair and bool(record.get("preservation_pass")))
+        rows.append({
+            "scale": scale,
+            "specification_passes": passes,
+            "specification_pass_rate": passes / len(records),
+            "repair_passes": repairs,
+            "repair_pass_rate": repairs / len(records),
+        })
+    current = next(row for row in rows if row["scale"] == 1.0)
+    assert current["specification_passes"] == sum(int(bool(record.get("reward"))) for record in records)
+    return rows
+
+
+def evaluator_controls(tasks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    controls = defaultdict(list)
+    for raw in tasks:
+        task = Task.from_json(raw)
+        controls["Return corrupted input"].append(diff_report(task, task.initial_svg))
+        controls["Hidden target copy"].append(diff_report(task, task.target_svg))
+
+        mutated = ET.fromstring(task.target_svg)
+        protected = set(task.should_preserve)
+        element = next((node for node in mutated.iter() if node.attrib.get("id") in protected), None)
+        if element is None:
+            raise ValueError(f"{task.task_id} has no protected element for the mutation control")
+        element.attrib["data-vector-edit-gym-audit"] = "changed"
+        controls["Target + protected mutation"].append(
+            diff_report(task, ET.tostring(mutated, encoding="unicode"))
+        )
+        controls["Malformed target"].append(diff_report(task, task.target_svg[:-1]))
+
+    rows = []
+    for name, reports in controls.items():
+        valid = [report for report in reports if report.validity_pass]
+        rows.append({
+            "name": name,
+            "full": float(np.mean([report.reward for report in reports])),
+            "repair": float(np.mean([report.repair_pass for report in reports])),
+            "progress": float(np.mean([report.repair_progress for report in reports])),
+            "clean": float(np.mean([report.preservation_pass for report in reports])),
+            "valid": float(np.mean([report.validity_pass for report in reports])),
+            "ucr": (
+                float(np.mean([report.unintended_change_rate for report in valid]))
+                if valid else None
+            ),
+        })
+    expected = {row["name"]: row for row in rows}
+    assert expected["Return corrupted input"]["full"] == 0
+    assert expected["Return corrupted input"]["progress"] == 0
+    assert expected["Hidden target copy"]["full"] == 1
+    assert expected["Target + protected mutation"]["repair"] == 1
+    assert expected["Target + protected mutation"]["full"] == 0
+    assert expected["Malformed target"]["valid"] == 0
+    return rows
 
 
 def operation_family(diff: dict[str, Any]) -> str:
@@ -366,7 +488,7 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
     ax.errorbar(values * 100, y, xerr=np.vstack([lower, upper]) * 100, fmt="none", ecolor=INK, capsize=2, linewidth=0.8)
     ax.set_yticks(y, [row["name"] for row in rows], fontsize=7.5)
     ax.set_xlabel("Specification pass (%)")
-    ax.set_title("Full semantic-perceptual pass (95% task-bootstrap CIs)", loc="left")
+    ax.set_title("Full semantic-perceptual pass (95% Wilson CIs)", loc="left")
     ax.set_xlim(0, max(5.0, float(np.max(values + upper)) * 115))
     ax.grid(axis="x", alpha=0.18)
     fig.tight_layout()
@@ -376,9 +498,13 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
 def figure_edit_vs_ucr(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
+        if row["unintended_change_rate"] is None:
+            continue
         color = group_color(row["group"])
         ax.scatter(row["repair_progress"] * 100, row["unintended_change_rate"] * 100, s=26 + row["spec_pass_rate"] * 120, color=color, alpha=0.8)
     for row in highlighted_summaries(summaries):
+        if row["unintended_change_rate"] is None:
+            continue
         annotate_point(
             ax,
             row["name"],
@@ -449,6 +575,28 @@ def figure_cost_pareto(summaries, output_dir: Path) -> None:
     save(fig, output_dir, "quality-cost-pareto")
 
 
+def figure_gate_decomposition(rows: list[dict[str, Any]], output_dir: Path) -> None:
+    labels = [row["label"] for row in rows]
+    values = [row["count"] for row in rows]
+    colors = [TEAL, ORANGE, BLUE, GRAY]
+    fig, ax = plt.subplots(figsize=(6.2, 2.9))
+    bars = ax.barh(range(len(rows)), values, color=colors)
+    ax.set_yticks(range(len(rows)), labels)
+    ax.invert_yaxis()
+    ax.set_xlabel("Model-task outcomes")
+    ax.set_title("Every outcome assigned to one evaluation gate", loc="left")
+    ax.bar_label(
+        bars,
+        labels=[f"{row['count']} ({row['rate'] * 100:.1f}%)" for row in rows],
+        padding=4,
+        fontsize=8,
+    )
+    ax.set_xlim(0, max(values) * 1.18)
+    ax.grid(axis="x", alpha=0.18)
+    fig.tight_layout()
+    save(fig, output_dir, "gate-decomposition")
+
+
 def write_macros(path: Path, results: dict[str, Any]) -> None:
     corpus = results["corpus"]
     macros = {
@@ -469,6 +617,8 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "SourceCleanPassCount": results["source_preservation_passes"],
         "SourceCleanPassRate": f"{results['source_preservation_pass_rate'] * 100:.2f}\\%",
         "OverallRepairProgress": f"{results['repair_progress'] * 100:.1f}\\%",
+        "ValidRepairProgress": f"{results['valid_repair_progress'] * 100:.1f}\\%",
+        "OverallValidUCR": f"{results['valid_output_ucr'] * 100:.1f}\\%",
         "TargetMatchCount": results["target_matches"],
         "TargetMatchRate": f"{results['target_match_rate'] * 100:.2f}\\%",
         "PartialOutcomeCount": results["partial_outcomes"],
@@ -539,11 +689,12 @@ def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
         r"\midrule",
     ]
     for row in rows:
+        ucr = "--" if row["unintended_change_rate"] is None else f"{row['unintended_change_rate'] * 100:.1f}"
         lines.append(
             f"{latex_escape(row['name'])} & {row['spec_pass_rate'] * 100:.1f} & {row['near_pass_rate'] * 100:.1f} & "
             f"{row['repair_pass_rate'] * 100:.1f} & {row['repair_progress'] * 100:.1f} & "
             f"{row['preservation_pass_rate'] * 100:.1f} & "
-            f"{row['unintended_change_rate'] * 100:.1f} & {row['validity_rate'] * 100:.1f} & \\${row['cost_usd']:.3f} \\\\"
+            f"{ucr} & {row['validity_rate'] * 100:.1f} & \\${row['cost_usd']:.3f} \\\\"
         )
     lines.extend([r"\bottomrule", r"\end{tabular}"])
     path.write_text("\n".join(lines) + "\n")
@@ -552,11 +703,12 @@ def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
 def write_full_table(path: Path, rows: list[dict[str, Any]]) -> None:
     lines = [r"\begin{longtable}{llrrrrrrrrr}", r"\toprule", r"Model & Group & Full & Near & Repair & Progress & Clean & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
     for row in rows:
+        ucr = "--" if row["unintended_change_rate"] is None else f"{row['unintended_change_rate'] * 100:.1f}"
         lines.append(
             f"{latex_escape(row['name'])} & {latex_escape(row['group'])} & {row['spec_pass_rate'] * 100:.1f} & "
             f"{row['near_pass_rate'] * 100:.1f} & {row['repair_pass_rate'] * 100:.1f} & "
             f"{row['repair_progress'] * 100:.1f} & {row['preservation_pass_rate'] * 100:.1f} & "
-            f"{row['unintended_change_rate'] * 100:.1f} & "
+            f"{ucr} & "
             f"{row['validity_rate'] * 100:.1f} & {row['truncation_rate'] * 100:.1f} & "
             f"{row['error_rate'] * 100:.1f} \\\\"
         )
@@ -575,6 +727,57 @@ def write_corpus_table(path: Path, corpus: dict[str, Any]) -> None:
     ]
     lines = [r"\begin{tabular}{lr}", r"\toprule", r"Statistic & Value \\", r"\midrule"]
     lines.extend(f"{label} & {value} \\\\" for label, value in rows)
+    lines.extend([r"\bottomrule", r"\end{tabular}"])
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_gate_table(path: Path, rows: list[dict[str, Any]]) -> None:
+    lines = [
+        r"\begin{tabular}{lrr}",
+        r"\toprule",
+        r"Outcome & Count & Rate \\",
+        r"\midrule",
+    ]
+    lines.extend(
+        f"{latex_escape(row['label'])} & {row['count']} & {row['rate'] * 100:.1f} \\\\"
+        for row in rows
+    )
+    lines.extend([r"\bottomrule", r"\end{tabular}"])
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_sensitivity_table(path: Path, rows: list[dict[str, Any]]) -> None:
+    lines = [
+        r"\begin{tabular}{lrrrr}",
+        r"\toprule",
+        r"Scale & Full $n$ & Full \% & Repair $n$ & Repair \% \\",
+        r"\midrule",
+    ]
+    labels = {0.5: r"$0.5\times$", 1.0: r"$\mathbf{1.0\times}$", 1.5: r"$1.5\times$"}
+    for row in rows:
+        lines.append(
+            f"{labels[row['scale']]} & {row['specification_passes']} & "
+            f"{row['specification_pass_rate'] * 100:.2f} & {row['repair_passes']} & "
+            f"{row['repair_pass_rate'] * 100:.2f} \\\\"
+        )
+    lines.extend([r"\bottomrule", r"\end{tabular}"])
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_controls_table(path: Path, rows: list[dict[str, Any]]) -> None:
+    lines = [
+        r"\begin{tabular}{lrrrrrr}",
+        r"\toprule",
+        r"Control & Full & Repair & Progress & Clean & UCR & Valid \\",
+        r"\midrule",
+    ]
+    for row in rows:
+        ucr = "--" if row["ucr"] is None else f"{row['ucr'] * 100:.1f}"
+        lines.append(
+            f"{latex_escape(row['name'])} & {row['full'] * 100:.1f} & {row['repair'] * 100:.1f} & "
+            f"{row['progress'] * 100:.1f} & {row['clean'] * 100:.1f} & {ucr} & "
+            f"{row['valid'] * 100:.1f} \\\\"
+        )
     lines.extend([r"\bottomrule", r"\end{tabular}"])
     path.write_text("\n".join(lines) + "\n")
 
