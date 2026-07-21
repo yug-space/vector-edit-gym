@@ -84,10 +84,12 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
     def progress(i: int, total: int, r):
         marker = outcome_status({
             "reward": r.reward,
+            "near_pass": r.near_pass,
             "repair_pass": r.repair_pass,
             "preservation_pass": r.preservation_pass,
             "validity_pass": r.valid,
             "edit_completion": r.edit_completion,
+            "repair_progress": r.repair_progress,
         })
         if r.error:
             marker = "ERR"
@@ -100,12 +102,14 @@ def _cmd_evaluate(args: argparse.Namespace) -> int:
         print()
         print(json.dumps({
             "specification_pass_rate": out.specification_pass_rate,
+            "near_pass_rate": out.near_pass_rate,
             "repair_pass_rate": out.repair_pass_rate,
             "preservation_pass_rate": out.preservation_pass_rate,
             "exact_rate": out.exact_rate,
             "structural_rate": out.structural_rate,
             "validity_rate": out.validity_rate,
             "edit_completion": out.edit_completion_mean,
+            "repair_progress": out.repair_progress_mean,
             "preservation_mean": out.preservation_mean,
             "unintended_change_rate": out.unintended_change_rate,
             "by_difficulty": out.by_difficulty(),
@@ -125,12 +129,15 @@ def _cmd_score(args: argparse.Namespace) -> int:
     print(f"Task: {task.task_id}")
     print(f"status:       {outcome_status(report)}")
     print(f"spec pass:    {report.specification_pass}")
+    print(f"near-complete:{str(report.near_pass):>7}")
     print(f"repair pass:  {report.repair_pass}")
     print(f"preservation: {report.preservation_pass}")
+    print(f"source clean: {report.source_preservation_pass}")
     print(f"valid SVG:    {report.validity_pass}")
     print(f"exact:        {report.exact}")
     print(f"target match: {report.structural}")
     print(f"edit complete:{report.edit_completion:>7.1%}")
+    print(f"repair progress:{report.repair_progress:>5.1%}")
     print(f"named preserve:{report.preservation:>6.1%}")
     print(f"UCR:          {report.unintended_change_rate:.1%}")
     print()
@@ -146,6 +153,8 @@ def _cmd_score(args: argparse.Namespace) -> int:
                 f"       {check.comparison}: {check.distance:g} <= "
                 f"{check.tolerance:g} {check.unit or ''}".rstrip()
             )
+        if check.progress is not None:
+            print(f"       repair progress: {check.progress:.1%}")
     if report.unexpected_changed_parts:
         print()
         print("Unexpected changed/preserved-part failures:")

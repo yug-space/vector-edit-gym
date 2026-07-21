@@ -19,7 +19,7 @@ const OUT = join(ROOT, "harbor", "vector-edit-gym");
 const DRY_RUN = process.argv.includes("--dry-run");
 const SDK_DIR = join(ROOT, "sdk", "python", "vector_edit_gym");
 const SDK_MODULES = Object.fromEntries(
-  ["metrics.py", "tolerance.py", "tasks.py", "diffing.py"].map((name) => [
+  ["metrics.py", "semantic.py", "tolerance.py", "tasks.py", "diffing.py"].map((name) => [
     name,
     readFileSync(join(SDK_DIR, name), "utf8"),
   ]),
@@ -59,12 +59,16 @@ def main():
     result = {
         "reward": report.reward,
         "specification_pass": int(report.specification_pass),
+        "near_pass": int(report.near_pass),
         "repair_pass": int(report.repair_pass),
         "preservation_pass": int(report.preservation_pass),
+        "source_preservation_pass": int(report.source_preservation_pass),
         "validity_pass": int(report.validity_pass),
         "target_match": int(report.structural),
         "edit_completion": report.edit_completion,
+        "repair_progress": report.repair_progress,
         "preservation": report.preservation,
+        "source_preservation": report.source_preservation,
         "unintended_change_rate": report.unintended_change_rate,
     }
     log_dir = os.environ.get("HARBOR_LOG_DIR", "/logs/verifier")
@@ -87,20 +91,21 @@ python3 /tests/test_verify.py \\
 `;
 
 const DOCKERFILE = `FROM python:3.12-slim
+RUN pip install --no-cache-dir "svg.path>=7.0,<8"
 WORKDIR /workspace
 COPY initial.svg /workspace/initial.svg
 `;
 
 const DATASET_TOML = `[dataset]
 name = "thetalab/vector-edit-gym"
-description = "40 dense SVG repair tasks with naturalistic instructions, tolerant requested edits, and strict preservation-aware binary rewards."
+description = "40 dense SVG repair tasks with naturalistic instructions, perceptual requested-edit checks, semantic preservation, and binary rewards plus near-complete diagnostics."
 authors = [{ name = "Yug Aditi Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
 `;
 
 const METRICS_PY = `def mean(rewards: list[dict]) -> dict:
     if not rewards:
         return {"reward": 0.0}
-    keys = {"reward", "specification_pass", "repair_pass", "preservation_pass", "validity_pass", "target_match", "edit_completion", "preservation", "unintended_change_rate"}
+    keys = {"reward", "specification_pass", "near_pass", "repair_pass", "preservation_pass", "source_preservation_pass", "validity_pass", "target_match", "edit_completion", "repair_progress", "preservation", "source_preservation", "unintended_change_rate"}
     return {key: sum(row.get(key, 0.0) for row in rewards) / len(rewards) for key in keys}
 `;
 

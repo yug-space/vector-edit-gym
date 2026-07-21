@@ -8,8 +8,9 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
   const defaultModel = useMemo(
     () => [...results].sort((left, right) =>
       right.reward - left.reward
+      || Number(right.near_pass) - Number(left.near_pass)
       || Number(right.repair_pass) - Number(left.repair_pass)
-      || right.edit_completion - left.edit_completion,
+      || right.repair_progress - left.repair_progress,
     )[0]?.model,
     [results],
   );
@@ -50,7 +51,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 </span>
                 <span className="text-right font-mono text-[10px] leading-5">
                   <span className={selected.model === result.model ? "text-white" : statusText(result.status)}>{formatStatus(result.status)}</span>
-                  <span className={"block " + (selected.model === result.model ? "text-white/60" : "text-[hsl(var(--muted-foreground))]")}>edit {(result.edit_completion * 100).toFixed(0)}%</span>
+                  <span className={"block " + (selected.model === result.model ? "text-white/60" : "text-[hsl(var(--muted-foreground))]")}>progress {(result.repair_progress * 100).toFixed(0)}%</span>
                 </span>
               </button>
             ))}
@@ -68,14 +69,14 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
               <span className={"rounded border px-2 py-1 font-mono text-xs " + statusBadge(selected.status)}>{formatStatus(selected.status)}</span>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] xl:grid-cols-4">
+            <div className="mt-5 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] xl:grid-cols-5">
               <Gate
                 label="requested repairs"
                 passed={selected.repair_pass}
                 value={`${selected.expected_changes_passed}/${selected.expected_changes_total}`}
               />
               <Gate
-                label="preservation"
+                label="semantic preservation"
                 passed={selected.preservation_pass}
                 value={selected.preservation_pass ? "clean" : "changed"}
               />
@@ -85,6 +86,12 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 value={selected.validity_pass ? "valid" : "invalid"}
               />
               <Gate
+                label="source fidelity"
+                passed={selected.source_preservation_pass}
+                value="unchanged"
+                diagnostic
+              />
+              <Gate
                 label="target match"
                 passed={selected.structural}
                 value="match"
@@ -92,7 +99,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
               />
             </div>
             <p className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">
-              Pass requires the first three gates. Canonical target match is shown only as a diagnostic.
+              Full pass requires the first three gates. Source fidelity and canonical target match are diagnostics only.
             </p>
 
             <div className="mt-5 grid gap-6 xl:grid-cols-[minmax(280px,0.9fr)_minmax(340px,1.1fr)]">
@@ -119,8 +126,8 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                 )}
 
                 <div className="mt-4 grid grid-cols-2 border-l border-t border-[hsl(var(--border))] sm:grid-cols-3">
-                  <Metric label="spec" value={selected.specification_pass ? "pass" : "fail"} />
-                  <Metric label="edit" value={fmtPct(selected.edit_completion)} />
+                  <Metric label="outcome" value={selected.near_pass ? "near" : selected.specification_pass ? "pass" : "fail"} />
+                  <Metric label="progress" value={fmtPct(selected.repair_progress)} />
                   <Metric label="UCR" value={fmtPct(selected.unintended_change_rate)} />
                   <Metric label="preserve" value={fmtPct(selected.preservation)} />
                   <Metric label="elapsed" value={fmtElapsed(selected.elapsed_ms)} />
@@ -144,6 +151,14 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                       <div className="mt-1 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
                         {formatComparison(check)}
                       </div>
+                      {check.progress !== null && (
+                        <div className="mt-2 h-1.5 overflow-hidden rounded bg-zinc-100" aria-label={`Repair progress ${fmtPct(check.progress)}`}>
+                          <div
+                            className={"h-full " + (check.passed ? "bg-emerald-600" : "bg-[var(--brand)]")}
+                            style={{ width: `${Math.max(2, check.progress * 100)}%` }}
+                          />
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -160,7 +175,8 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
                   <IssueList title="Why it did not pass" items={selected.failure_reasons.map(formatFailureReason)} />
                 )}
                 <IssueList title="Unexpected changes" items={selected.unexpected_changed_parts} />
-                <IssueList title="Preservation failures" items={selected.preservation_failures} />
+                <IssueList title="Semantic preservation failures" items={selected.preservation_failures} />
+                <IssueList title="Source fidelity diagnostics" items={selected.source_preservation_failures} />
 
                 <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-2 border-t border-[hsl(var(--border))] pt-4 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
                   <span>prompt {selected.prompt_tokens.toLocaleString()} tok</span>
@@ -244,14 +260,14 @@ function IssueList({ title, items }: { title: string; items: string[] }) {
 function statusText(status: TaskModelResult["status"]) {
   if (status === "PASS") return "text-emerald-700";
   if (status === "ERR" || status === "INVALID") return "text-rose-700";
-  if (status === "PARTIAL" || status === "SIDE_EFFECTS") return "text-[var(--brand)]";
+  if (status === "NEAR" || status === "PARTIAL" || status === "SIDE_EFFECTS") return "text-[var(--brand)]";
   return "text-[hsl(var(--muted-foreground))]";
 }
 
 function statusBadge(status: TaskModelResult["status"]) {
   if (status === "PASS") return "border-emerald-200 bg-emerald-50 text-emerald-700";
   if (status === "ERR" || status === "INVALID") return "border-rose-200 bg-rose-50 text-rose-700";
-  if (status === "PARTIAL" || status === "SIDE_EFFECTS") return "border-orange-200 bg-orange-50 text-orange-700";
+  if (status === "NEAR" || status === "PARTIAL" || status === "SIDE_EFFECTS") return "border-orange-200 bg-orange-50 text-orange-700";
   return "border-zinc-200 bg-zinc-50 text-zinc-600";
 }
 
@@ -267,7 +283,8 @@ function formatStatus(status: TaskModelResult["status"]) {
 }
 function formatComparison(check: TaskModelResult["expected_changes"][number]) {
   if (check.distance !== null && check.tolerance !== null) {
-    return `${check.comparison}: ${formatNumber(check.distance)} <= ${formatNumber(check.tolerance)} ${check.unit ?? ""}`.trim();
+    const progress = check.progress === null ? "" : ` / ${fmtPct(check.progress)} repaired`;
+    return `${check.comparison}: ${formatNumber(check.distance)} <= ${formatNumber(check.tolerance)} ${check.unit ?? ""}${progress}`.trim();
   }
   return check.detail ?? check.comparison;
 }

@@ -96,10 +96,10 @@ function ModelResultChips({ results }: { results: TaskModelResultSummary[] }) {
   if (results.length === 0) return null;
 
   const passes = results.filter((result) => result.reward === 1).length;
-  const repairs = results.filter((result) => result.repair_pass).length;
+  const near = results.filter((result) => result.near_pass).length;
   const clean = results.filter((result) => result.preservation_pass).length;
   const errors = results.filter((result) => result.status === "ERR").length;
-  const averageEdit = results.reduce((sum, result) => sum + result.edit_completion, 0) / results.length;
+  const averageProgress = results.reduce((sum, result) => sum + result.repair_progress, 0) / results.length;
   const averageUcr = results.reduce((sum, result) => sum + result.unintended_change_rate, 0) / results.length;
 
   return (
@@ -109,12 +109,12 @@ function ModelResultChips({ results }: { results: TaskModelResultSummary[] }) {
         <span className="text-[var(--brand)]">{passes} pass</span>
       </div>
       <div className="grid grid-cols-3 gap-2 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
-        <span>{repairs} repaired</span>
+        <span>{near} near</span>
         <span>{clean} clean</span>
         <span>{errors} errors</span>
       </div>
       <div className="mt-1 grid grid-cols-2 gap-2 font-mono text-[10px] text-[hsl(var(--muted-foreground))]">
-        <span>edit {(averageEdit * 100).toFixed(0)}%</span>
+        <span>progress {(averageProgress * 100).toFixed(0)}%</span>
         <span>ucr {(averageUcr * 100).toFixed(1)}%</span>
       </div>
     </div>

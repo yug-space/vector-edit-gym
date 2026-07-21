@@ -4,6 +4,8 @@
 
 VectorEditGym is a frozen benchmark for localized SVG repair. It contains 40 tasks, 202 requested object-attribute repairs, naturalistic instructions, corrupted SVG inputs, hidden canonical targets, and preservation annotations.
 
+The published release uses evaluator `semantic-perceptual-binary-2026-07`.
+
 The public benchmark input for each task is `instruction` plus `initial_svg`. `target_svg`, `expected_diff`, and `should_preserve` are evaluator data and must not be exposed to a solver during a scored run.
 
 ## Evaluation
@@ -11,10 +13,10 @@ The public benchmark input for each task is `instruction` plus `initial_svg`. `t
 The primary score is binary. A task passes only when:
 
 1. every requested repair is within its deterministic attribute-aware tolerance;
-2. the SVG is canonically unchanged outside the requested fields; and
+2. the rendering-relevant SVG is unchanged outside the requested fields; consistent ID aliases and equivalent style storage are tolerated; and
 3. the output is a structurally valid SVG with unique nonempty IDs.
 
-Canonical equality with the complete hidden target is diagnostic only. Per-check distance and tolerance, edit completion, clean-preservation pass, named-object preservation, UCR, validity, and provider failures are also reported.
+Canonical equality with the complete hidden target is diagnostic only. Per-check distance, tolerance, baseline distance, repair progress, near-complete status, semantic preservation, strict source preservation, named-object preservation, UCR, validity, and provider failures are also reported.
 
 ## Composition
 

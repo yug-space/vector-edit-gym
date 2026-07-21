@@ -36,8 +36,10 @@ result = evaluate(solve, load_tasks())
 print(result.summary())
 print(result.specification_pass_rate)
 print(result.repair_pass_rate)
+print(result.near_pass_rate)
 print(result.preservation_pass_rate)
 print(result.edit_completion_mean)
+print(result.repair_progress_mean)
 print(result.unintended_change_rate)
 print(result.validity_rate)
 ```
@@ -60,19 +62,22 @@ Task(
 
 ## Metrics
 
-- `reward`: integer `1` only when requested repairs, strict preservation, and SVG validity all pass
+- `reward`: integer `1` only when requested repairs, semantic preservation, and SVG validity all pass
+- `near_pass`: valid, semantically clean output with at most one missed repair and at least 80% aggregate repair progress; diagnostic only
 - `repair_pass`: every requested value is within its deterministic attribute-aware tolerance
-- `preservation_pass`: the complete canonical document is unchanged after masking requested fields
+- `preservation_pass`: the rendering-relevant document is unchanged after masking requested fields; consistent ID aliases and style storage rewrites are accepted
+- `source_preservation_pass`: strict source-tree preservation after masking requested fields, reported as a diagnostic
 - `validity_pass`: complete SVG root, valid XML/SVG syntax, and unique nonempty IDs
 - `exact`: source equality after whitespace normalization
 - `structural`: canonical full-target equality, retained as a diagnostic only
 - `edit_completion`: fraction of private expected repairs passed
+- `repair_progress`: mean clipped progress from each corrupted value toward its hidden target
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: fraction of protected object subtrees changed
 - `produced_parse_ok`: whether the output parses as XML
 - `produced_valid_svg`: whether the parsed output passes structural SVG validity
 
-Requested numeric, color, path, and point values use deterministic visual tolerances. Canonical comparison normalizes attribute ordering, namespaces, numeric spellings, path/list separators, and common equivalent CSS color spellings. Everything outside requested fields remains strict.
+Requested numeric, color, path, and point values use deterministic perceptual tolerances. Paths are compared by sampled geometry, not command-string topology. The semantic preservation comparator aligns elements by ID and stable tree position, canonicalizes style storage, and aliases consistent ID rewrites. Everything outside requested fields remains rendering-relevant and order-sensitive.
 
 ## CLI
 

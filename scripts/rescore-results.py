@@ -16,7 +16,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
-from vector_edit_gym.diffing import diff_report, outcome_status  # noqa: E402
+from vector_edit_gym.diffing import EVALUATOR_VERSION, diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import load_tasks  # noqa: E402
 
 
@@ -43,9 +43,13 @@ def main() -> int:
                 "status": "ERR",
                 "reward": 0,
                 "specification_pass": False,
+                "near_pass": False,
                 "repair_pass": False,
                 "preservation_pass": False,
+                "source_preservation_pass": False,
                 "validity_pass": False,
+                "repair_progress": 0.0,
+                "source_preservation": 0.0,
             }
             if any(record.get(key) != value for key, value in updates.items()):
                 changed += 1
@@ -57,13 +61,17 @@ def main() -> int:
             "status": outcome_status(report),
             "reward": report["reward"],
             "specification_pass": report["specification_pass"],
+            "near_pass": report["near_pass"],
             "repair_pass": report["repair_pass"],
             "preservation_pass": report["preservation_pass"],
+            "source_preservation_pass": report["source_preservation_pass"],
             "validity_pass": report["validity_pass"],
             "exact": report["exact"],
             "structural": report["structural"],
             "edit_completion": report["edit_completion"],
+            "repair_progress": report["repair_progress"],
             "preservation": report["preservation"],
+            "source_preservation": report["source_preservation"],
             "unintended_change_rate": report["unintended_change_rate"],
             "diff_report": report,
         }
@@ -74,7 +82,7 @@ def main() -> int:
     summaries = summarize(records, meta["models"])
     task_index = json.loads((args.tasks / "_index.json").read_text())
     meta["rescored_at"] = datetime.now(timezone.utc).isoformat()
-    meta["evaluator"] = "tolerant-specification-binary-2026-07"
+    meta["evaluator"] = EVALUATOR_VERSION
     meta["corpus_hash"] = task_index["frozen_content_sha256"]
     meta.setdefault("sdk_max_retries", 2)
     atomic_write(results_path, "".join(json.dumps(record, ensure_ascii=True) + "\n" for record in records))
@@ -127,8 +135,10 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
                 "n": n,
                 "spec_pass_rate": mean(items, "reward"),
                 "binary_reward": mean(items, "reward"),
+                "near_pass_rate": mean(items, "near_pass"),
                 "repair_pass_rate": mean(items, "repair_pass"),
                 "preservation_pass_rate": mean(items, "preservation_pass"),
+                "source_preservation_pass_rate": mean(items, "source_preservation_pass"),
                 "exact_rate": mean(items, "exact"),
                 "structural_rate": mean(items, "structural"),
                 "validity_rate": sum(
@@ -136,8 +146,10 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
                     for record in items
                 ) / n,
                 "edit_completion": mean(items, "edit_completion"),
+                "repair_progress": mean(items, "repair_progress"),
                 "preservation": mean(items, "preservation"),
-                "unintended_change_rate": mean(items, "unintended_change_rate"),
+                "source_preservation": mean(items, "source_preservation"),
+                "unintended_change_rate": mean_valid(items, "unintended_change_rate"),
                 "error_rate": sum(record.get("error") is not None for record in items) / n,
                 "truncation_rate": sum(record.get("finish_reason") == "length" for record in items) / n,
                 "mean_elapsed_ms": mean(items, "elapsed_ms"),
@@ -150,9 +162,9 @@ def summarize(records: list[dict[str, Any]], models: list[dict[str, Any]]) -> li
         summaries,
         key=lambda row: (
             -row["spec_pass_rate"],
-            -row["repair_pass_rate"],
-            -row["edit_completion"],
+            -row["repair_progress"],
             row["unintended_change_rate"],
+            -row["validity_rate"],
             row["name"],
         ),
     )
@@ -162,15 +174,20 @@ def mean(items: list[dict[str, Any]], key: str) -> float:
     return sum(float(item.get(key) or 0) for item in items) / len(items)
 
 
+def mean_valid(items: list[dict[str, Any]], key: str) -> float:
+    valid = [item for item in items if item.get("validity_pass")]
+    return mean(valid, key) if valid else 1.0
+
+
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
-        "| model | group | n | spec pass | repair pass | edit completion | clean | UCR | valid | truncated | errors | cost |",
+        "| model | group | n | full pass | near | repair progress | clean | UCR | valid | truncated | errors | cost |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
             f"| {row['name']} | {row['group']} | {row['n']} | {row['spec_pass_rate']:.1%} | "
-            f"{row['repair_pass_rate']:.1%} | {row['edit_completion']:.1%} | {row['preservation_pass_rate']:.1%} | "
+            f"{row['near_pass_rate']:.1%} | {row['repair_progress']:.1%} | {row['preservation_pass_rate']:.1%} | "
             f"{row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
             f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )

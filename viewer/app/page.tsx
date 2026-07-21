@@ -24,9 +24,10 @@ const SUBMIT_MAILTO =
       "Corpus hash:",
       "Tasks run:",
       "Specification pass rate:",
-      "All-repairs pass rate:",
-      "Clean-preservation pass rate:",
-      "Edit completion:",
+      "Near-complete rate:",
+      "Repair progress:",
+      "Semantic-preservation pass rate:",
+      "Source-preservation pass rate:",
       "Unintended change rate:",
       "Preservation:",
       "Truncation rate:",
@@ -53,7 +54,7 @@ export default async function HomePage() {
         id="leaderboard"
         eyebrow="leaderboard"
         title="A repair can be approximate. Its side effects cannot."
-        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A specification pass requires every requested repair within a deterministic visual tolerance, a valid SVG, and no change outside the requested fields.`}
+        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A full pass requires every requested repair within calibrated perceptual tolerance, a valid SVG, and semantic preservation outside the requested fields. Near-complete and repair progress show useful non-binary behavior.`}
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div className="flex flex-wrap gap-x-5 gap-y-2 mono-label">
@@ -93,11 +94,12 @@ export default async function HomePage() {
                   <TableHead className="w-[60px] whitespace-nowrap">#</TableHead>
                   <TableHead className="min-w-[220px]">Solver</TableHead>
                   <TableHead className="whitespace-nowrap">Provider</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Spec pass</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Repairs</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Full pass</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Near</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Progress</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Clean</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">Edit</TableHead>
-                  <TableHead className="whitespace-nowrap text-right">UCR</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Source</TableHead>
+                  <TableHead className="whitespace-nowrap text-right">Valid UCR</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Valid</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Target</TableHead>
                   <TableHead className="whitespace-nowrap text-right">Truncated</TableHead>
@@ -125,9 +127,10 @@ export default async function HomePage() {
                       {e.provider}
                     </TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono font-semibold">{fmtPct(e.specification_pass)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.repair_pass)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.near_pass)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.repair_progress)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.preservation_pass)}</TableCell>
-                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.edit_completion)}</TableCell>
+                    <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.source_preservation_pass)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.unintended_change_rate)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.validity)}</TableCell>
                     <TableCell className="whitespace-nowrap text-right font-mono">{fmtPct(e.structural)}</TableCell>
@@ -156,11 +159,11 @@ export default async function HomePage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
             <figure className="border-t border-[hsl(var(--border))] pt-3">
-              <img src="/figures/edit-completion-vs-ucr.png" alt="Scatter plot of requested edit completion against unintended change rate" className="w-full bg-white" />
-              <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Edit completion and collateral change are measured independently.</figcaption>
+              <img src="/figures/edit-completion-vs-ucr.png" alt="Scatter plot of repair progress against valid-output unintended change rate" className="w-full bg-white" />
+              <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Repair progress and collateral change on valid outputs are measured independently.</figcaption>
             </figure>
             <figure className="border-t border-[hsl(var(--border))] pt-3">
-              <img src="/figures/quality-cost-pareto.png" alt="Scatter plot of model edit completion against benchmark run cost" className="w-full bg-white" />
+              <img src="/figures/quality-cost-pareto.png" alt="Scatter plot of model repair progress against benchmark run cost" className="w-full bg-white" />
               <figcaption className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">Provider cost does not fully predict repair quality.</figcaption>
             </figure>
           </div>
@@ -181,8 +184,8 @@ function Hero({ totalTasks }: { totalTasks: number }) {
             <span className="brand-underline italic">VectorEditGym</span>
           </h1>
           <p className="section-copy mt-6">
-            Human visual repair instructions, hidden SVG targets, and a binary specification:
-            repair the visible defects closely enough while preserving the rest of the SVG exactly.
+            Human visual repair instructions, hidden SVG targets, and an auditable specification:
+            repair every visible defect closely enough while preserving the rest of the scene semantically.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

@@ -142,8 +142,10 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
     truncations = sum(record.get("finish_reason") == "length" for record in records)
     valid = sum(bool(record.get("validity_pass")) for record in records)
     passes = sum(int(record.get("reward") or 0) for record in records)
+    near_passes = sum(bool(record.get("near_pass")) for record in records)
     repairs = sum(bool(record.get("repair_pass")) for record in records)
     preserved = sum(bool(record.get("preservation_pass")) for record in records)
+    source_preserved = sum(bool(record.get("source_preservation_pass")) for record in records)
     target_matches = sum(bool(record.get("structural")) for record in records)
     partials = sum(
         not record.get("reward") and float(record.get("edit_completion") or 0) > 0
@@ -152,6 +154,7 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
     side_effects = sum(record.get("status") == "SIDE_EFFECTS" for record in records)
     return {
         "protocol": meta.get("protocol"),
+        "evaluator": meta.get("evaluator"),
         "models": len(summaries),
         "open_weight_models": sum(summary["group"] == "open-weight" for summary in summaries),
         "cheap_control_models": sum(summary["group"] == "cheap-control" for summary in summaries),
@@ -165,10 +168,15 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         "validity_rate": valid / len(records),
         "specification_passes": passes,
         "specification_pass_rate": passes / len(records),
+        "near_passes": near_passes,
+        "near_pass_rate": near_passes / len(records),
         "repair_passes": repairs,
         "repair_pass_rate": repairs / len(records),
         "preservation_passes": preserved,
         "preservation_pass_rate": preserved / len(records),
+        "source_preservation_passes": source_preserved,
+        "source_preservation_pass_rate": source_preserved / len(records),
+        "repair_progress": float(np.mean([float(record.get("repair_progress") or 0) for record in records])),
         "target_matches": target_matches,
         "target_match_rate": target_matches / len(records),
         "partial_outcomes": partials,
@@ -178,18 +186,22 @@ def result_stats(records, summaries, meta, corpus) -> dict[str, Any]:
         "top_model": best["name"],
         "top_model_id": best["id"],
         "top_reward": best["spec_pass_rate"],
+        "top_near_pass": best["near_pass_rate"],
         "top_repair_pass": best["repair_pass_rate"],
         "top_preservation_pass": best["preservation_pass_rate"],
         "top_reward_ci_low": best["reward_ci_low"],
         "top_reward_ci_high": best["reward_ci_high"],
         "top_edit_completion": best["edit_completion"],
+        "top_repair_progress": best["repair_progress"],
         "top_ucr": best["unintended_change_rate"],
         "top_validity": best["validity_rate"],
         "frontier_top_model": frontier_best["name"] if frontier_best else "n/a",
         "frontier_top_reward": frontier_best["spec_pass_rate"] if frontier_best else 0.0,
+        "frontier_top_near_pass": frontier_best["near_pass_rate"] if frontier_best else 0.0,
         "frontier_top_repair_pass": frontier_best["repair_pass_rate"] if frontier_best else 0.0,
         "frontier_top_preservation_pass": frontier_best["preservation_pass_rate"] if frontier_best else 0.0,
         "frontier_top_edit_completion": frontier_best["edit_completion"] if frontier_best else 0.0,
+        "frontier_top_repair_progress": frontier_best["repair_progress"] if frontier_best else 0.0,
         "frontier_top_validity": frontier_best["validity_rate"] if frontier_best else 0.0,
         "frontier_top_truncation": frontier_best["truncation_rate"] if frontier_best else 0.0,
         "corpus": corpus,
@@ -354,7 +366,7 @@ def figure_model_rewards(summaries, output_dir: Path) -> None:
     ax.errorbar(values * 100, y, xerr=np.vstack([lower, upper]) * 100, fmt="none", ecolor=INK, capsize=2, linewidth=0.8)
     ax.set_yticks(y, [row["name"] for row in rows], fontsize=7.5)
     ax.set_xlabel("Specification pass (%)")
-    ax.set_title("Tolerant repair with strict preservation (95% task-bootstrap CIs)", loc="left")
+    ax.set_title("Full semantic-perceptual pass (95% task-bootstrap CIs)", loc="left")
     ax.set_xlim(0, max(5.0, float(np.max(values + upper)) * 115))
     ax.grid(axis="x", alpha=0.18)
     fig.tight_layout()
@@ -365,15 +377,15 @@ def figure_edit_vs_ucr(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
         color = group_color(row["group"])
-        ax.scatter(row["edit_completion"] * 100, row["unintended_change_rate"] * 100, s=26 + row["spec_pass_rate"] * 120, color=color, alpha=0.8)
+        ax.scatter(row["repair_progress"] * 100, row["unintended_change_rate"] * 100, s=26 + row["spec_pass_rate"] * 120, color=color, alpha=0.8)
     for row in highlighted_summaries(summaries):
         annotate_point(
             ax,
             row["name"],
-            row["edit_completion"] * 100,
+            row["repair_progress"] * 100,
             row["unintended_change_rate"] * 100,
         )
-    ax.set_xlabel("Requested edits completed (%)")
+    ax.set_xlabel("Mean repair progress (%)")
     ax.set_ylabel("Unintended change rate (%)")
     ax.set_title("Repair progress and collateral change are distinct", loc="left")
     ax.grid(alpha=0.18)
@@ -394,7 +406,9 @@ def figure_operation_heatmap(records, summaries, tasks, output_dir: Path) -> Non
         if checks:
             for check in checks:
                 family = operation_family(check)
-                by_model[record["requested_model"]][family].append(float(check.get("passed", False)))
+                by_model[record["requested_model"]][family].append(
+                    float(check.get("progress", check.get("passed", False)) or 0)
+                )
         else:
             for family in task_families[record["task_id"]]:
                 by_model[record["requested_model"]][family].append(0.0)
@@ -406,9 +420,9 @@ def figure_operation_heatmap(records, summaries, tasks, output_dir: Path) -> Non
     image = ax.imshow(matrix * 100, aspect="auto", cmap="viridis", vmin=0, vmax=100)
     ax.set_xticks(range(len(families)), families, rotation=35, ha="right")
     ax.set_yticks(range(len(summaries)), [row["name"] for row in summaries], fontsize=7.2)
-    ax.set_title("Expected-edit completion by operation family", loc="left")
+    ax.set_title("Repair progress by operation family", loc="left")
     colorbar = fig.colorbar(image, ax=ax, fraction=0.025, pad=0.02)
-    colorbar.set_label("Checks passed (%)")
+    colorbar.set_label("Mean repair progress (%)")
     fig.tight_layout()
     save(fig, output_dir, "operation-heatmap")
 
@@ -417,18 +431,18 @@ def figure_cost_pareto(summaries, output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.6, 3.7))
     for row in summaries:
         color = group_color(row["group"])
-        ax.scatter(max(row["cost_usd"], 1e-5), row["edit_completion"] * 100, color=color, s=32, alpha=0.82)
+        ax.scatter(max(row["cost_usd"], 1e-5), row["repair_progress"] * 100, color=color, s=32, alpha=0.82)
     for row in highlighted_summaries(summaries):
         annotate_point(
             ax,
             row["name"],
             max(row["cost_usd"], 1e-5),
-            row["edit_completion"] * 100,
+            row["repair_progress"] * 100,
             log_x=True,
         )
     ax.set_xscale("log")
     ax.set_xlabel("Run cost for 40 tasks (USD, log scale)")
-    ax.set_ylabel("Requested edits completed (%)")
+    ax.set_ylabel("Mean repair progress (%)")
     ax.set_title("Quality-cost trade-off", loc="left")
     ax.grid(alpha=0.18)
     fig.tight_layout()
@@ -446,10 +460,15 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "RequestCount": results["requests"],
         "SpecificationPassCount": results["specification_passes"],
         "SpecificationPassRate": f"{results['specification_pass_rate'] * 100:.2f}\\%",
+        "NearPassCount": results["near_passes"],
+        "NearPassRate": f"{results['near_pass_rate'] * 100:.2f}\\%",
         "RepairPassCount": results["repair_passes"],
         "RepairPassRate": f"{results['repair_pass_rate'] * 100:.2f}\\%",
         "CleanPassCount": results["preservation_passes"],
         "CleanPassRate": f"{results['preservation_pass_rate'] * 100:.2f}\\%",
+        "SourceCleanPassCount": results["source_preservation_passes"],
+        "SourceCleanPassRate": f"{results['source_preservation_pass_rate'] * 100:.2f}\\%",
+        "OverallRepairProgress": f"{results['repair_progress'] * 100:.1f}\\%",
         "TargetMatchCount": results["target_matches"],
         "TargetMatchRate": f"{results['target_match_rate'] * 100:.2f}\\%",
         "PartialOutcomeCount": results["partial_outcomes"],
@@ -460,16 +479,20 @@ def write_macros(path: Path, results: dict[str, Any]) -> None:
         "MeanProtectedObjects": f"{corpus['protected_objects_mean']:.2f}",
         "TopModel": latex_escape(results["top_model"]),
         "TopReward": f"{results['top_reward'] * 100:.1f}\\%",
+        "TopNearPass": f"{results['top_near_pass'] * 100:.1f}\\%",
         "TopRepairPass": f"{results['top_repair_pass'] * 100:.1f}\\%",
         "TopPreservationPass": f"{results['top_preservation_pass'] * 100:.1f}\\%",
         "TopEditCompletion": f"{results['top_edit_completion'] * 100:.1f}\\%",
+        "TopRepairProgress": f"{results['top_repair_progress'] * 100:.1f}\\%",
         "TopUCR": f"{results['top_ucr'] * 100:.1f}\\%",
         "TopValidity": f"{results['top_validity'] * 100:.1f}\\%",
         "FrontierTopModel": latex_escape(results["frontier_top_model"]),
         "FrontierTopReward": f"{results['frontier_top_reward'] * 100:.1f}\\%",
+        "FrontierTopNearPass": f"{results['frontier_top_near_pass'] * 100:.1f}\\%",
         "FrontierTopRepairPass": f"{results['frontier_top_repair_pass'] * 100:.1f}\\%",
         "FrontierTopPreservationPass": f"{results['frontier_top_preservation_pass'] * 100:.1f}\\%",
         "FrontierTopEditCompletion": f"{results['frontier_top_edit_completion'] * 100:.1f}\\%",
+        "FrontierTopRepairProgress": f"{results['frontier_top_repair_progress'] * 100:.1f}\\%",
         "FrontierTopValidity": f"{results['frontier_top_validity'] * 100:.1f}\\%",
         "FrontierTopTruncation": f"{results['frontier_top_truncation'] * 100:.1f}\\%",
         "TotalCost": f"\\${results['total_cost_usd']:.2f}",
@@ -510,15 +533,16 @@ def annotate_point(ax, label: str, x: float, y: float, *, log_x: bool = False) -
 
 def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
     lines = [
-        r"\begin{tabular}{lrrrrrrr}",
+        r"\begin{tabular}{lrrrrrrrr}",
         r"\toprule",
-        r"Model & Spec. $\uparrow$ & Repair $\uparrow$ & Clean $\uparrow$ & Edit $\uparrow$ & UCR $\downarrow$ & Valid $\uparrow$ & Cost \\",
+        r"Model & Full $\uparrow$ & Near $\uparrow$ & Repair $\uparrow$ & Progress $\uparrow$ & Clean $\uparrow$ & UCR $\downarrow$ & Valid $\uparrow$ & Cost \\",
         r"\midrule",
     ]
     for row in rows:
         lines.append(
-            f"{latex_escape(row['name'])} & {row['spec_pass_rate'] * 100:.1f} & {row['repair_pass_rate'] * 100:.1f} & "
-            f"{row['preservation_pass_rate'] * 100:.1f} & {row['edit_completion'] * 100:.1f} & "
+            f"{latex_escape(row['name'])} & {row['spec_pass_rate'] * 100:.1f} & {row['near_pass_rate'] * 100:.1f} & "
+            f"{row['repair_pass_rate'] * 100:.1f} & {row['repair_progress'] * 100:.1f} & "
+            f"{row['preservation_pass_rate'] * 100:.1f} & "
             f"{row['unintended_change_rate'] * 100:.1f} & {row['validity_rate'] * 100:.1f} & \\${row['cost_usd']:.3f} \\\\"
         )
     lines.extend([r"\bottomrule", r"\end{tabular}"])
@@ -526,12 +550,13 @@ def write_main_table(path: Path, rows: list[dict[str, Any]]) -> None:
 
 
 def write_full_table(path: Path, rows: list[dict[str, Any]]) -> None:
-    lines = [r"\begin{longtable}{llrrrrrrrr}", r"\toprule", r"Model & Group & Spec. & Repair & Clean & Edit & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
+    lines = [r"\begin{longtable}{llrrrrrrrrr}", r"\toprule", r"Model & Group & Full & Near & Repair & Progress & Clean & UCR & Valid & Trunc. & Errors \\", r"\midrule", r"\endhead"]
     for row in rows:
         lines.append(
             f"{latex_escape(row['name'])} & {latex_escape(row['group'])} & {row['spec_pass_rate'] * 100:.1f} & "
-            f"{row['repair_pass_rate'] * 100:.1f} & {row['preservation_pass_rate'] * 100:.1f} & "
-            f"{row['edit_completion'] * 100:.1f} & {row['unintended_change_rate'] * 100:.1f} & "
+            f"{row['near_pass_rate'] * 100:.1f} & {row['repair_pass_rate'] * 100:.1f} & "
+            f"{row['repair_progress'] * 100:.1f} & {row['preservation_pass_rate'] * 100:.1f} & "
+            f"{row['unintended_change_rate'] * 100:.1f} & "
             f"{row['validity_rate'] * 100:.1f} & {row['truncation_rate'] * 100:.1f} & "
             f"{row['error_rate'] * 100:.1f} \\\\"
         )

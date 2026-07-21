@@ -20,8 +20,12 @@ from .metrics import (
     trees_equal,
     valid_svg_tree,
 )
+from .semantic import corresponding_element, semantic_tree_differences, semantic_trees_equal
 from .tasks import Task
 from .tolerance import ValueMatch, compare_expected_value, compare_visual_attribute, viewport_from_root
+
+
+EVALUATOR_VERSION = "semantic-perceptual-binary-2026-07"
 
 
 @dataclass
@@ -35,6 +39,8 @@ class ExpectedChangeCheck:
     comparison: str
     distance: float | None = None
     tolerance: float | None = None
+    baseline_distance: float | None = None
+    progress: float | None = None
     unit: str | None = None
     detail: str | None = None
 
@@ -43,6 +49,7 @@ class ExpectedChangeCheck:
 class PreserveCheck:
     part: str
     passed: bool
+    source_passed: bool
     target_present: bool
     produced_present: bool
 
@@ -52,13 +59,17 @@ class DiffReport:
     task_id: str
     reward: int
     specification_pass: bool
+    near_pass: bool
     repair_pass: bool
     preservation_pass: bool
+    source_preservation_pass: bool
     validity_pass: bool
     exact: bool
     structural: bool
     preservation: float
+    source_preservation: float
     edit_completion: float
+    repair_progress: float
     unintended_change_rate: float
     produced_parse_ok: bool
     produced_valid_svg: bool
@@ -82,6 +93,8 @@ def outcome_status(report: DiffReport | dict[str, Any]) -> str:
         return "INVALID"
     if value.get("repair_pass") and not value.get("preservation_pass"):
         return "SIDE_EFFECTS"
+    if value.get("near_pass"):
+        return "NEAR"
     if float(value.get("edit_completion") or 0) > 0:
         return "PARTIAL"
     return "FAIL"
@@ -99,7 +112,14 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     for expected in task.expected_diff:
         part = str(expected.get("part"))
         attribute = str(expected.get("attribute"))
-        produced_value = _part_attr_value(produced_root, part, attribute)
+        allow_fallback = not (attribute == "exists" and expected.get("after") is False)
+        produced_value = _part_attr_value(
+            produced_root,
+            part,
+            attribute,
+            target_root,
+            allow_fallback=allow_fallback,
+        )
         match = compare_expected_value(
             produced_value,
             expected.get("before"),
@@ -120,6 +140,8 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
                 comparison=match.comparison,
                 distance=match.distance,
                 tolerance=match.tolerance,
+                baseline_distance=match.baseline_distance,
+                progress=match.progress,
                 unit=match.unit,
                 detail=match.detail,
             )
@@ -128,16 +150,23 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     preserve_checks: list[PreserveCheck] = []
     for part in task.should_preserve:
         target_el = element_by_id(target_root, part)
-        produced_el = element_by_id(produced_root, part)
+        produced_el = corresponding_element(produced_root, target_root, part)
+        source_produced_el = element_by_id(produced_root, part)
         passed = (
             target_el is not None
             and produced_el is not None
-            and trees_equal(target_el, produced_el)
+            and semantic_trees_equal(produced_el, target_el)
+        )
+        source_passed = (
+            target_el is not None
+            and source_produced_el is not None
+            and trees_equal(target_el, source_produced_el)
         )
         preserve_checks.append(
             PreserveCheck(
                 part=part,
                 passed=passed,
+                source_passed=source_passed,
                 target_present=target_el is not None,
                 produced_present=produced_el is not None,
             )
@@ -145,6 +174,11 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     structural = structural_match(produced_svg, task.target_svg)
     expected_passed = sum(1 for check in expected_checks if check.passed)
     edit_completion = expected_passed / len(expected_checks) if expected_checks else 1.0
+    repair_progress = (
+        sum(check.progress or 0.0 for check in expected_checks) / len(expected_checks)
+        if expected_checks
+        else 1.0
+    )
     preserve_failures = sum(1 for check in preserve_checks if not check.passed)
     unintended_change_rate = preserve_failures / len(preserve_checks) if preserve_checks else 0.0
     masked_produced, masked_target = _mask_requested_changes(
@@ -152,19 +186,34 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
         target_root,
         task.expected_diff,
     )
-    preservation_pass = (
+    source_preservation_pass = (
         produced_valid
         and target_valid
         and masked_produced is not None
         and masked_target is not None
         and trees_equal(masked_produced, masked_target)
     )
-    unexpected_changed_parts = _tree_differences(masked_produced, masked_target)
+    preservation_pass = (
+        produced_valid
+        and target_valid
+        and masked_produced is not None
+        and masked_target is not None
+        and semantic_trees_equal(masked_produced, masked_target)
+    )
+    unexpected_changed_parts = semantic_tree_differences(masked_produced, masked_target)
     unexpected_changed_parts.extend(check.part for check in preserve_checks if not check.passed)
     repair_pass = produced_valid and bool(expected_checks) and expected_passed == len(expected_checks)
     if not expected_checks:
         repair_pass = produced_valid
     specification_pass = produced_valid and repair_pass and preservation_pass
+    near_pass = (
+        produced_valid
+        and preservation_pass
+        and not repair_pass
+        and bool(expected_checks)
+        and expected_passed >= len(expected_checks) - 1
+        and repair_progress >= 0.80
+    )
     failure_reasons = []
     if not produced_valid:
         failure_reasons.append("invalid_svg")
@@ -177,13 +226,17 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
         task_id=task.task_id,
         reward=int(specification_pass),
         specification_pass=specification_pass,
+        near_pass=near_pass,
         repair_pass=repair_pass,
         preservation_pass=preservation_pass,
+        source_preservation_pass=source_preservation_pass,
         validity_pass=produced_valid,
         exact=exact_match(produced_svg, task.target_svg),
         structural=structural,
-        preservation=preservation_score(produced_svg, task.target_svg, task.should_preserve),
+        preservation=1.0 - unintended_change_rate,
+        source_preservation=preservation_score(produced_svg, task.target_svg, task.should_preserve),
         edit_completion=edit_completion,
+        repair_progress=repair_progress,
         unintended_change_rate=unintended_change_rate,
         produced_parse_ok=produced_root is not None,
         produced_valid_svg=produced_valid,
@@ -196,8 +249,19 @@ def diff_report(task: Task, produced_svg: str) -> DiffReport:
     )
 
 
-def _part_attr_value(root: ET.Element | None, part: str, attr: str) -> Any:
-    el = element_by_id(root, part)
+def _part_attr_value(
+    root: ET.Element | None,
+    part: str,
+    attr: str,
+    reference_root: ET.Element | None = None,
+    *,
+    allow_fallback: bool = True,
+) -> Any:
+    el = (
+        corresponding_element(root, reference_root, part)
+        if allow_fallback
+        else element_by_id(root, part)
+    )
     if attr == "exists":
         return el is not None
     if el is None:
@@ -300,7 +364,7 @@ def _requested_addition_match(
     part: str,
     viewport: tuple[float, float],
 ) -> ValueMatch:
-    produced = element_by_id(produced_root, part)
+    produced = corresponding_element(produced_root, target_root, part)
     target = element_by_id(target_root, part)
     if produced is None or target is None:
         return ValueMatch(False, "inserted-subtree", detail="requested element is missing")
@@ -310,6 +374,7 @@ def _requested_addition_match(
         comparison="inserted-subtree",
         distance=round(maximum_ratio, 6) if maximum_ratio is not None else None,
         tolerance=1.0 if maximum_ratio is not None else None,
+        progress=1.0 if passed else 0.0,
         unit="normalized tolerance" if maximum_ratio is not None else None,
         detail=detail,
     )
@@ -322,10 +387,14 @@ def _visual_subtrees_match(
 ) -> tuple[bool, float | None, str | None]:
     if produced.tag != target.tag:
         return (False, None, "inserted element type differs")
-    if set(produced.attrib) != set(target.attrib):
+    produced_attributes = {key for key in produced.attrib if strip_namespace(key) != "id"}
+    target_attributes = {key for key in target.attrib if strip_namespace(key) != "id"}
+    if produced_attributes != target_attributes:
         return (False, None, "inserted element attributes differ")
     maximum_ratio = 0.0
     for attribute, expected in target.attrib.items():
+        if strip_namespace(attribute) == "id":
+            continue
         actual = produced.attrib[attribute]
         if normalize_attribute(attribute, actual) == normalize_attribute(attribute, expected):
             continue
@@ -362,10 +431,16 @@ def _mask_requested_changes(
         part = str(expected.get("part"))
         attribute = str(expected.get("attribute"))
         if attribute == "exists":
-            _remove_element_by_id(produced, part)
-            _remove_element_by_id(target, part)
+            target_element = element_by_id(target, part)
+            produced_element = (
+                corresponding_element(produced, target, part)
+                if target_element is not None
+                else element_by_id(produced, part)
+            )
+            _remove_element(produced, produced_element)
+            _remove_element(target, target_element)
             continue
-        produced_element = element_by_id(produced, part)
+        produced_element = corresponding_element(produced, target, part)
         target_element = element_by_id(target, part)
         if produced_element is None or target_element is None:
             continue
@@ -373,13 +448,15 @@ def _mask_requested_changes(
     return (produced, target)
 
 
-def _remove_element_by_id(root: ET.Element, part: str) -> None:
-    if root.attrib.get("id") == part:
+def _remove_element(root: ET.Element, element: ET.Element | None) -> None:
+    if element is None:
+        return
+    if root is element:
         root.clear()
         return
     for parent in root.iter():
         for child in list(parent):
-            if child.attrib.get("id") == part:
+            if child is element:
                 parent.remove(child)
                 return
 

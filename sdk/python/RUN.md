@@ -26,7 +26,7 @@ python scripts/benchmark-openrouter.py \
 
 The runner gives the model only the human instruction and corrupted SVG. It records target and preservation checks after the response returns. Retries use the same requested model; fallback routing to a different model is not allowed by the harness.
 
-The specification reward remains all-or-nothing, while requested values use deterministic visual tolerances. Use `repair_pass`, `preservation_pass`, `validity_pass`, `edit_completion`, UCR, and aggregate `truncation_rate` to distinguish incomplete repairs, side effects, invalid SVGs, and length-limited responses. Canonical full-target match is diagnostic only.
+The specification reward remains all-or-nothing, while requested values use deterministic perceptual tolerances. Use `repair_pass`, `near_pass`, `preservation_pass`, `source_preservation_pass`, `validity_pass`, `edit_completion`, `repair_progress`, UCR, and aggregate `truncation_rate` to distinguish incomplete repairs, side effects, source rewrites, invalid SVGs, and length-limited responses. Canonical full-target match is diagnostic only.
 
 ## SDK Provider Examples
 

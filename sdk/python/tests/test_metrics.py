@@ -6,8 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from vector_edit_gym.diffing import diff_report
+from vector_edit_gym.diffing import diff_report, outcome_status
 from vector_edit_gym.metrics import structural_match, target_match_reward
+from vector_edit_gym.semantic import semantic_trees_equal
 from vector_edit_gym.tasks import Task
 
 
@@ -131,7 +132,9 @@ def test_approximate_requested_edit_passes_without_target_match() -> None:
     assert report.preservation_pass
     assert not report.structural
     assert report.expected_changes[0].distance == 3
-    assert report.expected_changes[0].tolerance == 4
+    assert report.expected_changes[0].tolerance == 5
+    assert report.expected_changes[0].baseline_distance == 20
+    assert report.expected_changes[0].progress == 0.85
 
 
 def test_requested_edit_outside_tolerance_fails() -> None:
@@ -199,7 +202,77 @@ def test_approximate_path_coordinates_pass_with_matching_topology() -> None:
     )
     report = diff_report(task, '<svg viewBox="0 0 200 100"><path id="line" d="M21 19 L41 39" /></svg>')
     assert report.reward == 1
-    assert report.expected_changes[0].comparison == "path-rms"
+    assert report.expected_changes[0].comparison == "path-shape"
+
+
+def test_equivalent_path_with_different_commands_passes() -> None:
+    task = Task(
+        task_id="sv_995",
+        difficulty="hard",
+        category="test",
+        instruction="Straighten the line.",
+        initial_svg='<svg viewBox="0 0 100 100"><path id="line" d="M10 30 L90 30" /></svg>',
+        target_svg='<svg viewBox="0 0 100 100"><path id="line" d="M10 20 C36.6667 20 63.3333 20 90 20" /></svg>',
+        parts=["line"],
+        target_parts=["line"],
+        expected_diff=[{
+            "part": "line",
+            "attribute": "d",
+            "before": "M10 30 L90 30",
+            "after": "M10 20 C36.6667 20 63.3333 20 90 20",
+        }],
+    )
+    report = diff_report(task, '<svg viewBox="0 0 100 100"><path id="line" d="M10 20 L90 20" /></svg>')
+    assert report.reward == 1
+    assert report.expected_changes[0].comparison == "path-shape"
+    assert report.expected_changes[0].distance == pytest.approx(0, abs=0.001)
+
+
+def test_consistent_id_renaming_is_semantically_preserved() -> None:
+    task = _single_edit_task()
+    produced = (
+        task.target_svg
+        .replace('id="paint"', 'id="renamed-paint"')
+        .replace('id="stop"', 'id="renamed-stop"')
+        .replace('id="box"', 'id="renamed-box"')
+        .replace('id="keep"', 'id="renamed-keep"')
+    )
+    report = diff_report(task, produced)
+    assert report.reward == 1
+    assert report.repair_pass
+    assert report.preservation_pass
+    assert not report.source_preservation_pass
+    assert report.expected_changes[0].produced == 30
+
+
+def test_style_and_presentation_attribute_are_equivalent() -> None:
+    task = _single_edit_task(attribute="fill", before="#00ffff", after="#6a1a1a")
+    produced = task.target_svg.replace('fill="#6a1a1a"', 'style="fill: #6a1a1a"', 1)
+    report = diff_report(task, produced)
+    assert report.reward == 1
+    assert report.preservation_pass
+    assert not report.structural
+
+
+def test_consistent_referenced_id_renaming_is_equivalent() -> None:
+    target = ET.fromstring(
+        '<svg><defs><linearGradient id="paint"><stop offset="0" /></linearGradient></defs>'
+        '<rect id="box" fill="url(#paint)" /></svg>'
+    )
+    renamed = ET.fromstring(
+        '<svg><defs><linearGradient id="gradient"><stop offset="0" /></linearGradient></defs>'
+        '<rect id="subject" fill="url(#gradient)" /></svg>'
+    )
+    broken = ET.fromstring(
+        '<svg><defs><linearGradient id="gradient"><stop offset="0" /></linearGradient></defs>'
+        '<rect id="subject" fill="url(#paint)" /></svg>'
+    )
+    assert semantic_trees_equal(renamed, target)
+    assert not semantic_trees_equal(broken, target)
+
+
+def test_near_status_is_distinct_from_partial() -> None:
+    assert outcome_status({"validity_pass": True, "near_pass": True}) == "NEAR"
 
 
 def test_requested_addition_uses_visual_tolerances() -> None:

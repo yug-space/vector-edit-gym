@@ -15,7 +15,7 @@ Quick start:
 
 from .tasks import Task, load_tasks, load_task
 from .evaluate import evaluate, EvaluationResult, Solver
-from .diffing import DiffReport, diff_report, outcome_status
+from .diffing import EVALUATOR_VERSION, DiffReport, diff_report, outcome_status
 
 __all__ = [
     "Task",
@@ -25,6 +25,7 @@ __all__ = [
     "EvaluationResult",
     "Solver",
     "DiffReport",
+    "EVALUATOR_VERSION",
     "diff_report",
     "outcome_status",
 ]

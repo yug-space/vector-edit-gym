@@ -23,13 +23,17 @@ class TaskResult:
     difficulty: str
     category: str
     reward: int
+    near_pass: bool
     repair_pass: bool
     preservation_pass: bool
+    source_preservation_pass: bool
     exact: bool
     structural: bool
     valid: bool
     preservation: float
+    source_preservation: float
     edit_completion: float
+    repair_progress: float
     unintended_change_rate: float
     elapsed_ms: float
     error: str | None = None
@@ -63,6 +67,10 @@ class EvaluationResult:
         return self._mean(lambda r: 1.0 if r.repair_pass else 0.0)
 
     @property
+    def near_pass_rate(self) -> float:
+        return self._mean(lambda r: 1.0 if r.near_pass else 0.0)
+
+    @property
     def preservation_pass_rate(self) -> float:
         return self._mean(lambda r: 1.0 if r.preservation_pass else 0.0)
 
@@ -81,6 +89,10 @@ class EvaluationResult:
     @property
     def edit_completion_mean(self) -> float:
         return self._mean(lambda r: r.edit_completion)
+
+    @property
+    def repair_progress_mean(self) -> float:
+        return self._mean(lambda r: r.repair_progress)
 
     @property
     def unintended_change_rate(self) -> float:
@@ -118,6 +130,7 @@ class EvaluationResult:
                 "n": n,
                 "reward": sum(r.reward for r in rs) / n,
                 "specification_pass": sum(r.reward for r in rs) / n,
+                "near_pass": sum(1 for r in rs if r.near_pass) / n,
                 "repair_pass": sum(1 for r in rs if r.repair_pass) / n,
                 "preservation_pass": sum(1 for r in rs if r.preservation_pass) / n,
                 "exact": sum(1 for r in rs if r.exact) / n,
@@ -125,6 +138,7 @@ class EvaluationResult:
                 "validity": sum(1 for r in rs if r.valid) / n,
                 "preservation": sum(r.preservation for r in rs) / n,
                 "edit_completion": sum(r.edit_completion for r in rs) / n,
+                "repair_progress": sum(r.repair_progress for r in rs) / n,
                 "unintended_change_rate": sum(r.unintended_change_rate for r in rs) / n,
                 "errors": sum(1 for r in rs if r.error) / n,
             }
@@ -136,12 +150,14 @@ class EvaluationResult:
         lines = [
             f"VectorEditGym - {self.n} tasks",
             f"  specification pass: {self.specification_pass_rate:.1%}",
+            f"  near-complete:      {self.near_pass_rate:.1%}",
             f"  requested repairs:  {self.repair_pass_rate:.1%}",
             f"  clean preservation: {self.preservation_pass_rate:.1%}",
             f"  exact-match:        {self.exact_rate:.1%}",
             f"  target-match:       {self.structural_rate:.1%}",
             f"  valid SVG:          {self.validity_rate:.1%}",
             f"  edit completion:    {self.edit_completion_mean:.1%}",
+            f"  repair progress:    {self.repair_progress_mean:.1%}",
             f"  preservation (avg): {self.preservation_mean:.1%}",
             f"  unintended changes: {self.unintended_change_rate:.1%}",
             f"  errors:             {self.error_rate:.1%}",
@@ -197,13 +213,17 @@ def evaluate(
                 difficulty=task.difficulty,
                 category=task.category,
                 reward=0,
+                near_pass=False,
                 repair_pass=False,
                 preservation_pass=False,
+                source_preservation_pass=False,
                 exact=False,
                 structural=False,
                 valid=False,
                 preservation=0.0,
+                source_preservation=0.0,
                 edit_completion=0.0,
+                repair_progress=0.0,
                 unintended_change_rate=1.0,
                 elapsed_ms=elapsed_ms,
                 error=err or "solver returned None",
@@ -216,13 +236,17 @@ def evaluate(
                 difficulty=task.difficulty,
                 category=task.category,
                 reward=report.reward,
+                near_pass=report.near_pass,
                 repair_pass=report.repair_pass,
                 preservation_pass=report.preservation_pass,
+                source_preservation_pass=report.source_preservation_pass,
                 exact=report.exact,
                 structural=report.structural,
                 valid=report.validity_pass,
                 preservation=report.preservation,
+                source_preservation=report.source_preservation,
                 edit_completion=report.edit_completion,
+                repair_progress=report.repair_progress,
                 unintended_change_rate=report.unintended_change_rate,
                 elapsed_ms=elapsed_ms,
                 error=None,

@@ -18,7 +18,7 @@ import type { LeaderboardEntry } from "@/lib/data";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
-// Headline specification pass plus its two independent semantic gates.
+// Headline pass plus continuous repair progress and semantic preservation.
 const METRIC_COLOR = {
   reward:       { bg: "rgba(249, 93, 30, 0.92)",   border: "rgba(194, 65, 12, 1)"   },
   edit:         { bg: "rgba(15, 118, 110, 0.88)",  border: "rgba(17, 94, 89, 1)"    },
@@ -68,7 +68,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
       labels,
       datasets: [
         {
-          label: "Specification pass",
+          label: "Full pass",
           data: topEntries.map((e) => +(e.specification_pass * 100).toFixed(1)),
           backgroundColor: METRIC_COLOR.reward.bg,
           borderColor: METRIC_COLOR.reward.border,
@@ -78,8 +78,8 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           categoryPercentage: 0.78,
         },
         {
-          label: "All repairs pass",
-          data: topEntries.map((e) => +(e.repair_pass * 100).toFixed(1)),
+          label: "Repair progress",
+          data: topEntries.map((e) => +(e.repair_progress * 100).toFixed(1)),
           backgroundColor: METRIC_COLOR.edit.bg,
           borderColor: METRIC_COLOR.edit.border,
           borderWidth: 1,
@@ -141,7 +141,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
                 `Tasks run: ${e.tasks_run}`,
                 `Date: ${e.date}`,
               ];
-              details.push(`UCR: ${(e.unintended_change_rate * 100).toFixed(1)}%`);
+              details.push(`Valid-output UCR: ${(e.unintended_change_rate * 100).toFixed(1)}%`);
               if (e.error_rate !== undefined) {
                 details.push(`Errors: ${(e.error_rate * 100).toFixed(1)}%`);
               }

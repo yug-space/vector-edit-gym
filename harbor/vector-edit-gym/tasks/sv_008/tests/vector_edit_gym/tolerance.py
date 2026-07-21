@@ -5,7 +5,10 @@ from __future__ import annotations
 import math
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from typing import Any, Iterable
+
+from svg.path import parse_path
 
 from .metrics import normalize_attribute, normalize_color
 
@@ -32,6 +35,8 @@ class ValueMatch:
     comparison: str
     distance: float | None = None
     tolerance: float | None = None
+    baseline_distance: float | None = None
+    progress: float | None = None
     unit: str | None = None
     detail: str | None = None
 
@@ -49,6 +54,7 @@ def compare_expected_value(
         return ValueMatch(
             passed=passed,
             comparison="existence",
+            progress=1.0 if passed else 0.0,
             detail="required presence matches" if passed else "required presence differs",
         )
 
@@ -76,6 +82,7 @@ def compare_expected_value(
     return ValueMatch(
         passed=normalized_actual == normalized_expected,
         comparison="canonical",
+        progress=1.0 if normalized_actual == normalized_expected else 0.0,
         detail="canonical values match" if normalized_actual == normalized_expected else "canonical values differ",
     )
 
@@ -88,7 +95,7 @@ def compare_visual_attribute(
 ) -> ValueMatch:
     """Compare an attribute on a newly inserted requested element."""
     if attribute == "id":
-        return ValueMatch(actual == expected, "identity")
+        return ValueMatch(actual == expected, "identity", progress=1.0 if actual == expected else 0.0)
     if attribute in _COLOR_ATTRIBUTES:
         return _compare_color(actual, None, expected)
     if attribute == "d":
@@ -103,7 +110,11 @@ def compare_visual_attribute(
         return _compare_number(actual, None, float(expected), attribute, viewport)
     normalized_actual = normalize_attribute(attribute, actual)
     normalized_expected = normalize_attribute(attribute, expected)
-    return ValueMatch(normalized_actual == normalized_expected, "canonical")
+    return ValueMatch(
+        normalized_actual == normalized_expected,
+        "canonical",
+        progress=1.0 if normalized_actual == normalized_expected else 0.0,
+    )
 
 
 def viewport_from_root(root: Any) -> tuple[float, float]:
@@ -144,6 +155,8 @@ def _compare_number(
         comparison=_numeric_comparison_name(attribute),
         distance=_clean(distance),
         tolerance=_clean(tolerance),
+        baseline_distance=_clean(mutation) if mutation is not None else None,
+        progress=_repair_progress(distance, mutation),
         unit="user units" if attribute != "opacity" else "absolute opacity",
     )
 
@@ -174,13 +187,15 @@ def _compare_flat_numbers(
 ) -> ValueMatch:
     distance = _rms_difference(actual, expected)
     mutation = _rms_difference(before, expected) if before is not None else None
-    cap = max(0.5, min(viewport) * 0.025)
-    tolerance = _bounded_tolerance(mutation, ratio=0.70, cap=cap, floor=0.5)
+    cap = max(0.75, min(viewport) * 0.03)
+    tolerance = _bounded_tolerance(mutation, ratio=0.55, cap=cap, floor=0.75)
     return ValueMatch(
         passed=distance <= tolerance + 1e-9,
         comparison="points-rms" if attribute == "points" else "list-rms",
         distance=_clean(distance),
         tolerance=_clean(tolerance),
+        baseline_distance=_clean(mutation) if mutation is not None else None,
+        progress=_repair_progress(distance, mutation),
         unit="coordinate RMS",
     )
 
@@ -191,15 +206,48 @@ def _compare_path(
     expected: str,
     viewport: tuple[float, float],
 ) -> ValueMatch:
+    distance = _sampled_path_distance(actual, expected)
+    mutation = _sampled_path_distance(str(before), expected) if before is not None else None
+    if distance is None:
+        return ValueMatch(False, "path-shape", detail="path geometry could not be sampled")
+    tolerance = _bounded_tolerance(
+        mutation,
+        ratio=0.70,
+        cap=max(0.75, min(viewport) * 0.03),
+        floor=0.75,
+    )
+    if distance > tolerance + 1e-9:
+        legacy_match = _matching_topology_path_distance(actual, before, expected, viewport)
+        if legacy_match is not None and legacy_match.passed:
+            return legacy_match
+    return ValueMatch(
+        passed=distance <= tolerance + 1e-9,
+        comparison="path-shape",
+        distance=_clean(distance),
+        tolerance=_clean(tolerance),
+        baseline_distance=_clean(mutation) if mutation is not None else None,
+        progress=_repair_progress(distance, mutation),
+        unit="sampled geometry",
+        detail="command topology is ignored; rendered path shape is compared",
+    )
+
+
+def _matching_topology_path_distance(
+    actual: str,
+    before: Any,
+    expected: str,
+    viewport: tuple[float, float],
+) -> ValueMatch | None:
+    """Retain coordinate-RMS acceptance when command streams align exactly."""
     actual_path = _path_tokens(actual)
     expected_path = _path_tokens(expected)
     before_path = _path_tokens(str(before)) if before is not None else None
     if actual_path is None or expected_path is None:
-        return ValueMatch(False, "path-rms", detail="path syntax could not be parsed")
+        return None
     actual_commands, actual_numbers = actual_path
     expected_commands, expected_numbers = expected_path
     if actual_commands != expected_commands or len(actual_numbers) != len(expected_numbers):
-        return ValueMatch(False, "path-rms", detail="path command topology differs")
+        return None
     before_numbers = None
     if before_path is not None and before_path[0] == expected_commands and len(before_path[1]) == len(expected_numbers):
         before_numbers = before_path[1]
@@ -213,10 +261,13 @@ def _compare_path(
     )
     return ValueMatch(
         passed=distance <= tolerance + 1e-9,
-        comparison="path-rms",
+        comparison="path-coordinate-rms",
         distance=_clean(distance),
         tolerance=_clean(tolerance),
+        baseline_distance=_clean(mutation) if mutation is not None else None,
+        progress=_repair_progress(distance, mutation),
         unit="coordinate RMS",
+        detail="matching command streams are within coordinate tolerance",
     )
 
 
@@ -234,12 +285,14 @@ def _compare_color(actual: str, before: Any, expected: str) -> ValueMatch:
         )
     distance = _euclidean(actual_lab, expected_lab)
     mutation = _euclidean(before_lab, expected_lab) if before_lab is not None else None
-    tolerance = _bounded_tolerance(mutation, ratio=0.35, cap=12.0, floor=3.0)
+    tolerance = _bounded_tolerance(mutation, ratio=0.45, cap=18.0, floor=4.0)
     return ValueMatch(
         passed=distance <= tolerance + 1e-9,
         comparison="color-lab",
         distance=_clean(distance),
         tolerance=_clean(tolerance),
+        baseline_distance=_clean(mutation) if mutation is not None else None,
+        progress=_repair_progress(distance, mutation),
         unit="Delta E76",
     )
 
@@ -252,21 +305,21 @@ def _numeric_tolerance(
 ) -> float:
     width, height = viewport
     if attribute == "opacity":
-        return _bounded_tolerance(mutation, ratio=0.35, cap=0.08, floor=0.02)
+        return _bounded_tolerance(mutation, ratio=0.50, cap=0.12, floor=0.03)
     if attribute == "stroke-width":
         return _bounded_tolerance(
             mutation,
-            ratio=0.35,
-            cap=max(0.5, abs(expected) * 0.25),
-            floor=0.2,
+            ratio=0.50,
+            cap=max(1.0, abs(expected) * 0.40),
+            floor=0.25,
         )
     if attribute in _X_ATTRIBUTES:
-        cap = max(0.5, width * 0.02)
+        cap = max(0.75, width * 0.025)
     elif attribute in _Y_ATTRIBUTES:
-        cap = max(0.5, height * 0.02)
+        cap = max(0.75, height * 0.025)
     else:
-        cap = max(0.5, min(width, height) * 0.015)
-    return _bounded_tolerance(mutation, ratio=0.35, cap=cap, floor=0.5)
+        cap = max(0.75, min(width, height) * 0.02)
+    return _bounded_tolerance(mutation, ratio=0.50, cap=cap, floor=0.75)
 
 
 def _bounded_tolerance(
@@ -304,6 +357,34 @@ def _path_tokens(value: str) -> tuple[tuple[str, ...], list[float]] | None:
         else:
             commands.append(token)
     return (tuple(commands), numbers)
+
+
+def _sampled_path_distance(left: str, right: str, samples: int = 129) -> float | None:
+    """Approximate visible path distance independently of SVG command topology."""
+    left_points = _sample_path(left, samples)
+    right_points = _sample_path(right, samples)
+    if left_points is None or right_points is None:
+        return None
+
+    # Symmetric nearest-point distances handle equivalent paths that use different
+    # segment counts, directions, or starting points.
+    nearest = [min(abs(point - other) for other in right_points) for point in left_points]
+    nearest.extend(min(abs(point - other) for other in left_points) for point in right_points)
+    if not nearest:
+        return 0.0
+    nearest.sort()
+    rms = math.sqrt(sum(distance * distance for distance in nearest) / len(nearest))
+    percentile_95 = nearest[math.ceil(0.95 * len(nearest)) - 1]
+    return max(rms, percentile_95)
+
+
+@lru_cache(maxsize=4096)
+def _sample_path(value: str, samples: int) -> tuple[complex, ...] | None:
+    try:
+        path = parse_path(value)
+        return tuple(path.point(index / (samples - 1)) for index in range(samples))
+    except (IndexError, TypeError, ValueError, ZeroDivisionError):
+        return None
 
 
 def _number_tokens(value: str) -> list[float] | None:
@@ -370,3 +451,11 @@ def _as_float(value: Any) -> float | None:
 
 def _clean(value: float) -> float:
     return round(value, 6)
+
+
+def _repair_progress(distance: float, baseline: float | None) -> float | None:
+    if baseline is None:
+        return 1.0 if distance <= 1e-9 else None
+    if baseline <= 1e-9:
+        return 1.0 if distance <= 1e-9 else 0.0
+    return _clean(max(0.0, min(1.0, 1.0 - distance / baseline)))

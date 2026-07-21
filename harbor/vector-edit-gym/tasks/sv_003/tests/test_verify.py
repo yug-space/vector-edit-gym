@@ -25,12 +25,16 @@ def main():
     result = {
         "reward": report.reward,
         "specification_pass": int(report.specification_pass),
+        "near_pass": int(report.near_pass),
         "repair_pass": int(report.repair_pass),
         "preservation_pass": int(report.preservation_pass),
+        "source_preservation_pass": int(report.source_preservation_pass),
         "validity_pass": int(report.validity_pass),
         "target_match": int(report.structural),
         "edit_completion": report.edit_completion,
+        "repair_progress": report.repair_progress,
         "preservation": report.preservation,
+        "source_preservation": report.source_preservation,
         "unintended_change_rate": report.unintended_change_rate,
     }
     log_dir = os.environ.get("HARBOR_LOG_DIR", "/logs/verifier")

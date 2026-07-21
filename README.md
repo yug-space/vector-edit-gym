@@ -8,6 +8,8 @@ VectorEditGym evaluates whether a model can repair visible defects in an SVG wit
 
 The frozen release contains 40 dense repair tasks and 202 annotated edits. Instructions sound like human visual requests: they do not expose SVG IDs, coordinates, color codes, path data, or evaluator metadata.
 
+The published results use evaluator `semantic-perceptual-binary-2026-07`.
+
 **Authors:** Yug Aditi Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work.
 
 ## Evaluation Contract
@@ -29,22 +31,27 @@ reward = 1 when specification_pass is true; otherwise 0
 
 The three gates are:
 
-- `repair_pass`: every requested edit is within a deterministic attribute-aware tolerance. Numeric placement uses viewport- and mutation-bounded distance, colors use CIE Lab Delta E76, and paths/points use coordinate RMS with matching topology.
-- `preservation_pass`: after masking only requested fields, the complete canonical output tree equals the complete target tree. Unrequested attributes, definitions, anonymous nodes, IDs, nesting, and order remain strict.
+- `repair_pass`: every requested edit is within a deterministic perceptual tolerance. Numeric placement uses viewport- and mutation-bounded distance, colors use CIE Lab Delta E76, and paths use sampled geometry so equivalent command decompositions are accepted.
+- `preservation_pass`: after masking only requested fields, the rendering-relevant document tree remains unchanged. Consistent ID renaming and style-versus-presentation rewrites are accepted; unrequested visible attributes, definitions, anonymous nodes, nesting, and order remain strict.
 - `validity_pass`: the output is a complete, well-formed SVG with unique nonempty IDs and valid normalized SVG syntax.
+- `near_pass`: the output is valid and semantically clean, with at most one missed repair and at least 80% aggregate repair progress. It is diagnostic and does not receive binary reward.
 
 `structural` is canonical full-target equality and is diagnostic only. A bounded repair can pass even when `structural` is false. Each expected-edit report includes the comparison method, measured distance, tolerance, unit, and outcome.
 
 Diagnostic metrics explain zero-reward outputs:
 
 - `edit_completion`: fraction of requested repairs completed
+- `repair_progress`: average progress toward each hidden target, using the corrupted value as the baseline
 - `preservation`: fraction of protected object subtrees unchanged
 - `unintended_change_rate`: `1 - preservation`
 - `repair_pass`: whether all requested checks pass
 - `preservation_pass`: whether the masked full document is unchanged
+- `source_preservation_pass`: strict source-tree preservation, reported separately from the visual/semantic pass
 - `validity_pass`: whether the output passes structural SVG validity
 - `structural`: canonical target match, reported only as a diagnostic
 - `truncation_rate`: fraction of endpoint responses ending at the output-length limit
+
+Aggregate UCR on the leaderboard is computed over valid SVG outputs. Invalid and truncated responses are reported separately through `validity_rate`, `error_rate`, and `truncation_rate`.
 
 ## Setup
 

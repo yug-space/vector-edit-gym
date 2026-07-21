@@ -20,7 +20,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
-from vector_edit_gym.diffing import diff_report, outcome_status  # noqa: E402
+from vector_edit_gym.diffing import EVALUATOR_VERSION, diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import Task, load_tasks  # noqa: E402
 
 
@@ -85,7 +85,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--concurrency", type=int, default=6)
     parser.add_argument("--timeout", type=float, default=180.0)
     parser.add_argument("--retries", type=int, default=4)
-    parser.add_argument("--max-output-tokens", type=int, default=12000)
+    parser.add_argument("--max-output-tokens", type=int, default=16000)
     parser.add_argument("--dry-run", action="store_true", help="estimate requests and cost without an API key")
     parser.add_argument("--no-resume", action="store_true")
     return parser.parse_args()
@@ -240,13 +240,17 @@ async def run_one(client, model: ModelSpec, task: Task, pricing: Pricing, args: 
         "status": status,
         "reward": report["reward"],
         "specification_pass": report["specification_pass"],
+        "near_pass": report["near_pass"],
         "repair_pass": report["repair_pass"],
         "preservation_pass": report["preservation_pass"],
+        "source_preservation_pass": report["source_preservation_pass"],
         "validity_pass": report["validity_pass"],
         "exact": report["exact"],
         "structural": report["structural"],
         "edit_completion": report["edit_completion"],
+        "repair_progress": report["repair_progress"],
         "preservation": report["preservation"],
+        "source_preservation": report["source_preservation"],
         "unintended_change_rate": report["unintended_change_rate"],
         "diff_report": report,
         "produced_svg": produced,
@@ -274,7 +278,9 @@ def messages(task: Task) -> list[dict[str, str]]:
 
 
 def adaptive_max_tokens(task: Task, ceiling: int) -> int:
-    return min(ceiling, max(4096, int(len(task.initial_svg) / 2.5) + 1536))
+    # Reasoning-capable endpoints often count hidden reasoning against this
+    # allowance, so a 4k floor truncates otherwise short, valid SVG documents.
+    return min(ceiling, max(8192, int(len(task.initial_svg) / 2.0) + 2048))
 
 
 def estimate_request_cost(task: Task, pricing: Pricing, ceiling: int) -> float:
@@ -343,13 +349,17 @@ def error_record(model: ModelSpec, task: Task, code: str, message: str) -> dict[
         "status": "ERR",
         "reward": 0,
         "specification_pass": False,
+        "near_pass": False,
         "repair_pass": False,
         "preservation_pass": False,
+        "source_preservation_pass": False,
         "validity_pass": False,
         "exact": False,
         "structural": False,
         "edit_completion": 0.0,
+        "repair_progress": 0.0,
         "preservation": 0.0,
+        "source_preservation": 0.0,
         "unintended_change_rate": 1.0,
         "diff_report": None,
         "produced_svg": None,
@@ -411,6 +421,7 @@ def write_meta(run_dir: Path, manifest: dict[str, Any], models: list[ModelSpec],
         "task_ids": [task.task_id for task in tasks],
         "task_count": len(tasks),
         "corpus_hash": task_index["frozen_content_sha256"],
+        "evaluator": EVALUATOR_VERSION,
         "system_prompt": SYSTEM_PROMPT,
         "prompt_visibility": ["instruction", "initial_svg"],
         "hidden_from_model": ["target_svg", "expected_diff", "should_preserve", "target_parts"],
@@ -440,8 +451,10 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
             "n": n,
             "spec_pass_rate": mean(items, "reward"),
             "binary_reward": mean(items, "reward"),
+            "near_pass_rate": mean(items, "near_pass"),
             "repair_pass_rate": mean(items, "repair_pass"),
             "preservation_pass_rate": mean(items, "preservation_pass"),
+            "source_preservation_pass_rate": mean(items, "source_preservation_pass"),
             "exact_rate": mean(items, "exact"),
             "structural_rate": mean(items, "structural"),
             "validity_rate": sum(
@@ -449,8 +462,10 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
                 for item in items
             ) / n,
             "edit_completion": mean(items, "edit_completion"),
+            "repair_progress": mean(items, "repair_progress"),
             "preservation": mean(items, "preservation"),
-            "unintended_change_rate": mean(items, "unintended_change_rate"),
+            "source_preservation": mean(items, "source_preservation"),
+            "unintended_change_rate": mean_valid(items, "unintended_change_rate"),
             "error_rate": sum(1 for item in items if item["error"]) / n,
             "truncation_rate": sum(item.get("finish_reason") == "length" for item in items) / n,
             "mean_elapsed_ms": mean(items, "elapsed_ms"),
@@ -458,22 +473,36 @@ def summarize(records: list[dict[str, Any]], models: list[ModelSpec]) -> list[di
             "prompt_tokens": sum(int(item.get("prompt_tokens") or 0) for item in items),
             "completion_tokens": sum(int(item.get("completion_tokens") or 0) for item in items),
         })
-    return sorted(summaries, key=lambda row: (-row["spec_pass_rate"], -row["repair_pass_rate"], -row["edit_completion"], row["unintended_change_rate"], row["name"]))
+    return sorted(
+        summaries,
+        key=lambda row: (
+            -row["spec_pass_rate"],
+            -row["repair_progress"],
+            row["unintended_change_rate"],
+            -row["validity_rate"],
+            row["name"],
+        ),
+    )
 
 
 def mean(items: list[dict[str, Any]], key: str) -> float:
     return sum(float(item.get(key) or 0) for item in items) / len(items)
 
 
+def mean_valid(items: list[dict[str, Any]], key: str) -> float:
+    valid = [item for item in items if item.get("validity_pass")]
+    return mean(valid, key) if valid else 1.0
+
+
 def summary_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
-        "| model | group | n | spec pass | repair pass | edit completion | clean | UCR | valid | truncated | errors | cost |",
+        "| model | group | n | full pass | near | repair progress | clean | UCR | valid | truncated | errors | cost |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
             f"| {row['name']} | {row['group']} | {row['n']} | {row['spec_pass_rate']:.1%} | "
-            f"{row['repair_pass_rate']:.1%} | {row['edit_completion']:.1%} | {row['preservation_pass_rate']:.1%} | "
+            f"{row['near_pass_rate']:.1%} | {row['repair_progress']:.1%} | {row['preservation_pass_rate']:.1%} | "
             f"{row['unintended_change_rate']:.1%} | {row['validity_rate']:.1%} | "
             f"{row['truncation_rate']:.1%} | {row['error_rate']:.1%} | ${row['cost_usd']:.4f} |"
         )

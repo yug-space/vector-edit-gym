@@ -20,7 +20,7 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-dependencies = []
+dependencies = ["svg.path>=7.0,<8"]
 
 [project.urls]
 Homepage = "https://svg-rl-env.vercel.app"
