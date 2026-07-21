@@ -17,11 +17,11 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "VectorEditGym · a Theta Labs benchmark",
-    template: "%s · VectorEditGym",
+    default: "Vector-Bench · a Theta Labs benchmark",
+    template: "%s · Vector-Bench",
   },
   description:
-    "VectorEditGym is a preservation-aware SVG repair benchmark with tolerant requested edits, strict side-effect checks, and inspectable model outputs.",
+    "Vector-Bench is a preservation-aware SVG repair benchmark with tolerant requested edits, strict side-effect checks, and inspectable model outputs.",
 };
 
 const NAV_LINKS = [
@@ -124,7 +124,7 @@ function SiteFooter() {
             <Link href="/#leaderboard" className="nav-link">Leaderboard</Link>
             <a href="/vectoreditgym-paper.pdf" className="nav-link">Paper</a>
             <a
-              href="mailto:yug@thetalab.tech?subject=VectorEditGym%20leaderboard%20submission"
+              href="mailto:yug@thetalab.tech?subject=Vector-Bench%20leaderboard%20submission"
               className="theta-button theta-button-brand"
             >
               Submit results

@@ -1,4 +1,4 @@
-// Generate standalone Harbor tasks from the frozen VectorEditGym corpus.
+// Generate standalone Harbor tasks from the frozen Vector-Bench corpus.
 
 import {
   chmodSync,

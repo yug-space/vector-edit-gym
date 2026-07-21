@@ -1,11 +1,11 @@
-# VectorEditGym
+# Vector-Bench
 
 [![CI](https://github.com/yug-space/vector-edit-gym/actions/workflows/ci.yml/badge.svg)](https://github.com/yug-space/vector-edit-gym/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/code%20license-MIT-2f6f4e.svg)](LICENSE)
 [![Corpus: 40 tasks](https://img.shields.io/badge/corpus-40%20tasks-c05a32.svg)](DATASET_CARD.md)
 [![Published traces: 1,360](https://img.shields.io/badge/traces-1%2C360-315f85.svg)](https://www.vecbench.xyz/traces)
 
-VectorEditGym is a frozen, preservation-aware benchmark for repairing visible defects
+Vector-Bench is a frozen, preservation-aware benchmark for repairing visible defects
 in SVGs. It tests whether a model can make every requested change while leaving the
 rest of the vector program intact, then assigns a deterministic binary reward.
 

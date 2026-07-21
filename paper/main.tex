@@ -44,7 +44,7 @@
 
 \input{generated/results.tex}
 
-\title{VectorEditGym: Evaluating Specification-Faithful SVG Repair\\
+\title{Vector-Bench: Specification-Faithful SVG Repair\\
 Under Preservation Constraints}
 
 \author{%
@@ -62,7 +62,7 @@ Under Preservation Constraints}
 \begin{abstract}
 Instruction-based vector editing requires two capabilities: making a requested
 change and leaving everything else alone. The second is easy to miss when an
-output is judged only as a raster image. We introduce \textbf{VectorEditGym}, a
+output is judged only as a raster image. We introduce \textbf{Vector-Bench}, a
 compact, difficult benchmark of \TaskCount{} SVG repair tasks. Each task pairs a
 corrupted SVG program with an author-written visual instruction, a hidden target program,
 \MeanExpectedEdits{} annotated repairs on average, and an average of
@@ -97,7 +97,7 @@ Most generation metrics emphasize final appearance. That is appropriate for
 open-ended synthesis, but insufficient for local editing. A repair benchmark
 must answer three separate questions: Did the requested objects change? Did
 unmentioned objects remain stable? Is the resulting program valid and usable?
-VectorEditGym makes all three observable through hidden target SVGs and explicit
+Vector-Bench makes all three observable through hidden target SVGs and explicit
 protected-object sets.
 
 The benchmark is deliberately small and dense rather than broad and shallow.
@@ -136,7 +136,7 @@ IconShop generates vector icons from text~\citep{wu2023iconshop}; StarVector
 generates SVG code from images and text~\citep{rodriguez2025starvector}; and
 LLM4SVG studies complex vector understanding and generation with language
 models~\citep{xing2025llm4svg}. These systems establish SVG as a useful meeting
-point between visual generation and program synthesis. VectorEditGym focuses on
+point between visual generation and program synthesis. Vector-Bench focuses on
 local repair rather than open-ended generation.
 
 \paragraph{Instruction-based SVG editing.}
@@ -544,7 +544,7 @@ end at the provider's output-length limit; parse failure is measured separately.
 
 \section{Limitations and Artifact Risks}
 
-VectorEditGym has only \TaskCount{} tasks and should be treated as a focused
+Vector-Bench has only \TaskCount{} tasks and should be treated as a focused
 stress test, not a comprehensive measure of visual editing. Public targets make
 future contamination possible. The deterministic tolerances are transparent but
 cannot represent every perceptually acceptable alternative. Path comparison uses
@@ -579,7 +579,7 @@ reasoning, source localization, and code generation under one protocol.
 
 \section{Conclusion}
 
-VectorEditGym isolates a practical requirement for editing agents: requested
+Vector-Bench isolates a practical requirement for editing agents: requested
 change is not enough; preservation is part of the specification. Author-written
 visual instructions make the task less like copying a patch, while executable SVG
 targets make evaluator decisions inspectable. Across \ModelCount{} endpoints, partial

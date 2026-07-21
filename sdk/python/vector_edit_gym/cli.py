@@ -164,7 +164,7 @@ def _cmd_score(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="vec-edit-gym", description="VectorEditGym CLI")
+    p = argparse.ArgumentParser(prog="vec-edit-gym", description="Vector-Bench CLI")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     pl = sub.add_parser("list", help="list tasks")

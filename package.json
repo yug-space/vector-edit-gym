@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "VectorEditGym: a preservation-aware benchmark for naturalistic SVG repair.",
+  "description": "Vector-Bench: a preservation-aware benchmark for naturalistic SVG repair.",
   "license": "MIT",
   "repository": {
     "type": "git",

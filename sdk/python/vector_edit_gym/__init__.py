@@ -1,4 +1,4 @@
-"""VectorEditGym: preservation-aware SVG repair evaluation.
+"""Vector-Bench: preservation-aware SVG repair evaluation.
 
 Quick start:
 

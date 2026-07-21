@@ -15,7 +15,7 @@ import { getLeaderboard, listTasks } from "@/lib/data";
 export const dynamic = "force-dynamic";
 
 const SUBMIT_MAILTO =
-  "mailto:yug@thetalab.tech?subject=VectorEditGym%20leaderboard%20submission&body=" +
+  "mailto:yug@thetalab.tech?subject=Vector-Bench%20leaderboard%20submission&body=" +
   encodeURIComponent(
     [
       "Model:",
@@ -185,7 +185,7 @@ function Hero({ totalTasks }: { totalTasks: number }) {
         <div className="narrow-shell">
           <p className="eyebrow">theta labs / svg editing benchmark</p>
           <h1 className="section-heading mt-6">
-            <span className="brand-underline italic">VectorEditGym</span>
+            <span className="brand-underline italic">Vector-Bench</span>
           </h1>
           <p className="section-copy mt-6">
             Human visual repair instructions, hidden SVG targets, and an auditable specification:

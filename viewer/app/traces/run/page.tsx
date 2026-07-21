@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Run trace",
-  description: "Inspect a complete VectorEditGym model request, response, extraction, and verifier trace.",
+  description: "Inspect a complete Vector-Bench model request, response, extraction, and verifier trace.",
 };
 
 type SearchParams = {

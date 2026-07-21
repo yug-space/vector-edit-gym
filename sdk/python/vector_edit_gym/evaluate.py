@@ -156,7 +156,7 @@ class EvaluationResult:
 
     def summary(self) -> str:
         lines = [
-            f"VectorEditGym - {self.n} tasks",
+            f"Vector-Bench - {self.n} tasks",
             f"  specification pass: {self.specification_pass_rate:.1%}",
             f"  near-complete:      {self.near_pass_rate:.1%}",
             f"  requested repairs:  {self.repair_pass_rate:.1%}",

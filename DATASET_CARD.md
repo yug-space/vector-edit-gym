@@ -1,8 +1,8 @@
-# VectorEditGym Dataset Card
+# Vector-Bench Dataset Card
 
 ## Summary
 
-VectorEditGym is a frozen benchmark for localized SVG repair. It contains 40 tasks, 202 requested object-attribute repairs, author-written naturalistic instructions, corrupted SVG inputs, hidden canonical targets, and preservation annotations.
+Vector-Bench is a frozen benchmark for localized SVG repair. It contains 40 tasks, 202 requested object-attribute repairs, author-written naturalistic instructions, corrupted SVG inputs, hidden canonical targets, and preservation annotations.
 
 The published release uses evaluator `semantic-perceptual-binary-2026-07-21`.
 
