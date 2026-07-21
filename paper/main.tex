@@ -340,7 +340,12 @@ wall-clock elapsed time, and provider-reported cost. Elapsed time begins when a
 model--task job is scheduled and therefore includes local concurrency-queue wait;
 we expose it for run auditing, not as endpoint latency. Each source cohort uses
 a reservation-based budget guard capped at \$25; the completed combined study
-cost \TotalCost{}.
+cost \TotalCost{}. The current runner additionally emits credential-redacted,
+append-only request, retry, response, extraction, and scoring events. Because the
+reported study predates this complete attempt logger, its public rows are marked
+\texttt{legacy\_final\_record}: the extracted final SVG (or malformed final body)
+and metadata are retained, but discarded retry envelopes and response wrappers
+cannot be reconstructed.
 
 This is an endpoint comparison, not a general ranking of model intelligence.
 It uses one decoded response per model--task pair and does not include a human
@@ -562,8 +567,11 @@ and provide a compact target for improving structured visual editors.
 
 \paragraph{Reproducibility.}
 The release includes the frozen corpus, prompts, runner, evaluator, tests,
-analysis, paper source, Harbor tasks, and per-output viewer. Credentials and
-transport-level API envelopes are excluded. The public artifact is available at
+analysis, paper source, Harbor tasks, and a chronological per-output trace viewer.
+Credentials and authorization headers are excluded. The released study includes
+sanitized final-response records and verifier snapshots; unavailable legacy retry
+and transport envelopes are explicitly labeled rather than inferred. New runs
+retain these events append-only. The public artifact is available at
 \url{https://www.vecbench.xyz}, with source at
 \url{https://github.com/yug-space/vector-edit-gym}.
 

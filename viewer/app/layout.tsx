@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { href: "/tasks", label: "Tasks" },
+  { href: "/traces", label: "Traces" },
   { href: "/#leaderboard", label: "Leaderboard" },
   { href: "/vectoreditgym-paper.pdf", label: "Paper" },
 ];
@@ -119,6 +120,7 @@ function SiteFooter() {
 
           <div className="footer-links">
             <Link href="/tasks" className="nav-link">Tasks</Link>
+            <Link href="/traces" className="nav-link">Traces</Link>
             <Link href="/#leaderboard" className="nav-link">Leaderboard</Link>
             <a href="/vectoreditgym-paper.pdf" className="nav-link">Paper</a>
             <a

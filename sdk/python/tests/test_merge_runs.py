@@ -37,6 +37,12 @@ def test_merge_runs_combines_compatible_complete_matrices(tmp_path: Path) -> Non
         ("provider/model-a", "sv_001"),
         ("provider/model-b", "sv_001"),
     ]
+    traces = [json.loads(line) for line in (output / "traces.jsonl").read_text().splitlines()]
+    assert [trace["requested_model"] for trace in traces] == [
+        "provider/model-a",
+        "provider/model-b",
+    ]
+    assert meta["merged_trace_events"] == 2
 
 
 def test_merge_runs_rejects_protocol_mismatch(tmp_path: Path) -> None:
@@ -101,4 +107,15 @@ def write_run(
     }
     (path / "meta.json").write_text(json.dumps(meta))
     (path / "results.jsonl").write_text(json.dumps(record) + "\n")
+    (path / "traces.jsonl").write_text(
+        json.dumps(
+            {
+                "schema_version": "vectoreditgym.trace.v1",
+                "event": "evaluation_completed",
+                "requested_model": model_id,
+                "task_id": "sv_001",
+            }
+        )
+        + "\n"
+    )
     return path

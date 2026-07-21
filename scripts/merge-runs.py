@@ -48,6 +48,7 @@ def main() -> int:
 
     models: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
+    trace_lines: list[str] = []
     model_ids: set[str] = set()
     source_details = []
     for source in sources:
@@ -60,12 +61,14 @@ def main() -> int:
         models.extend(meta["models"])
         model_ids.update(model["id"] for model in meta["models"])
         records.extend(source["records"])
+        trace_lines.extend(source["trace_lines"])
         source_details.append(
             {
                 "run": source["path"].name,
                 "created_at": meta.get("created_at"),
                 "models": len(meta["models"]),
                 "records": len(source["records"]),
+                "trace_events": len(source["trace_lines"]),
                 "budget_usd": float(meta.get("budget_usd") or 0),
                 "estimated_catalog_cost_usd": float(
                     meta.get("estimated_catalog_cost_usd") or 0
@@ -105,6 +108,8 @@ def main() -> int:
         ),
         "source_runs": source_details,
         "merged_at": datetime.now(timezone.utc).isoformat(),
+        "trace_file": "traces.jsonl",
+        "merged_trace_events": len(trace_lines),
     }
 
     args.output_run.mkdir(parents=True, exist_ok=True)
@@ -116,6 +121,8 @@ def main() -> int:
         args.output_run / "results.jsonl",
         "".join(json.dumps(record, ensure_ascii=True) + "\n" for record in records),
     )
+    if trace_lines:
+        atomic_write(args.output_run / "traces.jsonl", "".join(trace_lines))
     print(
         f"Merged {len(sources)} runs into {args.output_run}: "
         f"{len(models)} models x {len(baseline['task_ids'])} tasks = {len(records)} records"
@@ -135,8 +142,21 @@ def load_run(path: Path) -> dict[str, Any]:
         for line in results_path.read_text().splitlines()
         if line.strip()
     ]
+    traces_path = path / "traces.jsonl"
+    trace_lines = []
+    if traces_path.exists():
+        for line_number, line in enumerate(traces_path.read_text().splitlines(), start=1):
+            if not line.strip():
+                continue
+            try:
+                json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise SystemExit(
+                    f"invalid trace JSON in {traces_path}:{line_number}: {exc}"
+                ) from exc
+            trace_lines.append(line + "\n")
     validate_matrix(records, meta["models"], meta["task_ids"], str(path))
-    return {"path": path, "meta": meta, "records": records}
+    return {"path": path, "meta": meta, "records": records, "trace_lines": trace_lines}
 
 
 def assert_compatible(

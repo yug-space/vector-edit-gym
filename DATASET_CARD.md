@@ -34,6 +34,12 @@ Do not use the public hidden targets as training data and then report the result
 
 The instructions and acceptable repairs were authored and checked by the benchmark authors. No independent annotator-agreement or human-performance study has been completed; tolerance sensitivity is reported in the paper but is not a substitute for human calibration.
 
+## Trace Retention
+
+New benchmark runs retain an append-only, credential-redacted event stream covering every request, retry, provider response, extraction decision, and evaluator snapshot. Rescoring archives the previous result matrix and preserves score history. Public task pages expose these events through a chronological trace viewer.
+
+The published July 2026 model study was executed before complete attempt tracing was added. Its public rows are explicitly labeled `legacy_final_record`: the exact prompt can be reconstructed from the frozen task and protocol, and final response content, endpoint IDs, usage, timing, cost, and verifier details are retained. Original retry envelopes and response wrappers that the earlier runner discarded are not recoverable and are not represented as observed data.
+
 ## Provenance and License
 
 Project-authored code and metadata are MIT licensed. Twenty scenic source illustrations in `data/scenic_svgs/`, their task-embedded copies, and direct visual derivatives lack recoverable per-file provenance metadata. The project does not claim original authorship of those illustrations, does not relicense them, and marks the complete scenic subset as research-only pending provenance resolution.

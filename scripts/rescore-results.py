@@ -18,6 +18,13 @@ sys.path.insert(0, str(ROOT / "sdk" / "python"))
 
 from vector_edit_gym.diffing import EVALUATOR_VERSION, diff_report, outcome_status  # noqa: E402
 from vector_edit_gym.tasks import load_tasks  # noqa: E402
+from vector_edit_gym.tracing import (  # noqa: E402
+    TRACE_SCHEMA_VERSION,
+    append_evaluation,
+    legacy_trace,
+    sanitize_trace,
+    utc_now,
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -31,13 +38,29 @@ def main() -> int:
     args = parse_args()
     results_path = args.run_dir / "results.jsonl"
     meta_path = args.run_dir / "meta.json"
-    records = [json.loads(line) for line in results_path.read_text().splitlines() if line.strip()]
-    meta = json.loads(meta_path.read_text())
+    original_results = results_path.read_text()
+    original_meta = meta_path.read_text()
+    records = [json.loads(line) for line in original_results.splitlines() if line.strip()]
+    meta = json.loads(original_meta)
     validate_matrix(records, meta)
     tasks = {task.task_id: task for task in load_tasks(data_dir=args.tasks)}
+    scored_at = utc_now()
+    archive_rescore_inputs(args.run_dir, original_results, original_meta, scored_at)
 
     changed = 0
+    trace_events = []
     for record in records:
+        task = tasks[record["task_id"]]
+        trace = record.get("trace")
+        if not isinstance(trace, dict):
+            trace = legacy_trace(record, task, meta)
+        else:
+            append_evaluation(
+                trace,
+                record,
+                str(meta.get("evaluator") or "unknown"),
+                meta.get("rescored_at") or meta.get("created_at"),
+            )
         if record.get("error") is not None:
             updates = {
                 "status": "ERR",
@@ -59,30 +82,46 @@ def main() -> int:
             if any(record.get(key) != value for key, value in updates.items()):
                 changed += 1
             record.update(updates)
-            continue
-        task = tasks[record["task_id"]]
-        report = diff_report(task, str(record.get("produced_svg") or "")).to_dict()
-        updates = {
-            "status": outcome_status(report),
-            "reward": report["reward"],
-            "specification_pass": report["specification_pass"],
-            "near_pass": report["near_pass"],
-            "repair_pass": report["repair_pass"],
-            "preservation_pass": report["preservation_pass"],
-            "source_preservation_pass": report["source_preservation_pass"],
-            "validity_pass": report["validity_pass"],
-            "exact": report["exact"],
-            "structural": report["structural"],
-            "edit_completion": report["edit_completion"],
-            "repair_progress": report["repair_progress"],
-            "preservation": report["preservation"],
-            "source_preservation": report["source_preservation"],
-            "unintended_change_rate": report["unintended_change_rate"],
-            "diff_report": report,
-        }
-        if any(record.get(key) != value for key, value in updates.items()):
-            changed += 1
-        record.update(updates)
+        else:
+            report = diff_report(task, str(record.get("produced_svg") or "")).to_dict()
+            updates = {
+                "status": outcome_status(report),
+                "reward": report["reward"],
+                "specification_pass": report["specification_pass"],
+                "near_pass": report["near_pass"],
+                "repair_pass": report["repair_pass"],
+                "preservation_pass": report["preservation_pass"],
+                "source_preservation_pass": report["source_preservation_pass"],
+                "validity_pass": report["validity_pass"],
+                "exact": report["exact"],
+                "structural": report["structural"],
+                "edit_completion": report["edit_completion"],
+                "repair_progress": report["repair_progress"],
+                "preservation": report["preservation"],
+                "source_preservation": report["source_preservation"],
+                "unintended_change_rate": report["unintended_change_rate"],
+                "diff_report": report,
+            }
+            if any(record.get(key) != value for key, value in updates.items()):
+                changed += 1
+            record.update(updates)
+        if record.get("raw_response") is None and record.get("produced_svg") is not None:
+            record["raw_response"] = record["produced_svg"]
+        append_evaluation(trace, record, EVALUATOR_VERSION, scored_at)
+        record["trace"] = sanitize_trace(trace)
+        trace_events.append(
+            sanitize_trace(
+                {
+                    "schema_version": TRACE_SCHEMA_VERSION,
+                    "recorded_at": scored_at,
+                    "event": "evaluation_completed",
+                    "trace_id": trace.get("trace_id"),
+                    "requested_model": record.get("requested_model"),
+                    "task_id": record.get("task_id"),
+                    "evaluation": trace["evaluations"][-1],
+                }
+            )
+        )
 
     summaries = summarize(records, meta["models"])
     task_index = json.loads((args.tasks / "_index.json").read_text())
@@ -90,7 +129,12 @@ def main() -> int:
     meta["evaluator"] = EVALUATOR_VERSION
     meta["corpus_hash"] = task_index["frozen_content_sha256"]
     meta.setdefault("sdk_max_retries", 2)
+    meta["trace_schema"] = TRACE_SCHEMA_VERSION
+    meta["trace_file"] = "traces.jsonl"
+    meta.setdefault("trace_retention", "legacy_final_record")
+    meta["credentials_recorded"] = False
     atomic_write(results_path, "".join(json.dumps(record, ensure_ascii=True) + "\n" for record in records))
+    append_jsonl(args.run_dir / "traces.jsonl", trace_events)
     atomic_write(args.run_dir / "summary.json", json.dumps(summaries, indent=2) + "\n")
     atomic_write(args.run_dir / "summary.md", summary_markdown(summaries))
     atomic_write(
@@ -204,6 +248,25 @@ def atomic_write(path: Path, content: str) -> None:
     temporary = path.with_name(f".{path.name}.tmp")
     temporary.write_text(content)
     os.replace(temporary, path)
+
+
+def append_jsonl(path: Path, records: list[dict[str, Any]]) -> None:
+    with path.open("a", encoding="utf8") as handle:
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=True) + "\n")
+
+
+def archive_rescore_inputs(
+    run_dir: Path,
+    results: str,
+    meta: str,
+    scored_at: str,
+) -> None:
+    stamp = scored_at.replace(":", "").replace("+00:00", "Z").replace(".", "-")
+    history = run_dir / "history" / stamp
+    history.mkdir(parents=True, exist_ok=False)
+    atomic_write(history / "results.jsonl", results)
+    atomic_write(history / "meta.json", meta)
 
 
 if __name__ == "__main__":

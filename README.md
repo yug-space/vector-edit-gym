@@ -115,9 +115,13 @@ python scripts/benchmark-openrouter.py \
 Runs are resumable. Records are stored under `runs/openrouter/<run-name>/`:
 
 - `meta.json`: prompt protocol, selected tasks/models, budget, and hidden fields
-- `results.jsonl`: one scored outcome, SVG or error, diff report, usage, and cost per model/task
+- `results.jsonl`: one scored outcome plus its complete sanitized trace, SVG or error, diff report, usage, and cost per model/task
+- `traces.jsonl`: append-only request-start, retry, provider-response, extraction, and evaluator events
+- `history/<timestamp>/`: immutable pre-rescore `results.jsonl` and `meta.json` snapshots
 - `summary.json` and `summary.md`: model aggregates
 - `cost.json`: recorded spend and cap
+
+Trace capture explicitly removes credentials, authorization/cookie headers, and key-shaped values. New runs retain every harness attempt and provider payload. The published July 2026 study predates complete attempt capture, so its traces are labeled `legacy_final_record`: prompts, final outputs, IDs, usage, timing, and verifier state are available, but discarded response wrappers and retry/transport envelopes cannot be reconstructed.
 
 `runs/` is intentionally ignored by Git. Publish a completed run into the tracked website data with:
 
@@ -126,7 +130,7 @@ python scripts/rescore-results.py runs/openrouter/openrouter-30-human
 node scripts/publish-model-results.mjs runs/openrouter/openrouter-30-human
 ```
 
-The rescorer atomically applies the repository's current evaluator to the recorded responses. The exporter refuses incomplete or duplicated model-task matrices. Compatible completed cohorts can be combined without altering their recorded outcomes:
+The rescorer archives the prior rows before atomically applying the repository's current evaluator and appends the new score snapshot to each trace. The exporter refuses incomplete or duplicated model-task matrices. Compatible completed cohorts can be combined without altering their recorded outcomes or trace streams:
 
 ```sh
 python scripts/merge-runs.py runs/openrouter/openrouter-combined \
@@ -134,6 +138,7 @@ python scripts/merge-runs.py runs/openrouter/openrouter-combined \
   runs/openrouter/openrouter-frontier-4
 python scripts/rescore-results.py runs/openrouter/openrouter-combined
 node scripts/publish-model-results.mjs runs/openrouter/openrouter-combined
+npm run traces:verify
 ```
 
 ## Analysis and Paper
@@ -169,7 +174,8 @@ The viewer publishes:
 - corrupted and target SVGs
 - every model-produced SVG
 - expected-edit checks, preservation failures, UCR, truncation, scheduled elapsed time, tokens, and cost
-- requested/resolved endpoint IDs, response IDs, parse failures, and raw non-SVG responses
+- requested/resolved endpoint IDs, response IDs, parse failures, and every retained raw response
+- a dedicated chronological trace viewer for prompts, attempts, extraction, verifier history, and artifacts
 - the paper PDF and aggregate analysis figures
 
 Production deployment uses the Vercel project `yug-guptas-projects/svg-rl-env`:
@@ -195,7 +201,7 @@ benchmarks/                 fixed model manifests
 data/tasks/                 frozen 40-task corpus
 data/leaderboard.json       published aggregate results
 data/model-results.json     complete published model outputs
-data/model-results/         task-sharded website output data
+data/model-results/         task-sharded outputs and sanitized traces
 data/model-results-summary.json  compact task catalog diagnostics
 data/scenic_svgs/           scenic source assets
 harbor/vector-edit-gym/     generated Harbor dataset
