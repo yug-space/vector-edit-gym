@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use Vector-Bench, cite the paper and software artifact."
-title: "Vector-Bench: Specification-Faithful SVG Repair Under Preservation Constraints"
+title: "Vector-Bench: Repairing SVGs Without Breaking Them"
 type: software
 version: 0.2.0
 date-released: 2026-07-21
@@ -23,7 +23,7 @@ keywords:
   - preservation
 preferred-citation:
   type: article
-  title: "Vector-Bench: Specification-Faithful SVG Repair Under Preservation Constraints"
+  title: "Vector-Bench: Repairing SVGs Without Breaking Them"
   year: 2026
   authors:
     - family-names: Gupta
