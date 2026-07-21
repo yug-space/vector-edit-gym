@@ -48,11 +48,7 @@ function SiteHeader() {
     <header className="site-header">
       <div className="page-shell site-header-row">
         <Link href="/" className="site-mark" aria-label="Vector-Bench home">
-          <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
-          <span className="site-mark-copy">
-            <strong>thetalab</strong>
-            <small>Vector-Bench</small>
-          </span>
+          <BrandMark />
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
@@ -82,13 +78,7 @@ function SiteFooter() {
       <div className="page-shell footer-shell">
         <div className="footer-top">
           <div className="max-w-2xl">
-            <div className="site-mark">
-              <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
-              <span className="site-mark-copy">
-                <strong>thetalab</strong>
-                <small>Vector-Bench</small>
-              </span>
-            </div>
+            <div className="site-mark"><BrandMark /></div>
             <p className="section-copy mt-5 max-w-xl">
               Forty naturalistic SVG repairs with hidden structural targets. Models must fix
               visible defects closely enough without changing the rest of the vector program.
@@ -118,5 +108,18 @@ function SiteFooter() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function BrandMark() {
+  return (
+    <>
+      <span className="site-product-name">Vector-<strong>Bench</strong></span>
+      <span className="site-byline">
+        <span>by</span>
+        <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
+        <strong>thetalab</strong>
+      </span>
+    </>
   );
 }

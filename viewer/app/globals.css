@@ -104,52 +104,56 @@
   top: 0;
   z-index: 50;
   border-bottom: 1px solid hsl(var(--border));
-  padding-top: 0.5rem;
-  background: rgb(255 255 255 / 0.88);
-  backdrop-filter: blur(12px);
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: blur(16px);
 }
 
 .site-header-row {
   display: grid;
-  grid-template-columns: minmax(13rem, 1fr) auto minmax(13rem, 1fr);
+  grid-template-columns: minmax(18rem, 1fr) auto minmax(18rem, 1fr);
   align-items: center;
-  width: min(100%, 56rem);
-  min-height: 3rem;
-  gap: 1.5rem;
-  border-inline: 1px solid hsl(var(--border));
-  padding-inline: 0.75rem;
+  width: min(100%, 72rem);
+  min-height: 4rem;
+  gap: 2rem;
 }
 
 .site-mark {
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.8rem;
   color: hsl(var(--foreground));
+  white-space: nowrap;
 }
 
-.site-mark-copy {
-  display: grid;
-  gap: 0.1rem;
-  line-height: 1.1;
+.site-product-name {
+  font-size: 1.05rem;
+  font-weight: 720;
+  line-height: 1;
 }
 
-.site-mark-copy strong {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: lowercase;
+.site-product-name strong {
+  color: var(--brand-strong);
+  font-weight: inherit;
 }
 
-.site-mark-copy small {
+.site-byline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 1.4rem;
+  padding-left: 0.8rem;
+  border-left: 1px solid hsl(var(--border));
   color: hsl(var(--muted-foreground));
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
 }
 
+.site-byline strong { color: hsl(var(--foreground)); font-weight: 650; }
+
 .theta-logo {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 0.9rem;
+  height: 0.9rem;
   flex: 0 0 auto;
   object-fit: contain;
 }
@@ -169,19 +173,36 @@
 }
 
 .nav-link {
+  position: relative;
+  padding-block: 0.5rem;
   color: hsl(var(--muted-foreground));
-  font-size: 0.82rem;
-  font-weight: 450;
+  font-size: 0.84rem;
+  font-weight: 520;
   transition: color 150ms ease;
 }
 
 .nav-link:hover { color: hsl(var(--foreground)); }
 
+.site-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.15rem;
+  left: 0;
+  height: 1px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 150ms ease;
+}
+
+.site-nav .nav-link:hover::after { transform: scaleX(1); }
+
 .icon-button {
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border: 1px solid hsl(var(--border));
   border-radius: 0.375rem;
   background: var(--surface);
@@ -573,7 +594,7 @@
   .site-nav { display: none; }
   .mobile-nav {
     display: flex;
-    width: min(100%, 56rem);
+    width: min(100%, 72rem);
     overflow-x: auto;
     padding-block: 0.7rem;
     border-top: 1px solid hsl(var(--border));
@@ -586,8 +607,10 @@
 @media (max-width: 640px) {
   .page-shell { padding-inline: 1rem; }
   .section-pad { padding-block: 3.75rem; }
-  .site-header-row { min-height: 3rem; }
-  .site-mark-copy strong { font-size: 0.7rem; }
+  .site-header-row { min-height: 3.6rem; }
+  .site-product-name { font-size: 0.92rem; }
+  .site-byline { gap: 0.25rem; padding-left: 0.6rem; font-size: 0.56rem; }
+  .theta-logo { width: 0.78rem; height: 0.78rem; }
   .hero-shell { min-height: auto; padding: 2.75rem 1rem 2rem; }
   .hero-title { margin-top: 1rem; font-size: 3rem; }
   .hero-question { margin-top: 1.25rem; font-size: 1.05rem; }
