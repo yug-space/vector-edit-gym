@@ -218,24 +218,12 @@
 .hero-band {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgb(4 7 11 / 0.14), rgb(4 7 11 / 0.5)),
-    url("/images/vector-bench-hero.webp") center / cover no-repeat;
-  color: #fff;
+  background: linear-gradient(135deg, #ffb347 0%, #ff9900 52%, #f26300 100%);
+  color: #090909;
 }
 
 .hero-band::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgb(3 6 10 / 0.08),
-    rgb(3 6 10 / 0.5) 34%,
-    rgb(3 6 10 / 0.5) 66%,
-    rgb(3 6 10 / 0.08)
-  );
-  pointer-events: none;
+  display: none;
 }
 
 .hero-shell {
@@ -248,7 +236,7 @@
   align-items: center;
   justify-content: center;
   padding: 5rem 2rem 3.5rem;
-  border-inline: 1px solid rgb(255 255 255 / 0.16);
+  border-inline: 1px solid rgb(9 9 9 / 0.16);
   text-align: center;
 }
 
@@ -262,8 +250,8 @@
   text-wrap: balance;
 }
 
-.hero-title span:first-child { color: #fff; }
-.hero-title span:last-child { color: #ffa33f; }
+.hero-title span:first-child,
+.hero-title span:last-child { color: #090909; }
 
 .hero-question {
   max-width: 36rem;
@@ -277,7 +265,7 @@
 .hero-copy {
   max-width: 40rem;
   margin-top: 1.25rem;
-  color: rgb(255 255 255 / 0.75);
+  color: rgb(9 9 9 / 0.72);
   font-size: 1rem;
   line-height: 1.75;
   text-wrap: balance;
@@ -290,17 +278,17 @@
   justify-content: center;
   gap: 0.25rem 0.5rem;
   margin-top: 1rem;
-  color: rgb(255 255 255 / 0.58);
+  color: rgb(9 9 9 / 0.58);
   font-family: var(--font-mono);
   font-size: 0.75rem;
 }
 
 .hero-authors a {
-  color: #fff;
+  color: #090909;
   font-weight: 600;
 }
 
-.hero-authors a:hover { color: #ffb768; }
+.hero-authors a:hover { color: #fff; }
 
 .hero-actions {
   display: flex;
@@ -316,9 +304,9 @@
   width: min(100%, 44rem);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 3.25rem;
-  border-top: 1px solid rgb(255 255 255 / 0.2);
-  border-bottom: 1px solid rgb(255 255 255 / 0.2);
-  background: rgb(4 8 13 / 0.48);
+  border-top: 1px solid rgb(9 9 9 / 0.2);
+  border-bottom: 1px solid rgb(9 9 9 / 0.2);
+  background: rgb(255 255 255 / 0.16);
   backdrop-filter: blur(12px);
   text-align: center;
 }
@@ -327,19 +315,19 @@
   display: grid;
   gap: 0.25rem;
   padding: 0.8rem 0.75rem;
-  border-right: 1px solid rgb(255 255 255 / 0.18);
+  border-right: 1px solid rgb(9 9 9 / 0.18);
 }
 
 .hero-facts > div:last-child { border-right: 0; }
 
 .hero-facts strong {
-  color: #fff;
+  color: #090909;
   font-family: var(--font-mono);
   font-size: 1rem;
 }
 
 .hero-facts span {
-  color: rgb(255 255 255 / 0.62);
+  color: rgb(9 9 9 / 0.62);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   text-transform: uppercase;
@@ -355,9 +343,7 @@
 }
 
 #leaderboard {
-  background:
-    linear-gradient(rgb(247 248 249 / 0.88), rgb(247 248 249 / 0.94)),
-    url("/images/vector-bench-results.webp") center top / cover no-repeat;
+  background: linear-gradient(135deg, #fffaf1 0%, #fff0d8 52%, #ffd9a3 100%);
 }
 
 #leaderboard .theta-frame {
@@ -365,9 +351,9 @@
   backdrop-filter: blur(12px);
 }
 
-.hero-band .eyebrow { color: rgb(255 255 255 / 0.7); }
+.hero-band .eyebrow { color: rgb(9 9 9 / 0.66); }
 .hero-band .eyebrow::before,
-.hero-band .eyebrow-centered::after { background: #ffa33f; }
+.hero-band .eyebrow-centered::after { background: #090909; }
 
 .eyebrow {
   display: inline-flex;
@@ -460,28 +446,28 @@
 }
 
 .hero-band .theta-button {
-  border-color: rgb(255 255 255 / 0.3);
-  background: rgb(7 11 16 / 0.5);
-  color: #fff;
+  border-color: rgb(9 9 9 / 0.32);
+  background: rgb(255 255 255 / 0.12);
+  color: #090909;
   backdrop-filter: blur(10px);
 }
 
 .hero-band .theta-button:hover {
-  border-color: rgb(255 255 255 / 0.62);
-  background: rgb(7 11 16 / 0.72);
-  color: #fff;
+  border-color: rgb(9 9 9 / 0.62);
+  background: rgb(255 255 255 / 0.26);
+  color: #090909;
 }
 
 .hero-band .theta-button-brand {
-  border-color: #ffa33f;
-  background: #ff921f;
-  color: #090909;
+  border-color: #111;
+  background: #111;
+  color: #fff;
 }
 
 .hero-band .theta-button-brand:hover {
-  border-color: #ffc078;
-  background: #ffac55;
-  color: #090909;
+  border-color: #303030;
+  background: #303030;
+  color: #fff;
 }
 
 .theta-frame {
@@ -681,7 +667,7 @@
   .hero-actions .theta-button { width: 100%; flex: 1 1 100%; }
   .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.75rem; }
   .hero-facts > div:nth-child(2) { border-right: 0; }
-  .hero-facts > div:nth-child(-n + 2) { border-bottom: 1px solid rgb(255 255 255 / 0.18); }
+  .hero-facts > div:nth-child(-n + 2) { border-bottom: 1px solid rgb(9 9 9 / 0.18); }
   .subheading { font-size: 1.75rem; }
   .section-heading { font-size: 2.4rem; }
   .team-grid { grid-template-columns: 1fr; }
