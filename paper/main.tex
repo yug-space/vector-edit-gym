@@ -34,7 +34,7 @@ Instruction-based vector editing requires two capabilities: making a requested
 change and leaving everything else alone. The second is easy to miss when an
 output is judged only as a raster image. We introduce \textbf{VectorEditGym}, a
 compact, difficult benchmark of \TaskCount{} SVG repair tasks. Each task pairs a
-corrupted SVG program with a human visual instruction, a hidden target program,
+corrupted SVG program with a human-authored visual instruction, a hidden target program,
 \MeanExpectedEdits{} annotated repairs on average, and an average of
 \MeanProtectedObjects{} protected objects. Instructions describe visible defects
 without exposing element identifiers, coordinates, color codes, or path data.
@@ -135,7 +135,7 @@ the set of object IDs that must be preserved. The model receives only $(x,S_0)$.
 Target source, expected diffs, target-part lists, and preserve lists are excluded
 from the prompt and recorded as hidden evaluator inputs.
 
-Instructions were rewritten after task freezing. They describe visible objects
+Instructions were rewritten after task freezing by the authors. They describe visible objects
 and relations---for example, a moon that drifted down and left or a jellyfish
 whose tentacles became too heavy---without SVG IDs, numeric coordinates, hex
 colors, path commands, or attribute names. A corpus regression hash covers every
@@ -233,6 +233,21 @@ Canonical target equality $\mathbb{1}[C(S)=C(S^*)]$ and source preservation are
 diagnostics and are not required for a pass. No learned judge or model-based
 grader appears in the public protocol.
 
+\subsection{Evaluator Audit}
+\label{sec:evaluator-audit}
+
+The evaluator is tested as an executable artifact rather than treated as an
+unexamined source of labels. The target SVG must receive reward one; the
+corrupted input must fail at least one requested repair; and unintended
+deletions, unrequested attribute changes, duplicate identifiers, broken
+references, malformed paths, and unknown added elements must fail the
+preservation or validity gate. Regression tests also cover approximate numeric
+and color repairs, alternate path command topologies, equivalent style storage,
+and consistent identifier renaming. The frozen corpus has a regression hash
+over every non-instruction task field. These checks establish implementation
+invariants, not human perceptual validity: the comparator's scope and the
+absence of a human agreement study remain limitations.
+
 \subsection{Diagnostic Metrics}
 
 For expected checks $E$, tolerance-aware edit completion is
@@ -284,6 +299,12 @@ model--task job is scheduled and therefore includes local concurrency-queue wait
 we expose it for run auditing, not as endpoint latency. Each source cohort uses
 a reservation-based budget guard capped at \$25; the completed combined study
 cost \TotalCost{}.
+
+This is an endpoint comparison, not a general ranking of model intelligence.
+It uses one decoded response per model--task pair and does not include a human
+or oracle-editing baseline. The released artifact supports exact reruns of the
+scored protocol, but does not estimate sampling variance, human performance, or
+performance on unseen SVG distributions.
 
 \subsection{Uncertainty}
 
@@ -478,9 +499,9 @@ Values are percentages. Errors include persistent provider failures and missing
 usable SVG output. Endpoint IDs, resolved IDs, response IDs, and per-task details
 are available in the machine-readable release.
 
-\small
+\scriptsize
 \input{generated/full-table.tex}
-\normalsize
+\small
 
 \twocolumn
 
