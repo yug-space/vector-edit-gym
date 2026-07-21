@@ -1,9 +1,9 @@
 // Scrape real-world SVG icons from open-source libraries.
 //
 // Sources:
-//   - Heroicons (MIT, tailwindlabs/heroicons) — 24x24 outline + solid
-//   - Feather   (MIT, feathericons/feather)   — 24x24 outline
-//   - Iconify   (various FOSS licenses)        — selected utility sets
+//   - Heroicons (MIT, tailwindlabs/heroicons) - 24x24 outline + solid
+//   - Feather   (MIT, feathericons/feather)   - 24x24 outline
+//   - Iconify   (various FOSS licenses)        - selected utility sets
 //
 // We fetch GitHub's git tree API to list files, then fetch the raw SVGs.
 // All icons land in data/icons/<source>/ with a sibling _index.json carrying
@@ -35,7 +35,7 @@ const FEATHER_PATH = "icons";
 
 // -- Iconify ----------------------------------------------------------------
 // Pull a small, hand-picked set of common icons that have semantically
-// meaningful parts (house, door, etc.) — these are useful for harder tasks
+// meaningful parts (house, door, etc.) - these are useful for harder tasks
 // later. We use the Iconify public API (api.iconify.design).
 
 const ICONIFY_PICKS = [

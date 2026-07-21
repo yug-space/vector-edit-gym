@@ -29,7 +29,7 @@ SYSTEM = (
     "You are a precise SVG editor. The user will give you a CORRUPTED SVG and a "
     "natural-language instruction describing what to fix. Return ONLY the corrected "
     "SVG as a complete, valid <svg>...</svg> document. No markdown fences, no commentary, "
-    "no explanation — only the SVG itself."
+    "no explanation, only the SVG itself."
 )
 
 

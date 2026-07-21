@@ -58,9 +58,9 @@ export default async function HomePage() {
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div className="flex flex-wrap gap-x-5 gap-y-2 mono-label">
-            <span>Updated <span className="text-[var(--brand)]">{board.updated_at || "—"}</span></span>
-            <span>Evaluator <span className="text-[hsl(var(--foreground))]">{board.evaluator ?? "—"}</span></span>
-            <span>Corpus <span className="text-[hsl(var(--foreground))]">{board.corpus_hash?.slice(0, 12) ?? "—"}</span></span>
+            <span>Updated <span className="text-[var(--brand)]">{board.updated_at || "-"}</span></span>
+            <span>Evaluator <span className="text-[hsl(var(--foreground))]">{board.evaluator ?? "-"}</span></span>
+            <span>Corpus <span className="text-[hsl(var(--foreground))]">{board.corpus_hash?.slice(0, 12) ?? "-"}</span></span>
           </div>
           <a href={SUBMIT_MAILTO} className="theta-button theta-button-brand">
             <Mail className="h-4 w-4" />
@@ -279,4 +279,4 @@ function Section({
 
 function fmtPct(v: number) { return `${(v * 100).toFixed(1)}%`; }
 function fmtNullablePct(v: number | null) { return v === null ? "n/a" : fmtPct(v); }
-function fmtOptionalPct(v?: number) { return v === undefined ? "—" : fmtPct(v); }
+function fmtOptionalPct(v?: number) { return v === undefined ? "-" : fmtPct(v); }

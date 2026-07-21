@@ -215,7 +215,7 @@ def evaluate(
         err: str | None = None
         try:
             produced = solver(task)
-        except Exception as e:  # noqa: BLE001 — surface any solver failure
+        except Exception as e:  # noqa: BLE001 - surface any solver failure
             err = f"{type(e).__name__}: {e}"
         elapsed_ms = (time.perf_counter() - t0) * 1000
 

@@ -103,7 +103,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
               <div className="mono-label mb-2">Target ({(task.target_parts ?? []).length})</div>
               <div className="flex flex-wrap gap-1">
                 {(task.target_parts ?? []).length === 0 ? (
-                  <span className="text-sm text-[hsl(var(--muted-foreground))]">—</span>
+                  <span className="text-sm text-[hsl(var(--muted-foreground))]">-</span>
                 ) : (
                   (task.target_parts ?? []).map((p) => <Badge key={p} variant="default">{p}</Badge>)
                 )}
@@ -176,7 +176,7 @@ function DiffTable({ diff }: { diff: DiffEntry[] }) {
 }
 
 function fmt(v: unknown): string {
-  if (v === null || v === undefined) return "—";
+  if (v === null || v === undefined) return "-";
   if (typeof v === "object") return JSON.stringify(v);
   return String(v);
 }

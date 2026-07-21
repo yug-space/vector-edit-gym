@@ -21,7 +21,7 @@ build/
 runs/
 tmp/
 
-# Secrets — never commit
+# Secrets - never commit
 .env
 .env.*
 !.env.example
