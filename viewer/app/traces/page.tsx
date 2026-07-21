@@ -22,28 +22,26 @@ export default async function TraceIndex({ searchParams }: { searchParams: Promi
   return (
     <section className="section-pad screen-line-after">
       <div className="page-shell">
-        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-[hsl(var(--border))] pb-7">
-          <div>
-            <p className="eyebrow">published execution records</p>
-            <h1 className="mt-5 text-4xl font-semibold">Run traces</h1>
+        <div className="section-intro">
+            <p className="eyebrow eyebrow-centered">Published execution records</p>
+            <h1 className="subheading mt-5">Run traces</h1>
             <p className="section-copy mt-4">
               Request, provider attempt, extraction, and verifier events for every published model-task outcome.
             </p>
-          </div>
-          <form action="/traces" className="flex items-end gap-2">
+        </div>
+          <form action="/traces" className="trace-picker">
             <label className="block">
               <span className="mono-label mb-2 block">Task</span>
               <select
                 name="task"
                 defaultValue={selectedTask?.task_id}
-                className="h-10 min-w-40 border border-[hsl(var(--border))] bg-white px-3 font-mono text-xs outline-none focus:border-[var(--brand)]"
+                className="h-10 min-w-48 rounded-md border border-[hsl(var(--border))] bg-white px-3 font-mono text-xs outline-none focus:border-[var(--brand)]"
               >
                 {tasks.map((task) => <option key={task.task_id} value={task.task_id}>{task.task_id} · {task.category}</option>)}
               </select>
             </label>
             <button type="submit" className="theta-button theta-button-primary">Load</button>
           </form>
-        </div>
 
         {selectedTask && (
           <div className="mt-8">

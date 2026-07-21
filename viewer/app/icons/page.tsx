@@ -7,13 +7,20 @@ export default async function IconsPage() {
   const icons = await listIcons();
   const sources = Array.from(new Set(icons.map((i) => i.source))).sort();
   return (
-    <>
-      <h1>Icon catalog <span className="muted">({icons.length})</span></h1>
-      <p className="muted" style={{ marginTop: -4, marginBottom: 16 }}>
-        Raw open-source icons scraped from Heroicons, Feather, and Iconify. These are the seed
-        material for harder tasks that need real-world icons (house, door, window, …).
-      </p>
-      <IconBrowser icons={icons} sources={sources} />
-    </>
+    <section className="section-pad screen-line-after">
+      <div className="page-shell">
+        <div className="section-intro">
+          <p className="eyebrow eyebrow-centered">Source material</p>
+          <h1 className="subheading mt-5">Open vector icon catalog.</h1>
+          <p className="section-copy mt-5">
+            {icons.length.toLocaleString()} source icons from Heroicons, Feather, and Iconify used
+            to construct recognizable benchmark scenes and repair targets.
+          </p>
+        </div>
+        <div className="mt-10">
+          <IconBrowser icons={icons} sources={sources} />
+        </div>
+      </div>
+    </section>
   );
 }

@@ -39,8 +39,8 @@ const SUBMIT_MAILTO =
   );
 
 const AUTHORS = [
-  { name: "Yug Aditi Gupta", email: "yug@thetalab.tech" },
-  { name: "Prannay Hebbar", email: null },
+  { name: "Yug Aditi Gupta", email: "yug@thetalab.tech", affiliation: "Theta Labs" },
+  { name: "Prannay Hebbar", email: "prannay@warping.co", affiliation: "Warping" },
 ];
 
 export default async function HomePage() {
@@ -48,13 +48,17 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero totalTasks={tasks.length} />
+      <Hero
+        totalTasks={tasks.length}
+        totalEndpoints={board.entries.length}
+        totalTraces={board.entries.reduce((sum, entry) => sum + entry.tasks_run, 0)}
+      />
 
       <Section
         id="leaderboard"
-        eyebrow="leaderboard"
-        title="A repair can be approximate. Its side effects cannot."
-        intro={`${board.entries.length} model endpoints, one scored outcome per task, no fallback routing. A full pass requires every requested repair within calibrated perceptual tolerance, a valid SVG, and semantic preservation outside the requested fields. Invalid outputs receive zero repair progress; UCR is conditional on valid outputs.`}
+        eyebrow="Results"
+        title="Leaderboard"
+        intro={`A repair can be approximate. Its side effects cannot. ${board.entries.length} model endpoints receive one scored outcome per task with no fallback routing. A full pass requires every requested repair within tolerance, a valid SVG, and semantic preservation outside the requested fields.`}
       >
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div className="flex flex-wrap gap-x-5 gap-y-2 mono-label">
@@ -70,12 +74,8 @@ export default async function HomePage() {
 
         <div className="theta-frame overflow-hidden">
           <div className="frame-header">
-            <div className="signal-dots">
-              <span className="signal-dot" />
-              <span className="signal-dot signal-dot-brand" />
-              <span className="signal-dot" />
-            </div>
             <span>top ten / specification gates</span>
+            <span className="text-[var(--brand-strong)]">higher is better</span>
           </div>
           <div className="p-4 sm:p-6">
             <LeaderboardChart entries={board.entries} />
@@ -174,80 +174,66 @@ export default async function HomePage() {
         </div>
       </Section>
 
+      <section id="team" className="section-pad team-band screen-line-after">
+        <div className="page-shell">
+          <div className="section-intro">
+            <p className="eyebrow eyebrow-centered">Team</p>
+            <h2 className="subheading mt-5">Shared research, shared material.</h2>
+            <p className="section-copy mt-5">Vector-Bench and its paper are equal-contribution work by both authors.</p>
+          </div>
+          <div className="team-grid">
+            {AUTHORS.map(({ name, email, affiliation }) => (
+              <article key={email} className="team-member">
+                <span className="team-initials" aria-hidden="true">{name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
+                <div>
+                  <h3>{name}</h3>
+                  <p>{affiliation}</p>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }
 
-function Hero({ totalTasks }: { totalTasks: number }) {
+function Hero({ totalTasks, totalEndpoints, totalTraces }: { totalTasks: number; totalEndpoints: number; totalTraces: number }) {
   return (
-    <section className="screen-line-after">
-      <div className="page-shell section-pad pt-12 md:pt-16">
-        <div className="narrow-shell">
-          <p className="eyebrow">theta labs / svg editing benchmark</p>
-          <h1 className="section-heading mt-6">
-            <span className="brand-underline italic">Vector-Bench</span>
-          </h1>
-          <p className="section-copy mt-6">
-            Human visual repair instructions, hidden SVG targets, and an auditable specification:
-            repair every visible defect closely enough while preserving the rest of the scene semantically.
-          </p>
+    <section className="hero-band screen-line-after">
+      <div className="page-shell hero-shell">
+        <p className="eyebrow eyebrow-centered">A thetalab benchmark</p>
+        <h1 className="hero-title"><span>Vector-</span><span>Bench</span></h1>
+        <p className="hero-question">Can models surgically edit SVG code?</p>
+        <p className="hero-copy">Natural-language repairs, hidden structural targets, and a binary specification reward that rejects collateral changes.</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/tasks" className="theta-button theta-button-primary">
-              Browse {totalTasks} tasks
+        <div className="hero-actions">
+            <Link href="/tasks" className="theta-button theta-button-brand">
+              Browse tasks
               <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="#leaderboard" className="theta-button theta-button-brand">
-              See the leaderboard
             </Link>
             <a href="/vectoreditgym-paper.pdf" className="theta-button">
               <FileText className="h-4 w-4" />
               Read the paper
             </a>
-            <a
-              href="https://github.com/yug-space/vector-edit-gym"
-              target="_blank"
-              rel="noreferrer"
-              className="theta-button"
-            >
-              <GithubMark className="h-4 w-4" />
-              View on GitHub
-            </a>
-          </div>
+            <Link href="/traces" className="theta-button">Browse traces</Link>
+        </div>
 
-          <div className="mt-10">
-            <p className="mono-label mb-3">authors</p>
-            <div className="flex flex-wrap gap-3">
-              {AUTHORS.map(({ name, email }) => (
-                <div
-                  key={name}
-                  className="flex items-center gap-3 border border-[hsl(var(--border))] bg-white/75 px-3 py-2 rounded-full"
-                >
-                  <span className="brand-square" style={{ width: "1.75rem", height: "1.75rem", fontSize: "0.75rem" }}>
-                    <span>{name.split(" ").map((n) => n[0]).join("").slice(0, 2)}</span>
-                  </span>
-                  <span className="text-sm leading-tight">
-                    <span className="font-medium">{name}</span>
-                    {email && (
-                      <a
-                        href={`mailto:${email}`}
-                        className="ml-2 text-[hsl(var(--muted-foreground))] hover:text-[var(--brand)] transition-colors"
-                      >
-                        {email}
-                      </a>
-                    )}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-3 text-sm text-[hsl(var(--muted-foreground))]">
-              Shared material and equal contribution by both authors.
-            </p>
-          </div>
+        <div className="hero-facts" aria-label="Benchmark summary">
+          <HeroFact value={String(totalTasks)} label="tasks" />
+          <HeroFact value="202" label="repairs" />
+          <HeroFact value={String(totalEndpoints)} label="endpoints" />
+          <HeroFact value={totalTraces.toLocaleString()} label="traces" />
         </div>
       </div>
     </section>
   );
+}
+
+function HeroFact({ value, label }: { value: string; label: string }) {
+  return <div><strong>{value}</strong><span>{label}</span></div>;
 }
 
 function Section({
@@ -266,8 +252,8 @@ function Section({
   return (
     <section id={id} className="section-pad screen-line-after">
       <div className="page-shell">
-        <div className="max-w-4xl">
-          <p className="eyebrow">{eyebrow}</p>
+        <div className="section-intro">
+          <p className="eyebrow eyebrow-centered">{eyebrow}</p>
           <h2 className="subheading mt-5">{title}</h2>
           <p className="section-copy mt-5">{intro}</p>
         </div>

@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>VectorEditGym</title>
-  <rect width="64" height="64" rx="14" fill="#172126"/>
-  <path d="M16 17h32v7H23v8h19v7H23v8h25v7H16z" fill="#f3c969"/>
-  <path d="M17 15h30" stroke="#e98065" stroke-width="4" stroke-linecap="round"/>
+  <title>Vector-Bench</title>
+  <rect width="64" height="64" rx="8" fill="#ffffff"/>
+  <rect x="1" y="1" width="62" height="62" rx="7" fill="none" stroke="#e7e7e7" stroke-width="2"/>
+  <path d="M15 16h8l9 31 9-31h8L37 52H27z" fill="#070707"/>
+  <rect x="42" y="11" width="9" height="9" rx="2" fill="#ff8c1a"/>
 </svg>

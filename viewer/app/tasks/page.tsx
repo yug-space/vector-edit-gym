@@ -12,9 +12,9 @@ export default async function TasksPage() {
   return (
     <section className="section-pad screen-line-after">
       <div className="page-shell">
-        <div className="max-w-3xl">
-          <p className="eyebrow">theta labs / task catalog</p>
-          <h1 className="subheading mt-5">Browse the task catalog.</h1>
+        <div className="section-intro">
+          <p className="eyebrow eyebrow-centered">Task catalog</p>
+          <h1 className="subheading mt-5">Forty surgical repair tests.</h1>
           <p className="section-copy mt-5">
             Forty dense SVG repair tasks with naturalistic visual instructions, hidden canonical
             targets, tolerant repair checks, and strict whole-document preservation.

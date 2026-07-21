@@ -20,9 +20,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 // Headline pass plus continuous repair progress and semantic preservation.
 const METRIC_COLOR = {
-  reward:       { bg: "rgba(249, 93, 30, 0.92)",   border: "rgba(194, 65, 12, 1)"   },
-  edit:         { bg: "rgba(15, 118, 110, 0.88)",  border: "rgba(17, 94, 89, 1)"    },
-  preservation: { bg: "rgba(37, 99, 235, 0.80)",  border: "rgba(30, 64, 175, 1)"   },
+  reward:       { bg: "rgba(249, 156, 0, 0.92)", border: "rgba(176, 103, 0, 1)" },
+  edit:         { bg: "rgba(31, 31, 28, 0.88)",  border: "rgba(18, 18, 16, 1)" },
+  preservation: { bg: "rgba(139, 136, 127, 0.78)", border: "rgba(98, 95, 88, 1)" },
 };
 
 // Draws "12.3%" at the end of each bar so 0%-valued bars (which would
@@ -32,7 +32,7 @@ const valueLabelPlugin: Plugin<"bar"> = {
   afterDatasetsDraw(chart) {
     const { ctx } = chart;
     ctx.save();
-    ctx.font = "600 11px ui-sans-serif, system-ui, sans-serif";
+    ctx.font = "600 11px ui-monospace, SFMono-Regular, Menlo, monospace";
     ctx.textBaseline = "middle";
     chart.data.datasets.forEach((ds, dsIdx) => {
       const meta = chart.getDatasetMeta(dsIdx);
@@ -47,7 +47,7 @@ const valueLabelPlugin: Plugin<"bar"> = {
         // place at the axis with a small offset so 0% labels are visible.
         const base = (bar as { base?: number | null }).base;
         const barEnd = isZero ? (base ?? x) + 4 : x + 4;
-        const colorByDataset = ["rgb(194, 65, 12)", "rgb(17, 94, 89)", "rgb(30, 64, 175)"];
+        const colorByDataset = ["rgb(176, 103, 0)", "rgb(31, 31, 28)", "rgb(98, 95, 88)"];
         ctx.fillStyle = isZero ? "rgb(161, 161, 170)" : colorByDataset[dsIdx] ?? "rgb(39, 39, 42)";
         ctx.textAlign = "left";
         ctx.fillText(label, barEnd, y);
@@ -73,7 +73,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           backgroundColor: METRIC_COLOR.reward.bg,
           borderColor: METRIC_COLOR.reward.border,
           borderWidth: 1,
-          borderRadius: 4,
+          borderRadius: 2,
           barPercentage: 0.92,
           categoryPercentage: 0.78,
         },
@@ -83,7 +83,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           backgroundColor: METRIC_COLOR.edit.bg,
           borderColor: METRIC_COLOR.edit.border,
           borderWidth: 1,
-          borderRadius: 4,
+          borderRadius: 2,
           barPercentage: 0.92,
           categoryPercentage: 0.78,
         },
@@ -93,7 +93,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           backgroundColor: METRIC_COLOR.preservation.bg,
           borderColor: METRIC_COLOR.preservation.border,
           borderWidth: 1,
-          borderRadius: 4,
+          borderRadius: 2,
           barPercentage: 0.92,
           categoryPercentage: 0.78,
         },
@@ -116,7 +116,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
             boxHeight: 12,
             padding: 16,
             color: "rgb(63, 63, 70)",
-            font: { size: 12, family: "ui-sans-serif, system-ui, sans-serif" },
+            font: { size: 11, family: "ui-monospace, SFMono-Regular, Menlo, monospace" },
             usePointStyle: true,
             pointStyle: "rectRounded",
           },
@@ -162,7 +162,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           ticks: {
             stepSize: 25,
             color: "rgb(113, 113, 122)",
-            font: { size: 11, family: "ui-sans-serif, system-ui, sans-serif" },
+            font: { size: 11, family: "ui-monospace, SFMono-Regular, Menlo, monospace" },
             callback: (v) => `${v}%`,
           },
           grid: { color: "rgba(228, 228, 231, 0.5)" },
@@ -172,7 +172,7 @@ export function LeaderboardChart({ entries }: { entries: LeaderboardEntry[] }) {
           grid: { display: false },
           ticks: {
             color: "rgb(24, 24, 27)",
-            font: { size: 13, weight: 600, family: "ui-sans-serif, system-ui, sans-serif" },
+            font: { size: 12, weight: 600, family: "ui-monospace, SFMono-Regular, Menlo, monospace" },
             padding: 6,
             crossAlign: "far",
           },

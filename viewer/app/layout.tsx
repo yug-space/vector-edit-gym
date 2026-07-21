@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText } from "lucide-react";
 import { Geist_Mono, Instrument_Sans } from "next/font/google";
 import { GithubMark } from "@/components/github-mark";
 import "./globals.css";
@@ -17,7 +16,7 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vector-Bench · a Theta Labs benchmark",
+    default: "Vector-Bench · a thetalab benchmark",
     template: "%s · Vector-Bench",
   },
   description:
@@ -25,9 +24,10 @@ export const metadata: Metadata = {
 };
 
 const NAV_LINKS = [
+  { href: "/#leaderboard", label: "Leaderboard" },
   { href: "/tasks", label: "Tasks" },
   { href: "/traces", label: "Traces" },
-  { href: "/#leaderboard", label: "Leaderboard" },
+  { href: "/#team", label: "Team" },
   { href: "/vectoreditgym-paper.pdf", label: "Paper" },
 ];
 
@@ -45,22 +45,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[hsl(var(--border))] bg-[hsl(var(--background))]/82 backdrop-blur-xl">
-      <div className="page-shell flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="brand-square">
-            <span>θ</span>
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="theta-wordmark">
-              <span>vectoredit</span>
-              <span>gym</span>
-            </span>
-            <span className="mono-label mt-1">theta labs · svg benchmark</span>
+    <header className="site-header">
+      <div className="page-shell site-header-row">
+        <Link href="/" className="site-mark" aria-label="Vector-Bench home">
+          <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
+          <span className="site-mark-copy">
+            <strong>thetalab</strong>
+            <small>Vector-Bench</small>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="site-nav" aria-label="Primary navigation">
           {NAV_LINKS.map((l) => (
             <Link key={l.href} href={l.href} className="nav-link">
               {l.label}
@@ -68,45 +63,30 @@ function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <a href="/vectoreditgym-paper.pdf" className="theta-button" aria-label="Read the paper">
-            <FileText className="h-4 w-4" />
-            <span className="hidden lg:inline">Paper</span>
-          </a>
-          <a
-            href="https://github.com/yug-space/vector-edit-gym"
-            target="_blank"
-            rel="noreferrer"
-            className="theta-button"
-          >
+        <div className="site-actions">
+          <a href="https://github.com/yug-space/vector-edit-gym" target="_blank" rel="noreferrer" className="icon-button" aria-label="Open Vector-Bench on GitHub" title="GitHub">
             <GithubMark className="h-4 w-4" />
-            <span className="hidden sm:inline">GitHub</span>
           </a>
-          <Link href="/tasks" className="theta-button theta-button-primary hidden sm:inline-flex">
-            Browse tasks
-          </Link>
         </div>
       </div>
+      <nav className="page-shell mobile-nav" aria-label="Mobile navigation">
+        {NAV_LINKS.map((l) => <Link key={l.href} href={l.href} className="nav-link">{l.label}</Link>)}
+      </nav>
     </header>
   );
 }
 
 function SiteFooter() {
   return (
-    <footer className="screen-line-before mt-20">
+    <footer className="site-footer">
       <div className="page-shell footer-shell">
         <div className="footer-top">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3">
-              <span className="brand-square">
-                <span>θ</span>
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="theta-wordmark">
-                  <span>vectoredit</span>
-                  <span>gym</span>
-                </span>
-                <span className="mono-label mt-1">a theta labs benchmark</span>
+            <div className="site-mark">
+              <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
+              <span className="site-mark-copy">
+                <strong>thetalab</strong>
+                <small>Vector-Bench</small>
               </span>
             </div>
             <p className="section-copy mt-5 max-w-xl">
@@ -133,8 +113,8 @@ function SiteFooter() {
         </div>
 
         <div className="footer-bottom">
-          <span>vectoreditgym · theta labs</span>
-          <span>a benchmark for surgical svg editing</span>
+          <span>Vector-Bench · thetalab.tech</span>
+          <span>Can models surgically edit SVG code?</span>
         </div>
       </div>
     </footer>
