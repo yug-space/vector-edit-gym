@@ -47,9 +47,12 @@
 \title{VectorEditGym: Evaluating Specification-Faithful SVG Repair\\
 Under Preservation Constraints}
 
-\author{Yug Aditi Gupta$^{*}$ \qquad Prannay Hebbar$^{*}$ \\
-  Theta Labs \\
-  \texttt{yug@thetalab.tech} \qquad \texttt{prannay@warping.co} \\
+\author{%
+  \begin{tabular}[t]{c@{\qquad\qquad}c}
+    Yug Aditi Gupta$^{*}$ & Prannay Hebbar$^{*}$ \\
+    \texttt{yug@thetalab.tech} & \texttt{prannay@warping.co} \\
+    \textbf{Theta Labs} & \textbf{Warping}
+  \end{tabular}\\[6pt]
   \small $^{*}$Equal contribution; the paper and accompanying material are shared work.}
 
 \begin{document}
@@ -175,7 +178,7 @@ inputs, targets, annotations, or ordering.
 
 The corpus contains 20 compact but busy scenes derived from four authored scene
 templates and 20 larger scenic illustrations. Ten tasks are marked hard and 30
-very hard. Tasks require between three and eight repairs, including insertion or
+very hard. Tasks require between three and nine repairs, including insertion or
 deletion, recoloring, displacement, path restoration, line-weight correction,
 and opacity restoration. Every unrequested node is covered by the semantic
 preservation gate; $U$ enumerates the identified scene objects used for UCR.
@@ -505,6 +508,11 @@ OpenRouter pricing and routing can change, and the study uses one scored outcome
 per task.
 
 \section{Error Analysis}
+\label{sec:error-analysis}
+
+Appendix~\ref{sec:trace} walks one scored failure through every gate, and
+Appendix~\ref{sec:trace-example} traces a full pass; together they make the
+failure modes below concrete.
 
 \paragraph{Literal partial repair.}
 Models often identify an obvious semantic defect, such as a signal with the wrong
