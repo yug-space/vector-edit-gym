@@ -37,7 +37,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
         </Link>
 
         <div className="mb-6">
-          <p className="eyebrow">theta labs / task</p>
+          <p className="eyebrow">Vector-Bench / task</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <span className="font-mono text-sm text-[hsl(var(--muted-foreground))]">{task.task_id}</span>
             <span className="tag-orange">{task.difficulty}</span>
@@ -45,7 +45,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
           </div>
         </div>
 
-        <div className="theta-frame mb-8 overflow-hidden">
+        <div className="bench-frame mb-8 overflow-hidden">
           <div className="frame-header">
             <span>instruction</span>
             <span className="text-[var(--brand)]">natural language</span>
@@ -54,7 +54,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="theta-frame overflow-hidden">
+          <div className="bench-frame overflow-hidden">
             <div className="frame-header">
               <span>initial · broken</span>
               <span className="text-[hsl(var(--muted-foreground))]">input</span>
@@ -67,7 +67,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
             </div>
           </div>
 
-          <div className="theta-frame overflow-hidden">
+          <div className="bench-frame overflow-hidden">
             <div className="frame-header">
               <span>target · expected fix</span>
               <span className="text-[var(--brand)]">canonical</span>
@@ -84,7 +84,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
         <ModelOutputExplorer results={modelResults} />
 
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="theta-frame overflow-hidden">
+          <div className="bench-frame overflow-hidden">
             <div className="frame-header">
               <span>expected diff</span>
               <span className="text-[var(--brand)]">{task.expected_diff.length} edits</span>
@@ -94,7 +94,7 @@ export default async function TaskDetail({ params }: { params: Promise<Params> }
             </div>
           </div>
 
-          <div className="theta-frame p-5">
+          <div className="bench-frame p-5">
             <div className="frame-header -mx-5 -mt-5 mb-5 px-5">
               <span>parts</span>
               <span className="text-[hsl(var(--muted-foreground))]">scope</span>

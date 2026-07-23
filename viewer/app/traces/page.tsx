@@ -40,7 +40,7 @@ export default async function TraceIndex({ searchParams }: { searchParams: Promi
                 {tasks.map((task) => <option key={task.task_id} value={task.task_id}>{task.task_id} · {task.category}</option>)}
               </select>
             </label>
-            <button type="submit" className="theta-button theta-button-primary">Load</button>
+            <button type="submit" className="bench-button bench-button-primary">Load</button>
           </form>
 
         {selectedTask && (
@@ -79,7 +79,7 @@ export default async function TraceIndex({ searchParams }: { searchParams: Promi
                       <td className="px-4 py-3 text-right">
                         <Link
                           href={`/traces/run?task=${encodeURIComponent(selectedTask.task_id)}&model=${encodeURIComponent(result.model)}`}
-                          className="theta-button min-h-8 px-2.5 py-1"
+                          className="bench-button min-h-8 px-2.5 py-1"
                           aria-label={`Open ${result.name} trace`}
                         >
                           <ListTree className="h-3.5 w-3.5" />

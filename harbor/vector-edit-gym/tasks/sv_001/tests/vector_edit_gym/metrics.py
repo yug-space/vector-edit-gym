@@ -1,4 +1,4 @@
-"""Deterministic metrics for VectorEditGym SVG repairs."""
+"""Deterministic metrics for Vector-Bench SVG repairs."""
 
 from __future__ import annotations
 

@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
-  { name = "Yug Gupta", email = "yug@thetalab.tech" },
+  { name = "Yug Gupta" },
   { name = "Prannay Hebbar", email = "prannay@warping.co" },
 ]
 classifiers = [

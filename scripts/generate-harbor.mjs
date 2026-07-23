@@ -97,9 +97,9 @@ COPY initial.svg /workspace/initial.svg
 `;
 
 const DATASET_TOML = `[dataset]
-name = "thetalab/vector-edit-gym"
+name = "vector-bench/vector-edit-gym"
 description = "40 dense SVG repair tasks with naturalistic instructions, perceptual requested-edit checks, semantic preservation, and binary rewards plus near-complete diagnostics."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 `;
 
 const METRICS_PY = `def mean(rewards: list[dict]) -> dict:
@@ -112,9 +112,9 @@ const METRICS_PY = `def mean(rewards: list[dict]) -> dict:
 const taskToml = (task) => `schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-${task.task_id.replaceAll("_", "-")}"
+name = "vector-bench/vector-edit-gym-${task.task_id.replaceAll("_", "-")}"
 description = ${JSON.stringify(task.instruction)}
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", ${JSON.stringify(task.difficulty)}, ${JSON.stringify(task.category)}]
 
 [metadata]

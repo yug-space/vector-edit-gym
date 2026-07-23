@@ -8,9 +8,10 @@ as supported software versions.
 
 ## Reporting a Vulnerability
 
-Report security issues privately to `yug@thetalab.tech` and `prannay@warping.co`.
-Include affected files or routes, reproduction steps, and potential impact. Do not open
-a public issue for an unpatched credential exposure or exploitable vulnerability.
+Report security issues through the repository's private GitHub Security Advisory
+workflow or to `prannay@warping.co`. Include affected files or routes, reproduction
+steps, and potential impact. Do not open a public issue for an unpatched credential
+exposure or exploitable vulnerability.
 
 The maintainers will acknowledge a report when practical, validate the issue, and coordinate disclosure after a fix is available.
 

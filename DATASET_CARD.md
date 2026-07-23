@@ -48,6 +48,6 @@ This limitation materially prevents representing the complete corpus as cleanly 
 
 ## Authors
 
-Yug Gupta and Prannay Hebbar contributed equally. The paper and accompanying material are shared work.
+Yug Gupta and Prannay Hebbar created the benchmark. The paper and accompanying material are shared work.
 
-Questions and result submissions: `yug@thetalab.tech` or `prannay@warping.co`.
+Questions and result submissions: open a GitHub issue or contact `prannay@warping.co`.

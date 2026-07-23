@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky17" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a0a18" />
+      <stop offset="0.45" stop-color="#4a1426" />
+      <stop offset="0.75" stop-color="#a83a2a" />
+      <stop offset="1" stop-color="#e0702a" />
+    </linearGradient>
+    <radialGradient id="erupt17" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff0a0" /><stop offset="0.4" stop-color="#ff8a2a" stop-opacity="0.8" /><stop offset="1" stop-color="#ff8a2a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="lava17" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0a0" /><stop offset="0.4" stop-color="#ff8a1a" /><stop offset="1" stop-color="#d4301a" />
+    </linearGradient>
+    <linearGradient id="mtn17" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1418" /><stop offset="1" stop-color="#140a0e" />
+    </linearGradient>
+    <linearGradient id="lake17" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a1a1a" /><stop offset="1" stop-color="#1a0a12" />
+    </linearGradient>
+    <filter id="ash17" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24" /></filter>
+    <filter id="glow17" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="10" /></filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#sky17)" id="download-sv_037-rect-001" />
+
+
+  <g fill="#ffe0c0" opacity="0.6">
+    <circle cx="187" cy="60" r="1.4" id="download-sv_037-circle-001" /><circle cx="320" cy="100" r="1" id="download-sv_037-circle-002" /><circle cx="200" cy="160" r="1.2" id="download-sv_037-circle-003" /><circle cx="520" cy="70" r="1.3" id="download-sv_037-circle-004" />
+  </g>
+
+
+  <g filter="url(#ash17)">
+    <ellipse cx="820" cy="200" rx="280" ry="160" fill="#3a2424" opacity="0.38" id="download-sv_037-ellipse-001" />
+    <ellipse cx="700" cy="120" rx="200" ry="120" fill="#4a2a28" opacity="0.7" id="download-sv_037-ellipse-002" />
+    <ellipse cx="940" cy="100" rx="220" ry="120" fill="#2e1c1c" opacity="0.7" id="download-sv_037-ellipse-003" />
+    <ellipse cx="820" cy="320" rx="200" ry="120" fill="#5a3028" opacity="0.6" id="download-sv_037-ellipse-004" />
+  </g>
+
+  <ellipse cx="820" cy="430" rx="320" ry="260" fill="url(#erupt17)" id="download-sv_037-ellipse-005" />
+
+
+  <path d="M0 1000 L0 760 L420 760 L700 440 L760 440 Q820 400 880 440 L940 440 L1220 760 L1600 760 L1600 1000 Z" fill="url(#mtn17)" id="download-sv_037-path-001" />
+
+  <path d="M0 800 L260 620 L520 800 Z" fill="#ef4444" opacity="0.8" id="download-sv_037-path-002" />
+  <path d="M1100 800 L1340 640 L1600 800 Z" fill="#1a0e10" opacity="0.8" id="download-sv_037-path-003" />
+
+
+  <g fill="url(#lava17)">
+    <path d="M770 450 Q760 360 780 300 Q794 360 786 450 Z" id="download-sv_037-path-004" />
+    <path d="M810 450 Q800 330 824 250 Q842 340 830 450 Z" id="download-sv_037-path-005" />
+    <path d="M850 450 Q842 360 862 300 Q876 360 868 450 Z" id="download-sv_037-path-006" />
+  </g>
+  <ellipse cx="820" cy="448" rx="70" ry="18" fill="#fff0a0" id="download-sv_037-ellipse-006" />
+
+
+  <g>
+    <path d="M820 450 Q800 560 760 640 Q720 730 700 820 Q690 900 700 1000 L760 1000 Q740 900 760 820 Q800 720 830 640 Q860 560 860 460 Z" fill="url(#lava17)" id="download-sv_037-path-007" />
+    <path d="M820 460 Q860 560 920 640 Q980 720 1020 820 Q1050 900 1040 1000 L990 1000 Q1000 900 970 820 Q930 720 880 640 Q840 560 840 470 Z" fill="url(#lava17)" opacity="0.95" id="download-sv_037-path-008" />
+
+    <path d="M790 520 Q760 660 730 800 Q716 900 724 990" stroke="#fff0a0" stroke-width="11" fill="none" opacity="0.8" id="download-sv_037-path-009" />
+    <path d="M860 520 Q920 660 970 800 Q1000 900 992 990" stroke="#fff0a0" stroke-width="6" fill="none" opacity="0.8" id="download-sv_037-path-010" />
+  </g>
+
+  <g stroke="#ff7a2a" stroke-width="3" fill="none" opacity="0.7" filter="url(#glow17)">
+    <path d="M520 800 Q560 860 540 920" id="download-sv_037-path-011" /><path d="M1080 800 Q1120 860 1100 920" id="download-sv_037-path-012" />
+    <path d="M620 860 L660 940" id="download-sv_037-path-013" /><path d="M980 860 L940 940" id="download-sv_037-path-014" />
+  </g>
+
+
+  <rect x="0" y="900" width="1600" height="100" fill="url(#lake17)" id="download-sv_037-rect-002" />
+  <g opacity="0.5" filter="url(#glow17)">
+    <ellipse cx="730" cy="940" rx="120" ry="24" fill="#ff8a2a" id="download-sv_037-ellipse-007" />
+    <ellipse cx="990" cy="950" rx="140" ry="24" fill="#ff7a2a" id="download-sv_037-ellipse-008" />
+    <ellipse cx="820" cy="930" rx="80" ry="16" fill="#fff0a0" id="download-sv_037-ellipse-009" />
+  </g>
+  <g stroke="#ffb060" stroke-width="1.5" opacity="0.4">
+    <line x1="600" y1="930" x2="1040" y2="930" id="download-sv_037-line-001" /><line x1="560" y1="960" x2="1080" y2="960" id="download-sv_037-line-002" />
+  </g>
+
+
+  <g fill="#ffb84a">
+    <circle cx="700" cy="380" r="3" id="download-sv_037-circle-005" /><circle cx="900" cy="340" r="2.4" id="download-sv_037-circle-006" /><circle cx="820" cy="280" r="3" id="download-sv_037-circle-007" /><circle cx="760" cy="220" r="2" id="download-sv_037-circle-008" />
+    <circle cx="940" cy="420" r="2.6" id="download-sv_037-circle-009" /><circle cx="660" cy="300" r="2.2" id="download-sv_037-circle-010" /><circle cx="1000" cy="300" r="2.6" id="download-sv_037-circle-011" /><circle cx="880" cy="200" r="2" id="download-sv_037-circle-012" />
+    <circle cx="600" cy="420" r="2.2" id="download-sv_037-circle-013" /><circle cx="1060" cy="380" r="2.4" id="download-sv_037-circle-014" /><circle cx="780" cy="160" r="1.8" id="download-sv_037-circle-015" /><circle cx="860" cy="120" r="1.8" id="download-sv_037-circle-016" />
+  </g>
+  <g fill="#ff6a2a" opacity="0.8">
+    <circle cx="720" cy="340" r="1.6" id="download-sv_037-circle-017" /><circle cx="940" cy="280" r="1.6" id="download-sv_037-circle-018" /><circle cx="820" cy="240" r="1.6" id="download-sv_037-circle-019" />
+  </g>
+
+
+  <g stroke="#0e0608" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M180 1000 L180 820 M180 880 L140 840 M180 860 L220 820 M180 900 L150 880" id="download-sv_037-path-015" />
+    <path d="M1440 1000 L1440 840 M1440 900 L1410 860 M1440 880 L1474 850" id="download-sv_037-path-016" />
+  </g>
+<circle id="sv_037-extra-survey-marker" cx="1120" cy="172" r="32" fill="#8b5cf6" opacity="0.82" stroke="#111827" stroke-width="5" /></svg>

@@ -28,7 +28,7 @@ path data, or evaluator metadata. Published results use evaluator
 > [licensing notice](NOTICE.md) and [dataset card](DATASET_CARD.md) before redistributing
 > the complete corpus.
 
-**Authors:** Yug Gupta and Prannay Hebbar, equal contribution. The paper and accompanying material are shared work. Contact: `yug@thetalab.tech`, `prannay@warping.co`.
+**Authors:** Yug Gupta and Prannay Hebbar. The paper and accompanying material are shared work. Contact through GitHub or `prannay@warping.co`.
 
 ## What Is Included
 
@@ -213,6 +213,22 @@ Production deployment uses the Vercel project `yug-guptas-projects/svg-rl-env`:
 vercel deploy --prod
 ```
 
+## Launch Film
+
+The reproducible Remotion project in `launch-video/` turns real task SVGs, solver
+outputs, verifier gates, and leaderboard values into a 36-second 1080p launch film.
+
+```sh
+npm --prefix launch-video install
+npm run video:lint
+npm run video:dev
+npm run video:render
+```
+
+The final command writes `launch-video/out/vector-bench-launch.mp4`. Generated
+renders are ignored; the composition, local fonts, synthesized audio, and source
+assets are tracked.
+
 ## Harbor
 
 Generate standalone Harbor tasks:
@@ -234,6 +250,7 @@ data/model-results/         task-sharded outputs and sanitized traces
 data/model-results-summary.json  compact task catalog diagnostics
 data/scenic_svgs/           scenic source assets
 harbor/vector-edit-gym/     generated Harbor dataset
+launch-video/               Remotion launch film and source assets
 paper/                      ACL-style arXiv paper and generated figures
 scripts/                    runner, analysis, publishing, and build tooling
 sdk/python/                 evaluator package and CLI
@@ -252,4 +269,4 @@ Citation metadata is provided in [CITATION.cff](CITATION.cff). Contributions fol
 
 ## Submission
 
-Send the run directory metadata, commit hash, model endpoint, and reproduction command to `yug@thetalab.tech`. Submitted rows are verified against the frozen corpus hash and evaluator before publication.
+Open a GitHub issue with the run directory metadata, commit hash, model endpoint, and reproduction command. Submitted rows are verified against the frozen corpus hash and evaluator before publication.

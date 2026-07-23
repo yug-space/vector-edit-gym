@@ -32,6 +32,9 @@
     "viewer:dev": "npm run viewer:prepare && npm --prefix viewer run dev",
     "viewer:build": "npm run viewer:prepare && npm --prefix viewer run build",
     "viewer:start": "npm --prefix viewer start",
+    "video:dev": "npm --prefix launch-video run dev",
+    "video:lint": "npm --prefix launch-video run lint",
+    "video:render": "npm --prefix launch-video run render",
     "generate:harbor": "node scripts/generate-harbor.mjs"
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FileText, Mail } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -14,33 +14,21 @@ import { getLeaderboard } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-const SUBMIT_MAILTO =
-  "mailto:yug@thetalab.tech?subject=Vector-Bench%20leaderboard%20submission&body=" +
-  encodeURIComponent(
-    [
-      "Model:",
-      "Requested endpoint:",
-      "Run name:",
-      "Corpus hash:",
-      "Tasks run:",
-      "Specification pass rate:",
-      "Near-complete rate:",
-      "Repair progress:",
-      "Semantic-preservation pass rate:",
-      "Source-preservation pass rate:",
-      "Unintended change rate:",
-      "Preservation:",
-      "Truncation rate:",
-      "Error rate:",
-      "Recorded cost:",
-      "",
-      "Reproduction (CLI + commit hash):",
-    ].join("\n"),
-  );
+const SUBMIT_URL = "https://github.com/yug-space/vector-edit-gym/issues/new";
 
 const AUTHORS = [
-  { name: "Yug Gupta", email: "yug@thetalab.tech", affiliation: "Theta Labs" },
-  { name: "Prannay Hebbar", email: "prannay@warping.co", affiliation: "Warping" },
+  {
+    name: "Yug Gupta",
+    contact: "github.com/yug-space",
+    href: "https://github.com/yug-space",
+    affiliation: "Independent",
+  },
+  {
+    name: "Prannay Hebbar",
+    contact: "prannay@warping.co",
+    href: "mailto:prannay@warping.co",
+    affiliation: "Warping",
+  },
 ];
 
 export default async function HomePage() {
@@ -62,13 +50,13 @@ export default async function HomePage() {
             <span>Evaluator <span className="text-[hsl(var(--foreground))]">{board.evaluator ?? "-"}</span></span>
             <span>Corpus <span className="text-[hsl(var(--foreground))]">{board.corpus_hash?.slice(0, 12) ?? "-"}</span></span>
           </div>
-          <a href={SUBMIT_MAILTO} className="theta-button theta-button-brand">
-            <Mail className="h-4 w-4" />
+          <a href={SUBMIT_URL} target="_blank" rel="noreferrer" className="bench-button bench-button-brand">
+            <GithubMark className="h-4 w-4" />
             Submit your run
           </a>
         </div>
 
-        <div className="theta-frame overflow-hidden">
+        <div className="bench-frame overflow-hidden">
           <div className="frame-header">
             <span>top ten / specification gates</span>
             <span className="text-[var(--brand-strong)]">higher is better</span>
@@ -78,7 +66,7 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <div className="theta-frame mt-6 overflow-hidden">
+        <div className="bench-frame mt-6 overflow-hidden">
           <div className="frame-header">
             <span>full table</span>
             <span className="text-[var(--brand)]">{board.entries.length} entries</span>
@@ -148,7 +136,7 @@ export default async function HomePage() {
               <p className="eyebrow">paper analysis</p>
               <h3 className="mt-3 text-2xl font-semibold">The binary score separates four distinct outcomes.</h3>
             </div>
-            <a href="/vectoreditgym-paper.pdf" className="theta-button">
+            <a href="/vectoreditgym-paper.pdf" className="bench-button">
               <FileText className="h-4 w-4" />
               Full paper
             </a>
@@ -178,13 +166,13 @@ export default async function HomePage() {
             <p className="section-copy mt-5">Vector-Bench and its paper were created by Yug Gupta and Prannay Hebbar.</p>
           </div>
           <div className="team-grid">
-            {AUTHORS.map(({ name, email, affiliation }) => (
-              <article key={email} className="team-member">
+            {AUTHORS.map(({ name, contact, href, affiliation }) => (
+              <article key={contact} className="team-member">
                 <span className="team-initials" aria-hidden="true">{name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
                 <div>
                   <h3>{name}</h3>
                   <p>{affiliation}</p>
-                  <a href={`mailto:${email}`}>{email}</a>
+                  <a href={href}>{contact}</a>
                 </div>
               </article>
             ))}
@@ -200,26 +188,26 @@ function Hero() {
   return (
     <section className="hero-band screen-line-after">
       <div className="page-shell hero-shell">
-        <p className="eyebrow eyebrow-centered">A thetalab benchmark</p>
+        <p className="eyebrow eyebrow-centered">An SVG repair benchmark</p>
         <h1 className="hero-title"><span>Vector-</span><span>Bench</span></h1>
         <p className="hero-question">Can models surgically edit SVG code?</p>
         <p className="hero-copy">Natural-language repairs, hidden structural targets, and a binary specification reward that rejects collateral changes.</p>
         <div className="hero-authors" aria-label="Authors">
-          <a href="mailto:yug@thetalab.tech">Yug Gupta</a>
+          <a href="https://github.com/yug-space">Yug Gupta</a>
           <span aria-hidden="true">and</span>
           <a href="mailto:prannay@warping.co">Prannay Hebbar</a>
         </div>
 
         <div className="hero-actions">
-            <Link href="/tasks" className="theta-button theta-button-brand">
+            <Link href="/tasks" className="bench-button bench-button-brand">
               Browse tasks
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href="/vectoreditgym-paper.pdf" className="theta-button">
+            <a href="/vectoreditgym-paper.pdf" className="bench-button">
               <FileText className="h-4 w-4" />
               Read the paper
             </a>
-            <Link href="/traces" className="theta-button">Browse traces</Link>
+            <Link href="/traces" className="bench-button">Browse traces</Link>
         </div>
 
       </div>

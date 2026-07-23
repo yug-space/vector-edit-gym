@@ -19,7 +19,7 @@ export function IconBrowser({ icons, sources }: { icons: IconEntry[]; sources: s
 
   return (
     <>
-      <div className="theta-frame overflow-hidden">
+      <div className="bench-frame overflow-hidden">
         <div className="frame-header">
           <span>catalog filters</span>
           <span className="text-[var(--brand-strong)]">{filtered.length} shown</span>
@@ -37,7 +37,7 @@ export function IconBrowser({ icons, sources }: { icons: IconEntry[]; sources: s
           </label>
           <div className="flex flex-wrap gap-2" aria-label="Icon source">
           <button
-            className={source === null ? "theta-button theta-button-primary" : "theta-button"}
+            className={source === null ? "bench-button bench-button-primary" : "bench-button"}
             onClick={() => setSource(null)}
             type="button"
           >
@@ -46,7 +46,7 @@ export function IconBrowser({ icons, sources }: { icons: IconEntry[]; sources: s
           {sources.map((item) => (
             <button
               key={item}
-              className={source === item ? "theta-button theta-button-primary" : "theta-button"}
+              className={source === item ? "bench-button bench-button-primary" : "bench-button"}
               onClick={() => setSource(item)}
               type="button"
             >

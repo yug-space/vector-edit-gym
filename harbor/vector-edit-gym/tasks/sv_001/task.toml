@@ -1,9 +1,9 @@
 schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-sv-001"
+name = "vector-bench/vector-edit-gym-sv-001"
 description = "The amber signal has gone dark, the train door is sitting too far to the right, and the overhead cable has an awkward sag. Put those three details back in place and leave the rest of the station alone."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

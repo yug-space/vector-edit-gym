@@ -29,7 +29,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
         <span className="mono-label text-[var(--brand)]">{results.length} endpoints</span>
       </div>
 
-      <div className="theta-frame overflow-hidden">
+      <div className="bench-frame overflow-hidden">
         <div className="frame-header">
           <span>model result explorer</span>
           <span className="text-[var(--brand)]">{selected.name}</span>
@@ -71,7 +71,7 @@ export function ModelOutputExplorer({ results }: { results: TaskModelResult[] })
               <div className="flex items-center gap-2">
                 <Link
                   href={`/traces/run?task=${encodeURIComponent(selected.task_id)}&model=${encodeURIComponent(selected.model)}`}
-                  className="theta-button min-h-8 px-2.5 py-1 font-mono text-[10px] uppercase"
+                  className="bench-button min-h-8 px-2.5 py-1 font-mono text-[10px] uppercase"
                 >
                   <ListTree className="h-3.5 w-3.5" />
                   Trace

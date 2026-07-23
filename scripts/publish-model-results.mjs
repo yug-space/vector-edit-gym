@@ -99,7 +99,7 @@ const leaderboardEntries = summaries.map((summary, index) => ({
   mean_elapsed_ms: Number(summary.mean_elapsed_ms ?? summary.mean_latency_ms),
   cost_usd: Number(summary.cost_usd),
   tasks_run: Number(summary.n),
-  submitted_by: "Theta Labs",
+  submitted_by: "Vector-Bench team",
   date,
 }));
 

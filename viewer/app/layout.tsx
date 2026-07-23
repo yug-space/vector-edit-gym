@@ -16,7 +16,7 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vector-Bench · a thetalab benchmark",
+    default: "Vector-Bench · SVG repair benchmark",
     template: "%s · Vector-Bench",
   },
   description:
@@ -94,8 +94,10 @@ function SiteFooter() {
             <Link href="/#leaderboard" className="nav-link">Leaderboard</Link>
             <a href="/vectoreditgym-paper.pdf" className="nav-link">Paper</a>
             <a
-              href="mailto:yug@thetalab.tech?subject=Vector-Bench%20leaderboard%20submission"
-              className="theta-button theta-button-brand"
+              href="https://github.com/yug-space/vector-edit-gym/issues/new"
+              target="_blank"
+              rel="noreferrer"
+              className="bench-button bench-button-brand"
             >
               Submit results
             </a>
@@ -103,7 +105,7 @@ function SiteFooter() {
         </div>
 
         <div className="footer-bottom">
-          <span>Vector-Bench · thetalab.tech</span>
+          <span>Vector-Bench · vecbench.xyz</span>
           <span>Can models surgically edit SVG code?</span>
         </div>
       </div>
@@ -113,13 +115,6 @@ function SiteFooter() {
 
 function BrandMark() {
   return (
-    <>
-      <span className="site-product-name">Vector-<strong>Bench</strong></span>
-      <span className="site-byline">
-        <span>by</span>
-        <img className="theta-logo" src="https://www.thetalab.tech/theta-logo.svg" alt="" />
-        <strong>thetalab</strong>
-      </span>
-    </>
+    <span className="site-product-name">Vector-<strong>Bench</strong></span>
   );
 }

@@ -1,9 +1,9 @@
 schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-sv-004"
+name = "vector-bench/vector-edit-gym-sv-004"
 description = "The tent flap is out of alignment, one star has disappeared, the front of the campfire is the wrong color, and the smoke curls the wrong way. Restore the campsite without touching the trees or other objects."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

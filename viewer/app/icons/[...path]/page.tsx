@@ -32,7 +32,7 @@ export default async function IconDetail({ params }: { params: Promise<Params> }
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div className="theta-frame overflow-hidden">
+          <div className="bench-frame overflow-hidden">
             <div className="frame-header"><span>rendered icon</span><span>{icon.style}</span></div>
             <div className="flex aspect-square items-center justify-center bg-white p-12 text-[#222]" dangerouslySetInnerHTML={{ __html: icon.svg }} />
           </div>

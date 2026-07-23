@@ -1,9 +1,9 @@
 schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-sv-010"
+name = "vector-bench/vector-edit-gym-sv-010"
 description = "Remove the duplicate smoke puff, turn the right-hand treetop back the correct way, make the front flame yellow again, and move the backpack back beside the tent. Preserve the rest of the campsite."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

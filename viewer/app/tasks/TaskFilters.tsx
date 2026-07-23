@@ -28,7 +28,7 @@ export function TaskFilters({ tasks, modelResults }: Props) {
 
   return (
     <>
-      <div className="theta-frame p-5">
+      <div className="bench-frame p-5">
         <div className="frame-header -mx-5 -mt-5 mb-5 px-5">
           <span>task filters</span>
           <span className="text-[var(--brand)]">{filtered.length} tasks</span>

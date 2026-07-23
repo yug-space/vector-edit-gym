@@ -1,9 +1,9 @@
 schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-sv-003"
+name = "vector-bench/vector-edit-gym-sv-003"
 description = "The station clock is missing its hour hand and has an extra minute hand. The blue poster has also shifted sideways, and a crack along the platform has been bent out of shape. Repair only those details."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

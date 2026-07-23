@@ -1,0 +1,37 @@
+{
+  "name": "launch-video",
+  "version": "1.0.0",
+  "description": "Vector-Bench launch film built with Remotion.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yug-space/vector-edit-gym.git"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.496",
+    "@remotion/media": "4.0.496",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.496"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.496",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.19.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "render": "remotion render VectorBenchLaunch out/vector-bench-launch.mp4 --codec=h264 --crf=16",
+    "still": "remotion still VectorBenchLaunch",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  },
+  "sideEffects": [
+    "*.css"
+  ]
+}

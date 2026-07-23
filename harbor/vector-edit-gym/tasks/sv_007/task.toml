@@ -1,9 +1,9 @@
 schema_version = "1.1"
 
 [task]
-name = "thetalab/vector-edit-gym-sv-007"
+name = "vector-bench/vector-edit-gym-sv-007"
 description = "The station clock needs its missing hour hand back and its duplicate minute hand removed. The bright platform edge is too thick, and the overhead wire should follow a smoother, shallower curve. Change nothing else."
-authors = [{ name = "Yug Gupta", email = "yug@thetalab.tech" }, { name = "Prannay Hebbar" }]
+authors = [{ name = "Yug Gupta" }, { name = "Prannay Hebbar" }]
 keywords = ["svg", "visual-editing", "preservation", "hard", "scenic_multi"]
 
 [metadata]

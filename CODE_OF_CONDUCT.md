@@ -8,7 +8,8 @@ Unacceptable conduct includes intimidation, sustained disruption, sexualized lan
 
 ## Enforcement
 
-Report conduct concerns privately to `yug@thetalab.tech` or `prannay@warping.co`.
+Report conduct concerns privately to the repository maintainers through GitHub or to
+`prannay@warping.co`.
 Maintainers may edit or remove contributions, restrict participation, or ban contributors
 when needed to protect the project community. Reports will be handled as confidentially
 as practical.
