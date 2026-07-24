@@ -136,7 +136,7 @@ export default async function HomePage() {
               <p className="eyebrow">paper analysis</p>
               <h3 className="mt-3 text-2xl font-semibold">The binary score separates four distinct outcomes.</h3>
             </div>
-            <a href="/vectoreditgym-paper.pdf" className="bench-button">
+            <a href="https://arxiv.org/abs/2607.19056" target="_blank" rel="noreferrer" className="bench-button">
               <FileText className="h-4 w-4" />
               Full paper
             </a>
@@ -203,7 +203,7 @@ function Hero() {
               Browse tasks
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href="/vectoreditgym-paper.pdf" className="bench-button">
+            <a href="https://arxiv.org/abs/2607.19056" target="_blank" rel="noreferrer" className="bench-button">
               <FileText className="h-4 w-4" />
               Read the paper
             </a>

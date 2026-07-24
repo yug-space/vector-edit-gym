@@ -12,7 +12,7 @@ rest of the vector program intact, then assigns a deterministic binary reward.
 [Results](https://www.vecbench.xyz) ·
 [Tasks](https://www.vecbench.xyz/tasks) ·
 [Traces](https://www.vecbench.xyz/traces) ·
-[Paper](https://www.vecbench.xyz/vectoreditgym-paper.pdf) ·
+[Paper](https://arxiv.org/abs/2607.19056) ·
 [Dataset card](DATASET_CARD.md) ·
 [Changelog](CHANGELOG.md)
 

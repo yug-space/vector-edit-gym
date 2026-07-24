@@ -28,7 +28,7 @@ const NAV_LINKS = [
   { href: "/tasks", label: "Tasks" },
   { href: "/traces", label: "Traces" },
   { href: "/#team", label: "Team" },
-  { href: "/vectoreditgym-paper.pdf", label: "Paper" },
+  { href: "https://arxiv.org/abs/2607.19056", label: "Paper", external: true },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -52,11 +52,17 @@ function SiteHeader() {
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
-          {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="nav-link">
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.external ? (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="nav-link">
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} href={link.href} className="nav-link">
+                {link.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="site-actions">
@@ -66,7 +72,17 @@ function SiteHeader() {
         </div>
       </div>
       <nav className="page-shell mobile-nav" aria-label="Mobile navigation">
-        {NAV_LINKS.map((l) => <Link key={l.href} href={l.href} className="nav-link">{l.label}</Link>)}
+        {NAV_LINKS.map((link) =>
+          link.external ? (
+            <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="nav-link">
+              {link.label}
+            </a>
+          ) : (
+            <Link key={link.href} href={link.href} className="nav-link">
+              {link.label}
+            </Link>
+          ),
+        )}
       </nav>
     </header>
   );
@@ -92,7 +108,7 @@ function SiteFooter() {
             <Link href="/tasks" className="nav-link">Tasks</Link>
             <Link href="/traces" className="nav-link">Traces</Link>
             <Link href="/#leaderboard" className="nav-link">Leaderboard</Link>
-            <a href="/vectoreditgym-paper.pdf" className="nav-link">Paper</a>
+            <a href="https://arxiv.org/abs/2607.19056" target="_blank" rel="noreferrer" className="nav-link">Paper</a>
             <a
               href="https://github.com/yug-space/vector-edit-gym/issues/new"
               target="_blank"

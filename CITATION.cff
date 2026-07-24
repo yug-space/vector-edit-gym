@@ -24,6 +24,7 @@ preferred-citation:
   type: article
   title: "Vector-Bench: Can Models Surgically Edit SVG Code?"
   year: 2026
+  url: "https://arxiv.org/abs/2607.19056"
   authors:
     - family-names: Gupta
       given-names: Yug
